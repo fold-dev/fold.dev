@@ -5,6 +5,7 @@
 - [Installation](#installation)
 - [Contributing](#contributing)
 - [License](#license)
+- [Support](#support)
 
 ## Installation
 
