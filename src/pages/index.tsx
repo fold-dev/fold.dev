@@ -523,7 +523,7 @@ function HomeOld() {
                             width="100%"
                             className="strip">
                             <Text color="inherit">
-                                We've just launched the (Very) Early Access version. Check out the documentation{' '}
+                                We've just launched the official Preview version of Fold. Get started{' '}
                                 <Link
                                     href="/docs"
                                     colorToken="surface"
