@@ -1,0 +1,121 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Avatar, Badge, Button, Heading, Skeleton, SkeletonBlock, SkeletonCircle, Text } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Skeleton',
+    subtitle:
+        'The Skeleton component creates placeholder previews of components, helping create a more responsive user experience.',
+    description:
+        'In addition to basic Skeleton building blocks, the Skeleton component employs a different (CSS driven) approach to most other UI libraries. It overrides the styles of existing building block components, thereby giving developers the ability to create a more seamless user experience.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/skeleton/skeleton.tsx","description":"","displayName":"Skeleton","methods":[],"props":{"on":{"defaultValue":null,"description":"","name":"on","declarations":[{"fileName":"packages/core/src/skeleton/skeleton.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/skeleton/skeleton.tsx","description":"","displayName":"SkeletonBlock","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/skeleton/skeleton.tsx","description":"","displayName":"SkeletonCircle","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/skeleton/skeleton.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}}}}]
+
+export const css = [[["--f-skeleton-color-light","var(--f-color-surface-strong)"],["--f-skeleton-color-dark","var(--f-color-surface-stronger)"],["--f-skeleton-border-radius","var(--f-radius)"]]]
+
+
+
+<CodeComponent filename="skeleton.tsx" code="aW1wb3J0IHsgU2tlbGV0b24sIFNrZWxldG9uQmxvY2ssIFNrZWxldG9uQ2lyY2xlIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Skeleton, SkeletonBlock, SkeletonCircle } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<Skeleton on={true} column gap={10} alignItems="flex-start">
+            <SkeletonBlock width={150} height={50}/>
+            <SkeletonBlock width={100} height={30}/>
+            <SkeletonBlock width={50} height={10}/>
+            <SkeletonCircle size={100}/>
+        </Skeleton>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8U2tlbGV0b24KICAgICAgICAgICAgb249e3RydWV9CiAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgPFNrZWxldG9uQmxvY2sKICAgICAgICAgICAgICAgIHdpZHRoPXsxNTB9CiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8U2tlbGV0b25CbG9jawogICAgICAgICAgICAgICAgd2lkdGg9ezEwMH0KICAgICAgICAgICAgICAgIGhlaWdodD17MzB9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxTa2VsZXRvbkJsb2NrCiAgICAgICAgICAgICAgICB3aWR0aD17NTB9CiAgICAgICAgICAgICAgICBoZWlnaHQ9ezEwfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8U2tlbGV0b25DaXJjbGUgc2l6ZT17MTAwfSAvPgogICAgICAgIDwvU2tlbGV0b24+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <Skeleton
+            on={true}
+            column
+            gap={10}
+            alignItems="flex-start">
+            <SkeletonBlock
+                width={150}
+                height={50}
+            />
+            <SkeletonBlock
+                width={100}
+                height={30}
+            />
+            <SkeletonBlock
+                width={50}
+                height={10}
+            />
+            <SkeletonCircle size={100} />
+        </Skeleton>
+    )
+}
+```
+### Supported Components
+<a name="supportedcomponents"></a>
+
+export const SupportedComponents = () => {
+    return (<Skeleton on={true} column gap={10} alignItems="flex-start">
+            <Avatar size="sm"/>
+            <Heading>This is a heading</Heading>
+            <Text>This is some text</Text>
+            <Text size="sm">This is some text</Text>
+            <Text size="xs" width={50} display="block" height={5}/>
+            <Button subtle size="sm">
+                Email
+            </Button>
+            <Badge>32</Badge>
+        </Skeleton>);
+};
+
+<div className="story-block">
+<SupportedComponents />
+</div>
+
+<CodeComponent filename="SupportedComponents.tsx" code="ZXhwb3J0IGNvbnN0IFN1cHBvcnRlZENvbXBvbmVudHMgPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxTa2VsZXRvbgogICAgICAgICAgICBvbj17dHJ1ZX0KICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiPgogICAgICAgICAgICA8QXZhdGFyIHNpemU9InNtIiAvPgogICAgICAgICAgICA8SGVhZGluZz5UaGlzIGlzIGEgaGVhZGluZzwvSGVhZGluZz4KICAgICAgICAgICAgPFRleHQ+VGhpcyBpcyBzb21lIHRleHQ8L1RleHQ+CiAgICAgICAgICAgIDxUZXh0IHNpemU9InNtIj5UaGlzIGlzIHNvbWUgdGV4dDwvVGV4dD4KICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgIHNpemU9InhzIgogICAgICAgICAgICAgICAgd2lkdGg9ezUwfQogICAgICAgICAgICAgICAgZGlzcGxheT0iYmxvY2siCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezV9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgIHN1YnRsZQogICAgICAgICAgICAgICAgc2l6ZT0ic20iPgogICAgICAgICAgICAgICAgRW1haWwKICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDxCYWRnZT4zMjwvQmFkZ2U+CiAgICAgICAgPC9Ta2VsZXRvbj4KICAgICkKfQ==" />
+
+```tsx
+export const SupportedComponents = () => {
+    return (
+        <Skeleton
+            on={true}
+            column
+            gap={10}
+            alignItems="flex-start">
+            <Avatar size="sm" />
+            <Heading>This is a heading</Heading>
+            <Text>This is some text</Text>
+            <Text size="sm">This is some text</Text>
+            <Text
+                size="xs"
+                width={50}
+                display="block"
+                height={5}
+            />
+            <Button
+                subtle
+                size="sm">
+                Email
+            </Button>
+            <Badge>32</Badge>
+        </Skeleton>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

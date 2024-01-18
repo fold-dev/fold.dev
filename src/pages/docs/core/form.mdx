@@ -1,0 +1,326 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import {
+    Checkbox,
+    Form,
+    FormControl,
+    FormDescription,
+    FormFieldset,
+    FormHelperText,
+    FormLabel,
+    IconLib,
+    Input,
+    InputControl,
+    InputPrefix,
+    Stack,
+    useCheck,
+} from '@fold-dev/core'
+import React, { useState } from 'react'
+
+export const docs = {
+    title: 'Form',
+    subtitle: 'The Form component provides quick access to native (HTML) form elements.',
+    description:
+        'The Form component also includes convenient status wrappers that are useful for making the user aware of input states. These can include incomplete or mandatory fields, but also special input criteria such as email addresses.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/form/form.tsx","description":"","displayName":"FormFieldset","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/form/form.tsx","description":"","displayName":"Form","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"fold-wip/packages/core/src/view/view.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"AllHTMLAttributes"}],"required":false,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/form/form.tsx","description":"","displayName":"FormControl","methods":[],"props":{"row":{"defaultValue":null,"description":"","name":"row","declarations":[{"fileName":"packages/core/src/form/form.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"status":{"defaultValue":null,"description":"","name":"status","declarations":[{"fileName":"packages/core/src/form/form.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"error\" | \"success\" | \"warning\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/form/form.tsx","description":"","displayName":"FormDescription","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"p\" | \"cite\" | \"label\" | \"span\" | \"button\" | \"a\" | \"legend\" | \"code\" | \"strong\" | \"b\" | \"i\" | \"em\" | \"mark\" | \"small\" | \"del\" | \"ins\" | \"sub\" | \"sup\" | \"u\" | \"abbr\" | \"kbd\" | \"s\" | \"samp\" | \"blockquote\""},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"htmlFor":{"defaultValue":null,"description":"","name":"htmlFor","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/form/form.tsx","description":"","displayName":"FormLabel","methods":[],"props":{"required":{"defaultValue":null,"description":"","name":"required","declarations":[{"fileName":"packages/core/src/form/form.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"htmlFor":{"defaultValue":null,"description":"","name":"htmlFor","declarations":[{"fileName":"packages/core/src/form/form.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/form/form.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"p\" | \"cite\" | \"label\" | \"span\" | \"button\" | \"a\" | \"legend\" | \"code\" | \"strong\" | \"b\" | \"i\" | \"em\" | \"mark\" | \"small\" | \"del\" | \"ins\" | \"sub\" | \"sup\" | \"u\" | \"abbr\" | \"kbd\" | \"s\" | \"samp\" | \"blockquote\""},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/form/form.tsx","description":"","displayName":"FormHelperText","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/form/form.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"kind":{"defaultValue":null,"description":"","name":"kind","declarations":[{"fileName":"packages/core/src/form/form.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"error\" | \"success\" | \"warning\" | \"info\""},"tags":{}},"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"packages/core/src/form/form.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"p\" | \"cite\" | \"label\" | \"span\" | \"button\" | \"a\" | \"legend\" | \"code\" | \"strong\" | \"b\" | \"i\" | \"em\" | \"mark\" | \"small\" | \"del\" | \"ins\" | \"sub\" | \"sup\" | \"u\" | \"abbr\" | \"kbd\" | \"s\" | \"samp\" | \"blockquote\""},"tags":{}},"htmlFor":{"defaultValue":null,"description":"","name":"htmlFor","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"fold-wip/packages/core/src/text/text.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}}]
+
+export const css = [[["--f-form-control-color-info","var(--f-color-text-weakest)"],["--f-form-control-color-error","var(--f-color-danger)"],["--f-form-control-color-success","var(--f-color-success)"],["--f-form-control-color-warning","var(--f-color-warning)"],["--f-form-control-spacing","var(--f-space-2)"],["--f-form-fieldset-border-radius","var(--f-radius)"],["--f-form-fieldset-legend-margin","var(--f-space-5)"],["--f-form-fieldset-legend-color","var(--f-color-text-weak)"],["--f-form-label-required-color","var(--f-color-danger)"],["--f-form-description-color","var(--f-color-text-weaker)"]]]
+
+
+
+<CodeComponent filename="form.tsx" code="aW1wb3J0IHsKICBGb3JtRmllbGRzZXQsCiAgRm9ybSwKICBGb3JtQ29udHJvbCwKICBGb3JtRGVzY3JpcHRpb24sCiAgRm9ybUxhYmVsLAogIEZvcm1IZWxwZXJUZXh0LAp9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import {
+  FormFieldset,
+  Form,
+  FormControl,
+  FormDescription,
+  FormLabel,
+  FormHelperText,
+} from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const [name, setName] = useState('');
+    return (<FormControl>
+            <FormLabel htmlFor="input">Full name</FormLabel>
+            <FormDescription>To complete your profile, enter your full name</FormDescription>
+            <InputControl>
+                <InputPrefix>
+                    <IconLib icon="user"/>
+                </InputPrefix>
+                <Input placeholder="Please enter your full name" value={name} id="input" onChange={(e) => setName(e.target.value)}/>
+            </InputControl>
+            <FormHelperText>Please don't leave any fields blank</FormHelperText>
+        </FormControl>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW25hbWUsIHNldE5hbWVdID0gdXNlU3RhdGUoJycpCgogICAgcmV0dXJuICgKICAgICAgICA8Rm9ybUNvbnRyb2w+CiAgICAgICAgICAgIDxGb3JtTGFiZWwgaHRtbEZvcj0iaW5wdXQiPkZ1bGwgbmFtZTwvRm9ybUxhYmVsPgogICAgICAgICAgICA8Rm9ybURlc2NyaXB0aW9uPlRvIGNvbXBsZXRlIHlvdXIgcHJvZmlsZSwgZW50ZXIgeW91ciBmdWxsIG5hbWU8L0Zvcm1EZXNjcmlwdGlvbj4KICAgICAgICAgICAgPElucHV0Q29udHJvbD4KICAgICAgICAgICAgICAgIDxJbnB1dFByZWZpeD4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJ1c2VyIiAvPgogICAgICAgICAgICAgICAgPC9JbnB1dFByZWZpeD4KICAgICAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJQbGVhc2UgZW50ZXIgeW91ciBmdWxsIG5hbWUiCiAgICAgICAgICAgICAgICAgICAgdmFsdWU9e25hbWV9CiAgICAgICAgICAgICAgICAgICAgaWQ9ImlucHV0IgogICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0TmFtZShlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICA8L0lucHV0Q29udHJvbD4KICAgICAgICAgICAgPEZvcm1IZWxwZXJUZXh0PlBsZWFzZSBkb24ndCBsZWF2ZSBhbnkgZmllbGRzIGJsYW5rPC9Gb3JtSGVscGVyVGV4dD4KICAgICAgICA8L0Zvcm1Db250cm9sPgogICAgKQp9" />
+
+```tsx
+export const Usage = () => {
+    const [name, setName] = useState('')
+
+    return (
+        <FormControl>
+            <FormLabel htmlFor="input">Full name</FormLabel>
+            <FormDescription>To complete your profile, enter your full name</FormDescription>
+            <InputControl>
+                <InputPrefix>
+                    <IconLib icon="user" />
+                </InputPrefix>
+                <Input
+                    placeholder="Please enter your full name"
+                    value={name}
+                    id="input"
+                    onChange={(e) => setName(e.target.value)}
+                />
+            </InputControl>
+            <FormHelperText>Please don't leave any fields blank</FormHelperText>
+        </FormControl>
+    )
+}
+```
+### Form And Fieldset
+<a name="formandfieldset"></a>
+
+export const FormAndFieldset = () => {
+    const [name, setName] = useState('');
+    return (<Form action="#" method="POST">
+            <FormFieldset legend="Profile Setup">
+                <FormControl>
+                    <FormLabel htmlFor="input">Full name</FormLabel>
+                    <FormDescription>To complete your profile, enter your full name</FormDescription>
+                    <InputControl>
+                        <InputPrefix>
+                            <IconLib icon="user"/>
+                        </InputPrefix>
+                        <Input placeholder="Please enter your full name" value={name} id="input" onChange={(e) => setName(e.target.value)}/>
+                    </InputControl>
+                    <FormHelperText>Please don't leave any fields blank</FormHelperText>
+                </FormControl>
+            </FormFieldset>
+        </Form>);
+};
+
+<div className="story-block">
+<FormAndFieldset />
+</div>
+
+<CodeComponent filename="FormAndFieldset.tsx" code="ZXhwb3J0IGNvbnN0IEZvcm1BbmRGaWVsZHNldCA9ICgpID0+IHsKICAgIGNvbnN0IFtuYW1lLCBzZXROYW1lXSA9IHVzZVN0YXRlKCcnKQoKICAgIHJldHVybiAoCiAgICAgICAgPEZvcm0KICAgICAgICAgICAgYWN0aW9uPSIjIgogICAgICAgICAgICBtZXRob2Q9IlBPU1QiPgogICAgICAgICAgICA8Rm9ybUZpZWxkc2V0IGxlZ2VuZD0iUHJvZmlsZSBTZXR1cCI+CiAgICAgICAgICAgICAgICA8Rm9ybUNvbnRyb2w+CiAgICAgICAgICAgICAgICAgICAgPEZvcm1MYWJlbCBodG1sRm9yPSJpbnB1dCI+RnVsbCBuYW1lPC9Gb3JtTGFiZWw+CiAgICAgICAgICAgICAgICAgICAgPEZvcm1EZXNjcmlwdGlvbj5UbyBjb21wbGV0ZSB5b3VyIHByb2ZpbGUsIGVudGVyIHlvdXIgZnVsbCBuYW1lPC9Gb3JtRGVzY3JpcHRpb24+CiAgICAgICAgICAgICAgICAgICAgPElucHV0Q29udHJvbD4KICAgICAgICAgICAgICAgICAgICAgICAgPElucHV0UHJlZml4PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0idXNlciIgLz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9JbnB1dFByZWZpeD4KICAgICAgICAgICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIHlvdXIgZnVsbCBuYW1lIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU9e25hbWV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZD0iaW5wdXQiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldE5hbWUoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgIDwvSW5wdXRDb250cm9sPgogICAgICAgICAgICAgICAgICAgIDxGb3JtSGVscGVyVGV4dD5QbGVhc2UgZG9uJ3QgbGVhdmUgYW55IGZpZWxkcyBibGFuazwvRm9ybUhlbHBlclRleHQ+CiAgICAgICAgICAgICAgICA8L0Zvcm1Db250cm9sPgogICAgICAgICAgICA8L0Zvcm1GaWVsZHNldD4KICAgICAgICA8L0Zvcm0+CiAgICApCn0=" />
+
+```tsx
+export const FormAndFieldset = () => {
+    const [name, setName] = useState('')
+
+    return (
+        <Form
+            action="#"
+            method="POST">
+            <FormFieldset legend="Profile Setup">
+                <FormControl>
+                    <FormLabel htmlFor="input">Full name</FormLabel>
+                    <FormDescription>To complete your profile, enter your full name</FormDescription>
+                    <InputControl>
+                        <InputPrefix>
+                            <IconLib icon="user" />
+                        </InputPrefix>
+                        <Input
+                            placeholder="Please enter your full name"
+                            value={name}
+                            id="input"
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                    </InputControl>
+                    <FormHelperText>Please don't leave any fields blank</FormHelperText>
+                </FormControl>
+            </FormFieldset>
+        </Form>
+    )
+}
+```
+### Status
+<a name="status"></a>
+
+export const Status = () => {
+    const [name1, setName1] = useState('');
+    const [name2, setName2] = useState('');
+    const [name3, setName3] = useState('');
+    return (<FormFieldset legend="Profile Setup">
+            <Stack direction="vertical" spacing={20}>
+                <FormControl status="error">
+                    <FormLabel htmlFor="input1">First name</FormLabel>
+                    <FormDescription>Enter your first name</FormDescription>
+                    <InputControl>
+                        <InputPrefix>
+                            <IconLib icon="user"/>
+                        </InputPrefix>
+                        <Input placeholder="Please enter your first name" value={name1} id="input1" onChange={(e) => setName1(e.target.value)}/>
+                    </InputControl>
+                    <FormHelperText kind="error" icon="warning">
+                        Please don't leave any fields blank
+                    </FormHelperText>
+                </FormControl>
+
+                <FormControl status="warning">
+                    <FormLabel htmlFor="input2">Second name</FormLabel>
+                    <FormDescription>Enter your second name</FormDescription>
+                    <InputControl>
+                        <InputPrefix>
+                            <IconLib icon="user"/>
+                        </InputPrefix>
+                        <Input placeholder="Please enter your second name" value={name2} id="input2" onChange={(e) => setName2(e.target.value)}/>
+                    </InputControl>
+                    <FormHelperText kind="warning" icon="warning">
+                        Please don't leave any fields blank
+                    </FormHelperText>
+                </FormControl>
+
+                <FormControl status="success">
+                    <FormLabel htmlFor="input3">Last name</FormLabel>
+                    <FormDescription>To complete your profile, enter your last name</FormDescription>
+                    <InputControl>
+                        <InputPrefix>
+                            <IconLib icon="user"/>
+                        </InputPrefix>
+                        <Input placeholder="Please enter your last name" value={name3} id="input3" onChange={(e) => setName3(e.target.value)}/>
+                    </InputControl>
+                    <FormHelperText kind="success" icon="warning">
+                        Please don't leave any fields blank
+                    </FormHelperText>
+                </FormControl>
+            </Stack>
+        </FormFieldset>);
+};
+
+<div className="story-block">
+<Status />
+</div>
+
+<CodeComponent filename="Status.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXR1cyA9ICgpID0+IHsKICAgIGNvbnN0IFtuYW1lMSwgc2V0TmFtZTFdID0gdXNlU3RhdGUoJycpCiAgICBjb25zdCBbbmFtZTIsIHNldE5hbWUyXSA9IHVzZVN0YXRlKCcnKQogICAgY29uc3QgW25hbWUzLCBzZXROYW1lM10gPSB1c2VTdGF0ZSgnJykKCiAgICByZXR1cm4gKAogICAgICAgIDxGb3JtRmllbGRzZXQgbGVnZW5kPSJQcm9maWxlIFNldHVwIj4KICAgICAgICAgICAgPFN0YWNrCiAgICAgICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICAgICAgc3BhY2luZz17MjB9PgogICAgICAgICAgICAgICAgPEZvcm1Db250cm9sIHN0YXR1cz0iZXJyb3IiPgogICAgICAgICAgICAgICAgICAgIDxGb3JtTGFiZWwgaHRtbEZvcj0iaW5wdXQxIj5GaXJzdCBuYW1lPC9Gb3JtTGFiZWw+CiAgICAgICAgICAgICAgICAgICAgPEZvcm1EZXNjcmlwdGlvbj5FbnRlciB5b3VyIGZpcnN0IG5hbWU8L0Zvcm1EZXNjcmlwdGlvbj4KICAgICAgICAgICAgICAgICAgICA8SW5wdXRDb250cm9sPgogICAgICAgICAgICAgICAgICAgICAgICA8SW5wdXRQcmVmaXg+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJ1c2VyIiAvPgogICAgICAgICAgICAgICAgICAgICAgICA8L0lucHV0UHJlZml4PgogICAgICAgICAgICAgICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJQbGVhc2UgZW50ZXIgeW91ciBmaXJzdCBuYW1lIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU9e25hbWUxfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaWQ9ImlucHV0MSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0TmFtZTEoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgIDwvSW5wdXRDb250cm9sPgogICAgICAgICAgICAgICAgICAgIDxGb3JtSGVscGVyVGV4dAogICAgICAgICAgICAgICAgICAgICAgICBraW5kPSJlcnJvciIKICAgICAgICAgICAgICAgICAgICAgICAgaWNvbj0id2FybmluZyI+CiAgICAgICAgICAgICAgICAgICAgICAgIFBsZWFzZSBkb24ndCBsZWF2ZSBhbnkgZmllbGRzIGJsYW5rCiAgICAgICAgICAgICAgICAgICAgPC9Gb3JtSGVscGVyVGV4dD4KICAgICAgICAgICAgICAgIDwvRm9ybUNvbnRyb2w+CgogICAgICAgICAgICAgICAgPEZvcm1Db250cm9sIHN0YXR1cz0id2FybmluZyI+CiAgICAgICAgICAgICAgICAgICAgPEZvcm1MYWJlbCBodG1sRm9yPSJpbnB1dDIiPlNlY29uZCBuYW1lPC9Gb3JtTGFiZWw+CiAgICAgICAgICAgICAgICAgICAgPEZvcm1EZXNjcmlwdGlvbj5FbnRlciB5b3VyIHNlY29uZCBuYW1lPC9Gb3JtRGVzY3JpcHRpb24+CiAgICAgICAgICAgICAgICAgICAgPElucHV0Q29udHJvbD4KICAgICAgICAgICAgICAgICAgICAgICAgPElucHV0UHJlZml4PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0idXNlciIgLz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9JbnB1dFByZWZpeD4KICAgICAgICAgICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIHlvdXIgc2Vjb25kIG5hbWUiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17bmFtZTJ9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZD0iaW5wdXQyIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROYW1lMihlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgPC9JbnB1dENvbnRyb2w+CiAgICAgICAgICAgICAgICAgICAgPEZvcm1IZWxwZXJUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgIGtpbmQ9Indhcm5pbmciCiAgICAgICAgICAgICAgICAgICAgICAgIGljb249Indhcm5pbmciPgogICAgICAgICAgICAgICAgICAgICAgICBQbGVhc2UgZG9uJ3QgbGVhdmUgYW55IGZpZWxkcyBibGFuawogICAgICAgICAgICAgICAgICAgIDwvRm9ybUhlbHBlclRleHQ+CiAgICAgICAgICAgICAgICA8L0Zvcm1Db250cm9sPgoKICAgICAgICAgICAgICAgIDxGb3JtQ29udHJvbCBzdGF0dXM9InN1Y2Nlc3MiPgogICAgICAgICAgICAgICAgICAgIDxGb3JtTGFiZWwgaHRtbEZvcj0iaW5wdXQzIj5MYXN0IG5hbWU8L0Zvcm1MYWJlbD4KICAgICAgICAgICAgICAgICAgICA8Rm9ybURlc2NyaXB0aW9uPlRvIGNvbXBsZXRlIHlvdXIgcHJvZmlsZSwgZW50ZXIgeW91ciBsYXN0IG5hbWU8L0Zvcm1EZXNjcmlwdGlvbj4KICAgICAgICAgICAgICAgICAgICA8SW5wdXRDb250cm9sPgogICAgICAgICAgICAgICAgICAgICAgICA8SW5wdXRQcmVmaXg+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJ1c2VyIiAvPgogICAgICAgICAgICAgICAgICAgICAgICA8L0lucHV0UHJlZml4PgogICAgICAgICAgICAgICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJQbGVhc2UgZW50ZXIgeW91ciBsYXN0IG5hbWUiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17bmFtZTN9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZD0iaW5wdXQzIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROYW1lMyhlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgPC9JbnB1dENvbnRyb2w+CiAgICAgICAgICAgICAgICAgICAgPEZvcm1IZWxwZXJUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgIGtpbmQ9InN1Y2Nlc3MiCiAgICAgICAgICAgICAgICAgICAgICAgIGljb249Indhcm5pbmciPgogICAgICAgICAgICAgICAgICAgICAgICBQbGVhc2UgZG9uJ3QgbGVhdmUgYW55IGZpZWxkcyBibGFuawogICAgICAgICAgICAgICAgICAgIDwvRm9ybUhlbHBlclRleHQ+CiAgICAgICAgICAgICAgICA8L0Zvcm1Db250cm9sPgogICAgICAgICAgICA8L1N0YWNrPgogICAgICAgIDwvRm9ybUZpZWxkc2V0PgogICAgKQp9" />
+
+```tsx
+export const Status = () => {
+    const [name1, setName1] = useState('')
+    const [name2, setName2] = useState('')
+    const [name3, setName3] = useState('')
+
+    return (
+        <FormFieldset legend="Profile Setup">
+            <Stack
+                direction="vertical"
+                spacing={20}>
+                <FormControl status="error">
+                    <FormLabel htmlFor="input1">First name</FormLabel>
+                    <FormDescription>Enter your first name</FormDescription>
+                    <InputControl>
+                        <InputPrefix>
+                            <IconLib icon="user" />
+                        </InputPrefix>
+                        <Input
+                            placeholder="Please enter your first name"
+                            value={name1}
+                            id="input1"
+                            onChange={(e) => setName1(e.target.value)}
+                        />
+                    </InputControl>
+                    <FormHelperText
+                        kind="error"
+                        icon="warning">
+                        Please don't leave any fields blank
+                    </FormHelperText>
+                </FormControl>
+
+                <FormControl status="warning">
+                    <FormLabel htmlFor="input2">Second name</FormLabel>
+                    <FormDescription>Enter your second name</FormDescription>
+                    <InputControl>
+                        <InputPrefix>
+                            <IconLib icon="user" />
+                        </InputPrefix>
+                        <Input
+                            placeholder="Please enter your second name"
+                            value={name2}
+                            id="input2"
+                            onChange={(e) => setName2(e.target.value)}
+                        />
+                    </InputControl>
+                    <FormHelperText
+                        kind="warning"
+                        icon="warning">
+                        Please don't leave any fields blank
+                    </FormHelperText>
+                </FormControl>
+
+                <FormControl status="success">
+                    <FormLabel htmlFor="input3">Last name</FormLabel>
+                    <FormDescription>To complete your profile, enter your last name</FormDescription>
+                    <InputControl>
+                        <InputPrefix>
+                            <IconLib icon="user" />
+                        </InputPrefix>
+                        <Input
+                            placeholder="Please enter your last name"
+                            value={name3}
+                            id="input3"
+                            onChange={(e) => setName3(e.target.value)}
+                        />
+                    </InputControl>
+                    <FormHelperText
+                        kind="success"
+                        icon="warning">
+                        Please don't leave any fields blank
+                    </FormHelperText>
+                </FormControl>
+            </Stack>
+        </FormFieldset>
+    )
+}
+```
+### Row Layout
+<a name="rowlayout"></a>
+
+> Fields can also be arranged in horizontal layouts
+
+export const RowLayout = () => {
+    const { checked, check } = useCheck(false);
+    return (<FormControl row>
+            <Checkbox checked={checked} onChange={check} id="check"/>
+            <FormLabel htmlFor="check">Send me marketing updates</FormLabel>
+        </FormControl>);
+};
+
+<div className="story-block">
+<RowLayout />
+</div>
+
+<CodeComponent filename="RowLayout.tsx" code="ZXhwb3J0IGNvbnN0IFJvd0xheW91dCA9ICgpID0+IHsKICAgIGNvbnN0IHsgY2hlY2tlZCwgY2hlY2sgfSA9IHVzZUNoZWNrKGZhbHNlKQoKICAgIHJldHVybiAoCiAgICAgICAgPEZvcm1Db250cm9sIHJvdz4KICAgICAgICAgICAgPENoZWNrYm94CiAgICAgICAgICAgICAgICBjaGVja2VkPXtjaGVja2VkfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9e2NoZWNrfQogICAgICAgICAgICAgICAgaWQ9ImNoZWNrIgogICAgICAgICAgICAvPgogICAgICAgICAgICA8Rm9ybUxhYmVsIGh0bWxGb3I9ImNoZWNrIj5TZW5kIG1lIG1hcmtldGluZyB1cGRhdGVzPC9Gb3JtTGFiZWw+CiAgICAgICAgPC9Gb3JtQ29udHJvbD4KICAgICkKfQ==" />
+
+```tsx
+export const RowLayout = () => {
+    const { checked, check } = useCheck(false)
+
+    return (
+        <FormControl row>
+            <Checkbox
+                checked={checked}
+                onChange={check}
+                id="check"
+            />
+            <FormLabel htmlFor="check">Send me marketing updates</FormLabel>
+        </FormControl>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

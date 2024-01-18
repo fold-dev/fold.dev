@@ -1,0 +1,137 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { IconLib, Li, List } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'List',
+    subtitle: 'The List component is utilized for depicting an HTML list element and its corresponding LI element.',
+    description:
+        'Lists are useful for creating menus and organizing information. Typically, list items are presented with bullet points in unordered lists, while in ordered lists, they are typically depicted with an ascending counter on the left, such as numbers or letters.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/list/list.tsx","description":"","displayName":"Li","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/list/list.tsx","description":"","displayName":"List","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/list/list.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"ul\" | \"ol\""},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/list/list.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ListStyleType"},"tags":{}},"bullet":{"defaultValue":null,"description":"","name":"bullet","declarations":[{"fileName":"packages/core/src/list/list.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}}]
+
+export const css = [[["--f-list-color","var(--f-color-text)"],["--f-list-padding","0 2rem"],["--f-li-spacing","0.3rem"],["--f-li-padding","0.1rem"],["--f-li-icon-margin","0.4rem"],["--f-li-line-height","normal"]]]
+
+
+
+<CodeComponent filename="list.tsx" code="aW1wb3J0IHsgTGksIExpc3QgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { Li, List } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<List as="ul" type="circle">
+        <Li>Milk</Li>
+        <Li>Eggs</Li>
+        <Li>Flour</Li>
+        <Li>Water</Li>
+        <Li>Salt</Li>
+        <Li>Cocoa</Li>
+    </List>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPExpc3QKICAgICAgICBhcz0idWwiCiAgICAgICAgdHlwZT0iY2lyY2xlIj4KICAgICAgICA8TGk+TWlsazwvTGk+CiAgICAgICAgPExpPkVnZ3M8L0xpPgogICAgICAgIDxMaT5GbG91cjwvTGk+CiAgICAgICAgPExpPldhdGVyPC9MaT4KICAgICAgICA8TGk+U2FsdDwvTGk+CiAgICAgICAgPExpPkNvY29hPC9MaT4KICAgIDwvTGlzdD4KKQ==" />
+
+```tsx
+export const Usage = () => (
+    <List
+        as="ul"
+        type="circle">
+        <Li>Milk</Li>
+        <Li>Eggs</Li>
+        <Li>Flour</Li>
+        <Li>Water</Li>
+        <Li>Salt</Li>
+        <Li>Cocoa</Li>
+    </List>
+)
+```
+### Custom Bullet
+<a name="custombullet"></a>
+
+export const CustomBullet = () => (<List type="none">
+        <Li row width="fit-content">
+            <IconLib icon="circle"/>
+            Milk
+        </Li>
+        <Li row width="fit-content">
+            <IconLib icon="circle"/>
+            Eggs
+        </Li>
+        <Li row width="fit-content">
+            <IconLib icon="circle"/>
+            Flour
+        </Li>
+        <Li row width="fit-content" colorToken="danger">
+            <IconLib icon="circle"/>
+            Water
+        </Li>
+        <Li row width="fit-content">
+            <IconLib icon="circle"/>
+            Salt
+        </Li>
+        <Li row width="fit-content">
+            <IconLib icon="circle"/>
+            Cocoa
+        </Li>
+    </List>);
+
+<div className="story-block">
+<CustomBullet />
+</div>
+
+<CodeComponent filename="CustomBullet.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbUJ1bGxldCA9ICgpID0+ICgKICAgIDxMaXN0IHR5cGU9Im5vbmUiPgogICAgICAgIDxMaQogICAgICAgICAgICByb3cKICAgICAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iY2lyY2xlIiAvPgogICAgICAgICAgICBNaWxrCiAgICAgICAgPC9MaT4KICAgICAgICA8TGkKICAgICAgICAgICAgcm93CiAgICAgICAgICAgIHdpZHRoPSJmaXQtY29udGVudCI+CiAgICAgICAgICAgIDxJY29uTGliIGljb249ImNpcmNsZSIgLz4KICAgICAgICAgICAgRWdncwogICAgICAgIDwvTGk+CiAgICAgICAgPExpCiAgICAgICAgICAgIHJvdwogICAgICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiPgogICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJjaXJjbGUiIC8+CiAgICAgICAgICAgIEZsb3VyCiAgICAgICAgPC9MaT4KICAgICAgICA8TGkKICAgICAgICAgICAgcm93CiAgICAgICAgICAgIHdpZHRoPSJmaXQtY29udGVudCIKICAgICAgICAgICAgY29sb3JUb2tlbj0iZGFuZ2VyIj4KICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iY2lyY2xlIiAvPgogICAgICAgICAgICBXYXRlcgogICAgICAgIDwvTGk+CiAgICAgICAgPExpCiAgICAgICAgICAgIHJvdwogICAgICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiPgogICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJjaXJjbGUiIC8+CiAgICAgICAgICAgIFNhbHQKICAgICAgICA8L0xpPgogICAgICAgIDxMaQogICAgICAgICAgICByb3cKICAgICAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iY2lyY2xlIiAvPgogICAgICAgICAgICBDb2NvYQogICAgICAgIDwvTGk+CiAgICA8L0xpc3Q+Cik=" />
+
+```tsx
+export const CustomBullet = () => (
+    <List type="none">
+        <Li
+            row
+            width="fit-content">
+            <IconLib icon="circle" />
+            Milk
+        </Li>
+        <Li
+            row
+            width="fit-content">
+            <IconLib icon="circle" />
+            Eggs
+        </Li>
+        <Li
+            row
+            width="fit-content">
+            <IconLib icon="circle" />
+            Flour
+        </Li>
+        <Li
+            row
+            width="fit-content"
+            colorToken="danger">
+            <IconLib icon="circle" />
+            Water
+        </Li>
+        <Li
+            row
+            width="fit-content">
+            <IconLib icon="circle" />
+            Salt
+        </Li>
+        <Li
+            row
+            width="fit-content">
+            <IconLib icon="circle" />
+            Cocoa
+        </Li>
+    </List>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

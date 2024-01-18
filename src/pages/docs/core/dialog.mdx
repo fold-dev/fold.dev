@@ -1,0 +1,182 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, Dialog, Flexer, Heading, Input, Stack, Text, useVisibility, View } from '@fold-dev/core'
+import React, { useState } from 'react'
+
+export const docs = {
+    title: 'Dialog',
+    subtitle: 'The Dailog component is a modal window that prompts the user for information or some form of action.',
+    description:
+        'Dialog modals are useful for interrupting users and gathering information from them before allowing them to proceed. They are commonly used for logging in, message replies or entering data.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/dialog/dialog.tsx","description":"","displayName":"Dialog","methods":[],"props":{"isVisible":{"defaultValue":null,"description":"","name":"isVisible","declarations":[{"fileName":"packages/core/src/dialog/dialog.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"packages/core/src/dialog/dialog.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"packages/core/src/dialog/dialog.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"packages/core/src/dialog/dialog.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"packages/core/src/dialog/dialog.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"closeButton":{"defaultValue":null,"description":"","name":"closeButton","declarations":[{"fileName":"packages/core/src/dialog/dialog.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"portal":{"defaultValue":null,"description":"","name":"portal","declarations":[{"fileName":"packages/core/src/dialog/dialog.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"packages/core/src/dialog/dialog.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-dialog-padding","var(--f-space-inset-x-5)"],["--f-dialog-spacing","var(--f-space-4)"]]]
+
+
+
+<CodeComponent filename="dialog.tsx" code="aW1wb3J0IHsgRGlhbG9nIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Dialog } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const { visible, show, hide } = useVisibility(false);
+    return (<View>
+            <Button onClick={show}>Show Dialog</Button>
+
+            <Dialog closeButton isVisible={visible} title="Empty Trash?" description="This cannot be undone & you will lose the data forever. Sure you want to continue?" onDismiss={hide} footer={<View row gap={10} width="100%">
+                        <Button onClick={hide}>Cancel</Button>
+                        <Flexer />
+                        <Button onClick={hide} variant="danger" outline>
+                            Empty
+                        </Button>
+                    </View>}/>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXc+CiAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17c2hvd30+U2hvdyBEaWFsb2c8L0J1dHRvbj4KCiAgICAgICAgICAgIDxEaWFsb2cKICAgICAgICAgICAgICAgIGNsb3NlQnV0dG9uCiAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgICAgICB0aXRsZT0iRW1wdHkgVHJhc2g/IgogICAgICAgICAgICAgICAgZGVzY3JpcHRpb249IlRoaXMgY2Fubm90IGJlIHVuZG9uZSAmIHlvdSB3aWxsIGxvc2UgdGhlIGRhdGEgZm9yZXZlci4gU3VyZSB5b3Ugd2FudCB0byBjb250aW51ZT8iCiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9CiAgICAgICAgICAgICAgICBmb290ZXI9ewogICAgICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17aGlkZX0+Q2FuY2VsPC9CdXR0b24+CiAgICAgICAgICAgICAgICAgICAgICAgIDxGbGV4ZXIgLz4KICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17aGlkZX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFbXB0eQogICAgICAgICAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const Usage = () => {
+    const { visible, show, hide } = useVisibility(false)
+
+    return (
+        <View>
+            <Button onClick={show}>Show Dialog</Button>
+
+            <Dialog
+                closeButton
+                isVisible={visible}
+                title="Empty Trash?"
+                description="This cannot be undone & you will lose the data forever. Sure you want to continue?"
+                onDismiss={hide}
+                footer={
+                    <View
+                        row
+                        gap={10}
+                        width="100%">
+                        <Button onClick={hide}>Cancel</Button>
+                        <Flexer />
+                        <Button
+                            onClick={hide}
+                            variant="danger"
+                            outline>
+                            Empty
+                        </Button>
+                    </View>
+                }
+            />
+        </View>
+    )
+}
+```
+### Advanced Layout
+<a name="advancedlayout"></a>
+
+export const AdvancedLayout = () => {
+    const { visible, show, hide } = useVisibility(false);
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
+    return (<View>
+            <Button onClick={show}>Show Dialog</Button>
+
+            <Dialog isVisible={visible} onDismiss={hide} header={<Stack direction="vertical" spacing={5}>
+                        <Heading as="h3">Profile Setup</Heading>
+                        <Text size="sm" colorToken="text-weaker">
+                            Please enter all your details correctly.
+                        </Text>
+                    </Stack>} footer={<View row width="100%">
+                        <Button onClick={hide}>Cancel</Button>
+                        <Flexer />
+                        <Button onClick={hide} variant="accent" outline>
+                            Save
+                        </Button>
+                    </View>}>
+                <Stack spacing={10} direction="vertical" width="100%">
+                    <Input autoFocus size="lg" placeholder="Please enter name" value={name} onChange={(e) => setName(e.target.value)}/>
+                    <Input size="lg" placeholder="Please enter surname" value={surname} onChange={(e) => setSurname(e.target.value)}/>
+                </Stack>
+            </Dialog>
+        </View>);
+};
+
+<div className="story-block">
+<AdvancedLayout />
+</div>
+
+<CodeComponent filename="AdvancedLayout.tsx" code="ZXhwb3J0IGNvbnN0IEFkdmFuY2VkTGF5b3V0ID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQogICAgY29uc3QgW25hbWUsIHNldE5hbWVdID0gdXNlU3RhdGUoJycpCiAgICBjb25zdCBbc3VybmFtZSwgc2V0U3VybmFtZV0gPSB1c2VTdGF0ZSgnJykKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3PgogICAgICAgICAgICA8QnV0dG9uIG9uQ2xpY2s9e3Nob3d9PlNob3cgRGlhbG9nPC9CdXR0b24+CgogICAgICAgICAgICA8RGlhbG9nCiAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9CiAgICAgICAgICAgICAgICBoZWFkZXI9ewogICAgICAgICAgICAgICAgICAgIDxTdGFjawogICAgICAgICAgICAgICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICAgICAgICAgICAgICBzcGFjaW5nPXs1fT4KICAgICAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5Qcm9maWxlIFNldHVwPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LXdlYWtlciI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBQbGVhc2UgZW50ZXIgYWxsIHlvdXIgZGV0YWlscyBjb3JyZWN0bHkuCiAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8L1N0YWNrPgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgZm9vdGVyPXsKICAgICAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICA8QnV0dG9uIG9uQ2xpY2s9e2hpZGV9PkNhbmNlbDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9e2hpZGV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgU2F2ZQogICAgICAgICAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICAgICB9PgogICAgICAgICAgICAgICAgPFN0YWNrCiAgICAgICAgICAgICAgICAgICAgc3BhY2luZz17MTB9CiAgICAgICAgICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgICAgIGF1dG9Gb2N1cwogICAgICAgICAgICAgICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciBuYW1lIgogICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17bmFtZX0KICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROYW1lKGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciBzdXJuYW1lIgogICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17c3VybmFtZX0KICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRTdXJuYW1lKGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9TdGFjaz4KICAgICAgICAgICAgPC9EaWFsb2c+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const AdvancedLayout = () => {
+    const { visible, show, hide } = useVisibility(false)
+    const [name, setName] = useState('')
+    const [surname, setSurname] = useState('')
+
+    return (
+        <View>
+            <Button onClick={show}>Show Dialog</Button>
+
+            <Dialog
+                isVisible={visible}
+                onDismiss={hide}
+                header={
+                    <Stack
+                        direction="vertical"
+                        spacing={5}>
+                        <Heading as="h3">Profile Setup</Heading>
+                        <Text
+                            size="sm"
+                            colorToken="text-weaker">
+                            Please enter all your details correctly.
+                        </Text>
+                    </Stack>
+                }
+                footer={
+                    <View
+                        row
+                        width="100%">
+                        <Button onClick={hide}>Cancel</Button>
+                        <Flexer />
+                        <Button
+                            onClick={hide}
+                            variant="accent"
+                            outline>
+                            Save
+                        </Button>
+                    </View>
+                }>
+                <Stack
+                    spacing={10}
+                    direction="vertical"
+                    width="100%">
+                    <Input
+                        autoFocus
+                        size="lg"
+                        placeholder="Please enter name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                    <Input
+                        size="lg"
+                        placeholder="Please enter surname"
+                        value={surname}
+                        onChange={(e) => setSurname(e.target.value)}
+                    />
+                </Stack>
+            </Dialog>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

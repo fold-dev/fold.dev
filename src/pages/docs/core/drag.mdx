@@ -1,0 +1,1537 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import {
+    DragArea,
+    DragElement,
+    DragElementArea,
+    Heading,
+    Stack,
+    Text,
+    View,
+    moveElementInArray,
+    useDragEvent,
+} from '@fold-dev/core'
+import React, { useState } from 'react'
+
+export const docs = {
+    title: 'Drag',
+    subtitle: 'The Drag component is a flexible drag-and-drop element that supports a wide range of applications.',
+    description:
+        'Drag and drop components have a wide range of applications, including moving tasks in a todo list application or dropping an element onto a sidebar. The Fold Drag component has been designed with maximum flexibility to support almost any type of application.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/drag/drag.tsx","description":"","displayName":"setDragState","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/drag/drag.tsx","description":"","displayName":"setTarget","methods":[],"props":{"focus":{"defaultValue":null,"description":"","name":"focus","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"moveDirection":{"defaultValue":null,"description":"","name":"moveDirection","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"MoveDirection"},"tags":{}},"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"indent":{"defaultValue":null,"description":"","name":"indent","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"left":{"defaultValue":null,"description":"","name":"left","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"top":{"defaultValue":null,"description":"","name":"top","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"height":{"defaultValue":null,"description":"","name":"height","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"width":{"defaultValue":null,"description":"","name":"width","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"areaId":{"defaultValue":null,"description":"","name":"areaId","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"elementId":{"defaultValue":null,"description":"","name":"elementId","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"group":{"defaultValue":null,"description":"","name":"group","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/drag/drag.tsx","description":"","displayName":"setOrigin","methods":[],"props":{"elementId":{"defaultValue":null,"description":"","name":"elementId","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"targetVariant":{"defaultValue":null,"description":"","name":"targetVariant","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"height":{"defaultValue":null,"description":"","name":"height","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"width":{"defaultValue":null,"description":"","name":"width","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"areaId":{"defaultValue":null,"description":"","name":"areaId","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"group":{"defaultValue":null,"description":"","name":"group","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/drag/drag.tsx","description":"","displayName":"getDragState","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/drag/drag.tsx","description":"","displayName":"useDrag","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/drag/drag.tsx","description":"","displayName":"DragManager","methods":[],"props":{"rotation":{"defaultValue":null,"description":"","name":"rotation","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"animation":{"defaultValue":null,"description":"","name":"animation","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"moveThreshold":{"defaultValue":null,"description":"","name":"moveThreshold","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"indentThreshold":{"defaultValue":null,"description":"","name":"indentThreshold","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"linedRegionThreshold":{"defaultValue":null,"description":"","name":"linedRegionThreshold","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"indentDelay":{"defaultValue":null,"description":"","name":"indentDelay","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/drag/drag.tsx","description":"","displayName":"DragArea","methods":[],"props":{"indent":{"defaultValue":null,"description":"","name":"indent","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"areaId":{"defaultValue":null,"description":"","name":"areaId","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"group":{"defaultValue":null,"description":"","name":"group","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"DragVariant"},"tags":{}},"targetVariant":{"defaultValue":null,"description":"","name":"targetVariant","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"direction":{"defaultValue":null,"description":"","name":"direction","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"vertical\" | \"horizontal\""},"tags":{}},"startDelay":{"defaultValue":null,"description":"","name":"startDelay","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/drag/drag.tsx","description":"","displayName":"DragElementArea","methods":[],"props":{"indent":{"defaultValue":null,"description":"","name":"indent","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"areaId":{"defaultValue":null,"description":"","name":"areaId","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"group":{"defaultValue":null,"description":"","name":"group","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Omit<DragVariant, \"lined-focus\">"},"tags":{}},"targetVariant":{"defaultValue":null,"description":"","name":"targetVariant","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"direction":{"defaultValue":null,"description":"","name":"direction","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"vertical\" | \"horizontal\""},"tags":{}},"startDelay":{"defaultValue":null,"description":"","name":"startDelay","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/drag/drag.tsx","description":"","displayName":"DragElement","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"indent":{"defaultValue":null,"description":"","name":"indent","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"noDrop":{"defaultValue":null,"description":"","name":"noDrop","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"noDrag":{"defaultValue":null,"description":"","name":"noDrag","declarations":[{"fileName":"packages/core/src/drag/drag.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
+
+export const css = [[["--f-drag-speed","0s"],["--f-drag-transition","cubic-bezier(.17,.67,.54,1.06)"],["--f-drag-indent","4rem"]]]
+
+
+
+<CodeComponent filename="drag.tsx" code="aW1wb3J0IHsKICBzZXREcmFnU3RhdGUsCiAgc2V0VGFyZ2V0LAogIHNldE9yaWdpbiwKICBnZXREcmFnU3RhdGUsCiAgdXNlRHJhZywKICBEcmFnTWFuYWdlciwKICBEcmFnQXJlYSwKICBEcmFnRWxlbWVudEFyZWEsCiAgRHJhZ0VsZW1lbnQsCn0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import {
+  setDragState,
+  setTarget,
+  setOrigin,
+  getDragState,
+  useDrag,
+  DragManager,
+  DragArea,
+  DragElementArea,
+  DragElement,
+} from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<DragArea width="100%">
+        <Text p={10} bgToken="surface-strong" width="100%">
+            ✅ Pick up a dozen unicorn feathers from the magic shop.
+        </Text>
+        <Text p={10} bgToken="surface-strong" width="100%">
+            ✅ Visit the invisible ink store and ask for their new collection.
+        </Text>
+        <Text p={10} bgToken="surface-strong" width="100%">
+            ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+        </Text>
+        <Text p={10} bgToken="surface-strong" width="100%">
+            ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+        </Text>
+        <Text p={10} bgToken="surface-strong" width="100%">
+            ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+        </Text>
+        <Text p={10} bgToken="surface-strong" width="100%">
+            ✅ Get a selfie with Bigfoot in the deep woods.
+        </Text>
+    </DragArea>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPERyYWdBcmVhIHdpZHRoPSIxMDAlIj4KICAgICAgICA8VGV4dAogICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAg4pyFIFBpY2sgdXAgYSBkb3plbiB1bmljb3JuIGZlYXRoZXJzIGZyb20gdGhlIG1hZ2ljIHNob3AuCiAgICAgICAgPC9UZXh0PgogICAgICAgIDxUZXh0CiAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICDinIUgVmlzaXQgdGhlIGludmlzaWJsZSBpbmsgc3RvcmUgYW5kIGFzayBmb3IgdGhlaXIgbmV3IGNvbGxlY3Rpb24uCiAgICAgICAgPC9UZXh0PgogICAgICAgIDxUZXh0CiAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICDinIUgUHVyY2hhc2UgYSBsZWZ0LWhhbmRlZCBzY3Jld2RyaXZlciBhbmQgYSBidWNrZXQgb2Ygc3RlYW0gYXQgdGhlIGhhcmR3YXJlIHN0b3JlLgogICAgICAgIDwvVGV4dD4KICAgICAgICA8VGV4dAogICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAg4pyFIFJldHJpZXZlIGEgYm9vayBvbiAiSG93IHRvIFRyYWluIFlvdXIgUGV0IFJvY2siIGZyb20gdGhlIGxpYnJhcnkuCiAgICAgICAgPC9UZXh0PgogICAgICAgIDxUZXh0CiAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICDinIUgQXR0ZW5kIGEgdG9wLXNlY3JldCBtZWV0aW5nIHdpdGggdGhlIFRvb3RoIEZhaXJ5IHRvIGRpc2N1c3MgZGVudGFsIGh5Z2llbmUuCiAgICAgICAgPC9UZXh0PgogICAgICAgIDxUZXh0CiAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICDinIUgR2V0IGEgc2VsZmllIHdpdGggQmlnZm9vdCBpbiB0aGUgZGVlcCB3b29kcy4KICAgICAgICA8L1RleHQ+CiAgICA8L0RyYWdBcmVhPgop" />
+
+```tsx
+export const Usage = () => (
+    <DragArea width="100%">
+        <Text
+            p={10}
+            bgToken="surface-strong"
+            width="100%">
+            ✅ Pick up a dozen unicorn feathers from the magic shop.
+        </Text>
+        <Text
+            p={10}
+            bgToken="surface-strong"
+            width="100%">
+            ✅ Visit the invisible ink store and ask for their new collection.
+        </Text>
+        <Text
+            p={10}
+            bgToken="surface-strong"
+            width="100%">
+            ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+        </Text>
+        <Text
+            p={10}
+            bgToken="surface-strong"
+            width="100%">
+            ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+        </Text>
+        <Text
+            p={10}
+            bgToken="surface-strong"
+            width="100%">
+            ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+        </Text>
+        <Text
+            p={10}
+            bgToken="surface-strong"
+            width="100%">
+            ✅ Get a selfie with Bigfoot in the deep woods.
+        </Text>
+    </DragArea>
+)
+```
+### Groups
+<a name="groups"></a>
+
+export const Groups = () => (<View row alignItems="flex-start" gap={10}>
+        <View flex={1}>
+            <Heading as="h4" p={10}>
+                Group A
+            </Heading>
+            <DragArea group="a">
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Buy a gallon of polka-dotted paint.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Pick up a dozen unicorn feathers from the magic shop.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Visit the invisible ink store and ask for their new collection.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Take a dragon for a walk in the park.
+                </Text>
+            </DragArea>
+        </View>
+        <View flex={1}>
+            <Heading as="h4" p={10}>
+                Group A
+            </Heading>
+            <DragArea group="a">
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Find the end of a rainbow and collect the leprechaun's pot of gold.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Pick up a lifetime supply of laughter at the comedy club.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+                </Text>
+            </DragArea>
+        </View>
+        <View flex={1}>
+            <Heading as="h4" p={10}>
+                Group B
+            </Heading>
+            <DragArea group="b">
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ❌ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ❌ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ❌ Get a selfie with Bigfoot in the deep woods.
+                </Text>
+            </DragArea>
+        </View>
+    </View>);
+
+<div className="story-block">
+<Groups />
+</div>
+
+<CodeComponent filename="Groups.tsx" code="ZXhwb3J0IGNvbnN0IEdyb3VwcyA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgcm93CiAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICBnYXA9ezEwfT4KICAgICAgICA8VmlldyBmbGV4PXsxfT4KICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgIGFzPSJoNCIKICAgICAgICAgICAgICAgIHA9ezEwfT4KICAgICAgICAgICAgICAgIEdyb3VwIEEKICAgICAgICAgICAgPC9IZWFkaW5nPgogICAgICAgICAgICA8RHJhZ0FyZWEgZ3JvdXA9ImEiPgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4pyFIEJ1eSBhIGdhbGxvbiBvZiBwb2xrYS1kb3R0ZWQgcGFpbnQuCiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICDinIUgUGljayB1cCBhIGRvemVuIHVuaWNvcm4gZmVhdGhlcnMgZnJvbSB0aGUgbWFnaWMgc2hvcC4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgIOKchSBWaXNpdCB0aGUgaW52aXNpYmxlIGluayBzdG9yZSBhbmQgYXNrIGZvciB0aGVpciBuZXcgY29sbGVjdGlvbi4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgIOKchSBUYWtlIGEgZHJhZ29uIGZvciBhIHdhbGsgaW4gdGhlIHBhcmsuCiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgIDwvRHJhZ0FyZWE+CiAgICAgICAgPC9WaWV3PgogICAgICAgIDxWaWV3IGZsZXg9ezF9PgogICAgICAgICAgICA8SGVhZGluZwogICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgcD17MTB9PgogICAgICAgICAgICAgICAgR3JvdXAgQQogICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgIDxEcmFnQXJlYSBncm91cD0iYSI+CiAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICDinIUgRmluZCB0aGUgZW5kIG9mIGEgcmFpbmJvdyBhbmQgY29sbGVjdCB0aGUgbGVwcmVjaGF1bidzIHBvdCBvZiBnb2xkLgogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4pyFIFBpY2sgdXAgYSBsaWZldGltZSBzdXBwbHkgb2YgbGF1Z2h0ZXIgYXQgdGhlIGNvbWVkeSBjbHViLgogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4pyFIFB1cmNoYXNlIGEgbGVmdC1oYW5kZWQgc2NyZXdkcml2ZXIgYW5kIGEgYnVja2V0IG9mIHN0ZWFtIGF0IHRoZSBoYXJkd2FyZSBzdG9yZS4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgPC9EcmFnQXJlYT4KICAgICAgICA8L1ZpZXc+CiAgICAgICAgPFZpZXcgZmxleD17MX0+CiAgICAgICAgICAgIDxIZWFkaW5nCiAgICAgICAgICAgICAgICBhcz0iaDQiCiAgICAgICAgICAgICAgICBwPXsxMH0+CiAgICAgICAgICAgICAgICBHcm91cCBCCiAgICAgICAgICAgIDwvSGVhZGluZz4KICAgICAgICAgICAgPERyYWdBcmVhIGdyb3VwPSJiIj4KICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgIOKdjCBSZXRyaWV2ZSBhIGJvb2sgb24gIkhvdyB0byBUcmFpbiBZb3VyIFBldCBSb2NrIiBmcm9tIHRoZSBsaWJyYXJ5LgogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4p2MIEF0dGVuZCBhIHRvcC1zZWNyZXQgbWVldGluZyB3aXRoIHRoZSBUb290aCBGYWlyeSB0byBkaXNjdXNzIGRlbnRhbCBoeWdpZW5lLgogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4p2MIEdldCBhIHNlbGZpZSB3aXRoIEJpZ2Zvb3QgaW4gdGhlIGRlZXAgd29vZHMuCiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgIDwvRHJhZ0FyZWE+CiAgICAgICAgPC9WaWV3PgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const Groups = () => (
+    <View
+        row
+        alignItems="flex-start"
+        gap={10}>
+        <View flex={1}>
+            <Heading
+                as="h4"
+                p={10}>
+                Group A
+            </Heading>
+            <DragArea group="a">
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Buy a gallon of polka-dotted paint.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Pick up a dozen unicorn feathers from the magic shop.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Visit the invisible ink store and ask for their new collection.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Take a dragon for a walk in the park.
+                </Text>
+            </DragArea>
+        </View>
+        <View flex={1}>
+            <Heading
+                as="h4"
+                p={10}>
+                Group A
+            </Heading>
+            <DragArea group="a">
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Find the end of a rainbow and collect the leprechaun's pot of gold.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Pick up a lifetime supply of laughter at the comedy club.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+                </Text>
+            </DragArea>
+        </View>
+        <View flex={1}>
+            <Heading
+                as="h4"
+                p={10}>
+                Group B
+            </Heading>
+            <DragArea group="b">
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ❌ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ❌ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ❌ Get a selfie with Bigfoot in the deep woods.
+                </Text>
+            </DragArea>
+        </View>
+    </View>
+)
+```
+### Variants
+<a name="variants"></a>
+
+export const Variants = () => (<Stack direction="vertical" spacing={20}>
+        <View row alignItems="flex-start" gap={20}>
+            <View flex={1}>
+                <Heading as="h4" p={10}>
+                    Animated
+                </Heading>
+                <DragArea group="a" variant="animated">
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Buy a gallon of polka-dotted paint.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Pick up a dozen unicorn feathers from the magic shop.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Visit the invisible ink store and ask for their new collection.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Take a dragon for a walk in the park.
+                    </Text>
+                </DragArea>
+            </View>
+            <View flex={1}>
+                <Heading as="h4" p={10}>
+                    Focus
+                </Heading>
+                <DragArea group="b" variant="focus">
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Find the end of a rainbow and collect the leprechaun's pot of gold.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Pick up a lifetime supply of laughter at the comedy club.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Head to the time-traveling bookstore to find a rare edition of "Wizards and Wyrms: A
+                        Comprehensive Guide."
+                    </Text>
+                </DragArea>
+            </View>
+        </View>
+        <View row alignItems="flex-start" gap={20}>
+            <View flex={1}>
+                <Heading as="h4" p={10}>
+                    Lined
+                </Heading>
+                <DragArea group="c" variant="lined">
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Get a selfie with Bigfoot in the deep woods.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ GVisit the enchanted forest to exchange potions with the woodland creatures.
+                    </Text>
+                </DragArea>
+            </View>
+            <View flex={1}>
+                <Heading as="h4" p={10}>
+                    Lined Focus
+                </Heading>
+                <DragArea group="d" variant="lined-focus">
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Swing by the intergalactic post office to mail a package to Mars.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Drop off the dragon's dry cleaning at the fireproof laundromat.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Fetch a special blend of star-dust coffee beans from the celestial coffee shop.
+                    </Text>
+                    <Text p={10} bgToken="surface-strong" width="100%">
+                        ✅ Deliver a message to the mermaids in the underwater kingdom.
+                    </Text>
+                </DragArea>
+            </View>
+        </View>
+    </Stack>);
+
+<div className="story-block">
+<Variants />
+</div>
+
+<CodeComponent filename="Variants.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFN0YWNrCiAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICBzcGFjaW5nPXsyMH0+CiAgICAgICAgPFZpZXcKICAgICAgICAgICAgcm93CiAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiCiAgICAgICAgICAgIGdhcD17MjB9PgogICAgICAgICAgICA8VmlldyBmbGV4PXsxfT4KICAgICAgICAgICAgICAgIDxIZWFkaW5nCiAgICAgICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgICAgIHA9ezEwfT4KICAgICAgICAgICAgICAgICAgICBBbmltYXRlZAogICAgICAgICAgICAgICAgPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgPERyYWdBcmVhCiAgICAgICAgICAgICAgICAgICAgZ3JvdXA9ImEiCiAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0iYW5pbWF0ZWQiPgogICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICDinIUgQnV5IGEgZ2FsbG9uIG9mIHBvbGthLWRvdHRlZCBwYWludC4KICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgIOKchSBQaWNrIHVwIGEgZG96ZW4gdW5pY29ybiBmZWF0aGVycyBmcm9tIHRoZSBtYWdpYyBzaG9wLgogICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAg4pyFIFZpc2l0IHRoZSBpbnZpc2libGUgaW5rIHN0b3JlIGFuZCBhc2sgZm9yIHRoZWlyIG5ldyBjb2xsZWN0aW9uLgogICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAg4pyFIFRha2UgYSBkcmFnb24gZm9yIGEgd2FsayBpbiB0aGUgcGFyay4KICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICA8L0RyYWdBcmVhPgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDxWaWV3IGZsZXg9ezF9PgogICAgICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgICAgICBhcz0iaDQiCiAgICAgICAgICAgICAgICAgICAgcD17MTB9PgogICAgICAgICAgICAgICAgICAgIEZvY3VzCiAgICAgICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICA8RHJhZ0FyZWEKICAgICAgICAgICAgICAgICAgICBncm91cD0iYiIKICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJmb2N1cyI+CiAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgIOKchSBGaW5kIHRoZSBlbmQgb2YgYSByYWluYm93IGFuZCBjb2xsZWN0IHRoZSBsZXByZWNoYXVuJ3MgcG90IG9mIGdvbGQuCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICDinIUgUGljayB1cCBhIGxpZmV0aW1lIHN1cHBseSBvZiBsYXVnaHRlciBhdCB0aGUgY29tZWR5IGNsdWIuCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICDinIUgUHVyY2hhc2UgYSBsZWZ0LWhhbmRlZCBzY3Jld2RyaXZlciBhbmQgYSBidWNrZXQgb2Ygc3RlYW0gYXQgdGhlIGhhcmR3YXJlIHN0b3JlLgogICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAg4pyFIEhlYWQgdG8gdGhlIHRpbWUtdHJhdmVsaW5nIGJvb2tzdG9yZSB0byBmaW5kIGEgcmFyZSBlZGl0aW9uIG9mICJXaXphcmRzIGFuZCBXeXJtczogQQogICAgICAgICAgICAgICAgICAgICAgICBDb21wcmVoZW5zaXZlIEd1aWRlLiIKICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICA8L0RyYWdBcmVhPgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9WaWV3PgogICAgICAgIDxWaWV3CiAgICAgICAgICAgIHJvdwogICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0IgogICAgICAgICAgICBnYXA9ezIwfT4KICAgICAgICAgICAgPFZpZXcgZmxleD17MX0+CiAgICAgICAgICAgICAgICA8SGVhZGluZwogICAgICAgICAgICAgICAgICAgIGFzPSJoNCIKICAgICAgICAgICAgICAgICAgICBwPXsxMH0+CiAgICAgICAgICAgICAgICAgICAgTGluZWQKICAgICAgICAgICAgICAgIDwvSGVhZGluZz4KICAgICAgICAgICAgICAgIDxEcmFnQXJlYQogICAgICAgICAgICAgICAgICAgIGdyb3VwPSJjIgogICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9ImxpbmVkIj4KICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAg4pyFIFJldHJpZXZlIGEgYm9vayBvbiAiSG93IHRvIFRyYWluIFlvdXIgUGV0IFJvY2siIGZyb20gdGhlIGxpYnJhcnkuCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICDinIUgQXR0ZW5kIGEgdG9wLXNlY3JldCBtZWV0aW5nIHdpdGggdGhlIFRvb3RoIEZhaXJ5IHRvIGRpc2N1c3MgZGVudGFsIGh5Z2llbmUuCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICDinIUgR2V0IGEgc2VsZmllIHdpdGggQmlnZm9vdCBpbiB0aGUgZGVlcCB3b29kcy4KICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgIOKchSBHVmlzaXQgdGhlIGVuY2hhbnRlZCBmb3Jlc3QgdG8gZXhjaGFuZ2UgcG90aW9ucyB3aXRoIHRoZSB3b29kbGFuZCBjcmVhdHVyZXMuCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPC9EcmFnQXJlYT4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldyBmbGV4PXsxfT4KICAgICAgICAgICAgICAgIDxIZWFkaW5nCiAgICAgICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgICAgIHA9ezEwfT4KICAgICAgICAgICAgICAgICAgICBMaW5lZCBGb2N1cwogICAgICAgICAgICAgICAgPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgPERyYWdBcmVhCiAgICAgICAgICAgICAgICAgICAgZ3JvdXA9ImQiCiAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0ibGluZWQtZm9jdXMiPgogICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICDinIUgU3dpbmcgYnkgdGhlIGludGVyZ2FsYWN0aWMgcG9zdCBvZmZpY2UgdG8gbWFpbCBhIHBhY2thZ2UgdG8gTWFycy4KICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgIOKchSBEcm9wIG9mZiB0aGUgZHJhZ29uJ3MgZHJ5IGNsZWFuaW5nIGF0IHRoZSBmaXJlcHJvb2YgbGF1bmRyb21hdC4KICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgIOKchSBGZXRjaCBhIHNwZWNpYWwgYmxlbmQgb2Ygc3Rhci1kdXN0IGNvZmZlZSBiZWFucyBmcm9tIHRoZSBjZWxlc3RpYWwgY29mZmVlIHNob3AuCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICDinIUgRGVsaXZlciBhIG1lc3NhZ2UgdG8gdGhlIG1lcm1haWRzIGluIHRoZSB1bmRlcndhdGVyIGtpbmdkb20uCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPC9EcmFnQXJlYT4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgIDwvVmlldz4KICAgIDwvU3RhY2s+Cik=" />
+
+```tsx
+export const Variants = () => (
+    <Stack
+        direction="vertical"
+        spacing={20}>
+        <View
+            row
+            alignItems="flex-start"
+            gap={20}>
+            <View flex={1}>
+                <Heading
+                    as="h4"
+                    p={10}>
+                    Animated
+                </Heading>
+                <DragArea
+                    group="a"
+                    variant="animated">
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Buy a gallon of polka-dotted paint.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Pick up a dozen unicorn feathers from the magic shop.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Visit the invisible ink store and ask for their new collection.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Take a dragon for a walk in the park.
+                    </Text>
+                </DragArea>
+            </View>
+            <View flex={1}>
+                <Heading
+                    as="h4"
+                    p={10}>
+                    Focus
+                </Heading>
+                <DragArea
+                    group="b"
+                    variant="focus">
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Find the end of a rainbow and collect the leprechaun's pot of gold.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Pick up a lifetime supply of laughter at the comedy club.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Head to the time-traveling bookstore to find a rare edition of "Wizards and Wyrms: A
+                        Comprehensive Guide."
+                    </Text>
+                </DragArea>
+            </View>
+        </View>
+        <View
+            row
+            alignItems="flex-start"
+            gap={20}>
+            <View flex={1}>
+                <Heading
+                    as="h4"
+                    p={10}>
+                    Lined
+                </Heading>
+                <DragArea
+                    group="c"
+                    variant="lined">
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Get a selfie with Bigfoot in the deep woods.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ GVisit the enchanted forest to exchange potions with the woodland creatures.
+                    </Text>
+                </DragArea>
+            </View>
+            <View flex={1}>
+                <Heading
+                    as="h4"
+                    p={10}>
+                    Lined Focus
+                </Heading>
+                <DragArea
+                    group="d"
+                    variant="lined-focus">
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Swing by the intergalactic post office to mail a package to Mars.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Drop off the dragon's dry cleaning at the fireproof laundromat.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Fetch a special blend of star-dust coffee beans from the celestial coffee shop.
+                    </Text>
+                    <Text
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        ✅ Deliver a message to the mermaids in the underwater kingdom.
+                    </Text>
+                </DragArea>
+            </View>
+        </View>
+    </Stack>
+)
+```
+### Target Variants
+<a name="targetvariants"></a>
+
+export const TargetVariants = () => (<View>
+        <DragArea group="e" m="0 0 20px 0" targetVariant={{
+        a: 'focus',
+        b: 'lined',
+        c: 'lined-focus',
+        d: 'animated',
+    }}>
+            <Text p={10} bgToken="surface-strong" width="100%">
+                ✅ Pick up a gallon of elbow grease from the hardware store.
+            </Text>
+            <Text p={10} bgToken="surface-strong" width="100%">
+                ✅ Buy a lottery ticket with the winning numbers already circled.
+            </Text>
+            <Text p={10} bgToken="surface-strong" width="100%">
+                ✅ Pick up a can of striped paint from the paint store.
+            </Text>
+            <Text p={10} bgToken="surface-strong" width="100%">
+                ✅ Get a ladder for your pet giraffe.
+            </Text>
+        </DragArea>
+
+        <Stack direction="vertical" spacing={20}>
+            <View row alignItems="flex-start" gap={20}>
+                <View flex={1}>
+                    <Heading as="h4" p={10}>
+                        Animated / Focus
+                    </Heading>
+                    <DragArea group="a" variant="animated">
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Buy a gallon of polka-dotted paint.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Pick up a dozen unicorn feathers from the magic shop.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Visit the invisible ink store and ask for their new collection.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Take a dragon for a walk in the park.
+                        </Text>
+                    </DragArea>
+                </View>
+                <View flex={1}>
+                    <Heading as="h4" p={10}>
+                        Focus / Lined
+                    </Heading>
+                    <DragArea group="b" variant="focus">
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Find the end of a rainbow and collect the leprechaun's pot of gold.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Pick up a lifetime supply of laughter at the comedy club.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Head to the time-traveling bookstore to find a rare edition of "Wizards and Wyrms: A
+                            Comprehensive Guide."
+                        </Text>
+                    </DragArea>
+                </View>
+            </View>
+            <View row alignItems="flex-start" gap={20}>
+                <View flex={1}>
+                    <Heading as="h4" p={10}>
+                        Lined / Lined Focus
+                    </Heading>
+                    <DragArea group="c" variant="lined">
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Get a selfie with Bigfoot in the deep woods.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ GVisit the enchanted forest to exchange potions with the woodland creatures.
+                        </Text>
+                    </DragArea>
+                </View>
+                <View flex={1}>
+                    <Heading as="h4" p={10}>
+                        Lined Focus / Animated
+                    </Heading>
+                    <DragArea group="d" variant="lined-focus">
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Swing by the intergalactic post office to mail a package to Mars.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Drop off the dragon's dry cleaning at the fireproof laundromat.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Fetch a special blend of star-dust coffee beans from the celestial coffee shop.
+                        </Text>
+                        <Text p={10} bgToken="surface-strong" width="100%">
+                            ✅ Deliver a message to the mermaids in the underwater kingdom.
+                        </Text>
+                    </DragArea>
+                </View>
+            </View>
+        </Stack>
+    </View>);
+
+<div className="story-block">
+<TargetVariants />
+</div>
+
+<CodeComponent filename="TargetVariants.tsx" code="ZXhwb3J0IGNvbnN0IFRhcmdldFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFZpZXc+CiAgICAgICAgPERyYWdBcmVhCiAgICAgICAgICAgIGdyb3VwPSJlIgogICAgICAgICAgICBtPSIwIDAgMjBweCAwIgogICAgICAgICAgICB0YXJnZXRWYXJpYW50PXt7CiAgICAgICAgICAgICAgICBhOiAnZm9jdXMnLAogICAgICAgICAgICAgICAgYjogJ2xpbmVkJywKICAgICAgICAgICAgICAgIGM6ICdsaW5lZC1mb2N1cycsCiAgICAgICAgICAgICAgICBkOiAnYW5pbWF0ZWQnLAogICAgICAgICAgICB9fT4KICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICDinIUgUGljayB1cCBhIGdhbGxvbiBvZiBlbGJvdyBncmVhc2UgZnJvbSB0aGUgaGFyZHdhcmUgc3RvcmUuCiAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICDinIUgQnV5IGEgbG90dGVyeSB0aWNrZXQgd2l0aCB0aGUgd2lubmluZyBudW1iZXJzIGFscmVhZHkgY2lyY2xlZC4KICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgIOKchSBQaWNrIHVwIGEgY2FuIG9mIHN0cmlwZWQgcGFpbnQgZnJvbSB0aGUgcGFpbnQgc3RvcmUuCiAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICDinIUgR2V0IGEgbGFkZGVyIGZvciB5b3VyIHBldCBnaXJhZmZlLgogICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgPC9EcmFnQXJlYT4KCiAgICAgICAgPFN0YWNrCiAgICAgICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgICAgIHNwYWNpbmc9ezIwfT4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgICAgIGdhcD17MjB9PgogICAgICAgICAgICAgICAgPFZpZXcgZmxleD17MX0+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0+CiAgICAgICAgICAgICAgICAgICAgICAgIEFuaW1hdGVkIC8gRm9jdXMKICAgICAgICAgICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPERyYWdBcmVhCiAgICAgICAgICAgICAgICAgICAgICAgIGdyb3VwPSJhIgogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJhbmltYXRlZCI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAg4pyFIEJ1eSBhIGdhbGxvbiBvZiBwb2xrYS1kb3R0ZWQgcGFpbnQuCiAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgUGljayB1cCBhIGRvemVuIHVuaWNvcm4gZmVhdGhlcnMgZnJvbSB0aGUgbWFnaWMgc2hvcC4KICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKchSBWaXNpdCB0aGUgaW52aXNpYmxlIGluayBzdG9yZSBhbmQgYXNrIGZvciB0aGVpciBuZXcgY29sbGVjdGlvbi4KICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKchSBUYWtlIGEgZHJhZ29uIGZvciBhIHdhbGsgaW4gdGhlIHBhcmsuCiAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8L0RyYWdBcmVhPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgPFZpZXcgZmxleD17MX0+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0+CiAgICAgICAgICAgICAgICAgICAgICAgIEZvY3VzIC8gTGluZWQKICAgICAgICAgICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPERyYWdBcmVhCiAgICAgICAgICAgICAgICAgICAgICAgIGdyb3VwPSJiIgogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJmb2N1cyI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAg4pyFIEZpbmQgdGhlIGVuZCBvZiBhIHJhaW5ib3cgYW5kIGNvbGxlY3QgdGhlIGxlcHJlY2hhdW4ncyBwb3Qgb2YgZ29sZC4KICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKchSBQaWNrIHVwIGEgbGlmZXRpbWUgc3VwcGx5IG9mIGxhdWdodGVyIGF0IHRoZSBjb21lZHkgY2x1Yi4KICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKchSBQdXJjaGFzZSBhIGxlZnQtaGFuZGVkIHNjcmV3ZHJpdmVyIGFuZCBhIGJ1Y2tldCBvZiBzdGVhbSBhdCB0aGUgaGFyZHdhcmUgc3RvcmUuCiAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgSGVhZCB0byB0aGUgdGltZS10cmF2ZWxpbmcgYm9va3N0b3JlIHRvIGZpbmQgYSByYXJlIGVkaXRpb24gb2YgIldpemFyZHMgYW5kIFd5cm1zOiBBCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBDb21wcmVoZW5zaXZlIEd1aWRlLiIKICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDwvRHJhZ0FyZWE+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgICAgIGdhcD17MjB9PgogICAgICAgICAgICAgICAgPFZpZXcgZmxleD17MX0+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0+CiAgICAgICAgICAgICAgICAgICAgICAgIExpbmVkIC8gTGluZWQgRm9jdXMKICAgICAgICAgICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPERyYWdBcmVhCiAgICAgICAgICAgICAgICAgICAgICAgIGdyb3VwPSJjIgogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJsaW5lZCI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAg4pyFIFJldHJpZXZlIGEgYm9vayBvbiAiSG93IHRvIFRyYWluIFlvdXIgUGV0IFJvY2siIGZyb20gdGhlIGxpYnJhcnkuCiAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgQXR0ZW5kIGEgdG9wLXNlY3JldCBtZWV0aW5nIHdpdGggdGhlIFRvb3RoIEZhaXJ5IHRvIGRpc2N1c3MgZGVudGFsIGh5Z2llbmUuCiAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgR2V0IGEgc2VsZmllIHdpdGggQmlnZm9vdCBpbiB0aGUgZGVlcCB3b29kcy4KICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKchSBHVmlzaXQgdGhlIGVuY2hhbnRlZCBmb3Jlc3QgdG8gZXhjaGFuZ2UgcG90aW9ucyB3aXRoIHRoZSB3b29kbGFuZCBjcmVhdHVyZXMuCiAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8L0RyYWdBcmVhPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgPFZpZXcgZmxleD17MX0+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0+CiAgICAgICAgICAgICAgICAgICAgICAgIExpbmVkIEZvY3VzIC8gQW5pbWF0ZWQKICAgICAgICAgICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPERyYWdBcmVhCiAgICAgICAgICAgICAgICAgICAgICAgIGdyb3VwPSJkIgogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJsaW5lZC1mb2N1cyI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAg4pyFIFN3aW5nIGJ5IHRoZSBpbnRlcmdhbGFjdGljIHBvc3Qgb2ZmaWNlIHRvIG1haWwgYSBwYWNrYWdlIHRvIE1hcnMuCiAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgRHJvcCBvZmYgdGhlIGRyYWdvbidzIGRyeSBjbGVhbmluZyBhdCB0aGUgZmlyZXByb29mIGxhdW5kcm9tYXQuCiAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgRmV0Y2ggYSBzcGVjaWFsIGJsZW5kIG9mIHN0YXItZHVzdCBjb2ZmZWUgYmVhbnMgZnJvbSB0aGUgY2VsZXN0aWFsIGNvZmZlZSBzaG9wLgogICAgICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAg4pyFIERlbGl2ZXIgYSBtZXNzYWdlIHRvIHRoZSBtZXJtYWlkcyBpbiB0aGUgdW5kZXJ3YXRlciBraW5nZG9tLgogICAgICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPC9EcmFnQXJlYT4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgIDwvU3RhY2s+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+export const TargetVariants = () => (
+    <View>
+        <DragArea
+            group="e"
+            m="0 0 20px 0"
+            targetVariant={{
+                a: 'focus',
+                b: 'lined',
+                c: 'lined-focus',
+                d: 'animated',
+            }}>
+            <Text
+                p={10}
+                bgToken="surface-strong"
+                width="100%">
+                ✅ Pick up a gallon of elbow grease from the hardware store.
+            </Text>
+            <Text
+                p={10}
+                bgToken="surface-strong"
+                width="100%">
+                ✅ Buy a lottery ticket with the winning numbers already circled.
+            </Text>
+            <Text
+                p={10}
+                bgToken="surface-strong"
+                width="100%">
+                ✅ Pick up a can of striped paint from the paint store.
+            </Text>
+            <Text
+                p={10}
+                bgToken="surface-strong"
+                width="100%">
+                ✅ Get a ladder for your pet giraffe.
+            </Text>
+        </DragArea>
+
+        <Stack
+            direction="vertical"
+            spacing={20}>
+            <View
+                row
+                alignItems="flex-start"
+                gap={20}>
+                <View flex={1}>
+                    <Heading
+                        as="h4"
+                        p={10}>
+                        Animated / Focus
+                    </Heading>
+                    <DragArea
+                        group="a"
+                        variant="animated">
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Buy a gallon of polka-dotted paint.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Pick up a dozen unicorn feathers from the magic shop.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Visit the invisible ink store and ask for their new collection.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Take a dragon for a walk in the park.
+                        </Text>
+                    </DragArea>
+                </View>
+                <View flex={1}>
+                    <Heading
+                        as="h4"
+                        p={10}>
+                        Focus / Lined
+                    </Heading>
+                    <DragArea
+                        group="b"
+                        variant="focus">
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Find the end of a rainbow and collect the leprechaun's pot of gold.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Pick up a lifetime supply of laughter at the comedy club.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Head to the time-traveling bookstore to find a rare edition of "Wizards and Wyrms: A
+                            Comprehensive Guide."
+                        </Text>
+                    </DragArea>
+                </View>
+            </View>
+            <View
+                row
+                alignItems="flex-start"
+                gap={20}>
+                <View flex={1}>
+                    <Heading
+                        as="h4"
+                        p={10}>
+                        Lined / Lined Focus
+                    </Heading>
+                    <DragArea
+                        group="c"
+                        variant="lined">
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Get a selfie with Bigfoot in the deep woods.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ GVisit the enchanted forest to exchange potions with the woodland creatures.
+                        </Text>
+                    </DragArea>
+                </View>
+                <View flex={1}>
+                    <Heading
+                        as="h4"
+                        p={10}>
+                        Lined Focus / Animated
+                    </Heading>
+                    <DragArea
+                        group="d"
+                        variant="lined-focus">
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Swing by the intergalactic post office to mail a package to Mars.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Drop off the dragon's dry cleaning at the fireproof laundromat.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Fetch a special blend of star-dust coffee beans from the celestial coffee shop.
+                        </Text>
+                        <Text
+                            p={10}
+                            bgToken="surface-strong"
+                            width="100%">
+                            ✅ Deliver a message to the mermaids in the underwater kingdom.
+                        </Text>
+                    </DragArea>
+                </View>
+            </View>
+        </Stack>
+    </View>
+)
+```
+### Basic Kanban
+<a name="basickanban"></a>
+
+export const BasicKanban = () => (<View row alignItems="flex-start" gap={5}>
+        <View flex={1}>
+            <Heading as="h4" p={10}>
+                To Do
+            </Heading>
+            <DragArea>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Buy a gallon of polka-dotted paint.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Pick up a dozen unicorn feathers from the magic shop.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Visit the invisible ink store and ask for their new collection.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Take a dragon for a walk in the park.
+                </Text>
+            </DragArea>
+        </View>
+        <View flex={1}>
+            <Heading as="h4" p={10}>
+                Doing
+            </Heading>
+            <DragArea>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Find the end of a rainbow and collect the leprechaun's pot of gold.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Pick up a lifetime supply of laughter at the comedy club.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Head to the time-traveling bookstore to find a rare edition of "Wizards and Wyrms: A
+                    Comprehensive Guide."
+                </Text>
+            </DragArea>
+        </View>
+        <View flex={1}>
+            <Heading as="h4" p={10}>
+                Done
+            </Heading>
+            <DragArea>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Get a selfie with Bigfoot in the deep woods.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ GVisit the enchanted forest to exchange potions with the woodland creatures.
+                </Text>
+            </DragArea>
+        </View>
+        <View flex={1}>
+            <Heading as="h4" p={10}>
+                Backlog
+            </Heading>
+            <DragArea>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Swing by the intergalactic post office to mail a package to Mars.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Drop off the dragon's dry cleaning at the fireproof laundromat.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Fetch a special blend of star-dust coffee beans from the celestial coffee shop.
+                </Text>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Deliver a message to the mermaids in the underwater kingdom.
+                </Text>
+            </DragArea>
+        </View>
+    </View>);
+
+<div className="story-block">
+<BasicKanban />
+</div>
+
+<CodeComponent filename="BasicKanban.tsx" code="ZXhwb3J0IGNvbnN0IEJhc2ljS2FuYmFuID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0IgogICAgICAgIGdhcD17NX0+CiAgICAgICAgPFZpZXcgZmxleD17MX0+CiAgICAgICAgICAgIDxIZWFkaW5nCiAgICAgICAgICAgICAgICBhcz0iaDQiCiAgICAgICAgICAgICAgICBwPXsxMH0+CiAgICAgICAgICAgICAgICBUbyBEbwogICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgIDxEcmFnQXJlYT4KICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgIOKchSBCdXkgYSBnYWxsb24gb2YgcG9sa2EtZG90dGVkIHBhaW50LgogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4pyFIFBpY2sgdXAgYSBkb3plbiB1bmljb3JuIGZlYXRoZXJzIGZyb20gdGhlIG1hZ2ljIHNob3AuCiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICDinIUgVmlzaXQgdGhlIGludmlzaWJsZSBpbmsgc3RvcmUgYW5kIGFzayBmb3IgdGhlaXIgbmV3IGNvbGxlY3Rpb24uCiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICDinIUgVGFrZSBhIGRyYWdvbiBmb3IgYSB3YWxrIGluIHRoZSBwYXJrLgogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICA8L0RyYWdBcmVhPgogICAgICAgIDwvVmlldz4KICAgICAgICA8VmlldyBmbGV4PXsxfT4KICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgIGFzPSJoNCIKICAgICAgICAgICAgICAgIHA9ezEwfT4KICAgICAgICAgICAgICAgIERvaW5nCiAgICAgICAgICAgIDwvSGVhZGluZz4KICAgICAgICAgICAgPERyYWdBcmVhPgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4pyFIEZpbmQgdGhlIGVuZCBvZiBhIHJhaW5ib3cgYW5kIGNvbGxlY3QgdGhlIGxlcHJlY2hhdW4ncyBwb3Qgb2YgZ29sZC4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgIOKchSBQaWNrIHVwIGEgbGlmZXRpbWUgc3VwcGx5IG9mIGxhdWdodGVyIGF0IHRoZSBjb21lZHkgY2x1Yi4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgIOKchSBQdXJjaGFzZSBhIGxlZnQtaGFuZGVkIHNjcmV3ZHJpdmVyIGFuZCBhIGJ1Y2tldCBvZiBzdGVhbSBhdCB0aGUgaGFyZHdhcmUgc3RvcmUuCiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICDinIUgSGVhZCB0byB0aGUgdGltZS10cmF2ZWxpbmcgYm9va3N0b3JlIHRvIGZpbmQgYSByYXJlIGVkaXRpb24gb2YgIldpemFyZHMgYW5kIFd5cm1zOiBBCiAgICAgICAgICAgICAgICAgICAgQ29tcHJlaGVuc2l2ZSBHdWlkZS4iCiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgIDwvRHJhZ0FyZWE+CiAgICAgICAgPC9WaWV3PgogICAgICAgIDxWaWV3IGZsZXg9ezF9PgogICAgICAgICAgICA8SGVhZGluZwogICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgcD17MTB9PgogICAgICAgICAgICAgICAgRG9uZQogICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgIDxEcmFnQXJlYT4KICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgIOKchSBSZXRyaWV2ZSBhIGJvb2sgb24gIkhvdyB0byBUcmFpbiBZb3VyIFBldCBSb2NrIiBmcm9tIHRoZSBsaWJyYXJ5LgogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4pyFIEF0dGVuZCBhIHRvcC1zZWNyZXQgbWVldGluZyB3aXRoIHRoZSBUb290aCBGYWlyeSB0byBkaXNjdXNzIGRlbnRhbCBoeWdpZW5lLgogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4pyFIEdldCBhIHNlbGZpZSB3aXRoIEJpZ2Zvb3QgaW4gdGhlIGRlZXAgd29vZHMuCiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICDinIUgR1Zpc2l0IHRoZSBlbmNoYW50ZWQgZm9yZXN0IHRvIGV4Y2hhbmdlIHBvdGlvbnMgd2l0aCB0aGUgd29vZGxhbmQgY3JlYXR1cmVzLgogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICA8L0RyYWdBcmVhPgogICAgICAgIDwvVmlldz4KICAgICAgICA8VmlldyBmbGV4PXsxfT4KICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgIGFzPSJoNCIKICAgICAgICAgICAgICAgIHA9ezEwfT4KICAgICAgICAgICAgICAgIEJhY2tsb2cKICAgICAgICAgICAgPC9IZWFkaW5nPgogICAgICAgICAgICA8RHJhZ0FyZWE+CiAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICDinIUgU3dpbmcgYnkgdGhlIGludGVyZ2FsYWN0aWMgcG9zdCBvZmZpY2UgdG8gbWFpbCBhIHBhY2thZ2UgdG8gTWFycy4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgIOKchSBEcm9wIG9mZiB0aGUgZHJhZ29uJ3MgZHJ5IGNsZWFuaW5nIGF0IHRoZSBmaXJlcHJvb2YgbGF1bmRyb21hdC4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgIOKchSBGZXRjaCBhIHNwZWNpYWwgYmxlbmQgb2Ygc3Rhci1kdXN0IGNvZmZlZSBiZWFucyBmcm9tIHRoZSBjZWxlc3RpYWwgY29mZmVlIHNob3AuCiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICDinIUgRGVsaXZlciBhIG1lc3NhZ2UgdG8gdGhlIG1lcm1haWRzIGluIHRoZSB1bmRlcndhdGVyIGtpbmdkb20uCiAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgIDwvRHJhZ0FyZWE+CiAgICAgICAgPC9WaWV3PgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const BasicKanban = () => (
+    <View
+        row
+        alignItems="flex-start"
+        gap={5}>
+        <View flex={1}>
+            <Heading
+                as="h4"
+                p={10}>
+                To Do
+            </Heading>
+            <DragArea>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Buy a gallon of polka-dotted paint.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Pick up a dozen unicorn feathers from the magic shop.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Visit the invisible ink store and ask for their new collection.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Take a dragon for a walk in the park.
+                </Text>
+            </DragArea>
+        </View>
+        <View flex={1}>
+            <Heading
+                as="h4"
+                p={10}>
+                Doing
+            </Heading>
+            <DragArea>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Find the end of a rainbow and collect the leprechaun's pot of gold.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Pick up a lifetime supply of laughter at the comedy club.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Head to the time-traveling bookstore to find a rare edition of "Wizards and Wyrms: A
+                    Comprehensive Guide."
+                </Text>
+            </DragArea>
+        </View>
+        <View flex={1}>
+            <Heading
+                as="h4"
+                p={10}>
+                Done
+            </Heading>
+            <DragArea>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Get a selfie with Bigfoot in the deep woods.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ GVisit the enchanted forest to exchange potions with the woodland creatures.
+                </Text>
+            </DragArea>
+        </View>
+        <View flex={1}>
+            <Heading
+                as="h4"
+                p={10}>
+                Backlog
+            </Heading>
+            <DragArea>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Swing by the intergalactic post office to mail a package to Mars.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Drop off the dragon's dry cleaning at the fireproof laundromat.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Fetch a special blend of star-dust coffee beans from the celestial coffee shop.
+                </Text>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Deliver a message to the mermaids in the underwater kingdom.
+                </Text>
+            </DragArea>
+        </View>
+    </View>
+)
+```
+### Saving After Drop
+<a name="savingafterdrop"></a>
+
+export const SavingAfterDrop = () => {
+    const [items, setItems] = useState([
+        { id: 'id1', text: '✅ Swing by the intergalactic post office to mail a package to Mars.' },
+        { id: 'id2', text: "✅ Drop off the dragon's dry cleaning at the fireproof laundromat." },
+        { id: 'id3', text: '✅ Fetch a special blend of star-dust coffee beans from the celestial coffee shop.' },
+        { id: 'id4', text: '✅ Deliver a message to the mermaids in the underwater kingdom.' },
+    ]);
+    const handleDragOnDrop = ({ detail: { target, origin } }) => {
+        if (origin.group == 'save-after-drop') {
+            setItems(moveElementInArray(items, origin, target));
+        }
+    };
+    useDragEvent('ondrop', handleDragOnDrop);
+    return (<View row width="100%" alignItems="flex-start">
+            <DragArea width="100%">
+                {items.map((item, index) => (<Text key={index} p={10} bgToken="surface-strong" width="100%">
+                        {item.text} (index #{index})
+                    </Text>))}
+            </DragArea>
+        </View>);
+};
+
+<div className="story-block">
+<SavingAfterDrop />
+</div>
+
+<CodeComponent filename="SavingAfterDrop.tsx" code="ZXhwb3J0IGNvbnN0IFNhdmluZ0FmdGVyRHJvcCA9ICgpID0+IHsKICAgIGNvbnN0IFtpdGVtcywgc2V0SXRlbXNdID0gdXNlU3RhdGUoWwogICAgICAgIHsgaWQ6ICdpZDEnLCB0ZXh0OiAn4pyFIFN3aW5nIGJ5IHRoZSBpbnRlcmdhbGFjdGljIHBvc3Qgb2ZmaWNlIHRvIG1haWwgYSBwYWNrYWdlIHRvIE1hcnMuJyB9LAogICAgICAgIHsgaWQ6ICdpZDInLCB0ZXh0OiAi4pyFIERyb3Agb2ZmIHRoZSBkcmFnb24ncyBkcnkgY2xlYW5pbmcgYXQgdGhlIGZpcmVwcm9vZiBsYXVuZHJvbWF0LiIgfSwKICAgICAgICB7IGlkOiAnaWQzJywgdGV4dDogJ+KchSBGZXRjaCBhIHNwZWNpYWwgYmxlbmQgb2Ygc3Rhci1kdXN0IGNvZmZlZSBiZWFucyBmcm9tIHRoZSBjZWxlc3RpYWwgY29mZmVlIHNob3AuJyB9LAogICAgICAgIHsgaWQ6ICdpZDQnLCB0ZXh0OiAn4pyFIERlbGl2ZXIgYSBtZXNzYWdlIHRvIHRoZSBtZXJtYWlkcyBpbiB0aGUgdW5kZXJ3YXRlciBraW5nZG9tLicgfSwKICAgIF0pCgogICAgY29uc3QgaGFuZGxlRHJhZ09uRHJvcCA9ICh7IGRldGFpbDogeyB0YXJnZXQsIG9yaWdpbiB9IH0pID0+IHsKICAgICAgICBpZiAob3JpZ2luLmdyb3VwID09ICdzYXZlLWFmdGVyLWRyb3AnKSB7CiAgICAgICAgICAgIHNldEl0ZW1zKG1vdmVFbGVtZW50SW5BcnJheShpdGVtcywgb3JpZ2luLCB0YXJnZXQpKQogICAgICAgIH0KICAgIH0KCiAgICB1c2VEcmFnRXZlbnQoJ29uZHJvcCcsIGhhbmRsZURyYWdPbkRyb3ApCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICByb3cKICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiPgogICAgICAgICAgICA8RHJhZ0FyZWEgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAge2l0ZW1zLm1hcCgoaXRlbSwgaW5kZXgpID0+ICgKICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICBrZXk9e2luZGV4fQogICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAge2l0ZW0udGV4dH0gKGluZGV4ICN7aW5kZXh9KQogICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICkpfQogICAgICAgICAgICA8L0RyYWdBcmVhPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const SavingAfterDrop = () => {
+    const [items, setItems] = useState([
+        { id: 'id1', text: '✅ Swing by the intergalactic post office to mail a package to Mars.' },
+        { id: 'id2', text: "✅ Drop off the dragon's dry cleaning at the fireproof laundromat." },
+        { id: 'id3', text: '✅ Fetch a special blend of star-dust coffee beans from the celestial coffee shop.' },
+        { id: 'id4', text: '✅ Deliver a message to the mermaids in the underwater kingdom.' },
+    ])
+
+    const handleDragOnDrop = ({ detail: { target, origin } }) => {
+        if (origin.group == 'save-after-drop') {
+            setItems(moveElementInArray(items, origin, target))
+        }
+    }
+
+    useDragEvent('ondrop', handleDragOnDrop)
+
+    return (
+        <View
+            row
+            width="100%"
+            alignItems="flex-start">
+            <DragArea width="100%">
+                {items.map((item, index) => (
+                    <Text
+                        key={index}
+                        p={10}
+                        bgToken="surface-strong"
+                        width="100%">
+                        {item.text} (index #{index})
+                    </Text>
+                ))}
+            </DragArea>
+        </View>
+    )
+}
+```
+### Drag Element Target Variants
+<a name="dragelementtargetvariants"></a>
+
+export const DragElementTargetVariants = () => (<View>
+        <DragElementArea group="e" m="0 0 20px 0" targetVariant={{
+        a: 'focus',
+        b: 'lined',
+        c: 'animated',
+        d: 'lined-focus',
+    }}>
+            <DragElement>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Pick up a gallon of elbow grease from the hardware store.
+                </Text>
+            </DragElement>
+            <DragElement>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Buy a lottery ticket with the winning numbers already circled.
+                </Text>
+            </DragElement>
+            <DragElement>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Pick up a can of striped paint from the paint store.
+                </Text>
+            </DragElement>
+            <DragElement>
+                <Text p={10} bgToken="surface-strong" width="100%">
+                    ✅ Get a ladder for your pet giraffe.
+                </Text>
+            </DragElement>
+        </DragElementArea>
+
+        <Stack direction="vertical" spacing={20}>
+            <View row alignItems="flex-start" gap={20}>
+                <View flex={1}>
+                    <Heading as="h4" p={10}>
+                        Lined Focus / Lined Focus
+                    </Heading>
+                    <DragElementArea group="d" variant="lined-focus">
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Get a selfie with Bigfoot in the deep woods.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ GVisit the enchanted forest to exchange potions with the woodland creatures.
+                            </Text>
+                        </DragElement>
+                    </DragElementArea>
+                </View>
+            </View>
+            <View row alignItems="flex-start" gap={20}>
+                <View flex={1}>
+                    <Heading as="h4" p={10}>
+                        Animated / Focus
+                    </Heading>
+                    <DragElementArea group="a" variant="animated">
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Buy a gallon of polka-dotted paint.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Pick up a dozen unicorn feathers from the magic shop.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Visit the invisible ink store and ask for their new collection.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Take a dragon for a walk in the park.
+                            </Text>
+                        </DragElement>
+                    </DragElementArea>
+                </View>
+                <View flex={1}>
+                    <Heading as="h4" p={10}>
+                        Focus / Lined
+                    </Heading>
+                    <DragElementArea group="b" variant="focus">
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Find the end of a rainbow and collect the leprechaun's pot of gold.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Pick up a lifetime supply of laughter at the comedy club.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Head to the time-traveling bookstore to find a rare edition of "Wizards and Wyrms: A
+                                Comprehensive Guide."
+                            </Text>
+                        </DragElement>
+                    </DragElementArea>
+                </View>
+            </View>
+            <View row alignItems="flex-start" gap={20}>
+                <View flex={1}>
+                    <Heading as="h4" p={10}>
+                        Lined / Animated
+                    </Heading>
+                    <DragElementArea group="c" variant="lined">
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ Get a selfie with Bigfoot in the deep woods.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text p={10} bgToken="surface-strong" width="100%">
+                                ✅ GVisit the enchanted forest to exchange potions with the woodland creatures.
+                            </Text>
+                        </DragElement>
+                    </DragElementArea>
+                </View>
+            </View>
+        </Stack>
+    </View>);
+
+<div className="story-block">
+<DragElementTargetVariants />
+</div>
+
+<CodeComponent filename="DragElementTargetVariants.tsx" code="ZXhwb3J0IGNvbnN0IERyYWdFbGVtZW50VGFyZ2V0VmFyaWFudHMgPSAoKSA9PiAoCiAgICA8Vmlldz4KICAgICAgICA8RHJhZ0VsZW1lbnRBcmVhCiAgICAgICAgICAgIGdyb3VwPSJlIgogICAgICAgICAgICBtPSIwIDAgMjBweCAwIgogICAgICAgICAgICB0YXJnZXRWYXJpYW50PXt7CiAgICAgICAgICAgICAgICBhOiAnZm9jdXMnLAogICAgICAgICAgICAgICAgYjogJ2xpbmVkJywKICAgICAgICAgICAgICAgIGM6ICdhbmltYXRlZCcsCiAgICAgICAgICAgICAgICBkOiAnbGluZWQtZm9jdXMnLAogICAgICAgICAgICB9fT4KICAgICAgICAgICAgPERyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4pyFIFBpY2sgdXAgYSBnYWxsb24gb2YgZWxib3cgZ3JlYXNlIGZyb20gdGhlIGhhcmR3YXJlIHN0b3JlLgogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICA8L0RyYWdFbGVtZW50PgogICAgICAgICAgICA8RHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICDinIUgQnV5IGEgbG90dGVyeSB0aWNrZXQgd2l0aCB0aGUgd2lubmluZyBudW1iZXJzIGFscmVhZHkgY2lyY2xlZC4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgPC9EcmFnRWxlbWVudD4KICAgICAgICAgICAgPERyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4pyFIFBpY2sgdXAgYSBjYW4gb2Ygc3RyaXBlZCBwYWludCBmcm9tIHRoZSBwYWludCBzdG9yZS4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgPC9EcmFnRWxlbWVudD4KICAgICAgICAgICAgPERyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAg4pyFIEdldCBhIGxhZGRlciBmb3IgeW91ciBwZXQgZ2lyYWZmZS4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgPC9EcmFnRWxlbWVudD4KICAgICAgICA8L0RyYWdFbGVtZW50QXJlYT4KCiAgICAgICAgPFN0YWNrCiAgICAgICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgICAgIHNwYWNpbmc9ezIwfT4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgICAgIGdhcD17MjB9PgogICAgICAgICAgICAgICAgPFZpZXcgZmxleD17MX0+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0+CiAgICAgICAgICAgICAgICAgICAgICAgIExpbmVkIEZvY3VzIC8gTGluZWQgRm9jdXMKICAgICAgICAgICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPERyYWdFbGVtZW50QXJlYQogICAgICAgICAgICAgICAgICAgICAgICBncm91cD0iZCIKICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0ibGluZWQtZm9jdXMiPgogICAgICAgICAgICAgICAgICAgICAgICA8RHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgUmV0cmlldmUgYSBib29rIG9uICJIb3cgdG8gVHJhaW4gWW91ciBQZXQgUm9jayIgZnJvbSB0aGUgbGlicmFyeS4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9EcmFnRWxlbWVudD4KICAgICAgICAgICAgICAgICAgICAgICAgPERyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg4pyFIEF0dGVuZCBhIHRvcC1zZWNyZXQgbWVldGluZyB3aXRoIHRoZSBUb290aCBGYWlyeSB0byBkaXNjdXNzIGRlbnRhbCBoeWdpZW5lLgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8L0RyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgICAgICAgICA8RHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgR2V0IGEgc2VsZmllIHdpdGggQmlnZm9vdCBpbiB0aGUgZGVlcCB3b29kcy4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9EcmFnRWxlbWVudD4KICAgICAgICAgICAgICAgICAgICAgICAgPERyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg4pyFIEdWaXNpdCB0aGUgZW5jaGFudGVkIGZvcmVzdCB0byBleGNoYW5nZSBwb3Rpb25zIHdpdGggdGhlIHdvb2RsYW5kIGNyZWF0dXJlcy4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9EcmFnRWxlbWVudD4KICAgICAgICAgICAgICAgICAgICA8L0RyYWdFbGVtZW50QXJlYT4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0IgogICAgICAgICAgICAgICAgZ2FwPXsyMH0+CiAgICAgICAgICAgICAgICA8VmlldyBmbGV4PXsxfT4KICAgICAgICAgICAgICAgICAgICA8SGVhZGluZwogICAgICAgICAgICAgICAgICAgICAgICBhcz0iaDQiCiAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfT4KICAgICAgICAgICAgICAgICAgICAgICAgQW5pbWF0ZWQgLyBGb2N1cwogICAgICAgICAgICAgICAgICAgIDwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8RHJhZ0VsZW1lbnRBcmVhCiAgICAgICAgICAgICAgICAgICAgICAgIGdyb3VwPSJhIgogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJhbmltYXRlZCI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxEcmFnRWxlbWVudD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKchSBCdXkgYSBnYWxsb24gb2YgcG9sa2EtZG90dGVkIHBhaW50LgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8L0RyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgICAgICAgICA8RHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgUGljayB1cCBhIGRvemVuIHVuaWNvcm4gZmVhdGhlcnMgZnJvbSB0aGUgbWFnaWMgc2hvcC4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9EcmFnRWxlbWVudD4KICAgICAgICAgICAgICAgICAgICAgICAgPERyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg4pyFIFZpc2l0IHRoZSBpbnZpc2libGUgaW5rIHN0b3JlIGFuZCBhc2sgZm9yIHRoZWlyIG5ldyBjb2xsZWN0aW9uLgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8L0RyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgICAgICAgICA8RHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgVGFrZSBhIGRyYWdvbiBmb3IgYSB3YWxrIGluIHRoZSBwYXJrLgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8L0RyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgICAgIDwvRHJhZ0VsZW1lbnRBcmVhPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgPFZpZXcgZmxleD17MX0+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgICAgICAgICAgYXM9Img0IgogICAgICAgICAgICAgICAgICAgICAgICBwPXsxMH0+CiAgICAgICAgICAgICAgICAgICAgICAgIEZvY3VzIC8gTGluZWQKICAgICAgICAgICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPERyYWdFbGVtZW50QXJlYQogICAgICAgICAgICAgICAgICAgICAgICBncm91cD0iYiIKICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0iZm9jdXMiPgogICAgICAgICAgICAgICAgICAgICAgICA8RHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgRmluZCB0aGUgZW5kIG9mIGEgcmFpbmJvdyBhbmQgY29sbGVjdCB0aGUgbGVwcmVjaGF1bidzIHBvdCBvZiBnb2xkLgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8L0RyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgICAgICAgICA8RHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgUGljayB1cCBhIGxpZmV0aW1lIHN1cHBseSBvZiBsYXVnaHRlciBhdCB0aGUgY29tZWR5IGNsdWIuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvRHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDxEcmFnRWxlbWVudD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKchSBQdXJjaGFzZSBhIGxlZnQtaGFuZGVkIHNjcmV3ZHJpdmVyIGFuZCBhIGJ1Y2tldCBvZiBzdGVhbSBhdCB0aGUgaGFyZHdhcmUgc3RvcmUuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvRHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDxEcmFnRWxlbWVudD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKchSBIZWFkIHRvIHRoZSB0aW1lLXRyYXZlbGluZyBib29rc3RvcmUgdG8gZmluZCBhIHJhcmUgZWRpdGlvbiBvZiAiV2l6YXJkcyBhbmQgV3lybXM6IEEKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBDb21wcmVoZW5zaXZlIEd1aWRlLiIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9EcmFnRWxlbWVudD4KICAgICAgICAgICAgICAgICAgICA8L0RyYWdFbGVtZW50QXJlYT4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0IgogICAgICAgICAgICAgICAgZ2FwPXsyMH0+CiAgICAgICAgICAgICAgICA8VmlldyBmbGV4PXsxfT4KICAgICAgICAgICAgICAgICAgICA8SGVhZGluZwogICAgICAgICAgICAgICAgICAgICAgICBhcz0iaDQiCiAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfT4KICAgICAgICAgICAgICAgICAgICAgICAgTGluZWQgLyBBbmltYXRlZAogICAgICAgICAgICAgICAgICAgIDwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8RHJhZ0VsZW1lbnRBcmVhCiAgICAgICAgICAgICAgICAgICAgICAgIGdyb3VwPSJjIgogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJsaW5lZCI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxEcmFnRWxlbWVudD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKchSBSZXRyaWV2ZSBhIGJvb2sgb24gIkhvdyB0byBUcmFpbiBZb3VyIFBldCBSb2NrIiBmcm9tIHRoZSBsaWJyYXJ5LgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8L0RyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgICAgICAgICA8RHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgQXR0ZW5kIGEgdG9wLXNlY3JldCBtZWV0aW5nIHdpdGggdGhlIFRvb3RoIEZhaXJ5IHRvIGRpc2N1c3MgZGVudGFsIGh5Z2llbmUuCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvRHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDxEcmFnRWxlbWVudD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKchSBHZXQgYSBzZWxmaWUgd2l0aCBCaWdmb290IGluIHRoZSBkZWVwIHdvb2RzLgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8L0RyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgICAgICAgICA8RHJhZ0VsZW1lbnQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDinIUgR1Zpc2l0IHRoZSBlbmNoYW50ZWQgZm9yZXN0IHRvIGV4Y2hhbmdlIHBvdGlvbnMgd2l0aCB0aGUgd29vZGxhbmQgY3JlYXR1cmVzLgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgICAgICA8L0RyYWdFbGVtZW50PgogICAgICAgICAgICAgICAgICAgIDwvRHJhZ0VsZW1lbnRBcmVhPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9TdGFjaz4KICAgIDwvVmlldz4KKQ==" />
+
+```tsx
+export const DragElementTargetVariants = () => (
+    <View>
+        <DragElementArea
+            group="e"
+            m="0 0 20px 0"
+            targetVariant={{
+                a: 'focus',
+                b: 'lined',
+                c: 'animated',
+                d: 'lined-focus',
+            }}>
+            <DragElement>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Pick up a gallon of elbow grease from the hardware store.
+                </Text>
+            </DragElement>
+            <DragElement>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Buy a lottery ticket with the winning numbers already circled.
+                </Text>
+            </DragElement>
+            <DragElement>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Pick up a can of striped paint from the paint store.
+                </Text>
+            </DragElement>
+            <DragElement>
+                <Text
+                    p={10}
+                    bgToken="surface-strong"
+                    width="100%">
+                    ✅ Get a ladder for your pet giraffe.
+                </Text>
+            </DragElement>
+        </DragElementArea>
+
+        <Stack
+            direction="vertical"
+            spacing={20}>
+            <View
+                row
+                alignItems="flex-start"
+                gap={20}>
+                <View flex={1}>
+                    <Heading
+                        as="h4"
+                        p={10}>
+                        Lined Focus / Lined Focus
+                    </Heading>
+                    <DragElementArea
+                        group="d"
+                        variant="lined-focus">
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Get a selfie with Bigfoot in the deep woods.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ GVisit the enchanted forest to exchange potions with the woodland creatures.
+                            </Text>
+                        </DragElement>
+                    </DragElementArea>
+                </View>
+            </View>
+            <View
+                row
+                alignItems="flex-start"
+                gap={20}>
+                <View flex={1}>
+                    <Heading
+                        as="h4"
+                        p={10}>
+                        Animated / Focus
+                    </Heading>
+                    <DragElementArea
+                        group="a"
+                        variant="animated">
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Buy a gallon of polka-dotted paint.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Pick up a dozen unicorn feathers from the magic shop.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Visit the invisible ink store and ask for their new collection.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Take a dragon for a walk in the park.
+                            </Text>
+                        </DragElement>
+                    </DragElementArea>
+                </View>
+                <View flex={1}>
+                    <Heading
+                        as="h4"
+                        p={10}>
+                        Focus / Lined
+                    </Heading>
+                    <DragElementArea
+                        group="b"
+                        variant="focus">
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Find the end of a rainbow and collect the leprechaun's pot of gold.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Pick up a lifetime supply of laughter at the comedy club.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Purchase a left-handed screwdriver and a bucket of steam at the hardware store.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Head to the time-traveling bookstore to find a rare edition of "Wizards and Wyrms: A
+                                Comprehensive Guide."
+                            </Text>
+                        </DragElement>
+                    </DragElementArea>
+                </View>
+            </View>
+            <View
+                row
+                alignItems="flex-start"
+                gap={20}>
+                <View flex={1}>
+                    <Heading
+                        as="h4"
+                        p={10}>
+                        Lined / Animated
+                    </Heading>
+                    <DragElementArea
+                        group="c"
+                        variant="lined">
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Retrieve a book on "How to Train Your Pet Rock" from the library.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Attend a top-secret meeting with the Tooth Fairy to discuss dental hygiene.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ Get a selfie with Bigfoot in the deep woods.
+                            </Text>
+                        </DragElement>
+                        <DragElement>
+                            <Text
+                                p={10}
+                                bgToken="surface-strong"
+                                width="100%">
+                                ✅ GVisit the enchanted forest to exchange potions with the woodland creatures.
+                            </Text>
+                        </DragElement>
+                    </DragElementArea>
+                </View>
+            </View>
+        </Stack>
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

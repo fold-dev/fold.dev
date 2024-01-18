@@ -1,0 +1,93 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Avatar, Stack, View } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Stack',
+    subtitle:
+        'The Stack component serves as a layout element that evenly distributes child elements with consistent spacing.',
+    description:
+        'Stacked layouts are a widely used method for achieving consistent visual spacing on either the horizontal or vertical axis, without directly altering child elements.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/stack/stack.tsx","description":"","displayName":"Stack","methods":[],"props":{"noStretch":{"defaultValue":null,"description":"","name":"noStretch","declarations":[{"fileName":"packages/core/src/stack/stack.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"direction":{"defaultValue":null,"description":"","name":"direction","declarations":[{"fileName":"packages/core/src/stack/stack.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"vertical\" | \"horizontal\""},"tags":{}},"spacing":{"defaultValue":null,"description":"","name":"spacing","declarations":[{"fileName":"packages/core/src/stack/stack.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string | number"},"tags":{}}}}]
+
+export const css = []
+
+
+
+<CodeComponent filename="stack.tsx" code="aW1wb3J0IHsgU3RhY2sgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { Stack } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<Stack spacing={20}>
+            <Avatar name="Etienne Dreyer"/>
+            <Avatar name="Aubrey Moagi"/>
+            <Avatar name="Patrick Anthony"/>
+            <Avatar name="Charlene Singh"/>
+            <Avatar name="Craig Pather"/>
+        </Stack>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sgc3BhY2luZz17MjB9PgogICAgICAgICAgICA8QXZhdGFyIG5hbWU9IkV0aWVubmUgRHJleWVyIiAvPgogICAgICAgICAgICA8QXZhdGFyIG5hbWU9IkF1YnJleSBNb2FnaSIgLz4KICAgICAgICAgICAgPEF2YXRhciBuYW1lPSJQYXRyaWNrIEFudGhvbnkiIC8+CiAgICAgICAgICAgIDxBdmF0YXIgbmFtZT0iQ2hhcmxlbmUgU2luZ2giIC8+CiAgICAgICAgICAgIDxBdmF0YXIgbmFtZT0iQ3JhaWcgUGF0aGVyIiAvPgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <Stack spacing={20}>
+            <Avatar name="Etienne Dreyer" />
+            <Avatar name="Aubrey Moagi" />
+            <Avatar name="Patrick Anthony" />
+            <Avatar name="Charlene Singh" />
+            <Avatar name="Craig Pather" />
+        </Stack>
+    )
+}
+```
+### Vertical
+<a name="vertical"></a>
+
+export const Vertical = () => {
+    return (<Stack spacing={20} direction="vertical">
+            <Avatar name="Etienne Dreyer"/>
+            <Avatar name="Aubrey Moagi"/>
+            <Avatar name="Patrick Anthony"/>
+            <Avatar name="Charlene Singh"/>
+            <Avatar name="Craig Pather"/>
+        </Stack>);
+};
+
+<div className="story-block">
+<Vertical />
+</div>
+
+<CodeComponent filename="Vertical.tsx" code="ZXhwb3J0IGNvbnN0IFZlcnRpY2FsID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sKICAgICAgICAgICAgc3BhY2luZz17MjB9CiAgICAgICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiPgogICAgICAgICAgICA8QXZhdGFyIG5hbWU9IkV0aWVubmUgRHJleWVyIiAvPgogICAgICAgICAgICA8QXZhdGFyIG5hbWU9IkF1YnJleSBNb2FnaSIgLz4KICAgICAgICAgICAgPEF2YXRhciBuYW1lPSJQYXRyaWNrIEFudGhvbnkiIC8+CiAgICAgICAgICAgIDxBdmF0YXIgbmFtZT0iQ2hhcmxlbmUgU2luZ2giIC8+CiAgICAgICAgICAgIDxBdmF0YXIgbmFtZT0iQ3JhaWcgUGF0aGVyIiAvPgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
+
+```tsx
+export const Vertical = () => {
+    return (
+        <Stack
+            spacing={20}
+            direction="vertical">
+            <Avatar name="Etienne Dreyer" />
+            <Avatar name="Aubrey Moagi" />
+            <Avatar name="Patrick Anthony" />
+            <Avatar name="Charlene Singh" />
+            <Avatar name="Craig Pather" />
+        </Stack>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

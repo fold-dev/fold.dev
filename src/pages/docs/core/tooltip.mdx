@@ -1,0 +1,262 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Pill, Heading, IconLib, Link, Stack, Tooltip, View, Text } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Tooltip',
+    subtitle: 'Tooltip components provide users with informative text when they hover over an element.',
+    description:
+        'Tooltip components are unobtrusive overlays offering supplementary information. Tooltips should not substitute for labels or critical information; users should be able to accomplish their tasks successfully even without relying on a tooltip.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/tooltip/tooltip.tsx","description":"","displayName":"TooltipContent","methods":[],"props":{"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"PopoutPosition"},"tags":{}},"arrow":{"defaultValue":null,"description":"","name":"arrow","declarations":[{"fileName":"packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/tooltip/tooltip.tsx","description":"","displayName":"Tooltip","methods":[],"props":{"arrow":{"defaultValue":null,"description":"","name":"arrow","declarations":[{"fileName":"packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"text":{"defaultValue":null,"description":"","name":"text","declarations":[{"fileName":"packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"PopoutPosition"},"tags":{}},"alwaysVisible":{"defaultValue":null,"description":"","name":"alwaysVisible","declarations":[{"fileName":"packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"content":{"defaultValue":null,"description":"","name":"content","declarations":[{"fileName":"packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"delay":{"defaultValue":null,"description":"","name":"delay","declarations":[{"fileName":"packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"packages/core/src/tooltip/tooltip.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-tooltip-background","var(--f-color-surface-inverse)"],["--f-tooltip-color","var(--f-color-text-weakest)"],["--f-tooltip-border-radius","var(--f-radius)"],["--f-tooltip-reposition-duraction","var(--f-transition-duration-fast)"]]]
+
+
+
+<CodeComponent filename="tooltip.tsx" code="aW1wb3J0IHsgVG9vbHRpcENvbnRlbnQsIFRvb2x0aXAgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { TooltipContent, Tooltip } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<Tooltip text="This is the default tooltip.">
+        <Pill>Hover here!</Pill>
+    </Tooltip>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFRvb2x0aXAgdGV4dD0iVGhpcyBpcyB0aGUgZGVmYXVsdCB0b29sdGlwLiI+CiAgICAgICAgPFBpbGw+SG92ZXIgaGVyZSE8L1BpbGw+CiAgICA8L1Rvb2x0aXA+Cik=" />
+
+```tsx
+export const Usage = () => (
+    <Tooltip text="This is the default tooltip.">
+        <Pill>Hover here!</Pill>
+    </Tooltip>
+)
+```
+### Anchors
+<a name="anchors"></a>
+
+export const Anchors = () => (<Stack direction="vertical" spacing={10} p="0 0 0 5rem">
+        <Tooltip text="Tooltip text" anchor="middle-right">
+            <Pill>Middle right</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="middle-left">
+            <Pill>Middle left</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="bottom-center">
+            <Pill>Center bottom</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="top-center">
+            <Pill>Center top</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="top-left">
+            <Pill>Left top</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="bottom-left">
+            <Pill>Left bottom</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="top-right">
+            <Pill>Right top</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="bottom-right">
+            <Pill>Right bottom</Pill>
+        </Tooltip>
+    </Stack>);
+
+<div className="story-block">
+<Anchors />
+</div>
+
+<CodeComponent filename="Anchors.tsx" code="ZXhwb3J0IGNvbnN0IEFuY2hvcnMgPSAoKSA9PiAoCiAgICA8U3RhY2sKICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgIHNwYWNpbmc9ezEwfQogICAgICAgIHA9IjAgMCAwIDVyZW0iPgogICAgICAgIDxUb29sdGlwCiAgICAgICAgICAgIHRleHQ9IlRvb2x0aXAgdGV4dCIKICAgICAgICAgICAgYW5jaG9yPSJtaWRkbGUtcmlnaHQiPgogICAgICAgICAgICA8UGlsbD5NaWRkbGUgcmlnaHQ8L1BpbGw+CiAgICAgICAgPC9Ub29sdGlwPgogICAgICAgIDxUb29sdGlwCiAgICAgICAgICAgIHRleHQ9IlRvb2x0aXAgdGV4dCIKICAgICAgICAgICAgYW5jaG9yPSJtaWRkbGUtbGVmdCI+CiAgICAgICAgICAgIDxQaWxsPk1pZGRsZSBsZWZ0PC9QaWxsPgogICAgICAgIDwvVG9vbHRpcD4KICAgICAgICA8VG9vbHRpcAogICAgICAgICAgICB0ZXh0PSJUb29sdGlwIHRleHQiCiAgICAgICAgICAgIGFuY2hvcj0iYm90dG9tLWNlbnRlciI+CiAgICAgICAgICAgIDxQaWxsPkNlbnRlciBib3R0b208L1BpbGw+CiAgICAgICAgPC9Ub29sdGlwPgogICAgICAgIDxUb29sdGlwCiAgICAgICAgICAgIHRleHQ9IlRvb2x0aXAgdGV4dCIKICAgICAgICAgICAgYW5jaG9yPSJ0b3AtY2VudGVyIj4KICAgICAgICAgICAgPFBpbGw+Q2VudGVyIHRvcDwvUGlsbD4KICAgICAgICA8L1Rvb2x0aXA+CiAgICAgICAgPFRvb2x0aXAKICAgICAgICAgICAgdGV4dD0iVG9vbHRpcCB0ZXh0IgogICAgICAgICAgICBhbmNob3I9InRvcC1sZWZ0Ij4KICAgICAgICAgICAgPFBpbGw+TGVmdCB0b3A8L1BpbGw+CiAgICAgICAgPC9Ub29sdGlwPgogICAgICAgIDxUb29sdGlwCiAgICAgICAgICAgIHRleHQ9IlRvb2x0aXAgdGV4dCIKICAgICAgICAgICAgYW5jaG9yPSJib3R0b20tbGVmdCI+CiAgICAgICAgICAgIDxQaWxsPkxlZnQgYm90dG9tPC9QaWxsPgogICAgICAgIDwvVG9vbHRpcD4KICAgICAgICA8VG9vbHRpcAogICAgICAgICAgICB0ZXh0PSJUb29sdGlwIHRleHQiCiAgICAgICAgICAgIGFuY2hvcj0idG9wLXJpZ2h0Ij4KICAgICAgICAgICAgPFBpbGw+UmlnaHQgdG9wPC9QaWxsPgogICAgICAgIDwvVG9vbHRpcD4KICAgICAgICA8VG9vbHRpcAogICAgICAgICAgICB0ZXh0PSJUb29sdGlwIHRleHQiCiAgICAgICAgICAgIGFuY2hvcj0iYm90dG9tLXJpZ2h0Ij4KICAgICAgICAgICAgPFBpbGw+UmlnaHQgYm90dG9tPC9QaWxsPgogICAgICAgIDwvVG9vbHRpcD4KICAgIDwvU3RhY2s+Cik=" />
+
+```tsx
+export const Anchors = () => (
+    <Stack
+        direction="vertical"
+        spacing={10}
+        p="0 0 0 5rem">
+        <Tooltip
+            text="Tooltip text"
+            anchor="middle-right">
+            <Pill>Middle right</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="middle-left">
+            <Pill>Middle left</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="bottom-center">
+            <Pill>Center bottom</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="top-center">
+            <Pill>Center top</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="top-left">
+            <Pill>Left top</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="bottom-left">
+            <Pill>Left bottom</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="top-right">
+            <Pill>Right top</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="bottom-right">
+            <Pill>Right bottom</Pill>
+        </Tooltip>
+    </Stack>
+)
+```
+### Always Visible
+<a name="alwaysvisible"></a>
+
+export const AlwaysVisible = () => (<Stack direction="vertical" spacing={10} p="0 0 0 5rem">
+        <Tooltip text="Tooltip text" anchor="middle-right" alwaysVisible>
+            <Pill>Middle right</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="middle-left" alwaysVisible>
+            <Pill>Middle left</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="bottom-center" alwaysVisible>
+            <Pill>Center bottom</Pill>
+        </Tooltip>
+        <View height={100}/>
+        <Tooltip text="Tooltip text" anchor="top-center" alwaysVisible>
+            <Pill>Center top</Pill>
+        </Tooltip>
+        <View height={50}/>
+        <Tooltip text="Tooltip text" anchor="top-left" alwaysVisible>
+            <Pill>Left top</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="bottom-left" alwaysVisible>
+            <Pill>Left bottom</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="top-right" alwaysVisible>
+            <Pill>Right top</Pill>
+        </Tooltip>
+        <Tooltip text="Tooltip text" anchor="bottom-right" alwaysVisible>
+            <Pill>Right bottom</Pill>
+        </Tooltip>
+    </Stack>);
+
+<div className="story-block">
+<AlwaysVisible />
+</div>
+
+<CodeComponent filename="AlwaysVisible.tsx" code="ZXhwb3J0IGNvbnN0IEFsd2F5c1Zpc2libGUgPSAoKSA9PiAoCiAgICA8U3RhY2sKICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgIHNwYWNpbmc9ezEwfQogICAgICAgIHA9IjAgMCAwIDVyZW0iPgogICAgICAgIDxUb29sdGlwCiAgICAgICAgICAgIHRleHQ9IlRvb2x0aXAgdGV4dCIKICAgICAgICAgICAgYW5jaG9yPSJtaWRkbGUtcmlnaHQiCiAgICAgICAgICAgIGFsd2F5c1Zpc2libGU+CiAgICAgICAgICAgIDxQaWxsPk1pZGRsZSByaWdodDwvUGlsbD4KICAgICAgICA8L1Rvb2x0aXA+CiAgICAgICAgPFRvb2x0aXAKICAgICAgICAgICAgdGV4dD0iVG9vbHRpcCB0ZXh0IgogICAgICAgICAgICBhbmNob3I9Im1pZGRsZS1sZWZ0IgogICAgICAgICAgICBhbHdheXNWaXNpYmxlPgogICAgICAgICAgICA8UGlsbD5NaWRkbGUgbGVmdDwvUGlsbD4KICAgICAgICA8L1Rvb2x0aXA+CiAgICAgICAgPFRvb2x0aXAKICAgICAgICAgICAgdGV4dD0iVG9vbHRpcCB0ZXh0IgogICAgICAgICAgICBhbmNob3I9ImJvdHRvbS1jZW50ZXIiCiAgICAgICAgICAgIGFsd2F5c1Zpc2libGU+CiAgICAgICAgICAgIDxQaWxsPkNlbnRlciBib3R0b208L1BpbGw+CiAgICAgICAgPC9Ub29sdGlwPgogICAgICAgIDxWaWV3IGhlaWdodD17MTAwfSAvPgogICAgICAgIDxUb29sdGlwCiAgICAgICAgICAgIHRleHQ9IlRvb2x0aXAgdGV4dCIKICAgICAgICAgICAgYW5jaG9yPSJ0b3AtY2VudGVyIgogICAgICAgICAgICBhbHdheXNWaXNpYmxlPgogICAgICAgICAgICA8UGlsbD5DZW50ZXIgdG9wPC9QaWxsPgogICAgICAgIDwvVG9vbHRpcD4KICAgICAgICA8VmlldyBoZWlnaHQ9ezUwfSAvPgogICAgICAgIDxUb29sdGlwCiAgICAgICAgICAgIHRleHQ9IlRvb2x0aXAgdGV4dCIKICAgICAgICAgICAgYW5jaG9yPSJ0b3AtbGVmdCIKICAgICAgICAgICAgYWx3YXlzVmlzaWJsZT4KICAgICAgICAgICAgPFBpbGw+TGVmdCB0b3A8L1BpbGw+CiAgICAgICAgPC9Ub29sdGlwPgogICAgICAgIDxUb29sdGlwCiAgICAgICAgICAgIHRleHQ9IlRvb2x0aXAgdGV4dCIKICAgICAgICAgICAgYW5jaG9yPSJib3R0b20tbGVmdCIKICAgICAgICAgICAgYWx3YXlzVmlzaWJsZT4KICAgICAgICAgICAgPFBpbGw+TGVmdCBib3R0b208L1BpbGw+CiAgICAgICAgPC9Ub29sdGlwPgogICAgICAgIDxUb29sdGlwCiAgICAgICAgICAgIHRleHQ9IlRvb2x0aXAgdGV4dCIKICAgICAgICAgICAgYW5jaG9yPSJ0b3AtcmlnaHQiCiAgICAgICAgICAgIGFsd2F5c1Zpc2libGU+CiAgICAgICAgICAgIDxQaWxsPlJpZ2h0IHRvcDwvUGlsbD4KICAgICAgICA8L1Rvb2x0aXA+CiAgICAgICAgPFRvb2x0aXAKICAgICAgICAgICAgdGV4dD0iVG9vbHRpcCB0ZXh0IgogICAgICAgICAgICBhbmNob3I9ImJvdHRvbS1yaWdodCIKICAgICAgICAgICAgYWx3YXlzVmlzaWJsZT4KICAgICAgICAgICAgPFBpbGw+UmlnaHQgYm90dG9tPC9QaWxsPgogICAgICAgIDwvVG9vbHRpcD4KICAgIDwvU3RhY2s+Cik=" />
+
+```tsx
+export const AlwaysVisible = () => (
+    <Stack
+        direction="vertical"
+        spacing={10}
+        p="0 0 0 5rem">
+        <Tooltip
+            text="Tooltip text"
+            anchor="middle-right"
+            alwaysVisible>
+            <Pill>Middle right</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="middle-left"
+            alwaysVisible>
+            <Pill>Middle left</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="bottom-center"
+            alwaysVisible>
+            <Pill>Center bottom</Pill>
+        </Tooltip>
+        <View height={100} />
+        <Tooltip
+            text="Tooltip text"
+            anchor="top-center"
+            alwaysVisible>
+            <Pill>Center top</Pill>
+        </Tooltip>
+        <View height={50} />
+        <Tooltip
+            text="Tooltip text"
+            anchor="top-left"
+            alwaysVisible>
+            <Pill>Left top</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="bottom-left"
+            alwaysVisible>
+            <Pill>Left bottom</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="top-right"
+            alwaysVisible>
+            <Pill>Right top</Pill>
+        </Tooltip>
+        <Tooltip
+            text="Tooltip text"
+            anchor="bottom-right"
+            alwaysVisible>
+            <Pill>Right bottom</Pill>
+        </Tooltip>
+    </Stack>
+)
+```
+### Custom Content And Delay
+<a name="customcontentanddelay"></a>
+
+export const CustomContentAndDelay = () => (<Tooltip delay={0} alwaysVisible anchor="middle-right" content={<View row gap={5}>
+                <IconLib icon="warning"/>
+                <Text>This is custom content!</Text>
+            </View>}>
+        <Pill>With custom content</Pill>
+    </Tooltip>);
+
+<div className="story-block">
+<CustomContentAndDelay />
+</div>
+
+<CodeComponent filename="CustomContentAndDelay.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbUNvbnRlbnRBbmREZWxheSA9ICgpID0+ICgKICAgIDxUb29sdGlwCiAgICAgICAgZGVsYXk9ezB9CiAgICAgICAgYWx3YXlzVmlzaWJsZQogICAgICAgIGFuY2hvcj0ibWlkZGxlLXJpZ2h0IgogICAgICAgIGNvbnRlbnQ9ewogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICBnYXA9ezV9PgogICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0id2FybmluZyIgLz4KICAgICAgICAgICAgICAgIDxUZXh0PlRoaXMgaXMgY3VzdG9tIGNvbnRlbnQhPC9UZXh0PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgfT4KICAgICAgICA8UGlsbD5XaXRoIGN1c3RvbSBjb250ZW50PC9QaWxsPgogICAgPC9Ub29sdGlwPgop" />
+
+```tsx
+export const CustomContentAndDelay = () => (
+    <Tooltip
+        delay={0}
+        alwaysVisible
+        anchor="middle-right"
+        content={
+            <View
+                row
+                gap={5}>
+                <IconLib icon="warning" />
+                <Text>This is custom content!</Text>
+            </View>
+        }>
+        <Pill>With custom content</Pill>
+    </Tooltip>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

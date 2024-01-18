@@ -1,0 +1,666 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import {
+    Avatar,
+    Button,
+    ButtonGroup,
+    Flexer,
+    Heading,
+    Input,
+    Menu,
+    MenuButton,
+    MenuItem,
+    Popover,
+    Text,
+    useVisibility,
+    View,
+} from '@fold-dev/core'
+import React, { useRef } from 'react'
+
+export const docs = {
+    title: 'Popover',
+    subtitle: 'The Popover component is an overlay that opens on top of all other content on the page.',
+    description:
+        'A Popover component serves as a valuable tool for presenting in-depth information within a pop-up box that is positioned in proximity to the element being clicked or hovered. Popover components have many uses, but are particularly useful for adding context to particular pieces of content, such use quick-view information, form input & warning or failure details.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/popover/popover.tsx","description":"","displayName":"PopoverContent","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/popover/popover.tsx","description":"","displayName":"Popover","methods":[],"props":{"targetId":{"defaultValue":null,"description":"","name":"targetId","declarations":[{"fileName":"packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"fixPosition":{"defaultValue":null,"description":"","name":"fixPosition","declarations":[{"fileName":"packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ top: number; left: number; }"},"tags":{}},"arrow":{"defaultValue":null,"description":"","name":"arrow","declarations":[{"fileName":"packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"PopoutPosition"},"tags":{}},"anchorProps":{"defaultValue":null,"description":"","name":"anchorProps","declarations":[{"fileName":"packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"content":{"defaultValue":null,"description":"","name":"content","declarations":[{"fileName":"packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"isVisible":{"defaultValue":null,"description":"","name":"isVisible","declarations":[{"fileName":"packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-popover-border-color","var(--f-color-border)"],["--f-popover-border-radius","var(--f-radius)"],["--f-popover-background","var(--f-color-surface)"],["--f-popover-box-shadow","var(--f-shadow-lg)"]]]
+
+
+
+<CodeComponent filename="popover.tsx" code="aW1wb3J0IHsgUG9wb3ZlckNvbnRlbnQsIFBvcG92ZXIgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { PopoverContent, Popover } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const { visible, show, hide } = useVisibility(true);
+    return (<Popover arrow width={300} anchor="middle-right" content={<View p={20} column gap={10} alignItems="flex-start">
+                    <Heading as="h4">Craig Pather</Heading>
+                    <Heading as="h5">CTO Acme Corp</Heading>
+                    <Text>
+                        Leading the engineering division at Acme corp, Craig has delivered on numerous deadlines.
+                    </Text>
+                    <ButtonGroup>
+                        <Button>Send Mail</Button>
+                        <Button>Add Contact</Button>
+                    </ButtonGroup>
+                </View>} isVisible={visible} onDismiss={hide}>
+            <Avatar onClick={show} name="Craig Pather" src="/men/01.jpg"/>
+        </Popover>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KHRydWUpCgogICAgcmV0dXJuICgKICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICBhcnJvdwogICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICBhbmNob3I9Im1pZGRsZS1yaWdodCIKICAgICAgICAgICAgY29udGVudD17CiAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgIHA9ezIwfQogICAgICAgICAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCI+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9Img0Ij5DcmFpZyBQYXRoZXI8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9Img1Ij5DVE8gQWNtZSBDb3JwPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgIDxUZXh0PgogICAgICAgICAgICAgICAgICAgICAgICBMZWFkaW5nIHRoZSBlbmdpbmVlcmluZyBkaXZpc2lvbiBhdCBBY21lIGNvcnAsIENyYWlnIGhhcyBkZWxpdmVyZWQgb24gbnVtZXJvdXMgZGVhZGxpbmVzLgogICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8QnV0dG9uR3JvdXA+CiAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24+U2VuZCBNYWlsPC9CdXR0b24+CiAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24+QWRkIENvbnRhY3Q8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICA8L0J1dHRvbkdyb3VwPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICB9CiAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgb25DbGljaz17c2hvd30KICAgICAgICAgICAgICAgIG5hbWU9IkNyYWlnIFBhdGhlciIKICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wMS5qcGciCiAgICAgICAgICAgIC8+CiAgICAgICAgPC9Qb3BvdmVyPgogICAgKQp9" />
+
+```tsx
+export const Usage = () => {
+    const { visible, show, hide } = useVisibility(true)
+
+    return (
+        <Popover
+            arrow
+            width={300}
+            anchor="middle-right"
+            content={
+                <View
+                    p={20}
+                    column
+                    gap={10}
+                    alignItems="flex-start">
+                    <Heading as="h4">Craig Pather</Heading>
+                    <Heading as="h5">CTO Acme Corp</Heading>
+                    <Text>
+                        Leading the engineering division at Acme corp, Craig has delivered on numerous deadlines.
+                    </Text>
+                    <ButtonGroup>
+                        <Button>Send Mail</Button>
+                        <Button>Add Contact</Button>
+                    </ButtonGroup>
+                </View>
+            }
+            isVisible={visible}
+            onDismiss={hide}>
+            <Avatar
+                onClick={show}
+                name="Craig Pather"
+                src="/men/01.jpg"
+            />
+        </Popover>
+    )
+}
+```
+### Positions
+<a name="positions"></a>
+
+export const Positions = () => {
+    const { visible, show, hide } = useVisibility(true);
+    return (<View m="0 0 0 300px">
+            <Popover anchor="middle-left" width={300} content={<Text p={20}>Middle left</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="middle-left" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={25}/>
+            <Popover anchor="middle-right" width={400} content={<Text p={20}>Middle right</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="middle-right" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75}/>
+            <Popover anchor="top-center" width={300} content={<Text p={20}>Top center</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="top-center" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={25}/>
+            <Popover anchor="bottom-center" width={400} content={<Text p={20}>Bottom center</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="bottom-center" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75}/>
+            <Popover anchor="bottom-left" width={300} content={<Text p={20}>Bottom left</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="bottom-left" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75}/>
+            <Popover anchor="bottom-right" width={400} content={<Text p={20}>Bottom right</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="bottom-right" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={125}/>
+            <Popover anchor="top-left" width={400} content={<Text p={20}>Top left</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="top-left" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75}/>
+            <Popover anchor="top-right" width={400} content={<Text p={20}>Top right</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="top-right" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+        </View>);
+};
+
+<div className="story-block">
+<Positions />
+</div>
+
+<CodeComponent filename="Positions.tsx" code="ZXhwb3J0IGNvbnN0IFBvc2l0aW9ucyA9ICgpID0+IHsKICAgIGNvbnN0IHsgdmlzaWJsZSwgc2hvdywgaGlkZSB9ID0gdXNlVmlzaWJpbGl0eSh0cnVlKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcgbT0iMCAwIDAgMzAwcHgiPgogICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgYW5jaG9yPSJtaWRkbGUtbGVmdCIKICAgICAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgICAgICBjb250ZW50PXs8VGV4dCBwPXsyMH0+TWlkZGxlIGxlZnQ8L1RleHQ+fQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICBpZD0ibWlkZGxlLWxlZnQiCiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17c2hvd30+CiAgICAgICAgICAgICAgICAgICAgU2hvdyBQb3BvdmVyCiAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgPC9Qb3BvdmVyPgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezI1fSAvPgogICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgYW5jaG9yPSJtaWRkbGUtcmlnaHQiCiAgICAgICAgICAgICAgICB3aWR0aD17NDAwfQogICAgICAgICAgICAgICAgY29udGVudD17PFRleHQgcD17MjB9Pk1pZGRsZSByaWdodDwvVGV4dD59CiAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9PgogICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgIGlkPSJtaWRkbGUtcmlnaHQiCiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17c2hvd30+CiAgICAgICAgICAgICAgICAgICAgU2hvdyBQb3BvdmVyCiAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgPC9Qb3BvdmVyPgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezc1fSAvPgogICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgYW5jaG9yPSJ0b3AtY2VudGVyIgogICAgICAgICAgICAgICAgd2lkdGg9ezMwMH0KICAgICAgICAgICAgICAgIGNvbnRlbnQ9ezxUZXh0IHA9ezIwfT5Ub3AgY2VudGVyPC9UZXh0Pn0KICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0+CiAgICAgICAgICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgICAgICAgICAgaWQ9InRvcC1jZW50ZXIiCiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17c2hvd30+CiAgICAgICAgICAgICAgICAgICAgU2hvdyBQb3BvdmVyCiAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgPC9Qb3BvdmVyPgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezI1fSAvPgogICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgYW5jaG9yPSJib3R0b20tY2VudGVyIgogICAgICAgICAgICAgICAgd2lkdGg9ezQwMH0KICAgICAgICAgICAgICAgIGNvbnRlbnQ9ezxUZXh0IHA9ezIwfT5Cb3R0b20gY2VudGVyPC9UZXh0Pn0KICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0+CiAgICAgICAgICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgICAgICAgICAgaWQ9ImJvdHRvbS1jZW50ZXIiCiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17c2hvd30+CiAgICAgICAgICAgICAgICAgICAgU2hvdyBQb3BvdmVyCiAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgPC9Qb3BvdmVyPgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezc1fSAvPgogICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgYW5jaG9yPSJib3R0b20tbGVmdCIKICAgICAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgICAgICBjb250ZW50PXs8VGV4dCBwPXsyMH0+Qm90dG9tIGxlZnQ8L1RleHQ+fQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICBpZD0iYm90dG9tLWxlZnQiCiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17c2hvd30+CiAgICAgICAgICAgICAgICAgICAgU2hvdyBQb3BvdmVyCiAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgPC9Qb3BvdmVyPgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezc1fSAvPgogICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgYW5jaG9yPSJib3R0b20tcmlnaHQiCiAgICAgICAgICAgICAgICB3aWR0aD17NDAwfQogICAgICAgICAgICAgICAgY29udGVudD17PFRleHQgcD17MjB9PkJvdHRvbSByaWdodDwvVGV4dD59CiAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9PgogICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgIGlkPSJib3R0b20tcmlnaHQiCiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17c2hvd30+CiAgICAgICAgICAgICAgICAgICAgU2hvdyBQb3BvdmVyCiAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgPC9Qb3BvdmVyPgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezEyNX0gLz4KICAgICAgICAgICAgPFBvcG92ZXIKICAgICAgICAgICAgICAgIGFuY2hvcj0idG9wLWxlZnQiCiAgICAgICAgICAgICAgICB3aWR0aD17NDAwfQogICAgICAgICAgICAgICAgY29udGVudD17PFRleHQgcD17MjB9PlRvcCBsZWZ0PC9UZXh0Pn0KICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0+CiAgICAgICAgICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgICAgICAgICAgaWQ9InRvcC1sZWZ0IgogICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9e3Nob3d9PgogICAgICAgICAgICAgICAgICAgIFNob3cgUG9wb3ZlcgogICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDwvUG9wb3Zlcj4KICAgICAgICAgICAgPFZpZXcgaGVpZ2h0PXs3NX0gLz4KICAgICAgICAgICAgPFBvcG92ZXIKICAgICAgICAgICAgICAgIGFuY2hvcj0idG9wLXJpZ2h0IgogICAgICAgICAgICAgICAgd2lkdGg9ezQwMH0KICAgICAgICAgICAgICAgIGNvbnRlbnQ9ezxUZXh0IHA9ezIwfT5Ub3AgcmlnaHQ8L1RleHQ+fQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICBpZD0idG9wLXJpZ2h0IgogICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9e3Nob3d9PgogICAgICAgICAgICAgICAgICAgIFNob3cgUG9wb3ZlcgogICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDwvUG9wb3Zlcj4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const Positions = () => {
+    const { visible, show, hide } = useVisibility(true)
+
+    return (
+        <View m="0 0 0 300px">
+            <Popover
+                anchor="middle-left"
+                width={300}
+                content={<Text p={20}>Middle left</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="middle-left"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={25} />
+            <Popover
+                anchor="middle-right"
+                width={400}
+                content={<Text p={20}>Middle right</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="middle-right"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75} />
+            <Popover
+                anchor="top-center"
+                width={300}
+                content={<Text p={20}>Top center</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="top-center"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={25} />
+            <Popover
+                anchor="bottom-center"
+                width={400}
+                content={<Text p={20}>Bottom center</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="bottom-center"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75} />
+            <Popover
+                anchor="bottom-left"
+                width={300}
+                content={<Text p={20}>Bottom left</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="bottom-left"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75} />
+            <Popover
+                anchor="bottom-right"
+                width={400}
+                content={<Text p={20}>Bottom right</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="bottom-right"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={125} />
+            <Popover
+                anchor="top-left"
+                width={400}
+                content={<Text p={20}>Top left</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="top-left"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75} />
+            <Popover
+                anchor="top-right"
+                width={400}
+                content={<Text p={20}>Top right</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="top-right"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+        </View>
+    )
+}
+```
+### Positions With Arrows
+<a name="positionswitharrows"></a>
+
+export const PositionsWithArrows = () => {
+    const { visible, show, hide } = useVisibility(true);
+    return (<View m="0 0 0 300px">
+            <Popover arrow anchor="middle-left" width={300} content={<Text p={20}>Middle left</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="middle-left" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={25}/>
+            <Popover arrow anchor="middle-right" width={400} content={<Text p={20}>Middle right</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="middle-right" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75}/>
+            <Popover arrow anchor="top-center" width={300} content={<Text p={20}>Top center</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="top-center" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={25}/>
+            <Popover arrow anchor="bottom-center" width={400} content={<Text p={20}>Bottom center</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="bottom-center" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75}/>
+            <Popover arrow anchor="bottom-left" width={300} content={<Text p={20}>Bottom left</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="bottom-left" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75}/>
+            <Popover arrow anchor="bottom-right" width={400} content={<Text p={20}>Bottom right</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="bottom-right" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={125}/>
+            <Popover arrow anchor="top-left" width={400} content={<Text p={20}>Top left</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="top-left" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75}/>
+            <Popover arrow anchor="top-right" width={400} content={<Text p={20}>Top right</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="top-right" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+        </View>);
+};
+
+<div className="story-block">
+<PositionsWithArrows />
+</div>
+
+<CodeComponent filename="PositionsWithArrows.tsx" code="ZXhwb3J0IGNvbnN0IFBvc2l0aW9uc1dpdGhBcnJvd3MgPSAoKSA9PiB7CiAgICBjb25zdCB7IHZpc2libGUsIHNob3csIGhpZGUgfSA9IHVzZVZpc2liaWxpdHkodHJ1ZSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3IG09IjAgMCAwIDMwMHB4Ij4KICAgICAgICAgICAgPFBvcG92ZXIKICAgICAgICAgICAgICAgIGFycm93CiAgICAgICAgICAgICAgICBhbmNob3I9Im1pZGRsZS1sZWZ0IgogICAgICAgICAgICAgICAgd2lkdGg9ezMwMH0KICAgICAgICAgICAgICAgIGNvbnRlbnQ9ezxUZXh0IHA9ezIwfT5NaWRkbGUgbGVmdDwvVGV4dD59CiAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9PgogICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgIGlkPSJtaWRkbGUtbGVmdCIKICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXtzaG93fT4KICAgICAgICAgICAgICAgICAgICBTaG93IFBvcG92ZXIKICAgICAgICAgICAgICAgIDwvQnV0dG9uPgogICAgICAgICAgICA8L1BvcG92ZXI+CiAgICAgICAgICAgIDxWaWV3IGhlaWdodD17MjV9IC8+CiAgICAgICAgICAgIDxQb3BvdmVyCiAgICAgICAgICAgICAgICBhcnJvdwogICAgICAgICAgICAgICAgYW5jaG9yPSJtaWRkbGUtcmlnaHQiCiAgICAgICAgICAgICAgICB3aWR0aD17NDAwfQogICAgICAgICAgICAgICAgY29udGVudD17PFRleHQgcD17MjB9Pk1pZGRsZSByaWdodDwvVGV4dD59CiAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9PgogICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgIGlkPSJtaWRkbGUtcmlnaHQiCiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17c2hvd30+CiAgICAgICAgICAgICAgICAgICAgU2hvdyBQb3BvdmVyCiAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgPC9Qb3BvdmVyPgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezc1fSAvPgogICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgYXJyb3cKICAgICAgICAgICAgICAgIGFuY2hvcj0idG9wLWNlbnRlciIKICAgICAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgICAgICBjb250ZW50PXs8VGV4dCBwPXsyMH0+VG9wIGNlbnRlcjwvVGV4dD59CiAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9PgogICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgIGlkPSJ0b3AtY2VudGVyIgogICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9e3Nob3d9PgogICAgICAgICAgICAgICAgICAgIFNob3cgUG9wb3ZlcgogICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDwvUG9wb3Zlcj4KICAgICAgICAgICAgPFZpZXcgaGVpZ2h0PXsyNX0gLz4KICAgICAgICAgICAgPFBvcG92ZXIKICAgICAgICAgICAgICAgIGFycm93CiAgICAgICAgICAgICAgICBhbmNob3I9ImJvdHRvbS1jZW50ZXIiCiAgICAgICAgICAgICAgICB3aWR0aD17NDAwfQogICAgICAgICAgICAgICAgY29udGVudD17PFRleHQgcD17MjB9PkJvdHRvbSBjZW50ZXI8L1RleHQ+fQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICBpZD0iYm90dG9tLWNlbnRlciIKICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXtzaG93fT4KICAgICAgICAgICAgICAgICAgICBTaG93IFBvcG92ZXIKICAgICAgICAgICAgICAgIDwvQnV0dG9uPgogICAgICAgICAgICA8L1BvcG92ZXI+CiAgICAgICAgICAgIDxWaWV3IGhlaWdodD17NzV9IC8+CiAgICAgICAgICAgIDxQb3BvdmVyCiAgICAgICAgICAgICAgICBhcnJvdwogICAgICAgICAgICAgICAgYW5jaG9yPSJib3R0b20tbGVmdCIKICAgICAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgICAgICBjb250ZW50PXs8VGV4dCBwPXsyMH0+Qm90dG9tIGxlZnQ8L1RleHQ+fQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICBpZD0iYm90dG9tLWxlZnQiCiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17c2hvd30+CiAgICAgICAgICAgICAgICAgICAgU2hvdyBQb3BvdmVyCiAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgPC9Qb3BvdmVyPgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezc1fSAvPgogICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgYXJyb3cKICAgICAgICAgICAgICAgIGFuY2hvcj0iYm90dG9tLXJpZ2h0IgogICAgICAgICAgICAgICAgd2lkdGg9ezQwMH0KICAgICAgICAgICAgICAgIGNvbnRlbnQ9ezxUZXh0IHA9ezIwfT5Cb3R0b20gcmlnaHQ8L1RleHQ+fQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICBpZD0iYm90dG9tLXJpZ2h0IgogICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9e3Nob3d9PgogICAgICAgICAgICAgICAgICAgIFNob3cgUG9wb3ZlcgogICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDwvUG9wb3Zlcj4KICAgICAgICAgICAgPFZpZXcgaGVpZ2h0PXsxMjV9IC8+CiAgICAgICAgICAgIDxQb3BvdmVyCiAgICAgICAgICAgICAgICBhcnJvdwogICAgICAgICAgICAgICAgYW5jaG9yPSJ0b3AtbGVmdCIKICAgICAgICAgICAgICAgIHdpZHRoPXs0MDB9CiAgICAgICAgICAgICAgICBjb250ZW50PXs8VGV4dCBwPXsyMH0+VG9wIGxlZnQ8L1RleHQ+fQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICBpZD0idG9wLWxlZnQiCiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17c2hvd30+CiAgICAgICAgICAgICAgICAgICAgU2hvdyBQb3BvdmVyCiAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgPC9Qb3BvdmVyPgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezc1fSAvPgogICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgYXJyb3cKICAgICAgICAgICAgICAgIGFuY2hvcj0idG9wLXJpZ2h0IgogICAgICAgICAgICAgICAgd2lkdGg9ezQwMH0KICAgICAgICAgICAgICAgIGNvbnRlbnQ9ezxUZXh0IHA9ezIwfT5Ub3AgcmlnaHQ8L1RleHQ+fQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICBpZD0idG9wLXJpZ2h0IgogICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9e3Nob3d9PgogICAgICAgICAgICAgICAgICAgIFNob3cgUG9wb3ZlcgogICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDwvUG9wb3Zlcj4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const PositionsWithArrows = () => {
+    const { visible, show, hide } = useVisibility(true)
+
+    return (
+        <View m="0 0 0 300px">
+            <Popover
+                arrow
+                anchor="middle-left"
+                width={300}
+                content={<Text p={20}>Middle left</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="middle-left"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={25} />
+            <Popover
+                arrow
+                anchor="middle-right"
+                width={400}
+                content={<Text p={20}>Middle right</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="middle-right"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75} />
+            <Popover
+                arrow
+                anchor="top-center"
+                width={300}
+                content={<Text p={20}>Top center</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="top-center"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={25} />
+            <Popover
+                arrow
+                anchor="bottom-center"
+                width={400}
+                content={<Text p={20}>Bottom center</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="bottom-center"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75} />
+            <Popover
+                arrow
+                anchor="bottom-left"
+                width={300}
+                content={<Text p={20}>Bottom left</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="bottom-left"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75} />
+            <Popover
+                arrow
+                anchor="bottom-right"
+                width={400}
+                content={<Text p={20}>Bottom right</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="bottom-right"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={125} />
+            <Popover
+                arrow
+                anchor="top-left"
+                width={400}
+                content={<Text p={20}>Top left</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="top-left"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+            <View height={75} />
+            <Popover
+                arrow
+                anchor="top-right"
+                width={400}
+                content={<Text p={20}>Top right</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="top-right"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+        </View>
+    )
+}
+```
+### Focus Trap With Child Width
+<a name="focustrapwithchildwidth"></a>
+
+export const FocusTrapWithChildWidth = () => {
+    const { visible, show, hide } = useVisibility(true);
+    const ref1 = useRef(null);
+    const ref2 = useRef(null);
+    return (<Popover anchor="bottom-right" content={<Text p={20}>Fixed to the width of the container & only blurring will dismiss this.</Text>} isVisible={visible} onDismiss={(e) => {
+            switch (e.target) {
+                case ref1.current:
+                    return console.log('main input');
+                case ref2.current:
+                    return console.log('popup content input');
+                default:
+                    hide();
+            }
+        }}>
+            <Input onFocus={show} value={visible ? 'Popover is visible' : 'Popover is not visible'} ref={ref1} onChange={(e) => null}/>
+        </Popover>);
+};
+
+<div className="story-block">
+<FocusTrapWithChildWidth />
+</div>
+
+<CodeComponent filename="FocusTrapWithChildWidth.tsx" code="ZXhwb3J0IGNvbnN0IEZvY3VzVHJhcFdpdGhDaGlsZFdpZHRoID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KHRydWUpCiAgICBjb25zdCByZWYxID0gdXNlUmVmKG51bGwpCiAgICBjb25zdCByZWYyID0gdXNlUmVmKG51bGwpCgogICAgcmV0dXJuICgKICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICBhbmNob3I9ImJvdHRvbS1yaWdodCIKICAgICAgICAgICAgY29udGVudD17PFRleHQgcD17MjB9PkZpeGVkIHRvIHRoZSB3aWR0aCBvZiB0aGUgY29udGFpbmVyICYgb25seSBibHVycmluZyB3aWxsIGRpc21pc3MgdGhpcy48L1RleHQ+fQogICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgIG9uRGlzbWlzcz17KGUpID0+IHsKICAgICAgICAgICAgICAgIHN3aXRjaCAoZS50YXJnZXQpIHsKICAgICAgICAgICAgICAgICAgICBjYXNlIHJlZjEuY3VycmVudDoKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGNvbnNvbGUubG9nKCdtYWluIGlucHV0JykKICAgICAgICAgICAgICAgICAgICBjYXNlIHJlZjIuY3VycmVudDoKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGNvbnNvbGUubG9nKCdwb3B1cCBjb250ZW50IGlucHV0JykKICAgICAgICAgICAgICAgICAgICBkZWZhdWx0OgogICAgICAgICAgICAgICAgICAgICAgICBoaWRlKCkKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfX0+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgb25Gb2N1cz17c2hvd30KICAgICAgICAgICAgICAgIHZhbHVlPXt2aXNpYmxlID8gJ1BvcG92ZXIgaXMgdmlzaWJsZScgOiAnUG9wb3ZlciBpcyBub3QgdmlzaWJsZSd9CiAgICAgICAgICAgICAgICByZWY9e3JlZjF9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IG51bGx9CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9Qb3BvdmVyPgogICAgKQp9" />
+
+```tsx
+export const FocusTrapWithChildWidth = () => {
+    const { visible, show, hide } = useVisibility(true)
+    const ref1 = useRef(null)
+    const ref2 = useRef(null)
+
+    return (
+        <Popover
+            anchor="bottom-right"
+            content={<Text p={20}>Fixed to the width of the container & only blurring will dismiss this.</Text>}
+            isVisible={visible}
+            onDismiss={(e) => {
+                switch (e.target) {
+                    case ref1.current:
+                        return console.log('main input')
+                    case ref2.current:
+                        return console.log('popup content input')
+                    default:
+                        hide()
+                }
+            }}>
+            <Input
+                onFocus={show}
+                value={visible ? 'Popover is visible' : 'Popover is not visible'}
+                ref={ref1}
+                onChange={(e) => null}
+            />
+        </Popover>
+    )
+}
+```
+### Anchor
+<a name="anchor"></a>
+
+export const Anchor = () => {
+    const { visible, show, hide } = useVisibility(true);
+    return (<View position="relative">
+            <Popover width={400} anchor="bottom-left" fixPosition={{ top: 200, left: 200 }} content={<Text p={20}>This popover is fixed at 200px down & 200px left.</Text>} isVisible={visible} onDismiss={hide}>
+                <Button id="bottom-right" onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+        </View>);
+};
+
+<div className="story-block">
+<Anchor />
+</div>
+
+<CodeComponent filename="Anchor.tsx" code="ZXhwb3J0IGNvbnN0IEFuY2hvciA9ICgpID0+IHsKICAgIGNvbnN0IHsgdmlzaWJsZSwgc2hvdywgaGlkZSB9ID0gdXNlVmlzaWJpbGl0eSh0cnVlKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcgcG9zaXRpb249InJlbGF0aXZlIj4KICAgICAgICAgICAgPFBvcG92ZXIKICAgICAgICAgICAgICAgIHdpZHRoPXs0MDB9CiAgICAgICAgICAgICAgICBhbmNob3I9ImJvdHRvbS1sZWZ0IgogICAgICAgICAgICAgICAgZml4UG9zaXRpb249e3sgdG9wOiAyMDAsIGxlZnQ6IDIwMCB9fQogICAgICAgICAgICAgICAgY29udGVudD17PFRleHQgcD17MjB9PlRoaXMgcG9wb3ZlciBpcyBmaXhlZCBhdCAyMDBweCBkb3duICYgMjAwcHggbGVmdC48L1RleHQ+fQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICBpZD0iYm90dG9tLXJpZ2h0IgogICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9e3Nob3d9PgogICAgICAgICAgICAgICAgICAgIFNob3cgUG9wb3ZlcgogICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDwvUG9wb3Zlcj4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const Anchor = () => {
+    const { visible, show, hide } = useVisibility(true)
+
+    return (
+        <View position="relative">
+            <Popover
+                width={400}
+                anchor="bottom-left"
+                fixPosition={{ top: 200, left: 200 }}
+                content={<Text p={20}>This popover is fixed at 200px down & 200px left.</Text>}
+                isVisible={visible}
+                onDismiss={hide}>
+                <Button
+                    id="bottom-right"
+                    onClick={show}>
+                    Show Popover
+                </Button>
+            </Popover>
+        </View>
+    )
+}
+```
+### Offscreen Detection
+<a name="offscreendetection"></a>
+
+export const OffscreenDetection = () => {
+    const { visible, show, hide } = useVisibility(false);
+    return (<View>
+            <View row>
+                <Popover arrow width="fit-content" isVisible={visible} onDismiss={hide} content={<View width={300} height={200}>
+                            <Text p={20}>This will open to the right</Text>
+                        </View>}>
+                    <Button onClick={show}>Show Popover</Button>
+                </Popover>
+                <Flexer />
+                <Popover arrow width="fit-content" isVisible={visible} onDismiss={hide} content={<View width={300} height={200}>
+                            <Text p={20}>This will open to the left</Text>
+                        </View>}>
+                    <Button onClick={show}>Show Popover</Button>
+                </Popover>
+            </View>
+            <br />
+            <MenuButton menu={({ dismiss }) => (<Menu width={200}>
+                        <MenuItem>File</MenuItem>
+                        <MenuItem>Edit</MenuItem>
+                        <MenuItem>Copy</MenuItem>
+                        <MenuItem>Paste</MenuItem>
+                        <MenuItem>Cut</MenuItem>
+                        <MenuItem>Select</MenuItem>
+                        <MenuItem>Settings</MenuItem>
+                        <MenuItem>Print</MenuItem>
+                        <MenuItem>Export</MenuItem>
+                        <MenuItem>Save</MenuItem>
+                        <MenuItem>Exit</MenuItem>
+                    </Menu>)}>
+                Open Menu
+            </MenuButton>
+        </View>);
+};
+
+<div className="story-block">
+<OffscreenDetection />
+</div>
+
+<CodeComponent filename="OffscreenDetection.tsx" code="ZXhwb3J0IGNvbnN0IE9mZnNjcmVlbkRldGVjdGlvbiA9ICgpID0+IHsKICAgIGNvbnN0IHsgdmlzaWJsZSwgc2hvdywgaGlkZSB9ID0gdXNlVmlzaWJpbGl0eShmYWxzZSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3PgogICAgICAgICAgICA8VmlldyByb3c+CiAgICAgICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgICAgIGFycm93CiAgICAgICAgICAgICAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50IgogICAgICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9CiAgICAgICAgICAgICAgICAgICAgY29udGVudD17CiAgICAgICAgICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXsyMDB9PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQgcD17MjB9PlRoaXMgd2lsbCBvcGVuIHRvIHRoZSByaWdodDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgICAgIH0+CiAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXtzaG93fT5TaG93IFBvcG92ZXI8L0J1dHRvbj4KICAgICAgICAgICAgICAgIDwvUG9wb3Zlcj4KICAgICAgICAgICAgICAgIDxGbGV4ZXIgLz4KICAgICAgICAgICAgICAgIDxQb3BvdmVyCiAgICAgICAgICAgICAgICAgICAgYXJyb3cKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiCiAgICAgICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0KICAgICAgICAgICAgICAgICAgICBjb250ZW50PXsKICAgICAgICAgICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9ezIwMH0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VGV4dCBwPXsyMH0+VGhpcyB3aWxsIG9wZW4gdG8gdGhlIGxlZnQ8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgICAgICB9PgogICAgICAgICAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17c2hvd30+U2hvdyBQb3BvdmVyPC9CdXR0b24+CiAgICAgICAgICAgICAgICA8L1BvcG92ZXI+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPGJyIC8+CiAgICAgICAgICAgIDxNZW51QnV0dG9uCiAgICAgICAgICAgICAgICBtZW51PXsoeyBkaXNtaXNzIH0pID0+ICgKICAgICAgICAgICAgICAgICAgICA8TWVudSB3aWR0aD17MjAwfT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPkZpbGU8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+RWRpdDwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgICAgIDxNZW51SXRlbT5Db3B5PC9NZW51SXRlbT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPlBhc3RlPC9NZW51SXRlbT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPkN1dDwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgICAgIDxNZW51SXRlbT5TZWxlY3Q8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+U2V0dGluZ3M8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+UHJpbnQ8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+RXhwb3J0PC9NZW51SXRlbT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPlNhdmU8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+RXhpdDwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgPC9NZW51PgogICAgICAgICAgICAgICAgKX0+CiAgICAgICAgICAgICAgICBPcGVuIE1lbnUKICAgICAgICAgICAgPC9NZW51QnV0dG9uPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const OffscreenDetection = () => {
+    const { visible, show, hide } = useVisibility(false)
+
+    return (
+        <View>
+            <View row>
+                <Popover
+                    arrow
+                    width="fit-content"
+                    isVisible={visible}
+                    onDismiss={hide}
+                    content={
+                        <View
+                            width={300}
+                            height={200}>
+                            <Text p={20}>This will open to the right</Text>
+                        </View>
+                    }>
+                    <Button onClick={show}>Show Popover</Button>
+                </Popover>
+                <Flexer />
+                <Popover
+                    arrow
+                    width="fit-content"
+                    isVisible={visible}
+                    onDismiss={hide}
+                    content={
+                        <View
+                            width={300}
+                            height={200}>
+                            <Text p={20}>This will open to the left</Text>
+                        </View>
+                    }>
+                    <Button onClick={show}>Show Popover</Button>
+                </Popover>
+            </View>
+            <br />
+            <MenuButton
+                menu={({ dismiss }) => (
+                    <Menu width={200}>
+                        <MenuItem>File</MenuItem>
+                        <MenuItem>Edit</MenuItem>
+                        <MenuItem>Copy</MenuItem>
+                        <MenuItem>Paste</MenuItem>
+                        <MenuItem>Cut</MenuItem>
+                        <MenuItem>Select</MenuItem>
+                        <MenuItem>Settings</MenuItem>
+                        <MenuItem>Print</MenuItem>
+                        <MenuItem>Export</MenuItem>
+                        <MenuItem>Save</MenuItem>
+                        <MenuItem>Exit</MenuItem>
+                    </Menu>
+                )}>
+                Open Menu
+            </MenuButton>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

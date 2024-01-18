@@ -1,0 +1,168 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import * as Token from '@fold-dev/design/tokens'
+import React from 'react'
+import { Logo, LogoSolid, View } from '@fold-dev/core'
+
+export const docs = {
+    title: 'Logo',
+    subtitle: 'The Logo component enable users to use the Fold logo anywhere in their app or website.',
+    description: 'There are no restrictions in coloring the logo, however the shape must not be altered.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/logo/logo.tsx","description":"","displayName":"Logo","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"style":{"defaultValue":null,"description":"","name":"style","declarations":[{"fileName":"packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"customSize":{"defaultValue":null,"description":"","name":"customSize","declarations":[{"fileName":"packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/logo/logo.tsx","description":"","displayName":"LogoSolid","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"style":{"defaultValue":null,"description":"","name":"style","declarations":[{"fileName":"packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"customSize":{"defaultValue":null,"description":"","name":"customSize","declarations":[{"fileName":"packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}}}}]
+
+export const css = []
+
+<CodeComponent filename="logo.tsx" code="aW1wb3J0IHsgTG9nbywgTG9nb1NvbGlkIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Logo, LogoSolid } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return <Logo />;
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuIDxMb2dvIC8+Cn0=" />
+
+```tsx
+export const Usage = () => {
+    return <Logo />
+}
+```
+### Solid
+<a name="solid"></a>
+
+export const Solid = () => {
+    return <LogoSolid />;
+};
+
+<div className="story-block">
+<Solid />
+</div>
+
+<CodeComponent filename="Solid.tsx" code="ZXhwb3J0IGNvbnN0IFNvbGlkID0gKCkgPT4gewogICAgcmV0dXJuIDxMb2dvU29saWQgLz4KfQ==" />
+
+```tsx
+export const Solid = () => {
+    return <LogoSolid />
+}
+```
+### Sizes
+<a name="sizes"></a>
+
+export const Sizes = () => {
+    return (<View row gap={20}>
+            <Logo size="xs" color={Token.ColorAccent300}/>
+            <Logo size="sm" color={Token.ColorAccent400}/>
+            <Logo size="md" color={Token.ColorAccent500}/>
+            <Logo size="lg" color={Token.ColorAccent600}/>
+            <Logo size="xl" color={Token.ColorAccent700}/>
+            <Logo customSize={120} color={Token.ColorAccent800}/>
+        </View>);
+};
+
+<div className="story-block">
+<Sizes />
+</div>
+
+<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICByb3cKICAgICAgICAgICAgZ2FwPXsyMH0+CiAgICAgICAgICAgIDxMb2dvCiAgICAgICAgICAgICAgICBzaXplPSJ4cyIKICAgICAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvckFjY2VudDMwMH0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPExvZ28KICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yQWNjZW50NDAwfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8TG9nbwogICAgICAgICAgICAgICAgc2l6ZT0ibWQiCiAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JBY2NlbnQ1MDB9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMb2dvCiAgICAgICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvckFjY2VudDYwMH0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPExvZ28KICAgICAgICAgICAgICAgIHNpemU9InhsIgogICAgICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yQWNjZW50NzAwfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8TG9nbwogICAgICAgICAgICAgICAgY3VzdG9tU2l6ZT17MTIwfQogICAgICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yQWNjZW50ODAwfQogICAgICAgICAgICAvPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const Sizes = () => {
+    return (
+        <View
+            row
+            gap={20}>
+            <Logo
+                size="xs"
+                color={Token.ColorAccent300}
+            />
+            <Logo
+                size="sm"
+                color={Token.ColorAccent400}
+            />
+            <Logo
+                size="md"
+                color={Token.ColorAccent500}
+            />
+            <Logo
+                size="lg"
+                color={Token.ColorAccent600}
+            />
+            <Logo
+                size="xl"
+                color={Token.ColorAccent700}
+            />
+            <Logo
+                customSize={120}
+                color={Token.ColorAccent800}
+            />
+        </View>
+    )
+}
+```
+### Sizes Solid
+<a name="sizessolid"></a>
+
+export const SizesSolid = () => {
+    return (<View row gap={20}>
+            <LogoSolid size="xs" color={Token.ColorAccent300}/>
+            <LogoSolid size="sm" color={Token.ColorAccent400}/>
+            <LogoSolid size="md" color={Token.ColorAccent500}/>
+            <LogoSolid size="lg" color={Token.ColorAccent600}/>
+            <LogoSolid size="xl" color={Token.ColorAccent700}/>
+            <LogoSolid customSize={120} color={Token.ColorAccent800}/>
+        </View>);
+};
+
+<div className="story-block">
+<SizesSolid />
+</div>
+
+<CodeComponent filename="SizesSolid.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzU29saWQgPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3CiAgICAgICAgICAgIHJvdwogICAgICAgICAgICBnYXA9ezIwfT4KICAgICAgICAgICAgPExvZ29Tb2xpZAogICAgICAgICAgICAgICAgc2l6ZT0ieHMiCiAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JBY2NlbnQzMDB9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMb2dvU29saWQKICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yQWNjZW50NDAwfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8TG9nb1NvbGlkCiAgICAgICAgICAgICAgICBzaXplPSJtZCIKICAgICAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvckFjY2VudDUwMH0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPExvZ29Tb2xpZAogICAgICAgICAgICAgICAgc2l6ZT0ibGciCiAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JBY2NlbnQ2MDB9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMb2dvU29saWQKICAgICAgICAgICAgICAgIHNpemU9InhsIgogICAgICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yQWNjZW50NzAwfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8TG9nb1NvbGlkCiAgICAgICAgICAgICAgICBjdXN0b21TaXplPXsxMjB9CiAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JBY2NlbnQ4MDB9CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const SizesSolid = () => {
+    return (
+        <View
+            row
+            gap={20}>
+            <LogoSolid
+                size="xs"
+                color={Token.ColorAccent300}
+            />
+            <LogoSolid
+                size="sm"
+                color={Token.ColorAccent400}
+            />
+            <LogoSolid
+                size="md"
+                color={Token.ColorAccent500}
+            />
+            <LogoSolid
+                size="lg"
+                color={Token.ColorAccent600}
+            />
+            <LogoSolid
+                size="xl"
+                color={Token.ColorAccent700}
+            />
+            <LogoSolid
+                customSize={120}
+                color={Token.ColorAccent800}
+            />
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

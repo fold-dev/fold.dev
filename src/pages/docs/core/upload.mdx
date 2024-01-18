@@ -1,0 +1,156 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, Stack, Text, Upload, UploadArea, UploadCustom, View } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Upload',
+    subtitle:
+        'The Upload component is a drag & drop area where files can be dropped & then uploaded to an external server.',
+    description:
+        'File uploads are a ubiquitous feature in many types of applications and websites. The Upload component is useful for allowing users to either drag & drop their files, or directly clicking an element to start their upload.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/upload/upload.tsx","description":"","displayName":"Upload","methods":[],"props":{"inputProps":{"defaultValue":null,"description":"","name":"inputProps","declarations":[{"fileName":"packages/core/src/upload/upload.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/upload/upload.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"loadingProgress":{"defaultValue":null,"description":"","name":"loadingProgress","declarations":[{"fileName":"packages/core/src/upload/upload.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"packages/core/src/upload/upload.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"packages/core/src/upload/upload.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"packages/core/src/upload/upload.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"packages/core/src/upload/upload.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onDrop":{"defaultValue":null,"description":"","name":"onDrop","declarations":[{"fileName":"packages/core/src/upload/upload.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/upload/upload.tsx","description":"","displayName":"UploadArea","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/upload/upload.tsx","description":"","displayName":"UploadCustom","methods":[],"props":{"inputProps":{"defaultValue":null,"description":"","name":"inputProps","declarations":[{"fileName":"packages/core/src/upload/upload.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/upload/upload.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-upload-border-radius","var(--f-radius)"],["--f-upload-border","0.2rem solid var(--f-color-border)"],["--f-upload-border-hover","0.2rem solid var(--f-color-border-strong)"],["--f-upload-border-active","0.2rem dashed var(--f-color-accent)"],["--f-upload-background","var(--f-color-surface-strong)"],["--f-upload-color","var(--f-color-text)"],["--f-upload-color-sub","var(--f-color-text-weaker)"],["--f-upload-color-active","var(--f-color-accent)"],["--f-upload-padding","var(--f-size-15) 0"],["--f-upload-gap","1rem"]]]
+
+
+
+<CodeComponent filename="upload.tsx" code="aW1wb3J0IHsgVXBsb2FkLCBVcGxvYWRBcmVhLCBVcGxvYWRDdXN0b20gfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { Upload, UploadArea, UploadCustom } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<Upload title="Upload" description="Click or drop your files here to begin your upload." onDrop={(files) => console.log('Your files: ', files)}/>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFVwbG9hZAogICAgICAgIHRpdGxlPSJVcGxvYWQiCiAgICAgICAgZGVzY3JpcHRpb249IkNsaWNrIG9yIGRyb3AgeW91ciBmaWxlcyBoZXJlIHRvIGJlZ2luIHlvdXIgdXBsb2FkLiIKICAgICAgICBvbkRyb3A9eyhmaWxlcykgPT4gY29uc29sZS5sb2coJ1lvdXIgZmlsZXM6ICcsIGZpbGVzKX0KICAgIC8+Cik=" />
+
+```tsx
+export const Usage = () => (
+    <Upload
+        title="Upload"
+        description="Click or drop your files here to begin your upload."
+        onDrop={(files) => console.log('Your files: ', files)}
+    />
+)
+```
+### States
+<a name="states"></a>
+
+export const States = () => (<Stack direction="vertical" spacing={10}>
+        <Upload title="Default" description="Click or drop your files here to begin your upload." onDrop={(files) => console.log('Your files: ', files)}/>
+        <Upload disabled title="Disabled" description="Click or drop your files here to begin your upload." onDrop={(files) => console.log('Your files: ', files)}/>
+        <Upload loading title="Loading" description="Click or drop your files here to begin your upload." onDrop={(files) => console.log('Your files: ', files)}/>
+        <Upload loadingProgress={45} title="Loading progress" description="Click or drop your files here to begin your upload." onDrop={(files) => console.log('Your files: ', files)}/>
+        <Upload loading loadingProgress={45} title="Very busy..." description="Click or drop your files here to begin your upload." onDrop={(files) => console.log('Your files: ', files)}/>
+    </Stack>);
+
+<div className="story-block">
+<States />
+</div>
+
+<CodeComponent filename="States.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXRlcyA9ICgpID0+ICgKICAgIDxTdGFjawogICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgc3BhY2luZz17MTB9PgogICAgICAgIDxVcGxvYWQKICAgICAgICAgICAgdGl0bGU9IkRlZmF1bHQiCiAgICAgICAgICAgIGRlc2NyaXB0aW9uPSJDbGljayBvciBkcm9wIHlvdXIgZmlsZXMgaGVyZSB0byBiZWdpbiB5b3VyIHVwbG9hZC4iCiAgICAgICAgICAgIG9uRHJvcD17KGZpbGVzKSA9PiBjb25zb2xlLmxvZygnWW91ciBmaWxlczogJywgZmlsZXMpfQogICAgICAgIC8+CiAgICAgICAgPFVwbG9hZAogICAgICAgICAgICBkaXNhYmxlZAogICAgICAgICAgICB0aXRsZT0iRGlzYWJsZWQiCiAgICAgICAgICAgIGRlc2NyaXB0aW9uPSJDbGljayBvciBkcm9wIHlvdXIgZmlsZXMgaGVyZSB0byBiZWdpbiB5b3VyIHVwbG9hZC4iCiAgICAgICAgICAgIG9uRHJvcD17KGZpbGVzKSA9PiBjb25zb2xlLmxvZygnWW91ciBmaWxlczogJywgZmlsZXMpfQogICAgICAgIC8+CiAgICAgICAgPFVwbG9hZAogICAgICAgICAgICBsb2FkaW5nCiAgICAgICAgICAgIHRpdGxlPSJMb2FkaW5nIgogICAgICAgICAgICBkZXNjcmlwdGlvbj0iQ2xpY2sgb3IgZHJvcCB5b3VyIGZpbGVzIGhlcmUgdG8gYmVnaW4geW91ciB1cGxvYWQuIgogICAgICAgICAgICBvbkRyb3A9eyhmaWxlcykgPT4gY29uc29sZS5sb2coJ1lvdXIgZmlsZXM6ICcsIGZpbGVzKX0KICAgICAgICAvPgogICAgICAgIDxVcGxvYWQKICAgICAgICAgICAgbG9hZGluZ1Byb2dyZXNzPXs0NX0KICAgICAgICAgICAgdGl0bGU9IkxvYWRpbmcgcHJvZ3Jlc3MiCiAgICAgICAgICAgIGRlc2NyaXB0aW9uPSJDbGljayBvciBkcm9wIHlvdXIgZmlsZXMgaGVyZSB0byBiZWdpbiB5b3VyIHVwbG9hZC4iCiAgICAgICAgICAgIG9uRHJvcD17KGZpbGVzKSA9PiBjb25zb2xlLmxvZygnWW91ciBmaWxlczogJywgZmlsZXMpfQogICAgICAgIC8+CiAgICAgICAgPFVwbG9hZAogICAgICAgICAgICBsb2FkaW5nCiAgICAgICAgICAgIGxvYWRpbmdQcm9ncmVzcz17NDV9CiAgICAgICAgICAgIHRpdGxlPSJWZXJ5IGJ1c3kuLi4iCiAgICAgICAgICAgIGRlc2NyaXB0aW9uPSJDbGljayBvciBkcm9wIHlvdXIgZmlsZXMgaGVyZSB0byBiZWdpbiB5b3VyIHVwbG9hZC4iCiAgICAgICAgICAgIG9uRHJvcD17KGZpbGVzKSA9PiBjb25zb2xlLmxvZygnWW91ciBmaWxlczogJywgZmlsZXMpfQogICAgICAgIC8+CiAgICA8L1N0YWNrPgop" />
+
+```tsx
+export const States = () => (
+    <Stack
+        direction="vertical"
+        spacing={10}>
+        <Upload
+            title="Default"
+            description="Click or drop your files here to begin your upload."
+            onDrop={(files) => console.log('Your files: ', files)}
+        />
+        <Upload
+            disabled
+            title="Disabled"
+            description="Click or drop your files here to begin your upload."
+            onDrop={(files) => console.log('Your files: ', files)}
+        />
+        <Upload
+            loading
+            title="Loading"
+            description="Click or drop your files here to begin your upload."
+            onDrop={(files) => console.log('Your files: ', files)}
+        />
+        <Upload
+            loadingProgress={45}
+            title="Loading progress"
+            description="Click or drop your files here to begin your upload."
+            onDrop={(files) => console.log('Your files: ', files)}
+        />
+        <Upload
+            loading
+            loadingProgress={45}
+            title="Very busy..."
+            description="Click or drop your files here to begin your upload."
+            onDrop={(files) => console.log('Your files: ', files)}
+        />
+    </Stack>
+)
+```
+### Upload Target
+<a name="uploadtarget"></a>
+
+export const UploadTarget = () => (<UploadArea onDrop={(files) => console.log('Your files: ', files)}>
+        {(over) => (<View row p={50} width="100%" height={500} bgToken="surface-strong" border={over ? '0.3rem dashed var(--f-color-accent)' : undefined}>
+                <Text>Drag your files anywhere onto this area.</Text>
+            </View>)}
+    </UploadArea>);
+
+<div className="story-block">
+<UploadTarget />
+</div>
+
+<CodeComponent filename="UploadTarget.tsx" code="ZXhwb3J0IGNvbnN0IFVwbG9hZFRhcmdldCA9ICgpID0+ICgKICAgIDxVcGxvYWRBcmVhIG9uRHJvcD17KGZpbGVzKSA9PiBjb25zb2xlLmxvZygnWW91ciBmaWxlczogJywgZmlsZXMpfT4KICAgICAgICB7KG92ZXIpID0+ICgKICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgcD17NTB9CiAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgIGhlaWdodD17NTAwfQogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBib3JkZXI9e292ZXIgPyAnMC4zcmVtIGRhc2hlZCB2YXIoLS1mLWNvbG9yLWFjY2VudCknIDogdW5kZWZpbmVkfT4KICAgICAgICAgICAgICAgIDxUZXh0PkRyYWcgeW91ciBmaWxlcyBhbnl3aGVyZSBvbnRvIHRoaXMgYXJlYS48L1RleHQ+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICApfQogICAgPC9VcGxvYWRBcmVhPgop" />
+
+```tsx
+export const UploadTarget = () => (
+    <UploadArea onDrop={(files) => console.log('Your files: ', files)}>
+        {(over) => (
+            <View
+                row
+                p={50}
+                width="100%"
+                height={500}
+                bgToken="surface-strong"
+                border={over ? '0.3rem dashed var(--f-color-accent)' : undefined}>
+                <Text>Drag your files anywhere onto this area.</Text>
+            </View>
+        )}
+    </UploadArea>
+)
+```
+### Custom Upload
+<a name="customupload"></a>
+
+export const CustomUpload = () => (<UploadCustom inputProps={{ accept: '.png,.jpg,.jpeg' }} onChange={(files) => console.log('Your files: ', files)}>
+        {(onSelect) => <Button onClick={onSelect}>Upload Image</Button>}
+    </UploadCustom>);
+
+<div className="story-block">
+<CustomUpload />
+</div>
+
+<CodeComponent filename="CustomUpload.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVVwbG9hZCA9ICgpID0+ICgKICAgIDxVcGxvYWRDdXN0b20KICAgICAgICBpbnB1dFByb3BzPXt7IGFjY2VwdDogJy5wbmcsLmpwZywuanBlZycgfX0KICAgICAgICBvbkNoYW5nZT17KGZpbGVzKSA9PiBjb25zb2xlLmxvZygnWW91ciBmaWxlczogJywgZmlsZXMpfT4KICAgICAgICB7KG9uU2VsZWN0KSA9PiA8QnV0dG9uIG9uQ2xpY2s9e29uU2VsZWN0fT5VcGxvYWQgSW1hZ2U8L0J1dHRvbj59CiAgICA8L1VwbG9hZEN1c3RvbT4KKQ==" />
+
+```tsx
+export const CustomUpload = () => (
+    <UploadCustom
+        inputProps={{ accept: '.png,.jpg,.jpeg' }}
+        onChange={(files) => console.log('Your files: ', files)}>
+        {(onSelect) => <Button onClick={onSelect}>Upload Image</Button>}
+    </UploadCustom>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

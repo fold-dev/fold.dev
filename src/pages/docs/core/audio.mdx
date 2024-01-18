@@ -1,0 +1,185 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Audio, AudioWaveform, Card } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Audio',
+    subtitle: 'The Audio component is used to embed sound content in websites & applications.',
+    description:
+        'The Audio component may contain one or more audio sources, represented using the src prop & is a thin wrapper around the native audio element.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/audio/audio.tsx","description":"","displayName":"AudioWaveform","methods":[],"props":{"defaultProgress":{"defaultValue":null,"description":"","name":"defaultProgress","declarations":[{"fileName":"packages/core/src/audio/audio.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"flatten":{"defaultValue":null,"description":"","name":"flatten","declarations":[{"fileName":"packages/core/src/audio/audio.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"samples":{"defaultValue":null,"description":"","name":"samples","declarations":[{"fileName":"packages/core/src/audio/audio.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"src":{"defaultValue":null,"description":"","name":"src","declarations":[{"fileName":"packages/core/src/audio/audio.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"AudioSource"},"tags":{}},"width":{"defaultValue":null,"description":"","name":"width","declarations":[{"fileName":"packages/core/src/audio/audio.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"height":{"defaultValue":null,"description":"","name":"height","declarations":[{"fileName":"packages/core/src/audio/audio.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"strokeWidth":{"defaultValue":null,"description":"","name":"strokeWidth","declarations":[{"fileName":"packages/core/src/audio/audio.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}}]
+
+export const css = [[["--f-audio-waveform-active","var(--f-color-accent)"],["--f-audio-waveform-inactive","var(--f-color-surface-stronger)"],["--f-audio-waveform-pin-width","0.2rem"],["--f-audio-waveform-pin-height","4rem"],["--f-audio-waveform-pin-background","var(--f-color-surface-strongest)"]]]
+
+
+
+<CodeComponent filename="audio.tsx" code="aW1wb3J0IHsgQXVkaW9XYXZlZm9ybSB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import { AudioWaveform } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<Audio width={500} loader muted controls srcs={[
+            {
+                src: 'https://upload.wikimedia.org/wikipedia/commons/4/42/Bird_singing.ogg',
+                type: 'audio/ogg',
+            },
+        ]}/>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXVkaW8KICAgICAgICAgICAgd2lkdGg9ezUwMH0KICAgICAgICAgICAgbG9hZGVyCiAgICAgICAgICAgIG11dGVkCiAgICAgICAgICAgIGNvbnRyb2xzCiAgICAgICAgICAgIHNyY3M9e1sKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBzcmM6ICdodHRwczovL3VwbG9hZC53aWtpbWVkaWEub3JnL3dpa2lwZWRpYS9jb21tb25zLzQvNDIvQmlyZF9zaW5naW5nLm9nZycsCiAgICAgICAgICAgICAgICAgICAgdHlwZTogJ2F1ZGlvL29nZycsCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICBdfQogICAgICAgIC8+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <Audio
+            width={500}
+            loader
+            muted
+            controls
+            srcs={[
+                {
+                    src: 'https://upload.wikimedia.org/wikipedia/commons/4/42/Bird_singing.ogg',
+                    type: 'audio/ogg',
+                },
+            ]}
+        />
+    )
+}
+```
+### Waveform
+<a name="waveform"></a>
+
+> The Waveform Audio component enables a richer, more platform agnostic interface to the audio component.
+
+export const Waveform = () => {
+    return (<Card width={300} p={20} column>
+            <AudioWaveform defaultProgress={0.5} width="100%" height={30} samples={100} strokeWidth={2} src={{
+            src: '/song.ogg',
+            type: 'audio/ogg',
+        }}/>
+        </Card>);
+};
+
+<div className="story-block">
+<Waveform />
+</div>
+
+<CodeComponent filename="Waveform.tsx" code="ZXhwb3J0IGNvbnN0IFdhdmVmb3JtID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8Q2FyZAogICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICBwPXsyMH0KICAgICAgICAgICAgY29sdW1uPgogICAgICAgICAgICA8QXVkaW9XYXZlZm9ybQogICAgICAgICAgICAgICAgZGVmYXVsdFByb2dyZXNzPXswLjV9CiAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgIGhlaWdodD17MzB9CiAgICAgICAgICAgICAgICBzYW1wbGVzPXsxMDB9CiAgICAgICAgICAgICAgICBzdHJva2VXaWR0aD17Mn0KICAgICAgICAgICAgICAgIHNyYz17ewogICAgICAgICAgICAgICAgICAgIHNyYzogJy9zb25nLm9nZycsCiAgICAgICAgICAgICAgICAgICAgdHlwZTogJ2F1ZGlvL29nZycsCiAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAvPgogICAgICAgIDwvQ2FyZD4KICAgICkKfQ==" />
+
+```tsx
+export const Waveform = () => {
+    return (
+        <Card
+            width={300}
+            p={20}
+            column>
+            <AudioWaveform
+                defaultProgress={0.5}
+                width="100%"
+                height={30}
+                samples={100}
+                strokeWidth={2}
+                src={{
+                    src: '/song.ogg',
+                    type: 'audio/ogg',
+                }}
+            />
+        </Card>
+    )
+}
+```
+### Flatten
+<a name="flatten"></a>
+
+export const Flatten = () => {
+    return (<Card width={300} p={20} column>
+            <AudioWaveform flatten defaultProgress={0.5} width="100%" height={30} samples={100} strokeWidth={3} src={{
+            src: '/song.ogg',
+            type: 'audio/ogg',
+        }}/>
+        </Card>);
+};
+
+<div className="story-block">
+<Flatten />
+</div>
+
+<CodeComponent filename="Flatten.tsx" code="ZXhwb3J0IGNvbnN0IEZsYXR0ZW4gPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgIHA9ezIwfQogICAgICAgICAgICBjb2x1bW4+CiAgICAgICAgICAgIDxBdWRpb1dhdmVmb3JtCiAgICAgICAgICAgICAgICBmbGF0dGVuCiAgICAgICAgICAgICAgICBkZWZhdWx0UHJvZ3Jlc3M9ezAuNX0KICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgaGVpZ2h0PXszMH0KICAgICAgICAgICAgICAgIHNhbXBsZXM9ezEwMH0KICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoPXszfQogICAgICAgICAgICAgICAgc3JjPXt7CiAgICAgICAgICAgICAgICAgICAgc3JjOiAnL3Nvbmcub2dnJywKICAgICAgICAgICAgICAgICAgICB0eXBlOiAnYXVkaW8vb2dnJywKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9DYXJkPgogICAgKQp9" />
+
+```tsx
+export const Flatten = () => {
+    return (
+        <Card
+            width={300}
+            p={20}
+            column>
+            <AudioWaveform
+                flatten
+                defaultProgress={0.5}
+                width="100%"
+                height={30}
+                samples={100}
+                strokeWidth={3}
+                src={{
+                    src: '/song.ogg',
+                    type: 'audio/ogg',
+                }}
+            />
+        </Card>
+    )
+}
+```
+### Custom Pin Height
+<a name="custompinheight"></a>
+
+export const CustomPinHeight = () => {
+    return (<Card width="fit-content" p={20} column>
+            <AudioWaveform style={{ '--f-audio-waveform-pin-height': '5rem' }} width={500} height={70} samples={100} strokeWidth={3} src={{
+            src: '/song.ogg',
+            type: 'audio/ogg',
+        }}/>
+        </Card>);
+};
+
+<div className="story-block">
+<CustomPinHeight />
+</div>
+
+<CodeComponent filename="CustomPinHeight.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVBpbkhlaWdodCA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPENhcmQKICAgICAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50IgogICAgICAgICAgICBwPXsyMH0KICAgICAgICAgICAgY29sdW1uPgogICAgICAgICAgICA8QXVkaW9XYXZlZm9ybQogICAgICAgICAgICAgICAgc3R5bGU9e3sgJy0tZi1hdWRpby13YXZlZm9ybS1waW4taGVpZ2h0JzogJzVyZW0nIH19CiAgICAgICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICAgICAgaGVpZ2h0PXs3MH0KICAgICAgICAgICAgICAgIHNhbXBsZXM9ezEwMH0KICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoPXszfQogICAgICAgICAgICAgICAgc3JjPXt7CiAgICAgICAgICAgICAgICAgICAgc3JjOiAnL3Nvbmcub2dnJywKICAgICAgICAgICAgICAgICAgICB0eXBlOiAnYXVkaW8vb2dnJywKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9DYXJkPgogICAgKQp9" />
+
+```tsx
+export const CustomPinHeight = () => {
+    return (
+        <Card
+            width="fit-content"
+            p={20}
+            column>
+            <AudioWaveform
+                style={{ '--f-audio-waveform-pin-height': '5rem' }}
+                width={500}
+                height={70}
+                samples={100}
+                strokeWidth={3}
+                src={{
+                    src: '/song.ogg',
+                    type: 'audio/ogg',
+                }}
+            />
+        </Card>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

@@ -1,0 +1,79 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { IconLib, Stat, View } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Stat',
+    subtitle: 'The Stat component highlights key statistics.',
+    description:
+        'Stat components are useful for emphasizing crucial data points & work well where space is limited or in conjunction with charts & tables.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/stat/stat.tsx","description":"","displayName":"Stat","methods":[],"props":{"label":{"defaultValue":null,"description":"","name":"label","declarations":[{"fileName":"packages/core/src/stat/stat.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"labelTool":{"defaultValue":null,"description":"","name":"labelTool","declarations":[{"fileName":"packages/core/src/stat/stat.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"number":{"defaultValue":null,"description":"","name":"number","declarations":[{"fileName":"packages/core/src/stat/stat.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"packages/core/src/stat/stat.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"packages/core/src/stat/stat.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"descriptionTool":{"defaultValue":null,"description":"","name":"descriptionTool","declarations":[{"fileName":"packages/core/src/stat/stat.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"packages/core/src/stat/stat.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"packages/core/src/stat/stat.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}}]
+
+export const css = [[["--f-stat-color-label","var(--f-color-text-weakest)"],["--f-stat-color-number","var(--f-color-text-weak)"],["--f-stat-color-description","var(--f-color-text-weaker)"],["--f-stat-color-icon","var(--f-color-text-weaker)"]]]
+
+
+
+<CodeComponent filename="stat.tsx" code="aW1wb3J0IHsgU3RhdCB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import { Stat } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<View row gap={50} justifyContent="stretch" width="100%">
+            <Stat icon="user" label="Visitors" description="3 Dec 2022" number="41,841"/>
+            <Stat icon="check" label="Conversions" description="3 Dec 2022" number="21,982"/>
+            <Stat label="Churned" labelTool={<IconLib icon="warning" stroke="var(--f-color-danger)"/>} description="3 Dec 2022" icon="date" number="1,291"/>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICByb3cKICAgICAgICAgICAgZ2FwPXs1MH0KICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ9InN0cmV0Y2giCiAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgPFN0YXQKICAgICAgICAgICAgICAgIGljb249InVzZXIiCiAgICAgICAgICAgICAgICBsYWJlbD0iVmlzaXRvcnMiCiAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbj0iMyBEZWMgMjAyMiIKICAgICAgICAgICAgICAgIG51bWJlcj0iNDEsODQxIgogICAgICAgICAgICAvPgogICAgICAgICAgICA8U3RhdAogICAgICAgICAgICAgICAgaWNvbj0iY2hlY2siCiAgICAgICAgICAgICAgICBsYWJlbD0iQ29udmVyc2lvbnMiCiAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbj0iMyBEZWMgMjAyMiIKICAgICAgICAgICAgICAgIG51bWJlcj0iMjEsOTgyIgogICAgICAgICAgICAvPgogICAgICAgICAgICA8U3RhdAogICAgICAgICAgICAgICAgbGFiZWw9IkNodXJuZWQiCiAgICAgICAgICAgICAgICBsYWJlbFRvb2w9ewogICAgICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgICAgIGljb249Indhcm5pbmciCiAgICAgICAgICAgICAgICAgICAgICAgIHN0cm9rZT0idmFyKC0tZi1jb2xvci1kYW5nZXIpIgogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbj0iMyBEZWMgMjAyMiIKICAgICAgICAgICAgICAgIGljb249ImRhdGUiCiAgICAgICAgICAgICAgICBudW1iZXI9IjEsMjkxIgogICAgICAgICAgICAvPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <View
+            row
+            gap={50}
+            justifyContent="stretch"
+            width="100%">
+            <Stat
+                icon="user"
+                label="Visitors"
+                description="3 Dec 2022"
+                number="41,841"
+            />
+            <Stat
+                icon="check"
+                label="Conversions"
+                description="3 Dec 2022"
+                number="21,982"
+            />
+            <Stat
+                label="Churned"
+                labelTool={
+                    <IconLib
+                        icon="warning"
+                        stroke="var(--f-color-danger)"
+                    />
+                }
+                description="3 Dec 2022"
+                icon="date"
+                number="1,291"
+            />
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

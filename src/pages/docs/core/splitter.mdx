@@ -1,0 +1,131 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, Pill, Splitter, SplitterContent, Text } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Splitter',
+    subtitle:
+        'The Splitter component generates pane-based layouts that can be adjusted, enlarged, and minimized as needed.',
+    description:
+        'Splitter component can be useful for empowering users where there is a need to manage the dimensions of multiple content panes within a layout.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/splitter/splitter.tsx","description":"","displayName":"Splitter","methods":[],"props":{"snap":{"defaultValue":null,"description":"","name":"snap","declarations":[{"fileName":"packages/core/src/splitter/splitter.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"min":{"defaultValue":null,"description":"","name":"min","declarations":[{"fileName":"packages/core/src/splitter/splitter.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"max":{"defaultValue":null,"description":"","name":"max","declarations":[{"fileName":"packages/core/src/splitter/splitter.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"handle":{"defaultValue":null,"description":"","name":"handle","declarations":[{"fileName":"packages/core/src/splitter/splitter.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"start":{"defaultValue":null,"description":"","name":"start","declarations":[{"fileName":"packages/core/src/splitter/splitter.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"direction":{"defaultValue":null,"description":"","name":"direction","declarations":[{"fileName":"packages/core/src/splitter/splitter.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"horizontal\" | \"vertical\""},"tags":{}},"resizableProps":{"defaultValue":null,"description":"","name":"resizableProps","declarations":[{"fileName":"packages/core/src/splitter/splitter.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/splitter/splitter.tsx","description":"","displayName":"SplitterContent","methods":[],"props":{}}]
+
+export const css = []
+
+
+
+<CodeComponent filename="splitter.tsx" code="aW1wb3J0IHsgU3BsaXR0ZXIsIFNwbGl0dGVyQ29udGVudCB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import { Splitter, SplitterContent } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<Splitter snap width={700} height={300} start={0.5} direction="horizontal">
+        <SplitterContent style={{
+        backgroundSize: '700px auto',
+        background: 'url(/photos/01.jpg) no-repeat center left',
+    }}/>
+        <SplitterContent style={{
+        backgroundSize: '700px auto',
+        background: 'url(/photos/02.jpg) no-repeat center right',
+    }}/>
+    </Splitter>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFNwbGl0dGVyCiAgICAgICAgc25hcAogICAgICAgIHdpZHRoPXs3MDB9CiAgICAgICAgaGVpZ2h0PXszMDB9CiAgICAgICAgc3RhcnQ9ezAuNX0KICAgICAgICBkaXJlY3Rpb249Imhvcml6b250YWwiPgogICAgICAgIDxTcGxpdHRlckNvbnRlbnQKICAgICAgICAgICAgc3R5bGU9e3sKICAgICAgICAgICAgICAgIGJhY2tncm91bmRTaXplOiAnNzAwcHggYXV0bycsCiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiAndXJsKC9waG90b3MvMDEuanBnKSBuby1yZXBlYXQgY2VudGVyIGxlZnQnLAogICAgICAgICAgICB9fQogICAgICAgIC8+CiAgICAgICAgPFNwbGl0dGVyQ29udGVudAogICAgICAgICAgICBzdHlsZT17ewogICAgICAgICAgICAgICAgYmFja2dyb3VuZFNpemU6ICc3MDBweCBhdXRvJywKICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6ICd1cmwoL3Bob3Rvcy8wMi5qcGcpIG5vLXJlcGVhdCBjZW50ZXIgcmlnaHQnLAogICAgICAgICAgICB9fQogICAgICAgIC8+CiAgICA8L1NwbGl0dGVyPgop" />
+
+```tsx
+export const Usage = () => (
+    <Splitter
+        snap
+        width={700}
+        height={300}
+        start={0.5}
+        direction="horizontal">
+        <SplitterContent
+            style={{
+                backgroundSize: '700px auto',
+                background: 'url(/photos/01.jpg) no-repeat center left',
+            }}
+        />
+        <SplitterContent
+            style={{
+                backgroundSize: '700px auto',
+                background: 'url(/photos/02.jpg) no-repeat center right',
+            }}
+        />
+    </Splitter>
+)
+```
+### Nested
+<a name="nested"></a>
+
+> The Splitter component can also be used to create nested layouts, which are useful in applications where space is limited.
+
+export const Nested = () => (<Splitter width="100%" height={300} start={0.25} direction="horizontal">
+        <SplitterContent row bgToken="surface-strongest">
+            <Text>Left</Text>
+        </SplitterContent>
+        <SplitterContent row>
+            <Splitter width="100%" height={300} start={0.75} handle={<Pill>Drag</Pill>} direction="vertical">
+                <SplitterContent row bgToken="surface-stronger">
+                    <Text>Top</Text>
+                </SplitterContent>
+                <SplitterContent row bgToken="surface-strong">
+                    <Text>Bottom</Text>
+                </SplitterContent>
+            </Splitter>
+        </SplitterContent>
+    </Splitter>);
+
+<div className="story-block">
+<Nested />
+</div>
+
+<CodeComponent filename="Nested.tsx" code="ZXhwb3J0IGNvbnN0IE5lc3RlZCA9ICgpID0+ICgKICAgIDxTcGxpdHRlcgogICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgIGhlaWdodD17MzAwfQogICAgICAgIHN0YXJ0PXswLjI1fQogICAgICAgIGRpcmVjdGlvbj0iaG9yaXpvbnRhbCI+CiAgICAgICAgPFNwbGl0dGVyQ29udGVudAogICAgICAgICAgICByb3cKICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmdlc3QiPgogICAgICAgICAgICA8VGV4dD5MZWZ0PC9UZXh0PgogICAgICAgIDwvU3BsaXR0ZXJDb250ZW50PgogICAgICAgIDxTcGxpdHRlckNvbnRlbnQgcm93PgogICAgICAgICAgICA8U3BsaXR0ZXIKICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgaGVpZ2h0PXszMDB9CiAgICAgICAgICAgICAgICBzdGFydD17MC43NX0KICAgICAgICAgICAgICAgIGhhbmRsZT17PFBpbGw+RHJhZzwvUGlsbD59CiAgICAgICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIj4KICAgICAgICAgICAgICAgIDxTcGxpdHRlckNvbnRlbnQKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZ2VyIj4KICAgICAgICAgICAgICAgICAgICA8VGV4dD5Ub3A8L1RleHQ+CiAgICAgICAgICAgICAgICA8L1NwbGl0dGVyQ29udGVudD4KICAgICAgICAgICAgICAgIDxTcGxpdHRlckNvbnRlbnQKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyI+CiAgICAgICAgICAgICAgICAgICAgPFRleHQ+Qm90dG9tPC9UZXh0PgogICAgICAgICAgICAgICAgPC9TcGxpdHRlckNvbnRlbnQ+CiAgICAgICAgICAgIDwvU3BsaXR0ZXI+CiAgICAgICAgPC9TcGxpdHRlckNvbnRlbnQ+CiAgICA8L1NwbGl0dGVyPgop" />
+
+```tsx
+export const Nested = () => (
+    <Splitter
+        width="100%"
+        height={300}
+        start={0.25}
+        direction="horizontal">
+        <SplitterContent
+            row
+            bgToken="surface-strongest">
+            <Text>Left</Text>
+        </SplitterContent>
+        <SplitterContent row>
+            <Splitter
+                width="100%"
+                height={300}
+                start={0.75}
+                handle={<Pill>Drag</Pill>}
+                direction="vertical">
+                <SplitterContent
+                    row
+                    bgToken="surface-stronger">
+                    <Text>Top</Text>
+                </SplitterContent>
+                <SplitterContent
+                    row
+                    bgToken="surface-strong">
+                    <Text>Bottom</Text>
+                </SplitterContent>
+            </Splitter>
+        </SplitterContent>
+    </Splitter>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

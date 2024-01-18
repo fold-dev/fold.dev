@@ -1,0 +1,777 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import {
+    ColorPicker,
+    ComboInput,
+    ComboInputField,
+    focusInputAtEnd,
+    getKey,
+    Heading,
+    IconLib,
+    Input,
+    InputControl,
+    InputNumberControl,
+    InputPrefix,
+    InputSuffix,
+    Label,
+    Li,
+    List,
+    Pill,
+    PinInput,
+    Popover,
+    Stack,
+    Text,
+    useVisibility,
+    View,
+} from '@fold-dev/core'
+import React, { useRef, useState } from 'react'
+
+export const docs = {
+    title: 'Input',
+    subtitle:
+        'The Input component is an element designed for receiving text input from the user, and is an abstraction of the native HTML <input> element.',
+    description:
+        'Input components are useful for generating interactive controls within web-based forms, enabling users to provide data. The Input component stands as one of the most pivotal elements, serving as the foundation for virtually all user inputs.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputNumberControl","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"disableIncrease":{"defaultValue":null,"description":"","name":"disableIncrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disableDecrease":{"defaultValue":null,"description":"","name":"disableDecrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onIncrease":{"defaultValue":null,"description":"","name":"onIncrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onDecrease":{"defaultValue":null,"description":"","name":"onDecrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputControl","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"Input","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"showIndicator":{"defaultValue":null,"description":"","name":"showIndicator","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"number\" | \"date\" | \"time\" | \"text\" | \"search\" | \"color\" | \"hidden\" | \"datetime-local\" | \"email\" | \"month\" | \"password\" | \"tel\" | \"url\" | \"week\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputPrefix","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputSuffix","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"PinInput","methods":[],"props":{"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"digits":{"defaultValue":null,"description":"","name":"digits","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"text\" | \"password\""},"tags":{}},"defaultValue":{"defaultValue":null,"description":"","name":"defaultValue","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"ComboInputField","methods":[],"props":{"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"number\" | \"date\" | \"time\" | \"text\" | \"search\" | \"color\" | \"hidden\" | \"datetime-local\" | \"email\" | \"month\" | \"password\" | \"tel\" | \"url\" | \"week\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"ComboInput","methods":[],"props":{"render":{"defaultValue":null,"description":"","name":"render","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
+
+export const css = [[["--f-input-background-color","var(--f-color-surface)"],["--f-input-background-color-disabled","var(--f-color-surface-strong)"],["--f-input-border-color","var(--f-color-border)"],["--f-input-border-width","0.1rem"],["--f-input-border-color-active","var(--f-color-border-strong)"],["--f-input-color","var(--f-color-text-weak)"],["--f-input-color-placeholder","var(--f-color-text-weakest)"],["--f-input-color-disabled","var(--f-color-text-weakest)"],["--f-input-border-radius","var(--f-radius)"],["--f-input-padding","0 var(--f-space-4)"],["--f-input-padding-combo","var(--f-space-1) var(--f-space-2)"],["--f-input-shadow","var(--f-shadow-sm)"],["--f-combo-input-min-width","50px"],["--f-combo-input-spacing","var(--f-space-1)"],["--f-input-prefix-padding","0 0 0 var(--f-space-4)"],["--f-input-suffix-padding","0  var(--f-space-4) 0 0"]]]
+
+
+
+<CodeComponent filename="input.tsx" code="aW1wb3J0IHsKICBJbnB1dE51bWJlckNvbnRyb2wsCiAgSW5wdXRDb250cm9sLAogIElucHV0LAogIElucHV0UHJlZml4LAogIElucHV0U3VmZml4LAogIFBpbklucHV0LAogIENvbWJvSW5wdXRGaWVsZCwKICBDb21ib0lucHV0LAp9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import {
+  InputNumberControl,
+  InputControl,
+  Input,
+  InputPrefix,
+  InputSuffix,
+  PinInput,
+  ComboInputField,
+  ComboInput,
+} from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const [text, setText] = useState('');
+    return (<Input value={text} placeholder="Please enter your name" onChange={(e) => setText(e.target.value)}/>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGUoJycpCgogICAgcmV0dXJuICgKICAgICAgICA8SW5wdXQKICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJQbGVhc2UgZW50ZXIgeW91ciBuYW1lIgogICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgIC8+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    const [text, setText] = useState('')
+
+    return (
+        <Input
+            value={text}
+            placeholder="Please enter your name"
+            onChange={(e) => setText(e.target.value)}
+        />
+    )
+}
+```
+### Sizes
+<a name="sizes"></a>
+
+export const Sizes = () => {
+    const [text, setText] = useState('');
+    return (<Stack direction="vertical" spacing={10}>
+            <Input size="xs" value={text} placeholder="Please enter your name" onChange={(e) => setText(e.target.value)}/>
+            <Input size="sm" value={text} placeholder="Please enter your name" onChange={(e) => setText(e.target.value)}/>
+            <Input size="md" value={text} placeholder="Please enter your name" onChange={(e) => setText(e.target.value)}/>
+            <Input size="lg" value={text} placeholder="Please enter your name" onChange={(e) => setText(e.target.value)}/>
+            <Input size="xl" value={text} placeholder="Please enter your name" onChange={(e) => setText(e.target.value)}/>
+        </Stack>);
+};
+
+<div className="story-block">
+<Sizes />
+</div>
+
+<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gewogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGUoJycpCgogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sKICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgc3BhY2luZz17MTB9PgogICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgIHNpemU9InhzIgogICAgICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIHlvdXIgbmFtZSIKICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJQbGVhc2UgZW50ZXIgeW91ciBuYW1lIgogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICBzaXplPSJtZCIKICAgICAgICAgICAgICAgIHZhbHVlPXt0ZXh0fQogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciB5b3VyIG5hbWUiCiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgIHNpemU9ImxnIgogICAgICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIHlvdXIgbmFtZSIKICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgc2l6ZT0ieGwiCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJQbGVhc2UgZW50ZXIgeW91ciBuYW1lIgogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1N0YWNrPgogICAgKQp9" />
+
+```tsx
+export const Sizes = () => {
+    const [text, setText] = useState('')
+
+    return (
+        <Stack
+            direction="vertical"
+            spacing={10}>
+            <Input
+                size="xs"
+                value={text}
+                placeholder="Please enter your name"
+                onChange={(e) => setText(e.target.value)}
+            />
+            <Input
+                size="sm"
+                value={text}
+                placeholder="Please enter your name"
+                onChange={(e) => setText(e.target.value)}
+            />
+            <Input
+                size="md"
+                value={text}
+                placeholder="Please enter your name"
+                onChange={(e) => setText(e.target.value)}
+            />
+            <Input
+                size="lg"
+                value={text}
+                placeholder="Please enter your name"
+                onChange={(e) => setText(e.target.value)}
+            />
+            <Input
+                size="xl"
+                value={text}
+                placeholder="Please enter your name"
+                onChange={(e) => setText(e.target.value)}
+            />
+        </Stack>
+    )
+}
+```
+### States
+<a name="states"></a>
+
+export const States = () => {
+    const [text, setText] = useState('');
+    const [date, setDate] = useState(new Date().toDateString());
+    return (<Stack direction="vertical" spacing={10}>
+            <Input readOnly value={text} placeholder="Please enter your name" onChange={(e) => setText(e.target.value)}/>
+            <Input disabled value={text} placeholder="Please enter your name" onChange={(e) => setText(e.target.value)}/>
+            <Input placeholder="Please enter a date" value={date} onChange={(e) => setDate(e.target.value)} type="datetime-local" showIndicator/>
+        </Stack>);
+};
+
+<div className="story-block">
+<States />
+</div>
+
+<CodeComponent filename="States.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXRlcyA9ICgpID0+IHsKICAgIGNvbnN0IFt0ZXh0LCBzZXRUZXh0XSA9IHVzZVN0YXRlKCcnKQogICAgY29uc3QgW2RhdGUsIHNldERhdGVdID0gdXNlU3RhdGUobmV3IERhdGUoKS50b0RhdGVTdHJpbmcoKSkKCiAgICByZXR1cm4gKAogICAgICAgIDxTdGFjawogICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICBzcGFjaW5nPXsxMH0+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgcmVhZE9ubHkKICAgICAgICAgICAgICAgIHZhbHVlPXt0ZXh0fQogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciB5b3VyIG5hbWUiCiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgIGRpc2FibGVkCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJQbGVhc2UgZW50ZXIgeW91ciBuYW1lIgogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIGEgZGF0ZSIKICAgICAgICAgICAgICAgIHZhbHVlPXtkYXRlfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXREYXRlKGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIHR5cGU9ImRhdGV0aW1lLWxvY2FsIgogICAgICAgICAgICAgICAgc2hvd0luZGljYXRvcgogICAgICAgICAgICAvPgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
+
+```tsx
+export const States = () => {
+    const [text, setText] = useState('')
+    const [date, setDate] = useState(new Date().toDateString())
+
+    return (
+        <Stack
+            direction="vertical"
+            spacing={10}>
+            <Input
+                readOnly
+                value={text}
+                placeholder="Please enter your name"
+                onChange={(e) => setText(e.target.value)}
+            />
+            <Input
+                disabled
+                value={text}
+                placeholder="Please enter your name"
+                onChange={(e) => setText(e.target.value)}
+            />
+            <Input
+                placeholder="Please enter a date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                type="datetime-local"
+                showIndicator
+            />
+        </Stack>
+    )
+}
+```
+### Types
+<a name="types"></a>
+
+export const Types = () => {
+    const [text, setText] = useState('');
+    const [date, setDate] = useState(new Date().toDateString());
+    const [number, setNumber] = useState('');
+    return (<Stack direction="vertical" spacing={15}>
+            <Label>Type: number</Label>
+            <Input placeholder="Please enter a number" value={number} onChange={(e) => setNumber(e.target.value)} type="number"/>
+            <Label>Type: text</Label>
+            <Input placeholder="Please enter text" value={text} onChange={(e) => setText(e.target.value)} type="text"/>
+            <Label>Type: email</Label>
+            <Input placeholder="Please enter an email" value={text} onChange={(e) => setText(e.target.value)} type="email"/>
+            <Label>Type: search</Label>
+            <Input placeholder="Please enter a search term" value={text} onChange={(e) => setText(e.target.value)} type="search"/>
+            <Label>Type: tel</Label>
+            <Input readOnly placeholder="Please enter a telephone number" value={text} onChange={(e) => setText(e.target.value)} type="tel"/>
+            <Label>Type: url</Label>
+            <Input placeholder="Please enter a URL" value={text} onChange={(e) => setText(e.target.value)} type="url"/>
+            <Label>Type: password</Label>
+            <Input placeholder="Please enter a password" value={text} onChange={(e) => setText(e.target.value)} type="password"/>
+            <Label>Type: week</Label>
+            <Input placeholder="Please enter a week" value={date} onChange={(e) => setDate(e.target.value)} type="week"/>
+            <Label>Type: time</Label>
+            <Input placeholder="Please enter a time" value={date} onChange={(e) => setDate(e.target.value)} type="time"/>
+            <Label>Type: month</Label>
+            <Input placeholder="Please enter a month" value={date} onChange={(e) => setDate(e.target.value)} type="month"/>
+            <Label>Type: date</Label>
+            <Input placeholder="Please enter a date" value={date} onChange={(e) => setDate(e.target.value)} type="date"/>
+            <Label>Type: datetime-local</Label>
+            <Input placeholder="Please enter a date" value={date} onChange={(e) => setDate(e.target.value)} type="datetime-local"/>
+            <Label>Type: color</Label>
+            <Input placeholder="Please enter a date" value={date} onChange={(e) => setDate(e.target.value)} type="color"/>
+        </Stack>);
+};
+
+<div className="story-block">
+<Types />
+</div>
+
+<CodeComponent filename="Types.tsx" code="ZXhwb3J0IGNvbnN0IFR5cGVzID0gKCkgPT4gewogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGUoJycpCiAgICBjb25zdCBbZGF0ZSwgc2V0RGF0ZV0gPSB1c2VTdGF0ZShuZXcgRGF0ZSgpLnRvRGF0ZVN0cmluZygpKQogICAgY29uc3QgW251bWJlciwgc2V0TnVtYmVyXSA9IHVzZVN0YXRlKCcnKQoKICAgIHJldHVybiAoCiAgICAgICAgPFN0YWNrCiAgICAgICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgICAgIHNwYWNpbmc9ezE1fT4KICAgICAgICAgICAgPExhYmVsPlR5cGU6IG51bWJlcjwvTGFiZWw+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciBhIG51bWJlciIKICAgICAgICAgICAgICAgIHZhbHVlPXtudW1iZXJ9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldE51bWJlcihlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICB0eXBlPSJudW1iZXIiCiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMYWJlbD5UeXBlOiB0ZXh0PC9MYWJlbD4KICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIHRleHQiCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICB0eXBlPSJ0ZXh0IgogICAgICAgICAgICAvPgogICAgICAgICAgICA8TGFiZWw+VHlwZTogZW1haWw8L0xhYmVsPgogICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJQbGVhc2UgZW50ZXIgYW4gZW1haWwiCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICB0eXBlPSJlbWFpbCIKICAgICAgICAgICAgLz4KICAgICAgICAgICAgPExhYmVsPlR5cGU6IHNlYXJjaDwvTGFiZWw+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciBhIHNlYXJjaCB0ZXJtIgogICAgICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgdHlwZT0ic2VhcmNoIgogICAgICAgICAgICAvPgogICAgICAgICAgICA8TGFiZWw+VHlwZTogdGVsPC9MYWJlbD4KICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICByZWFkT25seQogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciBhIHRlbGVwaG9uZSBudW1iZXIiCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICB0eXBlPSJ0ZWwiCiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMYWJlbD5UeXBlOiB1cmw8L0xhYmVsPgogICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJQbGVhc2UgZW50ZXIgYSBVUkwiCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICB0eXBlPSJ1cmwiCiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMYWJlbD5UeXBlOiBwYXNzd29yZDwvTGFiZWw+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciBhIHBhc3N3b3JkIgogICAgICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgdHlwZT0icGFzc3dvcmQiCiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMYWJlbD5UeXBlOiB3ZWVrPC9MYWJlbD4KICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIGEgd2VlayIKICAgICAgICAgICAgICAgIHZhbHVlPXtkYXRlfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXREYXRlKGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIHR5cGU9IndlZWsiCiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMYWJlbD5UeXBlOiB0aW1lPC9MYWJlbD4KICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIGEgdGltZSIKICAgICAgICAgICAgICAgIHZhbHVlPXtkYXRlfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXREYXRlKGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIHR5cGU9InRpbWUiCiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMYWJlbD5UeXBlOiBtb250aDwvTGFiZWw+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciBhIG1vbnRoIgogICAgICAgICAgICAgICAgdmFsdWU9e2RhdGV9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldERhdGUoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgdHlwZT0ibW9udGgiCiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMYWJlbD5UeXBlOiBkYXRlPC9MYWJlbD4KICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIGEgZGF0ZSIKICAgICAgICAgICAgICAgIHZhbHVlPXtkYXRlfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXREYXRlKGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIHR5cGU9ImRhdGUiCiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMYWJlbD5UeXBlOiBkYXRldGltZS1sb2NhbDwvTGFiZWw+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciBhIGRhdGUiCiAgICAgICAgICAgICAgICB2YWx1ZT17ZGF0ZX0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0RGF0ZShlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICB0eXBlPSJkYXRldGltZS1sb2NhbCIKICAgICAgICAgICAgLz4KICAgICAgICAgICAgPExhYmVsPlR5cGU6IGNvbG9yPC9MYWJlbD4KICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIGEgZGF0ZSIKICAgICAgICAgICAgICAgIHZhbHVlPXtkYXRlfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXREYXRlKGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIHR5cGU9ImNvbG9yIgogICAgICAgICAgICAvPgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
+
+```tsx
+export const Types = () => {
+    const [text, setText] = useState('')
+    const [date, setDate] = useState(new Date().toDateString())
+    const [number, setNumber] = useState('')
+
+    return (
+        <Stack
+            direction="vertical"
+            spacing={15}>
+            <Label>Type: number</Label>
+            <Input
+                placeholder="Please enter a number"
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
+                type="number"
+            />
+            <Label>Type: text</Label>
+            <Input
+                placeholder="Please enter text"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                type="text"
+            />
+            <Label>Type: email</Label>
+            <Input
+                placeholder="Please enter an email"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                type="email"
+            />
+            <Label>Type: search</Label>
+            <Input
+                placeholder="Please enter a search term"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                type="search"
+            />
+            <Label>Type: tel</Label>
+            <Input
+                readOnly
+                placeholder="Please enter a telephone number"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                type="tel"
+            />
+            <Label>Type: url</Label>
+            <Input
+                placeholder="Please enter a URL"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                type="url"
+            />
+            <Label>Type: password</Label>
+            <Input
+                placeholder="Please enter a password"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                type="password"
+            />
+            <Label>Type: week</Label>
+            <Input
+                placeholder="Please enter a week"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                type="week"
+            />
+            <Label>Type: time</Label>
+            <Input
+                placeholder="Please enter a time"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                type="time"
+            />
+            <Label>Type: month</Label>
+            <Input
+                placeholder="Please enter a month"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                type="month"
+            />
+            <Label>Type: date</Label>
+            <Input
+                placeholder="Please enter a date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                type="date"
+            />
+            <Label>Type: datetime-local</Label>
+            <Input
+                placeholder="Please enter a date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                type="datetime-local"
+            />
+            <Label>Type: color</Label>
+            <Input
+                placeholder="Please enter a date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                type="color"
+            />
+        </Stack>
+    )
+}
+```
+### Control
+<a name="control"></a>
+
+export const Control = () => {
+    const [text, setText] = useState('');
+    const { show, delayedShow, hide, visible } = useVisibility(false);
+    const [color, setColor] = useState('#000000');
+    return (<View column gap={20} alignItems="flex-start">
+            <Stack direction="horizontal" spacing={10} width="100%">
+                <InputControl onFocus={(e) => console.log('Focused')}>
+                    <InputPrefix>
+                        <IconLib icon="circle"/>
+                    </InputPrefix>
+                    <Input placeholder="With prefix & suffix..." value={text} onChange={(e) => setText(e.target.value)}/>
+                    <InputSuffix>
+                        <IconLib style={{ pointerEvents: 'none' }} icon="circle"/>
+                    </InputSuffix>
+                </InputControl>
+
+                <InputControl onFocus={(e) => console.log('Focused')} disabled>
+                    <InputPrefix>
+                        <IconLib icon="user"/>
+                    </InputPrefix>
+                    <Input placeholder="Disabled & only with prefix..." value={text} onChange={(e) => setText(e.target.value)}/>
+                </InputControl>
+
+                <InputControl onFocus={(e) => console.log('Focused')}>
+                    <Input placeholder="Only with suffix..." value={text} onChange={(e) => setText(e.target.value)}/>
+                    <InputSuffix>
+                        <IconLib icon="clipboard"/>
+                    </InputSuffix>
+                </InputControl>
+            </Stack>
+
+            <InputControl>
+                <InputPrefix>
+                    <Popover zIndex={100} width={250} anchor="bottom-left" isVisible={visible} onDismiss={hide} content={<ColorPicker p={10} width={250} onChange={setColor} color={color}/>}>
+                        <View radius={50} width={15} height={15} bg={color} className="f-buttonize" onClick={show}/>
+                    </Popover>
+                </InputPrefix>
+                <Input placeholder="Enter your color" value={text} onChange={(e) => setText(e.target.value)}/>
+            </InputControl>
+        </View>);
+};
+
+<div className="story-block">
+<Control />
+</div>
+
+<CodeComponent filename="Control.tsx" code="ZXhwb3J0IGNvbnN0IENvbnRyb2wgPSAoKSA9PiB7CiAgICBjb25zdCBbdGV4dCwgc2V0VGV4dF0gPSB1c2VTdGF0ZSgnJykKICAgIGNvbnN0IHsgc2hvdywgZGVsYXllZFNob3csIGhpZGUsIHZpc2libGUgfSA9IHVzZVZpc2liaWxpdHkoZmFsc2UpCiAgICBjb25zdCBbY29sb3IsIHNldENvbG9yXSA9IHVzZVN0YXRlKCcjMDAwMDAwJykKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3CiAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICBnYXA9ezIwfQogICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgPFN0YWNrCiAgICAgICAgICAgICAgICBkaXJlY3Rpb249Imhvcml6b250YWwiCiAgICAgICAgICAgICAgICBzcGFjaW5nPXsxMH0KICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgIDxJbnB1dENvbnRyb2wgb25Gb2N1cz17KGUpID0+IGNvbnNvbGUubG9nKCdGb2N1c2VkJyl9PgogICAgICAgICAgICAgICAgICAgIDxJbnB1dFByZWZpeD4KICAgICAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iY2lyY2xlIiAvPgogICAgICAgICAgICAgICAgICAgIDwvSW5wdXRQcmVmaXg+CiAgICAgICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJXaXRoIHByZWZpeCAmIHN1ZmZpeC4uLiIKICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICA8SW5wdXRTdWZmaXg+CiAgICAgICAgICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT17eyBwb2ludGVyRXZlbnRzOiAnbm9uZScgfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGljb249ImNpcmNsZSIKICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICA8L0lucHV0U3VmZml4PgogICAgICAgICAgICAgICAgPC9JbnB1dENvbnRyb2w+CgogICAgICAgICAgICAgICAgPElucHV0Q29udHJvbAogICAgICAgICAgICAgICAgICAgIG9uRm9jdXM9eyhlKSA9PiBjb25zb2xlLmxvZygnRm9jdXNlZCcpfQogICAgICAgICAgICAgICAgICAgIGRpc2FibGVkPgogICAgICAgICAgICAgICAgICAgIDxJbnB1dFByZWZpeD4KICAgICAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0idXNlciIgLz4KICAgICAgICAgICAgICAgICAgICA8L0lucHV0UHJlZml4PgogICAgICAgICAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iRGlzYWJsZWQgJiBvbmx5IHdpdGggcHJlZml4Li4uIgogICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9JbnB1dENvbnRyb2w+CgogICAgICAgICAgICAgICAgPElucHV0Q29udHJvbCBvbkZvY3VzPXsoZSkgPT4gY29uc29sZS5sb2coJ0ZvY3VzZWQnKX0+CiAgICAgICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJPbmx5IHdpdGggc3VmZml4Li4uIgogICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgIDxJbnB1dFN1ZmZpeD4KICAgICAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iY2xpcGJvYXJkIiAvPgogICAgICAgICAgICAgICAgICAgIDwvSW5wdXRTdWZmaXg+CiAgICAgICAgICAgICAgICA8L0lucHV0Q29udHJvbD4KICAgICAgICAgICAgPC9TdGFjaz4KCiAgICAgICAgICAgIDxJbnB1dENvbnRyb2w+CiAgICAgICAgICAgICAgICA8SW5wdXRQcmVmaXg+CiAgICAgICAgICAgICAgICAgICAgPFBvcG92ZXIKICAgICAgICAgICAgICAgICAgICAgICAgekluZGV4PXsxMDB9CiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPXsyNTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGFuY2hvcj0iYm90dG9tLWxlZnQiCiAgICAgICAgICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfQogICAgICAgICAgICAgICAgICAgICAgICBjb250ZW50PXsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxDb2xvclBpY2tlcgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPXsyNTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9e3NldENvbG9yfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yPXtjb2xvcn0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgICAgIH0+CiAgICAgICAgICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgICAgICAgICByYWRpdXM9ezUwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9ezE1fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXsxNX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJnPXtjb2xvcn0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0iZi1idXR0b25pemUiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXtzaG93fQogICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgIDwvUG9wb3Zlcj4KICAgICAgICAgICAgICAgIDwvSW5wdXRQcmVmaXg+CiAgICAgICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iRW50ZXIgeW91ciBjb2xvciIKICAgICAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9JbnB1dENvbnRyb2w+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const Control = () => {
+    const [text, setText] = useState('')
+    const { show, delayedShow, hide, visible } = useVisibility(false)
+    const [color, setColor] = useState('#000000')
+
+    return (
+        <View
+            column
+            gap={20}
+            alignItems="flex-start">
+            <Stack
+                direction="horizontal"
+                spacing={10}
+                width="100%">
+                <InputControl onFocus={(e) => console.log('Focused')}>
+                    <InputPrefix>
+                        <IconLib icon="circle" />
+                    </InputPrefix>
+                    <Input
+                        placeholder="With prefix & suffix..."
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                    />
+                    <InputSuffix>
+                        <IconLib
+                            style={{ pointerEvents: 'none' }}
+                            icon="circle"
+                        />
+                    </InputSuffix>
+                </InputControl>
+
+                <InputControl
+                    onFocus={(e) => console.log('Focused')}
+                    disabled>
+                    <InputPrefix>
+                        <IconLib icon="user" />
+                    </InputPrefix>
+                    <Input
+                        placeholder="Disabled & only with prefix..."
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                    />
+                </InputControl>
+
+                <InputControl onFocus={(e) => console.log('Focused')}>
+                    <Input
+                        placeholder="Only with suffix..."
+                        value={text}
+                        onChange={(e) => setText(e.target.value)}
+                    />
+                    <InputSuffix>
+                        <IconLib icon="clipboard" />
+                    </InputSuffix>
+                </InputControl>
+            </Stack>
+
+            <InputControl>
+                <InputPrefix>
+                    <Popover
+                        zIndex={100}
+                        width={250}
+                        anchor="bottom-left"
+                        isVisible={visible}
+                        onDismiss={hide}
+                        content={
+                            <ColorPicker
+                                p={10}
+                                width={250}
+                                onChange={setColor}
+                                color={color}
+                            />
+                        }>
+                        <View
+                            radius={50}
+                            width={15}
+                            height={15}
+                            bg={color}
+                            className="f-buttonize"
+                            onClick={show}
+                        />
+                    </Popover>
+                </InputPrefix>
+                <Input
+                    placeholder="Enter your color"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                />
+            </InputControl>
+        </View>
+    )
+}
+```
+### Number
+<a name="number"></a>
+
+export const Number = () => {
+    const [text, setText] = useState('23');
+    const ref = useRef(null);
+    const handleIncrease = () => {
+        setText(+text + 1);
+        focusInputAtEnd(ref.current);
+    };
+    const handleDecrease = () => {
+        setText(+text - 1);
+        focusInputAtEnd(ref.current);
+    };
+    return (<View column gap={20} alignItems="flex-start">
+            <InputControl onFocus={(e) => console.log(e.target)}>
+                <InputPrefix>
+                    <InputNumberControl size="md" onDecrease={handleDecrease} onIncrease={handleIncrease} disableDecrease={false} disableIncrease={true}/>
+                </InputPrefix>
+                <Input placeholder="Type here - text" value={text} onChange={(e) => setText(e.target.value)} size="md" type="number" ref={ref}/>
+                <InputSuffix>
+                    <InputNumberControl size="md" onDecrease={handleDecrease} onIncrease={handleIncrease} disableDecrease={true} disableIncrease={false}/>
+                </InputSuffix>
+            </InputControl>
+
+            <Text>Standalone number spinners:</Text>
+
+            <Stack spacing={10}>
+                <InputNumberControl size="xs" onDecrease={handleDecrease} onIncrease={handleIncrease} disableDecrease={false} disableIncrease={true}/>
+                <InputNumberControl size="sm" onDecrease={handleDecrease} onIncrease={handleIncrease} disableDecrease={false} disableIncrease={true}/>
+                <InputNumberControl size="md" onDecrease={handleDecrease} onIncrease={handleIncrease} disableDecrease={false} disableIncrease={true}/>
+                <InputNumberControl size="lg" onDecrease={handleDecrease} onIncrease={handleIncrease} disableDecrease={false} disableIncrease={true}/>
+                <InputNumberControl size="xl" onDecrease={handleDecrease} onIncrease={handleIncrease} disableDecrease={false} disableIncrease={true}/>
+            </Stack>
+        </View>);
+};
+
+<div className="story-block">
+<Number />
+</div>
+
+<CodeComponent filename="Number.tsx" code="ZXhwb3J0IGNvbnN0IE51bWJlciA9ICgpID0+IHsKICAgIGNvbnN0IFt0ZXh0LCBzZXRUZXh0XSA9IHVzZVN0YXRlPGFueT4oJzIzJykKICAgIGNvbnN0IHJlZiA9IHVzZVJlZihudWxsKQoKICAgIGNvbnN0IGhhbmRsZUluY3JlYXNlID0gKCkgPT4gewogICAgICAgIHNldFRleHQoK3RleHQgKyAxKQogICAgICAgIGZvY3VzSW5wdXRBdEVuZChyZWYuY3VycmVudCkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVEZWNyZWFzZSA9ICgpID0+IHsKICAgICAgICBzZXRUZXh0KCt0ZXh0IC0gMSkKICAgICAgICBmb2N1c0lucHV0QXRFbmQocmVmLmN1cnJlbnQpCiAgICB9CgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgZ2FwPXsyMH0KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCI+CiAgICAgICAgICAgIDxJbnB1dENvbnRyb2wgb25Gb2N1cz17KGUpID0+IGNvbnNvbGUubG9nKGUudGFyZ2V0KX0+CiAgICAgICAgICAgICAgICA8SW5wdXRQcmVmaXg+CiAgICAgICAgICAgICAgICAgICAgPElucHV0TnVtYmVyQ29udHJvbAogICAgICAgICAgICAgICAgICAgICAgICBzaXplPSJtZCIKICAgICAgICAgICAgICAgICAgICAgICAgb25EZWNyZWFzZT17aGFuZGxlRGVjcmVhc2V9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uSW5jcmVhc2U9e2hhbmRsZUluY3JlYXNlfQogICAgICAgICAgICAgICAgICAgICAgICBkaXNhYmxlRGVjcmVhc2U9e2ZhbHNlfQogICAgICAgICAgICAgICAgICAgICAgICBkaXNhYmxlSW5jcmVhc2U9e3RydWV9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDwvSW5wdXRQcmVmaXg+CiAgICAgICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iVHlwZSBoZXJlIC0gdGV4dCIKICAgICAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgICAgIHNpemU9Im1kIgogICAgICAgICAgICAgICAgICAgIHR5cGU9Im51bWJlciIKICAgICAgICAgICAgICAgICAgICByZWY9e3JlZn0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8SW5wdXRTdWZmaXg+CiAgICAgICAgICAgICAgICAgICAgPElucHV0TnVtYmVyQ29udHJvbAogICAgICAgICAgICAgICAgICAgICAgICBzaXplPSJtZCIKICAgICAgICAgICAgICAgICAgICAgICAgb25EZWNyZWFzZT17aGFuZGxlRGVjcmVhc2V9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uSW5jcmVhc2U9e2hhbmRsZUluY3JlYXNlfQogICAgICAgICAgICAgICAgICAgICAgICBkaXNhYmxlRGVjcmVhc2U9e3RydWV9CiAgICAgICAgICAgICAgICAgICAgICAgIGRpc2FibGVJbmNyZWFzZT17ZmFsc2V9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDwvSW5wdXRTdWZmaXg+CiAgICAgICAgICAgIDwvSW5wdXRDb250cm9sPgoKICAgICAgICAgICAgPFRleHQ+U3RhbmRhbG9uZSBudW1iZXIgc3Bpbm5lcnM6PC9UZXh0PgoKICAgICAgICAgICAgPFN0YWNrIHNwYWNpbmc9ezEwfT4KICAgICAgICAgICAgICAgIDxJbnB1dE51bWJlckNvbnRyb2wKICAgICAgICAgICAgICAgICAgICBzaXplPSJ4cyIKICAgICAgICAgICAgICAgICAgICBvbkRlY3JlYXNlPXtoYW5kbGVEZWNyZWFzZX0KICAgICAgICAgICAgICAgICAgICBvbkluY3JlYXNlPXtoYW5kbGVJbmNyZWFzZX0KICAgICAgICAgICAgICAgICAgICBkaXNhYmxlRGVjcmVhc2U9e2ZhbHNlfQogICAgICAgICAgICAgICAgICAgIGRpc2FibGVJbmNyZWFzZT17dHJ1ZX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8SW5wdXROdW1iZXJDb250cm9sCiAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAgICAgb25EZWNyZWFzZT17aGFuZGxlRGVjcmVhc2V9CiAgICAgICAgICAgICAgICAgICAgb25JbmNyZWFzZT17aGFuZGxlSW5jcmVhc2V9CiAgICAgICAgICAgICAgICAgICAgZGlzYWJsZURlY3JlYXNlPXtmYWxzZX0KICAgICAgICAgICAgICAgICAgICBkaXNhYmxlSW5jcmVhc2U9e3RydWV9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPElucHV0TnVtYmVyQ29udHJvbAogICAgICAgICAgICAgICAgICAgIHNpemU9Im1kIgogICAgICAgICAgICAgICAgICAgIG9uRGVjcmVhc2U9e2hhbmRsZURlY3JlYXNlfQogICAgICAgICAgICAgICAgICAgIG9uSW5jcmVhc2U9e2hhbmRsZUluY3JlYXNlfQogICAgICAgICAgICAgICAgICAgIGRpc2FibGVEZWNyZWFzZT17ZmFsc2V9CiAgICAgICAgICAgICAgICAgICAgZGlzYWJsZUluY3JlYXNlPXt0cnVlfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDxJbnB1dE51bWJlckNvbnRyb2wKICAgICAgICAgICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgICAgICAgICBvbkRlY3JlYXNlPXtoYW5kbGVEZWNyZWFzZX0KICAgICAgICAgICAgICAgICAgICBvbkluY3JlYXNlPXtoYW5kbGVJbmNyZWFzZX0KICAgICAgICAgICAgICAgICAgICBkaXNhYmxlRGVjcmVhc2U9e2ZhbHNlfQogICAgICAgICAgICAgICAgICAgIGRpc2FibGVJbmNyZWFzZT17dHJ1ZX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8SW5wdXROdW1iZXJDb250cm9sCiAgICAgICAgICAgICAgICAgICAgc2l6ZT0ieGwiCiAgICAgICAgICAgICAgICAgICAgb25EZWNyZWFzZT17aGFuZGxlRGVjcmVhc2V9CiAgICAgICAgICAgICAgICAgICAgb25JbmNyZWFzZT17aGFuZGxlSW5jcmVhc2V9CiAgICAgICAgICAgICAgICAgICAgZGlzYWJsZURlY3JlYXNlPXtmYWxzZX0KICAgICAgICAgICAgICAgICAgICBkaXNhYmxlSW5jcmVhc2U9e3RydWV9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICA8L1N0YWNrPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const Number = () => {
+    const [text, setText] = useState<any>('23')
+    const ref = useRef(null)
+
+    const handleIncrease = () => {
+        setText(+text + 1)
+        focusInputAtEnd(ref.current)
+    }
+
+    const handleDecrease = () => {
+        setText(+text - 1)
+        focusInputAtEnd(ref.current)
+    }
+
+    return (
+        <View
+            column
+            gap={20}
+            alignItems="flex-start">
+            <InputControl onFocus={(e) => console.log(e.target)}>
+                <InputPrefix>
+                    <InputNumberControl
+                        size="md"
+                        onDecrease={handleDecrease}
+                        onIncrease={handleIncrease}
+                        disableDecrease={false}
+                        disableIncrease={true}
+                    />
+                </InputPrefix>
+                <Input
+                    placeholder="Type here - text"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    size="md"
+                    type="number"
+                    ref={ref}
+                />
+                <InputSuffix>
+                    <InputNumberControl
+                        size="md"
+                        onDecrease={handleDecrease}
+                        onIncrease={handleIncrease}
+                        disableDecrease={true}
+                        disableIncrease={false}
+                    />
+                </InputSuffix>
+            </InputControl>
+
+            <Text>Standalone number spinners:</Text>
+
+            <Stack spacing={10}>
+                <InputNumberControl
+                    size="xs"
+                    onDecrease={handleDecrease}
+                    onIncrease={handleIncrease}
+                    disableDecrease={false}
+                    disableIncrease={true}
+                />
+                <InputNumberControl
+                    size="sm"
+                    onDecrease={handleDecrease}
+                    onIncrease={handleIncrease}
+                    disableDecrease={false}
+                    disableIncrease={true}
+                />
+                <InputNumberControl
+                    size="md"
+                    onDecrease={handleDecrease}
+                    onIncrease={handleIncrease}
+                    disableDecrease={false}
+                    disableIncrease={true}
+                />
+                <InputNumberControl
+                    size="lg"
+                    onDecrease={handleDecrease}
+                    onIncrease={handleIncrease}
+                    disableDecrease={false}
+                    disableIncrease={true}
+                />
+                <InputNumberControl
+                    size="xl"
+                    onDecrease={handleDecrease}
+                    onIncrease={handleIncrease}
+                    disableDecrease={false}
+                    disableIncrease={true}
+                />
+            </Stack>
+        </View>
+    )
+}
+```
+### Pin
+<a name="pin"></a>
+
+export const Pin = () => (<PinInput width={300} size="xl" digits={5} defaultValue="23" onChange={(sequence) => console.log(sequence)}/>);
+
+<div className="story-block">
+<Pin />
+</div>
+
+<CodeComponent filename="Pin.tsx" code="ZXhwb3J0IGNvbnN0IFBpbiA9ICgpID0+ICgKICAgIDxQaW5JbnB1dAogICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgc2l6ZT0ieGwiCiAgICAgICAgZGlnaXRzPXs1fQogICAgICAgIGRlZmF1bHRWYWx1ZT0iMjMiCiAgICAgICAgb25DaGFuZ2U9eyhzZXF1ZW5jZSkgPT4gY29uc29sZS5sb2coc2VxdWVuY2UpfQogICAgLz4KKQ==" />
+
+```tsx
+export const Pin = () => (
+    <PinInput
+        width={300}
+        size="xl"
+        digits={5}
+        defaultValue="23"
+        onChange={(sequence) => console.log(sequence)}
+    />
+)
+```
+### With Popover
+<a name="withpopover"></a>
+
+export const WithPopover = () => {
+    const [text, setText] = useState('');
+    const { show, delayedShow, hide, visible } = useVisibility(false);
+    return (<Popover arrow isVisible={visible} onDismiss={hide} anchor="bottom-center" content={<View p={20} column alignItems="flex-start" gap={10}>
+                    <Heading as="h4">Plese make sure your password:</Heading>
+                    <List as="ul">
+                        <Li>Is more than 8 characters long</Li>
+                        <Li>Does not container easily identifiable words</Li>
+                        <Li>Contains alpha-numeric characters</Li>
+                        <Li>Contains special characters</Li>
+                    </List>
+                </View>}>
+            <Input placeholder="Enter your password" value={text} type="password" onChange={(e) => setText(e.target.value)} onFocus={(e) => delayedShow()}/>
+        </Popover>);
+};
+
+<div className="story-block">
+<WithPopover />
+</div>
+
+<CodeComponent filename="WithPopover.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhQb3BvdmVyID0gKCkgPT4gewogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGU8YW55PignJykKICAgIGNvbnN0IHsgc2hvdywgZGVsYXllZFNob3csIGhpZGUsIHZpc2libGUgfSA9IHVzZVZpc2liaWxpdHkoZmFsc2UpCgogICAgcmV0dXJuICgKICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICBhcnJvdwogICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0KICAgICAgICAgICAgYW5jaG9yPSJib3R0b20tY2VudGVyIgogICAgICAgICAgICBjb250ZW50PXsKICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcD17MjB9CiAgICAgICAgICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfT4KICAgICAgICAgICAgICAgICAgICA8SGVhZGluZyBhcz0iaDQiPlBsZXNlIG1ha2Ugc3VyZSB5b3VyIHBhc3N3b3JkOjwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8TGlzdCBhcz0idWwiPgogICAgICAgICAgICAgICAgICAgICAgICA8TGk+SXMgbW9yZSB0aGFuIDggY2hhcmFjdGVycyBsb25nPC9MaT4KICAgICAgICAgICAgICAgICAgICAgICAgPExpPkRvZXMgbm90IGNvbnRhaW5lciBlYXNpbHkgaWRlbnRpZmlhYmxlIHdvcmRzPC9MaT4KICAgICAgICAgICAgICAgICAgICAgICAgPExpPkNvbnRhaW5zIGFscGhhLW51bWVyaWMgY2hhcmFjdGVyczwvTGk+CiAgICAgICAgICAgICAgICAgICAgICAgIDxMaT5Db250YWlucyBzcGVjaWFsIGNoYXJhY3RlcnM8L0xpPgogICAgICAgICAgICAgICAgICAgIDwvTGlzdD4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgfT4KICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iRW50ZXIgeW91ciBwYXNzd29yZCIKICAgICAgICAgICAgICAgIHZhbHVlPXt0ZXh0fQogICAgICAgICAgICAgICAgdHlwZT0icGFzc3dvcmQiCiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgb25Gb2N1cz17KGUpID0+IGRlbGF5ZWRTaG93KCl9CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9Qb3BvdmVyPgogICAgKQp9" />
+
+```tsx
+export const WithPopover = () => {
+    const [text, setText] = useState<any>('')
+    const { show, delayedShow, hide, visible } = useVisibility(false)
+
+    return (
+        <Popover
+            arrow
+            isVisible={visible}
+            onDismiss={hide}
+            anchor="bottom-center"
+            content={
+                <View
+                    p={20}
+                    column
+                    alignItems="flex-start"
+                    gap={10}>
+                    <Heading as="h4">Plese make sure your password:</Heading>
+                    <List as="ul">
+                        <Li>Is more than 8 characters long</Li>
+                        <Li>Does not container easily identifiable words</Li>
+                        <Li>Contains alpha-numeric characters</Li>
+                        <Li>Contains special characters</Li>
+                    </List>
+                </View>
+            }>
+            <Input
+                placeholder="Enter your password"
+                value={text}
+                type="password"
+                onChange={(e) => setText(e.target.value)}
+                onFocus={(e) => delayedShow()}
+            />
+        </Popover>
+    )
+}
+```
+### Combo
+<a name="combo"></a>
+
+export const Combo = () => {
+    const [selected, setSelected] = useState(['React', 'Svelte', 'Vue']);
+    const [text, setText] = useState('');
+    const handleKeyDown = (e) => {
+        const { isEnter } = getKey(e);
+        if (isEnter) {
+            e.preventDefault();
+            e.stopPropagation();
+            setSelected([...selected, text]);
+            setText('');
+        }
+    };
+    return (<ComboInput render={() => {
+            return selected.map((name, index) => (<Pill key={index} outline>
+                        {name}
+                    </Pill>));
+        }}>
+            <ComboInputField value={text} placeholder="Type..." onChange={(e) => setText(e.target.value)} onKeyDown={handleKeyDown}/>
+        </ComboInput>);
+};
+
+<div className="story-block">
+<Combo />
+</div>
+
+<CodeComponent filename="Combo.tsx" code="ZXhwb3J0IGNvbnN0IENvbWJvID0gKCkgPT4gewogICAgY29uc3QgW3NlbGVjdGVkLCBzZXRTZWxlY3RlZF0gPSB1c2VTdGF0ZTxhbnk+KFsnUmVhY3QnLCAnU3ZlbHRlJywgJ1Z1ZSddKQogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGU8YW55PignJykKCiAgICBjb25zdCBoYW5kbGVLZXlEb3duID0gKGUpID0+IHsKICAgICAgICBjb25zdCB7IGlzRW50ZXIgfSA9IGdldEtleShlKQogICAgICAgIGlmIChpc0VudGVyKSB7CiAgICAgICAgICAgIGUucHJldmVudERlZmF1bHQoKQogICAgICAgICAgICBlLnN0b3BQcm9wYWdhdGlvbigpCiAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZCwgdGV4dF0pCiAgICAgICAgICAgIHNldFRleHQoJycpCiAgICAgICAgfQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPENvbWJvSW5wdXQKICAgICAgICAgICAgcmVuZGVyPXsoKSA9PiB7CiAgICAgICAgICAgICAgICByZXR1cm4gc2VsZWN0ZWQubWFwKChuYW1lLCBpbmRleCkgPT4gKAogICAgICAgICAgICAgICAgICAgIDxQaWxsCiAgICAgICAgICAgICAgICAgICAgICAgIGtleT17aW5kZXh9CiAgICAgICAgICAgICAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgICAgICAgICAgICAgIHtuYW1lfQogICAgICAgICAgICAgICAgICAgIDwvUGlsbD4KICAgICAgICAgICAgICAgICkpCiAgICAgICAgICAgIH19PgogICAgICAgICAgICA8Q29tYm9JbnB1dEZpZWxkCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJUeXBlLi4uIgogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIG9uS2V5RG93bj17aGFuZGxlS2V5RG93bn0KICAgICAgICAgICAgLz4KICAgICAgICA8L0NvbWJvSW5wdXQ+CiAgICApCn0=" />
+
+```tsx
+export const Combo = () => {
+    const [selected, setSelected] = useState<any>(['React', 'Svelte', 'Vue'])
+    const [text, setText] = useState<any>('')
+
+    const handleKeyDown = (e) => {
+        const { isEnter } = getKey(e)
+        if (isEnter) {
+            e.preventDefault()
+            e.stopPropagation()
+            setSelected([...selected, text])
+            setText('')
+        }
+    }
+
+    return (
+        <ComboInput
+            render={() => {
+                return selected.map((name, index) => (
+                    <Pill
+                        key={index}
+                        outline>
+                        {name}
+                    </Pill>
+                ))
+            }}>
+            <ComboInputField
+                value={text}
+                placeholder="Type..."
+                onChange={(e) => setText(e.target.value)}
+                onKeyDown={handleKeyDown}
+            />
+        </ComboInput>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

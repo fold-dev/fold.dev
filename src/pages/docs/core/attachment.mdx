@@ -1,0 +1,329 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Attachment, AttachmentThumb, IconLib, Text, View } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Attachment',
+    subtitle: 'The Attachment component displays a file attachment that has been uploaded by a user or the system.',
+    description:
+        'The Attachment component is useful for displaying file attachments in message or file-based user interfaces, where it is necessary to represent MIME properties (file sizes, file types, etc.).',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/attachment/attachment.tsx","description":"","displayName":"Attachment","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"heroPosterHeight":{"defaultValue":null,"description":"","name":"heroPosterHeight","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"heroPosterContent":{"defaultValue":null,"description":"","name":"heroPosterContent","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"heroPoster":{"defaultValue":null,"description":"","name":"heroPoster","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"poster":{"defaultValue":null,"description":"","name":"poster","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"filesize":{"defaultValue":null,"description":"","name":"filesize","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"mime":{"defaultValue":null,"description":"","name":"mime","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"tools":{"defaultValue":null,"description":"","name":"tools","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"error":{"defaultValue":null,"description":"","name":"error","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"sm\" | \"md\" | \"lg\""},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"loadingProgress":{"defaultValue":null,"description":"","name":"loadingProgress","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"label":{"defaultValue":null,"description":"","name":"label","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/attachment/attachment.tsx","description":"","displayName":"AttachmentThumb","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"poster":{"defaultValue":null,"description":"","name":"poster","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"mime":{"defaultValue":null,"description":"","name":"mime","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"error":{"defaultValue":null,"description":"","name":"error","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"tools":{"defaultValue":null,"description":"","name":"tools","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"filesize":{"defaultValue":null,"description":"","name":"filesize","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"loadingProgress":{"defaultValue":null,"description":"","name":"loadingProgress","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"label":{"defaultValue":null,"description":"","name":"label","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"packages/core/src/attachment/attachment.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}}]
+
+export const css = [[["--f-attachment-background","var(--f-color-surface)"],["--f-attachment-color","var(--f-color-accent)"],["--f-attachment-border-radius","var(--f-radius)"],["--f-attachment-border-color","var(--f-color-border)"],["--f-attachment-border-color-hover","var(--f-color-border-strong)"],["--f-attachment-icon-background","var(--f-color-surface-strong)"],["--f-attachment-icon-color","var(--f-color-accent)"],["--f-attachment-thumb-background","var(--f-color-surface)"],["--f-attachment-thumb-size","var(--f-size-28)"],["--f-attachment-thumb-overlay","var(--f-color-overlay)"]]]
+
+
+
+<CodeComponent filename="attachment.tsx" code="aW1wb3J0IHsgQXR0YWNobWVudCwgQXR0YWNobWVudFRodW1iIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Attachment, AttachmentThumb } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<Attachment width={500} heroPoster="/photos/10.jpg" mime="image/png" filesize={24325} label="filename.png" poster="" href="https://fold.dev" tools={<View row gap={10} p="0 0.5rem" color="var(--f-color-base-300)">
+                    <IconLib icon="eye"/>
+                    <IconLib icon="bin"/>
+                </View>}/>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICBoZXJvUG9zdGVyPSIvcGhvdG9zLzEwLmpwZyIKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBmaWxlc2l6ZT17MjQzMjV9CiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIHBvc3Rlcj0iIgogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgICAgICB0b29scz17CiAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgICAgICAgICAgcD0iMCAwLjVyZW0iCiAgICAgICAgICAgICAgICAgICAgY29sb3I9InZhcigtLWYtY29sb3ItYmFzZS0zMDApIj4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJleWUiIC8+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iYmluIiAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICB9CiAgICAgICAgLz4KICAgICkKfQ==" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <Attachment
+            width={500}
+            heroPoster="/photos/10.jpg"
+            mime="image/png"
+            filesize={24325}
+            label="filename.png"
+            poster=""
+            href="https://fold.dev"
+            tools={
+                <View
+                    row
+                    gap={10}
+                    p="0 0.5rem"
+                    color="var(--f-color-base-300)">
+                    <IconLib icon="eye" />
+                    <IconLib icon="bin" />
+                </View>
+            }
+        />
+    )
+}
+```
+### Hero Poster Overlay
+<a name="heroposteroverlay"></a>
+
+> The hero poster provides a useful method to overlay interactive content related to the attachment. This can include (but not limited to) videos & embeddable maps.
+
+export const HeroPosterOverlay = () => {
+    return (<Attachment width={500} heroPoster="/photos/04.jpg" heroPosterContent={<View row position="absolute" width="100%" height="100%" bgToken="surface-inverse" zIndex={1} radius="var(--f-radius)" style={{ top: 0, left: 0 }}>
+                    <Text colorToken="text-on-color">Not available in your region.</Text>
+                </View>} mime="image/png" filesize={24325} label="filename.png" poster="" href="https://fold.dev" tools={<View row gap={10} p="0 0.5rem" color="var(--f-color-base-300)">
+                    <IconLib icon="eye"/>
+                    <IconLib icon="bin"/>
+                </View>}/>);
+};
+
+<div className="story-block">
+<HeroPosterOverlay />
+</div>
+
+<CodeComponent filename="HeroPosterOverlay.tsx" code="ZXhwb3J0IGNvbnN0IEhlcm9Qb3N0ZXJPdmVybGF5ID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICBoZXJvUG9zdGVyPSIvcGhvdG9zLzA0LmpwZyIKICAgICAgICAgICAgaGVyb1Bvc3RlckNvbnRlbnQ9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbj0iYWJzb2x1dGUiCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PSIxMDAlIgogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2UtaW52ZXJzZSIKICAgICAgICAgICAgICAgICAgICB6SW5kZXg9ezF9CiAgICAgICAgICAgICAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cykiCiAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3sgdG9wOiAwLCBsZWZ0OiAwIH19PgogICAgICAgICAgICAgICAgICAgIDxUZXh0IGNvbG9yVG9rZW49InRleHQtb24tY29sb3IiPk5vdCBhdmFpbGFibGUgaW4geW91ciByZWdpb24uPC9UZXh0PgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICB9CiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBwb3N0ZXI9IiIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAgICAgdG9vbHM9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgIHA9IjAgMC41cmVtIgogICAgICAgICAgICAgICAgICAgIGNvbG9yPSJ2YXIoLS1mLWNvbG9yLWJhc2UtMzAwKSI+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iZXllIiAvPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImJpbiIgLz4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgfQogICAgICAgIC8+CiAgICApCn0=" />
+
+```tsx
+export const HeroPosterOverlay = () => {
+    return (
+        <Attachment
+            width={500}
+            heroPoster="/photos/04.jpg"
+            heroPosterContent={
+                <View
+                    row
+                    position="absolute"
+                    width="100%"
+                    height="100%"
+                    bgToken="surface-inverse"
+                    zIndex={1}
+                    radius="var(--f-radius)"
+                    style={{ top: 0, left: 0 }}>
+                    <Text colorToken="text-on-color">Not available in your region.</Text>
+                </View>
+            }
+            mime="image/png"
+            filesize={24325}
+            label="filename.png"
+            poster=""
+            href="https://fold.dev"
+            tools={
+                <View
+                    row
+                    gap={10}
+                    p="0 0.5rem"
+                    color="var(--f-color-base-300)">
+                    <IconLib icon="eye" />
+                    <IconLib icon="bin" />
+                </View>
+            }
+        />
+    )
+}
+```
+### States
+<a name="states"></a>
+
+> Incomplete information & error states.
+
+export const States = () => (<View column gap={10} width={500}>
+        <Attachment width={500} mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
+        <Attachment width={500} poster="/photos/01.jpg" mime="image/png" filesize={24325} label="filename.png" loading loadingProgress={56} href="https://fold.dev"/>
+        <Attachment error mime="image/png" width={500} filesize={24325} label="filename.png" href="https://fold.dev"/>
+        <Attachment width={500} poster="/photos/01.jpg" mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
+    </View>);
+
+<div className="story-block">
+<States />
+</div>
+
+<CodeComponent filename="States.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXRlcyA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgY29sdW1uCiAgICAgICAgZ2FwPXsxMH0KICAgICAgICB3aWR0aD17NTAwfT4KICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGZpbGVzaXplPXsyNDMyNX0KICAgICAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50CiAgICAgICAgICAgIHdpZHRoPXs1MDB9CiAgICAgICAgICAgIHBvc3Rlcj0iL3Bob3Rvcy8wMS5qcGciCiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBsb2FkaW5nCiAgICAgICAgICAgIGxvYWRpbmdQcm9ncmVzcz17NTZ9CiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgLz4KICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICBlcnJvcgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIHdpZHRoPXs1MDB9CiAgICAgICAgICAgIGZpbGVzaXplPXsyNDMyNX0KICAgICAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50CiAgICAgICAgICAgIHdpZHRoPXs1MDB9CiAgICAgICAgICAgIHBvc3Rlcj0iL3Bob3Rvcy8wMS5qcGciCiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+export const States = () => (
+    <View
+        column
+        gap={10}
+        width={500}>
+        <Attachment
+            width={500}
+            mime="image/png"
+            filesize={24325}
+            label="filename.png"
+            href="https://fold.dev"
+        />
+        <Attachment
+            width={500}
+            poster="/photos/01.jpg"
+            mime="image/png"
+            filesize={24325}
+            label="filename.png"
+            loading
+            loadingProgress={56}
+            href="https://fold.dev"
+        />
+        <Attachment
+            error
+            mime="image/png"
+            width={500}
+            filesize={24325}
+            label="filename.png"
+            href="https://fold.dev"
+        />
+        <Attachment
+            width={500}
+            poster="/photos/01.jpg"
+            mime="image/png"
+            filesize={24325}
+            label="filename.png"
+            href="https://fold.dev"
+        />
+    </View>
+)
+```
+### Size
+<a name="size"></a>
+
+> Size variations, include `sm`, `md`, `lg`.
+
+export const Size = () => (<View column gap={10}>
+        <Attachment size="sm" poster="/photos/07.jpg" mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
+        <Attachment poster="/photos/08.jpg" mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
+        <Attachment mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
+        <Attachment size="lg" mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
+    </View>);
+
+<div className="story-block">
+<Size />
+</div>
+
+<CodeComponent filename="Size.tsx" code="ZXhwb3J0IGNvbnN0IFNpemUgPSAoKSA9PiAoCiAgICA8VmlldwogICAgICAgIGNvbHVtbgogICAgICAgIGdhcD17MTB9PgogICAgICAgIDxBdHRhY2htZW50CiAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICBwb3N0ZXI9Ii9waG90b3MvMDcuanBnIgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGZpbGVzaXplPXsyNDMyNX0KICAgICAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50CiAgICAgICAgICAgIHBvc3Rlcj0iL3Bob3Rvcy8wOC5qcGciCiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgIC8+CiAgICAgICAgPEF0dGFjaG1lbnQKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBmaWxlc2l6ZT17MjQzMjV9CiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgLz4KICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBmaWxlc2l6ZT17MjQzMjV9CiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgLz4KICAgIDwvVmlldz4KKQ==" />
+
+```tsx
+export const Size = () => (
+    <View
+        column
+        gap={10}>
+        <Attachment
+            size="sm"
+            poster="/photos/07.jpg"
+            mime="image/png"
+            filesize={24325}
+            label="filename.png"
+            href="https://fold.dev"
+        />
+        <Attachment
+            poster="/photos/08.jpg"
+            mime="image/png"
+            filesize={24325}
+            label="filename.png"
+            href="https://fold.dev"
+        />
+        <Attachment
+            mime="image/png"
+            filesize={24325}
+            label="filename.png"
+            href="https://fold.dev"
+        />
+        <Attachment
+            size="lg"
+            mime="image/png"
+            filesize={24325}
+            label="filename.png"
+            href="https://fold.dev"
+        />
+    </View>
+)
+```
+### Thumbnail
+<a name="thumbnail"></a>
+
+> The thumbnail variant of the Attachment component provides a small, more compact version. This can be useful in environment where space is limited, such as inline messages.
+
+export const Thumbnail = () => (<View row gap={10} justifyContent="flex-start">
+        <AttachmentThumb poster="/photos/09.jpg" mime="image/png" label="filename.png" loading href="https://fold.dev"/>
+        <AttachmentThumb poster="/photos/10.jpg" mime="image/png" label="filename.png" loading loadingProgress={56} href="https://fold.dev"/>
+        <AttachmentThumb error filesize={24325} loadingProgress={45} mime="image/png" label="filename.png" href="https://fold.dev"/>
+        <AttachmentThumb mime="image/png" label="filename.png" href="https://fold.dev" tools={<View row gap={10} p="0 0.5rem" colorToken="accent-200" zIndex={10}>
+                    <IconLib icon="eye"/>
+                    <IconLib icon="bin"/>
+                </View>}/>
+        <AttachmentThumb poster="/photos/01.jpg" mime="image/png" label="filename.png" href="https://fold.dev" tools={<View row gap={10} p="0 0.5rem" colorToken="accent-200" zIndex={10}>
+                    <IconLib icon="eye"/>
+                    <IconLib icon="bin"/>
+                </View>}/>
+    </View>);
+
+<div className="story-block">
+<Thumbnail />
+</div>
+
+<CodeComponent filename="Thumbnail.tsx" code="ZXhwb3J0IGNvbnN0IFRodW1ibmFpbCA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgcm93CiAgICAgICAgZ2FwPXsxMH0KICAgICAgICBqdXN0aWZ5Q29udGVudD0iZmxleC1zdGFydCI+CiAgICAgICAgPEF0dGFjaG1lbnRUaHVtYgogICAgICAgICAgICBwb3N0ZXI9Ii9waG90b3MvMDkuanBnIgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGxvYWRpbmcKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50VGh1bWIKICAgICAgICAgICAgcG9zdGVyPSIvcGhvdG9zLzEwLmpwZyIKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBsb2FkaW5nCiAgICAgICAgICAgIGxvYWRpbmdQcm9ncmVzcz17NTZ9CiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgLz4KICAgICAgICA8QXR0YWNobWVudFRodW1iCiAgICAgICAgICAgIGVycm9yCiAgICAgICAgICAgIGZpbGVzaXplPXsyNDMyNX0KICAgICAgICAgICAgbG9hZGluZ1Byb2dyZXNzPXs0NX0KICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgIC8+CiAgICAgICAgPEF0dGFjaG1lbnRUaHVtYgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgICAgIHRvb2xzPXsKICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgICAgICAgICBwPSIwIDAuNXJlbSIKICAgICAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJhY2NlbnQtMjAwIgogICAgICAgICAgICAgICAgICAgIHpJbmRleD17MTB9PgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImV5ZSIgLz4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJiaW4iIC8+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIH0KICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50VGh1bWIKICAgICAgICAgICAgcG9zdGVyPSIvcGhvdG9zLzAxLmpwZyIKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgICAgICB0b29scz17CiAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgICAgICAgICAgcD0iMCAwLjVyZW0iCiAgICAgICAgICAgICAgICAgICAgY29sb3JUb2tlbj0iYWNjZW50LTIwMCIKICAgICAgICAgICAgICAgICAgICB6SW5kZXg9ezEwfT4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJleWUiIC8+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iYmluIiAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICB9CiAgICAgICAgLz4KICAgIDwvVmlldz4KKQ==" />
+
+```tsx
+export const Thumbnail = () => (
+    <View
+        row
+        gap={10}
+        justifyContent="flex-start">
+        <AttachmentThumb
+            poster="/photos/09.jpg"
+            mime="image/png"
+            label="filename.png"
+            loading
+            href="https://fold.dev"
+        />
+        <AttachmentThumb
+            poster="/photos/10.jpg"
+            mime="image/png"
+            label="filename.png"
+            loading
+            loadingProgress={56}
+            href="https://fold.dev"
+        />
+        <AttachmentThumb
+            error
+            filesize={24325}
+            loadingProgress={45}
+            mime="image/png"
+            label="filename.png"
+            href="https://fold.dev"
+        />
+        <AttachmentThumb
+            mime="image/png"
+            label="filename.png"
+            href="https://fold.dev"
+            tools={
+                <View
+                    row
+                    gap={10}
+                    p="0 0.5rem"
+                    colorToken="accent-200"
+                    zIndex={10}>
+                    <IconLib icon="eye" />
+                    <IconLib icon="bin" />
+                </View>
+            }
+        />
+        <AttachmentThumb
+            poster="/photos/01.jpg"
+            mime="image/png"
+            label="filename.png"
+            href="https://fold.dev"
+            tools={
+                <View
+                    row
+                    gap={10}
+                    p="0 0.5rem"
+                    colorToken="accent-200"
+                    zIndex={10}>
+                    <IconLib icon="eye" />
+                    <IconLib icon="bin" />
+                </View>
+            }
+        />
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

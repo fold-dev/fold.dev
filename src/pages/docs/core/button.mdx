@@ -1,0 +1,722 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import {
+    Button,
+    ButtonGroup,
+    DarkModeButton,
+    IconButton,
+    IconLib,
+    Menu,
+    MenuItem,
+    Popover,
+    Stack,
+    useVisibility,
+} from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Button',
+    subtitle: 'The Button component enables users to perform actions, make selections, and submit forms.',
+    description:
+        'Buttons serve as fundamental elements in user interfaces and are frequently integrated within encapsulated elements such as cards and dialogs, establishing a contextual connection with the specific component they are placed within.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/button/button.tsx","description":"","displayName":"ButtonGroup","methods":[],"props":{"direction":{"defaultValue":null,"description":"","name":"direction","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"vertical\" | \"horizontal\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/button/button.tsx","description":"","displayName":"Button","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"a\""},"tags":{}},"underlined":{"defaultValue":null,"description":"","name":"underlined","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"flat":{"defaultValue":null,"description":"","name":"flat","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"form":{"defaultValue":null,"description":"","name":"form","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"active":{"defaultValue":null,"description":"","name":"active","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LinkTarget"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"submit\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/button/button.tsx","description":"","displayName":"IconButton","methods":[],"props":{"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"iconProps":{"defaultValue":null,"description":"","name":"iconProps","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"a\""},"tags":{}},"underlined":{"defaultValue":null,"description":"","name":"underlined","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"flat":{"defaultValue":null,"description":"","name":"flat","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"form":{"defaultValue":null,"description":"","name":"form","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"active":{"defaultValue":null,"description":"","name":"active","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LinkTarget"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"submit\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/button/button.tsx","description":"","displayName":"DarkModeButton","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"lightMode":{"defaultValue":null,"description":"","name":"lightMode","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"darkMode":{"defaultValue":null,"description":"","name":"darkMode","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"a\""},"tags":{}},"underlined":{"defaultValue":null,"description":"","name":"underlined","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"flat":{"defaultValue":null,"description":"","name":"flat","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"form":{"defaultValue":null,"description":"","name":"form","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"active":{"defaultValue":null,"description":"","name":"active","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LinkTarget"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"submit\""},"tags":{}}}}]
+
+export const css = [[["--f-button-color","var(--f-color-text-weak)"],["--f-button-color-hover","var(--f-color-text)"],["--f-button-border-width","1px"],["--f-button-border-color","var(--f-color-border)"],["--f-button-background-color","var(--f-color-surface)"],["--f-button-background-color-hover","var(--f-color-surface-stronger)"],["--f-button-disabled-opacity","0.5"],["--f-button-border-radius","var(--f-radius)"],["--f-button-shadow","var(--f-shadow-sm)"]]]
+
+
+
+<CodeComponent filename="button.tsx" code="aW1wb3J0IHsKICBCdXR0b25Hcm91cCwKICBCdXR0b24sCiAgSWNvbkJ1dHRvbiwKICBEYXJrTW9kZUJ1dHRvbiwKfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import {
+  ButtonGroup,
+  Button,
+  IconButton,
+  DarkModeButton,
+} from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => <Button>Okay</Button>;
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gPEJ1dHRvbj5Pa2F5PC9CdXR0b24+" />
+
+```tsx
+export const Usage = () => <Button>Okay</Button>
+```
+### Sizes
+<a name="sizes"></a>
+
+export const Sizes = () => (<Stack spacing={5}>
+        <Button size="xs">Xsmall</Button>
+        <Button size="sm">Small</Button>
+        <Button size="md">Medium</Button>
+        <Button size="lg">Large</Button>
+        <Button size="xl">Xlarge</Button>
+    </Stack>);
+
+<div className="story-block">
+<Sizes />
+</div>
+
+<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxCdXR0b24gc2l6ZT0ieHMiPlhzbWFsbDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24gc2l6ZT0ic20iPlNtYWxsPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbiBzaXplPSJtZCI+TWVkaXVtPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbiBzaXplPSJsZyI+TGFyZ2U8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uIHNpemU9InhsIj5YbGFyZ2U8L0J1dHRvbj4KICAgIDwvU3RhY2s+Cik=" />
+
+```tsx
+export const Sizes = () => (
+    <Stack spacing={5}>
+        <Button size="xs">Xsmall</Button>
+        <Button size="sm">Small</Button>
+        <Button size="md">Medium</Button>
+        <Button size="lg">Large</Button>
+        <Button size="xl">Xlarge</Button>
+    </Stack>
+)
+```
+### Variants
+<a name="variants"></a>
+
+export const Variants = () => (<Stack spacing={5}>
+        <Button>Default</Button>
+        <Button variant="accent">Accent</Button>
+        <Button variant="success">Success</Button>
+        <Button variant="neutral">Neutral</Button>
+        <Button variant="caution">Caution</Button>
+        <Button variant="warning">Warning</Button>
+        <Button variant="danger">Danger</Button>
+        <Button variant="danger">Danger</Button>
+        <Button variant="highlight">Highlight</Button>
+    </Stack>);
+
+<div className="story-block">
+<Variants />
+</div>
+
+<CodeComponent filename="Variants.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxCdXR0b24+RGVmYXVsdDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24gdmFyaWFudD0iYWNjZW50Ij5BY2NlbnQ8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9InN1Y2Nlc3MiPlN1Y2Nlc3M8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9Im5ldXRyYWwiPk5ldXRyYWw8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9ImNhdXRpb24iPkNhdXRpb248L0J1dHRvbj4KICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9Indhcm5pbmciPldhcm5pbmc8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9ImRhbmdlciI+RGFuZ2VyPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbiB2YXJpYW50PSJkYW5nZXIiPkRhbmdlcjwvQnV0dG9uPgogICAgICAgIDxCdXR0b24gdmFyaWFudD0iaGlnaGxpZ2h0Ij5IaWdobGlnaHQ8L0J1dHRvbj4KICAgIDwvU3RhY2s+Cik=" />
+
+```tsx
+export const Variants = () => (
+    <Stack spacing={5}>
+        <Button>Default</Button>
+        <Button variant="accent">Accent</Button>
+        <Button variant="success">Success</Button>
+        <Button variant="neutral">Neutral</Button>
+        <Button variant="caution">Caution</Button>
+        <Button variant="warning">Warning</Button>
+        <Button variant="danger">Danger</Button>
+        <Button variant="danger">Danger</Button>
+        <Button variant="highlight">Highlight</Button>
+    </Stack>
+)
+```
+### With Prefix And Suffix
+<a name="withprefixandsuffix"></a>
+
+export const WithPrefixAndSuffix = () => (<Stack spacing={5}>
+        <Button as="a" href="https://google.com" target="_blank" prefix={<IconLib icon="circle"/>}>
+            With Prefix
+        </Button>
+        <Button outline variant="accent" suffix={<IconLib icon="circle"/>}>
+            With Suffix
+        </Button>
+        <Button subtle variant="danger" prefix={<IconLib icon="circle"/>} suffix={<IconLib icon="circle"/>}>
+            With Prefix & Suffix
+        </Button>
+    </Stack>);
+
+<div className="story-block">
+<WithPrefixAndSuffix />
+</div>
+
+<CodeComponent filename="WithPrefixAndSuffix.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhQcmVmaXhBbmRTdWZmaXggPSAoKSA9PiAoCiAgICA8U3RhY2sgc3BhY2luZz17NX0+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICBhcz0iYSIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9nb29nbGUuY29tIgogICAgICAgICAgICB0YXJnZXQ9Il9ibGFuayIKICAgICAgICAgICAgcHJlZml4PXs8SWNvbkxpYiBpY29uPSJjaXJjbGUiIC8+fT4KICAgICAgICAgICAgV2l0aCBQcmVmaXgKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIG91dGxpbmUKICAgICAgICAgICAgdmFyaWFudD0iYWNjZW50IgogICAgICAgICAgICBzdWZmaXg9ezxJY29uTGliIGljb249ImNpcmNsZSIgLz59PgogICAgICAgICAgICBXaXRoIFN1ZmZpeAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgc3VidGxlCiAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgcHJlZml4PXs8SWNvbkxpYiBpY29uPSJjaXJjbGUiIC8+fQogICAgICAgICAgICBzdWZmaXg9ezxJY29uTGliIGljb249ImNpcmNsZSIgLz59PgogICAgICAgICAgICBXaXRoIFByZWZpeCAmIFN1ZmZpeAogICAgICAgIDwvQnV0dG9uPgogICAgPC9TdGFjaz4KKQ==" />
+
+```tsx
+export const WithPrefixAndSuffix = () => (
+    <Stack spacing={5}>
+        <Button
+            as="a"
+            href="https://google.com"
+            target="_blank"
+            prefix={<IconLib icon="circle" />}>
+            With Prefix
+        </Button>
+        <Button
+            outline
+            variant="accent"
+            suffix={<IconLib icon="circle" />}>
+            With Suffix
+        </Button>
+        <Button
+            subtle
+            variant="danger"
+            prefix={<IconLib icon="circle" />}
+            suffix={<IconLib icon="circle" />}>
+            With Prefix & Suffix
+        </Button>
+    </Stack>
+)
+```
+### Subtle
+<a name="subtle"></a>
+
+export const Subtle = () => (<Stack spacing={5}>
+        <Button subtle>Default</Button>
+        <Button variant="accent" subtle>
+            Accent
+        </Button>
+        <Button variant="success" subtle>
+            Success
+        </Button>
+        <Button variant="neutral" subtle>
+            Neutral
+        </Button>
+        <Button variant="caution" subtle>
+            Caution
+        </Button>
+        <Button variant="warning" subtle>
+            Warning
+        </Button>
+        <Button variant="danger" subtle>
+            Danger
+        </Button>
+        <Button variant="danger" subtle>
+            Danger
+        </Button>
+        <Button variant="highlight" subtle>
+            Highlight
+        </Button>
+    </Stack>);
+
+<div className="story-block">
+<Subtle />
+</div>
+
+<CodeComponent filename="Subtle.tsx" code="ZXhwb3J0IGNvbnN0IFN1YnRsZSA9ICgpID0+ICgKICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICA8QnV0dG9uIHN1YnRsZT5EZWZhdWx0PC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgQWNjZW50CiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICBzdWJ0bGU+CiAgICAgICAgICAgIFN1Y2Nlc3MKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9Im5ldXRyYWwiCiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgTmV1dHJhbAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0iY2F1dGlvbiIKICAgICAgICAgICAgc3VidGxlPgogICAgICAgICAgICBDYXV0aW9uCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJ3YXJuaW5nIgogICAgICAgICAgICBzdWJ0bGU+CiAgICAgICAgICAgIFdhcm5pbmcKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgc3VidGxlPgogICAgICAgICAgICBEYW5nZXIKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgc3VidGxlPgogICAgICAgICAgICBEYW5nZXIKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9ImhpZ2hsaWdodCIKICAgICAgICAgICAgc3VidGxlPgogICAgICAgICAgICBIaWdobGlnaHQKICAgICAgICA8L0J1dHRvbj4KICAgIDwvU3RhY2s+Cik=" />
+
+```tsx
+export const Subtle = () => (
+    <Stack spacing={5}>
+        <Button subtle>Default</Button>
+        <Button
+            variant="accent"
+            subtle>
+            Accent
+        </Button>
+        <Button
+            variant="success"
+            subtle>
+            Success
+        </Button>
+        <Button
+            variant="neutral"
+            subtle>
+            Neutral
+        </Button>
+        <Button
+            variant="caution"
+            subtle>
+            Caution
+        </Button>
+        <Button
+            variant="warning"
+            subtle>
+            Warning
+        </Button>
+        <Button
+            variant="danger"
+            subtle>
+            Danger
+        </Button>
+        <Button
+            variant="danger"
+            subtle>
+            Danger
+        </Button>
+        <Button
+            variant="highlight"
+            subtle>
+            Highlight
+        </Button>
+    </Stack>
+)
+```
+### Outline
+<a name="outline"></a>
+
+export const Outline = () => (<Stack spacing={5}>
+        <Button outline>Default</Button>
+        <Button variant="accent" outline>
+            Accent
+        </Button>
+        <Button variant="success" outline>
+            Success
+        </Button>
+        <Button variant="neutral" outline>
+            Neutral
+        </Button>
+        <Button variant="caution" outline>
+            Caution
+        </Button>
+        <Button variant="warning" outline>
+            Warning
+        </Button>
+        <Button variant="danger" outline>
+            Danger
+        </Button>
+        <Button variant="danger" outline>
+            Danger
+        </Button>
+        <Button variant="highlight" outline>
+            Highlight
+        </Button>
+    </Stack>);
+
+<div className="story-block">
+<Outline />
+</div>
+
+<CodeComponent filename="Outline.tsx" code="ZXhwb3J0IGNvbnN0IE91dGxpbmUgPSAoKSA9PiAoCiAgICA8U3RhY2sgc3BhY2luZz17NX0+CiAgICAgICAgPEJ1dHRvbiBvdXRsaW5lPkRlZmF1bHQ8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgQWNjZW50CiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBTdWNjZXNzCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBOZXV0cmFsCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJjYXV0aW9uIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBDYXV0aW9uCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJ3YXJuaW5nIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBXYXJuaW5nCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiCiAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgIERhbmdlcgogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBEYW5nZXIKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9ImhpZ2hsaWdodCIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgSGlnaGxpZ2h0CiAgICAgICAgPC9CdXR0b24+CiAgICA8L1N0YWNrPgop" />
+
+```tsx
+export const Outline = () => (
+    <Stack spacing={5}>
+        <Button outline>Default</Button>
+        <Button
+            variant="accent"
+            outline>
+            Accent
+        </Button>
+        <Button
+            variant="success"
+            outline>
+            Success
+        </Button>
+        <Button
+            variant="neutral"
+            outline>
+            Neutral
+        </Button>
+        <Button
+            variant="caution"
+            outline>
+            Caution
+        </Button>
+        <Button
+            variant="warning"
+            outline>
+            Warning
+        </Button>
+        <Button
+            variant="danger"
+            outline>
+            Danger
+        </Button>
+        <Button
+            variant="danger"
+            outline>
+            Danger
+        </Button>
+        <Button
+            variant="highlight"
+            outline>
+            Highlight
+        </Button>
+    </Stack>
+)
+```
+### States
+<a name="states"></a>
+
+export const States = () => (<Stack spacing={5}>
+        <Button variant="success" loading>
+            Loading
+        </Button>
+        <Button disabled subtle>
+            Default
+        </Button>
+        <Button variant="accent" disabled subtle>
+            Accent
+        </Button>
+        <Button variant="success" disabled>
+            Success
+        </Button>
+        <Button variant="neutral" disabled subtle>
+            Neutral
+        </Button>
+        <Button variant="caution" active>
+            Caution
+        </Button>
+        <Button variant="warning" disabled>
+            Warning
+        </Button>
+        <Button variant="danger" disabled outline subtle>
+            Danger
+        </Button>
+        <Button variant="highlight" disabled>
+            Highlight
+        </Button>
+    </Stack>);
+
+<div className="story-block">
+<States />
+</div>
+
+<CodeComponent filename="States.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXRlcyA9ICgpID0+ICgKICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgIGxvYWRpbmc+CiAgICAgICAgICAgIExvYWRpbmcKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGRpc2FibGVkCiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgRGVmYXVsdAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0iYWNjZW50IgogICAgICAgICAgICBkaXNhYmxlZAogICAgICAgICAgICBzdWJ0bGU+CiAgICAgICAgICAgIEFjY2VudAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgZGlzYWJsZWQ+CiAgICAgICAgICAgIFN1Y2Nlc3MKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9Im5ldXRyYWwiCiAgICAgICAgICAgIGRpc2FibGVkCiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgTmV1dHJhbAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0iY2F1dGlvbiIKICAgICAgICAgICAgYWN0aXZlPgogICAgICAgICAgICBDYXV0aW9uCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJ3YXJuaW5nIgogICAgICAgICAgICBkaXNhYmxlZD4KICAgICAgICAgICAgV2FybmluZwogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgICAgICBkaXNhYmxlZAogICAgICAgICAgICBvdXRsaW5lCiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgRGFuZ2VyCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJoaWdobGlnaHQiCiAgICAgICAgICAgIGRpc2FibGVkPgogICAgICAgICAgICBIaWdobGlnaHQKICAgICAgICA8L0J1dHRvbj4KICAgIDwvU3RhY2s+Cik=" />
+
+```tsx
+export const States = () => (
+    <Stack spacing={5}>
+        <Button
+            variant="success"
+            loading>
+            Loading
+        </Button>
+        <Button
+            disabled
+            subtle>
+            Default
+        </Button>
+        <Button
+            variant="accent"
+            disabled
+            subtle>
+            Accent
+        </Button>
+        <Button
+            variant="success"
+            disabled>
+            Success
+        </Button>
+        <Button
+            variant="neutral"
+            disabled
+            subtle>
+            Neutral
+        </Button>
+        <Button
+            variant="caution"
+            active>
+            Caution
+        </Button>
+        <Button
+            variant="warning"
+            disabled>
+            Warning
+        </Button>
+        <Button
+            variant="danger"
+            disabled
+            outline
+            subtle>
+            Danger
+        </Button>
+        <Button
+            variant="highlight"
+            disabled>
+            Highlight
+        </Button>
+    </Stack>
+)
+```
+### As Link
+<a name="aslink"></a>
+
+export const AsLink = () => (<Stack spacing={5}>
+        <Button as="a" href="https://google.com" target="_blank" subtle underlined>
+            Default
+        </Button>
+        <Button as="a" href="https://google.com" target="_blank" variant="accent" subtle underlined>
+            Accent
+        </Button>
+        <Button as="a" href="https://google.com" target="_blank" variant="success" subtle underlined>
+            Success
+        </Button>
+        <Button as="a" href="https://google.com" target="_blank" variant="neutral" subtle>
+            Neutral
+        </Button>
+        <Button as="a" href="https://google.com" target="_blank" variant="caution" outline>
+            Caution
+        </Button>
+        <Button as="a" href="https://google.com" target="_blank" variant="warning" outline>
+            Warning
+        </Button>
+        <Button as="a" href="https://google.com" target="_blank" variant="danger">
+            Danger
+        </Button>
+        <Button as="a" href="https://google.com" target="_blank" variant="highlight" underlined>
+            Highlight
+        </Button>
+    </Stack>);
+
+<div className="story-block">
+<AsLink />
+</div>
+
+<CodeComponent filename="AsLink.tsx" code="ZXhwb3J0IGNvbnN0IEFzTGluayA9ICgpID0+ICgKICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGFzPSJhIgogICAgICAgICAgICBocmVmPSJodHRwczovL2dvb2dsZS5jb20iCiAgICAgICAgICAgIHRhcmdldD0iX2JsYW5rIgogICAgICAgICAgICBzdWJ0bGUKICAgICAgICAgICAgdW5kZXJsaW5lZD4KICAgICAgICAgICAgRGVmYXVsdAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgYXM9ImEiCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZ29vZ2xlLmNvbSIKICAgICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiCiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgc3VidGxlCiAgICAgICAgICAgIHVuZGVybGluZWQ+CiAgICAgICAgICAgIEFjY2VudAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgYXM9ImEiCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZ29vZ2xlLmNvbSIKICAgICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiCiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgIHN1YnRsZQogICAgICAgICAgICB1bmRlcmxpbmVkPgogICAgICAgICAgICBTdWNjZXNzCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICBhcz0iYSIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9nb29nbGUuY29tIgogICAgICAgICAgICB0YXJnZXQ9Il9ibGFuayIKICAgICAgICAgICAgdmFyaWFudD0ibmV1dHJhbCIKICAgICAgICAgICAgc3VidGxlPgogICAgICAgICAgICBOZXV0cmFsCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICBhcz0iYSIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9nb29nbGUuY29tIgogICAgICAgICAgICB0YXJnZXQ9Il9ibGFuayIKICAgICAgICAgICAgdmFyaWFudD0iY2F1dGlvbiIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgQ2F1dGlvbgogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgYXM9ImEiCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZ29vZ2xlLmNvbSIKICAgICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiCiAgICAgICAgICAgIHZhcmlhbnQ9Indhcm5pbmciCiAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgIFdhcm5pbmcKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGFzPSJhIgogICAgICAgICAgICBocmVmPSJodHRwczovL2dvb2dsZS5jb20iCiAgICAgICAgICAgIHRhcmdldD0iX2JsYW5rIgogICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiPgogICAgICAgICAgICBEYW5nZXIKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGFzPSJhIgogICAgICAgICAgICBocmVmPSJodHRwczovL2dvb2dsZS5jb20iCiAgICAgICAgICAgIHRhcmdldD0iX2JsYW5rIgogICAgICAgICAgICB2YXJpYW50PSJoaWdobGlnaHQiCiAgICAgICAgICAgIHVuZGVybGluZWQ+CiAgICAgICAgICAgIEhpZ2hsaWdodAogICAgICAgIDwvQnV0dG9uPgogICAgPC9TdGFjaz4KKQ==" />
+
+```tsx
+export const AsLink = () => (
+    <Stack spacing={5}>
+        <Button
+            as="a"
+            href="https://google.com"
+            target="_blank"
+            subtle
+            underlined>
+            Default
+        </Button>
+        <Button
+            as="a"
+            href="https://google.com"
+            target="_blank"
+            variant="accent"
+            subtle
+            underlined>
+            Accent
+        </Button>
+        <Button
+            as="a"
+            href="https://google.com"
+            target="_blank"
+            variant="success"
+            subtle
+            underlined>
+            Success
+        </Button>
+        <Button
+            as="a"
+            href="https://google.com"
+            target="_blank"
+            variant="neutral"
+            subtle>
+            Neutral
+        </Button>
+        <Button
+            as="a"
+            href="https://google.com"
+            target="_blank"
+            variant="caution"
+            outline>
+            Caution
+        </Button>
+        <Button
+            as="a"
+            href="https://google.com"
+            target="_blank"
+            variant="warning"
+            outline>
+            Warning
+        </Button>
+        <Button
+            as="a"
+            href="https://google.com"
+            target="_blank"
+            variant="danger">
+            Danger
+        </Button>
+        <Button
+            as="a"
+            href="https://google.com"
+            target="_blank"
+            variant="highlight"
+            underlined>
+            Highlight
+        </Button>
+    </Stack>
+)
+```
+### With Icon
+<a name="withicon"></a>
+
+export const WithIcon = () => (<Stack spacing={5}>
+        <IconButton icon="bin" size="xs" subtle variant="highlight"/>
+        <IconButton icon="bin" size="sm" outline variant="accent"/>
+        <IconButton icon="bin" size="md"/>
+        <IconButton icon="bin" size="lg"/>
+        <IconButton icon="bin" size="xl"/>
+    </Stack>);
+
+<div className="story-block">
+<WithIcon />
+</div>
+
+<CodeComponent filename="WithIcon.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhJY29uID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxJY29uQnV0dG9uCiAgICAgICAgICAgIGljb249ImJpbiIKICAgICAgICAgICAgc2l6ZT0ieHMiCiAgICAgICAgICAgIHN1YnRsZQogICAgICAgICAgICB2YXJpYW50PSJoaWdobGlnaHQiCiAgICAgICAgLz4KICAgICAgICA8SWNvbkJ1dHRvbgogICAgICAgICAgICBpY29uPSJiaW4iCiAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICBvdXRsaW5lCiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAvPgogICAgICAgIDxJY29uQnV0dG9uCiAgICAgICAgICAgIGljb249ImJpbiIKICAgICAgICAgICAgc2l6ZT0ibWQiCiAgICAgICAgLz4KICAgICAgICA8SWNvbkJ1dHRvbgogICAgICAgICAgICBpY29uPSJiaW4iCiAgICAgICAgICAgIHNpemU9ImxnIgogICAgICAgIC8+CiAgICAgICAgPEljb25CdXR0b24KICAgICAgICAgICAgaWNvbj0iYmluIgogICAgICAgICAgICBzaXplPSJ4bCIKICAgICAgICAvPgogICAgPC9TdGFjaz4KKQ==" />
+
+```tsx
+export const WithIcon = () => (
+    <Stack spacing={5}>
+        <IconButton
+            icon="bin"
+            size="xs"
+            subtle
+            variant="highlight"
+        />
+        <IconButton
+            icon="bin"
+            size="sm"
+            outline
+            variant="accent"
+        />
+        <IconButton
+            icon="bin"
+            size="md"
+        />
+        <IconButton
+            icon="bin"
+            size="lg"
+        />
+        <IconButton
+            icon="bin"
+            size="xl"
+        />
+    </Stack>
+)
+```
+### Button Groups
+<a name="buttongroups"></a>
+
+export const ButtonGroups = () => (<Stack spacing={10} direction="vertical">
+        <ButtonGroup>
+            <Button>First</Button>
+            <Button>Second</Button>
+            <IconButton icon="bin"/>
+        </ButtonGroup>
+        <ButtonGroup>
+            <Button size="sm">First</Button>
+            <Button size="sm">Second</Button>
+            <Button size="sm">Third</Button>
+            <Button size="sm">Fourth</Button>
+        </ButtonGroup>
+        <ButtonGroup width={300}>
+            <Button>With</Button>
+            <Button>Fixed</Button>
+            <Button>Width</Button>
+        </ButtonGroup>
+        <ButtonGroup>
+            <Button>Normal Button</Button>
+        </ButtonGroup>
+        <ButtonGroup direction="vertical" width={300}>
+            <Button>With</Button>
+            <Button>Direction</Button>
+            <Button>Vertical</Button>
+        </ButtonGroup>
+    </Stack>);
+
+<div className="story-block">
+<ButtonGroups />
+</div>
+
+<CodeComponent filename="ButtonGroups.tsx" code="ZXhwb3J0IGNvbnN0IEJ1dHRvbkdyb3VwcyA9ICgpID0+ICgKICAgIDxTdGFjawogICAgICAgIHNwYWNpbmc9ezEwfQogICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiPgogICAgICAgIDxCdXR0b25Hcm91cD4KICAgICAgICAgICAgPEJ1dHRvbj5GaXJzdDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uPlNlY29uZDwvQnV0dG9uPgogICAgICAgICAgICA8SWNvbkJ1dHRvbiBpY29uPSJiaW4iIC8+CiAgICAgICAgPC9CdXR0b25Hcm91cD4KICAgICAgICA8QnV0dG9uR3JvdXA+CiAgICAgICAgICAgIDxCdXR0b24gc2l6ZT0ic20iPkZpcnN0PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc2l6ZT0ic20iPlNlY29uZDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHNpemU9InNtIj5UaGlyZDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHNpemU9InNtIj5Gb3VydGg8L0J1dHRvbj4KICAgICAgICA8L0J1dHRvbkdyb3VwPgogICAgICAgIDxCdXR0b25Hcm91cCB3aWR0aD17MzAwfT4KICAgICAgICAgICAgPEJ1dHRvbj5XaXRoPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24+Rml4ZWQ8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbj5XaWR0aDwvQnV0dG9uPgogICAgICAgIDwvQnV0dG9uR3JvdXA+CiAgICAgICAgPEJ1dHRvbkdyb3VwPgogICAgICAgICAgICA8QnV0dG9uPk5vcm1hbCBCdXR0b248L0J1dHRvbj4KICAgICAgICA8L0J1dHRvbkdyb3VwPgogICAgICAgIDxCdXR0b25Hcm91cAogICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICB3aWR0aD17MzAwfT4KICAgICAgICAgICAgPEJ1dHRvbj5XaXRoPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24+RGlyZWN0aW9uPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24+VmVydGljYWw8L0J1dHRvbj4KICAgICAgICA8L0J1dHRvbkdyb3VwPgogICAgPC9TdGFjaz4KKQ==" />
+
+```tsx
+export const ButtonGroups = () => (
+    <Stack
+        spacing={10}
+        direction="vertical">
+        <ButtonGroup>
+            <Button>First</Button>
+            <Button>Second</Button>
+            <IconButton icon="bin" />
+        </ButtonGroup>
+        <ButtonGroup>
+            <Button size="sm">First</Button>
+            <Button size="sm">Second</Button>
+            <Button size="sm">Third</Button>
+            <Button size="sm">Fourth</Button>
+        </ButtonGroup>
+        <ButtonGroup width={300}>
+            <Button>With</Button>
+            <Button>Fixed</Button>
+            <Button>Width</Button>
+        </ButtonGroup>
+        <ButtonGroup>
+            <Button>Normal Button</Button>
+        </ButtonGroup>
+        <ButtonGroup
+            direction="vertical"
+            width={300}>
+            <Button>With</Button>
+            <Button>Direction</Button>
+            <Button>Vertical</Button>
+        </ButtonGroup>
+    </Stack>
+)
+```
+### Button Group Menu
+<a name="buttongroupmenu"></a>
+
+export const ButtonGroupMenu = () => {
+    const { visible, show, hide } = useVisibility(false);
+    return (<ButtonGroup>
+            <Button>Select Action</Button>
+            <Popover border="none" width="fit-content" anchor="bottom-right" isVisible={visible} onDismiss={hide} content={<Menu width={200}>
+                        <MenuItem>Copy</MenuItem>
+                        <MenuItem>Paste</MenuItem>
+                        <MenuItem>Delete</MenuItem>
+                    </Menu>}>
+                <Button onClick={show}>
+                    <IconLib icon="chevron-down"/>
+                </Button>
+            </Popover>
+        </ButtonGroup>);
+};
+
+<div className="story-block">
+<ButtonGroupMenu />
+</div>
+
+<CodeComponent filename="ButtonGroupMenu.tsx" code="ZXhwb3J0IGNvbnN0IEJ1dHRvbkdyb3VwTWVudSA9ICgpID0+IHsKICAgIGNvbnN0IHsgdmlzaWJsZSwgc2hvdywgaGlkZSB9ID0gdXNlVmlzaWJpbGl0eShmYWxzZSkKCiAgICByZXR1cm4gKAogICAgICAgIDxCdXR0b25Hcm91cD4KICAgICAgICAgICAgPEJ1dHRvbj5TZWxlY3QgQWN0aW9uPC9CdXR0b24+CiAgICAgICAgICAgIDxQb3BvdmVyCiAgICAgICAgICAgICAgICBib3JkZXI9Im5vbmUiCiAgICAgICAgICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiCiAgICAgICAgICAgICAgICBhbmNob3I9ImJvdHRvbS1yaWdodCIKICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0KICAgICAgICAgICAgICAgIGNvbnRlbnQ9ewogICAgICAgICAgICAgICAgICAgIDxNZW51IHdpZHRoPXsyMDB9PgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+Q29weTwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgICAgIDxNZW51SXRlbT5QYXN0ZTwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgICAgIDxNZW51SXRlbT5EZWxldGU8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgIDwvTWVudT4KICAgICAgICAgICAgICAgIH0+CiAgICAgICAgICAgICAgICA8QnV0dG9uIG9uQ2xpY2s9e3Nob3d9PgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImNoZXZyb24tZG93biIgLz4KICAgICAgICAgICAgICAgIDwvQnV0dG9uPgogICAgICAgICAgICA8L1BvcG92ZXI+CiAgICAgICAgPC9CdXR0b25Hcm91cD4KICAgICkKfQ==" />
+
+```tsx
+export const ButtonGroupMenu = () => {
+    const { visible, show, hide } = useVisibility(false)
+
+    return (
+        <ButtonGroup>
+            <Button>Select Action</Button>
+            <Popover
+                border="none"
+                width="fit-content"
+                anchor="bottom-right"
+                isVisible={visible}
+                onDismiss={hide}
+                content={
+                    <Menu width={200}>
+                        <MenuItem>Copy</MenuItem>
+                        <MenuItem>Paste</MenuItem>
+                        <MenuItem>Delete</MenuItem>
+                    </Menu>
+                }>
+                <Button onClick={show}>
+                    <IconLib icon="chevron-down" />
+                </Button>
+            </Popover>
+        </ButtonGroup>
+    )
+}
+```
+### Dark Mode
+<a name="darkmode"></a>
+
+> Fold includes a dark-mode button that automatically toggles between dark & light modes.
+
+export const DarkMode = () => <DarkModeButton />;
+
+<div className="story-block">
+<DarkMode />
+</div>
+
+<CodeComponent filename="DarkMode.tsx" code="ZXhwb3J0IGNvbnN0IERhcmtNb2RlID0gKCkgPT4gPERhcmtNb2RlQnV0dG9uIC8+" />
+
+```tsx
+export const DarkMode = () => <DarkModeButton />
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

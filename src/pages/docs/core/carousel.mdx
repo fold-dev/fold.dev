@@ -1,0 +1,428 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Carousel, CarouselItem, CarouselPills, Image, Stack, useCarousel, View } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Carousel',
+    subtitle:
+        'The Carousel component is a slideshow that cycles through various elements, including images, videos, and text.',
+    description:
+        'The Carousel component enables users to sequentially browse through a variety of content, including images, videos, and text. Carousels are useful for presenting related content, such as image galleries or tutorials.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/carousel/carousel.tsx","description":"","displayName":"useCarousel","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/carousel/carousel.tsx","description":"","displayName":"CarouselItem","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/carousel/carousel.tsx","description":"","displayName":"CarouselPills","methods":[],"props":{"current":{"defaultValue":null,"description":"","name":"current","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"pills":{"defaultValue":null,"description":"","name":"pills","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"direction":{"defaultValue":null,"description":"","name":"direction","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"horizontal\" | \"vertical\""},"tags":{}},"carouselPillProps":{"defaultValue":null,"description":"","name":"carouselPillProps","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ active?: boolean; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any>"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/carousel/carousel.tsx","description":"","displayName":"CarouselPill","methods":[],"props":{"active":{"defaultValue":null,"description":"","name":"active","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/carousel/carousel.tsx","description":"","displayName":"Carousel","methods":[],"props":{"autoPlay":{"defaultValue":null,"description":"","name":"autoPlay","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"autoPlaySpeed":{"defaultValue":null,"description":"","name":"autoPlaySpeed","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"current":{"defaultValue":null,"description":"","name":"current","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(index: any) => void"},"tags":{}},"minSwipeDistance":{"defaultValue":null,"description":"","name":"minSwipeDistance","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"swipable":{"defaultValue":null,"description":"","name":"swipable","declarations":[{"fileName":"packages/core/src/carousel/carousel.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
+
+export const css = [[["--f-carousel-radius","var(--f-radius)"],["--f-carousel-pill-radius","var(--f-radius)"],["--f-carousel-pill-color-active","var(--f-color-accent)"],["--f-carousel-pill-color-inactive","var(--f-color-surface-stronger)"],["--f-carousel-pills-spacing","var(--f-space-1)"],["--f-carousel-pills-padding","var(--f-space-2)"],["--f-carousel-pill-height-inactive","var(--f-size-3)"],["--f-carousel-pill-height-active","var(--f-size-3)"],["--f-carousel-pill-width-inactive","var(--f-size-4)"],["--f-carousel-pill-width-active","var(--f-size-10)"]]]
+
+
+
+<CodeComponent filename="carousel.tsx" code="aW1wb3J0IHsKICB1c2VDYXJvdXNlbCwKICBDYXJvdXNlbEl0ZW0sCiAgQ2Fyb3VzZWxQaWxscywKICBDYXJvdXNlbFBpbGwsCiAgQ2Fyb3VzZWwsCn0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import {
+  useCarousel,
+  CarouselItem,
+  CarouselPills,
+  CarouselPill,
+  Carousel,
+} from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const { current, setCurrent } = useCarousel(0);
+    return (<View width={500}>
+            <Carousel width="100%" height={400} swipable current={current} onChange={setCurrent}>
+                <CarouselItem>
+                    <Image src="/photos/01.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/02.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/03.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/04.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/05.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+            </Carousel>
+
+            <CarouselPills current={current} pills={5} onChange={(index) => setCurrent(index)}/>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyBjdXJyZW50LCBzZXRDdXJyZW50IH0gPSB1c2VDYXJvdXNlbCgwKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcgd2lkdGg9ezUwMH0+CiAgICAgICAgICAgIDxDYXJvdXNlbAogICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezQwMH0KICAgICAgICAgICAgICAgIHN3aXBhYmxlCiAgICAgICAgICAgICAgICBjdXJyZW50PXtjdXJyZW50fQogICAgICAgICAgICAgICAgb25DaGFuZ2U9e3NldEN1cnJlbnR9PgogICAgICAgICAgICAgICAgPENhcm91c2VsSXRlbT4KICAgICAgICAgICAgICAgICAgICA8SW1hZ2UKICAgICAgICAgICAgICAgICAgICAgICAgc3JjPSIvcGhvdG9zLzAxLmpwZyIKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICAgICAgYm9yZGVyPSJub25lIgogICAgICAgICAgICAgICAgICAgICAgICByYWRpdXM9ezB9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDwvQ2Fyb3VzZWxJdGVtPgoKICAgICAgICAgICAgICAgIDxDYXJvdXNlbEl0ZW0+CiAgICAgICAgICAgICAgICAgICAgPEltYWdlCiAgICAgICAgICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wMi5qcGciCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgIGJvcmRlcj0ibm9uZSIKICAgICAgICAgICAgICAgICAgICAgICAgcmFkaXVzPXswfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L0Nhcm91c2VsSXRlbT4KCiAgICAgICAgICAgICAgICA8Q2Fyb3VzZWxJdGVtPgogICAgICAgICAgICAgICAgICAgIDxJbWFnZQogICAgICAgICAgICAgICAgICAgICAgICBzcmM9Ii9waG90b3MvMDMuanBnIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICBib3JkZXI9Im5vbmUiCiAgICAgICAgICAgICAgICAgICAgICAgIHJhZGl1cz17MH0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9DYXJvdXNlbEl0ZW0+CgogICAgICAgICAgICAgICAgPENhcm91c2VsSXRlbT4KICAgICAgICAgICAgICAgICAgICA8SW1hZ2UKICAgICAgICAgICAgICAgICAgICAgICAgc3JjPSIvcGhvdG9zLzA0LmpwZyIKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICAgICAgYm9yZGVyPSJub25lIgogICAgICAgICAgICAgICAgICAgICAgICByYWRpdXM9ezB9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDwvQ2Fyb3VzZWxJdGVtPgoKICAgICAgICAgICAgICAgIDxDYXJvdXNlbEl0ZW0+CiAgICAgICAgICAgICAgICAgICAgPEltYWdlCiAgICAgICAgICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wNS5qcGciCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgIGJvcmRlcj0ibm9uZSIKICAgICAgICAgICAgICAgICAgICAgICAgcmFkaXVzPXswfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L0Nhcm91c2VsSXRlbT4KICAgICAgICAgICAgPC9DYXJvdXNlbD4KCiAgICAgICAgICAgIDxDYXJvdXNlbFBpbGxzCiAgICAgICAgICAgICAgICBjdXJyZW50PXtjdXJyZW50fQogICAgICAgICAgICAgICAgcGlsbHM9ezV9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGluZGV4KSA9PiBzZXRDdXJyZW50KGluZGV4KX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    const { current, setCurrent } = useCarousel(0)
+
+    return (
+        <View width={500}>
+            <Carousel
+                width="100%"
+                height={400}
+                swipable
+                current={current}
+                onChange={setCurrent}>
+                <CarouselItem>
+                    <Image
+                        src="/photos/01.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/02.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/03.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/04.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/05.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+            </Carousel>
+
+            <CarouselPills
+                current={current}
+                pills={5}
+                onChange={(index) => setCurrent(index)}
+            />
+        </View>
+    )
+}
+```
+### Vertical Layout
+<a name="verticallayout"></a>
+
+export const VerticalLayout = () => {
+    const { current, setCurrent } = useCarousel(0);
+    return (<View width={600} row>
+            <Carousel width="100%" height={400} swipable current={current} onChange={setCurrent}>
+                <CarouselItem>
+                    <Image src="/photos/06.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/07.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/08.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/09.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/10.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+            </Carousel>
+
+            <CarouselPills flex={1} current={current} pills={5} direction="vertical" onChange={(index) => setCurrent(index)} carouselPillProps={{
+            style: {
+                '--f-carousel-pill-height-inactive': 'var(--f-size-10)',
+                '--f-carousel-pill-height-active': 'var(--f-size-4)',
+                '--f-carousel-pill-width-inactive': 'var(--f-size-3)',
+                '--f-carousel-pill-width-active': 'var(--f-size-3)',
+            },
+        }}/>
+        </View>);
+};
+
+<div className="story-block">
+<VerticalLayout />
+</div>
+
+<CodeComponent filename="VerticalLayout.tsx" code="ZXhwb3J0IGNvbnN0IFZlcnRpY2FsTGF5b3V0ID0gKCkgPT4gewogICAgY29uc3QgeyBjdXJyZW50LCBzZXRDdXJyZW50IH0gPSB1c2VDYXJvdXNlbCgwKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcKICAgICAgICAgICAgd2lkdGg9ezYwMH0KICAgICAgICAgICAgcm93PgogICAgICAgICAgICA8Q2Fyb3VzZWwKICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgaGVpZ2h0PXs0MDB9CiAgICAgICAgICAgICAgICBzd2lwYWJsZQogICAgICAgICAgICAgICAgY3VycmVudD17Y3VycmVudH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtzZXRDdXJyZW50fT4KICAgICAgICAgICAgICAgIDxDYXJvdXNlbEl0ZW0+CiAgICAgICAgICAgICAgICAgICAgPEltYWdlCiAgICAgICAgICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wNi5qcGciCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgIGJvcmRlcj0ibm9uZSIKICAgICAgICAgICAgICAgICAgICAgICAgcmFkaXVzPXswfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L0Nhcm91c2VsSXRlbT4KCiAgICAgICAgICAgICAgICA8Q2Fyb3VzZWxJdGVtPgogICAgICAgICAgICAgICAgICAgIDxJbWFnZQogICAgICAgICAgICAgICAgICAgICAgICBzcmM9Ii9waG90b3MvMDcuanBnIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICBib3JkZXI9Im5vbmUiCiAgICAgICAgICAgICAgICAgICAgICAgIHJhZGl1cz17MH0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9DYXJvdXNlbEl0ZW0+CgogICAgICAgICAgICAgICAgPENhcm91c2VsSXRlbT4KICAgICAgICAgICAgICAgICAgICA8SW1hZ2UKICAgICAgICAgICAgICAgICAgICAgICAgc3JjPSIvcGhvdG9zLzA4LmpwZyIKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICAgICAgYm9yZGVyPSJub25lIgogICAgICAgICAgICAgICAgICAgICAgICByYWRpdXM9ezB9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDwvQ2Fyb3VzZWxJdGVtPgoKICAgICAgICAgICAgICAgIDxDYXJvdXNlbEl0ZW0+CiAgICAgICAgICAgICAgICAgICAgPEltYWdlCiAgICAgICAgICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wOS5qcGciCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgIGJvcmRlcj0ibm9uZSIKICAgICAgICAgICAgICAgICAgICAgICAgcmFkaXVzPXswfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L0Nhcm91c2VsSXRlbT4KCiAgICAgICAgICAgICAgICA8Q2Fyb3VzZWxJdGVtPgogICAgICAgICAgICAgICAgICAgIDxJbWFnZQogICAgICAgICAgICAgICAgICAgICAgICBzcmM9Ii9waG90b3MvMTAuanBnIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICBib3JkZXI9Im5vbmUiCiAgICAgICAgICAgICAgICAgICAgICAgIHJhZGl1cz17MH0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9DYXJvdXNlbEl0ZW0+CiAgICAgICAgICAgIDwvQ2Fyb3VzZWw+CgogICAgICAgICAgICA8Q2Fyb3VzZWxQaWxscwogICAgICAgICAgICAgICAgZmxleD17MX0KICAgICAgICAgICAgICAgIGN1cnJlbnQ9e2N1cnJlbnR9CiAgICAgICAgICAgICAgICBwaWxscz17NX0KICAgICAgICAgICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGluZGV4KSA9PiBzZXRDdXJyZW50KGluZGV4KX0KICAgICAgICAgICAgICAgIGNhcm91c2VsUGlsbFByb3BzPXt7CiAgICAgICAgICAgICAgICAgICAgc3R5bGU6IHsKICAgICAgICAgICAgICAgICAgICAgICAgJy0tZi1jYXJvdXNlbC1waWxsLWhlaWdodC1pbmFjdGl2ZSc6ICd2YXIoLS1mLXNpemUtMTApJywKICAgICAgICAgICAgICAgICAgICAgICAgJy0tZi1jYXJvdXNlbC1waWxsLWhlaWdodC1hY3RpdmUnOiAndmFyKC0tZi1zaXplLTQpJywKICAgICAgICAgICAgICAgICAgICAgICAgJy0tZi1jYXJvdXNlbC1waWxsLXdpZHRoLWluYWN0aXZlJzogJ3ZhcigtLWYtc2l6ZS0zKScsCiAgICAgICAgICAgICAgICAgICAgICAgICctLWYtY2Fyb3VzZWwtcGlsbC13aWR0aC1hY3RpdmUnOiAndmFyKC0tZi1zaXplLTMpJywKICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const VerticalLayout = () => {
+    const { current, setCurrent } = useCarousel(0)
+
+    return (
+        <View
+            width={600}
+            row>
+            <Carousel
+                width="100%"
+                height={400}
+                swipable
+                current={current}
+                onChange={setCurrent}>
+                <CarouselItem>
+                    <Image
+                        src="/photos/06.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/07.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/08.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/09.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/10.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+            </Carousel>
+
+            <CarouselPills
+                flex={1}
+                current={current}
+                pills={5}
+                direction="vertical"
+                onChange={(index) => setCurrent(index)}
+                carouselPillProps={{
+                    style: {
+                        '--f-carousel-pill-height-inactive': 'var(--f-size-10)',
+                        '--f-carousel-pill-height-active': 'var(--f-size-4)',
+                        '--f-carousel-pill-width-inactive': 'var(--f-size-3)',
+                        '--f-carousel-pill-width-active': 'var(--f-size-3)',
+                    },
+                }}
+            />
+        </View>
+    )
+}
+```
+### Image Gallery
+<a name="imagegallery"></a>
+
+export const ImageGallery = () => {
+    const { current, setCurrent } = useCarousel(0);
+    return (<View width={500}>
+            <Carousel width="100%" height={400} swipable current={current} onChange={setCurrent}>
+                <CarouselItem>
+                    <Image src="/photos/01.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/02.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/03.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/04.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image src="/photos/05.jpg" width="100%" height="100%" border="none" radius={0}/>
+                </CarouselItem>
+            </Carousel>
+
+            <Stack spacing={5} justifyContent="center" p={10}>
+                <Image className="f-buttonize" onClick={() => setCurrent(0)} src="/photos/01.jpg" width={50} height={50} style={{ opacity: current == 0 ? 1 : 0.5 }}/>
+                <Image className="f-buttonize" onClick={() => setCurrent(1)} src="/photos/02.jpg" width={50} height={50} style={{ opacity: current == 1 ? 1 : 0.5 }}/>
+                <Image className="f-buttonize" onClick={() => setCurrent(2)} src="/photos/03.jpg" width={50} height={50} style={{ opacity: current == 2 ? 1 : 0.5 }}/>
+                <Image className="f-buttonize" onClick={() => setCurrent(3)} src="/photos/04.jpg" width={50} height={50} style={{ opacity: current == 3 ? 1 : 0.5 }}/>
+                <Image className="f-buttonize" onClick={() => setCurrent(4)} src="/photos/05.jpg" width={50} height={50} style={{ opacity: current == 4 ? 1 : 0.5 }}/>
+            </Stack>
+        </View>);
+};
+
+<div className="story-block">
+<ImageGallery />
+</div>
+
+<CodeComponent filename="ImageGallery.tsx" code="ZXhwb3J0IGNvbnN0IEltYWdlR2FsbGVyeSA9ICgpID0+IHsKICAgIGNvbnN0IHsgY3VycmVudCwgc2V0Q3VycmVudCB9ID0gdXNlQ2Fyb3VzZWwoMCkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3IHdpZHRoPXs1MDB9PgogICAgICAgICAgICA8Q2Fyb3VzZWwKICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgaGVpZ2h0PXs0MDB9CiAgICAgICAgICAgICAgICBzd2lwYWJsZQogICAgICAgICAgICAgICAgY3VycmVudD17Y3VycmVudH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtzZXRDdXJyZW50fT4KICAgICAgICAgICAgICAgIDxDYXJvdXNlbEl0ZW0+CiAgICAgICAgICAgICAgICAgICAgPEltYWdlCiAgICAgICAgICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wMS5qcGciCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgIGJvcmRlcj0ibm9uZSIKICAgICAgICAgICAgICAgICAgICAgICAgcmFkaXVzPXswfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L0Nhcm91c2VsSXRlbT4KCiAgICAgICAgICAgICAgICA8Q2Fyb3VzZWxJdGVtPgogICAgICAgICAgICAgICAgICAgIDxJbWFnZQogICAgICAgICAgICAgICAgICAgICAgICBzcmM9Ii9waG90b3MvMDIuanBnIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICBib3JkZXI9Im5vbmUiCiAgICAgICAgICAgICAgICAgICAgICAgIHJhZGl1cz17MH0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9DYXJvdXNlbEl0ZW0+CgogICAgICAgICAgICAgICAgPENhcm91c2VsSXRlbT4KICAgICAgICAgICAgICAgICAgICA8SW1hZ2UKICAgICAgICAgICAgICAgICAgICAgICAgc3JjPSIvcGhvdG9zLzAzLmpwZyIKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICAgICAgYm9yZGVyPSJub25lIgogICAgICAgICAgICAgICAgICAgICAgICByYWRpdXM9ezB9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDwvQ2Fyb3VzZWxJdGVtPgoKICAgICAgICAgICAgICAgIDxDYXJvdXNlbEl0ZW0+CiAgICAgICAgICAgICAgICAgICAgPEltYWdlCiAgICAgICAgICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wNC5qcGciCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgIGJvcmRlcj0ibm9uZSIKICAgICAgICAgICAgICAgICAgICAgICAgcmFkaXVzPXswfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L0Nhcm91c2VsSXRlbT4KCiAgICAgICAgICAgICAgICA8Q2Fyb3VzZWxJdGVtPgogICAgICAgICAgICAgICAgICAgIDxJbWFnZQogICAgICAgICAgICAgICAgICAgICAgICBzcmM9Ii9waG90b3MvMDUuanBnIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICBib3JkZXI9Im5vbmUiCiAgICAgICAgICAgICAgICAgICAgICAgIHJhZGl1cz17MH0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9DYXJvdXNlbEl0ZW0+CiAgICAgICAgICAgIDwvQ2Fyb3VzZWw+CgogICAgICAgICAgICA8U3RhY2sKICAgICAgICAgICAgICAgIHNwYWNpbmc9ezV9CiAgICAgICAgICAgICAgICBqdXN0aWZ5Q29udGVudD0iY2VudGVyIgogICAgICAgICAgICAgICAgcD17MTB9PgogICAgICAgICAgICAgICAgPEltYWdlCiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPSJmLWJ1dHRvbml6ZSIKICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRDdXJyZW50KDApfQogICAgICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wMS5qcGciCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9ezUwfQogICAgICAgICAgICAgICAgICAgIGhlaWdodD17NTB9CiAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3sgb3BhY2l0eTogY3VycmVudCA9PSAwID8gMSA6IDAuNSB9fQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDxJbWFnZQogICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0iZi1idXR0b25pemUiCiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0Q3VycmVudCgxKX0KICAgICAgICAgICAgICAgICAgICBzcmM9Ii9waG90b3MvMDIuanBnIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPXs1MH0KICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfQogICAgICAgICAgICAgICAgICAgIHN0eWxlPXt7IG9wYWNpdHk6IGN1cnJlbnQgPT0gMSA/IDEgOiAwLjUgfX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8SW1hZ2UKICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9ImYtYnV0dG9uaXplIgogICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHNldEN1cnJlbnQoMil9CiAgICAgICAgICAgICAgICAgICAgc3JjPSIvcGhvdG9zLzAzLmpwZyIKICAgICAgICAgICAgICAgICAgICB3aWR0aD17NTB9CiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXs1MH0KICAgICAgICAgICAgICAgICAgICBzdHlsZT17eyBvcGFjaXR5OiBjdXJyZW50ID09IDIgPyAxIDogMC41IH19CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPEltYWdlCiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPSJmLWJ1dHRvbml6ZSIKICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRDdXJyZW50KDMpfQogICAgICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wNC5qcGciCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9ezUwfQogICAgICAgICAgICAgICAgICAgIGhlaWdodD17NTB9CiAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3sgb3BhY2l0eTogY3VycmVudCA9PSAzID8gMSA6IDAuNSB9fQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDxJbWFnZQogICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0iZi1idXR0b25pemUiCiAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0Q3VycmVudCg0KX0KICAgICAgICAgICAgICAgICAgICBzcmM9Ii9waG90b3MvMDUuanBnIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPXs1MH0KICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfQogICAgICAgICAgICAgICAgICAgIHN0eWxlPXt7IG9wYWNpdHk6IGN1cnJlbnQgPT0gNCA/IDEgOiAwLjUgfX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDwvU3RhY2s+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const ImageGallery = () => {
+    const { current, setCurrent } = useCarousel(0)
+
+    return (
+        <View width={500}>
+            <Carousel
+                width="100%"
+                height={400}
+                swipable
+                current={current}
+                onChange={setCurrent}>
+                <CarouselItem>
+                    <Image
+                        src="/photos/01.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/02.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/03.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/04.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+
+                <CarouselItem>
+                    <Image
+                        src="/photos/05.jpg"
+                        width="100%"
+                        height="100%"
+                        border="none"
+                        radius={0}
+                    />
+                </CarouselItem>
+            </Carousel>
+
+            <Stack
+                spacing={5}
+                justifyContent="center"
+                p={10}>
+                <Image
+                    className="f-buttonize"
+                    onClick={() => setCurrent(0)}
+                    src="/photos/01.jpg"
+                    width={50}
+                    height={50}
+                    style={{ opacity: current == 0 ? 1 : 0.5 }}
+                />
+                <Image
+                    className="f-buttonize"
+                    onClick={() => setCurrent(1)}
+                    src="/photos/02.jpg"
+                    width={50}
+                    height={50}
+                    style={{ opacity: current == 1 ? 1 : 0.5 }}
+                />
+                <Image
+                    className="f-buttonize"
+                    onClick={() => setCurrent(2)}
+                    src="/photos/03.jpg"
+                    width={50}
+                    height={50}
+                    style={{ opacity: current == 2 ? 1 : 0.5 }}
+                />
+                <Image
+                    className="f-buttonize"
+                    onClick={() => setCurrent(3)}
+                    src="/photos/04.jpg"
+                    width={50}
+                    height={50}
+                    style={{ opacity: current == 3 ? 1 : 0.5 }}
+                />
+                <Image
+                    className="f-buttonize"
+                    onClick={() => setCurrent(4)}
+                    src="/photos/05.jpg"
+                    width={50}
+                    height={50}
+                    style={{ opacity: current == 4 ? 1 : 0.5 }}
+                />
+            </Stack>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

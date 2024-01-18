@@ -1,0 +1,150 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Heading, Step, Steps, Text } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Steps',
+    subtitle: 'The Steps component conveys progression through a sequence of interconnected stages.',
+    description:
+        'Using the Steps component is an effective method for indicating the progression within a process. It is particularly valuable when facilitating product onboarding, completing forms, or configuring system properties.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/steps/steps.tsx","description":"","displayName":"Steps","methods":[],"props":{"spacing":{"defaultValue":null,"description":"","name":"spacing","declarations":[{"fileName":"packages/core/src/steps/steps.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/steps/steps.tsx","description":"","displayName":"Step","methods":[],"props":{"indicator":{"defaultValue":null,"description":"","name":"indicator","declarations":[{"fileName":"packages/core/src/steps/steps.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"spacing":{"defaultValue":null,"description":"","name":"spacing","declarations":[{"fileName":"packages/core/src/steps/steps.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"next":{"defaultValue":null,"description":"","name":"next","declarations":[{"fileName":"packages/core/src/steps/steps.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"completed":{"defaultValue":null,"description":"","name":"completed","declarations":[{"fileName":"packages/core/src/steps/steps.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
+
+export const css = [[["--f-step-color","var(--f-color-surface-strongest)"],["--f-step-color-active","var(--f-color-accent)"],["--f-step-color-active-weak","var(--f-color-accent-weak)"],["--f-step-seperator-size","var(--f-size-1)"],["--f-step-seperator-radius","var(--f-radius)"],["--f-step-seperator-color","var(--f-color-surface-stronger)"],["--f-step-indicator-border-width","0.125rem"],["--f-step-indicator-size","var(--f-size-10)"],["--f-step-indicator-radius","var(--f-radius)"],["--f-step-content-width","fit-content"],["--f-step-icon-sw","2.5"]]]
+
+
+
+<CodeComponent filename="steps.tsx" code="aW1wb3J0IHsgU3RlcHMsIFN0ZXAgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { Steps, Step } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<Steps>
+            <Step completed>
+                <Heading as="h4">Register</Heading>
+                <Text>Completed</Text>
+            </Step>
+            <Step next>
+                <Heading as="h4">Profile</Heading>
+                <Text>Incomplete</Text>
+            </Step>
+            <Step>
+                <Heading as="h4">Complete</Heading>
+                <Text>Incomplete</Text>
+            </Step>
+        </Steps>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8U3RlcHM+CiAgICAgICAgICAgIDxTdGVwIGNvbXBsZXRlZD4KICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoNCI+UmVnaXN0ZXI8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICA8VGV4dD5Db21wbGV0ZWQ8L1RleHQ+CiAgICAgICAgICAgIDwvU3RlcD4KICAgICAgICAgICAgPFN0ZXAgbmV4dD4KICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoNCI+UHJvZmlsZTwvSGVhZGluZz4KICAgICAgICAgICAgICAgIDxUZXh0PkluY29tcGxldGU8L1RleHQ+CiAgICAgICAgICAgIDwvU3RlcD4KICAgICAgICAgICAgPFN0ZXA+CiAgICAgICAgICAgICAgICA8SGVhZGluZyBhcz0iaDQiPkNvbXBsZXRlPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgPFRleHQ+SW5jb21wbGV0ZTwvVGV4dD4KICAgICAgICAgICAgPC9TdGVwPgogICAgICAgIDwvU3RlcHM+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <Steps>
+            <Step completed>
+                <Heading as="h4">Register</Heading>
+                <Text>Completed</Text>
+            </Step>
+            <Step next>
+                <Heading as="h4">Profile</Heading>
+                <Text>Incomplete</Text>
+            </Step>
+            <Step>
+                <Heading as="h4">Complete</Heading>
+                <Text>Incomplete</Text>
+            </Step>
+        </Steps>
+    )
+}
+```
+### Custom Indicators
+<a name="customindicators"></a>
+
+export const CustomIndicators = () => {
+    return (<Steps>
+            <Step completed indicator={<Text>1</Text>}>
+                <Heading as="h4">Register</Heading>
+                <Text>Completed</Text>
+            </Step>
+            <Step next indicator={<Text>2</Text>}>
+                <Heading as="h4">Profile</Heading>
+                <Text>Incomplete</Text>
+            </Step>
+            <Step indicator={<Text>3</Text>}>
+                <Heading as="h4">Complete</Heading>
+                <Text>Incomplete</Text>
+            </Step>
+        </Steps>);
+};
+
+<div className="story-block">
+<CustomIndicators />
+</div>
+
+<CodeComponent filename="CustomIndicators.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbUluZGljYXRvcnMgPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxTdGVwcz4KICAgICAgICAgICAgPFN0ZXAKICAgICAgICAgICAgICAgIGNvbXBsZXRlZAogICAgICAgICAgICAgICAgaW5kaWNhdG9yPXs8VGV4dD4xPC9UZXh0Pn0+CiAgICAgICAgICAgICAgICA8SGVhZGluZyBhcz0iaDQiPlJlZ2lzdGVyPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgPFRleHQ+Q29tcGxldGVkPC9UZXh0PgogICAgICAgICAgICA8L1N0ZXA+CiAgICAgICAgICAgIDxTdGVwCiAgICAgICAgICAgICAgICBuZXh0CiAgICAgICAgICAgICAgICBpbmRpY2F0b3I9ezxUZXh0PjI8L1RleHQ+fT4KICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoNCI+UHJvZmlsZTwvSGVhZGluZz4KICAgICAgICAgICAgICAgIDxUZXh0PkluY29tcGxldGU8L1RleHQ+CiAgICAgICAgICAgIDwvU3RlcD4KICAgICAgICAgICAgPFN0ZXAgaW5kaWNhdG9yPXs8VGV4dD4zPC9UZXh0Pn0+CiAgICAgICAgICAgICAgICA8SGVhZGluZyBhcz0iaDQiPkNvbXBsZXRlPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgPFRleHQ+SW5jb21wbGV0ZTwvVGV4dD4KICAgICAgICAgICAgPC9TdGVwPgogICAgICAgIDwvU3RlcHM+CiAgICApCn0=" />
+
+```tsx
+export const CustomIndicators = () => {
+    return (
+        <Steps>
+            <Step
+                completed
+                indicator={<Text>1</Text>}>
+                <Heading as="h4">Register</Heading>
+                <Text>Completed</Text>
+            </Step>
+            <Step
+                next
+                indicator={<Text>2</Text>}>
+                <Heading as="h4">Profile</Heading>
+                <Text>Incomplete</Text>
+            </Step>
+            <Step indicator={<Text>3</Text>}>
+                <Heading as="h4">Complete</Heading>
+                <Text>Incomplete</Text>
+            </Step>
+        </Steps>
+    )
+}
+```
+### Spacing
+<a name="spacing"></a>
+
+export const Spacing = () => {
+    return (<Steps spacing={0}>
+            <Step spacing={0}/>
+            <Step spacing={0}/>
+            <Step spacing={0}/>
+        </Steps>);
+};
+
+<div className="story-block">
+<Spacing />
+</div>
+
+<CodeComponent filename="Spacing.tsx" code="ZXhwb3J0IGNvbnN0IFNwYWNpbmcgPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxTdGVwcyBzcGFjaW5nPXswfT4KICAgICAgICAgICAgPFN0ZXAgc3BhY2luZz17MH0gLz4KICAgICAgICAgICAgPFN0ZXAgc3BhY2luZz17MH0gLz4KICAgICAgICAgICAgPFN0ZXAgc3BhY2luZz17MH0gLz4KICAgICAgICA8L1N0ZXBzPgogICAgKQp9" />
+
+```tsx
+export const Spacing = () => {
+    return (
+        <Steps spacing={0}>
+            <Step spacing={0} />
+            <Step spacing={0} />
+            <Step spacing={0} />
+        </Steps>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

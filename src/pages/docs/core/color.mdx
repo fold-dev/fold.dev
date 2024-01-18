@@ -1,0 +1,129 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { ColorPicker, Palette, Text, View } from '@fold-dev/core'
+import React, { useState } from 'react'
+import * as Token from '@fold-dev/design/tokens'
+
+export const docs = {
+    title: 'Color',
+    subtitle:
+        'The Color Palette and Color Picker components present the user with a set of input options for color values.',
+    description: 'Color pickers & palettes are useful for configuring application settings related to color.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/color/color.tsx","description":"","displayName":"Palette","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"packages/core/src/color/color.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"colors":{"defaultValue":null,"description":"","name":"colors","declarations":[{"fileName":"packages/core/src/color/color.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string[]"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/color/color.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(color: string) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/color/color.tsx","description":"","displayName":"ColorPicker","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"packages/core/src/color/color.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/color/color.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"packages/core/src/color/color.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}}]
+
+export const css = [[["--f-color-palette-size","var(--f-size-6)"],["--f-color-palette-radius","var(--f-radius)"],["--f-color-palette-margin","var(--f-size-1)"],["--f-color-palette-border-size","0.3rem"],["--f-color-palette-selected","0.15rem solid var(--f-color-surface)"],["--f-color-picker-width","250px"],["--f-color-picker-height","150px"],["--f-color-picker-input-border-color","var(--f-color-border)"],["--f-color-picker-input-border-width","0.1rem"]]]
+
+
+
+<CodeComponent filename="color.tsx" code="aW1wb3J0IHsgUGFsZXR0ZSwgQ29sb3JQaWNrZXIgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { Palette, ColorPicker } from "@fold-dev/core";
+```
+
+### Picker
+<a name="picker"></a>
+
+> The Color Picker component enable users to choose their desired color visually, eliminating the need for them to be familiar with the exact HEX, RGB, or HSL color codes.
+
+export const Picker = () => {
+    const [color, setColor] = useState(Token.ColorCyan400);
+    return (<ColorPicker border="0.1rem solid var(--f-color-border)" radius="var(--f-radius)" p={20} color={color} onChange={setColor} footer={<View row p={10}>
+                    <Text size="sm">Color Picker v0.1</Text>
+                </View>}/>);
+};
+
+<div className="story-block">
+<Picker />
+</div>
+
+<CodeComponent filename="Picker.tsx" code="ZXhwb3J0IGNvbnN0IFBpY2tlciA9ICgpID0+IHsKICAgIGNvbnN0IFtjb2xvciwgc2V0Q29sb3JdID0gdXNlU3RhdGUoVG9rZW4uQ29sb3JDeWFuNDAwKQoKICAgIHJldHVybiAoCiAgICAgICAgPENvbG9yUGlja2VyCiAgICAgICAgICAgIGJvcmRlcj0iMC4xcmVtIHNvbGlkIHZhcigtLWYtY29sb3ItYm9yZGVyKSIKICAgICAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cykiCiAgICAgICAgICAgIHA9ezIwfQogICAgICAgICAgICBjb2xvcj17Y29sb3J9CiAgICAgICAgICAgIG9uQ2hhbmdlPXtzZXRDb2xvcn0KICAgICAgICAgICAgZm9vdGVyPXsKICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgcD17MTB9PgogICAgICAgICAgICAgICAgICAgIDxUZXh0IHNpemU9InNtIj5Db2xvciBQaWNrZXIgdjAuMTwvVGV4dD4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgfQogICAgICAgIC8+CiAgICApCn0=" />
+
+```tsx
+export const Picker = () => {
+    const [color, setColor] = useState(Token.ColorCyan400)
+
+    return (
+        <ColorPicker
+            border="0.1rem solid var(--f-color-border)"
+            radius="var(--f-radius)"
+            p={20}
+            color={color}
+            onChange={setColor}
+            footer={
+                <View
+                    row
+                    p={10}>
+                    <Text size="sm">Color Picker v0.1</Text>
+                </View>
+            }
+        />
+    )
+}
+```
+### Color Palette
+<a name="colorpalette"></a>
+
+> The Color Palette component displays a list of predefined values the user can choose from.
+
+export const ColorPalette = () => {
+    const [color, setColor] = useState(Token.ColorNeonpink400);
+    return (<Palette width={150} color={color} colors={[
+            Token.ColorPink400,
+            Token.ColorNeonpink400,
+            Token.ColorRed400,
+            Token.ColorOrange400,
+            Token.ColorYellow400,
+            Token.ColorGreen400,
+            Token.ColorSeagreen500,
+            Token.ColorTeal400,
+            Token.ColorCyan400,
+            Token.ColorBlue400,
+            Token.ColorElectric400,
+            Token.ColorViolet400,
+            Token.ColorPurple400,
+            Token.ColorGray400,
+            Token.ColorBeige400,
+        ]} onChange={setColor}/>);
+};
+
+<div className="story-block">
+<ColorPalette />
+</div>
+
+<CodeComponent filename="ColorPalette.tsx" code="ZXhwb3J0IGNvbnN0IENvbG9yUGFsZXR0ZSA9ICgpID0+IHsKICAgIGNvbnN0IFtjb2xvciwgc2V0Q29sb3JdID0gdXNlU3RhdGUoVG9rZW4uQ29sb3JOZW9ucGluazQwMCkKCiAgICByZXR1cm4gKAogICAgICAgIDxQYWxldHRlCiAgICAgICAgICAgIHdpZHRoPXsxNTB9CiAgICAgICAgICAgIGNvbG9yPXtjb2xvcn0KICAgICAgICAgICAgY29sb3JzPXtbCiAgICAgICAgICAgICAgICBUb2tlbi5Db2xvclBpbms0MDAsCiAgICAgICAgICAgICAgICBUb2tlbi5Db2xvck5lb25waW5rNDAwLAogICAgICAgICAgICAgICAgVG9rZW4uQ29sb3JSZWQ0MDAsCiAgICAgICAgICAgICAgICBUb2tlbi5Db2xvck9yYW5nZTQwMCwKICAgICAgICAgICAgICAgIFRva2VuLkNvbG9yWWVsbG93NDAwLAogICAgICAgICAgICAgICAgVG9rZW4uQ29sb3JHcmVlbjQwMCwKICAgICAgICAgICAgICAgIFRva2VuLkNvbG9yU2VhZ3JlZW41MDAsCiAgICAgICAgICAgICAgICBUb2tlbi5Db2xvclRlYWw0MDAsCiAgICAgICAgICAgICAgICBUb2tlbi5Db2xvckN5YW40MDAsCiAgICAgICAgICAgICAgICBUb2tlbi5Db2xvckJsdWU0MDAsCiAgICAgICAgICAgICAgICBUb2tlbi5Db2xvckVsZWN0cmljNDAwLAogICAgICAgICAgICAgICAgVG9rZW4uQ29sb3JWaW9sZXQ0MDAsCiAgICAgICAgICAgICAgICBUb2tlbi5Db2xvclB1cnBsZTQwMCwKICAgICAgICAgICAgICAgIFRva2VuLkNvbG9yR3JheTQwMCwKICAgICAgICAgICAgICAgIFRva2VuLkNvbG9yQmVpZ2U0MDAsCiAgICAgICAgICAgIF19CiAgICAgICAgICAgIG9uQ2hhbmdlPXtzZXRDb2xvcn0KICAgICAgICAvPgogICAgKQp9" />
+
+```tsx
+export const ColorPalette = () => {
+    const [color, setColor] = useState(Token.ColorNeonpink400)
+
+    return (
+        <Palette
+            width={150}
+            color={color}
+            colors={[
+                Token.ColorPink400,
+                Token.ColorNeonpink400,
+                Token.ColorRed400,
+                Token.ColorOrange400,
+                Token.ColorYellow400,
+                Token.ColorGreen400,
+                Token.ColorSeagreen500,
+                Token.ColorTeal400,
+                Token.ColorCyan400,
+                Token.ColorBlue400,
+                Token.ColorElectric400,
+                Token.ColorViolet400,
+                Token.ColorPurple400,
+                Token.ColorGray400,
+                Token.ColorBeige400,
+            ]}
+            onChange={setColor}
+        />
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

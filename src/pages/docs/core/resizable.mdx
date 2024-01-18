@@ -1,0 +1,129 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Resizable, ResizableRail, Text, View } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Resizable',
+    subtitle: 'The Resizable component creates an adjustable container that can be resized by the user.',
+    description:
+        'Resizable components are a common feature of navigations that the user can expand or contract. They also serve a valuable role in establishing size relationships among enclosed elements (see the Splitter component).',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/resizable/resizable.tsx","description":"","displayName":"ResizableRail","methods":[],"props":{"transparent":{"defaultValue":null,"description":"","name":"transparent","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"handle":{"defaultValue":null,"description":"","name":"handle","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"direction":{"defaultValue":null,"description":"","name":"direction","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"horizontal\" | \"vertical\""},"tags":{}},"position":{"defaultValue":null,"description":"","name":"position","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"start\" | \"end\""},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/resizable/resizable.tsx","description":"","displayName":"Resizable","methods":[],"props":{"transparent":{"defaultValue":null,"description":"","name":"transparent","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"handle":{"defaultValue":null,"description":"","name":"handle","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"direction":{"defaultValue":null,"description":"","name":"direction","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"horizontal\" | \"vertical\""},"tags":{}},"position":{"defaultValue":null,"description":"","name":"position","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"start\" | \"end\""},"tags":{}},"min":{"defaultValue":null,"description":"","name":"min","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"max":{"defaultValue":null,"description":"","name":"max","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"railProps":{"defaultValue":null,"description":"","name":"railProps","declarations":[{"fileName":"packages/core/src/resizable/resizable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-resizable-color","var(--f-color-surface-strong)"],["--f-resizable-color-hover","var(--f-color-surface-stronger)"],["--f-resizable-color-active","var(--f-color-accent)"],["--f-resizable-size","var(--f-size-1)"],["--f-resizable-handle-size","var(--f-size-7)"],["--f-resizable-handle-border-radius","var(--f-radius-full)"],["--f-resizable-handle-background-color","var(--f-color-surface-strong)"],["--f-resizable-handle-color","var(--f-color-accent)"],["--f-resizable-handle-hover-background-color","var(--f-color-accent)"],["--f-resizable-handle-hover-border-color","var(--f-color-accent)"]]]
+
+
+
+<CodeComponent filename="resizable.tsx" code="aW1wb3J0IHsgUmVzaXphYmxlUmFpbCwgUmVzaXphYmxlIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { ResizableRail, Resizable } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<View height={300}>
+        <Resizable p={20} width={300} max={350} min={250} height={300} direction="horizontal" bgToken="surface-strong">
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+            </Text>
+        </Resizable>
+    </View>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcgaGVpZ2h0PXszMDB9PgogICAgICAgIDxSZXNpemFibGUKICAgICAgICAgICAgcD17MjB9CiAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgIG1heD17MzUwfQogICAgICAgICAgICBtaW49ezI1MH0KICAgICAgICAgICAgaGVpZ2h0PXszMDB9CiAgICAgICAgICAgIGRpcmVjdGlvbj0iaG9yaXpvbnRhbCIKICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciPgogICAgICAgICAgICA8VGV4dD4KICAgICAgICAgICAgICAgIExvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0LCBjb25zZWN0ZXR1ciBhZGlwaXNjaW5nIGVsaXQsIHNlZCBkbyBlaXVzbW9kIHRlbXBvciBpbmNpZGlkdW50IHV0IGxhYm9yZSBldAogICAgICAgICAgICAgICAgZG9sb3JlIG1hZ25hIGFsaXF1YS4KICAgICAgICAgICAgPC9UZXh0PgogICAgICAgIDwvUmVzaXphYmxlPgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const Usage = () => (
+    <View height={300}>
+        <Resizable
+            p={20}
+            width={300}
+            max={350}
+            min={250}
+            height={300}
+            direction="horizontal"
+            bgToken="surface-strong">
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+            </Text>
+        </Resizable>
+    </View>
+)
+```
+### Vertical
+<a name="vertical"></a>
+
+export const Vertical = () => (<View height={300}>
+        <Resizable p={20} width={300} height={300} direction="vertical" bgToken="surface-strong">
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+            </Text>
+        </Resizable>
+    </View>);
+
+<div className="story-block">
+<Vertical />
+</div>
+
+<CodeComponent filename="Vertical.tsx" code="ZXhwb3J0IGNvbnN0IFZlcnRpY2FsID0gKCkgPT4gKAogICAgPFZpZXcgaGVpZ2h0PXszMDB9PgogICAgICAgIDxSZXNpemFibGUKICAgICAgICAgICAgcD17MjB9CiAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgIGhlaWdodD17MzAwfQogICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyI+CiAgICAgICAgICAgIDxUZXh0PgogICAgICAgICAgICAgICAgTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdCwgc2VkIGRvIGVpdXNtb2QgdGVtcG9yIGluY2lkaWR1bnQgdXQgbGFib3JlIGV0CiAgICAgICAgICAgICAgICBkb2xvcmUgbWFnbmEgYWxpcXVhLgogICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgPC9SZXNpemFibGU+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+export const Vertical = () => (
+    <View height={300}>
+        <Resizable
+            p={20}
+            width={300}
+            height={300}
+            direction="vertical"
+            bgToken="surface-strong">
+            <Text>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+            </Text>
+        </Resizable>
+    </View>
+)
+```
+### Rail
+<a name="rail"></a>
+
+> The `ResizableRail` component can be used as a standalone component to enable a greater degree of flexibility & customisation.
+
+export const Rail = () => (<View width={500} height={500} bgToken="surface-strong" position="relative">
+        <ResizableRail transparent position="end" direction="horizontal" onChange={({ x, y }) => console.log(x, y)}/>
+    </View>);
+
+<div className="story-block">
+<Rail />
+</div>
+
+<CodeComponent filename="Rail.tsx" code="ZXhwb3J0IGNvbnN0IFJhaWwgPSAoKSA9PiAoCiAgICA8VmlldwogICAgICAgIHdpZHRoPXs1MDB9CiAgICAgICAgaGVpZ2h0PXs1MDB9CiAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgcG9zaXRpb249InJlbGF0aXZlIj4KICAgICAgICA8UmVzaXphYmxlUmFpbAogICAgICAgICAgICB0cmFuc3BhcmVudAogICAgICAgICAgICBwb3NpdGlvbj0iZW5kIgogICAgICAgICAgICBkaXJlY3Rpb249Imhvcml6b250YWwiCiAgICAgICAgICAgIG9uQ2hhbmdlPXsoeyB4LCB5IH0pID0+IGNvbnNvbGUubG9nKHgsIHkpfQogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+export const Rail = () => (
+    <View
+        width={500}
+        height={500}
+        bgToken="surface-strong"
+        position="relative">
+        <ResizableRail
+            transparent
+            position="end"
+            direction="horizontal"
+            onChange={({ x, y }) => console.log(x, y)}
+        />
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

@@ -1,0 +1,177 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import * as Token from '@fold-dev/design/tokens'
+import { FICircle, FISun, Icon, IconLib, Stack, Text, View, defaultIcons, setFoldIcons } from '@fold-dev/core'
+import React, { useLayoutEffect, useState } from 'react'
+
+export const docs = {
+    title: 'Icon',
+    subtitle: 'The Icon component displays any SVG icon that is set as a prop.',
+    description:
+        'Icons play a fundamental role in user experiences and serve various purposes. The Fold Icon component was developed to accommodate a maximum number of icon sets. Default icons are from <a href="https://heroicons.com/" target="_blank">Heroicons</a>.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/icon/icon.tsx","description":"","displayName":"Icon","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/icon/icon.tsx","description":"","displayName":"setFoldIcons","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/icon/icon.tsx","description":"","displayName":"IconLib","methods":[],"props":{}}]
+
+export const css = [[["--f-icon-sizing-xs","var(--f-icon-size-xs)"],["--f-icon-sizing-sm","var(--f-icon-size-sm)"],["--f-icon-sizing-md","var(--f-icon-size-md)"],["--f-icon-sizing-lg","var(--f-icon-size-lg)"],["--f-icon-sizing-xl","var(--f-icon-size-xl)"],["--f-icon-stroke-width-xs","2.25"],["--f-icon-stroke-width-sm","2.2"],["--f-icon-stroke-width-md","2"],["--f-icon-stroke-width-lg","1.6"],["--f-icon-stroke-width-xl","1.5"],["--rounding-interval","1px"]]]
+
+
+
+<CodeComponent filename="icon.tsx" code="aW1wb3J0IHsgSWNvbiwgc2V0Rm9sZEljb25zLCBJY29uTGliIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Icon, setFoldIcons, IconLib } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+> The icon prop wraps any SVG icon.
+
+export const Usage = () => {
+    return <Icon icon={FISun}/>;
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuIDxJY29uIGljb249e0ZJU3VufSAvPgp9" />
+
+```tsx
+export const Usage = () => {
+    return <Icon icon={FISun} />
+}
+```
+### Sizes
+<a name="sizes"></a>
+
+export const Sizes = () => {
+    return (<Stack spacing={10}>
+            <Icon size="xs" icon={FICircle}/>
+            <Icon size="sm" icon={FICircle}/>
+            <Icon size="md" icon={FICircle} color={Token.ColorElectric400}/>
+            <Icon size="lg" icon={FICircle}/>
+            <Icon size="xl" icon={FICircle}/>
+        </Stack>);
+};
+
+<div className="story-block">
+<Sizes />
+</div>
+
+<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sgc3BhY2luZz17MTB9PgogICAgICAgICAgICA8SWNvbgogICAgICAgICAgICAgICAgc2l6ZT0ieHMiCiAgICAgICAgICAgICAgICBpY29uPXtGSUNpcmNsZX0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPEljb24KICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgaWNvbj17RklDaXJjbGV9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxJY29uCiAgICAgICAgICAgICAgICBzaXplPSJtZCIKICAgICAgICAgICAgICAgIGljb249e0ZJQ2lyY2xlfQogICAgICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yRWxlY3RyaWM0MDB9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxJY29uCiAgICAgICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgICAgIGljb249e0ZJQ2lyY2xlfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8SWNvbgogICAgICAgICAgICAgICAgc2l6ZT0ieGwiCiAgICAgICAgICAgICAgICBpY29uPXtGSUNpcmNsZX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1N0YWNrPgogICAgKQp9" />
+
+```tsx
+export const Sizes = () => {
+    return (
+        <Stack spacing={10}>
+            <Icon
+                size="xs"
+                icon={FICircle}
+            />
+            <Icon
+                size="sm"
+                icon={FICircle}
+            />
+            <Icon
+                size="md"
+                icon={FICircle}
+                color={Token.ColorElectric400}
+            />
+            <Icon
+                size="lg"
+                icon={FICircle}
+            />
+            <Icon
+                size="xl"
+                icon={FICircle}
+            />
+        </Stack>
+    )
+}
+```
+### Icon Library
+<a name="iconlibrary"></a>
+
+> The IconLib component allows you to include a pre-defined collection of icons, eliminating the need to import the SVG icon on each occasion.
+In addition, a set of icons have already been added by default when using FoldContext. These include:
+
+export const IconLibrary = () => {
+    const [render, setRender] = useState(false);
+    useLayoutEffect(() => {
+        setFoldIcons({ sun: FISun });
+        setRender(true);
+    }, []);
+    return render ? <IconLib icon="sun"/> : null;
+};
+
+<div className="story-block">
+<IconLibrary />
+</div>
+
+<CodeComponent filename="IconLibrary.tsx" code="ZXhwb3J0IGNvbnN0IEljb25MaWJyYXJ5ID0gKCkgPT4gewogICAgY29uc3QgW3JlbmRlciwgc2V0UmVuZGVyXSA9IHVzZVN0YXRlKGZhbHNlKQoKICAgIHVzZUxheW91dEVmZmVjdCgoKSA9PiB7CiAgICAgICAgc2V0Rm9sZEljb25zKHsgc3VuOiBGSVN1biB9KQogICAgICAgIHNldFJlbmRlcih0cnVlKQogICAgfSwgW10pCgogICAgcmV0dXJuIHJlbmRlciA/IDxJY29uTGliIGljb249InN1biIgLz4gOiBudWxsCn0=" />
+
+```tsx
+export const IconLibrary = () => {
+    const [render, setRender] = useState(false)
+
+    useLayoutEffect(() => {
+        setFoldIcons({ sun: FISun })
+        setRender(true)
+    }, [])
+
+    return render ? <IconLib icon="sun" /> : null
+}
+```
+### Default Icons
+<a name="defaulticons"></a>
+
+> In addition, a set of icons have already been made available by default when using Fold.
+
+export const DefaultIcons = () => {
+    return (<View row wrap="wrap">
+            {Object.keys(defaultIcons).map((icon) => (<View column width={100} height={100} gap={10}>
+                    <IconLib icon={icon} color="var(--f-color-text)"/>
+                    <Text size="sm" colorToken="text-weaker">
+                        {icon}
+                    </Text>
+                </View>))}
+        </View>);
+};
+
+<div className="story-block">
+<DefaultIcons />
+</div>
+
+<CodeComponent filename="DefaultIcons.tsx" code="ZXhwb3J0IGNvbnN0IERlZmF1bHRJY29ucyA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcKICAgICAgICAgICAgcm93CiAgICAgICAgICAgIHdyYXA9IndyYXAiPgogICAgICAgICAgICB7T2JqZWN0LmtleXMoZGVmYXVsdEljb25zKS5tYXAoKGljb24pID0+ICgKICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9ezEwMH0KICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9ezEwMH0KICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfT4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYgogICAgICAgICAgICAgICAgICAgICAgICBpY29uPXtpY29ufQogICAgICAgICAgICAgICAgICAgICAgICBjb2xvcj0idmFyKC0tZi1jb2xvci10ZXh0KSIKICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LXdlYWtlciI+CiAgICAgICAgICAgICAgICAgICAgICAgIHtpY29ufQogICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgKSl9CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const DefaultIcons = () => {
+    return (
+        <View
+            row
+            wrap="wrap">
+            {Object.keys(defaultIcons).map((icon) => (
+                <View
+                    column
+                    width={100}
+                    height={100}
+                    gap={10}>
+                    <IconLib
+                        icon={icon}
+                        color="var(--f-color-text)"
+                    />
+                    <Text
+                        size="sm"
+                        colorToken="text-weaker">
+                        {icon}
+                    </Text>
+                </View>
+            ))}
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

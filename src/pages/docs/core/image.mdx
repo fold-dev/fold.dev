@@ -1,0 +1,108 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Image, Progress, Text, View } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Image',
+    subtitle: 'The Image compoment is used to incorporate a photo or illustration.',
+    description:
+        'Use the Image component when you need to showcase an independent image that plays a vital role in the content displayed on the page.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/image/image.tsx","description":"","displayName":"ImagePlaceholder","methods":[],"props":{}},{"tags":{"id":"thisistheid","title":"image component"},"filePath":"packages/core/src/image/image.tsx","description":"\nCode blocks are great for examples\n\n``` ts\n// run typedoc --help for a list of supported languages\nconst instance = new MyClass();\nreturn <Input />\n```","displayName":"Image","methods":[],"props":{"errorContent":{"defaultValue":null,"description":"","name":"errorContent","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"src":{"defaultValue":null,"description":"","name":"src","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"objectPosition":{"defaultValue":null,"description":"","name":"objectPosition","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"objectFit":{"defaultValue":null,"description":"","name":"objectFit","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"contain\" | \"cover\" | \"fill\""},"tags":{}},"alt":{"defaultValue":null,"description":"","name":"alt","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"eager\" | \"lazy\""},"tags":{}},"crossOrigin":{"defaultValue":null,"description":"","name":"crossOrigin","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"anonymous\" | \"use-credentials\""},"tags":{}},"srcSet":{"defaultValue":null,"description":"","name":"srcSet","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"sizes":{"defaultValue":{"value":"md"},"description":"Size of the input","name":"sizes","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"xs | sm | md | lg | xl"},"tags":{"default":"md","type":"xs | sm | md | lg | xl"}},"fallbackSrc":{"defaultValue":null,"description":"","name":"fallbackSrc","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"loader":{"defaultValue":null,"description":"","name":"loader","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"imageProps":{"defaultValue":null,"description":"","name":"imageProps","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"placeholder":{"defaultValue":null,"description":"","name":"placeholder","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"placeholderComponent":{"defaultValue":null,"description":"","name":"placeholderComponent","declarations":[{"fileName":"packages/core/src/image/image.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-image-border-radius","var(--f-radius)"],["--f-image-background-color","var(--f-color-surface-strong)"],["--f-image-placeholder-color","var(--f-color-surface-strongest)"]]]
+
+
+
+<CodeComponent filename="image.tsx" code="aW1wb3J0IHsgSW1hZ2VQbGFjZWhvbGRlciwgSW1hZ2UgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { ImagePlaceholder, Image } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<Image objectFit="cover" src="/photos/01.jpg" width={250} height={250}/>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPEltYWdlCiAgICAgICAgb2JqZWN0Rml0PSJjb3ZlciIKICAgICAgICBzcmM9Ii9waG90b3MvMDEuanBnIgogICAgICAgIHdpZHRoPXsyNTB9CiAgICAgICAgaGVpZ2h0PXsyNTB9CiAgICAvPgop" />
+
+```tsx
+export const Usage = () => (
+    <Image
+        objectFit="cover"
+        src="/photos/01.jpg"
+        width={250}
+        height={250}
+    />
+)
+```
+### Failed To Load Image
+<a name="failedtoloadimage"></a>
+
+export const FailedToLoadImage = () => (<Image objectFit="cover" src="something-incorrect" width={250} height={250} errorContent={<Text>Something has gone wrong!</Text>}/>);
+
+<div className="story-block">
+<FailedToLoadImage />
+</div>
+
+<CodeComponent filename="FailedToLoadImage.tsx" code="ZXhwb3J0IGNvbnN0IEZhaWxlZFRvTG9hZEltYWdlID0gKCkgPT4gKAogICAgPEltYWdlCiAgICAgICAgb2JqZWN0Rml0PSJjb3ZlciIKICAgICAgICBzcmM9InNvbWV0aGluZy1pbmNvcnJlY3QiCiAgICAgICAgd2lkdGg9ezI1MH0KICAgICAgICBoZWlnaHQ9ezI1MH0KICAgICAgICBlcnJvckNvbnRlbnQ9ezxUZXh0PlNvbWV0aGluZyBoYXMgZ29uZSB3cm9uZyE8L1RleHQ+fQogICAgLz4KKQ==" />
+
+```tsx
+export const FailedToLoadImage = () => (
+    <Image
+        objectFit="cover"
+        src="something-incorrect"
+        width={250}
+        height={250}
+        errorContent={<Text>Something has gone wrong!</Text>}
+    />
+)
+```
+### Custom Loading Placeholder
+<a name="customloadingplaceholder"></a>
+
+export const CustomLoadingPlaceholder = () => {
+    const Custom = () => (<View p={10} width="100%">
+            <Progress value={30}/>
+        </View>);
+    return (<Image placeholder placeholderComponent={Custom} width={100} height={100} loader/>);
+};
+
+<div className="story-block">
+<CustomLoadingPlaceholder />
+</div>
+
+<CodeComponent filename="CustomLoadingPlaceholder.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbUxvYWRpbmdQbGFjZWhvbGRlciA9ICgpID0+IHsKICAgIGNvbnN0IEN1c3RvbSA9ICgpID0+ICgKICAgICAgICAKICAgICAgICAKICAgICAgICA8VmlldwogICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICA8UHJvZ3Jlc3MgdmFsdWU9ezMwfSAvPgogICAgICAgIDwvVmlldz4KICAgICkKCiAgICByZXR1cm4gKAogICAgICAgIDxJbWFnZQogICAgICAgICAgICBwbGFjZWhvbGRlcgogICAgICAgICAgICBwbGFjZWhvbGRlckNvbXBvbmVudD17Q3VzdG9tfQogICAgICAgICAgICB3aWR0aD17MTAwfQogICAgICAgICAgICBoZWlnaHQ9ezEwMH0KICAgICAgICAgICAgbG9hZGVyCiAgICAgICAgLz4KICAgICkKfQ==" />
+
+```tsx
+export const CustomLoadingPlaceholder = () => {
+    const Custom = () => (
+        
+        
+        <View
+            p={10}
+            width="100%">
+            <Progress value={30} />
+        </View>
+    )
+
+    return (
+        <Image
+            placeholder
+            placeholderComponent={Custom}
+            width={100}
+            height={100}
+            loader
+        />
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

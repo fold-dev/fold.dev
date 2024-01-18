@@ -1,0 +1,110 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Rate } from '@fold-dev/core'
+import React, { useState } from 'react'
+
+export const docs = {
+    title: 'Rate',
+    subtitle: 'The Rate component generates a row of icons that allows users to choose a rating.',
+    description:
+        "Ratings offer valuable perspectives on the thoughts and experiences of users when it comes to a product. Furthermore, individuals have the opportunity to provide their own ratings for products they've bought.",
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/rate/rate.tsx","description":"","displayName":"RateIcon","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/rate/rate.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"packages/core/src/rate/rate.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/rate/rate.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"onHover":{"defaultValue":null,"description":"","name":"onHover","declarations":[{"fileName":"packages/core/src/rate/rate.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/rate/rate.tsx","description":"","displayName":"Rate","methods":[],"props":{"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/rate/rate.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: number) => void"},"tags":{}},"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"packages/core/src/rate/rate.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"max":{"defaultValue":null,"description":"","name":"max","declarations":[{"fileName":"packages/core/src/rate/rate.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/rate/rate.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/rate/rate.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"rateIconProps":{"defaultValue":null,"description":"","name":"rateIconProps","declarations":[{"fileName":"packages/core/src/rate/rate.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ size?: Size; icon?: string; value?: number; onHover?: any; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any>"},"tags":{}}}}]
+
+export const css = [[["--f-rate-color","var(--f-color-text-weakest)"],["--f-rate-color-active","var(--f-color-accent)"],["--f-rate-zoom","scale(1.1)"]]]
+
+
+
+<CodeComponent filename="rate.tsx" code="aW1wb3J0IHsgUmF0ZUljb24sIFJhdGUgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { RateIcon, Rate } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const [value, setValue] = useState(3.5);
+    return (<Rate icon="star" value={value} onChange={setValue}/>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3ZhbHVlLCBzZXRWYWx1ZV0gPSB1c2VTdGF0ZSgzLjUpCgogICAgcmV0dXJuICgKICAgICAgICA8UmF0ZQogICAgICAgICAgICBpY29uPSJzdGFyIgogICAgICAgICAgICB2YWx1ZT17dmFsdWV9CiAgICAgICAgICAgIG9uQ2hhbmdlPXtzZXRWYWx1ZX0KICAgICAgICAvPgogICAgKQp9" />
+
+```tsx
+export const Usage = () => {
+    const [value, setValue] = useState(3.5)
+
+    return (
+        <Rate
+            icon="star"
+            value={value}
+            onChange={setValue}
+        />
+    )
+}
+```
+### Icon Amount
+<a name="iconamount"></a>
+
+export const IconAmount = () => {
+    const [value, setValue] = useState(3.5);
+    return (<Rate icon="circle" value={value} onChange={setValue} max={10}/>);
+};
+
+<div className="story-block">
+<IconAmount />
+</div>
+
+<CodeComponent filename="IconAmount.tsx" code="ZXhwb3J0IGNvbnN0IEljb25BbW91bnQgPSAoKSA9PiB7CiAgICBjb25zdCBbdmFsdWUsIHNldFZhbHVlXSA9IHVzZVN0YXRlKDMuNSkKCiAgICByZXR1cm4gKAogICAgICAgIDxSYXRlCiAgICAgICAgICAgIGljb249ImNpcmNsZSIKICAgICAgICAgICAgdmFsdWU9e3ZhbHVlfQogICAgICAgICAgICBvbkNoYW5nZT17c2V0VmFsdWV9CiAgICAgICAgICAgIG1heD17MTB9CiAgICAgICAgLz4KICAgICkKfQ==" />
+
+```tsx
+export const IconAmount = () => {
+    const [value, setValue] = useState(3.5)
+
+    return (
+        <Rate
+            icon="circle"
+            value={value}
+            onChange={setValue}
+            max={10}
+        />
+    )
+}
+```
+### Custom Color
+<a name="customcolor"></a>
+
+export const CustomColor = () => {
+    const [value, setValue] = useState(3.5);
+    return (<Rate style={{ '--f-rate-color-active': 'var(--f-color-yellow-400)' }} icon="star" value={value} onChange={setValue} size="lg"/>);
+};
+
+<div className="story-block">
+<CustomColor />
+</div>
+
+<CodeComponent filename="CustomColor.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbUNvbG9yID0gKCkgPT4gewogICAgY29uc3QgW3ZhbHVlLCBzZXRWYWx1ZV0gPSB1c2VTdGF0ZSgzLjUpCgogICAgcmV0dXJuICgKICAgICAgICA8UmF0ZQogICAgICAgICAgICBzdHlsZT17eyAnLS1mLXJhdGUtY29sb3ItYWN0aXZlJzogJ3ZhcigtLWYtY29sb3IteWVsbG93LTQwMCknIH19CiAgICAgICAgICAgIGljb249InN0YXIiCiAgICAgICAgICAgIHZhbHVlPXt2YWx1ZX0KICAgICAgICAgICAgb25DaGFuZ2U9e3NldFZhbHVlfQogICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAvPgogICAgKQp9" />
+
+```tsx
+export const CustomColor = () => {
+    const [value, setValue] = useState(3.5)
+
+    return (
+        <Rate
+            style={{ '--f-rate-color-active': 'var(--f-color-yellow-400)' }}
+            icon="star"
+            value={value}
+            onChange={setValue}
+            size="lg"
+        />
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

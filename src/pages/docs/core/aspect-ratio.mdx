@@ -1,0 +1,81 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import React from 'react'
+import { AspectRatio } from '@fold-dev/core'
+
+export const docs = {
+    title: 'Aspect Ratio',
+    subtitle:
+        'Aspect Ratio is used to fix the dimensions of a container to a specified aspect ratio based on the width or height.',
+    description:
+        'The Aspect Ratio component is useful for constraining proportions of images, video or embedded media.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/aspect-ratio/aspect-ratio.tsx","description":"","displayName":"AspectRatio","methods":[],"props":{"width":{"defaultValue":null,"description":"","name":"width","declarations":[{"fileName":"packages/core/src/aspect-ratio/aspect-ratio.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"height":{"defaultValue":null,"description":"","name":"height","declarations":[{"fileName":"packages/core/src/aspect-ratio/aspect-ratio.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"ratio":{"defaultValue":null,"description":"","name":"ratio","declarations":[{"fileName":"packages/core/src/aspect-ratio/aspect-ratio.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}}}}]
+
+export const css = []
+
+
+
+<CodeComponent filename="aspect-ratio.tsx" code="aW1wb3J0IHsgQXNwZWN0UmF0aW8gfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { AspectRatio } from "@fold-dev/core";
+```
+
+### Width Based
+<a name="widthbased"></a>
+
+export const WidthBased = () => {
+    return (<AspectRatio width={500} ratio={3 / 4} bgToken="surface-strong">
+            500px x 375px
+        </AspectRatio>);
+};
+
+<div className="story-block">
+<WidthBased />
+</div>
+
+<CodeComponent filename="WidthBased.tsx" code="ZXhwb3J0IGNvbnN0IFdpZHRoQmFzZWQgPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxBc3BlY3RSYXRpbwogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICByYXRpbz17MyAvIDR9CiAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIj4KICAgICAgICAgICAgNTAwcHggeCAzNzVweAogICAgICAgIDwvQXNwZWN0UmF0aW8+CiAgICApCn0=" />
+
+```tsx
+export const WidthBased = () => {
+    return (
+        <AspectRatio
+            width={500}
+            ratio={3 / 4}
+            bgToken="surface-strong">
+            500px x 375px
+        </AspectRatio>
+    )
+}
+```
+### Height Based
+<a name="heightbased"></a>
+
+export const HeightBased = () => {
+    return (<AspectRatio height={200} ratio={3 / 4} bgToken="surface-strong">
+            267px x 200px
+        </AspectRatio>);
+};
+
+<div className="story-block">
+<HeightBased />
+</div>
+
+<CodeComponent filename="HeightBased.tsx" code="ZXhwb3J0IGNvbnN0IEhlaWdodEJhc2VkID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXNwZWN0UmF0aW8KICAgICAgICAgICAgaGVpZ2h0PXsyMDB9CiAgICAgICAgICAgIHJhdGlvPXszIC8gNH0KICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciPgogICAgICAgICAgICAyNjdweCB4IDIwMHB4CiAgICAgICAgPC9Bc3BlY3RSYXRpbz4KICAgICkKfQ==" />
+
+```tsx
+export const HeightBased = () => {
+    return (
+        <AspectRatio
+            height={200}
+            ratio={3 / 4}
+            bgToken="surface-strong">
+            267px x 200px
+        </AspectRatio>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

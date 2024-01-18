@@ -1,0 +1,59 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import React from 'react'
+import { Kbd, Text, View } from '@fold-dev/core'
+
+export const docs = {
+    title: 'Kbd',
+    subtitle:
+        'The keyboard key component serves the purpose of indicating which specific key or combination of keys is responsible for executing a particular action.',
+    description:
+        'The Kbd component is ideal for assisting users in learning how to navigate keyboard shortcuts or quickly activating functionality using the keyboard.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/kbd/kbd.tsx","description":"","displayName":"Kbd","methods":[],"props":{}}]
+
+export const css = [[["--f-kbd-border-radius","var(--f-radius)"],["--f-kbd-background-color","var(--f-color-surface-stronger)"],["--f-kbd-border-color","var(--f-color-border-strong)"],["--f-kbd-color","var(--f-color-text-weaker)"]]]
+
+
+
+<CodeComponent filename="kbd.tsx" code="aW1wb3J0IHsgS2JkIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Kbd } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<View row gap={5}>
+            <Text>Press</Text>
+            <Kbd>shift</Kbd>
+            <Text>&</Text>
+            <Kbd>cntrl</Kbd>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICByb3cKICAgICAgICAgICAgZ2FwPXs1fT4KICAgICAgICAgICAgPFRleHQ+UHJlc3M8L1RleHQ+CiAgICAgICAgICAgIDxLYmQ+c2hpZnQ8L0tiZD4KICAgICAgICAgICAgPFRleHQ+JjwvVGV4dD4KICAgICAgICAgICAgPEtiZD5jbnRybDwvS2JkPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <View
+            row
+            gap={5}>
+            <Text>Press</Text>
+            <Kbd>shift</Kbd>
+            <Text>&</Text>
+            <Kbd>cntrl</Kbd>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

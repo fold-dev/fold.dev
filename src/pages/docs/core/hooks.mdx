@@ -1,0 +1,549 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import {
+    Button,
+    Input,
+    Text,
+    View,
+    dispatchPubsub,
+    documentObject,
+    useCacheValue,
+    useCheck,
+    useConnection,
+    useDragging,
+    useEvent,
+    useFocus,
+    useId,
+    useInput,
+    useObserver,
+    usePubsub,
+    useStorage,
+    useTabVisibility,
+    useTheme,
+    useTimeout,
+    useTimer,
+    useVisibility,
+    useWindowResize,
+} from '@fold-dev/core'
+import React, { useEffect, useRef, useState } from 'react'
+
+export const docs = {
+    title: 'Hooks',
+    subtitle: 'Fold React Hooks provide various pieces of functionality that can make complex logic simple.',
+    description: 'Below are React Hooks that are available to use with Fold.',
+}
+
+export const props = []
+
+export const css = []
+
+<CodeComponent filename="hooks.tsx" code="aW1wb3J0IHsKICAgIHVzZUNhY2hlVmFsdWUsCiAgICB1c2VDaGVjaywKICAgIHVzZUNvbm5lY3Rpb24sCiAgICB1c2VEcmFnZ2luZywKICAgIHVzZUV2ZW50LAogICAgdXNlRm9jdXMsCiAgICB1c2VJZCwKICAgIHVzZUlucHV0LAogICAgdXNlT2JzZXJ2ZXIsCiAgICB1c2VQdWJzdWIsCiAgICB1c2VTdG9yYWdlLAogICAgdXNlVGFiVmlzaWJpbGl0eSwKICAgIHVzZVRoZW1lLAogICAgdXNlVGltZW91dCwKICAgIHVzZVRpbWVyLAogICAgdXNlVmlzaWJpbGl0eSwKICAgIHVzZVdpbmRvd1Jlc2l6ZQp9IGZyb20gJ0Bmb2xkLWRldi9jb3JlJwo=" />
+```tsx
+import {
+    useCacheValue,
+    useCheck,
+    useConnection,
+    useDragging,
+    useEvent,
+    useFocus,
+    useId,
+    useInput,
+    useObserver,
+    usePubsub,
+    useStorage,
+    useTabVisibility,
+    useTheme,
+    useTimeout,
+    useTimer,
+    useVisibility,
+    useWindowResize
+} from '@fold-dev/core'
+```
+
+### Check
+<a name="check"></a>
+
+> Toggle checked values on & off
+
+export const Check = () => {
+    const { check, checked } = useCheck();
+    return <Button onClick={check}>{checked ? 'on' : 'off'}</Button>;
+};
+
+<div className="story-block">
+<Check />
+</div>
+
+<CodeComponent filename="Check.tsx" code="ZXhwb3J0IGNvbnN0IENoZWNrID0gKCkgPT4gewogICAgY29uc3QgeyBjaGVjaywgY2hlY2tlZCB9ID0gdXNlQ2hlY2soKQoKICAgIHJldHVybiA8QnV0dG9uIG9uQ2xpY2s9e2NoZWNrfT57Y2hlY2tlZCA/ICdvbicgOiAnb2ZmJ308L0J1dHRvbj4KfQ==" />
+
+```tsx
+export const Check = () => {
+    const { check, checked } = useCheck()
+
+    return <Button onClick={check}>{checked ? 'on' : 'off'}</Button>
+}
+```
+### Connection
+<a name="connection"></a>
+
+> Listen for the internet connection state
+
+export const Connection = () => {
+    const [connection, setConnection] = useState('online');
+    useConnection((online) => {
+        setConnection(online);
+    });
+    return <Text>{connection}</Text>;
+};
+
+<div className="story-block">
+<Connection />
+</div>
+
+<CodeComponent filename="Connection.tsx" code="ZXhwb3J0IGNvbnN0IENvbm5lY3Rpb24gPSAoKSA9PiB7CiAgICBjb25zdCBbY29ubmVjdGlvbiwgc2V0Q29ubmVjdGlvbl0gPSB1c2VTdGF0ZSgnb25saW5lJykKCiAgICB1c2VDb25uZWN0aW9uKChvbmxpbmU6ICdyZXN0b3JlZCcgfCAnb25saW5lJyB8ICdvZmZsaW5lJykgPT4gewogICAgICAgIHNldENvbm5lY3Rpb24ob25saW5lKQogICAgfSkKCiAgICByZXR1cm4gPFRleHQ+e2Nvbm5lY3Rpb259PC9UZXh0Pgp9" />
+
+```tsx
+export const Connection = () => {
+    const [connection, setConnection] = useState('online')
+
+    useConnection((online: 'restored' | 'online' | 'offline') => {
+        setConnection(online)
+    })
+
+    return <Text>{connection}</Text>
+}
+```
+### Dragging
+<a name="dragging"></a>
+
+> Track drag state
+
+export const Dragging = () => {
+    const { startDragging, stopDragging, dragging } = useDragging();
+    return (<View p={50} bgToken="surface-strong" onMouseDown={startDragging} onMouseUp={stopDragging}>
+            <Text>{dragging ? 'dragging' : 'not dragging'}</Text>
+        </View>);
+};
+
+<div className="story-block">
+<Dragging />
+</div>
+
+<CodeComponent filename="Dragging.tsx" code="ZXhwb3J0IGNvbnN0IERyYWdnaW5nID0gKCkgPT4gewogICAgY29uc3QgeyBzdGFydERyYWdnaW5nLCBzdG9wRHJhZ2dpbmcsIGRyYWdnaW5nIH0gPSB1c2VEcmFnZ2luZygpCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICBwPXs1MH0KICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgIG9uTW91c2VEb3duPXtzdGFydERyYWdnaW5nfQogICAgICAgICAgICBvbk1vdXNlVXA9e3N0b3BEcmFnZ2luZ30+CiAgICAgICAgICAgIDxUZXh0PntkcmFnZ2luZyA/ICdkcmFnZ2luZycgOiAnbm90IGRyYWdnaW5nJ308L1RleHQ+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const Dragging = () => {
+    const { startDragging, stopDragging, dragging } = useDragging()
+
+    return (
+        <View
+            p={50}
+            bgToken="surface-strong"
+            onMouseDown={startDragging}
+            onMouseUp={stopDragging}>
+            <Text>{dragging ? 'dragging' : 'not dragging'}</Text>
+        </View>
+    )
+}
+```
+### Event
+<a name="event"></a>
+
+> Listen to window, document or DOM events
+
+export const Event = () => {
+    const [position, setPosition] = useState({ x: 0, y: 0 });
+    useEvent('mousemove', (e) => setPosition({ x: e.clientX, y: e.clientY }));
+    return (<Text>
+            Mouse position: {position.x}px, {position.y}px
+        </Text>);
+};
+
+<div className="story-block">
+<Event />
+</div>
+
+<CodeComponent filename="Event.tsx" code="ZXhwb3J0IGNvbnN0IEV2ZW50ID0gKCkgPT4gewogICAgY29uc3QgW3Bvc2l0aW9uLCBzZXRQb3NpdGlvbl0gPSB1c2VTdGF0ZSh7IHg6IDAsIHk6IDAgfSkKCiAgICB1c2VFdmVudCgnbW91c2Vtb3ZlJywgKGUpID0+IHNldFBvc2l0aW9uKHsgeDogZS5jbGllbnRYLCB5OiBlLmNsaWVudFkgfSkpCgogICAgcmV0dXJuICgKICAgICAgICA8VGV4dD4KICAgICAgICAgICAgTW91c2UgcG9zaXRpb246IHtwb3NpdGlvbi54fXB4LCB7cG9zaXRpb24ueX1weAogICAgICAgIDwvVGV4dD4KICAgICkKfQ==" />
+
+```tsx
+export const Event = () => {
+    const [position, setPosition] = useState({ x: 0, y: 0 })
+
+    useEvent('mousemove', (e) => setPosition({ x: e.clientX, y: e.clientY }))
+
+    return (
+        <Text>
+            Mouse position: {position.x}px, {position.y}px
+        </Text>
+    )
+}
+```
+### Focus
+<a name="focus"></a>
+
+> Trap focus within a container, tabbing on the last element will move it to the first
+
+export const Focus = () => {
+    const [text, setText] = useState('');
+    const ref = useRef(null);
+    const { trapFocus } = useFocus();
+    useEffect(() => {
+        trapFocus(ref.current);
+    }, []);
+    return (<View ref={ref} column gap={5} width="100%">
+            <Input placeholder="Line 1" value={text} onChange={(e) => setText(e.target.value)}/>
+            <Input placeholder="Line 2" value={text} onChange={(e) => setText(e.target.value)}/>
+            <Input placeholder="Line 3" value={text} onChange={(e) => setText(e.target.value)}/>
+            <Input placeholder="Line 4" value={text} onChange={(e) => setText(e.target.value)}/>
+        </View>);
+};
+
+<div className="story-block">
+<Focus />
+</div>
+
+<CodeComponent filename="Focus.tsx" code="ZXhwb3J0IGNvbnN0IEZvY3VzID0gKCkgPT4gewogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGUoJycpCiAgICBjb25zdCByZWYgPSB1c2VSZWYobnVsbCkKICAgIGNvbnN0IHsgdHJhcEZvY3VzIH0gPSB1c2VGb2N1cygpCgogICAgdXNlRWZmZWN0KCgpID0+IHsKICAgICAgICB0cmFwRm9jdXMocmVmLmN1cnJlbnQpCiAgICB9LCBbXSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3CiAgICAgICAgICAgIHJlZj17cmVmfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgZ2FwPXs1fQogICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IkxpbmUgMSIKICAgICAgICAgICAgICAgIHZhbHVlPXt0ZXh0fQogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iTGluZSAyIgogICAgICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJMaW5lIDMiCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IkxpbmUgNCIKICAgICAgICAgICAgICAgIHZhbHVlPXt0ZXh0fQogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const Focus = () => {
+    const [text, setText] = useState('')
+    const ref = useRef(null)
+    const { trapFocus } = useFocus()
+
+    useEffect(() => {
+        trapFocus(ref.current)
+    }, [])
+
+    return (
+        <View
+            ref={ref}
+            column
+            gap={5}
+            width="100%">
+            <Input
+                placeholder="Line 1"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+            />
+            <Input
+                placeholder="Line 2"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+            />
+            <Input
+                placeholder="Line 3"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+            />
+            <Input
+                placeholder="Line 4"
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+            />
+        </View>
+    )
+}
+```
+### Input Field
+<a name="inputfield"></a>
+
+> Shorthand hook for input elements
+
+export const InputField = () => {
+    const { value, setValue, onChange } = useInput('');
+    return (<Input placeholder="Input line" value={value} onChange={onChange}/>);
+};
+
+<div className="story-block">
+<InputField />
+</div>
+
+<CodeComponent filename="InputField.tsx" code="ZXhwb3J0IGNvbnN0IElucHV0RmllbGQgPSAoKSA9PiB7CiAgICBjb25zdCB7IHZhbHVlLCBzZXRWYWx1ZSwgb25DaGFuZ2UgfSA9IHVzZUlucHV0KCcnKQoKICAgIHJldHVybiAoCiAgICAgICAgPElucHV0CiAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJJbnB1dCBsaW5lIgogICAgICAgICAgICB2YWx1ZT17dmFsdWV9CiAgICAgICAgICAgIG9uQ2hhbmdlPXtvbkNoYW5nZX0KICAgICAgICAvPgogICAgKQp9" />
+
+```tsx
+export const InputField = () => {
+    const { value, setValue, onChange } = useInput('')
+
+    return (
+        <Input
+            placeholder="Input line"
+            value={value}
+            onChange={onChange}
+        />
+    )
+}
+```
+### Observer
+<a name="observer"></a>
+
+> Listen for any mutations on DOM elements (experimental)
+
+export const Observer = () => {
+    const mutationRecord = useObserver(documentObject.documentElement);
+    return <View />;
+};
+
+<div className="story-block">
+<Observer />
+</div>
+
+<CodeComponent filename="Observer.tsx" code="ZXhwb3J0IGNvbnN0IE9ic2VydmVyID0gKCkgPT4gewogICAgCiAgICBjb25zdCBtdXRhdGlvblJlY29yZDogTXV0YXRpb25SZWNvcmQgPSB1c2VPYnNlcnZlcihkb2N1bWVudE9iamVjdC5kb2N1bWVudEVsZW1lbnQpCgogICAgcmV0dXJuIDxWaWV3IC8+Cn0=" />
+
+```tsx
+export const Observer = () => {
+    
+    const mutationRecord: MutationRecord = useObserver(documentObject.documentElement)
+
+    return <View />
+}
+```
+### Pubsub
+<a name="pubsub"></a>
+
+> Publish & subscribe to topics application wide
+
+export const Pubsub = () => {
+    const [event, setEvent] = useState('Click!');
+    usePubsub('hooks', (message) => setEvent(message));
+    return <Button onClick={(e) => dispatchPubsub('hooks', 'Hello World')}>{event}</Button>;
+};
+
+<div className="story-block">
+<Pubsub />
+</div>
+
+<CodeComponent filename="Pubsub.tsx" code="ZXhwb3J0IGNvbnN0IFB1YnN1YiA9ICgpID0+IHsKICAgIGNvbnN0IFtldmVudCwgc2V0RXZlbnRdID0gdXNlU3RhdGUoJ0NsaWNrIScpCiAgICB1c2VQdWJzdWIoJ2hvb2tzJywgKG1lc3NhZ2UpID0+IHNldEV2ZW50KG1lc3NhZ2UpKQoKICAgIHJldHVybiA8QnV0dG9uIG9uQ2xpY2s9eyhlKSA9PiBkaXNwYXRjaFB1YnN1YignaG9va3MnLCAnSGVsbG8gV29ybGQnKX0+e2V2ZW50fTwvQnV0dG9uPgp9" />
+
+```tsx
+export const Pubsub = () => {
+    const [event, setEvent] = useState('Click!')
+    usePubsub('hooks', (message) => setEvent(message))
+
+    return <Button onClick={(e) => dispatchPubsub('hooks', 'Hello World')}>{event}</Button>
+}
+```
+### Storage
+<a name="storage"></a>
+
+> Interact with LocalStorage
+
+export const Storage = () => {
+    const { getStorage, getSafeStorage, setStorage, deleteStorage, } = useStorage();
+    const { isCached, deleteCache, getSafeCache, setCache, } = useCacheValue('foobar');
+    return <View />;
+};
+
+<div className="story-block">
+<Storage />
+</div>
+
+<CodeComponent filename="Storage.tsx" code="ZXhwb3J0IGNvbnN0IFN0b3JhZ2UgPSAoKSA9PiB7CiAgICBjb25zdCB7CiAgICAgICAgZ2V0U3RvcmFnZSwKICAgICAgICBnZXRTYWZlU3RvcmFnZSwgCiAgICAgICAgc2V0U3RvcmFnZSwKICAgICAgICBkZWxldGVTdG9yYWdlLAogICAgfSA9IHVzZVN0b3JhZ2UoKQogICAgY29uc3QgewogICAgICAgIGlzQ2FjaGVkLAogICAgICAgIGRlbGV0ZUNhY2hlLAogICAgICAgIGdldFNhZmVDYWNoZSwgCiAgICAgICAgc2V0Q2FjaGUsCiAgICB9ID0gdXNlQ2FjaGVWYWx1ZSgnZm9vYmFyJykKCiAgICByZXR1cm4gPFZpZXcgLz4KfQ==" />
+
+```tsx
+export const Storage = () => {
+    const {
+        getStorage,
+        getSafeStorage, 
+        setStorage,
+        deleteStorage,
+    } = useStorage()
+    const {
+        isCached,
+        deleteCache,
+        getSafeCache, 
+        setCache,
+    } = useCacheValue('foobar')
+
+    return <View />
+}
+```
+### Tab Visibility
+<a name="tabvisibility"></a>
+
+> Listen to tab visibility events (when a tab becomes visible or hidden)
+
+export const TabVisibility = () => {
+    useTabVisibility((e) => alert('Welcome back!'));
+    return <View />;
+};
+
+<div className="story-block">
+<TabVisibility />
+</div>
+
+<CodeComponent filename="TabVisibility.tsx" code="ZXhwb3J0IGNvbnN0IFRhYlZpc2liaWxpdHkgPSAoKSA9PiB7CiAgICB1c2VUYWJWaXNpYmlsaXR5KChlKSA9PiBhbGVydCgnV2VsY29tZSBiYWNrIScpKQoKICAgIHJldHVybiA8VmlldyAvPgp9" />
+
+```tsx
+export const TabVisibility = () => {
+    useTabVisibility((e) => alert('Welcome back!'))
+
+    return <View />
+}
+```
+### Theme
+<a name="theme"></a>
+
+> Fold Theme hook - please see theme documentation for more details
+
+export const Theme = () => {
+    const { systemTheme, getToken, getColorToken, setTheme, removeTheme, getSystemTheme, getStoredTheme } = useTheme();
+    return <View>You are running {getSystemTheme()} mode.</View>;
+};
+
+<div className="story-block">
+<Theme />
+</div>
+
+<CodeComponent filename="Theme.tsx" code="ZXhwb3J0IGNvbnN0IFRoZW1lID0gKCkgPT4gewogICAgY29uc3QgeyBzeXN0ZW1UaGVtZSwgZ2V0VG9rZW4sIGdldENvbG9yVG9rZW4sIHNldFRoZW1lLCByZW1vdmVUaGVtZSwgZ2V0U3lzdGVtVGhlbWUsIGdldFN0b3JlZFRoZW1lIH0gPSB1c2VUaGVtZSgpCgogICAgcmV0dXJuIDxWaWV3PllvdSBhcmUgcnVubmluZyB7Z2V0U3lzdGVtVGhlbWUoKX0gbW9kZS48L1ZpZXc+Cn0=" />
+
+```tsx
+export const Theme = () => {
+    const { systemTheme, getToken, getColorToken, setTheme, removeTheme, getSystemTheme, getStoredTheme } = useTheme()
+
+    return <View>You are running {getSystemTheme()} mode.</View>
+}
+```
+### Timeout
+<a name="timeout"></a>
+
+> Shorthand wrapper around setTimeout
+
+export const Timeout = () => {
+    const [text, setText] = useState('Waiting...');
+    useTimeout(() => {
+        setText('Waited 2000ms!');
+    }, 2000);
+    return <Text>{text}</Text>;
+};
+
+<div className="story-block">
+<Timeout />
+</div>
+
+<CodeComponent filename="Timeout.tsx" code="ZXhwb3J0IGNvbnN0IFRpbWVvdXQgPSAoKSA9PiB7CiAgICBjb25zdCBbdGV4dCwgc2V0VGV4dF0gPSB1c2VTdGF0ZSgnV2FpdGluZy4uLicpCgogICAgdXNlVGltZW91dCgoKSA9PiB7CiAgICAgICAgc2V0VGV4dCgnV2FpdGVkIDIwMDBtcyEnKQogICAgfSwgMjAwMCkKCiAgICByZXR1cm4gPFRleHQ+e3RleHR9PC9UZXh0Pgp9" />
+
+```tsx
+export const Timeout = () => {
+    const [text, setText] = useState('Waiting...')
+
+    useTimeout(() => {
+        setText('Waited 2000ms!')
+    }, 2000)
+
+    return <Text>{text}</Text>
+}
+```
+### Timer
+<a name="timer"></a>
+
+> Another Shorthand wrapper around setTimeout, this time with a clearing mechanism
+
+export const Timer = () => {
+    const [text, setText] = useState('Click Here');
+    const { setTimer, clearTimer } = useTimer();
+    const handleClick = (e) => {
+        clearTimer();
+        setTimer(() => {
+            setText('Waited 2000ms!');
+        }, 2000);
+    };
+    return <Button onClick={handleClick}>{text}</Button>;
+};
+
+<div className="story-block">
+<Timer />
+</div>
+
+<CodeComponent filename="Timer.tsx" code="ZXhwb3J0IGNvbnN0IFRpbWVyID0gKCkgPT4gewogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGUoJ0NsaWNrIEhlcmUnKQogICAgY29uc3QgeyBzZXRUaW1lciwgY2xlYXJUaW1lciB9ID0gdXNlVGltZXIoKQoKICAgIGNvbnN0IGhhbmRsZUNsaWNrID0gKGUpID0+IHsKICAgICAgICBjbGVhclRpbWVyKCkKICAgICAgICBzZXRUaW1lcigoKSA9PiB7CiAgICAgICAgICAgIHNldFRleHQoJ1dhaXRlZCAyMDAwbXMhJykKICAgICAgICB9LCAyMDAwKQogICAgfQoKICAgIHJldHVybiA8QnV0dG9uIG9uQ2xpY2s9e2hhbmRsZUNsaWNrfT57dGV4dH08L0J1dHRvbj4KfQ==" />
+
+```tsx
+export const Timer = () => {
+    const [text, setText] = useState('Click Here')
+    const { setTimer, clearTimer } = useTimer()
+
+    const handleClick = (e) => {
+        clearTimer()
+        setTimer(() => {
+            setText('Waited 2000ms!')
+        }, 2000)
+    }
+
+    return <Button onClick={handleClick}>{text}</Button>
+}
+```
+### Ueid
+<a name="ueid"></a>
+
+> Generate Unique Enough ID's
+
+export const Ueid = () => {
+    const id = useId();
+    return <Text>{id}</Text>;
+};
+
+<div className="story-block">
+<Ueid />
+</div>
+
+<CodeComponent filename="Ueid.tsx" code="ZXhwb3J0IGNvbnN0IFVlaWQgPSAoKSA9PiB7CiAgICBjb25zdCBpZCA9IHVzZUlkKCkKICAgIHJldHVybiA8VGV4dD57aWR9PC9UZXh0Pgp9" />
+
+```tsx
+export const Ueid = () => {
+    const id = useId()
+    return <Text>{id}</Text>
+}
+```
+### Visibility
+<a name="visibility"></a>
+
+> Toggle visibility states
+
+export const Visibility = () => {
+    const { visible, delayedShow, show, hide, toggle } = useVisibility(false);
+    return <Button onClick={(e) => (visible ? hide() : delayedShow(2000))}>{visible ? 'Visible' : 'Hidden'}</Button>;
+};
+
+<div className="story-block">
+<Visibility />
+</div>
+
+<CodeComponent filename="Visibility.tsx" code="ZXhwb3J0IGNvbnN0IFZpc2liaWxpdHkgPSAoKSA9PiB7CiAgICBjb25zdCB7IHZpc2libGUsIGRlbGF5ZWRTaG93LCBzaG93LCBoaWRlLCB0b2dnbGUgfSA9IHVzZVZpc2liaWxpdHkoZmFsc2UpCgogICAgcmV0dXJuIDxCdXR0b24gb25DbGljaz17KGUpID0+ICh2aXNpYmxlID8gaGlkZSgpIDogZGVsYXllZFNob3coMjAwMCkpfT57dmlzaWJsZSA/ICdWaXNpYmxlJyA6ICdIaWRkZW4nfTwvQnV0dG9uPgp9" />
+
+```tsx
+export const Visibility = () => {
+    const { visible, delayedShow, show, hide, toggle } = useVisibility(false)
+
+    return <Button onClick={(e) => (visible ? hide() : delayedShow(2000))}>{visible ? 'Visible' : 'Hidden'}</Button>
+}
+```
+### Window Resize
+<a name="windowresize"></a>
+
+> Listen to window dimensions
+
+export const WindowResize = () => {
+    const { width, height, zoom } = useWindowResize();
+    return (<Text>
+            {width} {height} {zoom}
+        </Text>);
+};
+
+<div className="story-block">
+<WindowResize />
+</div>
+
+<CodeComponent filename="WindowResize.tsx" code="ZXhwb3J0IGNvbnN0IFdpbmRvd1Jlc2l6ZSA9ICgpID0+IHsKICAgIGNvbnN0IHsgd2lkdGgsIGhlaWdodCwgem9vbSB9ID0gdXNlV2luZG93UmVzaXplKCkKICAgIHJldHVybiAoCiAgICAgICAgPFRleHQ+CiAgICAgICAgICAgIHt3aWR0aH0ge2hlaWdodH0ge3pvb219CiAgICAgICAgPC9UZXh0PgogICAgKQp9" />
+
+```tsx
+export const WindowResize = () => {
+    const { width, height, zoom } = useWindowResize()
+    return (
+        <Text>
+            {width} {height} {zoom}
+        </Text>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

@@ -1,0 +1,332 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import React from 'react'
+import { Accordion, AccordionHeading, AccordionItem, AccordionPanel } from '@fold-dev/core'
+
+export const docs = {
+    title: 'Accordion',
+    subtitle:
+        'The accordion component is a list of vertically or horizontally stacked headings that collapse or expand associated content.',
+    description:
+        "Accordion components are a common user interface pattern. They are often used to create collapsible sections of content on a web page, allowing users to expand or collapse specific sections to focus on the information they're interested in.",
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/accordion/accordion.tsx","description":"","displayName":"Accordion","methods":[],"props":{"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"uncontrolled":{"defaultValue":null,"description":"","name":"uncontrolled","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"iconPosition":{"defaultValue":null,"description":"","name":"iconPosition","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"start\" | \"end\""},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/accordion/accordion.tsx","description":"","displayName":"AccordionItem","methods":[],"props":{"uncontrolled":{"defaultValue":null,"description":"","name":"uncontrolled","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"collapsed":{"defaultValue":null,"description":"","name":"collapsed","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"iconPosition":{"defaultValue":null,"description":"","name":"iconPosition","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"start\" | \"end\""},"tags":{}},"icons":{"defaultValue":null,"description":"","name":"icons","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"AccordionIcons"},"tags":{}},"defaultIcon":{"defaultValue":null,"description":"","name":"defaultIcon","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"open":{"defaultValue":null,"description":"","name":"open","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/accordion/accordion.tsx","description":"","displayName":"AccordionHeading","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Headings"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"open":{"defaultValue":null,"description":"","name":"open","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"icons":{"defaultValue":null,"description":"","name":"icons","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"AccordionIcons"},"tags":{}},"iconSize":{"defaultValue":null,"description":"","name":"iconSize","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"defaultIcon":{"defaultValue":null,"description":"","name":"defaultIcon","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"iconPosition":{"defaultValue":null,"description":"","name":"iconPosition","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"start\" | \"end\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/accordion/accordion.tsx","description":"","displayName":"AccordionPanel","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"open":{"defaultValue":null,"description":"default open state for AccodrionPanel","name":"open","declarations":[{"fileName":"packages/core/src/accordion/accordion.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{"description":"defaults to false"}}}}]
+
+export const css = [[["--f-accordion-border-radius","var(--f-radius)"],["--f-accordion-border-color","var(--f-color-border)"],["--f-accordion-border-width","0.1rem"],["--f-accordion-background","var(--f-color-surface)"],["--f-accordion-color","var(--f-color-text-weak)"],["--f-accordion-color-description","var(--f-color-text-weakest)"],["--f-accordion-hover-border-color","var(--f-color-border-strong)"],["--f-accordion-hover-background-color","var(--f-color-surface-strong)"],["--f-accordion-disabled-color","var(--f-color-text-weakest)"],["--f-accordion-active-background","var(--f-color-surface-strong)"],["--f-accordion-active-color","var(--f-color-accent)"],["--f-accordion-spacing","1rem"]]]
+
+
+
+<CodeComponent filename="accordion.tsx" code="aW1wb3J0IHsKICBBY2NvcmRpb24sCiAgQWNjb3JkaW9uSXRlbSwKICBBY2NvcmRpb25IZWFkaW5nLAogIEFjY29yZGlvblBhbmVsLAp9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import {
+  Accordion,
+  AccordionItem,
+  AccordionHeading,
+  AccordionPanel,
+} from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<Accordion>
+            <AccordionItem>
+                <AccordionHeading>Section 1</AccordionHeading>
+                <AccordionPanel>Content for Section 1 goes here.</AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Section 2</AccordionHeading>
+                <AccordionPanel>Content for Section 2 goes here.</AccordionPanel>
+            </AccordionItem>
+        </Accordion>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QWNjb3JkaW9uPgogICAgICAgICAgICA8QWNjb3JkaW9uSXRlbT4KICAgICAgICAgICAgICAgIDxBY2NvcmRpb25IZWFkaW5nPlNlY3Rpb24gMTwvQWNjb3JkaW9uSGVhZGluZz4KICAgICAgICAgICAgICAgIDxBY2NvcmRpb25QYW5lbD5Db250ZW50IGZvciBTZWN0aW9uIDEgZ29lcyBoZXJlLjwvQWNjb3JkaW9uUGFuZWw+CiAgICAgICAgICAgIDwvQWNjb3JkaW9uSXRlbT4KICAgICAgICAgICAgPEFjY29yZGlvbkl0ZW0+CiAgICAgICAgICAgICAgICA8QWNjb3JkaW9uSGVhZGluZz5TZWN0aW9uIDI8L0FjY29yZGlvbkhlYWRpbmc+CiAgICAgICAgICAgICAgICA8QWNjb3JkaW9uUGFuZWw+Q29udGVudCBmb3IgU2VjdGlvbiAyIGdvZXMgaGVyZS48L0FjY29yZGlvblBhbmVsPgogICAgICAgICAgICA8L0FjY29yZGlvbkl0ZW0+CiAgICAgICAgPC9BY2NvcmRpb24+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <Accordion>
+            <AccordionItem>
+                <AccordionHeading>Section 1</AccordionHeading>
+                <AccordionPanel>Content for Section 1 goes here.</AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Section 2</AccordionHeading>
+                <AccordionPanel>Content for Section 2 goes here.</AccordionPanel>
+            </AccordionItem>
+        </Accordion>
+    )
+}
+```
+### Basic
+<a name="basic"></a>
+
+export const Basic = () => {
+    return (<Accordion>
+            <AccordionItem>
+                <AccordionHeading>Benefits of using an accordion</AccordionHeading>
+                <AccordionPanel>
+                    Accordions reduce clutter & keep users from getting overwhelmed by letting them focus on the
+                    information at hand.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Typical places to use an accordion</AccordionHeading>
+                <AccordionPanel>
+                    FAQ sections, nested navigational items, product information section & content with simple
+                    hierarchy.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>When to avoid using accordions</AccordionHeading>
+                <AccordionPanel>
+                    When the user needs access to all of the content on the page, when there is too little content &
+                    when the hierarchy of the content is complex.
+                </AccordionPanel>
+            </AccordionItem>
+        </Accordion>);
+};
+
+<div className="story-block">
+<Basic />
+</div>
+
+<CodeComponent filename="Basic.tsx" code="ZXhwb3J0IGNvbnN0IEJhc2ljID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QWNjb3JkaW9uPgogICAgICAgICAgICA8QWNjb3JkaW9uSXRlbT4KICAgICAgICAgICAgICAgIDxBY2NvcmRpb25IZWFkaW5nPkJlbmVmaXRzIG9mIHVzaW5nIGFuIGFjY29yZGlvbjwvQWNjb3JkaW9uSGVhZGluZz4KICAgICAgICAgICAgICAgIDxBY2NvcmRpb25QYW5lbD4KICAgICAgICAgICAgICAgICAgICBBY2NvcmRpb25zIHJlZHVjZSBjbHV0dGVyICYga2VlcCB1c2VycyBmcm9tIGdldHRpbmcgb3ZlcndoZWxtZWQgYnkgbGV0dGluZyB0aGVtIGZvY3VzIG9uIHRoZQogICAgICAgICAgICAgICAgICAgIGluZm9ybWF0aW9uIGF0IGhhbmQuCiAgICAgICAgICAgICAgICA8L0FjY29yZGlvblBhbmVsPgogICAgICAgICAgICA8L0FjY29yZGlvbkl0ZW0+CiAgICAgICAgICAgIDxBY2NvcmRpb25JdGVtPgogICAgICAgICAgICAgICAgPEFjY29yZGlvbkhlYWRpbmc+VHlwaWNhbCBwbGFjZXMgdG8gdXNlIGFuIGFjY29yZGlvbjwvQWNjb3JkaW9uSGVhZGluZz4KICAgICAgICAgICAgICAgIDxBY2NvcmRpb25QYW5lbD4KICAgICAgICAgICAgICAgICAgICBGQVEgc2VjdGlvbnMsIG5lc3RlZCBuYXZpZ2F0aW9uYWwgaXRlbXMsIHByb2R1Y3QgaW5mb3JtYXRpb24gc2VjdGlvbiAmIGNvbnRlbnQgd2l0aCBzaW1wbGUKICAgICAgICAgICAgICAgICAgICBoaWVyYXJjaHkuCiAgICAgICAgICAgICAgICA8L0FjY29yZGlvblBhbmVsPgogICAgICAgICAgICA8L0FjY29yZGlvbkl0ZW0+CiAgICAgICAgICAgIDxBY2NvcmRpb25JdGVtPgogICAgICAgICAgICAgICAgPEFjY29yZGlvbkhlYWRpbmc+V2hlbiB0byBhdm9pZCB1c2luZyBhY2NvcmRpb25zPC9BY2NvcmRpb25IZWFkaW5nPgogICAgICAgICAgICAgICAgPEFjY29yZGlvblBhbmVsPgogICAgICAgICAgICAgICAgICAgIFdoZW4gdGhlIHVzZXIgbmVlZHMgYWNjZXNzIHRvIGFsbCBvZiB0aGUgY29udGVudCBvbiB0aGUgcGFnZSwgd2hlbiB0aGVyZSBpcyB0b28gbGl0dGxlIGNvbnRlbnQgJgogICAgICAgICAgICAgICAgICAgIHdoZW4gdGhlIGhpZXJhcmNoeSBvZiB0aGUgY29udGVudCBpcyBjb21wbGV4LgogICAgICAgICAgICAgICAgPC9BY2NvcmRpb25QYW5lbD4KICAgICAgICAgICAgPC9BY2NvcmRpb25JdGVtPgogICAgICAgIDwvQWNjb3JkaW9uPgogICAgKQp9" />
+
+```tsx
+export const Basic = () => {
+    return (
+        <Accordion>
+            <AccordionItem>
+                <AccordionHeading>Benefits of using an accordion</AccordionHeading>
+                <AccordionPanel>
+                    Accordions reduce clutter & keep users from getting overwhelmed by letting them focus on the
+                    information at hand.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Typical places to use an accordion</AccordionHeading>
+                <AccordionPanel>
+                    FAQ sections, nested navigational items, product information section & content with simple
+                    hierarchy.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>When to avoid using accordions</AccordionHeading>
+                <AccordionPanel>
+                    When the user needs access to all of the content on the page, when there is too little content &
+                    when the hierarchy of the content is complex.
+                </AccordionPanel>
+            </AccordionItem>
+        </Accordion>
+    )
+}
+```
+### Icon Position
+<a name="iconposition"></a>
+
+> Icon position at the start, instead of the end (default).
+
+export const IconPosition = () => {
+    return (<Accordion iconPosition="start">
+            <AccordionItem>
+                <AccordionHeading>Benefits of using an accordion</AccordionHeading>
+                <AccordionPanel>
+                    Accordions reduce clutter & keep users from getting overwhelmed by letting them focus on the
+                    information at hand.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Typical places to use an accordion</AccordionHeading>
+                <AccordionPanel>
+                    FAQ sections, nested navigational items, product information section & content with simple
+                    hierarchy.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>When to avoid using accordions</AccordionHeading>
+                <AccordionPanel>
+                    When the user needs access to all of the content on the page, when there is too little content &
+                    when the hierarchy of the content is complex.
+                </AccordionPanel>
+            </AccordionItem>
+        </Accordion>);
+};
+
+<div className="story-block">
+<IconPosition />
+</div>
+
+<CodeComponent filename="IconPosition.tsx" code="ZXhwb3J0IGNvbnN0IEljb25Qb3NpdGlvbiA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPEFjY29yZGlvbiBpY29uUG9zaXRpb249InN0YXJ0Ij4KICAgICAgICAgICAgPEFjY29yZGlvbkl0ZW0+CiAgICAgICAgICAgICAgICA8QWNjb3JkaW9uSGVhZGluZz5CZW5lZml0cyBvZiB1c2luZyBhbiBhY2NvcmRpb248L0FjY29yZGlvbkhlYWRpbmc+CiAgICAgICAgICAgICAgICA8QWNjb3JkaW9uUGFuZWw+CiAgICAgICAgICAgICAgICAgICAgQWNjb3JkaW9ucyByZWR1Y2UgY2x1dHRlciAmIGtlZXAgdXNlcnMgZnJvbSBnZXR0aW5nIG92ZXJ3aGVsbWVkIGJ5IGxldHRpbmcgdGhlbSBmb2N1cyBvbiB0aGUKICAgICAgICAgICAgICAgICAgICBpbmZvcm1hdGlvbiBhdCBoYW5kLgogICAgICAgICAgICAgICAgPC9BY2NvcmRpb25QYW5lbD4KICAgICAgICAgICAgPC9BY2NvcmRpb25JdGVtPgogICAgICAgICAgICA8QWNjb3JkaW9uSXRlbT4KICAgICAgICAgICAgICAgIDxBY2NvcmRpb25IZWFkaW5nPlR5cGljYWwgcGxhY2VzIHRvIHVzZSBhbiBhY2NvcmRpb248L0FjY29yZGlvbkhlYWRpbmc+CiAgICAgICAgICAgICAgICA8QWNjb3JkaW9uUGFuZWw+CiAgICAgICAgICAgICAgICAgICAgRkFRIHNlY3Rpb25zLCBuZXN0ZWQgbmF2aWdhdGlvbmFsIGl0ZW1zLCBwcm9kdWN0IGluZm9ybWF0aW9uIHNlY3Rpb24gJiBjb250ZW50IHdpdGggc2ltcGxlCiAgICAgICAgICAgICAgICAgICAgaGllcmFyY2h5LgogICAgICAgICAgICAgICAgPC9BY2NvcmRpb25QYW5lbD4KICAgICAgICAgICAgPC9BY2NvcmRpb25JdGVtPgogICAgICAgICAgICA8QWNjb3JkaW9uSXRlbT4KICAgICAgICAgICAgICAgIDxBY2NvcmRpb25IZWFkaW5nPldoZW4gdG8gYXZvaWQgdXNpbmcgYWNjb3JkaW9uczwvQWNjb3JkaW9uSGVhZGluZz4KICAgICAgICAgICAgICAgIDxBY2NvcmRpb25QYW5lbD4KICAgICAgICAgICAgICAgICAgICBXaGVuIHRoZSB1c2VyIG5lZWRzIGFjY2VzcyB0byBhbGwgb2YgdGhlIGNvbnRlbnQgb24gdGhlIHBhZ2UsIHdoZW4gdGhlcmUgaXMgdG9vIGxpdHRsZSBjb250ZW50ICYKICAgICAgICAgICAgICAgICAgICB3aGVuIHRoZSBoaWVyYXJjaHkgb2YgdGhlIGNvbnRlbnQgaXMgY29tcGxleC4KICAgICAgICAgICAgICAgIDwvQWNjb3JkaW9uUGFuZWw+CiAgICAgICAgICAgIDwvQWNjb3JkaW9uSXRlbT4KICAgICAgICA8L0FjY29yZGlvbj4KICAgICkKfQ==" />
+
+```tsx
+export const IconPosition = () => {
+    return (
+        <Accordion iconPosition="start">
+            <AccordionItem>
+                <AccordionHeading>Benefits of using an accordion</AccordionHeading>
+                <AccordionPanel>
+                    Accordions reduce clutter & keep users from getting overwhelmed by letting them focus on the
+                    information at hand.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Typical places to use an accordion</AccordionHeading>
+                <AccordionPanel>
+                    FAQ sections, nested navigational items, product information section & content with simple
+                    hierarchy.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>When to avoid using accordions</AccordionHeading>
+                <AccordionPanel>
+                    When the user needs access to all of the content on the page, when there is too little content &
+                    when the hierarchy of the content is complex.
+                </AccordionPanel>
+            </AccordionItem>
+        </Accordion>
+    )
+}
+```
+### Custom Icon
+<a name="customicon"></a>
+
+> The icon is changeable, however, at the moment the switch animation relies on the default icons and is not available with custom icons.
+
+export const CustomIcon = () => {
+    return (<Accordion iconPosition="start">
+            <AccordionItem icons={{ open: 'arrow-up', closed: 'arrow-down' }}>
+                <AccordionHeading>Benefits of using an accordion</AccordionHeading>
+                <AccordionPanel>
+                    Accordions reduce clutter & keep users from getting overwhelmed by letting them focus on the
+                    information at hand.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem icons={{ open: 'arrow-up', closed: 'arrow-down' }}>
+                <AccordionHeading>Typical places to use an accordion</AccordionHeading>
+                <AccordionPanel>
+                    FAQ sections, nested navigational items, product information section & content with simple
+                    hierarchy.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem icons={{ open: 'arrow-up', closed: 'arrow-down' }}>
+                <AccordionHeading>When to avoid using accordions</AccordionHeading>
+                <AccordionPanel>
+                    When the user needs access to all of the content on the page, when there is too little content &
+                    when the hierarchy of the content is complex.
+                </AccordionPanel>
+            </AccordionItem>
+        </Accordion>);
+};
+
+<div className="story-block">
+<CustomIcon />
+</div>
+
+<CodeComponent filename="CustomIcon.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbUljb24gPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxBY2NvcmRpb24gaWNvblBvc2l0aW9uPSJzdGFydCI+CiAgICAgICAgICAgIDxBY2NvcmRpb25JdGVtIGljb25zPXt7IG9wZW46ICdhcnJvdy11cCcsIGNsb3NlZDogJ2Fycm93LWRvd24nIH19PgogICAgICAgICAgICAgICAgPEFjY29yZGlvbkhlYWRpbmc+QmVuZWZpdHMgb2YgdXNpbmcgYW4gYWNjb3JkaW9uPC9BY2NvcmRpb25IZWFkaW5nPgogICAgICAgICAgICAgICAgPEFjY29yZGlvblBhbmVsPgogICAgICAgICAgICAgICAgICAgIEFjY29yZGlvbnMgcmVkdWNlIGNsdXR0ZXIgJiBrZWVwIHVzZXJzIGZyb20gZ2V0dGluZyBvdmVyd2hlbG1lZCBieSBsZXR0aW5nIHRoZW0gZm9jdXMgb24gdGhlCiAgICAgICAgICAgICAgICAgICAgaW5mb3JtYXRpb24gYXQgaGFuZC4KICAgICAgICAgICAgICAgIDwvQWNjb3JkaW9uUGFuZWw+CiAgICAgICAgICAgIDwvQWNjb3JkaW9uSXRlbT4KICAgICAgICAgICAgPEFjY29yZGlvbkl0ZW0gaWNvbnM9e3sgb3BlbjogJ2Fycm93LXVwJywgY2xvc2VkOiAnYXJyb3ctZG93bicgfX0+CiAgICAgICAgICAgICAgICA8QWNjb3JkaW9uSGVhZGluZz5UeXBpY2FsIHBsYWNlcyB0byB1c2UgYW4gYWNjb3JkaW9uPC9BY2NvcmRpb25IZWFkaW5nPgogICAgICAgICAgICAgICAgPEFjY29yZGlvblBhbmVsPgogICAgICAgICAgICAgICAgICAgIEZBUSBzZWN0aW9ucywgbmVzdGVkIG5hdmlnYXRpb25hbCBpdGVtcywgcHJvZHVjdCBpbmZvcm1hdGlvbiBzZWN0aW9uICYgY29udGVudCB3aXRoIHNpbXBsZQogICAgICAgICAgICAgICAgICAgIGhpZXJhcmNoeS4KICAgICAgICAgICAgICAgIDwvQWNjb3JkaW9uUGFuZWw+CiAgICAgICAgICAgIDwvQWNjb3JkaW9uSXRlbT4KICAgICAgICAgICAgPEFjY29yZGlvbkl0ZW0gaWNvbnM9e3sgb3BlbjogJ2Fycm93LXVwJywgY2xvc2VkOiAnYXJyb3ctZG93bicgfX0+CiAgICAgICAgICAgICAgICA8QWNjb3JkaW9uSGVhZGluZz5XaGVuIHRvIGF2b2lkIHVzaW5nIGFjY29yZGlvbnM8L0FjY29yZGlvbkhlYWRpbmc+CiAgICAgICAgICAgICAgICA8QWNjb3JkaW9uUGFuZWw+CiAgICAgICAgICAgICAgICAgICAgV2hlbiB0aGUgdXNlciBuZWVkcyBhY2Nlc3MgdG8gYWxsIG9mIHRoZSBjb250ZW50IG9uIHRoZSBwYWdlLCB3aGVuIHRoZXJlIGlzIHRvbyBsaXR0bGUgY29udGVudCAmCiAgICAgICAgICAgICAgICAgICAgd2hlbiB0aGUgaGllcmFyY2h5IG9mIHRoZSBjb250ZW50IGlzIGNvbXBsZXguCiAgICAgICAgICAgICAgICA8L0FjY29yZGlvblBhbmVsPgogICAgICAgICAgICA8L0FjY29yZGlvbkl0ZW0+CiAgICAgICAgPC9BY2NvcmRpb24+CiAgICApCn0=" />
+
+```tsx
+export const CustomIcon = () => {
+    return (
+        <Accordion iconPosition="start">
+            <AccordionItem icons={{ open: 'arrow-up', closed: 'arrow-down' }}>
+                <AccordionHeading>Benefits of using an accordion</AccordionHeading>
+                <AccordionPanel>
+                    Accordions reduce clutter & keep users from getting overwhelmed by letting them focus on the
+                    information at hand.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem icons={{ open: 'arrow-up', closed: 'arrow-down' }}>
+                <AccordionHeading>Typical places to use an accordion</AccordionHeading>
+                <AccordionPanel>
+                    FAQ sections, nested navigational items, product information section & content with simple
+                    hierarchy.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem icons={{ open: 'arrow-up', closed: 'arrow-down' }}>
+                <AccordionHeading>When to avoid using accordions</AccordionHeading>
+                <AccordionPanel>
+                    When the user needs access to all of the content on the page, when there is too little content &
+                    when the hierarchy of the content is complex.
+                </AccordionPanel>
+            </AccordionItem>
+        </Accordion>
+    )
+}
+```
+### Uncontrolled
+<a name="uncontrolled"></a>
+
+> Uncontrolled Accordion components' AccordionItem children can be collapsed & expanded indepedently of each other.
+
+export const Uncontrolled = () => {
+    return (<Accordion uncontrolled>
+            <AccordionItem>
+                <AccordionHeading>Benefits of using an accordion</AccordionHeading>
+                <AccordionPanel>
+                    Accordions reduce clutter & keep users from getting overwhelmed by letting them focus on the
+                    information at hand.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Typical places to use an accordion</AccordionHeading>
+                <AccordionPanel>
+                    FAQ sections, nested navigational items, product information section & content with simple
+                    hierarchy.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>When to avoid using accordions</AccordionHeading>
+                <AccordionPanel>
+                    When the user needs access to all of the content on the page, when there is too little content &
+                    when the hierarchy of the content is complex.
+                </AccordionPanel>
+            </AccordionItem>
+        </Accordion>);
+};
+
+<div className="story-block">
+<Uncontrolled />
+</div>
+
+<CodeComponent filename="Uncontrolled.tsx" code="ZXhwb3J0IGNvbnN0IFVuY29udHJvbGxlZCA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPEFjY29yZGlvbiB1bmNvbnRyb2xsZWQ+CiAgICAgICAgICAgIDxBY2NvcmRpb25JdGVtPgogICAgICAgICAgICAgICAgPEFjY29yZGlvbkhlYWRpbmc+QmVuZWZpdHMgb2YgdXNpbmcgYW4gYWNjb3JkaW9uPC9BY2NvcmRpb25IZWFkaW5nPgogICAgICAgICAgICAgICAgPEFjY29yZGlvblBhbmVsPgogICAgICAgICAgICAgICAgICAgIEFjY29yZGlvbnMgcmVkdWNlIGNsdXR0ZXIgJiBrZWVwIHVzZXJzIGZyb20gZ2V0dGluZyBvdmVyd2hlbG1lZCBieSBsZXR0aW5nIHRoZW0gZm9jdXMgb24gdGhlCiAgICAgICAgICAgICAgICAgICAgaW5mb3JtYXRpb24gYXQgaGFuZC4KICAgICAgICAgICAgICAgIDwvQWNjb3JkaW9uUGFuZWw+CiAgICAgICAgICAgIDwvQWNjb3JkaW9uSXRlbT4KICAgICAgICAgICAgPEFjY29yZGlvbkl0ZW0+CiAgICAgICAgICAgICAgICA8QWNjb3JkaW9uSGVhZGluZz5UeXBpY2FsIHBsYWNlcyB0byB1c2UgYW4gYWNjb3JkaW9uPC9BY2NvcmRpb25IZWFkaW5nPgogICAgICAgICAgICAgICAgPEFjY29yZGlvblBhbmVsPgogICAgICAgICAgICAgICAgICAgIEZBUSBzZWN0aW9ucywgbmVzdGVkIG5hdmlnYXRpb25hbCBpdGVtcywgcHJvZHVjdCBpbmZvcm1hdGlvbiBzZWN0aW9uICYgY29udGVudCB3aXRoIHNpbXBsZQogICAgICAgICAgICAgICAgICAgIGhpZXJhcmNoeS4KICAgICAgICAgICAgICAgIDwvQWNjb3JkaW9uUGFuZWw+CiAgICAgICAgICAgIDwvQWNjb3JkaW9uSXRlbT4KICAgICAgICAgICAgPEFjY29yZGlvbkl0ZW0+CiAgICAgICAgICAgICAgICA8QWNjb3JkaW9uSGVhZGluZz5XaGVuIHRvIGF2b2lkIHVzaW5nIGFjY29yZGlvbnM8L0FjY29yZGlvbkhlYWRpbmc+CiAgICAgICAgICAgICAgICA8QWNjb3JkaW9uUGFuZWw+CiAgICAgICAgICAgICAgICAgICAgV2hlbiB0aGUgdXNlciBuZWVkcyBhY2Nlc3MgdG8gYWxsIG9mIHRoZSBjb250ZW50IG9uIHRoZSBwYWdlLCB3aGVuIHRoZXJlIGlzIHRvbyBsaXR0bGUgY29udGVudCAmCiAgICAgICAgICAgICAgICAgICAgd2hlbiB0aGUgaGllcmFyY2h5IG9mIHRoZSBjb250ZW50IGlzIGNvbXBsZXguCiAgICAgICAgICAgICAgICA8L0FjY29yZGlvblBhbmVsPgogICAgICAgICAgICA8L0FjY29yZGlvbkl0ZW0+CiAgICAgICAgPC9BY2NvcmRpb24+CiAgICApCn0=" />
+
+```tsx
+export const Uncontrolled = () => {
+    return (
+        <Accordion uncontrolled>
+            <AccordionItem>
+                <AccordionHeading>Benefits of using an accordion</AccordionHeading>
+                <AccordionPanel>
+                    Accordions reduce clutter & keep users from getting overwhelmed by letting them focus on the
+                    information at hand.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Typical places to use an accordion</AccordionHeading>
+                <AccordionPanel>
+                    FAQ sections, nested navigational items, product information section & content with simple
+                    hierarchy.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>When to avoid using accordions</AccordionHeading>
+                <AccordionPanel>
+                    When the user needs access to all of the content on the page, when there is too little content &
+                    when the hierarchy of the content is complex.
+                </AccordionPanel>
+            </AccordionItem>
+        </Accordion>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

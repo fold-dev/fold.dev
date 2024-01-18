@@ -1,0 +1,53 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import React from 'react'
+import { Hidden, Text, View } from '@fold-dev/core'
+
+export const docs = {
+    title: 'Hidden',
+    subtitle:
+        'The Hidden component conceals content from the visible screen while still making it accessible to screen readers.',
+    description:
+        'Hiding content is a frequently employed method in web accessibility, allowing information to remain legible for screen readers while remaining concealed from visual clients.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/hidden/hidden.tsx","description":"","displayName":"Hidden","methods":[],"props":{"as":{"defaultValue":null,"description":"DOM element name","name":"as","declarations":[{"fileName":"packages/core/src/hidden/hidden.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{"defaultValue":"`div`"}}}}]
+
+export const css = []
+
+
+
+<CodeComponent filename="hidden.tsx" code="aW1wb3J0IHsgSGlkZGVuIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Hidden } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<View row>
+            <Hidden>This is visually hidden...</Hidden>
+            <Text>...but not for screen-readers.</Text>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8VmlldyByb3c+CiAgICAgICAgICAgIDxIaWRkZW4+VGhpcyBpcyB2aXN1YWxseSBoaWRkZW4uLi48L0hpZGRlbj4KICAgICAgICAgICAgPFRleHQ+Li4uYnV0IG5vdCBmb3Igc2NyZWVuLXJlYWRlcnMuPC9UZXh0PgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <View row>
+            <Hidden>This is visually hidden...</Hidden>
+            <Text>...but not for screen-readers.</Text>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

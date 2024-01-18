@@ -1,0 +1,95 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Text, Video } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Video',
+    subtitle: 'The Video compoment is used to incorporate a video from single or mutliple sources.',
+    description:
+        'The Video component is used to incorporate video content within a document, encompassing items like movie clips or other video streams.',
+}
+
+export const props = []
+
+export const css = [[["--f-video-border-radius","var(--f-radius)"],["--f-video-background-color","var(--f-color-surface-strong)"]]]
+
+
+
+<CodeComponent filename="video.tsx" code="aW1wb3J0IHt9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import {} from "@fold-dev/core";
+```
+
+### Default
+<a name="default"></a>
+
+export const Default = () => (<Video loader muted controls width={500} height={250} poster="/video.jpg" srcs={[
+        {
+            src: 'https://ia800300.us.archive.org/17/items/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4',
+            type: 'video/ogg',
+        },
+    ]}/>);
+
+<div className="story-block">
+<Default />
+</div>
+
+<CodeComponent filename="Default.tsx" code="ZXhwb3J0IGNvbnN0IERlZmF1bHQgPSAoKSA9PiAoCiAgICA8VmlkZW8KICAgICAgICBsb2FkZXIKICAgICAgICBtdXRlZAogICAgICAgIGNvbnRyb2xzCiAgICAgICAgd2lkdGg9ezUwMH0KICAgICAgICBoZWlnaHQ9ezI1MH0KICAgICAgICBwb3N0ZXI9Ii92aWRlby5qcGciCiAgICAgICAgc3Jjcz17WwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBzcmM6ICdodHRwczovL2lhODAwMzAwLnVzLmFyY2hpdmUub3JnLzE3L2l0ZW1zL0JpZ0J1Y2tCdW5ueV8xMjQvQ29udGVudC9iaWdfYnVja19idW5ueV83MjBwX3N1cnJvdW5kLm1wNCcsCiAgICAgICAgICAgICAgICB0eXBlOiAndmlkZW8vb2dnJywKICAgICAgICAgICAgfSwKICAgICAgICBdfQogICAgLz4KKQ==" />
+
+```tsx
+export const Default = () => (
+    <Video
+        loader
+        muted
+        controls
+        width={500}
+        height={250}
+        poster="/video.jpg"
+        srcs={[
+            {
+                src: 'https://ia800300.us.archive.org/17/items/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4',
+                type: 'video/ogg',
+            },
+        ]}
+    />
+)
+```
+### Failed To Load Video
+<a name="failedtoloadvideo"></a>
+
+export const FailedToLoadVideo = () => (<Video loader muted controls width={500} height={250} errorContent={<Text color="white">We could not locate the video!</Text>} poster="" srcs={[
+        {
+            src: 'nothing-here',
+            type: 'video/ogg',
+        },
+    ]}/>);
+
+<div className="story-block">
+<FailedToLoadVideo />
+</div>
+
+<CodeComponent filename="FailedToLoadVideo.tsx" code="ZXhwb3J0IGNvbnN0IEZhaWxlZFRvTG9hZFZpZGVvID0gKCkgPT4gKAogICAgPFZpZGVvCiAgICAgICAgbG9hZGVyCiAgICAgICAgbXV0ZWQKICAgICAgICBjb250cm9scwogICAgICAgIHdpZHRoPXs1MDB9CiAgICAgICAgaGVpZ2h0PXsyNTB9CiAgICAgICAgZXJyb3JDb250ZW50PXs8VGV4dCBjb2xvcj0id2hpdGUiPldlIGNvdWxkIG5vdCBsb2NhdGUgdGhlIHZpZGVvITwvVGV4dD59CiAgICAgICAgcG9zdGVyPSIiCiAgICAgICAgc3Jjcz17WwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICBzcmM6ICdub3RoaW5nLWhlcmUnLAogICAgICAgICAgICAgICAgdHlwZTogJ3ZpZGVvL29nZycsCiAgICAgICAgICAgIH0sCiAgICAgICAgXX0KICAgIC8+Cik=" />
+
+```tsx
+export const FailedToLoadVideo = () => (
+    <Video
+        loader
+        muted
+        controls
+        width={500}
+        height={250}
+        errorContent={<Text color="white">We could not locate the video!</Text>}
+        poster=""
+        srcs={[
+            {
+                src: 'nothing-here',
+                type: 'video/ogg',
+            },
+        ]}
+    />
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

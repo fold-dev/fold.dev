@@ -1,0 +1,90 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Breadcrumb, BreadcrumbItem, IconLib } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Breadcrumb',
+    subtitle:
+        "The Breadcrumb component lists a series of links that provide a visual representation of a page's position within a website's hierarchical structure.",
+    description:
+        "The breadcrumb serves as a supplementary navigation pattern, helping users understand the hierarchical structure of the websites' content and facilitating their navigation back through those levels.",
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/breadcrumb/breadcrumb.tsx","description":"","displayName":"BreadcrumbItem","methods":[],"props":{"separator":{"defaultValue":null,"description":"","name":"separator","declarations":[{"fileName":"packages/core/src/breadcrumb/breadcrumb.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode | ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"active":{"defaultValue":null,"description":"","name":"active","declarations":[{"fileName":"packages/core/src/breadcrumb/breadcrumb.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"to":{"defaultValue":null,"description":"","name":"to","declarations":[{"fileName":"packages/core/src/breadcrumb/breadcrumb.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"packages/core/src/breadcrumb/breadcrumb.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/breadcrumb/breadcrumb.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/breadcrumb/breadcrumb.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/breadcrumb/breadcrumb.tsx","description":"","displayName":"Breadcrumb","methods":[],"props":{"separator":{"defaultValue":null,"description":"","name":"separator","declarations":[{"fileName":"packages/core/src/breadcrumb/breadcrumb.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode | ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/breadcrumb/breadcrumb.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}}}}]
+
+export const css = [[["--f-breadcrumb-background-color","transparent"],["--f-breadcrumb-border-radius","0"],["--f-breadcrumb-color","var(--f-color-text-weak)"],["--f-breadcrumb-color-hover","var(--f-color-accent)"],["--f-breadcrumb-color-active","var(--f-color-accent)"],["--f-breadcrumb-spacing","var(--f-space-2)"],["--f-breadcrumb-separator-spacing","calc(var(--f-space-2)*2)"],["--f-breadcrumb-separator-color","var(--f-color-text-weaker)"],["--f-breadcrumb-padding","0"]]]
+
+
+
+<CodeComponent filename="breadcrumb.tsx" code="aW1wb3J0IHsgQnJlYWRjcnVtYkl0ZW0sIEJyZWFkY3J1bWIgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { BreadcrumbItem, Breadcrumb } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<Breadcrumb>
+            <BreadcrumbItem>Website</BreadcrumbItem>
+            <BreadcrumbItem>Blog</BreadcrumbItem>
+            <BreadcrumbItem>What is a breadcrumb?</BreadcrumbItem>
+        </Breadcrumb>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QnJlYWRjcnVtYj4KICAgICAgICAgICAgPEJyZWFkY3J1bWJJdGVtPldlYnNpdGU8L0JyZWFkY3J1bWJJdGVtPgogICAgICAgICAgICA8QnJlYWRjcnVtYkl0ZW0+QmxvZzwvQnJlYWRjcnVtYkl0ZW0+CiAgICAgICAgICAgIDxCcmVhZGNydW1iSXRlbT5XaGF0IGlzIGEgYnJlYWRjcnVtYj88L0JyZWFkY3J1bWJJdGVtPgogICAgICAgIDwvQnJlYWRjcnVtYj4KICAgICkKfQ==" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <Breadcrumb>
+            <BreadcrumbItem>Website</BreadcrumbItem>
+            <BreadcrumbItem>Blog</BreadcrumbItem>
+            <BreadcrumbItem>What is a breadcrumb?</BreadcrumbItem>
+        </Breadcrumb>
+    )
+}
+```
+### With Custom Icon And Active Link
+<a name="withcustomiconandactivelink"></a>
+
+export const WithCustomIconAndActiveLink = () => {
+    return (<Breadcrumb separator={<IconLib icon="chevron-right"/>}>
+            <BreadcrumbItem>Website</BreadcrumbItem>
+            <BreadcrumbItem>Blog</BreadcrumbItem>
+            <BreadcrumbItem active to="https://fold.dev" target="_blank">
+                What is a breadcrumb?
+            </BreadcrumbItem>
+        </Breadcrumb>);
+};
+
+<div className="story-block">
+<WithCustomIconAndActiveLink />
+</div>
+
+<CodeComponent filename="WithCustomIconAndActiveLink.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhDdXN0b21JY29uQW5kQWN0aXZlTGluayA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPEJyZWFkY3J1bWIgc2VwYXJhdG9yPXs8SWNvbkxpYiBpY29uPSJjaGV2cm9uLXJpZ2h0IiAvPn0+CiAgICAgICAgICAgIDxCcmVhZGNydW1iSXRlbT5XZWJzaXRlPC9CcmVhZGNydW1iSXRlbT4KICAgICAgICAgICAgPEJyZWFkY3J1bWJJdGVtPkJsb2c8L0JyZWFkY3J1bWJJdGVtPgogICAgICAgICAgICA8QnJlYWRjcnVtYkl0ZW0KICAgICAgICAgICAgICAgIGFjdGl2ZQogICAgICAgICAgICAgICAgdG89Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgICAgICAgICB0YXJnZXQ9Il9ibGFuayI+CiAgICAgICAgICAgICAgICBXaGF0IGlzIGEgYnJlYWRjcnVtYj8KICAgICAgICAgICAgPC9CcmVhZGNydW1iSXRlbT4KICAgICAgICA8L0JyZWFkY3J1bWI+CiAgICApCn0=" />
+
+```tsx
+export const WithCustomIconAndActiveLink = () => {
+    return (
+        <Breadcrumb separator={<IconLib icon="chevron-right" />}>
+            <BreadcrumbItem>Website</BreadcrumbItem>
+            <BreadcrumbItem>Blog</BreadcrumbItem>
+            <BreadcrumbItem
+                active
+                to="https://fold.dev"
+                target="_blank">
+                What is a breadcrumb?
+            </BreadcrumbItem>
+        </Breadcrumb>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

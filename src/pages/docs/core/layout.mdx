@@ -1,0 +1,265 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import {
+    App,
+    Avatar,
+    Badge,
+    Card,
+    Content,
+    Flexer,
+    Footer,
+    Header,
+    Heading,
+    Main,
+    Navigation,
+    NavigationItem,
+    Sidebar,
+    Text,
+    View,
+} from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Layout',
+    subtitle: 'Layout components enable the creation of organised and structured document layouts.',
+    description:
+        'The Layout components facilitate the quick creation of standard layouts for a wide range of applications, making them useful for developing applications, websites, and widgets (and anything else).',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/layout/layout.tsx","description":"","displayName":"Header","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/layout/layout.tsx","description":"","displayName":"Footer","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/layout/layout.tsx","description":"","displayName":"App","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/layout/layout.tsx","description":"","displayName":"Main","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/layout/layout.tsx","description":"","displayName":"Content","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/layout/layout.tsx","description":"","displayName":"Sidebar","methods":[],"props":{"left":{"defaultValue":null,"description":"","name":"left","declarations":[{"fileName":"packages/core/src/layout/layout.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"right":{"defaultValue":null,"description":"","name":"right","declarations":[{"fileName":"packages/core/src/layout/layout.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
+
+export const css = [[["--f-app-background-color","var(--f-color-background)"],["--f-sidebar-border-color","var(--f-color-border)"],["--f-sidebar-background-color","var(--f-color-surface)"],["--f-header-border-color","var(--f-color-border)"],["--f-header-background-color","var(--f-color-surface)"],["--f-footer-border-color","var(--f-color-border)"],["--f-footer-background-color","var(--f-color-surface)"]]]
+
+
+
+<CodeComponent filename="layout.tsx" code="aW1wb3J0IHsgSGVhZGVyLCBGb290ZXIsIEFwcCwgTWFpbiwgQ29udGVudCwgU2lkZWJhciB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import { Header, Footer, App, Main, Content, Sidebar } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<App width="100%" height={500} row>
+        <Sidebar left p={50}>
+            <Text>Sidebar left</Text>
+        </Sidebar>
+        <Content>
+            <Main column>
+                <Header p={20}>
+                    <Text>Header</Text>
+                </Header>
+                <View flex={1} p={20} row>
+                    <Text>Main</Text>
+                </View>
+                <Footer p={20}>
+                    <Text>Footer</Text>
+                </Footer>
+            </Main>
+        </Content>
+        <Sidebar right p={50}>
+            <Text>Sidebar right</Text>
+        </Sidebar>
+    </App>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPEFwcAogICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgIGhlaWdodD17NTAwfQogICAgICAgIHJvdz4KICAgICAgICA8U2lkZWJhcgogICAgICAgICAgICBsZWZ0CiAgICAgICAgICAgIHA9ezUwfT4KICAgICAgICAgICAgPFRleHQ+U2lkZWJhciBsZWZ0PC9UZXh0PgogICAgICAgIDwvU2lkZWJhcj4KICAgICAgICA8Q29udGVudD4KICAgICAgICAgICAgPE1haW4gY29sdW1uPgogICAgICAgICAgICAgICAgPEhlYWRlciBwPXsyMH0+CiAgICAgICAgICAgICAgICAgICAgPFRleHQ+SGVhZGVyPC9UZXh0PgogICAgICAgICAgICAgICAgPC9IZWFkZXI+CiAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgIGZsZXg9ezF9CiAgICAgICAgICAgICAgICAgICAgcD17MjB9CiAgICAgICAgICAgICAgICAgICAgcm93PgogICAgICAgICAgICAgICAgICAgIDxUZXh0Pk1haW48L1RleHQ+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICAgICA8Rm9vdGVyIHA9ezIwfT4KICAgICAgICAgICAgICAgICAgICA8VGV4dD5Gb290ZXI8L1RleHQ+CiAgICAgICAgICAgICAgICA8L0Zvb3Rlcj4KICAgICAgICAgICAgPC9NYWluPgogICAgICAgIDwvQ29udGVudD4KICAgICAgICA8U2lkZWJhcgogICAgICAgICAgICByaWdodAogICAgICAgICAgICBwPXs1MH0+CiAgICAgICAgICAgIDxUZXh0PlNpZGViYXIgcmlnaHQ8L1RleHQ+CiAgICAgICAgPC9TaWRlYmFyPgogICAgPC9BcHA+Cik=" />
+
+```tsx
+export const Usage = () => (
+    <App
+        width="100%"
+        height={500}
+        row>
+        <Sidebar
+            left
+            p={50}>
+            <Text>Sidebar left</Text>
+        </Sidebar>
+        <Content>
+            <Main column>
+                <Header p={20}>
+                    <Text>Header</Text>
+                </Header>
+                <View
+                    flex={1}
+                    p={20}
+                    row>
+                    <Text>Main</Text>
+                </View>
+                <Footer p={20}>
+                    <Text>Footer</Text>
+                </Footer>
+            </Main>
+        </Content>
+        <Sidebar
+            right
+            p={50}>
+            <Text>Sidebar right</Text>
+        </Sidebar>
+    </App>
+)
+```
+### Advanced Example
+<a name="advancedexample"></a>
+
+export const AdvancedExample = () => (<App width="100%" height={500} row>
+        <Sidebar left justifyContent="flex-start">
+            <Header p="0 2rem" height={50}>
+                <Text fontWeight="bold">Application</Text>
+            </Header>
+            <Navigation width={200}>
+                <NavigationItem>Dashboard</NavigationItem>
+                <NavigationItem active>Analytics</NavigationItem>
+                <NavigationItem>Products</NavigationItem>
+                <NavigationItem>Settings</NavigationItem>
+            </Navigation>
+        </Sidebar>
+        <Content>
+            <Main column>
+                <Header p="0 2rem" height={50} gap={10}>
+                    <Text fontWeight="bold">Analytics</Text>
+                    <Flexer />
+                    <Text>Account settings</Text>
+                    <Avatar size="sm" name="Craig Pather" src="/men/01.jpg"/>
+                </Header>
+                <Header p="0 2rem" height={50}>
+                    <Text>Projects</Text>
+                </Header>
+                <View row flex={1} p={20} gap={10} width="100%" justifyContent="flex-start" alignItems="flex-start">
+                    <Card width={175} height={200} column alignItems="flex-start" p={30}>
+                        <View height={20}/>
+                        <Flexer />
+                        <View>
+                            <Heading as="h4">Work</Heading>
+                            <View row>
+                                <Text>3 projects</Text>
+                                <Badge variant="danger" width={10} height={10} m="0.2rem 0 0 1rem"/>
+                            </View>
+                        </View>
+                    </Card>
+                    <Card width={175} height={200} column alignItems="flex-start" p={30}>
+                        <View height={20}/>
+                        <Flexer />
+                        <View>
+                            <Heading as="h4">Projects</Heading>
+                            <View row>
+                                <Text>2 projects</Text>
+                                <Badge variant="success" width={10} height={10} m="0.2rem 0 0 1rem"/>
+                            </View>
+                        </View>
+                    </Card>
+                </View>
+            </Main>
+        </Content>
+    </App>);
+
+<div className="story-block">
+<AdvancedExample />
+</div>
+
+<CodeComponent filename="AdvancedExample.tsx" code="ZXhwb3J0IGNvbnN0IEFkdmFuY2VkRXhhbXBsZSA9ICgpID0+ICgKICAgIDxBcHAKICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICBoZWlnaHQ9ezUwMH0KICAgICAgICByb3c+CiAgICAgICAgPFNpZGViYXIKICAgICAgICAgICAgbGVmdAogICAgICAgICAgICBqdXN0aWZ5Q29udGVudD0iZmxleC1zdGFydCI+CiAgICAgICAgICAgIDxIZWFkZXIKICAgICAgICAgICAgICAgIHA9IjAgMnJlbSIKICAgICAgICAgICAgICAgIGhlaWdodD17NTB9PgogICAgICAgICAgICAgICAgPFRleHQgZm9udFdlaWdodD0iYm9sZCI+QXBwbGljYXRpb248L1RleHQ+CiAgICAgICAgICAgIDwvSGVhZGVyPgogICAgICAgICAgICA8TmF2aWdhdGlvbiB3aWR0aD17MjAwfT4KICAgICAgICAgICAgICAgIDxOYXZpZ2F0aW9uSXRlbT5EYXNoYm9hcmQ8L05hdmlnYXRpb25JdGVtPgogICAgICAgICAgICAgICAgPE5hdmlnYXRpb25JdGVtIGFjdGl2ZT5BbmFseXRpY3M8L05hdmlnYXRpb25JdGVtPgogICAgICAgICAgICAgICAgPE5hdmlnYXRpb25JdGVtPlByb2R1Y3RzPC9OYXZpZ2F0aW9uSXRlbT4KICAgICAgICAgICAgICAgIDxOYXZpZ2F0aW9uSXRlbT5TZXR0aW5nczwvTmF2aWdhdGlvbkl0ZW0+CiAgICAgICAgICAgIDwvTmF2aWdhdGlvbj4KICAgICAgICA8L1NpZGViYXI+CiAgICAgICAgPENvbnRlbnQ+CiAgICAgICAgICAgIDxNYWluIGNvbHVtbj4KICAgICAgICAgICAgICAgIDxIZWFkZXIKICAgICAgICAgICAgICAgICAgICBwPSIwIDJyZW0iCiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXs1MH0KICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfT4KICAgICAgICAgICAgICAgICAgICA8VGV4dCBmb250V2VpZ2h0PSJib2xkIj5BbmFseXRpY3M8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPEZsZXhlciAvPgogICAgICAgICAgICAgICAgICAgIDxUZXh0PkFjY291bnQgc2V0dGluZ3M8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgICAgICAgICAgbmFtZT0iQ3JhaWcgUGF0aGVyIgogICAgICAgICAgICAgICAgICAgICAgICBzcmM9Ii9tZW4vMDEuanBnIgogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L0hlYWRlcj4KICAgICAgICAgICAgICAgIDxIZWFkZXIKICAgICAgICAgICAgICAgICAgICBwPSIwIDJyZW0iCiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXs1MH0+CiAgICAgICAgICAgICAgICAgICAgPFRleHQ+UHJvamVjdHM8L1RleHQ+CiAgICAgICAgICAgICAgICA8L0hlYWRlcj4KICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgZmxleD17MX0KICAgICAgICAgICAgICAgICAgICBwPXsyMH0KICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PSJmbGV4LXN0YXJ0IgogICAgICAgICAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiPgogICAgICAgICAgICAgICAgICAgIDxDYXJkCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPXsxNzV9CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MjAwfQogICAgICAgICAgICAgICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgICAgICAgICAgICAgcD17MzB9PgogICAgICAgICAgICAgICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezIwfSAvPgogICAgICAgICAgICAgICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgICAgICAgICAgICAgIDxWaWV3PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9Img0Ij5Xb3JrPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPFZpZXcgcm93PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0PjMgcHJvamVjdHM8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEJhZGdlCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtPSIwLjJyZW0gMCAwIDFyZW0iCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgICAgIDwvQ2FyZD4KICAgICAgICAgICAgICAgICAgICA8Q2FyZAogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MTc1fQogICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9ezIwMH0KICAgICAgICAgICAgICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgICAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiCiAgICAgICAgICAgICAgICAgICAgICAgIHA9ezMwfT4KICAgICAgICAgICAgICAgICAgICAgICAgPFZpZXcgaGVpZ2h0PXsyMH0gLz4KICAgICAgICAgICAgICAgICAgICAgICAgPEZsZXhlciAvPgogICAgICAgICAgICAgICAgICAgICAgICA8Vmlldz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoNCI+UHJvamVjdHM8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VmlldyByb3c+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQ+MiBwcm9qZWN0czwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtPSIwLjJyZW0gMCAwIDFyZW0iCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgICAgIDwvQ2FyZD4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPC9NYWluPgogICAgICAgIDwvQ29udGVudD4KICAgIDwvQXBwPgop" />
+
+```tsx
+export const AdvancedExample = () => (
+    <App
+        width="100%"
+        height={500}
+        row>
+        <Sidebar
+            left
+            justifyContent="flex-start">
+            <Header
+                p="0 2rem"
+                height={50}>
+                <Text fontWeight="bold">Application</Text>
+            </Header>
+            <Navigation width={200}>
+                <NavigationItem>Dashboard</NavigationItem>
+                <NavigationItem active>Analytics</NavigationItem>
+                <NavigationItem>Products</NavigationItem>
+                <NavigationItem>Settings</NavigationItem>
+            </Navigation>
+        </Sidebar>
+        <Content>
+            <Main column>
+                <Header
+                    p="0 2rem"
+                    height={50}
+                    gap={10}>
+                    <Text fontWeight="bold">Analytics</Text>
+                    <Flexer />
+                    <Text>Account settings</Text>
+                    <Avatar
+                        size="sm"
+                        name="Craig Pather"
+                        src="/men/01.jpg"
+                    />
+                </Header>
+                <Header
+                    p="0 2rem"
+                    height={50}>
+                    <Text>Projects</Text>
+                </Header>
+                <View
+                    row
+                    flex={1}
+                    p={20}
+                    gap={10}
+                    width="100%"
+                    justifyContent="flex-start"
+                    alignItems="flex-start">
+                    <Card
+                        width={175}
+                        height={200}
+                        column
+                        alignItems="flex-start"
+                        p={30}>
+                        <View height={20} />
+                        <Flexer />
+                        <View>
+                            <Heading as="h4">Work</Heading>
+                            <View row>
+                                <Text>3 projects</Text>
+                                <Badge
+                                    variant="danger"
+                                    width={10}
+                                    height={10}
+                                    m="0.2rem 0 0 1rem"
+                                />
+                            </View>
+                        </View>
+                    </Card>
+                    <Card
+                        width={175}
+                        height={200}
+                        column
+                        alignItems="flex-start"
+                        p={30}>
+                        <View height={20} />
+                        <Flexer />
+                        <View>
+                            <Heading as="h4">Projects</Heading>
+                            <View row>
+                                <Text>2 projects</Text>
+                                <Badge
+                                    variant="success"
+                                    width={10}
+                                    height={10}
+                                    m="0.2rem 0 0 1rem"
+                                />
+                            </View>
+                        </View>
+                    </Card>
+                </View>
+            </Main>
+        </Content>
+    </App>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

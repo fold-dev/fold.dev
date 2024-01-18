@@ -1,0 +1,225 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import * as Token from '@fold-dev/design/tokens'
+import { Avatar, IconLib, Pill, Stack } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Pill',
+    subtitle:
+        'The Pill component serves to convey the status of something, whether it be an entry on a to-do list or user associated with a piece of content.',
+    description:
+        "Pill components highlight fresh and crucial information, effectively directing the user's focus towards significant content that might go unnoticed otherwise.",
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/pill/pill.tsx","description":"","displayName":"Pill","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"solid":{"defaultValue":null,"description":"","name":"solid","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}}]
+
+export const css = [[["--f-pill-spacing","0rem"],["--f-pill-label-padding","0 var(--f-space-2)"],["--f-pill-buffer-icon","var(--f-space-1)"],["--f-pill-border-width","0.1rem"],["--f-pill-border-radius","var(--f-radius-full)"],["--f-pill-color","var(--f-color-text-weaker)"],["--f-pill-color-subtle","var(--f-color-text-weaker)"],["--f-pill-background-color","var(--f-color-surface-stronger)"],["--f-pill-background-color-subtle","var(--f-color-surface-strong)"],["--f-pill-border-color","var(--f-color-surface-strongest)"],["--f-pill-inner-background-color","rgba(0,0,0,0.1)"]]]
+
+
+
+<CodeComponent filename="pill.tsx" code="aW1wb3J0IHsgUGlsbCB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import { Pill } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<Pill prefix={<Avatar name="Patrick Anthony" size="sm" src="/men/09.jpg"/>}>
+        Patrick Anthony
+    </Pill>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFBpbGwKICAgICAgICBwcmVmaXg9ewogICAgICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgICAgICBuYW1lPSJQYXRyaWNrIEFudGhvbnkiCiAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wOS5qcGciCiAgICAgICAgICAgIC8+CiAgICAgICAgfT4KICAgICAgICBQYXRyaWNrIEFudGhvbnkKICAgIDwvUGlsbD4KKQ==" />
+
+```tsx
+export const Usage = () => (
+    <Pill
+        prefix={
+            <Avatar
+                name="Patrick Anthony"
+                size="sm"
+                src="/men/09.jpg"
+            />
+        }>
+        Patrick Anthony
+    </Pill>
+)
+```
+### Sizes
+<a name="sizes"></a>
+
+export const Sizes = () => (<Stack spacing={5}>
+        <Pill size="xs">React</Pill>
+        <Pill size="sm">VueJS</Pill>
+        <Pill size="md">Svelte</Pill>
+        <Pill size="lg">SolidJS</Pill>
+        <Pill size="xl">Angular</Pill>
+    </Stack>);
+
+<div className="story-block">
+<Sizes />
+</div>
+
+<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxQaWxsIHNpemU9InhzIj5SZWFjdDwvUGlsbD4KICAgICAgICA8UGlsbCBzaXplPSJzbSI+VnVlSlM8L1BpbGw+CiAgICAgICAgPFBpbGwgc2l6ZT0ibWQiPlN2ZWx0ZTwvUGlsbD4KICAgICAgICA8UGlsbCBzaXplPSJsZyI+U29saWRKUzwvUGlsbD4KICAgICAgICA8UGlsbCBzaXplPSJ4bCI+QW5ndWxhcjwvUGlsbD4KICAgIDwvU3RhY2s+Cik=" />
+
+```tsx
+export const Sizes = () => (
+    <Stack spacing={5}>
+        <Pill size="xs">React</Pill>
+        <Pill size="sm">VueJS</Pill>
+        <Pill size="md">Svelte</Pill>
+        <Pill size="lg">SolidJS</Pill>
+        <Pill size="xl">Angular</Pill>
+    </Stack>
+)
+```
+### With Prefix And Suffix
+<a name="withprefixandsuffix"></a>
+
+export const WithPrefixAndSuffix = () => (<Stack spacing={5}>
+        <Pill suffix={<IconLib icon="bin" size="sm"/>}>
+            Craig Pather
+        </Pill>
+        <Pill suffix={<Avatar name="Etienne Dreyer" size="sm" src="/men/01.jpg"/>}>
+            Etienne Dreyer
+        </Pill>
+        <Pill prefix={<Avatar name="Patrick Anthony" size="sm" src="/men/09.jpg"/>} suffix={<IconLib icon="bin" size="sm"/>}>
+            Patrick Anthony
+        </Pill>
+        <Pill prefix={<IconLib icon="user" size="sm"/>} suffix={<IconLib icon="bin" size="sm"/>}>
+            Johannes du Plessis
+        </Pill>
+    </Stack>);
+
+<div className="story-block">
+<WithPrefixAndSuffix />
+</div>
+
+<CodeComponent filename="WithPrefixAndSuffix.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhQcmVmaXhBbmRTdWZmaXggPSAoKSA9PiAoCiAgICA8U3RhY2sgc3BhY2luZz17NX0+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgc3VmZml4PXsKICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgaWNvbj0iYmluIgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgfT4KICAgICAgICAgICAgQ3JhaWcgUGF0aGVyCiAgICAgICAgPC9QaWxsPgogICAgICAgIDxQaWxsCiAgICAgICAgICAgIHN1ZmZpeD17CiAgICAgICAgICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgICAgICAgICAgbmFtZT0iRXRpZW5uZSBEcmV5ZXIiCiAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAgICAgc3JjPSIvbWVuLzAxLmpwZyIKICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIH0+CiAgICAgICAgICAgIEV0aWVubmUgRHJleWVyCiAgICAgICAgPC9QaWxsPgogICAgICAgIDxQaWxsCiAgICAgICAgICAgIHByZWZpeD17CiAgICAgICAgICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgICAgICAgICAgbmFtZT0iUGF0cmljayBBbnRob255IgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wOS5qcGciCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9CiAgICAgICAgICAgIHN1ZmZpeD17CiAgICAgICAgICAgICAgICA8SWNvbkxpYgogICAgICAgICAgICAgICAgICAgIGljb249ImJpbiIKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIH0+CiAgICAgICAgICAgIFBhdHJpY2sgQW50aG9ueQogICAgICAgIDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBwcmVmaXg9ewogICAgICAgICAgICAgICAgPEljb25MaWIKICAgICAgICAgICAgICAgICAgICBpY29uPSJ1c2VyIgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgfQogICAgICAgICAgICBzdWZmaXg9ewogICAgICAgICAgICAgICAgPEljb25MaWIKICAgICAgICAgICAgICAgICAgICBpY29uPSJiaW4iCiAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9PgogICAgICAgICAgICBKb2hhbm5lcyBkdSBQbGVzc2lzCiAgICAgICAgPC9QaWxsPgogICAgPC9TdGFjaz4KKQ==" />
+
+```tsx
+export const WithPrefixAndSuffix = () => (
+    <Stack spacing={5}>
+        <Pill
+            suffix={
+                <IconLib
+                    icon="bin"
+                    size="sm"
+                />
+            }>
+            Craig Pather
+        </Pill>
+        <Pill
+            suffix={
+                <Avatar
+                    name="Etienne Dreyer"
+                    size="sm"
+                    src="/men/01.jpg"
+                />
+            }>
+            Etienne Dreyer
+        </Pill>
+        <Pill
+            prefix={
+                <Avatar
+                    name="Patrick Anthony"
+                    size="sm"
+                    src="/men/09.jpg"
+                />
+            }
+            suffix={
+                <IconLib
+                    icon="bin"
+                    size="sm"
+                />
+            }>
+            Patrick Anthony
+        </Pill>
+        <Pill
+            prefix={
+                <IconLib
+                    icon="user"
+                    size="sm"
+                />
+            }
+            suffix={
+                <IconLib
+                    icon="bin"
+                    size="sm"
+                />
+            }>
+            Johannes du Plessis
+        </Pill>
+    </Stack>
+)
+```
+### Variants
+<a name="variants"></a>
+
+export const Variants = () => (<Stack spacing={5}>
+        <Pill>React</Pill>
+        <Pill subtle>VueJS</Pill>
+        <Pill outline>Svelte</Pill>
+    </Stack>);
+
+<div className="story-block">
+<Variants />
+</div>
+
+<CodeComponent filename="Variants.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxQaWxsPlJlYWN0PC9QaWxsPgogICAgICAgIDxQaWxsIHN1YnRsZT5WdWVKUzwvUGlsbD4KICAgICAgICA8UGlsbCBvdXRsaW5lPlN2ZWx0ZTwvUGlsbD4KICAgIDwvU3RhY2s+Cik=" />
+
+```tsx
+export const Variants = () => (
+    <Stack spacing={5}>
+        <Pill>React</Pill>
+        <Pill subtle>VueJS</Pill>
+        <Pill outline>Svelte</Pill>
+    </Stack>
+)
+```
+### Color
+<a name="color"></a>
+
+> The Pill component takes a hex-code value for the color.
+
+export const Color = () => (<Stack spacing={5}>
+        <Pill color={Token.ColorElectric400}>React</Pill>
+        <Pill color={Token.ColorPurple400} subtle>
+            VueJS
+        </Pill>
+        <Pill color={Token.ColorTeal400} outline>
+            Svelte
+        </Pill>
+    </Stack>);
+
+<div className="story-block">
+<Color />
+</div>
+
+<CodeComponent filename="Color.tsx" code="ZXhwb3J0IGNvbnN0IENvbG9yID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxQaWxsIGNvbG9yPXtUb2tlbi5Db2xvckVsZWN0cmljNDAwfT5SZWFjdDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JQdXJwbGU0MDB9CiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgVnVlSlMKICAgICAgICA8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yVGVhbDQwMH0KICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgU3ZlbHRlCiAgICAgICAgPC9QaWxsPgogICAgPC9TdGFjaz4KKQ==" />
+
+```tsx
+export const Color = () => (
+    <Stack spacing={5}>
+        <Pill color={Token.ColorElectric400}>React</Pill>
+        <Pill
+            color={Token.ColorPurple400}
+            subtle>
+            VueJS
+        </Pill>
+        <Pill
+            color={Token.ColorTeal400}
+            outline>
+            Svelte
+        </Pill>
+    </Stack>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

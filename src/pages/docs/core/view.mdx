@@ -1,0 +1,576 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Blur, Button, Flexer, Heading, ScrollView, SpinnerOverlay, Text, View } from '@fold-dev/core'
+import React, { useState } from 'react'
+
+export const docs = {
+    title: 'View',
+    subtitle:
+        'The View component serves as a fundamental building block within Fold and is internally used by other components.',
+    description:
+        'The View component enhances the developer experience, offering convenience through common shorthand properties while also providing access to native (HTML) element properties.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/view/view.tsx","description":"","displayName":"ScrollView","methods":[],"props":{"stickToTop":{"defaultValue":null,"description":"","name":"stickToTop","declarations":[{"fileName":"packages/core/src/view/view.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"stickToBottom":{"defaultValue":null,"description":"","name":"stickToBottom","declarations":[{"fileName":"packages/core/src/view/view.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onScrollToBottom":{"defaultValue":null,"description":"","name":"onScrollToBottom","declarations":[{"fileName":"packages/core/src/view/view.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onScrollToTop":{"defaultValue":null,"description":"","name":"onScrollToTop","declarations":[{"fileName":"packages/core/src/view/view.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/view/view.tsx","description":"","displayName":"View","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/view/view.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"AllHTMLAttributes"}],"required":false,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/view/view.tsx","description":"","displayName":"Flexer","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/view/view.tsx","description":"","displayName":"Flex","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/view/view.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"AllHTMLAttributes"}],"required":false,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/view/view.tsx","description":"","displayName":"Blur","methods":[],"props":{"overlay":{"defaultValue":null,"description":"","name":"overlay","declarations":[{"fileName":"packages/core/src/view/view.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-blur-overlay-radius","0.5rem"],["--f-blur-overlay-z-index","var(--f-index-overlay)"]]]
+
+
+
+<CodeComponent filename="view.tsx" code="aW1wb3J0IHsgU2Nyb2xsVmlldywgVmlldywgRmxleGVyLCBGbGV4LCBCbHVyIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { ScrollView, View, Flexer, Flex, Blur } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<View p={50} bgToken="surface-strong">
+        <Text>Welcome to Fold!</Text>
+    </View>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICBwPXs1MH0KICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyI+CiAgICAgICAgPFRleHQ+V2VsY29tZSB0byBGb2xkITwvVGV4dD4KICAgIDwvVmlldz4KKQ==" />
+
+```tsx
+export const Usage = () => (
+    <View
+        p={50}
+        bgToken="surface-strong">
+        <Text>Welcome to Fold!</Text>
+    </View>
+)
+```
+### Flex
+<a name="flex"></a>
+
+> The Flexer component is an extensible wrapper around the `flex: 1` filler pattern.
+
+export const Flex = () => (<View p={50} bgToken="surface-strong" row>
+        <Text>Welcome to ...</Text>
+        <Flexer />
+        <Text>... Fold!</Text>
+    </View>);
+
+<div className="story-block">
+<Flex />
+</div>
+
+<CodeComponent filename="Flex.tsx" code="ZXhwb3J0IGNvbnN0IEZsZXggPSAoKSA9PiAoCiAgICA8VmlldwogICAgICAgIHA9ezUwfQogICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgIHJvdz4KICAgICAgICA8VGV4dD5XZWxjb21lIHRvIC4uLjwvVGV4dD4KICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgPFRleHQ+Li4uIEZvbGQhPC9UZXh0PgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const Flex = () => (
+    <View
+        p={50}
+        bgToken="surface-strong"
+        row>
+        <Text>Welcome to ...</Text>
+        <Flexer />
+        <Text>... Fold!</Text>
+    </View>
+)
+```
+### Shorthand Properties
+<a name="shorthandproperties"></a>
+
+> There are limited set of shorthand properties available on the View component. These properties provide access to common inline styles, as well as Fold Design System styling options.
+The properties have been limited to allow for maximum flexibility & render performance.
+
+export const ShorthandProperties = () => (<View column gap={10} p={50} radius={10} width="fit-content" bgToken="surface-strong" shadow="var(--f-shadow-card)" border="0.1rem solid var(--f-color-border)">
+        <Heading as="h4">Hello</Heading>
+        <Text>...and welcome to Fold!</Text>
+    </View>);
+
+<div className="story-block">
+<ShorthandProperties />
+</div>
+
+<CodeComponent filename="ShorthandProperties.tsx" code="ZXhwb3J0IGNvbnN0IFNob3J0aGFuZFByb3BlcnRpZXMgPSAoKSA9PiAoCiAgICA8VmlldwogICAgICAgIGNvbHVtbgogICAgICAgIGdhcD17MTB9CiAgICAgICAgcD17NTB9CiAgICAgICAgcmFkaXVzPXsxMH0KICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiCiAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgc2hhZG93PSJ2YXIoLS1mLXNoYWRvdy1jYXJkKSIKICAgICAgICBib3JkZXI9IjAuMXJlbSBzb2xpZCB2YXIoLS1mLWNvbG9yLWJvcmRlcikiPgogICAgICAgIDxIZWFkaW5nIGFzPSJoNCI+SGVsbG88L0hlYWRpbmc+CiAgICAgICAgPFRleHQ+Li4uYW5kIHdlbGNvbWUgdG8gRm9sZCE8L1RleHQ+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+export const ShorthandProperties = () => (
+    <View
+        column
+        gap={10}
+        p={50}
+        radius={10}
+        width="fit-content"
+        bgToken="surface-strong"
+        shadow="var(--f-shadow-card)"
+        border="0.1rem solid var(--f-color-border)">
+        <Heading as="h4">Hello</Heading>
+        <Text>...and welcome to Fold!</Text>
+    </View>
+)
+```
+### Vertical Alignment
+<a name="verticalalignment"></a>
+
+> The `align` property is a wrapper for preset alignment CSS classes that are available in Fold.
+These properties are distinct and are seperate to the general flexbox shorthand properties like `row` or `alignItems`.
+
+export const VerticalAlignment = () => {
+    const blocks = new Array(5)
+        .fill(null)
+        .map((_, i) => (<div style={{ background: 'var(--f-color-surface-inverse)', width: 10, height: 10, margin: 5 }}/>));
+    return (<View column gap={20} width="100%" alignItems="stretch">
+            <View align="v-top-left" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-top-center" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-top-right" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-left-stretch" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-left-between" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-middle-left" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-middle-center" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-middle-right" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-center-stretch" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-center-between" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-bottom-left" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-bottom-center" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-bottom-right" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-right-stretch" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+            <View align="v-right-between" bgToken="surface-strong" height={150}>
+                {blocks}
+            </View>
+        </View>);
+};
+
+<div className="story-block">
+<VerticalAlignment />
+</div>
+
+<CodeComponent filename="VerticalAlignment.tsx" code="ZXhwb3J0IGNvbnN0IFZlcnRpY2FsQWxpZ25tZW50ID0gKCkgPT4gewogICAgY29uc3QgYmxvY2tzID0gbmV3IEFycmF5KDUpCiAgICAgICAgLmZpbGwobnVsbCkKICAgICAgICAubWFwKChfLCBpKSA9PiAoCiAgICAgICAgICAgIDxkaXYgc3R5bGU9e3sgYmFja2dyb3VuZDogJ3ZhcigtLWYtY29sb3Itc3VyZmFjZS1pbnZlcnNlKScsIHdpZHRoOiAxMCwgaGVpZ2h0OiAxMCwgbWFyZ2luOiA1IH19IC8+CiAgICAgICAgKSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3CiAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICBnYXA9ezIwfQogICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgYWxpZ25JdGVtcz0ic3RyZXRjaCI+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICBhbGlnbj0idi10b3AtbGVmdCIKICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgaGVpZ2h0PXsxNTB9PgogICAgICAgICAgICAgICAge2Jsb2Nrc30KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgYWxpZ249InYtdG9wLWNlbnRlciIKICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgaGVpZ2h0PXsxNTB9PgogICAgICAgICAgICAgICAge2Jsb2Nrc30KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgYWxpZ249InYtdG9wLXJpZ2h0IgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezE1MH0+CiAgICAgICAgICAgICAgICB7YmxvY2tzfQogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICBhbGlnbj0idi1sZWZ0LXN0cmV0Y2giCiAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgIGhlaWdodD17MTUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJ2LWxlZnQtYmV0d2VlbiIKICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgaGVpZ2h0PXsxNTB9PgogICAgICAgICAgICAgICAge2Jsb2Nrc30KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgYWxpZ249InYtbWlkZGxlLWxlZnQiCiAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgIGhlaWdodD17MTUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJ2LW1pZGRsZS1jZW50ZXIiCiAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgIGhlaWdodD17MTUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJ2LW1pZGRsZS1yaWdodCIKICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgaGVpZ2h0PXsxNTB9PgogICAgICAgICAgICAgICAge2Jsb2Nrc30KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgYWxpZ249InYtY2VudGVyLXN0cmV0Y2giCiAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgIGhlaWdodD17MTUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJ2LWNlbnRlci1iZXR3ZWVuIgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezE1MH0+CiAgICAgICAgICAgICAgICB7YmxvY2tzfQogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICBhbGlnbj0idi1ib3R0b20tbGVmdCIKICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgaGVpZ2h0PXsxNTB9PgogICAgICAgICAgICAgICAge2Jsb2Nrc30KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgYWxpZ249InYtYm90dG9tLWNlbnRlciIKICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgICAgICAgICAgaGVpZ2h0PXsxNTB9PgogICAgICAgICAgICAgICAge2Jsb2Nrc30KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgYWxpZ249InYtYm90dG9tLXJpZ2h0IgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezE1MH0+CiAgICAgICAgICAgICAgICB7YmxvY2tzfQogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICBhbGlnbj0idi1yaWdodC1zdHJldGNoIgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezE1MH0+CiAgICAgICAgICAgICAgICB7YmxvY2tzfQogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICBhbGlnbj0idi1yaWdodC1iZXR3ZWVuIgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezE1MH0+CiAgICAgICAgICAgICAgICB7YmxvY2tzfQogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const VerticalAlignment = () => {
+    const blocks = new Array(5)
+        .fill(null)
+        .map((_, i) => (
+            <div style={{ background: 'var(--f-color-surface-inverse)', width: 10, height: 10, margin: 5 }} />
+        ))
+
+    return (
+        <View
+            column
+            gap={20}
+            width="100%"
+            alignItems="stretch">
+            <View
+                align="v-top-left"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-top-center"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-top-right"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-left-stretch"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-left-between"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-middle-left"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-middle-center"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-middle-right"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-center-stretch"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-center-between"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-bottom-left"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-bottom-center"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-bottom-right"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-right-stretch"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+            <View
+                align="v-right-between"
+                bgToken="surface-strong"
+                height={150}>
+                {blocks}
+            </View>
+        </View>
+    )
+}
+```
+### Horizontal Alignment
+<a name="horizontalalignment"></a>
+
+export const HorizontalAlignment = () => {
+    const blocks = new Array(5)
+        .fill(null)
+        .map((_, i) => (<div style={{ background: 'var(--f-color-surface-inverse)', width: 10, height: 10, margin: 5 }}/>));
+    return (<View column gap={20} width="100%" alignItems="stretch">
+            <View align="h-top-left" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-top-center" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-top-right" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-top-stretch" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-top-between" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-middle-left" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-middle-center" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-middle-right" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-middle-stretch" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-middle-between" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-bottom-left" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-bottom-center" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-bottom-right" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-bottom-stretch" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+            <View align="h-bottom-between" bgToken="surface-strong" height={50}>
+                {blocks}
+            </View>
+        </View>);
+};
+
+<div className="story-block">
+<HorizontalAlignment />
+</div>
+
+<CodeComponent filename="HorizontalAlignment.tsx" code="ZXhwb3J0IGNvbnN0IEhvcml6b250YWxBbGlnbm1lbnQgPSAoKSA9PiB7CiAgICBjb25zdCBibG9ja3MgPSBuZXcgQXJyYXkoNSkKICAgICAgICAuZmlsbChudWxsKQogICAgICAgIC5tYXAoKF8sIGkpID0+ICgKICAgICAgICAgICAgPGRpdiBzdHlsZT17eyBiYWNrZ3JvdW5kOiAndmFyKC0tZi1jb2xvci1zdXJmYWNlLWludmVyc2UpJywgd2lkdGg6IDEwLCBoZWlnaHQ6IDEwLCBtYXJnaW46IDUgfX0gLz4KICAgICAgICApKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcKICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgIGdhcD17MjB9CiAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICBhbGlnbkl0ZW1zPSJzdHJldGNoIj4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLXRvcC1sZWZ0IgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLXRvcC1jZW50ZXIiCiAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgIGhlaWdodD17NTB9PgogICAgICAgICAgICAgICAge2Jsb2Nrc30KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgYWxpZ249ImgtdG9wLXJpZ2h0IgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLXRvcC1zdHJldGNoIgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLXRvcC1iZXR3ZWVuIgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLW1pZGRsZS1sZWZ0IgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLW1pZGRsZS1jZW50ZXIiCiAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgIGhlaWdodD17NTB9PgogICAgICAgICAgICAgICAge2Jsb2Nrc30KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgYWxpZ249ImgtbWlkZGxlLXJpZ2h0IgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLW1pZGRsZS1zdHJldGNoIgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLW1pZGRsZS1iZXR3ZWVuIgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLWJvdHRvbS1sZWZ0IgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLWJvdHRvbS1jZW50ZXIiCiAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICAgICAgICAgIGhlaWdodD17NTB9PgogICAgICAgICAgICAgICAge2Jsb2Nrc30KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgYWxpZ249ImgtYm90dG9tLXJpZ2h0IgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLWJvdHRvbS1zdHJldGNoIgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGFsaWduPSJoLWJvdHRvbS1iZXR3ZWVuIgogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezUwfT4KICAgICAgICAgICAgICAgIHtibG9ja3N9CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const HorizontalAlignment = () => {
+    const blocks = new Array(5)
+        .fill(null)
+        .map((_, i) => (
+            <div style={{ background: 'var(--f-color-surface-inverse)', width: 10, height: 10, margin: 5 }} />
+        ))
+
+    return (
+        <View
+            column
+            gap={20}
+            width="100%"
+            alignItems="stretch">
+            <View
+                align="h-top-left"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-top-center"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-top-right"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-top-stretch"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-top-between"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-middle-left"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-middle-center"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-middle-right"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-middle-stretch"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-middle-between"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-bottom-left"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-bottom-center"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-bottom-right"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-bottom-stretch"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+            <View
+                align="h-bottom-between"
+                bgToken="surface-strong"
+                height={50}>
+                {blocks}
+            </View>
+        </View>
+    )
+}
+```
+### Scroll View Stickiness
+<a name="scrollviewstickiness"></a>
+
+export const ScrollViewStickiness = () => {
+    const [count, setCount] = useState([...new Array(100)]);
+    const handleClick = () => setCount([...count, count.length + 1]);
+    return (<View width={500} height={300} column gap={20} alignItems="flex-start">
+            <Button onClick={handleClick}>Add to the bottom!</Button>
+            <ScrollView stickToTop={false} stickToBottom={true} bgToken="surface-strong">
+                {count.map((_, index) => (<Text>{index}</Text>))}
+            </ScrollView>
+        </View>);
+};
+
+<div className="story-block">
+<ScrollViewStickiness />
+</div>
+
+<CodeComponent filename="ScrollViewStickiness.tsx" code="ZXhwb3J0IGNvbnN0IFNjcm9sbFZpZXdTdGlja2luZXNzID0gKCkgPT4gewogICAgY29uc3QgW2NvdW50LCBzZXRDb3VudF0gPSB1c2VTdGF0ZShbLi4ubmV3IEFycmF5KDEwMCldKQoKICAgIGNvbnN0IGhhbmRsZUNsaWNrID0gKCkgPT4gc2V0Q291bnQoWy4uLmNvdW50LCBjb3VudC5sZW5ndGggKyAxXSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3CiAgICAgICAgICAgIHdpZHRoPXs1MDB9CiAgICAgICAgICAgIGhlaWdodD17MzAwfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgZ2FwPXsyMH0KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCI+CiAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17aGFuZGxlQ2xpY2t9PkFkZCB0byB0aGUgYm90dG9tITwvQnV0dG9uPgogICAgICAgICAgICA8U2Nyb2xsVmlldwogICAgICAgICAgICAgICAgc3RpY2tUb1RvcD17ZmFsc2V9CiAgICAgICAgICAgICAgICBzdGlja1RvQm90dG9tPXt0cnVlfQogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciPgogICAgICAgICAgICAgICAge2NvdW50Lm1hcCgoXywgaW5kZXgpID0+ICgKICAgICAgICAgICAgICAgICAgICA8VGV4dD57aW5kZXh9PC9UZXh0PgogICAgICAgICAgICAgICAgKSl9CiAgICAgICAgICAgIDwvU2Nyb2xsVmlldz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const ScrollViewStickiness = () => {
+    const [count, setCount] = useState([...new Array(100)])
+
+    const handleClick = () => setCount([...count, count.length + 1])
+
+    return (
+        <View
+            width={500}
+            height={300}
+            column
+            gap={20}
+            alignItems="flex-start">
+            <Button onClick={handleClick}>Add to the bottom!</Button>
+            <ScrollView
+                stickToTop={false}
+                stickToBottom={true}
+                bgToken="surface-strong">
+                {count.map((_, index) => (
+                    <Text>{index}</Text>
+                ))}
+            </ScrollView>
+        </View>
+    )
+}
+```
+### Scroll View Events
+<a name="scrollviewevents"></a>
+
+export const ScrollViewEvents = () => {
+    const [count, _] = useState([...new Array(100)]);
+    const handleScrollBottom = () => console.log('You have reached the bottom!');
+    const handleScrollTop = () => console.log('You have reached the top!');
+    return (<View width={500} height={300}>
+            <ScrollView bgToken="surface-strong" onScrollToBottom={handleScrollBottom} onScrollToTop={handleScrollTop}>
+                {count.map((_, index) => (<Text>{index}</Text>))}
+            </ScrollView>
+        </View>);
+};
+
+<div className="story-block">
+<ScrollViewEvents />
+</div>
+
+<CodeComponent filename="ScrollViewEvents.tsx" code="ZXhwb3J0IGNvbnN0IFNjcm9sbFZpZXdFdmVudHMgPSAoKSA9PiB7CiAgICBjb25zdCBbY291bnQsIF9dID0gdXNlU3RhdGUoWy4uLm5ldyBBcnJheSgxMDApXSkKCiAgICBjb25zdCBoYW5kbGVTY3JvbGxCb3R0b20gPSAoKSA9PiBjb25zb2xlLmxvZygnWW91IGhhdmUgcmVhY2hlZCB0aGUgYm90dG9tIScpCgogICAgY29uc3QgaGFuZGxlU2Nyb2xsVG9wID0gKCkgPT4gY29uc29sZS5sb2coJ1lvdSBoYXZlIHJlYWNoZWQgdGhlIHRvcCEnKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcKICAgICAgICAgICAgd2lkdGg9ezUwMH0KICAgICAgICAgICAgaGVpZ2h0PXszMDB9PgogICAgICAgICAgICA8U2Nyb2xsVmlldwogICAgICAgICAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgICAgICAgICBvblNjcm9sbFRvQm90dG9tPXtoYW5kbGVTY3JvbGxCb3R0b219CiAgICAgICAgICAgICAgICBvblNjcm9sbFRvVG9wPXtoYW5kbGVTY3JvbGxUb3B9PgogICAgICAgICAgICAgICAge2NvdW50Lm1hcCgoXywgaW5kZXgpID0+ICgKICAgICAgICAgICAgICAgICAgICA8VGV4dD57aW5kZXh9PC9UZXh0PgogICAgICAgICAgICAgICAgKSl9CiAgICAgICAgICAgIDwvU2Nyb2xsVmlldz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const ScrollViewEvents = () => {
+    const [count, _] = useState([...new Array(100)])
+
+    const handleScrollBottom = () => console.log('You have reached the bottom!')
+
+    const handleScrollTop = () => console.log('You have reached the top!')
+
+    return (
+        <View
+            width={500}
+            height={300}>
+            <ScrollView
+                bgToken="surface-strong"
+                onScrollToBottom={handleScrollBottom}
+                onScrollToTop={handleScrollTop}>
+                {count.map((_, index) => (
+                    <Text>{index}</Text>
+                ))}
+            </ScrollView>
+        </View>
+    )
+}
+```
+### Blur Contents
+<a name="blurcontents"></a>
+
+export const BlurContents = () => (<View width="100%" height={300} position="relative">
+        <Blur p={50} column overlay={<SpinnerOverlay />}>
+            <Heading>This is premium content!</Heading>
+            <Text>Sorry, you need to be registered to view this content.</Text>
+        </Blur>
+    </View>);
+
+<div className="story-block">
+<BlurContents />
+</div>
+
+<CodeComponent filename="BlurContents.tsx" code="ZXhwb3J0IGNvbnN0IEJsdXJDb250ZW50cyA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgaGVpZ2h0PXszMDB9CiAgICAgICAgcG9zaXRpb249InJlbGF0aXZlIj4KICAgICAgICA8Qmx1cgogICAgICAgICAgICBwPXs1MH0KICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgIG92ZXJsYXk9ezxTcGlubmVyT3ZlcmxheSAvPn0+CiAgICAgICAgICAgIDxIZWFkaW5nPlRoaXMgaXMgcHJlbWl1bSBjb250ZW50ITwvSGVhZGluZz4KICAgICAgICAgICAgPFRleHQ+U29ycnksIHlvdSBuZWVkIHRvIGJlIHJlZ2lzdGVyZWQgdG8gdmlldyB0aGlzIGNvbnRlbnQuPC9UZXh0PgogICAgICAgIDwvQmx1cj4KICAgIDwvVmlldz4KKQ==" />
+
+```tsx
+export const BlurContents = () => (
+    <View
+        width="100%"
+        height={300}
+        position="relative">
+        <Blur
+            p={50}
+            column
+            overlay={<SpinnerOverlay />}>
+            <Heading>This is premium content!</Heading>
+            <Text>Sorry, you need to be registered to view this content.</Text>
+        </Blur>
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

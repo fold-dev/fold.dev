@@ -1,0 +1,50 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import React from 'react'
+import { If, View } from '@fold-dev/core'
+
+export const docs = {
+    title: 'If',
+    subtitle: 'The If component hides content conditionally based on a true/false boolean value.',
+    description:
+        'If components are well-suited to serve as a more readable method for displaying and concealing child components.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/if/if.tsx","description":"","displayName":"If","methods":[],"props":{"if":{"defaultValue":null,"description":"","name":"if","declarations":[{"fileName":"packages/core/src/if/if.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}}}}]
+
+export const css = []
+
+<CodeComponent filename="if.tsx" code="aW1wb3J0IHsgSWYgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { If } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<View>
+            <If if={true}>This is visible...</If>
+            <If if={false}>...and this is not visible.</If>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8Vmlldz4KICAgICAgICAgICAgPElmIGlmPXt0cnVlfT5UaGlzIGlzIHZpc2libGUuLi48L0lmPgogICAgICAgICAgICA8SWYgaWY9e2ZhbHNlfT4uLi5hbmQgdGhpcyBpcyBub3QgdmlzaWJsZS48L0lmPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <View>
+            <If if={true}>This is visible...</If>
+            <If if={false}>...and this is not visible.</If>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

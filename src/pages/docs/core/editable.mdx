@@ -1,0 +1,106 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, Editable, Text, View } from '@fold-dev/core'
+import React, { useRef } from 'react'
+
+export const docs = {
+    title: 'Editable',
+    subtitle: 'The Editable component enables users to edit simple text content inline.',
+    description:
+        'The Editable component is useful for providing users an inline experience for editing simple text content. It is suited to headings, names & other text content that is presented on a single line. Editable is not suited to large text blocks where the user needs a more traditional text input element.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/editable/editable.tsx","description":"","displayName":"Editable","methods":[],"props":{"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/editable/editable.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/editable/editable.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"packages/core/src/editable/editable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = []
+
+
+
+<CodeComponent filename="editable.tsx" code="aW1wb3J0IHsgRWRpdGFibGUgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { Editable } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const handleChange = (content) => console.log('content changed!', content);
+    const handleCancel = (previousContent) => console.log(previousContent);
+    return (<Editable onChange={handleChange} onCancel={handleCancel}>
+            <Text>This is something that is editable</Text>
+        </Editable>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgaGFuZGxlQ2hhbmdlID0gKGNvbnRlbnQpID0+IGNvbnNvbGUubG9nKCdjb250ZW50IGNoYW5nZWQhJywgY29udGVudCkKCiAgICBjb25zdCBoYW5kbGVDYW5jZWwgPSAocHJldmlvdXNDb250ZW50KSA9PiBjb25zb2xlLmxvZyhwcmV2aW91c0NvbnRlbnQpCgogICAgcmV0dXJuICgKICAgICAgICA8RWRpdGFibGUKICAgICAgICAgICAgb25DaGFuZ2U9e2hhbmRsZUNoYW5nZX0KICAgICAgICAgICAgb25DYW5jZWw9e2hhbmRsZUNhbmNlbH0+CiAgICAgICAgICAgIDxUZXh0PlRoaXMgaXMgc29tZXRoaW5nIHRoYXQgaXMgZWRpdGFibGU8L1RleHQ+CiAgICAgICAgPC9FZGl0YWJsZT4KICAgICkKfQ==" />
+
+```tsx
+export const Usage = () => {
+    const handleChange = (content) => console.log('content changed!', content)
+
+    const handleCancel = (previousContent) => console.log(previousContent)
+
+    return (
+        <Editable
+            onChange={handleChange}
+            onCancel={handleCancel}>
+            <Text>This is something that is editable</Text>
+        </Editable>
+    )
+}
+```
+### Focus Event
+<a name="focusevent"></a>
+
+export const FocusEvent = () => {
+    const editableRef = useRef({ click: () => null });
+    const handleChange = (content) => console.log('content changed!', content);
+    const handleCancel = (previousContent) => console.log(previousContent);
+    const handleClick = (e) => editableRef.current.click();
+    return (<View row justifyContent="flex-start" gap={10}>
+            <Button onClick={handleClick}>Focus Now</Button>
+            <Editable onChange={handleChange} onCancel={handleCancel} ref={editableRef}>
+                <Text>This is something that is editable</Text>
+            </Editable>
+        </View>);
+};
+
+<div className="story-block">
+<FocusEvent />
+</div>
+
+<CodeComponent filename="FocusEvent.tsx" code="ZXhwb3J0IGNvbnN0IEZvY3VzRXZlbnQgPSAoKSA9PiB7CiAgICBjb25zdCBlZGl0YWJsZVJlZiA9IHVzZVJlZih7IGNsaWNrOiAoKSA9PiBudWxsIH0pCgogICAgY29uc3QgaGFuZGxlQ2hhbmdlID0gKGNvbnRlbnQpID0+IGNvbnNvbGUubG9nKCdjb250ZW50IGNoYW5nZWQhJywgY29udGVudCkKCiAgICBjb25zdCBoYW5kbGVDYW5jZWwgPSAocHJldmlvdXNDb250ZW50KSA9PiBjb25zb2xlLmxvZyhwcmV2aW91c0NvbnRlbnQpCgogICAgY29uc3QgaGFuZGxlQ2xpY2sgPSAoZSkgPT4gZWRpdGFibGVSZWYuY3VycmVudC5jbGljaygpCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICByb3cKICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ9ImZsZXgtc3RhcnQiCiAgICAgICAgICAgIGdhcD17MTB9PgogICAgICAgICAgICA8QnV0dG9uIG9uQ2xpY2s9e2hhbmRsZUNsaWNrfT5Gb2N1cyBOb3c8L0J1dHRvbj4KICAgICAgICAgICAgPEVkaXRhYmxlCiAgICAgICAgICAgICAgICBvbkNoYW5nZT17aGFuZGxlQ2hhbmdlfQogICAgICAgICAgICAgICAgb25DYW5jZWw9e2hhbmRsZUNhbmNlbH0KICAgICAgICAgICAgICAgIHJlZj17ZWRpdGFibGVSZWZ9PgogICAgICAgICAgICAgICAgPFRleHQ+VGhpcyBpcyBzb21ldGhpbmcgdGhhdCBpcyBlZGl0YWJsZTwvVGV4dD4KICAgICAgICAgICAgPC9FZGl0YWJsZT4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const FocusEvent = () => {
+    const editableRef = useRef({ click: () => null })
+
+    const handleChange = (content) => console.log('content changed!', content)
+
+    const handleCancel = (previousContent) => console.log(previousContent)
+
+    const handleClick = (e) => editableRef.current.click()
+
+    return (
+        <View
+            row
+            justifyContent="flex-start"
+            gap={10}>
+            <Button onClick={handleClick}>Focus Now</Button>
+            <Editable
+                onChange={handleChange}
+                onCancel={handleCancel}
+                ref={editableRef}>
+                <Text>This is something that is editable</Text>
+            </Editable>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

@@ -1,0 +1,84 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, Drawer, Heading, Text, View, useVisibility } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Drawer',
+    subtitle: 'The Drawer component displays a Modal attached to one edge of the screen.',
+    description:
+        "Drawer components provide effective means of presenting content that is not only contextually relevant to the user's current view but also discreet and easily dismissible. Examples of such content include task details, message threads, and topic deep dives.",
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/drawer/drawer.tsx","description":"","displayName":"Drawer","methods":[],"props":{"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"packages/core/src/drawer/drawer.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"left\" | \"right\" | \"top\" | \"bottom\""},"tags":{}},"focusTrap":{"defaultValue":null,"description":"","name":"focusTrap","declarations":[{"fileName":"fold-wip/packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"isVisible":{"defaultValue":null,"description":"","name":"isVisible","declarations":[{"fileName":"fold-wip/packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"fold-wip/packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>> | ReactElement<any, string | JSXElementConstructor<any>>[]"},"tags":{}},"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"fold-wip/packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>> | ReactElement<any, string | JSXElementConstructor<any>>[]"},"tags":{}},"borderless":{"defaultValue":null,"description":"","name":"borderless","declarations":[{"fileName":"fold-wip/packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disableBackgroundDismiss":{"defaultValue":null,"description":"","name":"disableBackgroundDismiss","declarations":[{"fileName":"fold-wip/packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"portal":{"defaultValue":null,"description":"","name":"portal","declarations":[{"fileName":"fold-wip/packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"fold-wip/packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-drawer-speed","var(--f-transition-duration-slow)"]]]
+
+
+
+<CodeComponent filename="drawer.tsx" code="aW1wb3J0IHsgRHJhd2VyIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Drawer } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const { visible, show, hide } = useVisibility(false);
+    return (<View>
+            <Button onClick={show}>Show Drawer</Button>
+
+            <Drawer anchor="right" width={400} onDismiss={hide} isVisible={visible}>
+                <View p={30} column gap={10} width="100%" alignItems="flex-start">
+                    <Heading>Context is key...</Heading>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </Text>
+                </View>
+            </Drawer>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXc+CiAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17c2hvd30+U2hvdyBEcmF3ZXI8L0J1dHRvbj4KCiAgICAgICAgICAgIDxEcmF3ZXIKICAgICAgICAgICAgICAgIGFuY2hvcj0icmlnaHQiCiAgICAgICAgICAgICAgICB3aWR0aD17NDAwfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfT4KICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcD17MzB9CiAgICAgICAgICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgICAgICAgICA8SGVhZGluZz5Db250ZXh0IGlzIGtleS4uLjwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdCwgc2VkIGRvIGVpdXNtb2QgdGVtcG9yIGluY2lkaWR1bnQgdXQKICAgICAgICAgICAgICAgICAgICAgICAgbGFib3JlIGV0IGRvbG9yZSBtYWduYSBhbGlxdWEuIFV0IGVuaW0gYWQgbWluaW0gdmVuaWFtLCBxdWlzIG5vc3RydWQgZXhlcmNpdGF0aW9uIHVsbGFtY28KICAgICAgICAgICAgICAgICAgICAgICAgbGFib3JpcyBuaXNpIHV0IGFsaXF1aXAgZXggZWEgY29tbW9kbyBjb25zZXF1YXQuCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L0RyYXdlcj4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    const { visible, show, hide } = useVisibility(false)
+
+    return (
+        <View>
+            <Button onClick={show}>Show Drawer</Button>
+
+            <Drawer
+                anchor="right"
+                width={400}
+                onDismiss={hide}
+                isVisible={visible}>
+                <View
+                    p={30}
+                    column
+                    gap={10}
+                    width="100%"
+                    alignItems="flex-start">
+                    <Heading>Context is key...</Heading>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </Text>
+                </View>
+            </Drawer>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

@@ -1,0 +1,75 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import React, { useRef } from 'react'
+import { Portal } from '@fold-dev/core'
+
+export const docs = {
+    title: 'Portal',
+    subtitle:
+        'The Portal is employed to transfer any component or element to the end of the document.body and render a React tree within it.',
+    description:
+        'Useful for creating a seamless React element hierarchy within a distinct DOM hierarchy, preventing potential style conflicts with parent elements that might obscure or conceal content (commonly used for popovers, dropdowns, and modals). It supports custom root mounts.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/portal/portal.tsx","description":"","displayName":"Portal","methods":[],"props":{}}]
+
+export const css = []
+
+<CodeComponent filename="portal.tsx" code="aW1wb3J0IHsgUG9ydGFsIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Portal } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return <Portal>Content outside of the existing DOM hierarchy</Portal>;
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuIDxQb3J0YWw+Q29udGVudCBvdXRzaWRlIG9mIHRoZSBleGlzdGluZyBET00gaGllcmFyY2h5PC9Qb3J0YWw+Cn0=" />
+
+```tsx
+export const Usage = () => {
+    return <Portal>Content outside of the existing DOM hierarchy</Portal>
+}
+```
+### Custom Root
+<a name="customroot"></a>
+
+export const CustomRoot = () => {
+    const portalRef = useRef(null);
+    return (<>
+            <div id="custom-root" ref={portalRef}/>
+            <Portal portalRef={portalRef.current}>Content in a portal, in a custom root</Portal>
+        </>);
+};
+
+<div className="story-block">
+<CustomRoot />
+</div>
+
+<CodeComponent filename="CustomRoot.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVJvb3QgPSAoKSA9PiB7CiAgICBjb25zdCBwb3J0YWxSZWYgPSB1c2VSZWYobnVsbCkKCiAgICByZXR1cm4gKAogICAgICAgIDw+CiAgICAgICAgICAgIDxkaXYKICAgICAgICAgICAgICAgIGlkPSJjdXN0b20tcm9vdCIKICAgICAgICAgICAgICAgIHJlZj17cG9ydGFsUmVmfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8UG9ydGFsIHBvcnRhbFJlZj17cG9ydGFsUmVmLmN1cnJlbnR9PkNvbnRlbnQgaW4gYSBwb3J0YWwsIGluIGEgY3VzdG9tIHJvb3Q8L1BvcnRhbD4KICAgICAgICA8Lz4KICAgICkKfQ==" />
+
+```tsx
+export const CustomRoot = () => {
+    const portalRef = useRef(null)
+
+    return (
+        <>
+            <div
+                id="custom-root"
+                ref={portalRef}
+            />
+            <Portal portalRef={portalRef.current}>Content in a portal, in a custom root</Portal>
+        </>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

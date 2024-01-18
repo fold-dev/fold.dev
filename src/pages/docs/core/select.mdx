@@ -1,0 +1,1334 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import * as Token from '@fold-dev/design/tokens'
+import {
+    Avatar,
+    Divider,
+    getKey,
+    Heading,
+    Icon,
+    IconLib,
+    LabelSelect,
+    LabelSelectLabel,
+    Pill,
+    Select,
+    SelectList,
+    SelectOption,
+    SelectOptionProps,
+    Stack,
+    Text,
+    timezones,
+    UserSelect,
+    UserSelectUser,
+    View,
+} from '@fold-dev/core'
+import React, { useMemo, useRef, useState } from 'react'
+
+export const docs = {
+    title: 'Select',
+    subtitle: 'The Select component displays a list of options a user can select from.',
+    description:
+        'Select components are a common feature of almost every user experience on the web (and off) where the user is tasked to input data. The Fold Select component attempts to cover as many general use-case scenarios, as well as specialized, whilst keeping the interface performant and responsive.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/select/select.tsx","description":"","displayName":"Select","methods":[],"props":{"hideSelected":{"defaultValue":null,"description":"","name":"hideSelected","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"default\" | \"virtual\""},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"default\" | \"static\""},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"customPlaceholder":{"defaultValue":null,"description":"","name":"customPlaceholder","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"placeholder":{"defaultValue":null,"description":"","name":"placeholder","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"readOnly":{"defaultValue":null,"description":"","name":"readOnly","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"fixed":{"defaultValue":null,"description":"","name":"fixed","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(string | number)[]"},"tags":{}},"options":{"defaultValue":null,"description":"","name":"options","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any[]"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"onSelect":{"defaultValue":null,"description":"","name":"onSelect","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onFilter":{"defaultValue":null,"description":"","name":"onFilter","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"filterDelay":{"defaultValue":null,"description":"","name":"filterDelay","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"inputProps":{"defaultValue":null,"description":"","name":"inputProps","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ size?: Size; showIndicator?: boolean; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any> & { ...; } & Omit<...>"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"comboInputProps":{"defaultValue":null,"description":"","name":"comboInputProps","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ render: any; size?: Size; disabled?: boolean; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any>"},"tags":{}},"comboInputFieldProps":{"defaultValue":null,"description":"","name":"comboInputFieldProps","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any> & { type?: \"number\" | \"color\" | \"hidden\" | ... 10 more ... | \"week\"; } & Omit<...>"},"tags":{}},"selectListProps":{"defaultValue":null,"description":"","name":"selectListProps","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ as?: \"default\" | \"virtual\"; cursor?: number; options?: any[]; selected?: (string | number)[]; onOptionClick?: any; onCursorUpdate?: any; header?: ReactElement<any, string | JSXElementConstructor<any>>; footer?: ReactElement<...>; optionComponent?: any; noOptionsComponent?: any; virtualProps?: SelectListVirtual; } ..."},"tags":{}},"virtualProps":{"defaultValue":null,"description":"","name":"virtualProps","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"SelectListVirtual"},"tags":{}},"optionComponent":{"defaultValue":null,"description":"","name":"optionComponent","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"noOptionsComponent":{"defaultValue":null,"description":"","name":"noOptionsComponent","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"render":{"defaultValue":null,"description":"","name":"render","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"combo":{"defaultValue":null,"description":"","name":"combo","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/select/select.tsx","description":"","displayName":"SelectList","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"default\" | \"virtual\""},"tags":{}},"cursor":{"defaultValue":null,"description":"","name":"cursor","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"options":{"defaultValue":null,"description":"","name":"options","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any[]"},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(string | number)[]"},"tags":{}},"onOptionClick":{"defaultValue":null,"description":"","name":"onOptionClick","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onCursorUpdate":{"defaultValue":null,"description":"","name":"onCursorUpdate","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"optionComponent":{"defaultValue":null,"description":"","name":"optionComponent","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"noOptionsComponent":{"defaultValue":null,"description":"","name":"noOptionsComponent","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"virtualProps":{"defaultValue":null,"description":"","name":"virtualProps","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"SelectListVirtual"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/select/select.tsx","description":"","displayName":"SelectListOption","methods":[],"props":{"option":{"defaultValue":null,"description":"","name":"option","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onOptionClick":{"defaultValue":null,"description":"","name":"onOptionClick","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/select/select.tsx","description":"","displayName":"LabelSelect","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"enableNotFound":{"defaultValue":null,"description":"","name":"enableNotFound","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"default\" | \"static\""},"tags":{}},"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"inputPlaceholder":{"defaultValue":null,"description":"","name":"inputPlaceholder","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"actionPrefix":{"defaultValue":null,"description":"","name":"actionPrefix","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"availableLabels":{"defaultValue":null,"description":"","name":"availableLabels","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"onLabelAdd":{"defaultValue":null,"description":"","name":"onLabelAdd","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onLabelDelete":{"defaultValue":null,"description":"","name":"onLabelDelete","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onFilter":{"defaultValue":null,"description":"","name":"onFilter","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/select/select.tsx","description":"","displayName":"UserSelect","methods":[],"props":{"enableNotFound":{"defaultValue":null,"description":"","name":"enableNotFound","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"UserSelectUser[]"},"tags":{}},"inputPlaceholder":{"defaultValue":null,"description":"","name":"inputPlaceholder","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"actionPrefix":{"defaultValue":null,"description":"","name":"actionPrefix","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"availableUsers":{"defaultValue":null,"description":"","name":"availableUsers","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"UserSelectUser[]"},"tags":{}},"onUserAdd":{"defaultValue":null,"description":"","name":"onUserAdd","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onUserDelete":{"defaultValue":null,"description":"","name":"onUserDelete","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onFilter":{"defaultValue":null,"description":"","name":"onFilter","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"},{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"hideSelected":{"defaultValue":null,"description":"","name":"hideSelected","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"default\" | \"virtual\""},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"default\" | \"static\""},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"customPlaceholder":{"defaultValue":null,"description":"","name":"customPlaceholder","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"readOnly":{"defaultValue":null,"description":"","name":"readOnly","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"fixed":{"defaultValue":null,"description":"","name":"fixed","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"filterDelay":{"defaultValue":null,"description":"","name":"filterDelay","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"inputProps":{"defaultValue":null,"description":"","name":"inputProps","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ size?: Size; showIndicator?: boolean; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any> & { ...; } & Omit<...>"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"comboInputProps":{"defaultValue":null,"description":"","name":"comboInputProps","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ render: any; size?: Size; disabled?: boolean; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any>"},"tags":{}},"comboInputFieldProps":{"defaultValue":null,"description":"","name":"comboInputFieldProps","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any> & { type?: \"number\" | \"color\" | \"hidden\" | ... 10 more ... | \"week\"; } & Omit<...>"},"tags":{}},"selectListProps":{"defaultValue":null,"description":"","name":"selectListProps","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ as?: \"default\" | \"virtual\"; cursor?: number; options?: any[]; selected?: (string | number)[]; onOptionClick?: any; onCursorUpdate?: any; header?: ReactElement<any, string | JSXElementConstructor<any>>; footer?: ReactElement<...>; optionComponent?: any; noOptionsComponent?: any; virtualProps?: SelectListVirtual; } ..."},"tags":{}},"virtualProps":{"defaultValue":null,"description":"","name":"virtualProps","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"SelectListVirtual"},"tags":{}},"optionComponent":{"defaultValue":null,"description":"","name":"optionComponent","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"noOptionsComponent":{"defaultValue":null,"description":"","name":"noOptionsComponent","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"render":{"defaultValue":null,"description":"","name":"render","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"combo":{"defaultValue":null,"description":"","name":"combo","declarations":[{"fileName":"packages/core/src/select/select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
+
+export const css = [[["--f-select-width","300px"],["--f-select-color","var(--f-color-text)"],["--f-select-color-placeholder","var(--f-color-text-weakest)"],["--f-select-color-disabled","var(--f-color-text-weakest)"],["--f-select-color-selected","var(--f-color-accent)"],["--f-select-option-focus","var(--f-color-surface-strong)"],["--f-select-option-active-size","0.2rem"],["--f-select-options-height","200px"],["--f-select-option-padding","var(--f-space-inset-x-3)"],["--f-select-popover-border-color","var(--f-color-border)"],["--f-select-popover-border-radius","var(--f-radius)"],["--f-select-popover-background","var(--f-color-surface)"],["--f-select-popover-box-shadow","var(--f-shadow-lg)"]]]
+
+
+
+<CodeComponent filename="select.tsx" code="aW1wb3J0IHsKICBTZWxlY3QsCiAgU2VsZWN0TGlzdCwKICBTZWxlY3RMaXN0T3B0aW9uLAogIExhYmVsU2VsZWN0LAogIFVzZXJTZWxlY3QsCn0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import {
+  Select,
+  SelectList,
+  SelectListOption,
+  LabelSelect,
+  UserSelect,
+} from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const [selected, setSelected] = useState([timezones[0], timezones[4], timezones[8]]);
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    return (<Select width={350} placeholder="Select a timezone" selected={selected} onSelect={handleSelect} options={timezones.map((tz) => ({
+            key: tz,
+            label: tz,
+        }))}/>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3NlbGVjdGVkLCBzZXRTZWxlY3RlZF0gPSB1c2VTdGF0ZTxhbnk+KFt0aW1lem9uZXNbMF0sIHRpbWV6b25lc1s0XSwgdGltZXpvbmVzWzhdXSkKCiAgICBjb25zdCBoYW5kbGVTZWxlY3QgPSAob3B0aW9uLCBkaXNtaXNzKSA9PiB7CiAgICAgICAgaWYgKHNlbGVjdGVkLmluY2x1ZGVzKG9wdGlvbi5rZXkpKSB7CiAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZC5maWx0ZXIoKG9wdGlvbktleSkgPT4gb3B0aW9uLmtleSAhPSBvcHRpb25LZXkpXSkKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQsIG9wdGlvbi5rZXldKQogICAgICAgIH0KICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxTZWxlY3QKICAgICAgICAgICAgd2lkdGg9ezM1MH0KICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlNlbGVjdCBhIHRpbWV6b25lIgogICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgIG9uU2VsZWN0PXtoYW5kbGVTZWxlY3R9CiAgICAgICAgICAgIG9wdGlvbnM9e3RpbWV6b25lcy5tYXAoKHR6KSA9PiAoewogICAgICAgICAgICAgICAga2V5OiB0eiwKICAgICAgICAgICAgICAgIGxhYmVsOiB0eiwKICAgICAgICAgICAgfSkpfQogICAgICAgIC8+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    const [selected, setSelected] = useState<any>([timezones[0], timezones[4], timezones[8]])
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    return (
+        <Select
+            width={350}
+            placeholder="Select a timezone"
+            selected={selected}
+            onSelect={handleSelect}
+            options={timezones.map((tz) => ({
+                key: tz,
+                label: tz,
+            }))}
+        />
+    )
+}
+```
+### Sizes
+<a name="sizes"></a>
+
+export const Sizes = () => {
+    const [selected, setSelected] = useState([]);
+    const options = timezones.map((tz) => ({
+        key: tz,
+        label: tz,
+    }));
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    return (<Stack direction="vertical" spacing={10}>
+            <Select width={350} size="xs" placeholder="This is extra small" selected={selected} onSelect={handleSelect} options={options}/>
+            <Select width={350} size="sm" placeholder="This is small" selected={selected} onSelect={handleSelect} options={options}/>
+            <Select width={350} size="md" placeholder="This is medium" selected={selected} onSelect={handleSelect} options={options}/>
+            <Select width={350} size="lg" placeholder="This is large" selected={selected} onSelect={handleSelect} options={options}/>
+            <Select width={350} size="xl" placeholder="This is extra large" selected={selected} onSelect={handleSelect} options={options}/>
+        </Stack>);
+};
+
+<div className="story-block">
+<Sizes />
+</div>
+
+<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gewogICAgY29uc3QgW3NlbGVjdGVkLCBzZXRTZWxlY3RlZF0gPSB1c2VTdGF0ZTxhbnk+KFtdKQoKICAgIGNvbnN0IG9wdGlvbnMgPSB0aW1lem9uZXMubWFwKCh0eikgPT4gKHsKICAgICAgICBrZXk6IHR6LAogICAgICAgIGxhYmVsOiB0eiwKICAgIH0pKQoKICAgIGNvbnN0IGhhbmRsZVNlbGVjdCA9IChvcHRpb24sIGRpc21pc3MpID0+IHsKICAgICAgICBpZiAoc2VsZWN0ZWQuaW5jbHVkZXMob3B0aW9uLmtleSkpIHsKICAgICAgICAgICAgc2V0U2VsZWN0ZWQoWy4uLnNlbGVjdGVkLmZpbHRlcigob3B0aW9uS2V5KSA9PiBvcHRpb24ua2V5ICE9IG9wdGlvbktleSldKQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZCwgb3B0aW9uLmtleV0pCiAgICAgICAgfQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPFN0YWNrCiAgICAgICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgICAgIHNwYWNpbmc9ezEwfT4KICAgICAgICAgICAgPFNlbGVjdAogICAgICAgICAgICAgICAgd2lkdGg9ezM1MH0KICAgICAgICAgICAgICAgIHNpemU9InhzIgogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlRoaXMgaXMgZXh0cmEgc21hbGwiCiAgICAgICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgICAgICBvblNlbGVjdD17aGFuZGxlU2VsZWN0fQogICAgICAgICAgICAgICAgb3B0aW9ucz17b3B0aW9uc30KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPFNlbGVjdAogICAgICAgICAgICAgICAgd2lkdGg9ezM1MH0KICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlRoaXMgaXMgc21hbGwiCiAgICAgICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgICAgICBvblNlbGVjdD17aGFuZGxlU2VsZWN0fQogICAgICAgICAgICAgICAgb3B0aW9ucz17b3B0aW9uc30KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPFNlbGVjdAogICAgICAgICAgICAgICAgd2lkdGg9ezM1MH0KICAgICAgICAgICAgICAgIHNpemU9Im1kIgogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlRoaXMgaXMgbWVkaXVtIgogICAgICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICAgICAgb25TZWxlY3Q9e2hhbmRsZVNlbGVjdH0KICAgICAgICAgICAgICAgIG9wdGlvbnM9e29wdGlvbnN9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxTZWxlY3QKICAgICAgICAgICAgICAgIHdpZHRoPXszNTB9CiAgICAgICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJUaGlzIGlzIGxhcmdlIgogICAgICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICAgICAgb25TZWxlY3Q9e2hhbmRsZVNlbGVjdH0KICAgICAgICAgICAgICAgIG9wdGlvbnM9e29wdGlvbnN9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxTZWxlY3QKICAgICAgICAgICAgICAgIHdpZHRoPXszNTB9CiAgICAgICAgICAgICAgICBzaXplPSJ4bCIKICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJUaGlzIGlzIGV4dHJhIGxhcmdlIgogICAgICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICAgICAgb25TZWxlY3Q9e2hhbmRsZVNlbGVjdH0KICAgICAgICAgICAgICAgIG9wdGlvbnM9e29wdGlvbnN9CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9TdGFjaz4KICAgICkKfQ==" />
+
+```tsx
+export const Sizes = () => {
+    const [selected, setSelected] = useState<any>([])
+
+    const options = timezones.map((tz) => ({
+        key: tz,
+        label: tz,
+    }))
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    return (
+        <Stack
+            direction="vertical"
+            spacing={10}>
+            <Select
+                width={350}
+                size="xs"
+                placeholder="This is extra small"
+                selected={selected}
+                onSelect={handleSelect}
+                options={options}
+            />
+            <Select
+                width={350}
+                size="sm"
+                placeholder="This is small"
+                selected={selected}
+                onSelect={handleSelect}
+                options={options}
+            />
+            <Select
+                width={350}
+                size="md"
+                placeholder="This is medium"
+                selected={selected}
+                onSelect={handleSelect}
+                options={options}
+            />
+            <Select
+                width={350}
+                size="lg"
+                placeholder="This is large"
+                selected={selected}
+                onSelect={handleSelect}
+                options={options}
+            />
+            <Select
+                width={350}
+                size="xl"
+                placeholder="This is extra large"
+                selected={selected}
+                onSelect={handleSelect}
+                options={options}
+            />
+        </Stack>
+    )
+}
+```
+### Prefix And Suffix
+<a name="prefixandsuffix"></a>
+
+export const PrefixAndSuffix = () => {
+    const [selected, setSelected] = useState([timezones[0], timezones[4], timezones[8]]);
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    return (<Select width={350} prefix={<IconLib icon="time"/>} suffix={<IconLib icon="chevron-down"/>} placeholder="Select a timezone" selected={selected} onSelect={handleSelect} options={timezones.map((tz) => ({
+            key: tz,
+            label: tz,
+        }))}/>);
+};
+
+<div className="story-block">
+<PrefixAndSuffix />
+</div>
+
+<CodeComponent filename="PrefixAndSuffix.tsx" code="ZXhwb3J0IGNvbnN0IFByZWZpeEFuZFN1ZmZpeCA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGU8YW55PihbdGltZXpvbmVzWzBdLCB0aW1lem9uZXNbNF0sIHRpbWV6b25lc1s4XV0pCgogICAgY29uc3QgaGFuZGxlU2VsZWN0ID0gKG9wdGlvbiwgZGlzbWlzcykgPT4gewogICAgICAgIGlmIChzZWxlY3RlZC5pbmNsdWRlcyhvcHRpb24ua2V5KSkgewogICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQuZmlsdGVyKChvcHRpb25LZXkpID0+IG9wdGlvbi5rZXkgIT0gb3B0aW9uS2V5KV0pCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgc2V0U2VsZWN0ZWQoWy4uLnNlbGVjdGVkLCBvcHRpb24ua2V5XSkKICAgICAgICB9CiAgICB9CgogICAgcmV0dXJuICgKICAgICAgICA8U2VsZWN0CiAgICAgICAgICAgIHdpZHRoPXszNTB9CiAgICAgICAgICAgIHByZWZpeD17PEljb25MaWIgaWNvbj0idGltZSIgLz59CiAgICAgICAgICAgIHN1ZmZpeD17PEljb25MaWIgaWNvbj0iY2hldnJvbi1kb3duIiAvPn0KICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlNlbGVjdCBhIHRpbWV6b25lIgogICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgIG9uU2VsZWN0PXtoYW5kbGVTZWxlY3R9CiAgICAgICAgICAgIG9wdGlvbnM9e3RpbWV6b25lcy5tYXAoKHR6KSA9PiAoewogICAgICAgICAgICAgICAga2V5OiB0eiwKICAgICAgICAgICAgICAgIGxhYmVsOiB0eiwKICAgICAgICAgICAgfSkpfQogICAgICAgIC8+CiAgICApCn0=" />
+
+```tsx
+export const PrefixAndSuffix = () => {
+    const [selected, setSelected] = useState<any>([timezones[0], timezones[4], timezones[8]])
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    return (
+        <Select
+            width={350}
+            prefix={<IconLib icon="time" />}
+            suffix={<IconLib icon="chevron-down" />}
+            placeholder="Select a timezone"
+            selected={selected}
+            onSelect={handleSelect}
+            options={timezones.map((tz) => ({
+                key: tz,
+                label: tz,
+            }))}
+        />
+    )
+}
+```
+### Always Open
+<a name="alwaysopen"></a>
+
+export const AlwaysOpen = () => {
+    const [selected, setSelected] = useState([timezones[0], timezones[4], timezones[8]]);
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    return (<Select prefix={<IconLib icon="time"/>} suffix={<IconLib icon="chevron-down"/>} width={350} variant="static" placeholder="Select a timezone" selected={selected} onSelect={handleSelect} options={timezones.map((tz) => ({
+            key: tz,
+            label: tz,
+        }))}/>);
+};
+
+<div className="story-block">
+<AlwaysOpen />
+</div>
+
+<CodeComponent filename="AlwaysOpen.tsx" code="ZXhwb3J0IGNvbnN0IEFsd2F5c09wZW4gPSAoKSA9PiB7CiAgICBjb25zdCBbc2VsZWN0ZWQsIHNldFNlbGVjdGVkXSA9IHVzZVN0YXRlPGFueT4oW3RpbWV6b25lc1swXSwgdGltZXpvbmVzWzRdLCB0aW1lem9uZXNbOF1dKQoKICAgIGNvbnN0IGhhbmRsZVNlbGVjdCA9IChvcHRpb24sIGRpc21pc3MpID0+IHsKICAgICAgICBpZiAoc2VsZWN0ZWQuaW5jbHVkZXMob3B0aW9uLmtleSkpIHsKICAgICAgICAgICAgc2V0U2VsZWN0ZWQoWy4uLnNlbGVjdGVkLmZpbHRlcigob3B0aW9uS2V5KSA9PiBvcHRpb24ua2V5ICE9IG9wdGlvbktleSldKQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZCwgb3B0aW9uLmtleV0pCiAgICAgICAgfQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPFNlbGVjdAogICAgICAgICAgICBwcmVmaXg9ezxJY29uTGliIGljb249InRpbWUiIC8+fQogICAgICAgICAgICBzdWZmaXg9ezxJY29uTGliIGljb249ImNoZXZyb24tZG93biIgLz59CiAgICAgICAgICAgIHdpZHRoPXszNTB9CiAgICAgICAgICAgIHZhcmlhbnQ9InN0YXRpYyIKICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlNlbGVjdCBhIHRpbWV6b25lIgogICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgIG9uU2VsZWN0PXtoYW5kbGVTZWxlY3R9CiAgICAgICAgICAgIG9wdGlvbnM9e3RpbWV6b25lcy5tYXAoKHR6KSA9PiAoewogICAgICAgICAgICAgICAga2V5OiB0eiwKICAgICAgICAgICAgICAgIGxhYmVsOiB0eiwKICAgICAgICAgICAgfSkpfQogICAgICAgIC8+CiAgICApCn0=" />
+
+```tsx
+export const AlwaysOpen = () => {
+    const [selected, setSelected] = useState<any>([timezones[0], timezones[4], timezones[8]])
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    return (
+        <Select
+            prefix={<IconLib icon="time" />}
+            suffix={<IconLib icon="chevron-down" />}
+            width={350}
+            variant="static"
+            placeholder="Select a timezone"
+            selected={selected}
+            onSelect={handleSelect}
+            options={timezones.map((tz) => ({
+                key: tz,
+                label: tz,
+            }))}
+        />
+    )
+}
+```
+### States
+<a name="states"></a>
+
+export const States = () => {
+    const [selected, setSelected] = useState([]);
+    const options = timezones.map((tz) => ({
+        key: tz,
+        label: tz,
+    }));
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    return (<Stack direction="vertical" spacing={10}>
+            <Heading as="h4">Disabled</Heading>
+            <Select width={350} disabled placeholder="This is disabled" selected={selected} onSelect={handleSelect} options={options}/>
+            <Heading as="h4">Read only & dismiss on click</Heading>
+            <Select width={350} as="default" size="md" placeholder="Select a timezone!!!" disabled={false} readOnly selected={selected} options={options} header={<Text p={16}>Header</Text>} footer={<Text p={16}>Footer</Text>} onSelect={(option, dismiss) => {
+            dismiss();
+            setSelected([...selected, option.key]);
+        }} onFilter={(text) => console.log('Do API call with ' + text)} filterDelay={1000}/>
+        </Stack>);
+};
+
+<div className="story-block">
+<States />
+</div>
+
+<CodeComponent filename="States.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXRlcyA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGU8YW55PihbXSkKCiAgICBjb25zdCBvcHRpb25zID0gdGltZXpvbmVzLm1hcCgodHopID0+ICh7CiAgICAgICAga2V5OiB0eiwKICAgICAgICBsYWJlbDogdHosCiAgICB9KSkKCiAgICBjb25zdCBoYW5kbGVTZWxlY3QgPSAob3B0aW9uLCBkaXNtaXNzKSA9PiB7CiAgICAgICAgaWYgKHNlbGVjdGVkLmluY2x1ZGVzKG9wdGlvbi5rZXkpKSB7CiAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZC5maWx0ZXIoKG9wdGlvbktleSkgPT4gb3B0aW9uLmtleSAhPSBvcHRpb25LZXkpXSkKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQsIG9wdGlvbi5rZXldKQogICAgICAgIH0KICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxTdGFjawogICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICBzcGFjaW5nPXsxMH0+CiAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoNCI+RGlzYWJsZWQ8L0hlYWRpbmc+CiAgICAgICAgICAgIDxTZWxlY3QKICAgICAgICAgICAgICAgIHdpZHRoPXszNTB9CiAgICAgICAgICAgICAgICBkaXNhYmxlZAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlRoaXMgaXMgZGlzYWJsZWQiCiAgICAgICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgICAgICBvblNlbGVjdD17aGFuZGxlU2VsZWN0fQogICAgICAgICAgICAgICAgb3B0aW9ucz17b3B0aW9uc30KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPEhlYWRpbmcgYXM9Img0Ij5SZWFkIG9ubHkgJiBkaXNtaXNzIG9uIGNsaWNrPC9IZWFkaW5nPgogICAgICAgICAgICA8U2VsZWN0CiAgICAgICAgICAgICAgICB3aWR0aD17MzUwfQogICAgICAgICAgICAgICAgYXM9ImRlZmF1bHQiCiAgICAgICAgICAgICAgICBzaXplPSJtZCIKICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJTZWxlY3QgYSB0aW1lem9uZSEhISIKICAgICAgICAgICAgICAgIGRpc2FibGVkPXtmYWxzZX0KICAgICAgICAgICAgICAgIHJlYWRPbmx5CiAgICAgICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgICAgICBvcHRpb25zPXtvcHRpb25zfQogICAgICAgICAgICAgICAgaGVhZGVyPXs8VGV4dCBwPXsxNn0+SGVhZGVyPC9UZXh0Pn0KICAgICAgICAgICAgICAgIGZvb3Rlcj17PFRleHQgcD17MTZ9PkZvb3RlcjwvVGV4dD59CiAgICAgICAgICAgICAgICBvblNlbGVjdD17KG9wdGlvbiwgZGlzbWlzcykgPT4gewogICAgICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZCwgb3B0aW9uLmtleV0pCiAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgb25GaWx0ZXI9eyh0ZXh0OiBzdHJpbmcpID0+IGNvbnNvbGUubG9nKCdEbyBBUEkgY2FsbCB3aXRoICcgKyB0ZXh0KX0KICAgICAgICAgICAgICAgIGZpbHRlckRlbGF5PXsxMDAwfQogICAgICAgICAgICAvPgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
+
+```tsx
+export const States = () => {
+    const [selected, setSelected] = useState<any>([])
+
+    const options = timezones.map((tz) => ({
+        key: tz,
+        label: tz,
+    }))
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    return (
+        <Stack
+            direction="vertical"
+            spacing={10}>
+            <Heading as="h4">Disabled</Heading>
+            <Select
+                width={350}
+                disabled
+                placeholder="This is disabled"
+                selected={selected}
+                onSelect={handleSelect}
+                options={options}
+            />
+            <Heading as="h4">Read only & dismiss on click</Heading>
+            <Select
+                width={350}
+                as="default"
+                size="md"
+                placeholder="Select a timezone!!!"
+                disabled={false}
+                readOnly
+                selected={selected}
+                options={options}
+                header={<Text p={16}>Header</Text>}
+                footer={<Text p={16}>Footer</Text>}
+                onSelect={(option, dismiss) => {
+                    dismiss()
+                    setSelected([...selected, option.key])
+                }}
+                onFilter={(text: string) => console.log('Do API call with ' + text)}
+                filterDelay={1000}
+            />
+        </Stack>
+    )
+}
+```
+### Header And Footer
+<a name="headerandfooter"></a>
+
+export const HeaderAndFooter = () => {
+    const [selected, setSelected] = useState([timezones[1]]);
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    return (<Select width={350} placeholder="Select a timezone" selected={selected} onSelect={handleSelect} options={timezones.map((tz) => ({
+            key: tz,
+            label: tz,
+        }))} header={<Text size="sm" p={20} fontWeight="bold">
+                    Please select a timezone for your country.
+                </Text>} footer={<View row justifyContent="flex-start">
+                    <Text size="sm" p={20} as="a" onClick={() => setSelected([])}>
+                        Clear Selection
+                    </Text>
+                </View>}/>);
+};
+
+<div className="story-block">
+<HeaderAndFooter />
+</div>
+
+<CodeComponent filename="HeaderAndFooter.tsx" code="ZXhwb3J0IGNvbnN0IEhlYWRlckFuZEZvb3RlciA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGU8YW55PihbdGltZXpvbmVzWzFdXSkKCiAgICBjb25zdCBoYW5kbGVTZWxlY3QgPSAob3B0aW9uLCBkaXNtaXNzKSA9PiB7CiAgICAgICAgaWYgKHNlbGVjdGVkLmluY2x1ZGVzKG9wdGlvbi5rZXkpKSB7CiAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZC5maWx0ZXIoKG9wdGlvbktleSkgPT4gb3B0aW9uLmtleSAhPSBvcHRpb25LZXkpXSkKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQsIG9wdGlvbi5rZXldKQogICAgICAgIH0KICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxTZWxlY3QKICAgICAgICAgICAgd2lkdGg9ezM1MH0KICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlNlbGVjdCBhIHRpbWV6b25lIgogICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgIG9uU2VsZWN0PXtoYW5kbGVTZWxlY3R9CiAgICAgICAgICAgIG9wdGlvbnM9e3RpbWV6b25lcy5tYXAoKHR6KSA9PiAoewogICAgICAgICAgICAgICAga2V5OiB0eiwKICAgICAgICAgICAgICAgIGxhYmVsOiB0eiwKICAgICAgICAgICAgfSkpfQogICAgICAgICAgICBoZWFkZXI9ewogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgICAgICBwPXsyMH0KICAgICAgICAgICAgICAgICAgICBmb250V2VpZ2h0PSJib2xkIj4KICAgICAgICAgICAgICAgICAgICBQbGVhc2Ugc2VsZWN0IGEgdGltZXpvbmUgZm9yIHlvdXIgY291bnRyeS4KICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgfQogICAgICAgICAgICBmb290ZXI9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBqdXN0aWZ5Q29udGVudD0iZmxleC1zdGFydCI+CiAgICAgICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAgICAgICAgIHA9ezIwfQogICAgICAgICAgICAgICAgICAgICAgICBhcz0iYSIKICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gc2V0U2VsZWN0ZWQoW10pfT4KICAgICAgICAgICAgICAgICAgICAgICAgQ2xlYXIgU2VsZWN0aW9uCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICB9CiAgICAgICAgLz4KICAgICkKfQ==" />
+
+```tsx
+export const HeaderAndFooter = () => {
+    const [selected, setSelected] = useState<any>([timezones[1]])
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    return (
+        <Select
+            width={350}
+            placeholder="Select a timezone"
+            selected={selected}
+            onSelect={handleSelect}
+            options={timezones.map((tz) => ({
+                key: tz,
+                label: tz,
+            }))}
+            header={
+                <Text
+                    size="sm"
+                    p={20}
+                    fontWeight="bold">
+                    Please select a timezone for your country.
+                </Text>
+            }
+            footer={
+                <View
+                    row
+                    justifyContent="flex-start">
+                    <Text
+                        size="sm"
+                        p={20}
+                        as="a"
+                        onClick={() => setSelected([])}>
+                        Clear Selection
+                    </Text>
+                </View>
+            }
+        />
+    )
+}
+```
+### Filtering
+<a name="filtering"></a>
+
+export const Filtering = () => {
+    const [selected, setSelected] = useState([timezones[0], timezones[4], timezones[8]]);
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    const handleFilter = (text) => {
+    };
+    return (<Select width={350} placeholder="Select a timezone" selected={selected} options={timezones.map((tz) => ({
+            key: tz,
+            label: tz,
+        }))} onSelect={handleSelect} onFilter={handleFilter} prefix={<IconLib icon="time"/>} suffix={<IconLib icon="chevron-down"/>} filterDelay={500}/>);
+};
+
+<div className="story-block">
+<Filtering />
+</div>
+
+<CodeComponent filename="Filtering.tsx" code="ZXhwb3J0IGNvbnN0IEZpbHRlcmluZyA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGU8YW55PihbdGltZXpvbmVzWzBdLCB0aW1lem9uZXNbNF0sIHRpbWV6b25lc1s4XV0pCgogICAgY29uc3QgaGFuZGxlU2VsZWN0ID0gKG9wdGlvbiwgZGlzbWlzcykgPT4gewogICAgICAgIGlmIChzZWxlY3RlZC5pbmNsdWRlcyhvcHRpb24ua2V5KSkgewogICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQuZmlsdGVyKChvcHRpb25LZXkpID0+IG9wdGlvbi5rZXkgIT0gb3B0aW9uS2V5KV0pCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgc2V0U2VsZWN0ZWQoWy4uLnNlbGVjdGVkLCBvcHRpb24ua2V5XSkKICAgICAgICB9CiAgICB9CgogICAgY29uc3QgaGFuZGxlRmlsdGVyID0gKHRleHQ6IHN0cmluZykgPT4gewogICAgICAgIAogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPFNlbGVjdAogICAgICAgICAgICB3aWR0aD17MzUwfQogICAgICAgICAgICBwbGFjZWhvbGRlcj0iU2VsZWN0IGEgdGltZXpvbmUiCiAgICAgICAgICAgIHNlbGVjdGVkPXtzZWxlY3RlZH0KICAgICAgICAgICAgb3B0aW9ucz17dGltZXpvbmVzLm1hcCgodHopID0+ICh7CiAgICAgICAgICAgICAgICBrZXk6IHR6LAogICAgICAgICAgICAgICAgbGFiZWw6IHR6LAogICAgICAgICAgICB9KSl9CiAgICAgICAgICAgIG9uU2VsZWN0PXtoYW5kbGVTZWxlY3R9CiAgICAgICAgICAgIG9uRmlsdGVyPXtoYW5kbGVGaWx0ZXJ9CiAgICAgICAgICAgIHByZWZpeD17PEljb25MaWIgaWNvbj0idGltZSIgLz59CiAgICAgICAgICAgIHN1ZmZpeD17PEljb25MaWIgaWNvbj0iY2hldnJvbi1kb3duIiAvPn0KICAgICAgICAgICAgZmlsdGVyRGVsYXk9ezUwMH0KICAgICAgICAvPgogICAgKQp9" />
+
+```tsx
+export const Filtering = () => {
+    const [selected, setSelected] = useState<any>([timezones[0], timezones[4], timezones[8]])
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    const handleFilter = (text: string) => {
+        
+    }
+
+    return (
+        <Select
+            width={350}
+            placeholder="Select a timezone"
+            selected={selected}
+            options={timezones.map((tz) => ({
+                key: tz,
+                label: tz,
+            }))}
+            onSelect={handleSelect}
+            onFilter={handleFilter}
+            prefix={<IconLib icon="time" />}
+            suffix={<IconLib icon="chevron-down" />}
+            filterDelay={500}
+        />
+    )
+}
+```
+### Custom Rendering
+<a name="customrendering"></a>
+
+export const CustomRendering = () => {
+    const [notFound, setNotFound] = useState(false);
+    const [selected, setSelected] = useState([timezones[0], timezones[4], timezones[8]]);
+    const options = timezones.map((tz) => ({
+        key: tz,
+        label: tz,
+    }));
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    const notFoundItem = () => {
+        if (notFound) {
+            return [{ key: 'x', label: 'Create', sticky: true }];
+        }
+        else {
+            return [];
+        }
+    };
+    return (<Select width={350} hideSelected placeholder="Select a timezone" disabled={false} readOnly={false} selected={selected} options={[...notFoundItem(), ...options]} onSelect={handleSelect} onFilter={(text) => setNotFound(!!text)} prefix={<div style={{ padding: '0 0.5rem' }} className="f-buttonize">
+                    🚀
+                </div>} filterDelay={500} render={() => {
+            return (<>
+                        {selected.map((s1, i) => (<Pill key={i} outline color={Token.ColorElectric300} suffix={<Icon icon="x" onClick={(e) => {
+                            setSelected(selected.filter((s2) => s1 != s2));
+                        }}/>}>
+                                {s1}
+                            </Pill>))}
+                    </>);
+        }}/>);
+};
+
+<div className="story-block">
+<CustomRendering />
+</div>
+
+<CodeComponent filename="CustomRendering.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVJlbmRlcmluZyA9ICgpID0+IHsKICAgIGNvbnN0IFtub3RGb3VuZCwgc2V0Tm90Rm91bmRdID0gdXNlU3RhdGUoZmFsc2UpCiAgICBjb25zdCBbc2VsZWN0ZWQsIHNldFNlbGVjdGVkXSA9IHVzZVN0YXRlPGFueT4oW3RpbWV6b25lc1swXSwgdGltZXpvbmVzWzRdLCB0aW1lem9uZXNbOF1dKQoKICAgIGNvbnN0IG9wdGlvbnMgPSB0aW1lem9uZXMubWFwKCh0eikgPT4gKHsKICAgICAgICBrZXk6IHR6LAogICAgICAgIGxhYmVsOiB0eiwKICAgIH0pKQoKICAgIGNvbnN0IGhhbmRsZVNlbGVjdCA9IChvcHRpb24sIGRpc21pc3MpID0+IHsKICAgICAgICBpZiAoc2VsZWN0ZWQuaW5jbHVkZXMob3B0aW9uLmtleSkpIHsKICAgICAgICAgICAgc2V0U2VsZWN0ZWQoWy4uLnNlbGVjdGVkLmZpbHRlcigob3B0aW9uS2V5KSA9PiBvcHRpb24ua2V5ICE9IG9wdGlvbktleSldKQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZCwgb3B0aW9uLmtleV0pCiAgICAgICAgfQogICAgfQoKICAgIGNvbnN0IG5vdEZvdW5kSXRlbSA9ICgpID0+IHsKICAgICAgICBpZiAobm90Rm91bmQpIHsKICAgICAgICAgICAgcmV0dXJuIFt7IGtleTogJ3gnLCBsYWJlbDogJ0NyZWF0ZScsIHN0aWNreTogdHJ1ZSB9XQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIHJldHVybiBbXQogICAgICAgIH0KICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxTZWxlY3QKICAgICAgICAgICAgd2lkdGg9ezM1MH0KICAgICAgICAgICAgaGlkZVNlbGVjdGVkCiAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJTZWxlY3QgYSB0aW1lem9uZSIKICAgICAgICAgICAgZGlzYWJsZWQ9e2ZhbHNlfQogICAgICAgICAgICByZWFkT25seT17ZmFsc2V9CiAgICAgICAgICAgIHNlbGVjdGVkPXtzZWxlY3RlZH0KICAgICAgICAgICAgb3B0aW9ucz17Wy4uLm5vdEZvdW5kSXRlbSgpLCAuLi5vcHRpb25zXX0KICAgICAgICAgICAgb25TZWxlY3Q9e2hhbmRsZVNlbGVjdH0KICAgICAgICAgICAgb25GaWx0ZXI9eyh0ZXh0OiBzdHJpbmcpID0+IHNldE5vdEZvdW5kKCEhdGV4dCl9CiAgICAgICAgICAgIHByZWZpeD17CiAgICAgICAgICAgICAgICA8ZGl2CiAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3sgcGFkZGluZzogJzAgMC41cmVtJyB9fQogICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0iZi1idXR0b25pemUiPgogICAgICAgICAgICAgICAgICAgIPCfmoAKICAgICAgICAgICAgICAgIDwvZGl2PgogICAgICAgICAgICB9CiAgICAgICAgICAgIGZpbHRlckRlbGF5PXs1MDB9CiAgICAgICAgICAgIHJlbmRlcj17KCkgPT4gewogICAgICAgICAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgICAgICAgICA8PgogICAgICAgICAgICAgICAgICAgICAgICB7c2VsZWN0ZWQubWFwKChzMSwgaSkgPT4gKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgPFBpbGwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBrZXk9e2l9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb3V0bGluZQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvckVsZWN0cmljMzAwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN1ZmZpeD17CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxJY29uCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpY29uPSJ4IgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KGUpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZXRTZWxlY3RlZChzZWxlY3RlZC5maWx0ZXIoKHMyKSA9PiBzMSAhPSBzMikpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge3MxfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9QaWxsPgogICAgICAgICAgICAgICAgICAgICAgICApKX0KICAgICAgICAgICAgICAgICAgICA8Lz4KICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgfX0KICAgICAgICAvPgogICAgKQp9" />
+
+```tsx
+export const CustomRendering = () => {
+    const [notFound, setNotFound] = useState(false)
+    const [selected, setSelected] = useState<any>([timezones[0], timezones[4], timezones[8]])
+
+    const options = timezones.map((tz) => ({
+        key: tz,
+        label: tz,
+    }))
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    const notFoundItem = () => {
+        if (notFound) {
+            return [{ key: 'x', label: 'Create', sticky: true }]
+        } else {
+            return []
+        }
+    }
+
+    return (
+        <Select
+            width={350}
+            hideSelected
+            placeholder="Select a timezone"
+            disabled={false}
+            readOnly={false}
+            selected={selected}
+            options={[...notFoundItem(), ...options]}
+            onSelect={handleSelect}
+            onFilter={(text: string) => setNotFound(!!text)}
+            prefix={
+                <div
+                    style={{ padding: '0 0.5rem' }}
+                    className="f-buttonize">
+                    🚀
+                </div>
+            }
+            filterDelay={500}
+            render={() => {
+                return (
+                    <>
+                        {selected.map((s1, i) => (
+                            <Pill
+                                key={i}
+                                outline
+                                color={Token.ColorElectric300}
+                                suffix={
+                                    <Icon
+                                        icon="x"
+                                        onClick={(e) => {
+                                            setSelected(selected.filter((s2) => s1 != s2))
+                                        }}
+                                    />
+                                }>
+                                {s1}
+                            </Pill>
+                        ))}
+                    </>
+                )
+            }}
+        />
+    )
+}
+```
+### List Virtualization
+<a name="listvirtualization"></a>
+
+> List virtualization only displays the options in the view pane, enabling better performance
+and handling large datasets. Please note this feature is in beta,
+
+export const ListVirtualization = () => {
+    const [selected, setSelected] = useState([timezones[0], timezones[4], timezones[8]]);
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    return (<Select width={350} as="virtual" placeholder="Select a timezone" selected={selected} onSelect={handleSelect} options={timezones.map((tz) => ({
+            key: tz,
+            label: tz,
+        }))}/>);
+};
+
+<div className="story-block">
+<ListVirtualization />
+</div>
+
+<CodeComponent filename="ListVirtualization.tsx" code="ZXhwb3J0IGNvbnN0IExpc3RWaXJ0dWFsaXphdGlvbiA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGU8YW55PihbdGltZXpvbmVzWzBdLCB0aW1lem9uZXNbNF0sIHRpbWV6b25lc1s4XV0pCgogICAgY29uc3QgaGFuZGxlU2VsZWN0ID0gKG9wdGlvbiwgZGlzbWlzcykgPT4gewogICAgICAgIGlmIChzZWxlY3RlZC5pbmNsdWRlcyhvcHRpb24ua2V5KSkgewogICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQuZmlsdGVyKChvcHRpb25LZXkpID0+IG9wdGlvbi5rZXkgIT0gb3B0aW9uS2V5KV0pCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgc2V0U2VsZWN0ZWQoWy4uLnNlbGVjdGVkLCBvcHRpb24ua2V5XSkKICAgICAgICB9CiAgICB9CgogICAgcmV0dXJuICgKICAgICAgICA8U2VsZWN0CiAgICAgICAgICAgIHdpZHRoPXszNTB9CiAgICAgICAgICAgIGFzPSJ2aXJ0dWFsIgogICAgICAgICAgICBwbGFjZWhvbGRlcj0iU2VsZWN0IGEgdGltZXpvbmUiCiAgICAgICAgICAgIHNlbGVjdGVkPXtzZWxlY3RlZH0KICAgICAgICAgICAgb25TZWxlY3Q9e2hhbmRsZVNlbGVjdH0KICAgICAgICAgICAgb3B0aW9ucz17dGltZXpvbmVzLm1hcCgodHopID0+ICh7CiAgICAgICAgICAgICAgICBrZXk6IHR6LAogICAgICAgICAgICAgICAgbGFiZWw6IHR6LAogICAgICAgICAgICB9KSl9CiAgICAgICAgLz4KICAgICkKfQ==" />
+
+```tsx
+export const ListVirtualization = () => {
+    const [selected, setSelected] = useState<any>([timezones[0], timezones[4], timezones[8]])
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    return (
+        <Select
+            width={350}
+            as="virtual"
+            placeholder="Select a timezone"
+            selected={selected}
+            onSelect={handleSelect}
+            options={timezones.map((tz) => ({
+                key: tz,
+                label: tz,
+            }))}
+        />
+    )
+}
+```
+### Standalone List Default
+<a name="standalonelistdefault"></a>
+
+export const StandaloneListDefault = () => {
+    const [selected, setSelected] = useState([timezones[0], timezones[4], timezones[8]]);
+    const options = timezones.map((option, index) => {
+        return {
+            key: option,
+            label: option,
+        };
+    });
+    const [cursor, setCursor] = useState(-1);
+    const listRef = useRef(null);
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    return (<SelectList ref={listRef} as="default" cursor={cursor} options={options} selected={selected} onOptionClick={handleSelect}/>);
+};
+
+<div className="story-block">
+<StandaloneListDefault />
+</div>
+
+<CodeComponent filename="StandaloneListDefault.tsx" code="ZXhwb3J0IGNvbnN0IFN0YW5kYWxvbmVMaXN0RGVmYXVsdCA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGU8YW55PihbdGltZXpvbmVzWzBdLCB0aW1lem9uZXNbNF0sIHRpbWV6b25lc1s4XV0pCiAgICBjb25zdCBvcHRpb25zID0gdGltZXpvbmVzLm1hcCgob3B0aW9uOiBhbnksIGluZGV4KSA9PiB7CiAgICAgICAgcmV0dXJuIHsKICAgICAgICAgICAga2V5OiBvcHRpb24sCiAgICAgICAgICAgIGxhYmVsOiBvcHRpb24sCiAgICAgICAgfQogICAgfSkKICAgIGNvbnN0IFtjdXJzb3IsIHNldEN1cnNvcl0gPSB1c2VTdGF0ZSgtMSkKICAgIGNvbnN0IGxpc3RSZWYgPSB1c2VSZWYobnVsbCkKCiAgICBjb25zdCBoYW5kbGVTZWxlY3QgPSAob3B0aW9uLCBkaXNtaXNzKSA9PiB7CiAgICAgICAgaWYgKHNlbGVjdGVkLmluY2x1ZGVzKG9wdGlvbi5rZXkpKSB7CiAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZC5maWx0ZXIoKG9wdGlvbktleSkgPT4gb3B0aW9uLmtleSAhPSBvcHRpb25LZXkpXSkKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQsIG9wdGlvbi5rZXldKQogICAgICAgIH0KICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxTZWxlY3RMaXN0CiAgICAgICAgICAgIHJlZj17bGlzdFJlZn0KICAgICAgICAgICAgYXM9ImRlZmF1bHQiCiAgICAgICAgICAgIGN1cnNvcj17Y3Vyc29yfQogICAgICAgICAgICBvcHRpb25zPXtvcHRpb25zfQogICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgIG9uT3B0aW9uQ2xpY2s9e2hhbmRsZVNlbGVjdH0KICAgICAgICAvPgogICAgKQp9" />
+
+```tsx
+export const StandaloneListDefault = () => {
+    const [selected, setSelected] = useState<any>([timezones[0], timezones[4], timezones[8]])
+    const options = timezones.map((option: any, index) => {
+        return {
+            key: option,
+            label: option,
+        }
+    })
+    const [cursor, setCursor] = useState(-1)
+    const listRef = useRef(null)
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    return (
+        <SelectList
+            ref={listRef}
+            as="default"
+            cursor={cursor}
+            options={options}
+            selected={selected}
+            onOptionClick={handleSelect}
+        />
+    )
+}
+```
+### Standalone List Virtual
+<a name="standalonelistvirtual"></a>
+
+export const StandaloneListVirtual = () => {
+    const [selected, setSelected] = useState([timezones[0], timezones[4], timezones[8]]);
+    const options = timezones.map((option, index) => {
+        return {
+            key: option,
+            label: option,
+        };
+    });
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    return (<SelectList as="virtual" options={options} selected={selected} onOptionClick={handleSelect}/>);
+};
+
+<div className="story-block">
+<StandaloneListVirtual />
+</div>
+
+<CodeComponent filename="StandaloneListVirtual.tsx" code="ZXhwb3J0IGNvbnN0IFN0YW5kYWxvbmVMaXN0VmlydHVhbCA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGU8YW55PihbdGltZXpvbmVzWzBdLCB0aW1lem9uZXNbNF0sIHRpbWV6b25lc1s4XV0pCgogICAgY29uc3Qgb3B0aW9ucyA9IHRpbWV6b25lcy5tYXAoKG9wdGlvbjogYW55LCBpbmRleCkgPT4gewogICAgICAgIHJldHVybiB7CiAgICAgICAgICAgIGtleTogb3B0aW9uLAogICAgICAgICAgICBsYWJlbDogb3B0aW9uLAogICAgICAgIH0KICAgIH0pCgogICAgY29uc3QgaGFuZGxlU2VsZWN0ID0gKG9wdGlvbiwgZGlzbWlzcykgPT4gewogICAgICAgIGlmIChzZWxlY3RlZC5pbmNsdWRlcyhvcHRpb24ua2V5KSkgewogICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQuZmlsdGVyKChvcHRpb25LZXkpID0+IG9wdGlvbi5rZXkgIT0gb3B0aW9uS2V5KV0pCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgc2V0U2VsZWN0ZWQoWy4uLnNlbGVjdGVkLCBvcHRpb24ua2V5XSkKICAgICAgICB9CiAgICB9CgogICAgcmV0dXJuICgKICAgICAgICA8U2VsZWN0TGlzdAogICAgICAgICAgICBhcz0idmlydHVhbCIKICAgICAgICAgICAgb3B0aW9ucz17b3B0aW9uc30KICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICBvbk9wdGlvbkNsaWNrPXtoYW5kbGVTZWxlY3R9CiAgICAgICAgLz4KICAgICkKfQ==" />
+
+```tsx
+export const StandaloneListVirtual = () => {
+    const [selected, setSelected] = useState<any>([timezones[0], timezones[4], timezones[8]])
+
+    const options = timezones.map((option: any, index) => {
+        return {
+            key: option,
+            label: option,
+        }
+    })
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    return (
+        <SelectList
+            as="virtual"
+            options={options}
+            selected={selected}
+            onOptionClick={handleSelect}
+        />
+    )
+}
+```
+### Option Configuration And Forced Placeholder
+<a name="optionconfigurationandforcedplaceholder"></a>
+
+export const OptionConfigurationAndForcedPlaceholder = () => {
+    const [selected, setSelected] = useState([]);
+    const options = timezones.map((option, index) => {
+        return {
+            key: option,
+            label: option,
+            disabled: index % 7 == 0,
+            customContent: index == 4 ? (<View p="1rem 0">
+                        <Divider />
+                    </View>) : null,
+        };
+    });
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    const handleFilter = (text) => {
+    };
+    return (<Select width={350} as="virtual" prefix={<IconLib icon="time"/>} suffix={<IconLib icon="chevron-down"/>} customPlaceholder={`Timezones selected: ${selected.length}`} placeholder="" disabled={false} readOnly={false} selected={selected} options={options} header={undefined} footer={undefined} onSelect={handleSelect} onFilter={handleFilter} filterDelay={1000}/>);
+};
+
+<div className="story-block">
+<OptionConfigurationAndForcedPlaceholder />
+</div>
+
+<CodeComponent filename="OptionConfigurationAndForcedPlaceholder.tsx" code="ZXhwb3J0IGNvbnN0IE9wdGlvbkNvbmZpZ3VyYXRpb25BbmRGb3JjZWRQbGFjZWhvbGRlciA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGU8YW55PihbXSkKCiAgICBjb25zdCBvcHRpb25zID0gdGltZXpvbmVzLm1hcCgob3B0aW9uOiBhbnksIGluZGV4KTogU2VsZWN0T3B0aW9uID0+IHsKICAgICAgICByZXR1cm4gewogICAgICAgICAgICBrZXk6IG9wdGlvbiwKICAgICAgICAgICAgbGFiZWw6IG9wdGlvbiwKICAgICAgICAgICAgZGlzYWJsZWQ6IGluZGV4ICUgNyA9PSAwLAogICAgICAgICAgICBjdXN0b21Db250ZW50OgogICAgICAgICAgICAgICAgaW5kZXggPT0gNCA/ICgKICAgICAgICAgICAgICAgICAgICA8VmlldyBwPSIxcmVtIDAiPgogICAgICAgICAgICAgICAgICAgICAgICA8RGl2aWRlciAvPgogICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgICkgOiBudWxsLAogICAgICAgIH0KICAgIH0pCgogICAgY29uc3QgaGFuZGxlU2VsZWN0ID0gKG9wdGlvbiwgZGlzbWlzcykgPT4gewogICAgICAgIGlmIChzZWxlY3RlZC5pbmNsdWRlcyhvcHRpb24ua2V5KSkgewogICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQuZmlsdGVyKChvcHRpb25LZXkpID0+IG9wdGlvbi5rZXkgIT0gb3B0aW9uS2V5KV0pCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgc2V0U2VsZWN0ZWQoWy4uLnNlbGVjdGVkLCBvcHRpb24ua2V5XSkKICAgICAgICB9CiAgICB9CgogICAgY29uc3QgaGFuZGxlRmlsdGVyID0gKHRleHQ6IHN0cmluZykgPT4gewogICAgICAgIAogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPFNlbGVjdAogICAgICAgICAgICB3aWR0aD17MzUwfQogICAgICAgICAgICBhcz0idmlydHVhbCIKICAgICAgICAgICAgcHJlZml4PXs8SWNvbkxpYiBpY29uPSJ0aW1lIiAvPn0KICAgICAgICAgICAgc3VmZml4PXs8SWNvbkxpYiBpY29uPSJjaGV2cm9uLWRvd24iIC8+fQogICAgICAgICAgICBjdXN0b21QbGFjZWhvbGRlcj17YFRpbWV6b25lcyBzZWxlY3RlZDogJHtzZWxlY3RlZC5sZW5ndGh9YH0KICAgICAgICAgICAgcGxhY2Vob2xkZXI9IiIKICAgICAgICAgICAgZGlzYWJsZWQ9e2ZhbHNlfQogICAgICAgICAgICByZWFkT25seT17ZmFsc2V9CiAgICAgICAgICAgIHNlbGVjdGVkPXtzZWxlY3RlZH0KICAgICAgICAgICAgb3B0aW9ucz17b3B0aW9uc30KICAgICAgICAgICAgaGVhZGVyPXt1bmRlZmluZWR9CiAgICAgICAgICAgIGZvb3Rlcj17dW5kZWZpbmVkfQogICAgICAgICAgICBvblNlbGVjdD17aGFuZGxlU2VsZWN0fQogICAgICAgICAgICBvbkZpbHRlcj17aGFuZGxlRmlsdGVyfQogICAgICAgICAgICBmaWx0ZXJEZWxheT17MTAwMH0KICAgICAgICAvPgogICAgKQp9" />
+
+```tsx
+export const OptionConfigurationAndForcedPlaceholder = () => {
+    const [selected, setSelected] = useState<any>([])
+
+    const options = timezones.map((option: any, index): SelectOption => {
+        return {
+            key: option,
+            label: option,
+            disabled: index % 7 == 0,
+            customContent:
+                index == 4 ? (
+                    <View p="1rem 0">
+                        <Divider />
+                    </View>
+                ) : null,
+        }
+    })
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    const handleFilter = (text: string) => {
+        
+    }
+
+    return (
+        <Select
+            width={350}
+            as="virtual"
+            prefix={<IconLib icon="time" />}
+            suffix={<IconLib icon="chevron-down" />}
+            customPlaceholder={`Timezones selected: ${selected.length}`}
+            placeholder=""
+            disabled={false}
+            readOnly={false}
+            selected={selected}
+            options={options}
+            header={undefined}
+            footer={undefined}
+            onSelect={handleSelect}
+            onFilter={handleFilter}
+            filterDelay={1000}
+        />
+    )
+}
+```
+### Custom Component
+<a name="customcomponent"></a>
+
+export const CustomComponent = () => {
+    const [selected, setSelected] = useState([timezones[0], timezones[4], timezones[8]]);
+    const options = timezones.map((option, index) => {
+        return {
+            key: option,
+            label: option,
+        };
+    });
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)]);
+        }
+        else {
+            setSelected([...selected, option.key]);
+        }
+    };
+    const handleFilter = (text) => {
+    };
+    const OptionComponent = (props) => {
+        const { option, onOptionClick, selected } = props;
+        const { key, label } = option;
+        const title = useMemo(() => label.split('/').join(' '), [label]);
+        return (<View row p={10} gap={10} className="f-buttonize" justifyContent="flex-start" onClick={onOptionClick} bgToken={selected ? 'surface-stronger' : undefined}>
+                <Avatar size="md" name={title}/>
+                <View column alignItems="flex-start" flex={1}>
+                    <Text>{title}</Text>
+                    <Text size="sm">{key}</Text>
+                </View>
+            </View>);
+    };
+    return (<Select width={350} placeholder="Select a timezone" selected={selected} options={options} onSelect={handleSelect} onFilter={handleFilter} filterDelay={1000} optionComponent={OptionComponent}/>);
+};
+
+<div className="story-block">
+<CustomComponent />
+</div>
+
+<CodeComponent filename="CustomComponent.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbUNvbXBvbmVudCA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGU8YW55PihbdGltZXpvbmVzWzBdLCB0aW1lem9uZXNbNF0sIHRpbWV6b25lc1s4XV0pCgogICAgY29uc3Qgb3B0aW9ucyA9IHRpbWV6b25lcy5tYXAoKG9wdGlvbjogYW55LCBpbmRleCkgPT4gewogICAgICAgIHJldHVybiB7CiAgICAgICAgICAgIGtleTogb3B0aW9uLAogICAgICAgICAgICBsYWJlbDogb3B0aW9uLAogICAgICAgIH0KICAgIH0pCgogICAgY29uc3QgaGFuZGxlU2VsZWN0ID0gKG9wdGlvbiwgZGlzbWlzcykgPT4gewogICAgICAgIGlmIChzZWxlY3RlZC5pbmNsdWRlcyhvcHRpb24ua2V5KSkgewogICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQuZmlsdGVyKChvcHRpb25LZXkpID0+IG9wdGlvbi5rZXkgIT0gb3B0aW9uS2V5KV0pCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgc2V0U2VsZWN0ZWQoWy4uLnNlbGVjdGVkLCBvcHRpb24ua2V5XSkKICAgICAgICB9CiAgICB9CgogICAgY29uc3QgaGFuZGxlRmlsdGVyID0gKHRleHQ6IHN0cmluZykgPT4gewogICAgICAgIAogICAgfQoKICAgIAogICAgCiAgICAKICAgIGNvbnN0IE9wdGlvbkNvbXBvbmVudCA9IChwcm9wczogU2VsZWN0T3B0aW9uUHJvcHMpID0+IHsKICAgICAgICBjb25zdCB7IG9wdGlvbiwgb25PcHRpb25DbGljaywgc2VsZWN0ZWQgfSA9IHByb3BzCiAgICAgICAgY29uc3QgeyBrZXksIGxhYmVsIH0gPSBvcHRpb24KICAgICAgICBjb25zdCB0aXRsZSA9IHVzZU1lbW8oKCkgPT4gbGFiZWwuc3BsaXQoJy8nKS5qb2luKCcgJyksIFtsYWJlbF0pCgogICAgICAgIHJldHVybiAoCiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0iZi1idXR0b25pemUiCiAgICAgICAgICAgICAgICBqdXN0aWZ5Q29udGVudD0iZmxleC1zdGFydCIKICAgICAgICAgICAgICAgIG9uQ2xpY2s9e29uT3B0aW9uQ2xpY2t9CiAgICAgICAgICAgICAgICBiZ1Rva2VuPXtzZWxlY3RlZCA/ICdzdXJmYWNlLXN0cm9uZ2VyJyA6IHVuZGVmaW5lZH0+CiAgICAgICAgICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgICAgICAgICAgc2l6ZT0ibWQiCiAgICAgICAgICAgICAgICAgICAgbmFtZT17dGl0bGV9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0IgogICAgICAgICAgICAgICAgICAgIGZsZXg9ezF9PgogICAgICAgICAgICAgICAgICAgIDxUZXh0Pnt0aXRsZX08L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPFRleHQgc2l6ZT0ic20iPntrZXl9PC9UZXh0PgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgKQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPFNlbGVjdAogICAgICAgICAgICB3aWR0aD17MzUwfQogICAgICAgICAgICBwbGFjZWhvbGRlcj0iU2VsZWN0IGEgdGltZXpvbmUiCiAgICAgICAgICAgIHNlbGVjdGVkPXtzZWxlY3RlZH0KICAgICAgICAgICAgb3B0aW9ucz17b3B0aW9uc30KICAgICAgICAgICAgb25TZWxlY3Q9e2hhbmRsZVNlbGVjdH0KICAgICAgICAgICAgb25GaWx0ZXI9e2hhbmRsZUZpbHRlcn0KICAgICAgICAgICAgZmlsdGVyRGVsYXk9ezEwMDB9CiAgICAgICAgICAgIG9wdGlvbkNvbXBvbmVudD17T3B0aW9uQ29tcG9uZW50fQogICAgICAgIC8+CiAgICApCn0=" />
+
+```tsx
+export const CustomComponent = () => {
+    const [selected, setSelected] = useState<any>([timezones[0], timezones[4], timezones[8]])
+
+    const options = timezones.map((option: any, index) => {
+        return {
+            key: option,
+            label: option,
+        }
+    })
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    const handleFilter = (text: string) => {
+        
+    }
+
+    
+    
+    
+    const OptionComponent = (props: SelectOptionProps) => {
+        const { option, onOptionClick, selected } = props
+        const { key, label } = option
+        const title = useMemo(() => label.split('/').join(' '), [label])
+
+        return (
+            <View
+                row
+                p={10}
+                gap={10}
+                className="f-buttonize"
+                justifyContent="flex-start"
+                onClick={onOptionClick}
+                bgToken={selected ? 'surface-stronger' : undefined}>
+                <Avatar
+                    size="md"
+                    name={title}
+                />
+                <View
+                    column
+                    alignItems="flex-start"
+                    flex={1}>
+                    <Text>{title}</Text>
+                    <Text size="sm">{key}</Text>
+                </View>
+            </View>
+        )
+    }
+
+    return (
+        <Select
+            width={350}
+            placeholder="Select a timezone"
+            selected={selected}
+            options={options}
+            onSelect={handleSelect}
+            onFilter={handleFilter}
+            filterDelay={1000}
+            optionComponent={OptionComponent}
+        />
+    )
+}
+```
+### Combo
+<a name="combo"></a>
+
+> The Combo select uses the ComboInput component to enable a common tag-like user experience
+
+export const Combo = () => {
+    const labels = [
+        'component',
+        'frontend',
+        'dev',
+        'ux',
+        'work',
+        'home',
+        'school',
+        'everything else',
+        'urgent',
+        'roadmap',
+        'design tokens',
+        'react',
+        'web components',
+        'vue',
+        'angular',
+    ];
+    const [selected, setSelected] = useState(['web components', 'vue', 'angular']);
+    const [notFound, setNotFound] = useState(null);
+    const options = [...labels].map((option, index) => {
+        return {
+            key: option,
+            label: option,
+            suffix: <IconLib icon="tag"/>,
+            disabled: false,
+            customContent: null,
+        };
+    });
+    const notFoundItem = () => {
+        if (notFound) {
+            return [
+                {
+                    key: notFound,
+                    label: 'Create <strong>' + notFound + '</strong>',
+                    suffix: (<Pill subtle prefix={<IconLib icon="plus" size="xs" strokeWidth={2}/>} color={Token.ColorElectric300} size="xs">
+                            New
+                        </Pill>),
+                    sticky: true,
+                },
+            ];
+        }
+        else {
+            return [];
+        }
+    };
+    const handleInputKeyDown = (e) => {
+        const { isBackspace } = getKey(e);
+        const isEmpty = e.target.value == '';
+        if (isBackspace && isEmpty)
+            setSelected([...selected.slice(0, -1)]);
+    };
+    return (<Select combo as="default" width={500} placeholder="Select a label" disabled={false} readOnly={false} selected={selected} options={[...notFoundItem(), ...options]} filterDelay={1000} comboInputFieldProps={{ onKeyDown: handleInputKeyDown }} onSelect={(option, dismiss, clear) => {
+            clear();
+            setSelected([...selected, option.key]);
+            if (notFound)
+                setNotFound(null);
+        }} onFilter={(text) => {
+            const filteredOptions = options.filter((option) => option.label.toLowerCase().includes(text.toLowerCase()));
+            setNotFound(filteredOptions.length == 0 ? text : null);
+        }} render={() => {
+            return (<>
+                        {selected.map((s1, i) => (<Pill key={i} outline color={Token.ColorElectric300} size="sm" suffix={<IconLib icon="x" onClick={(e) => {
+                            setSelected(selected.filter((s2) => s1 != s2));
+                        }}/>}>
+                                {s1}
+                            </Pill>))}
+                    </>);
+        }}/>);
+};
+
+<div className="story-block">
+<Combo />
+</div>
+
+<CodeComponent filename="Combo.tsx" code="ZXhwb3J0IGNvbnN0IENvbWJvID0gKCkgPT4gewogICAgY29uc3QgbGFiZWxzID0gWwogICAgICAgICdjb21wb25lbnQnLAogICAgICAgICdmcm9udGVuZCcsCiAgICAgICAgJ2RldicsCiAgICAgICAgJ3V4JywKICAgICAgICAnd29yaycsCiAgICAgICAgJ2hvbWUnLAogICAgICAgICdzY2hvb2wnLAogICAgICAgICdldmVyeXRoaW5nIGVsc2UnLAogICAgICAgICd1cmdlbnQnLAogICAgICAgICdyb2FkbWFwJywKICAgICAgICAnZGVzaWduIHRva2VucycsCiAgICAgICAgJ3JlYWN0JywKICAgICAgICAnd2ViIGNvbXBvbmVudHMnLAogICAgICAgICd2dWUnLAogICAgICAgICdhbmd1bGFyJywKICAgIF0KICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGU8YW55PihbJ3dlYiBjb21wb25lbnRzJywgJ3Z1ZScsICdhbmd1bGFyJ10pCiAgICBjb25zdCBbbm90Rm91bmQsIHNldE5vdEZvdW5kXSA9IHVzZVN0YXRlPGFueT4obnVsbCkKICAgIGNvbnN0IG9wdGlvbnMgPSBbLi4ubGFiZWxzXS5tYXAoKG9wdGlvbjogYW55LCBpbmRleCkgPT4gewogICAgICAgIHJldHVybiB7CiAgICAgICAgICAgIGtleTogb3B0aW9uLAogICAgICAgICAgICBsYWJlbDogb3B0aW9uLAogICAgICAgICAgICBzdWZmaXg6IDxJY29uTGliIGljb249InRhZyIgLz4sCiAgICAgICAgICAgIGRpc2FibGVkOiBmYWxzZSwKICAgICAgICAgICAgY3VzdG9tQ29udGVudDogbnVsbCwKICAgICAgICB9CiAgICB9KQoKICAgIGNvbnN0IG5vdEZvdW5kSXRlbSA9ICgpID0+IHsKICAgICAgICBpZiAobm90Rm91bmQpIHsKICAgICAgICAgICAgcmV0dXJuIFsKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBrZXk6IG5vdEZvdW5kLAogICAgICAgICAgICAgICAgICAgIGxhYmVsOiAnQ3JlYXRlIDxzdHJvbmc+JyArIG5vdEZvdW5kICsgJzwvc3Ryb25nPicsCiAgICAgICAgICAgICAgICAgICAgc3VmZml4OiAoCiAgICAgICAgICAgICAgICAgICAgICAgIDxQaWxsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdWJ0bGUKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHByZWZpeD17CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEljb25MaWIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWNvbj0icGx1cyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZT0ieHMiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoPXsyfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JFbGVjdHJpYzMwMH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNpemU9InhzIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5ldwogICAgICAgICAgICAgICAgICAgICAgICA8L1BpbGw+CiAgICAgICAgICAgICAgICAgICAgKSwKICAgICAgICAgICAgICAgICAgICBzdGlja3k6IHRydWUsCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICBdCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgcmV0dXJuIFtdCiAgICAgICAgfQogICAgfQoKICAgIGNvbnN0IGhhbmRsZUlucHV0S2V5RG93biA9IChlKSA9PiB7CiAgICAgICAgY29uc3QgeyBpc0JhY2tzcGFjZSB9ID0gZ2V0S2V5KGUpCiAgICAgICAgY29uc3QgaXNFbXB0eSA9IGUudGFyZ2V0LnZhbHVlID09ICcnCiAgICAgICAgaWYgKGlzQmFja3NwYWNlICYmIGlzRW1wdHkpIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZC5zbGljZSgwLCAtMSldKQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPFNlbGVjdAogICAgICAgICAgICBjb21ibwogICAgICAgICAgICBhcz0iZGVmYXVsdCIKICAgICAgICAgICAgd2lkdGg9ezUwMH0KICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlNlbGVjdCBhIGxhYmVsIgogICAgICAgICAgICBkaXNhYmxlZD17ZmFsc2V9CiAgICAgICAgICAgIHJlYWRPbmx5PXtmYWxzZX0KICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICBvcHRpb25zPXtbLi4ubm90Rm91bmRJdGVtKCksIC4uLm9wdGlvbnNdfQogICAgICAgICAgICBmaWx0ZXJEZWxheT17MTAwMH0KICAgICAgICAgICAgY29tYm9JbnB1dEZpZWxkUHJvcHM9e3sgb25LZXlEb3duOiBoYW5kbGVJbnB1dEtleURvd24gfX0KICAgICAgICAgICAgb25TZWxlY3Q9eyhvcHRpb24sIGRpc21pc3MsIGNsZWFyKSA9PiB7CiAgICAgICAgICAgICAgICBjbGVhcigpCiAgICAgICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQsIG9wdGlvbi5rZXldKQogICAgICAgICAgICAgICAgaWYgKG5vdEZvdW5kKSBzZXROb3RGb3VuZChudWxsKQogICAgICAgICAgICB9fQogICAgICAgICAgICBvbkZpbHRlcj17KHRleHQ6IHN0cmluZykgPT4gewogICAgICAgICAgICAgICAgY29uc3QgZmlsdGVyZWRPcHRpb25zID0gb3B0aW9ucy5maWx0ZXIoKG9wdGlvbikgPT4KICAgICAgICAgICAgICAgICAgICBvcHRpb24ubGFiZWwudG9Mb3dlckNhc2UoKS5pbmNsdWRlcyh0ZXh0LnRvTG93ZXJDYXNlKCkpCiAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICBzZXROb3RGb3VuZChmaWx0ZXJlZE9wdGlvbnMubGVuZ3RoID09IDAgPyB0ZXh0IDogbnVsbCkKICAgICAgICAgICAgfX0KICAgICAgICAgICAgcmVuZGVyPXsoKSA9PiB7CiAgICAgICAgICAgICAgICByZXR1cm4gKAogICAgICAgICAgICAgICAgICAgIDw+CiAgICAgICAgICAgICAgICAgICAgICAgIHtzZWxlY3RlZC5tYXAoKHMxLCBpKSA9PiAoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8UGlsbAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGtleT17aX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvdXRsaW5lCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yRWxlY3RyaWMzMDB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3VmZml4PXsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEljb25MaWIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGljb249IngiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoZSkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldFNlbGVjdGVkKHNlbGVjdGVkLmZpbHRlcigoczIpID0+IHMxICE9IHMyKSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7czF9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L1BpbGw+CiAgICAgICAgICAgICAgICAgICAgICAgICkpfQogICAgICAgICAgICAgICAgICAgIDwvPgogICAgICAgICAgICAgICAgKQogICAgICAgICAgICB9fQogICAgICAgIC8+CiAgICApCn0=" />
+
+```tsx
+export const Combo = () => {
+    const labels = [
+        'component',
+        'frontend',
+        'dev',
+        'ux',
+        'work',
+        'home',
+        'school',
+        'everything else',
+        'urgent',
+        'roadmap',
+        'design tokens',
+        'react',
+        'web components',
+        'vue',
+        'angular',
+    ]
+    const [selected, setSelected] = useState<any>(['web components', 'vue', 'angular'])
+    const [notFound, setNotFound] = useState<any>(null)
+    const options = [...labels].map((option: any, index) => {
+        return {
+            key: option,
+            label: option,
+            suffix: <IconLib icon="tag" />,
+            disabled: false,
+            customContent: null,
+        }
+    })
+
+    const notFoundItem = () => {
+        if (notFound) {
+            return [
+                {
+                    key: notFound,
+                    label: 'Create <strong>' + notFound + '</strong>',
+                    suffix: (
+                        <Pill
+                            subtle
+                            prefix={
+                                <IconLib
+                                    icon="plus"
+                                    size="xs"
+                                    strokeWidth={2}
+                                />
+                            }
+                            color={Token.ColorElectric300}
+                            size="xs">
+                            New
+                        </Pill>
+                    ),
+                    sticky: true,
+                },
+            ]
+        } else {
+            return []
+        }
+    }
+
+    const handleInputKeyDown = (e) => {
+        const { isBackspace } = getKey(e)
+        const isEmpty = e.target.value == ''
+        if (isBackspace && isEmpty) setSelected([...selected.slice(0, -1)])
+    }
+
+    return (
+        <Select
+            combo
+            as="default"
+            width={500}
+            placeholder="Select a label"
+            disabled={false}
+            readOnly={false}
+            selected={selected}
+            options={[...notFoundItem(), ...options]}
+            filterDelay={1000}
+            comboInputFieldProps={{ onKeyDown: handleInputKeyDown }}
+            onSelect={(option, dismiss, clear) => {
+                clear()
+                setSelected([...selected, option.key])
+                if (notFound) setNotFound(null)
+            }}
+            onFilter={(text: string) => {
+                const filteredOptions = options.filter((option) =>
+                    option.label.toLowerCase().includes(text.toLowerCase())
+                )
+                setNotFound(filteredOptions.length == 0 ? text : null)
+            }}
+            render={() => {
+                return (
+                    <>
+                        {selected.map((s1, i) => (
+                            <Pill
+                                key={i}
+                                outline
+                                color={Token.ColorElectric300}
+                                size="sm"
+                                suffix={
+                                    <IconLib
+                                        icon="x"
+                                        onClick={(e) => {
+                                            setSelected(selected.filter((s2) => s1 != s2))
+                                        }}
+                                    />
+                                }>
+                                {s1}
+                            </Pill>
+                        ))}
+                    </>
+                )
+            }}
+        />
+    )
+}
+```
+### User And Label Select
+<a name="userandlabelselect"></a>
+
+> The user & label Select component are prepackaged select formats specifically for
+use in-product, they are 100% reproducable simply using a normal Select component
+Please note these examples are a work-in-progress.
+
+export const UserAndLabelSelect = () => {
+    const labels = [
+        { id: 'l1', color: Token.ColorElectric400, icon: 'star', text: 'Shopping' },
+        { id: 'l2', color: Token.ColorYellow400, text: 'Groceries' },
+        { id: 'l3', color: Token.ColorNeonpink400, text: 'Housework' },
+        { id: 'l4', icon: 'building', text: 'Office' },
+        { id: 'l5', text: 'Everything else' },
+    ];
+    const selectedLabels = [
+        { id: 'l1', color: Token.ColorElectric400, icon: 'star', text: 'Shopping' },
+        { id: 'l4', icon: 'building', text: 'Office' },
+        { id: 'l5', text: 'Everything else' },
+    ];
+    const users = [
+        { id: 'u1', name: 'John', image: '/men/01.jpg' },
+        { id: 'u2', name: 'Ben', image: '/men/02.jpg' },
+        { id: 'u3', name: 'Derek', image: '/men/03.jpg' },
+        { id: 'u4', name: 'Samantha', image: '/women/01.jpg' },
+        { id: 'u5', name: 'Sarah', image: '/women/02.jpg' },
+        { id: 'u6', name: 'Byron', image: '/men/04.jpg' },
+        { id: 'u7', name: 'Andrew', image: '/men/05.jpg' },
+        { id: 'u8', name: 'Peter' },
+    ];
+    const selectedUsers = [
+        { id: 'u1', name: 'John', image: '/men/07.jpg' },
+        { id: 'u2', name: 'Ben', image: '/men/08.jpg' },
+        { id: 'u5', name: 'Timothy', image: '/men/09.jpg' },
+    ];
+    return (<View row gap={10} alignItems="flex-start" justifyContent="flex-start">
+            <View width={300}>
+                <LabelSelect width={300} labels={selectedLabels} availableLabels={labels} inputPlaceholder="Add label..." onLabelAdd={(label) => console.log('label add', label)} onLabelDelete={(label) => console.log('label delete', label)} onFilter={(value) => console.log('search ', value)}/>
+            </View>
+            <View width={300}>
+                <UserSelect width={300} users={selectedUsers} availableUsers={users} inputPlaceholder="Add user..." onUserAdd={(user) => console.log('user add', user)} onUserDelete={(user) => console.log('user delete', user)} onFilter={(value) => console.log('search ', value)}/>
+            </View>
+        </View>);
+};
+
+<div className="story-block">
+<UserAndLabelSelect />
+</div>
+
+<CodeComponent filename="UserAndLabelSelect.tsx" code="ZXhwb3J0IGNvbnN0IFVzZXJBbmRMYWJlbFNlbGVjdCA9ICgpID0+IHsKICAgIGNvbnN0IGxhYmVsczogTGFiZWxTZWxlY3RMYWJlbFtdID0gWwogICAgICAgIHsgaWQ6ICdsMScsIGNvbG9yOiBUb2tlbi5Db2xvckVsZWN0cmljNDAwLCBpY29uOiAnc3RhcicsIHRleHQ6ICdTaG9wcGluZycgfSwKICAgICAgICB7IGlkOiAnbDInLCBjb2xvcjogVG9rZW4uQ29sb3JZZWxsb3c0MDAsIHRleHQ6ICdHcm9jZXJpZXMnIH0sCiAgICAgICAgeyBpZDogJ2wzJywgY29sb3I6IFRva2VuLkNvbG9yTmVvbnBpbms0MDAsIHRleHQ6ICdIb3VzZXdvcmsnIH0sCiAgICAgICAgeyBpZDogJ2w0JywgaWNvbjogJ2J1aWxkaW5nJywgdGV4dDogJ09mZmljZScgfSwKICAgICAgICB7IGlkOiAnbDUnLCB0ZXh0OiAnRXZlcnl0aGluZyBlbHNlJyB9LAogICAgXQoKICAgIGNvbnN0IHNlbGVjdGVkTGFiZWxzID0gWwogICAgICAgIHsgaWQ6ICdsMScsIGNvbG9yOiBUb2tlbi5Db2xvckVsZWN0cmljNDAwLCBpY29uOiAnc3RhcicsIHRleHQ6ICdTaG9wcGluZycgfSwKICAgICAgICB7IGlkOiAnbDQnLCBpY29uOiAnYnVpbGRpbmcnLCB0ZXh0OiAnT2ZmaWNlJyB9LAogICAgICAgIHsgaWQ6ICdsNScsIHRleHQ6ICdFdmVyeXRoaW5nIGVsc2UnIH0sCiAgICBdCgogICAgY29uc3QgdXNlcnM6IFVzZXJTZWxlY3RVc2VyW10gPSBbCiAgICAgICAgeyBpZDogJ3UxJywgbmFtZTogJ0pvaG4nLCBpbWFnZTogJy9tZW4vMDEuanBnJyB9LAogICAgICAgIHsgaWQ6ICd1MicsIG5hbWU6ICdCZW4nLCBpbWFnZTogJy9tZW4vMDIuanBnJyB9LAogICAgICAgIHsgaWQ6ICd1MycsIG5hbWU6ICdEZXJlaycsIGltYWdlOiAnL21lbi8wMy5qcGcnIH0sCiAgICAgICAgeyBpZDogJ3U0JywgbmFtZTogJ1NhbWFudGhhJywgaW1hZ2U6ICcvd29tZW4vMDEuanBnJyB9LAogICAgICAgIHsgaWQ6ICd1NScsIG5hbWU6ICdTYXJhaCcsIGltYWdlOiAnL3dvbWVuLzAyLmpwZycgfSwKICAgICAgICB7IGlkOiAndTYnLCBuYW1lOiAnQnlyb24nLCBpbWFnZTogJy9tZW4vMDQuanBnJyB9LAogICAgICAgIHsgaWQ6ICd1NycsIG5hbWU6ICdBbmRyZXcnLCBpbWFnZTogJy9tZW4vMDUuanBnJyB9LAogICAgICAgIHsgaWQ6ICd1OCcsIG5hbWU6ICdQZXRlcicgfSwKICAgIF0KCiAgICBjb25zdCBzZWxlY3RlZFVzZXJzID0gWwogICAgICAgIHsgaWQ6ICd1MScsIG5hbWU6ICdKb2huJywgaW1hZ2U6ICcvbWVuLzA3LmpwZycgfSwKICAgICAgICB7IGlkOiAndTInLCBuYW1lOiAnQmVuJywgaW1hZ2U6ICcvbWVuLzA4LmpwZycgfSwKICAgICAgICB7IGlkOiAndTUnLCBuYW1lOiAnVGltb3RoeScsIGltYWdlOiAnL21lbi8wOS5qcGcnIH0sCiAgICBdCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICByb3cKICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ9ImZsZXgtc3RhcnQiPgogICAgICAgICAgICA8VmlldyB3aWR0aD17MzAwfT4KICAgICAgICAgICAgICAgIDxMYWJlbFNlbGVjdAogICAgICAgICAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgICAgICAgICAgbGFiZWxzPXtzZWxlY3RlZExhYmVsc30KICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVMYWJlbHM9e2xhYmVsc30KICAgICAgICAgICAgICAgICAgICBpbnB1dFBsYWNlaG9sZGVyPSJBZGQgbGFiZWwuLi4iCiAgICAgICAgICAgICAgICAgICAgb25MYWJlbEFkZD17KGxhYmVsKSA9PiBjb25zb2xlLmxvZygnbGFiZWwgYWRkJywgbGFiZWwpfQogICAgICAgICAgICAgICAgICAgIG9uTGFiZWxEZWxldGU9eyhsYWJlbCkgPT4gY29uc29sZS5sb2coJ2xhYmVsIGRlbGV0ZScsIGxhYmVsKX0KICAgICAgICAgICAgICAgICAgICBvbkZpbHRlcj17KHZhbHVlKSA9PiBjb25zb2xlLmxvZygnc2VhcmNoICcsIHZhbHVlKX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcgd2lkdGg9ezMwMH0+CiAgICAgICAgICAgICAgICA8VXNlclNlbGVjdAogICAgICAgICAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgICAgICAgICAgdXNlcnM9e3NlbGVjdGVkVXNlcnN9CiAgICAgICAgICAgICAgICAgICAgYXZhaWxhYmxlVXNlcnM9e3VzZXJzfQogICAgICAgICAgICAgICAgICAgIGlucHV0UGxhY2Vob2xkZXI9IkFkZCB1c2VyLi4uIgogICAgICAgICAgICAgICAgICAgIG9uVXNlckFkZD17KHVzZXIpID0+IGNvbnNvbGUubG9nKCd1c2VyIGFkZCcsIHVzZXIpfQogICAgICAgICAgICAgICAgICAgIG9uVXNlckRlbGV0ZT17KHVzZXIpID0+IGNvbnNvbGUubG9nKCd1c2VyIGRlbGV0ZScsIHVzZXIpfQogICAgICAgICAgICAgICAgICAgIG9uRmlsdGVyPXsodmFsdWUpID0+IGNvbnNvbGUubG9nKCdzZWFyY2ggJywgdmFsdWUpfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const UserAndLabelSelect = () => {
+    const labels: LabelSelectLabel[] = [
+        { id: 'l1', color: Token.ColorElectric400, icon: 'star', text: 'Shopping' },
+        { id: 'l2', color: Token.ColorYellow400, text: 'Groceries' },
+        { id: 'l3', color: Token.ColorNeonpink400, text: 'Housework' },
+        { id: 'l4', icon: 'building', text: 'Office' },
+        { id: 'l5', text: 'Everything else' },
+    ]
+
+    const selectedLabels = [
+        { id: 'l1', color: Token.ColorElectric400, icon: 'star', text: 'Shopping' },
+        { id: 'l4', icon: 'building', text: 'Office' },
+        { id: 'l5', text: 'Everything else' },
+    ]
+
+    const users: UserSelectUser[] = [
+        { id: 'u1', name: 'John', image: '/men/01.jpg' },
+        { id: 'u2', name: 'Ben', image: '/men/02.jpg' },
+        { id: 'u3', name: 'Derek', image: '/men/03.jpg' },
+        { id: 'u4', name: 'Samantha', image: '/women/01.jpg' },
+        { id: 'u5', name: 'Sarah', image: '/women/02.jpg' },
+        { id: 'u6', name: 'Byron', image: '/men/04.jpg' },
+        { id: 'u7', name: 'Andrew', image: '/men/05.jpg' },
+        { id: 'u8', name: 'Peter' },
+    ]
+
+    const selectedUsers = [
+        { id: 'u1', name: 'John', image: '/men/07.jpg' },
+        { id: 'u2', name: 'Ben', image: '/men/08.jpg' },
+        { id: 'u5', name: 'Timothy', image: '/men/09.jpg' },
+    ]
+
+    return (
+        <View
+            row
+            gap={10}
+            alignItems="flex-start"
+            justifyContent="flex-start">
+            <View width={300}>
+                <LabelSelect
+                    width={300}
+                    labels={selectedLabels}
+                    availableLabels={labels}
+                    inputPlaceholder="Add label..."
+                    onLabelAdd={(label) => console.log('label add', label)}
+                    onLabelDelete={(label) => console.log('label delete', label)}
+                    onFilter={(value) => console.log('search ', value)}
+                />
+            </View>
+            <View width={300}>
+                <UserSelect
+                    width={300}
+                    users={selectedUsers}
+                    availableUsers={users}
+                    inputPlaceholder="Add user..."
+                    onUserAdd={(user) => console.log('user add', user)}
+                    onUserDelete={(user) => console.log('user delete', user)}
+                    onFilter={(value) => console.log('search ', value)}
+                />
+            </View>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

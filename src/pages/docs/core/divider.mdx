@@ -1,0 +1,139 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, Divider, Pill, View } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Divider',
+    subtitle: 'The Divider component creates a division between content using either a horizontal or vertical line.',
+    description:
+        'A Divider can serve a valuable purpose in visually distinguishing between paragraphs, navigation elements, or menu items.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/divider/divider.tsx","description":"","displayName":"Divider","methods":[],"props":{"contentPosition":{"defaultValue":null,"description":"","name":"contentPosition","declarations":[{"fileName":"packages/core/src/divider/divider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"direction":{"defaultValue":null,"description":"","name":"direction","declarations":[{"fileName":"packages/core/src/divider/divider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"horizontal\" | \"vertical\""},"tags":{}},"content":{"defaultValue":null,"description":"","name":"content","declarations":[{"fileName":"packages/core/src/divider/divider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}}]
+
+export const css = [[["--f-divider-color","var(--f-color-border)"],["--f-divider-type","solid"]]]
+
+
+
+<CodeComponent filename="divider.tsx" code="aW1wb3J0IHsgRGl2aWRlciB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import { Divider } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => <Divider />;
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gPERpdmlkZXIgLz4=" />
+
+```tsx
+export const Usage = () => <Divider />
+```
+### Styles
+<a name="styles"></a>
+
+> The Divider line style can be styled by relying on the properties available to border styling.
+
+export const Styles = () => (<Divider style={{ '--f-divider-type': 'dashed', '--f-divider-color': 'var(--f-color-accent)' }}/>);
+
+<div className="story-block">
+<Styles />
+</div>
+
+<CodeComponent filename="Styles.tsx" code="ZXhwb3J0IGNvbnN0IFN0eWxlcyA9ICgpID0+ICgKICAgIDxEaXZpZGVyIHN0eWxlPXt7ICctLWYtZGl2aWRlci10eXBlJzogJ2Rhc2hlZCcsICctLWYtZGl2aWRlci1jb2xvcic6ICd2YXIoLS1mLWNvbG9yLWFjY2VudCknIH19IC8+Cik=" />
+
+```tsx
+export const Styles = () => (
+    <Divider style={{ '--f-divider-type': 'dashed', '--f-divider-color': 'var(--f-color-accent)' }} />
+)
+```
+### Custom Content
+<a name="customcontent"></a>
+
+export const CustomContent = () => (<Divider content={<Button size="xs">2 Nov</Button>} contentPosition="10%"/>);
+
+<div className="story-block">
+<CustomContent />
+</div>
+
+<CodeComponent filename="CustomContent.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbUNvbnRlbnQgPSAoKSA9PiAoCiAgICA8RGl2aWRlcgogICAgICAgIGNvbnRlbnQ9ezxCdXR0b24gc2l6ZT0ieHMiPjIgTm92PC9CdXR0b24+fQogICAgICAgIGNvbnRlbnRQb3NpdGlvbj0iMTAlIgogICAgLz4KKQ==" />
+
+```tsx
+export const CustomContent = () => (
+    <Divider
+        content={<Button size="xs">2 Nov</Button>}
+        contentPosition="10%"
+    />
+)
+```
+### Vertical
+<a name="vertical"></a>
+
+export const Vertical = () => {
+    return (<View row alignItems="flex-start">
+            <View p={50} flex={1}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo.
+            </View>
+            <Divider direction="vertical" content={<Pill size="sm" style={{ transform: 'translateY(-50%)' }}>
+                        vs.
+                    </Pill>} contentPosition="50%"/>
+            <View p={50} flex={1}>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                laborum.
+            </View>
+        </View>);
+};
+
+<div className="story-block">
+<Vertical />
+</div>
+
+<CodeComponent filename="Vertical.tsx" code="ZXhwb3J0IGNvbnN0IFZlcnRpY2FsID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICByb3cKICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCI+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICBwPXs1MH0KICAgICAgICAgICAgICAgIGZsZXg9ezF9PgogICAgICAgICAgICAgICAgTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdCwgc2VkIGRvIGVpdXNtb2QgdGVtcG9yIGluY2lkaWR1bnQgdXQgbGFib3JlIGV0CiAgICAgICAgICAgICAgICBkb2xvcmUgbWFnbmEgYWxpcXVhLiBVdCBlbmltIGFkIG1pbmltIHZlbmlhbSwgcXVpcyBub3N0cnVkIGV4ZXJjaXRhdGlvbiB1bGxhbWNvIGxhYm9yaXMgbmlzaSB1dCBhbGlxdWlwCiAgICAgICAgICAgICAgICBleCBlYSBjb21tb2RvLgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDxEaXZpZGVyCiAgICAgICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICAgICAgY29udGVudD17CiAgICAgICAgICAgICAgICAgICAgPFBpbGwKICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPXt7IHRyYW5zZm9ybTogJ3RyYW5zbGF0ZVkoLTUwJSknIH19PgogICAgICAgICAgICAgICAgICAgICAgICB2cy4KICAgICAgICAgICAgICAgICAgICA8L1BpbGw+CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBjb250ZW50UG9zaXRpb249IjUwJSIKICAgICAgICAgICAgLz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIHA9ezUwfQogICAgICAgICAgICAgICAgZmxleD17MX0+CiAgICAgICAgICAgICAgICBEdWlzIGF1dGUgaXJ1cmUgZG9sb3IgaW4gcmVwcmVoZW5kZXJpdCBpbiB2b2x1cHRhdGUgdmVsaXQgZXNzZSBjaWxsdW0gZG9sb3JlIGV1IGZ1Z2lhdCBudWxsYSBwYXJpYXR1ci4KICAgICAgICAgICAgICAgIEV4Y2VwdGV1ciBzaW50IG9jY2FlY2F0IGN1cGlkYXRhdCBub24gcHJvaWRlbnQsIHN1bnQgaW4gY3VscGEgcXVpIG9mZmljaWEgZGVzZXJ1bnQgbW9sbGl0IGFuaW0gaWQgZXN0CiAgICAgICAgICAgICAgICBsYWJvcnVtLgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const Vertical = () => {
+    return (
+        <View
+            row
+            alignItems="flex-start">
+            <View
+                p={50}
+                flex={1}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo.
+            </View>
+            <Divider
+                direction="vertical"
+                content={
+                    <Pill
+                        size="sm"
+                        style={{ transform: 'translateY(-50%)' }}>
+                        vs.
+                    </Pill>
+                }
+                contentPosition="50%"
+            />
+            <View
+                p={50}
+                flex={1}>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                laborum.
+            </View>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

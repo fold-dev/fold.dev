@@ -1,0 +1,619 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Badge, Card, Heading, IconLib, Pill, Stack, Tab, TabList, TabPanel, TabPanels, Tabs } from '@fold-dev/core'
+import React, { useState } from 'react'
+
+export const docs = {
+    title: 'Tabs',
+    subtitle: 'The Tabs component facilitates the organization of navigation between related content.',
+    description:
+        'Tabs can find application in full-page layouts or within various components, like modals, cards, or side panels. They prove particularly valuable when presenting user profile settings, application configurations, or content related to a specific entity type.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/tabs/tabs.tsx","description":"","displayName":"TabsProvider","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/tabs/tabs.tsx","description":"","displayName":"Tabs","methods":[],"props":{"animated":{"defaultValue":null,"description":"","name":"animated","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"layout":{"defaultValue":null,"description":"","name":"layout","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"bottom\" | \"top\" | \"left\" | \"right\""},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"onSelect":{"defaultValue":null,"description":"","name":"onSelect","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(index: number) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/tabs/tabs.tsx","description":"","displayName":"TabsInner","methods":[],"props":{"animated":{"defaultValue":null,"description":"","name":"animated","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"layout":{"defaultValue":null,"description":"","name":"layout","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"bottom\" | \"top\" | \"left\" | \"right\""},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"onSelect":{"defaultValue":null,"description":"","name":"onSelect","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(index: number) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/tabs/tabs.tsx","description":"","displayName":"TabList","methods":[],"props":{"stretch":{"defaultValue":null,"description":"","name":"stretch","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disableScroll":{"defaultValue":null,"description":"","name":"disableScroll","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"scrollJump":{"defaultValue":null,"description":"","name":"scrollJump","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"animated":{"defaultValue":null,"description":"","name":"animated","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"layout":{"defaultValue":null,"description":"","name":"layout","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"bottom\" | \"top\" | \"left\" | \"right\""},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"onSelect":{"defaultValue":null,"description":"","name":"onSelect","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(index: number) => void"},"tags":{}},"icons":{"defaultValue":null,"description":"","name":"icons","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/tabs/tabs.tsx","description":"","displayName":"TabPanels","methods":[],"props":{"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/tabs/tabs.tsx","description":"","displayName":"TabPanel","methods":[],"props":{"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/tabs/tabs.tsx","description":"","displayName":"Tab","methods":[],"props":{"animated":{"defaultValue":null,"description":"","name":"animated","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onSelect":{"defaultValue":null,"description":"","name":"onSelect","declarations":[{"fileName":"packages/core/src/tabs/tabs.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-tabs-color-icon","var(--f-color-text-weakest)"],["--f-tabs-panel-border-color","var(--f-color-border)"],["--f-tabs-panel-padding","var(--f-space-6)"],["--f-tabs-tab-padding","var(--f-space-3)"],["--f-tabs-tab-color","var(--f-color-text-weak)"],["--f-tabs-tab-active","var(--f-color-accent)"],["--f-tabs-tab-disabled-color","var(--f-color-text-weakest)"],["--f-tabs-tab-background-hover","var(--f-color-surface-strong)"],["--f-tabs-icon-padding","var(--f-space-inset-x-2)"],["--f-tabs-arrow-padding","var(--f-space-inset-x-1)"],["--f-tab-ix-spacing","0.5rem"],["--f-tab-inner-width","fit-content"]]]
+
+
+
+<CodeComponent filename="tabs.tsx" code="aW1wb3J0IHsKICBUYWJzUHJvdmlkZXIsCiAgVGFicywKICBUYWJzSW5uZXIsCiAgVGFiTGlzdCwKICBUYWJQYW5lbHMsCiAgVGFiUGFuZWwsCiAgVGFiLAp9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import {
+  TabsProvider,
+  Tabs,
+  TabsInner,
+  TabList,
+  TabPanels,
+  TabPanel,
+  Tab,
+} from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const [selected, setSelected] = useState(0);
+    return (<Tabs selected={selected} onSelect={setSelected}>
+            <TabList>
+                <Tab>Profile</Tab>
+                <Tab>Settings</Tab>
+                <Tab>Security</Tab>
+                <Tab>Privacy</Tab>
+                <Tab>Subscription</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel>Profile related content</TabPanel>
+                <TabPanel>Settings related content</TabPanel>
+                <TabPanel>Security related content</TabPanel>
+                <TabPanel>Privacy related content</TabPanel>
+                <TabPanel>Subscription related content</TabPanel>
+            </TabPanels>
+        </Tabs>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3NlbGVjdGVkLCBzZXRTZWxlY3RlZF0gPSB1c2VTdGF0ZSgwKQoKICAgIHJldHVybiAoCiAgICAgICAgPFRhYnMKICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICBvblNlbGVjdD17c2V0U2VsZWN0ZWR9PgogICAgICAgICAgICA8VGFiTGlzdD4KICAgICAgICAgICAgICAgIDxUYWI+UHJvZmlsZTwvVGFiPgogICAgICAgICAgICAgICAgPFRhYj5TZXR0aW5nczwvVGFiPgogICAgICAgICAgICAgICAgPFRhYj5TZWN1cml0eTwvVGFiPgogICAgICAgICAgICAgICAgPFRhYj5Qcml2YWN5PC9UYWI+CiAgICAgICAgICAgICAgICA8VGFiPlN1YnNjcmlwdGlvbjwvVGFiPgogICAgICAgICAgICA8L1RhYkxpc3Q+CiAgICAgICAgICAgIDxUYWJQYW5lbHM+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+UHJvZmlsZSByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICAgICAgPFRhYlBhbmVsPlNldHRpbmdzIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U2VjdXJpdHkgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgIDxUYWJQYW5lbD5Qcml2YWN5IHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U3Vic2NyaXB0aW9uIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgIDwvVGFiUGFuZWxzPgogICAgICAgIDwvVGFicz4KICAgICkKfQ==" />
+
+```tsx
+export const Usage = () => {
+    const [selected, setSelected] = useState(0)
+
+    return (
+        <Tabs
+            selected={selected}
+            onSelect={setSelected}>
+            <TabList>
+                <Tab>Profile</Tab>
+                <Tab>Settings</Tab>
+                <Tab>Security</Tab>
+                <Tab>Privacy</Tab>
+                <Tab>Subscription</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel>Profile related content</TabPanel>
+                <TabPanel>Settings related content</TabPanel>
+                <TabPanel>Security related content</TabPanel>
+                <TabPanel>Privacy related content</TabPanel>
+                <TabPanel>Subscription related content</TabPanel>
+            </TabPanels>
+        </Tabs>
+    )
+}
+```
+### Prefix Suffix And States
+<a name="prefixsuffixandstates"></a>
+
+export const PrefixSuffixAndStates = () => {
+    const [selected, setSelected] = useState(0);
+    return (<Tabs selected={selected} onSelect={setSelected}>
+            <TabList>
+                <Tab prefix={<IconLib icon="user"/>}>Profile</Tab>
+                <Tab>Settings</Tab>
+                <Tab suffix={<Badge variant="danger"/>}>Security</Tab>
+                <Tab>Privacy</Tab>
+                <Tab disabled>Subscription</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel>Profile related content</TabPanel>
+                <TabPanel>Settings related content</TabPanel>
+                <TabPanel>Security related content</TabPanel>
+                <TabPanel>Privacy related content</TabPanel>
+                <TabPanel>Subscription related content</TabPanel>
+            </TabPanels>
+        </Tabs>);
+};
+
+<div className="story-block">
+<PrefixSuffixAndStates />
+</div>
+
+<CodeComponent filename="PrefixSuffixAndStates.tsx" code="ZXhwb3J0IGNvbnN0IFByZWZpeFN1ZmZpeEFuZFN0YXRlcyA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGUoMCkKCiAgICByZXR1cm4gKAogICAgICAgIDxUYWJzCiAgICAgICAgICAgIHNlbGVjdGVkPXtzZWxlY3RlZH0KICAgICAgICAgICAgb25TZWxlY3Q9e3NldFNlbGVjdGVkfT4KICAgICAgICAgICAgPFRhYkxpc3Q+CiAgICAgICAgICAgICAgICA8VGFiIHByZWZpeD17PEljb25MaWIgaWNvbj0idXNlciIgLz59PlByb2ZpbGU8L1RhYj4KICAgICAgICAgICAgICAgIDxUYWI+U2V0dGluZ3M8L1RhYj4KICAgICAgICAgICAgICAgIDxUYWIgc3VmZml4PXs8QmFkZ2UgdmFyaWFudD0iZGFuZ2VyIiAvPn0+U2VjdXJpdHk8L1RhYj4KICAgICAgICAgICAgICAgIDxUYWI+UHJpdmFjeTwvVGFiPgogICAgICAgICAgICAgICAgPFRhYiBkaXNhYmxlZD5TdWJzY3JpcHRpb248L1RhYj4KICAgICAgICAgICAgPC9UYWJMaXN0PgogICAgICAgICAgICA8VGFiUGFuZWxzPgogICAgICAgICAgICAgICAgPFRhYlBhbmVsPlByb2ZpbGUgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgIDxUYWJQYW5lbD5TZXR0aW5ncyByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICAgICAgPFRhYlBhbmVsPlNlY3VyaXR5IHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+UHJpdmFjeSByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICAgICAgPFRhYlBhbmVsPlN1YnNjcmlwdGlvbiByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICA8L1RhYlBhbmVscz4KICAgICAgICA8L1RhYnM+CiAgICApCn0=" />
+
+```tsx
+export const PrefixSuffixAndStates = () => {
+    const [selected, setSelected] = useState(0)
+
+    return (
+        <Tabs
+            selected={selected}
+            onSelect={setSelected}>
+            <TabList>
+                <Tab prefix={<IconLib icon="user" />}>Profile</Tab>
+                <Tab>Settings</Tab>
+                <Tab suffix={<Badge variant="danger" />}>Security</Tab>
+                <Tab>Privacy</Tab>
+                <Tab disabled>Subscription</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel>Profile related content</TabPanel>
+                <TabPanel>Settings related content</TabPanel>
+                <TabPanel>Security related content</TabPanel>
+                <TabPanel>Privacy related content</TabPanel>
+                <TabPanel>Subscription related content</TabPanel>
+            </TabPanels>
+        </Tabs>
+    )
+}
+```
+### Only Tab List
+<a name="onlytablist"></a>
+
+export const OnlyTabList = () => {
+    const [selected, setSelected] = useState(0);
+    return (<TabList selected={selected} onSelect={setSelected}>
+            <Tab>Profile</Tab>
+            <Tab>Settings</Tab>
+            <Tab>Security</Tab>
+            <Tab>Privacy</Tab>
+            <Tab>Subscription</Tab>
+        </TabList>);
+};
+
+<div className="story-block">
+<OnlyTabList />
+</div>
+
+<CodeComponent filename="OnlyTabList.tsx" code="ZXhwb3J0IGNvbnN0IE9ubHlUYWJMaXN0ID0gKCkgPT4gewogICAgY29uc3QgW3NlbGVjdGVkLCBzZXRTZWxlY3RlZF0gPSB1c2VTdGF0ZSgwKQoKICAgIHJldHVybiAoCiAgICAgICAgPFRhYkxpc3QKICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICBvblNlbGVjdD17c2V0U2VsZWN0ZWR9PgogICAgICAgICAgICA8VGFiPlByb2ZpbGU8L1RhYj4KICAgICAgICAgICAgPFRhYj5TZXR0aW5nczwvVGFiPgogICAgICAgICAgICA8VGFiPlNlY3VyaXR5PC9UYWI+CiAgICAgICAgICAgIDxUYWI+UHJpdmFjeTwvVGFiPgogICAgICAgICAgICA8VGFiPlN1YnNjcmlwdGlvbjwvVGFiPgogICAgICAgIDwvVGFiTGlzdD4KICAgICkKfQ==" />
+
+```tsx
+export const OnlyTabList = () => {
+    const [selected, setSelected] = useState(0)
+
+    return (
+        <TabList
+            selected={selected}
+            onSelect={setSelected}>
+            <Tab>Profile</Tab>
+            <Tab>Settings</Tab>
+            <Tab>Security</Tab>
+            <Tab>Privacy</Tab>
+            <Tab>Subscription</Tab>
+        </TabList>
+    )
+}
+```
+### Animated
+<a name="animated"></a>
+
+export const Animated = () => {
+    const [selected, setSelected] = useState(0);
+    return (<Tabs selected={selected} onSelect={setSelected} animated>
+            <TabList>
+                <Tab>Profile</Tab>
+                <Tab>Settings</Tab>
+                <Tab>Security</Tab>
+                <Tab>Privacy</Tab>
+                <Tab>Subscription</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel>Profile related content</TabPanel>
+                <TabPanel>Settings related content</TabPanel>
+                <TabPanel>Security related content</TabPanel>
+                <TabPanel>Privacy related content</TabPanel>
+                <TabPanel>Subscription related content</TabPanel>
+            </TabPanels>
+        </Tabs>);
+};
+
+<div className="story-block">
+<Animated />
+</div>
+
+<CodeComponent filename="Animated.tsx" code="ZXhwb3J0IGNvbnN0IEFuaW1hdGVkID0gKCkgPT4gewogICAgY29uc3QgW3NlbGVjdGVkLCBzZXRTZWxlY3RlZF0gPSB1c2VTdGF0ZSgwKQoKICAgIHJldHVybiAoCiAgICAgICAgPFRhYnMKICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICBvblNlbGVjdD17c2V0U2VsZWN0ZWR9CiAgICAgICAgICAgIGFuaW1hdGVkPgogICAgICAgICAgICA8VGFiTGlzdD4KICAgICAgICAgICAgICAgIDxUYWI+UHJvZmlsZTwvVGFiPgogICAgICAgICAgICAgICAgPFRhYj5TZXR0aW5nczwvVGFiPgogICAgICAgICAgICAgICAgPFRhYj5TZWN1cml0eTwvVGFiPgogICAgICAgICAgICAgICAgPFRhYj5Qcml2YWN5PC9UYWI+CiAgICAgICAgICAgICAgICA8VGFiPlN1YnNjcmlwdGlvbjwvVGFiPgogICAgICAgICAgICA8L1RhYkxpc3Q+CiAgICAgICAgICAgIDxUYWJQYW5lbHM+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+UHJvZmlsZSByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICAgICAgPFRhYlBhbmVsPlNldHRpbmdzIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U2VjdXJpdHkgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgIDxUYWJQYW5lbD5Qcml2YWN5IHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U3Vic2NyaXB0aW9uIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgIDwvVGFiUGFuZWxzPgogICAgICAgIDwvVGFicz4KICAgICkKfQ==" />
+
+```tsx
+export const Animated = () => {
+    const [selected, setSelected] = useState(0)
+
+    return (
+        <Tabs
+            selected={selected}
+            onSelect={setSelected}
+            animated>
+            <TabList>
+                <Tab>Profile</Tab>
+                <Tab>Settings</Tab>
+                <Tab>Security</Tab>
+                <Tab>Privacy</Tab>
+                <Tab>Subscription</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel>Profile related content</TabPanel>
+                <TabPanel>Settings related content</TabPanel>
+                <TabPanel>Security related content</TabPanel>
+                <TabPanel>Privacy related content</TabPanel>
+                <TabPanel>Subscription related content</TabPanel>
+            </TabPanels>
+        </Tabs>
+    )
+}
+```
+### Overflow
+<a name="overflow"></a>
+
+export const Overflow = () => {
+    const [selected, setSelected] = useState(0);
+    return (<Tabs selected={selected} onSelect={setSelected} width={400}>
+            <TabList>
+                <Tab>Profile</Tab>
+                <Tab>Settings</Tab>
+                <Tab>Security</Tab>
+                <Tab>Privacy</Tab>
+                <Tab>Subscription</Tab>
+                <Tab>Overflow</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel>Profile related content</TabPanel>
+                <TabPanel>Settings related content</TabPanel>
+                <TabPanel>Security related content</TabPanel>
+                <TabPanel>Privacy related content</TabPanel>
+                <TabPanel>Subscription related content</TabPanel>
+                <TabPanel>Overflow related content</TabPanel>
+            </TabPanels>
+        </Tabs>);
+};
+
+<div className="story-block">
+<Overflow />
+</div>
+
+<CodeComponent filename="Overflow.tsx" code="ZXhwb3J0IGNvbnN0IE92ZXJmbG93ID0gKCkgPT4gewogICAgY29uc3QgW3NlbGVjdGVkLCBzZXRTZWxlY3RlZF0gPSB1c2VTdGF0ZSgwKQoKICAgIHJldHVybiAoCiAgICAgICAgPFRhYnMKICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICBvblNlbGVjdD17c2V0U2VsZWN0ZWR9CiAgICAgICAgICAgIHdpZHRoPXs0MDB9PgogICAgICAgICAgICA8VGFiTGlzdD4KICAgICAgICAgICAgICAgIDxUYWI+UHJvZmlsZTwvVGFiPgogICAgICAgICAgICAgICAgPFRhYj5TZXR0aW5nczwvVGFiPgogICAgICAgICAgICAgICAgPFRhYj5TZWN1cml0eTwvVGFiPgogICAgICAgICAgICAgICAgPFRhYj5Qcml2YWN5PC9UYWI+CiAgICAgICAgICAgICAgICA8VGFiPlN1YnNjcmlwdGlvbjwvVGFiPgogICAgICAgICAgICAgICAgPFRhYj5PdmVyZmxvdzwvVGFiPgogICAgICAgICAgICA8L1RhYkxpc3Q+CiAgICAgICAgICAgIDxUYWJQYW5lbHM+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+UHJvZmlsZSByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICAgICAgPFRhYlBhbmVsPlNldHRpbmdzIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U2VjdXJpdHkgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgIDxUYWJQYW5lbD5Qcml2YWN5IHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U3Vic2NyaXB0aW9uIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+T3ZlcmZsb3cgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgPC9UYWJQYW5lbHM+CiAgICAgICAgPC9UYWJzPgogICAgKQp9" />
+
+```tsx
+export const Overflow = () => {
+    const [selected, setSelected] = useState(0)
+
+    return (
+        <Tabs
+            selected={selected}
+            onSelect={setSelected}
+            width={400}>
+            <TabList>
+                <Tab>Profile</Tab>
+                <Tab>Settings</Tab>
+                <Tab>Security</Tab>
+                <Tab>Privacy</Tab>
+                <Tab>Subscription</Tab>
+                <Tab>Overflow</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel>Profile related content</TabPanel>
+                <TabPanel>Settings related content</TabPanel>
+                <TabPanel>Security related content</TabPanel>
+                <TabPanel>Privacy related content</TabPanel>
+                <TabPanel>Subscription related content</TabPanel>
+                <TabPanel>Overflow related content</TabPanel>
+            </TabPanels>
+        </Tabs>
+    )
+}
+```
+### Stretch
+<a name="stretch"></a>
+
+export const Stretch = () => {
+    const [selected, setSelected] = useState(0);
+    return (<Tabs selected={selected} onSelect={setSelected} animated>
+            <TabList stretch>
+                <Tab>Profile</Tab>
+                <Tab>Settings</Tab>
+                <Tab>Security</Tab>
+                <Tab>Privacy</Tab>
+                <Tab>Subscription</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel>Profile related content</TabPanel>
+                <TabPanel>Settings related content</TabPanel>
+                <TabPanel>Security related content</TabPanel>
+                <TabPanel>Privacy related content</TabPanel>
+                <TabPanel>Subscription related content</TabPanel>
+            </TabPanels>
+        </Tabs>);
+};
+
+<div className="story-block">
+<Stretch />
+</div>
+
+<CodeComponent filename="Stretch.tsx" code="ZXhwb3J0IGNvbnN0IFN0cmV0Y2ggPSAoKSA9PiB7CiAgICBjb25zdCBbc2VsZWN0ZWQsIHNldFNlbGVjdGVkXSA9IHVzZVN0YXRlKDApCgogICAgcmV0dXJuICgKICAgICAgICA8VGFicwogICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgIG9uU2VsZWN0PXtzZXRTZWxlY3RlZH0KICAgICAgICAgICAgYW5pbWF0ZWQ+CiAgICAgICAgICAgIDxUYWJMaXN0IHN0cmV0Y2g+CiAgICAgICAgICAgICAgICA8VGFiPlByb2ZpbGU8L1RhYj4KICAgICAgICAgICAgICAgIDxUYWI+U2V0dGluZ3M8L1RhYj4KICAgICAgICAgICAgICAgIDxUYWI+U2VjdXJpdHk8L1RhYj4KICAgICAgICAgICAgICAgIDxUYWI+UHJpdmFjeTwvVGFiPgogICAgICAgICAgICAgICAgPFRhYj5TdWJzY3JpcHRpb248L1RhYj4KICAgICAgICAgICAgPC9UYWJMaXN0PgogICAgICAgICAgICA8VGFiUGFuZWxzPgogICAgICAgICAgICAgICAgPFRhYlBhbmVsPlByb2ZpbGUgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgIDxUYWJQYW5lbD5TZXR0aW5ncyByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICAgICAgPFRhYlBhbmVsPlNlY3VyaXR5IHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICA8VGFiUGFuZWw+UHJpdmFjeSByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICAgICAgPFRhYlBhbmVsPlN1YnNjcmlwdGlvbiByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICA8L1RhYlBhbmVscz4KICAgICAgICA8L1RhYnM+CiAgICApCn0=" />
+
+```tsx
+export const Stretch = () => {
+    const [selected, setSelected] = useState(0)
+
+    return (
+        <Tabs
+            selected={selected}
+            onSelect={setSelected}
+            animated>
+            <TabList stretch>
+                <Tab>Profile</Tab>
+                <Tab>Settings</Tab>
+                <Tab>Security</Tab>
+                <Tab>Privacy</Tab>
+                <Tab>Subscription</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel>Profile related content</TabPanel>
+                <TabPanel>Settings related content</TabPanel>
+                <TabPanel>Security related content</TabPanel>
+                <TabPanel>Privacy related content</TabPanel>
+                <TabPanel>Subscription related content</TabPanel>
+            </TabPanels>
+        </Tabs>
+    )
+}
+```
+### Layouts
+<a name="layouts"></a>
+
+export const Layouts = () => {
+    const [selected, setSelected] = useState(0);
+    return (<Stack direction="vertical" spacing={20} noStretch alignItems="flex-start">
+            <Heading as="h4">Top</Heading>
+
+            <Tabs selected={selected} onSelect={setSelected} layout="top">
+                <TabList>
+                    <Tab>Profile</Tab>
+                    <Tab>Settings</Tab>
+                    <Tab>Security</Tab>
+                    <Tab>Privacy</Tab>
+                    <Tab>Subscription</Tab>
+                </TabList>
+                <TabPanels bgToken="surface-strong">
+                    <TabPanel>Profile related content</TabPanel>
+                    <TabPanel>Settings related content</TabPanel>
+                    <TabPanel>Security related content</TabPanel>
+                    <TabPanel>Privacy related content</TabPanel>
+                    <TabPanel>Subscription related content</TabPanel>
+                </TabPanels>
+            </Tabs>
+
+            <Heading as="h4">Left</Heading>
+
+            <Tabs selected={selected} onSelect={setSelected} layout="left">
+                <TabList>
+                    <Tab>Profile</Tab>
+                    <Tab>Settings</Tab>
+                    <Tab>Security</Tab>
+                    <Tab>Privacy</Tab>
+                    <Tab>Subscription</Tab>
+                </TabList>
+                <TabPanels bgToken="surface-strong">
+                    <TabPanel>Profile related content</TabPanel>
+                    <TabPanel>Settings related content</TabPanel>
+                    <TabPanel>Security related content</TabPanel>
+                    <TabPanel>Privacy related content</TabPanel>
+                    <TabPanel>Subscription related content</TabPanel>
+                </TabPanels>
+            </Tabs>
+
+            <Heading as="h4">Bottom</Heading>
+
+            <Tabs selected={selected} onSelect={setSelected} layout="bottom">
+                <TabList>
+                    <Tab>Profile</Tab>
+                    <Tab>Settings</Tab>
+                    <Tab>Security</Tab>
+                    <Tab>Privacy</Tab>
+                    <Tab>Subscription</Tab>
+                </TabList>
+                <TabPanels bgToken="surface-strong">
+                    <TabPanel>Profile related content</TabPanel>
+                    <TabPanel>Settings related content</TabPanel>
+                    <TabPanel>Security related content</TabPanel>
+                    <TabPanel>Privacy related content</TabPanel>
+                    <TabPanel>Subscription related content</TabPanel>
+                </TabPanels>
+            </Tabs>
+
+            <Heading as="h4">Right</Heading>
+
+            <Tabs selected={selected} onSelect={setSelected} layout="right">
+                <TabList>
+                    <Tab>Profile</Tab>
+                    <Tab>Settings</Tab>
+                    <Tab>Security</Tab>
+                    <Tab>Privacy</Tab>
+                    <Tab>Subscription</Tab>
+                </TabList>
+                <TabPanels bgToken="surface-strong">
+                    <TabPanel>Profile related content</TabPanel>
+                    <TabPanel>Settings related content</TabPanel>
+                    <TabPanel>Security related content</TabPanel>
+                    <TabPanel>Privacy related content</TabPanel>
+                    <TabPanel>Subscription related content</TabPanel>
+                </TabPanels>
+            </Tabs>
+        </Stack>);
+};
+
+<div className="story-block">
+<Layouts />
+</div>
+
+<CodeComponent filename="Layouts.tsx" code="ZXhwb3J0IGNvbnN0IExheW91dHMgPSAoKSA9PiB7CiAgICBjb25zdCBbc2VsZWN0ZWQsIHNldFNlbGVjdGVkXSA9IHVzZVN0YXRlKDApCgogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sKICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgc3BhY2luZz17MjB9CiAgICAgICAgICAgIG5vU3RyZXRjaAogICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgPEhlYWRpbmcgYXM9Img0Ij5Ub3A8L0hlYWRpbmc+CgogICAgICAgICAgICA8VGFicwogICAgICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICAgICAgb25TZWxlY3Q9e3NldFNlbGVjdGVkfQogICAgICAgICAgICAgICAgbGF5b3V0PSJ0b3AiPgogICAgICAgICAgICAgICAgPFRhYkxpc3Q+CiAgICAgICAgICAgICAgICAgICAgPFRhYj5Qcm9maWxlPC9UYWI+CiAgICAgICAgICAgICAgICAgICAgPFRhYj5TZXR0aW5nczwvVGFiPgogICAgICAgICAgICAgICAgICAgIDxUYWI+U2VjdXJpdHk8L1RhYj4KICAgICAgICAgICAgICAgICAgICA8VGFiPlByaXZhY3k8L1RhYj4KICAgICAgICAgICAgICAgICAgICA8VGFiPlN1YnNjcmlwdGlvbjwvVGFiPgogICAgICAgICAgICAgICAgPC9UYWJMaXN0PgogICAgICAgICAgICAgICAgPFRhYlBhbmVscyBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyI+CiAgICAgICAgICAgICAgICAgICAgPFRhYlBhbmVsPlByb2ZpbGUgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U2V0dGluZ3MgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U2VjdXJpdHkgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgICAgICA8VGFiUGFuZWw+UHJpdmFjeSByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICAgICAgICAgIDxUYWJQYW5lbD5TdWJzY3JpcHRpb24gcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgIDwvVGFiUGFuZWxzPgogICAgICAgICAgICA8L1RhYnM+CgogICAgICAgICAgICA8SGVhZGluZyBhcz0iaDQiPkxlZnQ8L0hlYWRpbmc+CgogICAgICAgICAgICA8VGFicwogICAgICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICAgICAgb25TZWxlY3Q9e3NldFNlbGVjdGVkfQogICAgICAgICAgICAgICAgbGF5b3V0PSJsZWZ0Ij4KICAgICAgICAgICAgICAgIDxUYWJMaXN0PgogICAgICAgICAgICAgICAgICAgIDxUYWI+UHJvZmlsZTwvVGFiPgogICAgICAgICAgICAgICAgICAgIDxUYWI+U2V0dGluZ3M8L1RhYj4KICAgICAgICAgICAgICAgICAgICA8VGFiPlNlY3VyaXR5PC9UYWI+CiAgICAgICAgICAgICAgICAgICAgPFRhYj5Qcml2YWN5PC9UYWI+CiAgICAgICAgICAgICAgICAgICAgPFRhYj5TdWJzY3JpcHRpb248L1RhYj4KICAgICAgICAgICAgICAgIDwvVGFiTGlzdD4KICAgICAgICAgICAgICAgIDxUYWJQYW5lbHMgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciPgogICAgICAgICAgICAgICAgICAgIDxUYWJQYW5lbD5Qcm9maWxlIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICAgICAgPFRhYlBhbmVsPlNldHRpbmdzIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICAgICAgPFRhYlBhbmVsPlNlY3VyaXR5IHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICAgICAgPFRhYlBhbmVsPlByaXZhY3kgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U3Vic2NyaXB0aW9uIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICA8L1RhYlBhbmVscz4KICAgICAgICAgICAgPC9UYWJzPgoKICAgICAgICAgICAgPEhlYWRpbmcgYXM9Img0Ij5Cb3R0b208L0hlYWRpbmc+CgogICAgICAgICAgICA8VGFicwogICAgICAgICAgICAgICAgc2VsZWN0ZWQ9e3NlbGVjdGVkfQogICAgICAgICAgICAgICAgb25TZWxlY3Q9e3NldFNlbGVjdGVkfQogICAgICAgICAgICAgICAgbGF5b3V0PSJib3R0b20iPgogICAgICAgICAgICAgICAgPFRhYkxpc3Q+CiAgICAgICAgICAgICAgICAgICAgPFRhYj5Qcm9maWxlPC9UYWI+CiAgICAgICAgICAgICAgICAgICAgPFRhYj5TZXR0aW5nczwvVGFiPgogICAgICAgICAgICAgICAgICAgIDxUYWI+U2VjdXJpdHk8L1RhYj4KICAgICAgICAgICAgICAgICAgICA8VGFiPlByaXZhY3k8L1RhYj4KICAgICAgICAgICAgICAgICAgICA8VGFiPlN1YnNjcmlwdGlvbjwvVGFiPgogICAgICAgICAgICAgICAgPC9UYWJMaXN0PgogICAgICAgICAgICAgICAgPFRhYlBhbmVscyBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyI+CiAgICAgICAgICAgICAgICAgICAgPFRhYlBhbmVsPlByb2ZpbGUgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U2V0dGluZ3MgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U2VjdXJpdHkgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgICAgICA8VGFiUGFuZWw+UHJpdmFjeSByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICAgICAgICAgIDxUYWJQYW5lbD5TdWJzY3JpcHRpb24gcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgIDwvVGFiUGFuZWxzPgogICAgICAgICAgICA8L1RhYnM+CgogICAgICAgICAgICA8SGVhZGluZyBhcz0iaDQiPlJpZ2h0PC9IZWFkaW5nPgoKICAgICAgICAgICAgPFRhYnMKICAgICAgICAgICAgICAgIHNlbGVjdGVkPXtzZWxlY3RlZH0KICAgICAgICAgICAgICAgIG9uU2VsZWN0PXtzZXRTZWxlY3RlZH0KICAgICAgICAgICAgICAgIGxheW91dD0icmlnaHQiPgogICAgICAgICAgICAgICAgPFRhYkxpc3Q+CiAgICAgICAgICAgICAgICAgICAgPFRhYj5Qcm9maWxlPC9UYWI+CiAgICAgICAgICAgICAgICAgICAgPFRhYj5TZXR0aW5nczwvVGFiPgogICAgICAgICAgICAgICAgICAgIDxUYWI+U2VjdXJpdHk8L1RhYj4KICAgICAgICAgICAgICAgICAgICA8VGFiPlByaXZhY3k8L1RhYj4KICAgICAgICAgICAgICAgICAgICA8VGFiPlN1YnNjcmlwdGlvbjwvVGFiPgogICAgICAgICAgICAgICAgPC9UYWJMaXN0PgogICAgICAgICAgICAgICAgPFRhYlBhbmVscyBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyI+CiAgICAgICAgICAgICAgICAgICAgPFRhYlBhbmVsPlByb2ZpbGUgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U2V0dGluZ3MgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U2VjdXJpdHkgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgICAgICA8VGFiUGFuZWw+UHJpdmFjeSByZWxhdGVkIGNvbnRlbnQ8L1RhYlBhbmVsPgogICAgICAgICAgICAgICAgICAgIDxUYWJQYW5lbD5TdWJzY3JpcHRpb24gcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgIDwvVGFiUGFuZWxzPgogICAgICAgICAgICA8L1RhYnM+CiAgICAgICAgPC9TdGFjaz4KICAgICkKfQ==" />
+
+```tsx
+export const Layouts = () => {
+    const [selected, setSelected] = useState(0)
+
+    return (
+        <Stack
+            direction="vertical"
+            spacing={20}
+            noStretch
+            alignItems="flex-start">
+            <Heading as="h4">Top</Heading>
+
+            <Tabs
+                selected={selected}
+                onSelect={setSelected}
+                layout="top">
+                <TabList>
+                    <Tab>Profile</Tab>
+                    <Tab>Settings</Tab>
+                    <Tab>Security</Tab>
+                    <Tab>Privacy</Tab>
+                    <Tab>Subscription</Tab>
+                </TabList>
+                <TabPanels bgToken="surface-strong">
+                    <TabPanel>Profile related content</TabPanel>
+                    <TabPanel>Settings related content</TabPanel>
+                    <TabPanel>Security related content</TabPanel>
+                    <TabPanel>Privacy related content</TabPanel>
+                    <TabPanel>Subscription related content</TabPanel>
+                </TabPanels>
+            </Tabs>
+
+            <Heading as="h4">Left</Heading>
+
+            <Tabs
+                selected={selected}
+                onSelect={setSelected}
+                layout="left">
+                <TabList>
+                    <Tab>Profile</Tab>
+                    <Tab>Settings</Tab>
+                    <Tab>Security</Tab>
+                    <Tab>Privacy</Tab>
+                    <Tab>Subscription</Tab>
+                </TabList>
+                <TabPanels bgToken="surface-strong">
+                    <TabPanel>Profile related content</TabPanel>
+                    <TabPanel>Settings related content</TabPanel>
+                    <TabPanel>Security related content</TabPanel>
+                    <TabPanel>Privacy related content</TabPanel>
+                    <TabPanel>Subscription related content</TabPanel>
+                </TabPanels>
+            </Tabs>
+
+            <Heading as="h4">Bottom</Heading>
+
+            <Tabs
+                selected={selected}
+                onSelect={setSelected}
+                layout="bottom">
+                <TabList>
+                    <Tab>Profile</Tab>
+                    <Tab>Settings</Tab>
+                    <Tab>Security</Tab>
+                    <Tab>Privacy</Tab>
+                    <Tab>Subscription</Tab>
+                </TabList>
+                <TabPanels bgToken="surface-strong">
+                    <TabPanel>Profile related content</TabPanel>
+                    <TabPanel>Settings related content</TabPanel>
+                    <TabPanel>Security related content</TabPanel>
+                    <TabPanel>Privacy related content</TabPanel>
+                    <TabPanel>Subscription related content</TabPanel>
+                </TabPanels>
+            </Tabs>
+
+            <Heading as="h4">Right</Heading>
+
+            <Tabs
+                selected={selected}
+                onSelect={setSelected}
+                layout="right">
+                <TabList>
+                    <Tab>Profile</Tab>
+                    <Tab>Settings</Tab>
+                    <Tab>Security</Tab>
+                    <Tab>Privacy</Tab>
+                    <Tab>Subscription</Tab>
+                </TabList>
+                <TabPanels bgToken="surface-strong">
+                    <TabPanel>Profile related content</TabPanel>
+                    <TabPanel>Settings related content</TabPanel>
+                    <TabPanel>Security related content</TabPanel>
+                    <TabPanel>Privacy related content</TabPanel>
+                    <TabPanel>Subscription related content</TabPanel>
+                </TabPanels>
+            </Tabs>
+        </Stack>
+    )
+}
+```
+### On Card
+<a name="oncard"></a>
+
+export const OnCard = () => {
+    const [selected, setSelected] = useState(2);
+    return (<Card height={500} width={600} style={{ overflow: 'hidden' }}>
+            <Tabs layout="bottom" animated selected={selected} onSelect={setSelected}>
+                <TabList height="5rem" stretch disableScroll>
+                    <Tab prefix={<IconLib icon="user"/>}>Profile</Tab>
+                    <Tab prefix={<IconLib icon="cog"/>}>Settings</Tab>
+                    <Tab prefix={<IconLib icon="warning"/>} suffix={<Badge variant="danger">2</Badge>}>
+                        Security
+                    </Tab>
+                    <Tab prefix={<IconLib icon="flag"/>}>Privacy</Tab>
+                    <Tab disabled>Subscription</Tab>
+                </TabList>
+
+                <TabPanels>
+                    <TabPanel>Profile related content</TabPanel>
+                    <TabPanel>Settings related content</TabPanel>
+                    <TabPanel>Security related content</TabPanel>
+                    <TabPanel>Privacy related content</TabPanel>
+                    <TabPanel>Subscription related content</TabPanel>
+                </TabPanels>
+            </Tabs>
+        </Card>);
+};
+
+<div className="story-block">
+<OnCard />
+</div>
+
+<CodeComponent filename="OnCard.tsx" code="ZXhwb3J0IGNvbnN0IE9uQ2FyZCA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGUoMikKCiAgICByZXR1cm4gKAogICAgICAgIDxDYXJkCiAgICAgICAgICAgIGhlaWdodD17NTAwfQogICAgICAgICAgICB3aWR0aD17NjAwfQogICAgICAgICAgICBzdHlsZT17eyBvdmVyZmxvdzogJ2hpZGRlbicgfX0+CiAgICAgICAgICAgIDxUYWJzCiAgICAgICAgICAgICAgICBsYXlvdXQ9ImJvdHRvbSIKICAgICAgICAgICAgICAgIGFuaW1hdGVkCiAgICAgICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgICAgICBvblNlbGVjdD17c2V0U2VsZWN0ZWR9PgogICAgICAgICAgICAgICAgPFRhYkxpc3QKICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9IjVyZW0iCiAgICAgICAgICAgICAgICAgICAgc3RyZXRjaAogICAgICAgICAgICAgICAgICAgIGRpc2FibGVTY3JvbGw+CiAgICAgICAgICAgICAgICAgICAgPFRhYiBwcmVmaXg9ezxJY29uTGliIGljb249InVzZXIiIC8+fT5Qcm9maWxlPC9UYWI+CiAgICAgICAgICAgICAgICAgICAgPFRhYiBwcmVmaXg9ezxJY29uTGliIGljb249ImNvZyIgLz59PlNldHRpbmdzPC9UYWI+CiAgICAgICAgICAgICAgICAgICAgPFRhYgogICAgICAgICAgICAgICAgICAgICAgICBwcmVmaXg9ezxJY29uTGliIGljb249Indhcm5pbmciIC8+fQogICAgICAgICAgICAgICAgICAgICAgICBzdWZmaXg9ezxCYWRnZSB2YXJpYW50PSJkYW5nZXIiPjI8L0JhZGdlPn0+CiAgICAgICAgICAgICAgICAgICAgICAgIFNlY3VyaXR5CiAgICAgICAgICAgICAgICAgICAgPC9UYWI+CiAgICAgICAgICAgICAgICAgICAgPFRhYiBwcmVmaXg9ezxJY29uTGliIGljb249ImZsYWciIC8+fT5Qcml2YWN5PC9UYWI+CiAgICAgICAgICAgICAgICAgICAgPFRhYiBkaXNhYmxlZD5TdWJzY3JpcHRpb248L1RhYj4KICAgICAgICAgICAgICAgIDwvVGFiTGlzdD4KCiAgICAgICAgICAgICAgICA8VGFiUGFuZWxzPgogICAgICAgICAgICAgICAgICAgIDxUYWJQYW5lbD5Qcm9maWxlIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICAgICAgPFRhYlBhbmVsPlNldHRpbmdzIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICAgICAgPFRhYlBhbmVsPlNlY3VyaXR5IHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICAgICAgPFRhYlBhbmVsPlByaXZhY3kgcmVsYXRlZCBjb250ZW50PC9UYWJQYW5lbD4KICAgICAgICAgICAgICAgICAgICA8VGFiUGFuZWw+U3Vic2NyaXB0aW9uIHJlbGF0ZWQgY29udGVudDwvVGFiUGFuZWw+CiAgICAgICAgICAgICAgICA8L1RhYlBhbmVscz4KICAgICAgICAgICAgPC9UYWJzPgogICAgICAgIDwvQ2FyZD4KICAgICkKfQ==" />
+
+```tsx
+export const OnCard = () => {
+    const [selected, setSelected] = useState(2)
+
+    return (
+        <Card
+            height={500}
+            width={600}
+            style={{ overflow: 'hidden' }}>
+            <Tabs
+                layout="bottom"
+                animated
+                selected={selected}
+                onSelect={setSelected}>
+                <TabList
+                    height="5rem"
+                    stretch
+                    disableScroll>
+                    <Tab prefix={<IconLib icon="user" />}>Profile</Tab>
+                    <Tab prefix={<IconLib icon="cog" />}>Settings</Tab>
+                    <Tab
+                        prefix={<IconLib icon="warning" />}
+                        suffix={<Badge variant="danger">2</Badge>}>
+                        Security
+                    </Tab>
+                    <Tab prefix={<IconLib icon="flag" />}>Privacy</Tab>
+                    <Tab disabled>Subscription</Tab>
+                </TabList>
+
+                <TabPanels>
+                    <TabPanel>Profile related content</TabPanel>
+                    <TabPanel>Settings related content</TabPanel>
+                    <TabPanel>Security related content</TabPanel>
+                    <TabPanel>Privacy related content</TabPanel>
+                    <TabPanel>Subscription related content</TabPanel>
+                </TabPanels>
+            </Tabs>
+        </Card>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

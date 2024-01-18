@@ -1,0 +1,294 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Table, TBody, Td, Th, THead, Tr } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Table',
+    subtitle: 'The Table component serves as thin wrapper of the underlying native HTML <table> elements.',
+    description:
+        'The Table component is a representation of tabular data, which consists of information arranged in a two-dimensional table with rows and columns containing data.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/table/table.tsx","description":"","displayName":"Table","methods":[],"props":{"striped":{"defaultValue":null,"description":"","name":"striped","declarations":[{"fileName":"packages/core/src/table/table.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"lined":{"defaultValue":null,"description":"","name":"lined","declarations":[{"fileName":"packages/core/src/table/table.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"caption":{"defaultValue":null,"description":"","name":"caption","declarations":[{"fileName":"packages/core/src/table/table.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"captionPosition":{"defaultValue":null,"description":"","name":"captionPosition","declarations":[{"fileName":"packages/core/src/table/table.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"bottom\" | \"top\""},"tags":{}},"stickyHeader":{"defaultValue":null,"description":"","name":"stickyHeader","declarations":[{"fileName":"packages/core/src/table/table.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"stickyColumn":{"defaultValue":null,"description":"","name":"stickyColumn","declarations":[{"fileName":"packages/core/src/table/table.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/table/table.tsx","description":"","displayName":"THead","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/table/table.tsx","description":"","displayName":"TBody","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/table/table.tsx","description":"","displayName":"Th","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/table/table.tsx","description":"","displayName":"Tr","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/table/table.tsx","description":"","displayName":"Td","methods":[],"props":{}}]
+
+export const css = [[["--f-table-border-radius","var(--f-radius)"],["--f-table-border-color","var(--f-color-border)"],["--f-table-caption-color","var(--f-color-text-weaker)"],["--f-table-caption-size","var(--f-font-size-sm)"],["--f-table-cell-padding","var(--f-space-inset-y-2)"],["--f-table-tr-odd-background-color","var(--f-color-surface-strong)"],["--f-table-tr-even-background-color","var(--f-color-surface)"],["--f-table-td-color","var(--f-color-text)"],["--f-table-th-color","var(--f-color-text-weakest)"],["--f-table-th-background-color","var(--f-color-surface)"]]]
+
+
+
+<CodeComponent filename="table.tsx" code="aW1wb3J0IHsgVGFibGUsIFRIZWFkLCBUQm9keSwgVGgsIFRyLCBUZCB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import { Table, THead, TBody, Th, Tr, Td } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<Table captionPosition="top" caption="Most Populated Countries">
+        <THead>
+            <Tr>
+                <Th>#</Th>
+                <Th>Country</Th>
+                <Th align="right">Population</Th>
+            </Tr>
+        </THead>
+        <TBody>
+            <Tr>
+                <Td>1</Td>
+                <Td>India</Td>
+                <Td align="right">1,428,627,663</Td>
+            </Tr>
+            <Tr>
+                <Td>2</Td>
+                <Td>China</Td>
+                <Td align="right">1,425,671,352</Td>
+            </Tr>
+            <Tr>
+                <Td>3</Td>
+                <Td>United States</Td>
+                <Td align="right">339,996,563</Td>
+            </Tr>
+            <Tr>
+                <Td>4</Td>
+                <Td>Indonesia</Td>
+                <Td align="right">277,534,122</Td>
+            </Tr>
+            <Tr>
+                <Td>5</Td>
+                <Td>Pakistan</Td>
+                <Td align="right">240,485,658</Td>
+            </Tr>
+        </TBody>
+    </Table>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFRhYmxlCiAgICAgICAgY2FwdGlvblBvc2l0aW9uPSJ0b3AiCiAgICAgICAgY2FwdGlvbj0iTW9zdCBQb3B1bGF0ZWQgQ291bnRyaWVzIj4KICAgICAgICA8VEhlYWQ+CiAgICAgICAgICAgIDxUcj4KICAgICAgICAgICAgICAgIDxUaD4jPC9UaD4KICAgICAgICAgICAgICAgIDxUaD5Db3VudHJ5PC9UaD4KICAgICAgICAgICAgICAgIDxUaCBhbGlnbj0icmlnaHQiPlBvcHVsYXRpb248L1RoPgogICAgICAgICAgICA8L1RyPgogICAgICAgIDwvVEhlYWQ+CiAgICAgICAgPFRCb2R5PgogICAgICAgICAgICA8VHI+CiAgICAgICAgICAgICAgICA8VGQ+MTwvVGQ+CiAgICAgICAgICAgICAgICA8VGQ+SW5kaWE8L1RkPgogICAgICAgICAgICAgICAgPFRkIGFsaWduPSJyaWdodCI+MSw0MjgsNjI3LDY2MzwvVGQ+CiAgICAgICAgICAgIDwvVHI+CiAgICAgICAgICAgIDxUcj4KICAgICAgICAgICAgICAgIDxUZD4yPC9UZD4KICAgICAgICAgICAgICAgIDxUZD5DaGluYTwvVGQ+CiAgICAgICAgICAgICAgICA8VGQgYWxpZ249InJpZ2h0Ij4xLDQyNSw2NzEsMzUyPC9UZD4KICAgICAgICAgICAgPC9Ucj4KICAgICAgICAgICAgPFRyPgogICAgICAgICAgICAgICAgPFRkPjM8L1RkPgogICAgICAgICAgICAgICAgPFRkPlVuaXRlZCBTdGF0ZXM8L1RkPgogICAgICAgICAgICAgICAgPFRkIGFsaWduPSJyaWdodCI+MzM5LDk5Niw1NjM8L1RkPgogICAgICAgICAgICA8L1RyPgogICAgICAgICAgICA8VHI+CiAgICAgICAgICAgICAgICA8VGQ+NDwvVGQ+CiAgICAgICAgICAgICAgICA8VGQ+SW5kb25lc2lhPC9UZD4KICAgICAgICAgICAgICAgIDxUZCBhbGlnbj0icmlnaHQiPjI3Nyw1MzQsMTIyPC9UZD4KICAgICAgICAgICAgPC9Ucj4KICAgICAgICAgICAgPFRyPgogICAgICAgICAgICAgICAgPFRkPjU8L1RkPgogICAgICAgICAgICAgICAgPFRkPlBha2lzdGFuPC9UZD4KICAgICAgICAgICAgICAgIDxUZCBhbGlnbj0icmlnaHQiPjI0MCw0ODUsNjU4PC9UZD4KICAgICAgICAgICAgPC9Ucj4KICAgICAgICA8L1RCb2R5PgogICAgPC9UYWJsZT4KKQ==" />
+
+```tsx
+export const Usage = () => (
+    <Table
+        captionPosition="top"
+        caption="Most Populated Countries">
+        <THead>
+            <Tr>
+                <Th>#</Th>
+                <Th>Country</Th>
+                <Th align="right">Population</Th>
+            </Tr>
+        </THead>
+        <TBody>
+            <Tr>
+                <Td>1</Td>
+                <Td>India</Td>
+                <Td align="right">1,428,627,663</Td>
+            </Tr>
+            <Tr>
+                <Td>2</Td>
+                <Td>China</Td>
+                <Td align="right">1,425,671,352</Td>
+            </Tr>
+            <Tr>
+                <Td>3</Td>
+                <Td>United States</Td>
+                <Td align="right">339,996,563</Td>
+            </Tr>
+            <Tr>
+                <Td>4</Td>
+                <Td>Indonesia</Td>
+                <Td align="right">277,534,122</Td>
+            </Tr>
+            <Tr>
+                <Td>5</Td>
+                <Td>Pakistan</Td>
+                <Td align="right">240,485,658</Td>
+            </Tr>
+        </TBody>
+    </Table>
+)
+```
+### Lined
+<a name="lined"></a>
+
+export const Lined = () => (<Table lined striped={false} captionPosition="top" caption="Most Populated Countries">
+        <THead>
+            <Tr>
+                <Th>#</Th>
+                <Th>Country</Th>
+                <Th align="right">Population</Th>
+            </Tr>
+        </THead>
+        <TBody>
+            <Tr>
+                <Td>1</Td>
+                <Td>India</Td>
+                <Td align="right">1,428,627,663</Td>
+            </Tr>
+            <Tr>
+                <Td>2</Td>
+                <Td>China</Td>
+                <Td align="right">1,425,671,352</Td>
+            </Tr>
+            <Tr>
+                <Td>3</Td>
+                <Td>United States</Td>
+                <Td align="right">339,996,563</Td>
+            </Tr>
+            <Tr>
+                <Td>4</Td>
+                <Td>Indonesia</Td>
+                <Td align="right">277,534,122</Td>
+            </Tr>
+            <Tr>
+                <Td>5</Td>
+                <Td>Pakistan</Td>
+                <Td align="right">240,485,658</Td>
+            </Tr>
+        </TBody>
+    </Table>);
+
+<div className="story-block">
+<Lined />
+</div>
+
+<CodeComponent filename="Lined.tsx" code="ZXhwb3J0IGNvbnN0IExpbmVkID0gKCkgPT4gKAogICAgPFRhYmxlCiAgICAgICAgbGluZWQKICAgICAgICBzdHJpcGVkPXtmYWxzZX0KICAgICAgICBjYXB0aW9uUG9zaXRpb249InRvcCIKICAgICAgICBjYXB0aW9uPSJNb3N0IFBvcHVsYXRlZCBDb3VudHJpZXMiPgogICAgICAgIDxUSGVhZD4KICAgICAgICAgICAgPFRyPgogICAgICAgICAgICAgICAgPFRoPiM8L1RoPgogICAgICAgICAgICAgICAgPFRoPkNvdW50cnk8L1RoPgogICAgICAgICAgICAgICAgPFRoIGFsaWduPSJyaWdodCI+UG9wdWxhdGlvbjwvVGg+CiAgICAgICAgICAgIDwvVHI+CiAgICAgICAgPC9USGVhZD4KICAgICAgICA8VEJvZHk+CiAgICAgICAgICAgIDxUcj4KICAgICAgICAgICAgICAgIDxUZD4xPC9UZD4KICAgICAgICAgICAgICAgIDxUZD5JbmRpYTwvVGQ+CiAgICAgICAgICAgICAgICA8VGQgYWxpZ249InJpZ2h0Ij4xLDQyOCw2MjcsNjYzPC9UZD4KICAgICAgICAgICAgPC9Ucj4KICAgICAgICAgICAgPFRyPgogICAgICAgICAgICAgICAgPFRkPjI8L1RkPgogICAgICAgICAgICAgICAgPFRkPkNoaW5hPC9UZD4KICAgICAgICAgICAgICAgIDxUZCBhbGlnbj0icmlnaHQiPjEsNDI1LDY3MSwzNTI8L1RkPgogICAgICAgICAgICA8L1RyPgogICAgICAgICAgICA8VHI+CiAgICAgICAgICAgICAgICA8VGQ+MzwvVGQ+CiAgICAgICAgICAgICAgICA8VGQ+VW5pdGVkIFN0YXRlczwvVGQ+CiAgICAgICAgICAgICAgICA8VGQgYWxpZ249InJpZ2h0Ij4zMzksOTk2LDU2MzwvVGQ+CiAgICAgICAgICAgIDwvVHI+CiAgICAgICAgICAgIDxUcj4KICAgICAgICAgICAgICAgIDxUZD40PC9UZD4KICAgICAgICAgICAgICAgIDxUZD5JbmRvbmVzaWE8L1RkPgogICAgICAgICAgICAgICAgPFRkIGFsaWduPSJyaWdodCI+Mjc3LDUzNCwxMjI8L1RkPgogICAgICAgICAgICA8L1RyPgogICAgICAgICAgICA8VHI+CiAgICAgICAgICAgICAgICA8VGQ+NTwvVGQ+CiAgICAgICAgICAgICAgICA8VGQ+UGFraXN0YW48L1RkPgogICAgICAgICAgICAgICAgPFRkIGFsaWduPSJyaWdodCI+MjQwLDQ4NSw2NTg8L1RkPgogICAgICAgICAgICA8L1RyPgogICAgICAgIDwvVEJvZHk+CiAgICA8L1RhYmxlPgop" />
+
+```tsx
+export const Lined = () => (
+    <Table
+        lined
+        striped={false}
+        captionPosition="top"
+        caption="Most Populated Countries">
+        <THead>
+            <Tr>
+                <Th>#</Th>
+                <Th>Country</Th>
+                <Th align="right">Population</Th>
+            </Tr>
+        </THead>
+        <TBody>
+            <Tr>
+                <Td>1</Td>
+                <Td>India</Td>
+                <Td align="right">1,428,627,663</Td>
+            </Tr>
+            <Tr>
+                <Td>2</Td>
+                <Td>China</Td>
+                <Td align="right">1,425,671,352</Td>
+            </Tr>
+            <Tr>
+                <Td>3</Td>
+                <Td>United States</Td>
+                <Td align="right">339,996,563</Td>
+            </Tr>
+            <Tr>
+                <Td>4</Td>
+                <Td>Indonesia</Td>
+                <Td align="right">277,534,122</Td>
+            </Tr>
+            <Tr>
+                <Td>5</Td>
+                <Td>Pakistan</Td>
+                <Td align="right">240,485,658</Td>
+            </Tr>
+        </TBody>
+    </Table>
+)
+```
+### Sticky Header And Column
+<a name="stickyheaderandcolumn"></a>
+
+export const StickyHeaderAndColumn = () => (<Table stickyHeader stickyColumn captionPosition="bottom" caption="Most Populated Countries">
+        <THead>
+            <Tr>
+                <Th>#</Th>
+                <Th>Country</Th>
+                <Th align="right">Population</Th>
+            </Tr>
+        </THead>
+        <TBody>
+            <Tr>
+                <Td>1</Td>
+                <Td>India</Td>
+                <Td align="right">1,428,627,663</Td>
+            </Tr>
+            <Tr>
+                <Td>2</Td>
+                <Td>China</Td>
+                <Td align="right">1,425,671,352</Td>
+            </Tr>
+            <Tr>
+                <Td>3</Td>
+                <Td>United States</Td>
+                <Td align="right">339,996,563</Td>
+            </Tr>
+            <Tr>
+                <Td>4</Td>
+                <Td>Indonesia</Td>
+                <Td align="right">277,534,122</Td>
+            </Tr>
+            <Tr>
+                <Td>5</Td>
+                <Td>Pakistan</Td>
+                <Td align="right">240,485,658</Td>
+            </Tr>
+        </TBody>
+    </Table>);
+
+<div className="story-block">
+<StickyHeaderAndColumn />
+</div>
+
+<CodeComponent filename="StickyHeaderAndColumn.tsx" code="ZXhwb3J0IGNvbnN0IFN0aWNreUhlYWRlckFuZENvbHVtbiA9ICgpID0+ICgKICAgIDxUYWJsZQogICAgICAgIHN0aWNreUhlYWRlcgogICAgICAgIHN0aWNreUNvbHVtbgogICAgICAgIGNhcHRpb25Qb3NpdGlvbj0iYm90dG9tIgogICAgICAgIGNhcHRpb249Ik1vc3QgUG9wdWxhdGVkIENvdW50cmllcyI+CiAgICAgICAgPFRIZWFkPgogICAgICAgICAgICA8VHI+CiAgICAgICAgICAgICAgICA8VGg+IzwvVGg+CiAgICAgICAgICAgICAgICA8VGg+Q291bnRyeTwvVGg+CiAgICAgICAgICAgICAgICA8VGggYWxpZ249InJpZ2h0Ij5Qb3B1bGF0aW9uPC9UaD4KICAgICAgICAgICAgPC9Ucj4KICAgICAgICA8L1RIZWFkPgogICAgICAgIDxUQm9keT4KICAgICAgICAgICAgPFRyPgogICAgICAgICAgICAgICAgPFRkPjE8L1RkPgogICAgICAgICAgICAgICAgPFRkPkluZGlhPC9UZD4KICAgICAgICAgICAgICAgIDxUZCBhbGlnbj0icmlnaHQiPjEsNDI4LDYyNyw2NjM8L1RkPgogICAgICAgICAgICA8L1RyPgogICAgICAgICAgICA8VHI+CiAgICAgICAgICAgICAgICA8VGQ+MjwvVGQ+CiAgICAgICAgICAgICAgICA8VGQ+Q2hpbmE8L1RkPgogICAgICAgICAgICAgICAgPFRkIGFsaWduPSJyaWdodCI+MSw0MjUsNjcxLDM1MjwvVGQ+CiAgICAgICAgICAgIDwvVHI+CiAgICAgICAgICAgIDxUcj4KICAgICAgICAgICAgICAgIDxUZD4zPC9UZD4KICAgICAgICAgICAgICAgIDxUZD5Vbml0ZWQgU3RhdGVzPC9UZD4KICAgICAgICAgICAgICAgIDxUZCBhbGlnbj0icmlnaHQiPjMzOSw5OTYsNTYzPC9UZD4KICAgICAgICAgICAgPC9Ucj4KICAgICAgICAgICAgPFRyPgogICAgICAgICAgICAgICAgPFRkPjQ8L1RkPgogICAgICAgICAgICAgICAgPFRkPkluZG9uZXNpYTwvVGQ+CiAgICAgICAgICAgICAgICA8VGQgYWxpZ249InJpZ2h0Ij4yNzcsNTM0LDEyMjwvVGQ+CiAgICAgICAgICAgIDwvVHI+CiAgICAgICAgICAgIDxUcj4KICAgICAgICAgICAgICAgIDxUZD41PC9UZD4KICAgICAgICAgICAgICAgIDxUZD5QYWtpc3RhbjwvVGQ+CiAgICAgICAgICAgICAgICA8VGQgYWxpZ249InJpZ2h0Ij4yNDAsNDg1LDY1ODwvVGQ+CiAgICAgICAgICAgIDwvVHI+CiAgICAgICAgPC9UQm9keT4KICAgIDwvVGFibGU+Cik=" />
+
+```tsx
+export const StickyHeaderAndColumn = () => (
+    <Table
+        stickyHeader
+        stickyColumn
+        captionPosition="bottom"
+        caption="Most Populated Countries">
+        <THead>
+            <Tr>
+                <Th>#</Th>
+                <Th>Country</Th>
+                <Th align="right">Population</Th>
+            </Tr>
+        </THead>
+        <TBody>
+            <Tr>
+                <Td>1</Td>
+                <Td>India</Td>
+                <Td align="right">1,428,627,663</Td>
+            </Tr>
+            <Tr>
+                <Td>2</Td>
+                <Td>China</Td>
+                <Td align="right">1,425,671,352</Td>
+            </Tr>
+            <Tr>
+                <Td>3</Td>
+                <Td>United States</Td>
+                <Td align="right">339,996,563</Td>
+            </Tr>
+            <Tr>
+                <Td>4</Td>
+                <Td>Indonesia</Td>
+                <Td align="right">277,534,122</Td>
+            </Tr>
+            <Tr>
+                <Td>5</Td>
+                <Td>Pakistan</Td>
+                <Td align="right">240,485,658</Td>
+            </Tr>
+        </TBody>
+    </Table>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

@@ -1,0 +1,292 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import * as Token from '@fold-dev/design/tokens'
+import { Avatar, AvatarGroup, Badge, Heading, Text, View } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Avatar',
+    subtitle:
+        'The Avatar component serves as a representation of the user, showcasing their profile picture, initials or any child content.',
+    description:
+        'The Avatar component is useful for anywhere a user or object needs to be presented in a consistently identifiable way.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/avatar/avatar.tsx","description":"","displayName":"Avatar","methods":[],"props":{"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"packages/core/src/avatar/avatar.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/avatar/avatar.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"packages/core/src/avatar/avatar.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"packages/core/src/avatar/avatar.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"name":{"defaultValue":null,"description":"","name":"name","declarations":[{"fileName":"packages/core/src/avatar/avatar.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"src":{"defaultValue":null,"description":"","name":"src","declarations":[{"fileName":"packages/core/src/avatar/avatar.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"textProps":{"defaultValue":null,"description":"","name":"textProps","declarations":[{"fileName":"packages/core/src/avatar/avatar.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ as?: \"p\" | \"button\" | \"a\" | \"label\" | \"legend\" | \"code\" | \"span\" | \"strong\" | \"b\" | \"i\" | \"em\" | \"mark\" | \"small\" | \"del\" | \"ins\" | \"sub\" | \"sup\" | \"u\" | \"abbr\" | \"cite\" | \"kbd\" | \"s\" | \"samp\" | \"blockquote\"; ... 4 more ...; target?: string; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<...>"},"tags":{}},"imageProps":{"defaultValue":null,"description":"","name":"imageProps","declarations":[{"fileName":"packages/core/src/avatar/avatar.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ errorContent?: ReactNode; src?: string; objectPosition?: string; objectFit?: \"contain\" | \"cover\" | \"fill\"; alt?: string; loading?: \"eager\" | \"lazy\"; crossOrigin?: \"anonymous\" | \"use-credentials\"; ... 6 more ...; placeholderComponent?: any; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<...>"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/avatar/avatar.tsx","description":"","displayName":"AvatarGroup","methods":[],"props":{"animated":{"defaultValue":null,"description":"","name":"animated","declarations":[{"fileName":"packages/core/src/avatar/avatar.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"invert":{"defaultValue":null,"description":"","name":"invert","declarations":[{"fileName":"packages/core/src/avatar/avatar.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
+
+export const css = [[["--f-avatar-border-radius","var(--f-radius-round)"],["--f-avatar-color","var(--f-color-accent)"],["--f-avatar-background-color","var(--f-color-surface-strong)"],["--f-avatar-group-overlap","-1rem"],["--f-avatar-group-overlap-small","-0.66rem"],["--f-avatar-group-spacing","1px"]]]
+
+
+
+<CodeComponent filename="avatar.tsx" code="aW1wb3J0IHsgQXZhdGFyLCBBdmF0YXJHcm91cCB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import { Avatar, AvatarGroup } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<View row gap={5} width="fit-content">
+        <Avatar size="xl" name="Craig Pather" src="/men/02.jpg"/>
+        <Avatar size="xl" name="Charlene Singh" src="https://does.not.exist.jpg"/>
+        <Avatar size="xl" name="Patrick Anthony">
+            <Badge variant="success" anchor="bottom-right" bordered width={15} height={15} style={{
+        '--f-badge-dot-distance': '0rem',
+        '--f-badge-border-size': '0.2rem',
+    }}/>
+        </Avatar>
+    </View>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgIHNpemU9InhsIgogICAgICAgICAgICBuYW1lPSJDcmFpZyBQYXRoZXIiCiAgICAgICAgICAgIHNyYz0iL21lbi8wMi5qcGciCiAgICAgICAgLz4KICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgIHNpemU9InhsIgogICAgICAgICAgICBuYW1lPSJDaGFybGVuZSBTaW5naCIKICAgICAgICAgICAgc3JjPSJodHRwczovL2RvZXMubm90LmV4aXN0LmpwZyIKICAgICAgICAvPgogICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgc2l6ZT0ieGwiCiAgICAgICAgICAgIG5hbWU9IlBhdHJpY2sgQW50aG9ueSI+CiAgICAgICAgICAgIDxCYWRnZQogICAgICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgICAgIGFuY2hvcj0iYm90dG9tLXJpZ2h0IgogICAgICAgICAgICAgICAgYm9yZGVyZWQKICAgICAgICAgICAgICAgIHdpZHRoPXsxNX0KICAgICAgICAgICAgICAgIGhlaWdodD17MTV9CiAgICAgICAgICAgICAgICBzdHlsZT17ewogICAgICAgICAgICAgICAgICAgICctLWYtYmFkZ2UtZG90LWRpc3RhbmNlJzogJzByZW0nLAogICAgICAgICAgICAgICAgICAgICctLWYtYmFkZ2UtYm9yZGVyLXNpemUnOiAnMC4ycmVtJywKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9BdmF0YXI+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+export const Usage = () => (
+    <View
+        row
+        gap={5}
+        width="fit-content">
+        <Avatar
+            size="xl"
+            name="Craig Pather"
+            src="/men/02.jpg"
+        />
+        <Avatar
+            size="xl"
+            name="Charlene Singh"
+            src="https://does.not.exist.jpg"
+        />
+        <Avatar
+            size="xl"
+            name="Patrick Anthony">
+            <Badge
+                variant="success"
+                anchor="bottom-right"
+                bordered
+                width={15}
+                height={15}
+                style={{
+                    '--f-badge-dot-distance': '0rem',
+                    '--f-badge-border-size': '0.2rem',
+                }}
+            />
+        </Avatar>
+    </View>
+)
+```
+### Sizes
+<a name="sizes"></a>
+
+export const Sizes = () => (<View row gap={5} width="fit-content">
+        <Avatar size="xs" name="Etienne Dreyer"/>
+        <Avatar size="sm" name="Aubrey Moagi"/>
+        <Avatar size="md" name="Patrick Anthony"/>
+        <Avatar size="lg" name="Charlene Singh"/>
+        <Avatar size="xl" name="Craig Pather"/>
+    </View>);
+
+<div className="story-block">
+<Sizes />
+</div>
+
+<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgIHNpemU9InhzIgogICAgICAgICAgICBuYW1lPSJFdGllbm5lIERyZXllciIKICAgICAgICAvPgogICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgIG5hbWU9IkF1YnJleSBNb2FnaSIKICAgICAgICAvPgogICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgc2l6ZT0ibWQiCiAgICAgICAgICAgIG5hbWU9IlBhdHJpY2sgQW50aG9ueSIKICAgICAgICAvPgogICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgc2l6ZT0ibGciCiAgICAgICAgICAgIG5hbWU9IkNoYXJsZW5lIFNpbmdoIgogICAgICAgIC8+CiAgICAgICAgPEF2YXRhcgogICAgICAgICAgICBzaXplPSJ4bCIKICAgICAgICAgICAgbmFtZT0iQ3JhaWcgUGF0aGVyIgogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+export const Sizes = () => (
+    <View
+        row
+        gap={5}
+        width="fit-content">
+        <Avatar
+            size="xs"
+            name="Etienne Dreyer"
+        />
+        <Avatar
+            size="sm"
+            name="Aubrey Moagi"
+        />
+        <Avatar
+            size="md"
+            name="Patrick Anthony"
+        />
+        <Avatar
+            size="lg"
+            name="Charlene Singh"
+        />
+        <Avatar
+            size="xl"
+            name="Craig Pather"
+        />
+    </View>
+)
+```
+### Color
+<a name="color"></a>
+
+export const Color = () => (<View row gap={5} width="fit-content">
+        <Avatar name="Craig Pather" color={Token.ColorElectric500}/>
+        <Avatar name="Charlene Singh" color={Token.ColorCyan500} src="https://does.not.exist.jpg"/>
+        <Avatar name="Patrick Anthony" color={Token.ColorNeonpink500}/>
+        <Avatar name="Etienne Dreyer" color={Token.ColorNeonpink500} subtle/>
+    </View>);
+
+<div className="story-block">
+<Color />
+</div>
+
+<CodeComponent filename="Color.tsx" code="ZXhwb3J0IGNvbnN0IENvbG9yID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgIG5hbWU9IkNyYWlnIFBhdGhlciIKICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yRWxlY3RyaWM1MDB9CiAgICAgICAgLz4KICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgIG5hbWU9IkNoYXJsZW5lIFNpbmdoIgogICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JDeWFuNTAwfQogICAgICAgICAgICBzcmM9Imh0dHBzOi8vZG9lcy5ub3QuZXhpc3QuanBnIgogICAgICAgIC8+CiAgICAgICAgPEF2YXRhcgogICAgICAgICAgICBuYW1lPSJQYXRyaWNrIEFudGhvbnkiCiAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvck5lb25waW5rNTAwfQogICAgICAgIC8+CiAgICAgICAgPEF2YXRhcgogICAgICAgICAgICBuYW1lPSJFdGllbm5lIERyZXllciIKICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yTmVvbnBpbms1MDB9CiAgICAgICAgICAgIHN1YnRsZQogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+export const Color = () => (
+    <View
+        row
+        gap={5}
+        width="fit-content">
+        <Avatar
+            name="Craig Pather"
+            color={Token.ColorElectric500}
+        />
+        <Avatar
+            name="Charlene Singh"
+            color={Token.ColorCyan500}
+            src="https://does.not.exist.jpg"
+        />
+        <Avatar
+            name="Patrick Anthony"
+            color={Token.ColorNeonpink500}
+        />
+        <Avatar
+            name="Etienne Dreyer"
+            color={Token.ColorNeonpink500}
+            subtle
+        />
+    </View>
+)
+```
+### Group
+<a name="group"></a>
+
+export const Group = () => {
+    const style = { border: '0.2rem solid var(--f-color-surface)' };
+    return (<View column gap={15} alignItems="flex-start">
+            <AvatarGroup>
+                <Avatar name="Charlene Singh" style={style} src="/women/01.jpg"/>
+                <Avatar name="Craig Pather" style={style} src="/men/01.jpg"/>
+                <Avatar name="Etienne Dreyer" style={style} src="/men/09.jpg"/>
+            </AvatarGroup>
+            <Heading as="h5">With animation on hover:</Heading>
+            <AvatarGroup animated>
+                <Avatar name="Charlene Singh" style={style} src="/women/01.jpg"/>
+                <Avatar name="Craig Pather" style={style} src="/men/01.jpg"/>
+                <Avatar name="Etienne Dreyer" style={style} src="/men/09.jpg"/>
+            </AvatarGroup>
+        </View>);
+};
+
+<div className="story-block">
+<Group />
+</div>
+
+<CodeComponent filename="Group.tsx" code="ZXhwb3J0IGNvbnN0IEdyb3VwID0gKCkgPT4gewogICAgY29uc3Qgc3R5bGUgPSB7IGJvcmRlcjogJzAuMnJlbSBzb2xpZCB2YXIoLS1mLWNvbG9yLXN1cmZhY2UpJyB9CgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgZ2FwPXsxNX0KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCI+CiAgICAgICAgICAgIDxBdmF0YXJHcm91cD4KICAgICAgICAgICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgICAgICAgICBuYW1lPSJDaGFybGVuZSBTaW5naCIKICAgICAgICAgICAgICAgICAgICBzdHlsZT17c3R5bGV9CiAgICAgICAgICAgICAgICAgICAgc3JjPSIvd29tZW4vMDEuanBnIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgICAgICAgICBuYW1lPSJDcmFpZyBQYXRoZXIiCiAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3N0eWxlfQogICAgICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wMS5qcGciCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgICAgIG5hbWU9IkV0aWVubmUgRHJleWVyIgogICAgICAgICAgICAgICAgICAgIHN0eWxlPXtzdHlsZX0KICAgICAgICAgICAgICAgICAgICBzcmM9Ii9tZW4vMDkuanBnIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9BdmF0YXJHcm91cD4KICAgICAgICAgICAgPEhlYWRpbmcgYXM9Img1Ij5XaXRoIGFuaW1hdGlvbiBvbiBob3Zlcjo8L0hlYWRpbmc+CiAgICAgICAgICAgIDxBdmF0YXJHcm91cCBhbmltYXRlZD4KICAgICAgICAgICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgICAgICAgICBuYW1lPSJDaGFybGVuZSBTaW5naCIKICAgICAgICAgICAgICAgICAgICBzdHlsZT17c3R5bGV9CiAgICAgICAgICAgICAgICAgICAgc3JjPSIvd29tZW4vMDEuanBnIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgICAgICAgICBuYW1lPSJDcmFpZyBQYXRoZXIiCiAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3N0eWxlfQogICAgICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wMS5qcGciCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgICAgIG5hbWU9IkV0aWVubmUgRHJleWVyIgogICAgICAgICAgICAgICAgICAgIHN0eWxlPXtzdHlsZX0KICAgICAgICAgICAgICAgICAgICBzcmM9Ii9tZW4vMDkuanBnIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9BdmF0YXJHcm91cD4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const Group = () => {
+    const style = { border: '0.2rem solid var(--f-color-surface)' }
+
+    return (
+        <View
+            column
+            gap={15}
+            alignItems="flex-start">
+            <AvatarGroup>
+                <Avatar
+                    name="Charlene Singh"
+                    style={style}
+                    src="/women/01.jpg"
+                />
+                <Avatar
+                    name="Craig Pather"
+                    style={style}
+                    src="/men/01.jpg"
+                />
+                <Avatar
+                    name="Etienne Dreyer"
+                    style={style}
+                    src="/men/09.jpg"
+                />
+            </AvatarGroup>
+            <Heading as="h5">With animation on hover:</Heading>
+            <AvatarGroup animated>
+                <Avatar
+                    name="Charlene Singh"
+                    style={style}
+                    src="/women/01.jpg"
+                />
+                <Avatar
+                    name="Craig Pather"
+                    style={style}
+                    src="/men/01.jpg"
+                />
+                <Avatar
+                    name="Etienne Dreyer"
+                    style={style}
+                    src="/men/09.jpg"
+                />
+            </AvatarGroup>
+        </View>
+    )
+}
+```
+### Group Inverted
+<a name="groupinverted"></a>
+
+export const GroupInverted = () => {
+    const style = { border: '0.2rem solid var(--f-color-surface)' };
+    return (<AvatarGroup animated invert>
+            <Avatar name="Charlene Singh" style={style} src="/women/01.jpg"/>
+            <Avatar name="Craig Pather" style={style} src="/men/01.jpg"/>
+            <Avatar color={Token.ColorCyan500} style={style}>
+                <Text size="xs">+33</Text>
+            </Avatar>
+        </AvatarGroup>);
+};
+
+<div className="story-block">
+<GroupInverted />
+</div>
+
+<CodeComponent filename="GroupInverted.tsx" code="ZXhwb3J0IGNvbnN0IEdyb3VwSW52ZXJ0ZWQgPSAoKSA9PiB7CiAgICBjb25zdCBzdHlsZSA9IHsgYm9yZGVyOiAnMC4ycmVtIHNvbGlkIHZhcigtLWYtY29sb3Itc3VyZmFjZSknIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxBdmF0YXJHcm91cAogICAgICAgICAgICBhbmltYXRlZAogICAgICAgICAgICBpbnZlcnQ+CiAgICAgICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgICAgIG5hbWU9IkNoYXJsZW5lIFNpbmdoIgogICAgICAgICAgICAgICAgc3R5bGU9e3N0eWxlfQogICAgICAgICAgICAgICAgc3JjPSIvd29tZW4vMDEuanBnIgogICAgICAgICAgICAvPgogICAgICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgICAgICBuYW1lPSJDcmFpZyBQYXRoZXIiCiAgICAgICAgICAgICAgICBzdHlsZT17c3R5bGV9CiAgICAgICAgICAgICAgICBzcmM9Ii9tZW4vMDEuanBnIgogICAgICAgICAgICAvPgogICAgICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JDeWFuNTAwfQogICAgICAgICAgICAgICAgc3R5bGU9e3N0eWxlfT4KICAgICAgICAgICAgICAgIDxUZXh0IHNpemU9InhzIj4rMzM8L1RleHQ+CiAgICAgICAgICAgIDwvQXZhdGFyPgogICAgICAgIDwvQXZhdGFyR3JvdXA+CiAgICApCn0=" />
+
+```tsx
+export const GroupInverted = () => {
+    const style = { border: '0.2rem solid var(--f-color-surface)' }
+
+    return (
+        <AvatarGroup
+            animated
+            invert>
+            <Avatar
+                name="Charlene Singh"
+                style={style}
+                src="/women/01.jpg"
+            />
+            <Avatar
+                name="Craig Pather"
+                style={style}
+                src="/men/01.jpg"
+            />
+            <Avatar
+                color={Token.ColorCyan500}
+                style={style}>
+                <Text size="xs">+33</Text>
+            </Avatar>
+        </AvatarGroup>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

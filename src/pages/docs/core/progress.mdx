@@ -1,0 +1,346 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { CircularProgress, Heading, Progress, Stack, SubtleProgress, Text } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Progress',
+    subtitle: 'The Progress component visually communicates progress to the user through color & SVG elements.',
+    description:
+        'Progress indicators provide users with information regarding the status of active operations, such as launching an application, completing a form submission, or saving recent changes. Also see the Spinner component.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/progress/progress.tsx","description":"","displayName":"Progress","methods":[],"props":{"indeterminate":{"defaultValue":null,"description":"","name":"indeterminate","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"animated":{"defaultValue":null,"description":"","name":"animated","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"thickness":{"defaultValue":null,"description":"","name":"thickness","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/progress/progress.tsx","description":"","displayName":"CircularProgress","methods":[],"props":{"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"thickness":{"defaultValue":null,"description":"","name":"thickness","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/progress/progress.tsx","description":"","displayName":"SubtleProgress","methods":[],"props":{"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}}}}]
+
+export const css = [[["--f-progress-background","var(--f-color-surface-stronger)"],["--f-progress-active","var(--f-color-accent)"],["--f-progress-radius","var(--f-radius)"],["--f-subtle-progress-padding","var(--f-space-1)"],["--f-subtle-progress-opacity","0.2"]]]
+
+
+
+<CodeComponent filename="progress.tsx" code="aW1wb3J0IHsgUHJvZ3Jlc3MsIENpcmN1bGFyUHJvZ3Jlc3MsIFN1YnRsZVByb2dyZXNzIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Progress, CircularProgress, SubtleProgress } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return <Progress value={75}/>;
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuIDxQcm9ncmVzcyB2YWx1ZT17NzV9IC8+Cn0=" />
+
+```tsx
+export const Usage = () => {
+    return <Progress value={75} />
+}
+```
+### Variants
+<a name="variants"></a>
+
+export const Variants = () => (<Stack direction="vertical" spacing={10}>
+        <Progress value={50} thickness={10}/>
+        <Progress value={25} variant="accent" thickness={10}/>
+        <Progress value={35} variant="success" thickness={10}/>
+        <Progress value={15} variant="neutral" thickness={10}/>
+        <Progress value={55} variant="caution" thickness={10}/>
+        <Progress value={65} variant="warning" thickness={10}/>
+        <Progress value={85} variant="danger" thickness={10}/>
+        <Progress value={75} variant="highlight" thickness={10}/>
+    </Stack>);
+
+<div className="story-block">
+<Variants />
+</div>
+
+<CodeComponent filename="Variants.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFN0YWNrCiAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICBzcGFjaW5nPXsxMH0+CiAgICAgICAgPFByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXs1MH0KICAgICAgICAgICAgdGhpY2tuZXNzPXsxMH0KICAgICAgICAvPgogICAgICAgIDxQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17MjV9CiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgdGhpY2tuZXNzPXsxMH0KICAgICAgICAvPgogICAgICAgIDxQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17MzV9CiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgIHRoaWNrbmVzcz17MTB9CiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezE1fQogICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgICAgICB0aGlja25lc3M9ezEwfQogICAgICAgIC8+CiAgICAgICAgPFByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXs1NX0KICAgICAgICAgICAgdmFyaWFudD0iY2F1dGlvbiIKICAgICAgICAgICAgdGhpY2tuZXNzPXsxMH0KICAgICAgICAvPgogICAgICAgIDxQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17NjV9CiAgICAgICAgICAgIHZhcmlhbnQ9Indhcm5pbmciCiAgICAgICAgICAgIHRoaWNrbmVzcz17MTB9CiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezg1fQogICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiCiAgICAgICAgICAgIHRoaWNrbmVzcz17MTB9CiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezc1fQogICAgICAgICAgICB2YXJpYW50PSJoaWdobGlnaHQiCiAgICAgICAgICAgIHRoaWNrbmVzcz17MTB9CiAgICAgICAgLz4KICAgIDwvU3RhY2s+Cik=" />
+
+```tsx
+export const Variants = () => (
+    <Stack
+        direction="vertical"
+        spacing={10}>
+        <Progress
+            value={50}
+            thickness={10}
+        />
+        <Progress
+            value={25}
+            variant="accent"
+            thickness={10}
+        />
+        <Progress
+            value={35}
+            variant="success"
+            thickness={10}
+        />
+        <Progress
+            value={15}
+            variant="neutral"
+            thickness={10}
+        />
+        <Progress
+            value={55}
+            variant="caution"
+            thickness={10}
+        />
+        <Progress
+            value={65}
+            variant="warning"
+            thickness={10}
+        />
+        <Progress
+            value={85}
+            variant="danger"
+            thickness={10}
+        />
+        <Progress
+            value={75}
+            variant="highlight"
+            thickness={10}
+        />
+    </Stack>
+)
+```
+### States
+<a name="states"></a>
+
+export const States = () => (<Stack direction="vertical" spacing={10}>
+        <Progress value={90} animated/>
+        <Progress value={75} animated variant="accent"/>
+        <Progress value={15} animated variant="success"/>
+        <Progress value={55} animated variant="neutral"/>
+        <Progress value={65} animated variant="caution"/>
+        <Progress value={85} animated variant="warning"/>
+        <Progress value={35} animated variant="danger"/>
+        <Progress value={25} animated variant="highlight"/>
+        <Progress value={50} indeterminate/>
+        <Progress value={25} indeterminate variant="accent"/>
+        <Progress value={25} indeterminate variant="success"/>
+        <Progress value={25} indeterminate variant="neutral"/>
+        <Progress value={25} indeterminate variant="caution"/>
+        <Progress value={25} indeterminate variant="warning"/>
+        <Progress value={25} indeterminate variant="danger"/>
+        <Progress value={25} indeterminate variant="highlight"/>
+    </Stack>);
+
+<div className="story-block">
+<States />
+</div>
+
+<CodeComponent filename="States.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXRlcyA9ICgpID0+ICgKICAgIDxTdGFjawogICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgc3BhY2luZz17MTB9PgogICAgICAgIDxQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17OTB9CiAgICAgICAgICAgIGFuaW1hdGVkCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezc1fQogICAgICAgICAgICBhbmltYXRlZAogICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezE1fQogICAgICAgICAgICBhbmltYXRlZAogICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgIC8+CiAgICAgICAgPFByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXs1NX0KICAgICAgICAgICAgYW5pbWF0ZWQKICAgICAgICAgICAgdmFyaWFudD0ibmV1dHJhbCIKICAgICAgICAvPgogICAgICAgIDxQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17NjV9CiAgICAgICAgICAgIGFuaW1hdGVkCiAgICAgICAgICAgIHZhcmlhbnQ9ImNhdXRpb24iCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezg1fQogICAgICAgICAgICBhbmltYXRlZAogICAgICAgICAgICB2YXJpYW50PSJ3YXJuaW5nIgogICAgICAgIC8+CiAgICAgICAgPFByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXszNX0KICAgICAgICAgICAgYW5pbWF0ZWQKICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgIC8+CiAgICAgICAgPFByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXsyNX0KICAgICAgICAgICAgYW5pbWF0ZWQKICAgICAgICAgICAgdmFyaWFudD0iaGlnaGxpZ2h0IgogICAgICAgIC8+CiAgICAgICAgPFByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXs1MH0KICAgICAgICAgICAgaW5kZXRlcm1pbmF0ZQogICAgICAgIC8+CiAgICAgICAgPFByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXsyNX0KICAgICAgICAgICAgaW5kZXRlcm1pbmF0ZQogICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezI1fQogICAgICAgICAgICBpbmRldGVybWluYXRlCiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezI1fQogICAgICAgICAgICBpbmRldGVybWluYXRlCiAgICAgICAgICAgIHZhcmlhbnQ9Im5ldXRyYWwiCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezI1fQogICAgICAgICAgICBpbmRldGVybWluYXRlCiAgICAgICAgICAgIHZhcmlhbnQ9ImNhdXRpb24iCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezI1fQogICAgICAgICAgICBpbmRldGVybWluYXRlCiAgICAgICAgICAgIHZhcmlhbnQ9Indhcm5pbmciCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezI1fQogICAgICAgICAgICBpbmRldGVybWluYXRlCiAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAvPgogICAgICAgIDxQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17MjV9CiAgICAgICAgICAgIGluZGV0ZXJtaW5hdGUKICAgICAgICAgICAgdmFyaWFudD0iaGlnaGxpZ2h0IgogICAgICAgIC8+CiAgICA8L1N0YWNrPgop" />
+
+```tsx
+export const States = () => (
+    <Stack
+        direction="vertical"
+        spacing={10}>
+        <Progress
+            value={90}
+            animated
+        />
+        <Progress
+            value={75}
+            animated
+            variant="accent"
+        />
+        <Progress
+            value={15}
+            animated
+            variant="success"
+        />
+        <Progress
+            value={55}
+            animated
+            variant="neutral"
+        />
+        <Progress
+            value={65}
+            animated
+            variant="caution"
+        />
+        <Progress
+            value={85}
+            animated
+            variant="warning"
+        />
+        <Progress
+            value={35}
+            animated
+            variant="danger"
+        />
+        <Progress
+            value={25}
+            animated
+            variant="highlight"
+        />
+        <Progress
+            value={50}
+            indeterminate
+        />
+        <Progress
+            value={25}
+            indeterminate
+            variant="accent"
+        />
+        <Progress
+            value={25}
+            indeterminate
+            variant="success"
+        />
+        <Progress
+            value={25}
+            indeterminate
+            variant="neutral"
+        />
+        <Progress
+            value={25}
+            indeterminate
+            variant="caution"
+        />
+        <Progress
+            value={25}
+            indeterminate
+            variant="warning"
+        />
+        <Progress
+            value={25}
+            indeterminate
+            variant="danger"
+        />
+        <Progress
+            value={25}
+            indeterminate
+            variant="highlight"
+        />
+    </Stack>
+)
+```
+### Circular
+<a name="circular"></a>
+
+export const Circular = () => (<Stack spacing={10}>
+        <CircularProgress value={20} size={120} thickness={10}>
+            <Heading as="h1" colorToken="accent">
+                20%
+            </Heading>
+        </CircularProgress>
+        <CircularProgress value={90} size={120} thickness={10} variant="accent"/>
+        <CircularProgress value={50} size={80} thickness={10} variant="success"/>
+        <CircularProgress value={80} size={50} thickness={10} variant="neutral"/>
+        <CircularProgress value={80} size={50} thickness={10} variant="warning"/>
+        <CircularProgress value={80} size={50} thickness={10} variant="danger"/>
+        <CircularProgress value={80} size={50} thickness={20} variant="highlight"/>
+    </Stack>);
+
+<div className="story-block">
+<Circular />
+</div>
+
+<CodeComponent filename="Circular.tsx" code="ZXhwb3J0IGNvbnN0IENpcmN1bGFyID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezEwfT4KICAgICAgICA8Q2lyY3VsYXJQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17MjB9CiAgICAgICAgICAgIHNpemU9ezEyMH0KICAgICAgICAgICAgdGhpY2tuZXNzPXsxMH0+CiAgICAgICAgICAgIDxIZWFkaW5nCiAgICAgICAgICAgICAgICBhcz0iaDEiCiAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJhY2NlbnQiPgogICAgICAgICAgICAgICAgMjAlCiAgICAgICAgICAgIDwvSGVhZGluZz4KICAgICAgICA8L0NpcmN1bGFyUHJvZ3Jlc3M+CiAgICAgICAgPENpcmN1bGFyUHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezkwfQogICAgICAgICAgICBzaXplPXsxMjB9CiAgICAgICAgICAgIHRoaWNrbmVzcz17MTB9CiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAvPgogICAgICAgIDxDaXJjdWxhclByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXs1MH0KICAgICAgICAgICAgc2l6ZT17ODB9CiAgICAgICAgICAgIHRoaWNrbmVzcz17MTB9CiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgLz4KICAgICAgICA8Q2lyY3VsYXJQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17ODB9CiAgICAgICAgICAgIHNpemU9ezUwfQogICAgICAgICAgICB0aGlja25lc3M9ezEwfQogICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgIC8+CiAgICAgICAgPENpcmN1bGFyUHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezgwfQogICAgICAgICAgICBzaXplPXs1MH0KICAgICAgICAgICAgdGhpY2tuZXNzPXsxMH0KICAgICAgICAgICAgdmFyaWFudD0id2FybmluZyIKICAgICAgICAvPgogICAgICAgIDxDaXJjdWxhclByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXs4MH0KICAgICAgICAgICAgc2l6ZT17NTB9CiAgICAgICAgICAgIHRoaWNrbmVzcz17MTB9CiAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAvPgogICAgICAgIDxDaXJjdWxhclByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXs4MH0KICAgICAgICAgICAgc2l6ZT17NTB9CiAgICAgICAgICAgIHRoaWNrbmVzcz17MjB9CiAgICAgICAgICAgIHZhcmlhbnQ9ImhpZ2hsaWdodCIKICAgICAgICAvPgogICAgPC9TdGFjaz4KKQ==" />
+
+```tsx
+export const Circular = () => (
+    <Stack spacing={10}>
+        <CircularProgress
+            value={20}
+            size={120}
+            thickness={10}>
+            <Heading
+                as="h1"
+                colorToken="accent">
+                20%
+            </Heading>
+        </CircularProgress>
+        <CircularProgress
+            value={90}
+            size={120}
+            thickness={10}
+            variant="accent"
+        />
+        <CircularProgress
+            value={50}
+            size={80}
+            thickness={10}
+            variant="success"
+        />
+        <CircularProgress
+            value={80}
+            size={50}
+            thickness={10}
+            variant="neutral"
+        />
+        <CircularProgress
+            value={80}
+            size={50}
+            thickness={10}
+            variant="warning"
+        />
+        <CircularProgress
+            value={80}
+            size={50}
+            thickness={10}
+            variant="danger"
+        />
+        <CircularProgress
+            value={80}
+            size={50}
+            thickness={20}
+            variant="highlight"
+        />
+    </Stack>
+)
+```
+### Subtle
+<a name="subtle"></a>
+
+export const Subtle = () => (<Stack direction="vertical" spacing={10}>
+        <SubtleProgress value={87}>
+            <Text>Redux</Text>
+        </SubtleProgress>
+
+        <SubtleProgress value={20} variant="danger">
+            <Text>MobX</Text>
+        </SubtleProgress>
+
+        <SubtleProgress value={55} variant="highlight">
+            <Text>Zustand</Text>
+        </SubtleProgress>
+    </Stack>);
+
+<div className="story-block">
+<Subtle />
+</div>
+
+<CodeComponent filename="Subtle.tsx" code="ZXhwb3J0IGNvbnN0IFN1YnRsZSA9ICgpID0+ICgKICAgIDxTdGFjawogICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgc3BhY2luZz17MTB9PgogICAgICAgIDxTdWJ0bGVQcm9ncmVzcyB2YWx1ZT17ODd9PgogICAgICAgICAgICA8VGV4dD5SZWR1eDwvVGV4dD4KICAgICAgICA8L1N1YnRsZVByb2dyZXNzPgoKICAgICAgICA8U3VidGxlUHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezIwfQogICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiPgogICAgICAgICAgICA8VGV4dD5Nb2JYPC9UZXh0PgogICAgICAgIDwvU3VidGxlUHJvZ3Jlc3M+CgogICAgICAgIDxTdWJ0bGVQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17NTV9CiAgICAgICAgICAgIHZhcmlhbnQ9ImhpZ2hsaWdodCI+CiAgICAgICAgICAgIDxUZXh0Plp1c3RhbmQ8L1RleHQ+CiAgICAgICAgPC9TdWJ0bGVQcm9ncmVzcz4KICAgIDwvU3RhY2s+Cik=" />
+
+```tsx
+export const Subtle = () => (
+    <Stack
+        direction="vertical"
+        spacing={10}>
+        <SubtleProgress value={87}>
+            <Text>Redux</Text>
+        </SubtleProgress>
+
+        <SubtleProgress
+            value={20}
+            variant="danger">
+            <Text>MobX</Text>
+        </SubtleProgress>
+
+        <SubtleProgress
+            value={55}
+            variant="highlight">
+            <Text>Zustand</Text>
+        </SubtleProgress>
+    </Stack>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

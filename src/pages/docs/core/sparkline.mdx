@@ -1,0 +1,93 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Sparkline, View } from '@fold-dev/core'
+import React, { useMemo } from 'react'
+
+export const docs = {
+    title: 'Sparkline',
+    subtitle: 'The Sparkline component is a small SVG powered chart to indicate activity or frequency.',
+    description:
+        'It serves the purpose of offering users insight into the frequency or regularity of specific actions, making it most effective when presented alongside the element to provide users with contextually relevant information.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/sparkline/sparkline.tsx","description":"","displayName":"Sparkline","methods":[],"props":{"width":{"defaultValue":null,"description":"","name":"width","declarations":[{"fileName":"packages/core/src/sparkline/sparkline.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"height":{"defaultValue":null,"description":"","name":"height","declarations":[{"fileName":"packages/core/src/sparkline/sparkline.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"squareHeight":{"defaultValue":null,"description":"","name":"squareHeight","declarations":[{"fileName":"packages/core/src/sparkline/sparkline.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"squareRadius":{"defaultValue":null,"description":"","name":"squareRadius","declarations":[{"fileName":"packages/core/src/sparkline/sparkline.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"strokeWidth":{"defaultValue":null,"description":"","name":"strokeWidth","declarations":[{"fileName":"packages/core/src/sparkline/sparkline.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"data":{"defaultValue":null,"description":"","name":"data","declarations":[{"fileName":"packages/core/src/sparkline/sparkline.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number[]"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/sparkline/sparkline.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"line\" | \"bar\" | \"square\""},"tags":{}}}}]
+
+export const css = [[["--f-sparkline-active","var(--f-color-accent)"],["--f-sparkline-inactive","var(--f-color-surface)"]]]
+
+
+
+<CodeComponent filename="sparkline.tsx" code="aW1wb3J0IHsgU3BhcmtsaW5lIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Sparkline } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const data = useMemo(() => new Array(20).fill(null).map((i) => Math.random()), []);
+    return (<View column gap={30} alignItems="flex-start">
+            <View width={200} height={50}>
+                <Sparkline data={data} variant="bar" width="100%" height={50}/>
+            </View>
+            <View width={200} height={50}>
+                <Sparkline data={data} variant="line" width="100%" height={50}/>
+            </View>
+            <View width={200} height={50}>
+                <Sparkline data={data} variant="square" width="100%" height={50}/>
+            </View>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgZGF0YSA9IHVzZU1lbW8oKCkgPT4gbmV3IEFycmF5KDIwKS5maWxsKG51bGwpLm1hcCgoaSkgPT4gTWF0aC5yYW5kb20oKSksIFtdKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcKICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgIGdhcD17MzB9CiAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiPgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgd2lkdGg9ezIwMH0KICAgICAgICAgICAgICAgIGhlaWdodD17NTB9PgogICAgICAgICAgICAgICAgPFNwYXJrbGluZQogICAgICAgICAgICAgICAgICAgIGRhdGE9e2RhdGF9CiAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0iYmFyIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgIGhlaWdodD17NTB9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICB3aWR0aD17MjAwfQogICAgICAgICAgICAgICAgaGVpZ2h0PXs1MH0+CiAgICAgICAgICAgICAgICA8U3BhcmtsaW5lCiAgICAgICAgICAgICAgICAgICAgZGF0YT17ZGF0YX0KICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJsaW5lIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgIGhlaWdodD17NTB9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICB3aWR0aD17MjAwfQogICAgICAgICAgICAgICAgaGVpZ2h0PXs1MH0+CiAgICAgICAgICAgICAgICA8U3BhcmtsaW5lCiAgICAgICAgICAgICAgICAgICAgZGF0YT17ZGF0YX0KICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJzcXVhcmUiCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXs1MH0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    const data = useMemo(() => new Array(20).fill(null).map((i) => Math.random()), [])
+
+    return (
+        <View
+            column
+            gap={30}
+            alignItems="flex-start">
+            <View
+                width={200}
+                height={50}>
+                <Sparkline
+                    data={data}
+                    variant="bar"
+                    width="100%"
+                    height={50}
+                />
+            </View>
+            <View
+                width={200}
+                height={50}>
+                <Sparkline
+                    data={data}
+                    variant="line"
+                    width="100%"
+                    height={50}
+                />
+            </View>
+            <View
+                width={200}
+                height={50}>
+                <Sparkline
+                    data={data}
+                    variant="square"
+                    width="100%"
+                    height={50}
+                />
+            </View>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

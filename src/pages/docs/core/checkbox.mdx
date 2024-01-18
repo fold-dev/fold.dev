@@ -1,0 +1,210 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Checkbox, CheckboxAlt, FormLabel, Stack, useCheck } from '@fold-dev/core'
+import * as Token from '@fold-dev/design/tokens'
+import React from 'react'
+
+export const docs = {
+    title: 'Checkbox',
+    subtitle:
+        'The Checkbox component is an input element, allowing the user to select single values for submission in a form',
+    description:
+        'Checkboxes are common user interface elements and find their primary application in forms; however, their use extends beyond this context. They are useful when the required input consist of binary values.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/checkbox/checkbox.tsx","description":"","displayName":"Checkbox","methods":[],"props":{"indeterminate":{"defaultValue":null,"description":"","name":"indeterminate","declarations":[{"fileName":"packages/core/src/checkbox/checkbox.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/checkbox/checkbox.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"checked":{"defaultValue":null,"description":"","name":"checked","declarations":[{"fileName":"packages/core/src/checkbox/checkbox.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"InputHTMLAttributes"}],"required":false,"type":{"name":"boolean"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"fold-wip/packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"number\" | \"hidden\" | \"color\" | \"date\" | \"time\" | \"text\" | \"search\" | \"datetime-local\" | \"email\" | \"month\" | \"password\" | \"tel\" | \"url\" | \"week\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/checkbox/checkbox.tsx","description":"","displayName":"CheckboxAlt","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/checkbox/checkbox.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"iconProps":{"defaultValue":null,"description":"","name":"iconProps","declarations":[{"fileName":"packages/core/src/checkbox/checkbox.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"packages/core/src/checkbox/checkbox.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"packages/core/src/checkbox/checkbox.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"checked":{"defaultValue":null,"description":"","name":"checked","declarations":[{"fileName":"packages/core/src/checkbox/checkbox.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/checkbox/checkbox.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-checkbox-border-radius","var(--f-radius)"],["--f-checkbox-border-color","var(--f-color-border)"],["--f-checkbox-border-color-hover","var(--f-color-border-strong)"],["--f-checkbox-background-color","var(--f-color-surface)"],["--f-checkbox-active-background-color","var(--f-color-accent)"],["--f-checkbox-active-border-color","transparent"],["--f-checkbox-disabled-background-color","var(--f-color-surface-strong)"],["--f-checkbox-disabled-border-color","var(--f-color-border)"],["--f-checkbox-disabled-color","var(--f-color-border)"],["--f-checkbox-check-color","var(--f-color-surface-stronger)"],["--f-checkbox-clippath-check","polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%)"],["--f-checkbox-clippath-indeterminate","polygon(90% 40%, 90% 70%, 10% 70%, 10% 40%)"]]]
+
+
+
+<CodeComponent filename="checkbox.tsx" code="aW1wb3J0IHsgQ2hlY2tib3gsIENoZWNrYm94QWx0IH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import { Checkbox, CheckboxAlt } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const { checked, check } = useCheck(true);
+    return (<FormLabel row gap={10} width="fit-content">
+            <Checkbox checked={checked} onChange={check}/>
+            Send me marketing updates
+        </FormLabel>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyBjaGVja2VkLCBjaGVjayB9ID0gdXNlQ2hlY2sodHJ1ZSkKCiAgICByZXR1cm4gKAogICAgICAgIDxGb3JtTGFiZWwKICAgICAgICAgICAgcm93CiAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgIHdpZHRoPSJmaXQtY29udGVudCI+CiAgICAgICAgICAgIDxDaGVja2JveAogICAgICAgICAgICAgICAgY2hlY2tlZD17Y2hlY2tlZH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtjaGVja30KICAgICAgICAgICAgLz4KICAgICAgICAgICAgU2VuZCBtZSBtYXJrZXRpbmcgdXBkYXRlcwogICAgICAgIDwvRm9ybUxhYmVsPgogICAgKQp9" />
+
+```tsx
+export const Usage = () => {
+    const { checked, check } = useCheck(true)
+
+    return (
+        <FormLabel
+            row
+            gap={10}
+            width="fit-content">
+            <Checkbox
+                checked={checked}
+                onChange={check}
+            />
+            Send me marketing updates
+        </FormLabel>
+    )
+}
+```
+### Sizes
+<a name="sizes"></a>
+
+export const Sizes = () => {
+    const { checked, check } = useCheck(true);
+    return (<Stack spacing={20}>
+            <Checkbox size="xs" checked={checked} onChange={check}/>
+            <Checkbox size="sm" checked={checked} onChange={check}/>
+            <Checkbox size="md" checked={checked} onChange={check}/>
+            <Checkbox size="lg" checked={checked} onChange={check}/>
+            <Checkbox size="xl" checked={checked} onChange={check}/>
+        </Stack>);
+};
+
+<div className="story-block">
+<Sizes />
+</div>
+
+<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gewogICAgY29uc3QgeyBjaGVja2VkLCBjaGVjayB9ID0gdXNlQ2hlY2sodHJ1ZSkKCiAgICByZXR1cm4gKAogICAgICAgIDxTdGFjayBzcGFjaW5nPXsyMH0+CiAgICAgICAgICAgIDxDaGVja2JveAogICAgICAgICAgICAgICAgc2l6ZT0ieHMiCiAgICAgICAgICAgICAgICBjaGVja2VkPXtjaGVja2VkfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9e2NoZWNrfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8Q2hlY2tib3gKICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgY2hlY2tlZD17Y2hlY2tlZH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtjaGVja30KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPENoZWNrYm94CiAgICAgICAgICAgICAgICBzaXplPSJtZCIKICAgICAgICAgICAgICAgIGNoZWNrZWQ9e2NoZWNrZWR9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17Y2hlY2t9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxDaGVja2JveAogICAgICAgICAgICAgICAgc2l6ZT0ibGciCiAgICAgICAgICAgICAgICBjaGVja2VkPXtjaGVja2VkfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9e2NoZWNrfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8Q2hlY2tib3gKICAgICAgICAgICAgICAgIHNpemU9InhsIgogICAgICAgICAgICAgICAgY2hlY2tlZD17Y2hlY2tlZH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtjaGVja30KICAgICAgICAgICAgLz4KICAgICAgICA8L1N0YWNrPgogICAgKQp9" />
+
+```tsx
+export const Sizes = () => {
+    const { checked, check } = useCheck(true)
+
+    return (
+        <Stack spacing={20}>
+            <Checkbox
+                size="xs"
+                checked={checked}
+                onChange={check}
+            />
+            <Checkbox
+                size="sm"
+                checked={checked}
+                onChange={check}
+            />
+            <Checkbox
+                size="md"
+                checked={checked}
+                onChange={check}
+            />
+            <Checkbox
+                size="lg"
+                checked={checked}
+                onChange={check}
+            />
+            <Checkbox
+                size="xl"
+                checked={checked}
+                onChange={check}
+            />
+        </Stack>
+    )
+}
+```
+### States
+<a name="states"></a>
+
+export const States = () => {
+    const { checked, check } = useCheck(true);
+    return (<Stack spacing={20}>
+            <Checkbox checked={checked} onChange={check}/>
+            <Checkbox checked={checked} onChange={check} indeterminate/>
+            <Checkbox checked={checked} onChange={check} disabled/>
+            <Checkbox checked={checked} onChange={check} disabled indeterminate/>
+        </Stack>);
+};
+
+<div className="story-block">
+<States />
+</div>
+
+<CodeComponent filename="States.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXRlcyA9ICgpID0+IHsKICAgIGNvbnN0IHsgY2hlY2tlZCwgY2hlY2sgfSA9IHVzZUNoZWNrKHRydWUpCgogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sgc3BhY2luZz17MjB9PgogICAgICAgICAgICA8Q2hlY2tib3gKICAgICAgICAgICAgICAgIGNoZWNrZWQ9e2NoZWNrZWR9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17Y2hlY2t9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxDaGVja2JveAogICAgICAgICAgICAgICAgY2hlY2tlZD17Y2hlY2tlZH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtjaGVja30KICAgICAgICAgICAgICAgIGluZGV0ZXJtaW5hdGUKICAgICAgICAgICAgLz4KICAgICAgICAgICAgPENoZWNrYm94CiAgICAgICAgICAgICAgICBjaGVja2VkPXtjaGVja2VkfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9e2NoZWNrfQogICAgICAgICAgICAgICAgZGlzYWJsZWQKICAgICAgICAgICAgLz4KICAgICAgICAgICAgPENoZWNrYm94CiAgICAgICAgICAgICAgICBjaGVja2VkPXtjaGVja2VkfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9e2NoZWNrfQogICAgICAgICAgICAgICAgZGlzYWJsZWQKICAgICAgICAgICAgICAgIGluZGV0ZXJtaW5hdGUKICAgICAgICAgICAgLz4KICAgICAgICA8L1N0YWNrPgogICAgKQp9" />
+
+```tsx
+export const States = () => {
+    const { checked, check } = useCheck(true)
+
+    return (
+        <Stack spacing={20}>
+            <Checkbox
+                checked={checked}
+                onChange={check}
+            />
+            <Checkbox
+                checked={checked}
+                onChange={check}
+                indeterminate
+            />
+            <Checkbox
+                checked={checked}
+                onChange={check}
+                disabled
+            />
+            <Checkbox
+                checked={checked}
+                onChange={check}
+                disabled
+                indeterminate
+            />
+        </Stack>
+    )
+}
+```
+### Alternative
+<a name="alternative"></a>
+
+> The Checkbox alternative offers a greater degree of customization, making it particularly well-suited for standalone components such as tasks.
+
+export const Alternative = () => {
+    const { checked, check } = useCheck(true);
+    return (<Stack spacing={20}>
+            <CheckboxAlt onChange={check} checked={checked}/>
+            <CheckboxAlt onChange={check} checked={checked} color={Token.ColorElectric500}/>
+            <CheckboxAlt onChange={check} checked={checked} icon="circle"/>
+        </Stack>);
+};
+
+<div className="story-block">
+<Alternative />
+</div>
+
+<CodeComponent filename="Alternative.tsx" code="ZXhwb3J0IGNvbnN0IEFsdGVybmF0aXZlID0gKCkgPT4gewogICAgY29uc3QgeyBjaGVja2VkLCBjaGVjayB9ID0gdXNlQ2hlY2sodHJ1ZSkKICAgIHJldHVybiAoCiAgICAgICAgPFN0YWNrIHNwYWNpbmc9ezIwfT4KICAgICAgICAgICAgPENoZWNrYm94QWx0CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17Y2hlY2t9CiAgICAgICAgICAgICAgICBjaGVja2VkPXtjaGVja2VkfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8Q2hlY2tib3hBbHQKICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtjaGVja30KICAgICAgICAgICAgICAgIGNoZWNrZWQ9e2NoZWNrZWR9CiAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JFbGVjdHJpYzUwMH0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPENoZWNrYm94QWx0CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17Y2hlY2t9CiAgICAgICAgICAgICAgICBjaGVja2VkPXtjaGVja2VkfQogICAgICAgICAgICAgICAgaWNvbj0iY2lyY2xlIgogICAgICAgICAgICAvPgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
+
+```tsx
+export const Alternative = () => {
+    const { checked, check } = useCheck(true)
+    return (
+        <Stack spacing={20}>
+            <CheckboxAlt
+                onChange={check}
+                checked={checked}
+            />
+            <CheckboxAlt
+                onChange={check}
+                checked={checked}
+                color={Token.ColorElectric500}
+            />
+            <CheckboxAlt
+                onChange={check}
+                checked={checked}
+                icon="circle"
+            />
+        </Stack>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

@@ -1,0 +1,62 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Heading, Logo, SkipNav, SkipNavMain, Stack, Text } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'SkipNav',
+    subtitle:
+        'The SkipNav component serves as the destination for a link that allows keyboard focus to be directed to the initial element of the main content.',
+    description:
+        "According to WebAim.org's guidelines for WCAG 2.4.1 (Bypass Blocks - Level A), it is highly advisable to incorporate a skip link on webpages. This skip link allows users to easily bypass content that may appear on multiple pages & should be placed as the first DOM element on the page.",
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/skip-nav/skip-nav.tsx","description":"","displayName":"SkipNav","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"a\" | \"button\""},"tags":{}},"underlined":{"defaultValue":null,"description":"","name":"underlined","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"flat":{"defaultValue":null,"description":"","name":"flat","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"form":{"defaultValue":null,"description":"","name":"form","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"active":{"defaultValue":null,"description":"","name":"active","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LinkTarget"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"submit\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/skip-nav/skip-nav.tsx","description":"","displayName":"SkipNavMain","methods":[],"props":{}}]
+
+export const css = [[["--f-skip-nav-top","100px"],["--f-skip-nav-left","50px"]]]
+
+
+
+<CodeComponent filename="skip-nav.tsx" code="aW1wb3J0IHsgU2tpcE5hdiwgU2tpcE5hdk1haW4gfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { SkipNav, SkipNavMain } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<Stack direction="vertical" spacing={10} noStretch>
+            <SkipNav>Skip To Content</SkipNav>
+            <Logo />
+            <SkipNavMain />
+            <Heading>Using the SkipNav component</Heading>
+            <Text>Using the SkipNav component a user can be directed to where the content starts.</Text>
+        </Stack>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sKICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgc3BhY2luZz17MTB9CiAgICAgICAgICAgIG5vU3RyZXRjaD4KICAgICAgICAgICAgPFNraXBOYXY+U2tpcCBUbyBDb250ZW50PC9Ta2lwTmF2PgogICAgICAgICAgICA8TG9nbyAvPgogICAgICAgICAgICA8U2tpcE5hdk1haW4gLz4KICAgICAgICAgICAgPEhlYWRpbmc+VXNpbmcgdGhlIFNraXBOYXYgY29tcG9uZW50PC9IZWFkaW5nPgogICAgICAgICAgICA8VGV4dD5Vc2luZyB0aGUgU2tpcE5hdiBjb21wb25lbnQgYSB1c2VyIGNhbiBiZSBkaXJlY3RlZCB0byB3aGVyZSB0aGUgY29udGVudCBzdGFydHMuPC9UZXh0PgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <Stack
+            direction="vertical"
+            spacing={10}
+            noStretch>
+            <SkipNav>Skip To Content</SkipNav>
+            <Logo />
+            <SkipNavMain />
+            <Heading>Using the SkipNav component</Heading>
+            <Text>Using the SkipNav component a user can be directed to where the content starts.</Text>
+        </Stack>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

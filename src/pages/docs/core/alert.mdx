@@ -1,0 +1,69 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Alert, Button, useAlert } from '@fold-dev/core'
+import React, { useEffect } from 'react'
+
+export const docs = {
+    title: 'Alert',
+    subtitle:
+        "An alert component is an element that displays a brief, important message in a way that attracts the user's attention without interrupting the user's task.",
+    description:
+        'Alerts can serve various purposes, such as presenting information related to errors, indicating the completion of unrelated actions, or providing updates on the status of a system.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/alert/alert.tsx","description":"","displayName":"Alert","methods":[],"props":{"alert":{"defaultValue":null,"description":"","name":"alert","declarations":[{"fileName":"packages/core/src/alert/alert.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"AlertOptions"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"packages/core/src/alert/alert.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-alert-padding","var(--f-space-inset-x-5)"],["--f-alert-spacing","var(--f-space-4)"],["--f-alert-icon-color","var(--f-color-text-weak)"]]]
+
+
+
+<CodeComponent filename="alert.tsx" code="aW1wb3J0IHsgQWxlcnQgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { Alert } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const { alert } = useAlert();
+    const triggerPopup = () => {
+        alert({
+            icon: 'sun',
+            title: 'Good Morning',
+            description: "And in case I don't see ya, good afternoon, good evening, and good night!",
+            button: 'Okay',
+            closeButton: true,
+            onDismiss: () => console.log('Alert was dismissed!'),
+        });
+    };
+    return <Button onClick={triggerPopup}>Show alert</Button>;
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyBhbGVydCB9ID0gdXNlQWxlcnQoKQoKICAgIGNvbnN0IHRyaWdnZXJQb3B1cCA9ICgpID0+IHsKICAgICAgICBhbGVydCh7CiAgICAgICAgICAgIGljb246ICdzdW4nLAogICAgICAgICAgICB0aXRsZTogJ0dvb2QgTW9ybmluZycsCiAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAiQW5kIGluIGNhc2UgSSBkb24ndCBzZWUgeWEsIGdvb2QgYWZ0ZXJub29uLCBnb29kIGV2ZW5pbmcsIGFuZCBnb29kIG5pZ2h0ISIsCiAgICAgICAgICAgIGJ1dHRvbjogJ09rYXknLAogICAgICAgICAgICBjbG9zZUJ1dHRvbjogdHJ1ZSwKICAgICAgICAgICAgb25EaXNtaXNzOiAoKSA9PiBjb25zb2xlLmxvZygnQWxlcnQgd2FzIGRpc21pc3NlZCEnKSwKICAgICAgICB9KQogICAgfQoKICAgIHJldHVybiA8QnV0dG9uIG9uQ2xpY2s9e3RyaWdnZXJQb3B1cH0+U2hvdyBhbGVydDwvQnV0dG9uPgp9" />
+
+```tsx
+export const Usage = () => {
+    const { alert } = useAlert()
+
+    const triggerPopup = () => {
+        alert({
+            icon: 'sun',
+            title: 'Good Morning',
+            description: "And in case I don't see ya, good afternoon, good evening, and good night!",
+            button: 'Okay',
+            closeButton: true,
+            onDismiss: () => console.log('Alert was dismissed!'),
+        })
+    }
+
+    return <Button onClick={triggerPopup}>Show alert</Button>
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

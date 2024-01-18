@@ -1,0 +1,66 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import React from 'react'
+import { Heading, Stack } from '@fold-dev/core'
+
+export const docs = {
+    title: 'Heading',
+    subtitle: 'The Heading component represents an HTML heading element.',
+    description:
+        'The Heading component forms part of the Fold typography system. Please see the Design Token section for information about available options.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/heading/heading.tsx","description":"","displayName":"Heading","methods":[],"props":{"jumbo":{"defaultValue":null,"description":"","name":"jumbo","declarations":[{"fileName":"packages/core/src/heading/heading.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"huge":{"defaultValue":null,"description":"","name":"huge","declarations":[{"fileName":"packages/core/src/heading/heading.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/heading/heading.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Headings"},"tags":{}}}}]
+
+export const css = [[["--f-heading-color","var(--f-color-text)"],["--f-heading-background-color","transparent"]]]
+
+
+
+<CodeComponent filename="heading.tsx" code="aW1wb3J0IHsgSGVhZGluZyB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import { Heading } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    return (<Stack direction="vertical" spacing={10}>
+            <Heading jumbo>Jumbo</Heading>
+            <Heading huge>Huge</Heading>
+            <Heading>Heading h1</Heading>
+            <Heading as="h2">Heading h2</Heading>
+            <Heading as="h3">Heading h3</Heading>
+            <Heading as="h4">Heading h4</Heading>
+            <Heading as="h5">Heading h5</Heading>
+            <Heading as="h6">Heading h6</Heading>
+        </Stack>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sKICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgc3BhY2luZz17MTB9PgogICAgICAgICAgICA8SGVhZGluZyBqdW1ibz5KdW1ibzwvSGVhZGluZz4KICAgICAgICAgICAgPEhlYWRpbmcgaHVnZT5IdWdlPC9IZWFkaW5nPgogICAgICAgICAgICA8SGVhZGluZz5IZWFkaW5nIGgxPC9IZWFkaW5nPgogICAgICAgICAgICA8SGVhZGluZyBhcz0iaDIiPkhlYWRpbmcgaDI8L0hlYWRpbmc+CiAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoMyI+SGVhZGluZyBoMzwvSGVhZGluZz4KICAgICAgICAgICAgPEhlYWRpbmcgYXM9Img0Ij5IZWFkaW5nIGg0PC9IZWFkaW5nPgogICAgICAgICAgICA8SGVhZGluZyBhcz0iaDUiPkhlYWRpbmcgaDU8L0hlYWRpbmc+CiAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoNiI+SGVhZGluZyBoNjwvSGVhZGluZz4KICAgICAgICA8L1N0YWNrPgogICAgKQp9" />
+
+```tsx
+export const Usage = () => {
+    return (
+        <Stack
+            direction="vertical"
+            spacing={10}>
+            <Heading jumbo>Jumbo</Heading>
+            <Heading huge>Huge</Heading>
+            <Heading>Heading h1</Heading>
+            <Heading as="h2">Heading h2</Heading>
+            <Heading as="h3">Heading h3</Heading>
+            <Heading as="h4">Heading h4</Heading>
+            <Heading as="h5">Heading h5</Heading>
+            <Heading as="h6">Heading h6</Heading>
+        </Stack>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

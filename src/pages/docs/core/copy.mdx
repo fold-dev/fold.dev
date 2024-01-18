@@ -1,0 +1,97 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, Copy, IconLib, Pill, useCopy } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Copy',
+    subtitle: 'Using the Copy component, users can easily duplicate text values to their clipboard.',
+    description:
+        'The Copy component provides support for overflow scrollbars and includes a hook that allows independent use of the component.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/copy/copy.tsx","description":"","displayName":"Copy","methods":[],"props":{"scrollOverflow":{"defaultValue":null,"description":"","name":"scrollOverflow","declarations":[{"fileName":"packages/core/src/copy/copy.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/copy/copy.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/copy/copy.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode | ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/copy/copy.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode | ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/copy/copy.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"label":{"defaultValue":null,"description":"","name":"label","declarations":[{"fileName":"packages/core/src/copy/copy.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}}]
+
+export const css = [[["--f-copy-background-color","var(--f-color-surface)"],["--f-copy-border-color","var(--f-color-border)"],["--f-copy-border-width","0.1rem"],["--f-copy-border-color-active","var(--f-color-border-strong)"],["--f-copy-color","var(--f-color-accent)"],["--f-copy-border-radius","var(--f-radius)"],["--f-copy-padding","var(--f-space-3)"],["--f-copy-shadow","var(--f-shadow-sm)"]]]
+
+
+
+<CodeComponent filename="copy.tsx" code="aW1wb3J0IHsgQ29weSB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import { Copy } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<Copy label="049d2ee4-6672-11ee-8c99-0242ac120002" value="049d2ee4-6672-11ee-8c99-0242ac120002"/>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPENvcHkKICAgICAgICBsYWJlbD0iMDQ5ZDJlZTQtNjY3Mi0xMWVlLThjOTktMDI0MmFjMTIwMDAyIgogICAgICAgIHZhbHVlPSIwNDlkMmVlNC02NjcyLTExZWUtOGM5OS0wMjQyYWMxMjAwMDIiCiAgICAvPgop" />
+
+```tsx
+export const Usage = () => (
+    <Copy
+        label="049d2ee4-6672-11ee-8c99-0242ac120002"
+        value="049d2ee4-6672-11ee-8c99-0242ac120002"
+    />
+)
+```
+### Prefix Suffix
+<a name="prefixsuffix"></a>
+
+export const PrefixSuffix = () => (<Copy value="049d2ee4-6672-11ee-8c99-0242ac120002" prefix={<IconLib icon="circle"/>} suffix={<Pill size="xs" m="0 1rem">
+                UUID
+            </Pill>}/>);
+
+<div className="story-block">
+<PrefixSuffix />
+</div>
+
+<CodeComponent filename="PrefixSuffix.tsx" code="ZXhwb3J0IGNvbnN0IFByZWZpeFN1ZmZpeCA9ICgpID0+ICgKICAgIDxDb3B5CiAgICAgICAgdmFsdWU9IjA0OWQyZWU0LTY2NzItMTFlZS04Yzk5LTAyNDJhYzEyMDAwMiIKICAgICAgICBwcmVmaXg9ezxJY29uTGliIGljb249ImNpcmNsZSIgLz59CiAgICAgICAgc3VmZml4PXsKICAgICAgICAgICAgPFBpbGwKICAgICAgICAgICAgICAgIHNpemU9InhzIgogICAgICAgICAgICAgICAgbT0iMCAxcmVtIj4KICAgICAgICAgICAgICAgIFVVSUQKICAgICAgICAgICAgPC9QaWxsPgogICAgICAgIH0KICAgIC8+Cik=" />
+
+```tsx
+export const PrefixSuffix = () => (
+    <Copy
+        value="049d2ee4-6672-11ee-8c99-0242ac120002"
+        prefix={<IconLib icon="circle" />}
+        suffix={
+            <Pill
+                size="xs"
+                m="0 1rem">
+                UUID
+            </Pill>
+        }
+    />
+)
+```
+### Hook
+<a name="hook"></a>
+
+export const Hook = () => {
+    const { copyToClipboard } = useCopy();
+    const handleClick = (e) => copyToClipboard('Any value');
+    return <Button onClick={handleClick}>Copy to clipboard</Button>;
+};
+
+<div className="story-block">
+<Hook />
+</div>
+
+<CodeComponent filename="Hook.tsx" code="ZXhwb3J0IGNvbnN0IEhvb2sgPSAoKSA9PiB7CiAgICBjb25zdCB7IGNvcHlUb0NsaXBib2FyZCB9ID0gdXNlQ29weSgpCgogICAgY29uc3QgaGFuZGxlQ2xpY2sgPSAoZSkgPT4gY29weVRvQ2xpcGJvYXJkKCdBbnkgdmFsdWUnKQoKICAgIHJldHVybiA8QnV0dG9uIG9uQ2xpY2s9e2hhbmRsZUNsaWNrfT5Db3B5IHRvIGNsaXBib2FyZDwvQnV0dG9uPgp9" />
+
+```tsx
+export const Hook = () => {
+    const { copyToClipboard } = useCopy()
+
+    const handleClick = (e) => copyToClipboard('Any value')
+
+    return <Button onClick={handleClick}>Copy to clipboard</Button>
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

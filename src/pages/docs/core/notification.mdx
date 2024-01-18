@@ -1,0 +1,455 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Heading, IconLib, Notification, NotificationContent, NotificationIcon, Stack, Text } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Notification',
+    subtitle:
+        "The Notification component embeds a strip in the document, drawing the user's attention to an important piece of information",
+    description:
+        'Notification components have many uses, but is especially useful in conveying critical information that the user needs to be aware. These can include account actions, missing details & system messages about possible outages, etc.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/notification/notification.tsx","description":"","displayName":"NotificationIcon","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/notification/notification.tsx","description":"","displayName":"NotificationContent","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/notification/notification.tsx","description":"","displayName":"Notification","methods":[],"props":{"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/notification/notification.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"leftAccent":{"defaultValue":null,"description":"","name":"leftAccent","declarations":[{"fileName":"packages/core/src/notification/notification.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"rightAccent":{"defaultValue":null,"description":"","name":"rightAccent","declarations":[{"fileName":"packages/core/src/notification/notification.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"bottomAccent":{"defaultValue":null,"description":"","name":"bottomAccent","declarations":[{"fileName":"packages/core/src/notification/notification.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"topAccent":{"defaultValue":null,"description":"","name":"topAccent","declarations":[{"fileName":"packages/core/src/notification/notification.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
+
+export const css = [[["--f-notification-border-radius","0"],["--f-notification-accent-size","var(--f-size-2)"],["--f-notification-color","var(--f-color-text-weaker)"],["--f-notification-background-color","var(--f-color-surface-strong)"],["--f-notification-spacing","var(--f-space-4)"],["--f-notification-padding","var(--f-space-inset-x-4)"]]]
+
+
+
+<CodeComponent filename="notification.tsx" code="aW1wb3J0IHsKICBOb3RpZmljYXRpb25JY29uLAogIE5vdGlmaWNhdGlvbkNvbnRlbnQsCiAgTm90aWZpY2F0aW9uLAp9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import {
+  NotificationIcon,
+  NotificationContent,
+  Notification,
+} from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<Notification>
+        <NotificationIcon>
+            <IconLib icon="info"/>
+        </NotificationIcon>
+        <NotificationContent>
+            <Text>Your email address isn't verified. Please verify your email address.</Text>
+        </NotificationContent>
+        <NotificationIcon>
+            <IconLib icon="arrow-right"/>
+        </NotificationIcon>
+    </Notification>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPE5vdGlmaWNhdGlvbj4KICAgICAgICA8Tm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iaW5mbyIgLz4KICAgICAgICA8L05vdGlmaWNhdGlvbkljb24+CiAgICAgICAgPE5vdGlmaWNhdGlvbkNvbnRlbnQ+CiAgICAgICAgICAgIDxUZXh0PllvdXIgZW1haWwgYWRkcmVzcyBpc24ndCB2ZXJpZmllZC4gUGxlYXNlIHZlcmlmeSB5b3VyIGVtYWlsIGFkZHJlc3MuPC9UZXh0PgogICAgICAgIDwvTm90aWZpY2F0aW9uQ29udGVudD4KICAgICAgICA8Tm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iYXJyb3ctcmlnaHQiIC8+CiAgICAgICAgPC9Ob3RpZmljYXRpb25JY29uPgogICAgPC9Ob3RpZmljYXRpb24+Cik=" />
+
+```tsx
+export const Usage = () => (
+    <Notification>
+        <NotificationIcon>
+            <IconLib icon="info" />
+        </NotificationIcon>
+        <NotificationContent>
+            <Text>Your email address isn't verified. Please verify your email address.</Text>
+        </NotificationContent>
+        <NotificationIcon>
+            <IconLib icon="arrow-right" />
+        </NotificationIcon>
+    </Notification>
+)
+```
+### Variants
+<a name="variants"></a>
+
+export const Variants = () => {
+    return (<Stack direction="vertical" spacing={10}>
+            <Notification>
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Default</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="accent">
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Accent</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+                <NotificationIcon>
+                    <IconLib icon="check"/>
+                </NotificationIcon>
+                <NotificationIcon>
+                    <IconLib icon="chevron-right"/>
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="success">
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Success</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="neutral">
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Neutral</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="caution">
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Caution</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="warning">
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Warning</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="danger">
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Danger</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="highlight">
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Highlight</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+            </Notification>
+        </Stack>);
+};
+
+<div className="story-block">
+<Variants />
+</div>
+
+<CodeComponent filename="Variants.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sKICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgc3BhY2luZz17MTB9PgogICAgICAgICAgICA8Tm90aWZpY2F0aW9uPgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0id2FybmluZyIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoMyI+RGVmYXVsdDwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD5Zb3VyIGVtYWlsIGFkZHJlc3MgaXNuJ3QgdmVyaWZpZWQuIFBsZWFzZSB2ZXJpZnkgeW91ciBlbWFpbCBhZGRyZXNzLjwvVGV4dD4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uQ29udGVudD4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249IngiIC8+CiAgICAgICAgICAgICAgICA8L05vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uPgoKICAgICAgICAgICAgPE5vdGlmaWNhdGlvbiB2YXJpYW50PSJhY2NlbnQiPgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0id2FybmluZyIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoMyI+QWNjZW50PC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgIDxUZXh0PllvdXIgZW1haWwgYWRkcmVzcyBpc24ndCB2ZXJpZmllZC4gUGxlYXNlIHZlcmlmeSB5b3VyIGVtYWlsIGFkZHJlc3MuPC9UZXh0PgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0ieCIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImNoZWNrIiAvPgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iY2hldnJvbi1yaWdodCIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgPC9Ob3RpZmljYXRpb24+CgogICAgICAgICAgICA8Tm90aWZpY2F0aW9uIHZhcmlhbnQ9InN1Y2Nlc3MiPgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0id2FybmluZyIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoMyI+U3VjY2VzczwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD5Zb3VyIGVtYWlsIGFkZHJlc3MgaXNuJ3QgdmVyaWZpZWQuIFBsZWFzZSB2ZXJpZnkgeW91ciBlbWFpbCBhZGRyZXNzLjwvVGV4dD4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uQ29udGVudD4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249IngiIC8+CiAgICAgICAgICAgICAgICA8L05vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uPgoKICAgICAgICAgICAgPE5vdGlmaWNhdGlvbiB2YXJpYW50PSJuZXV0cmFsIj4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249Indhcm5pbmciIC8+CiAgICAgICAgICAgICAgICA8L05vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICA8Tm90aWZpY2F0aW9uQ29udGVudD4KICAgICAgICAgICAgICAgICAgICA8SGVhZGluZyBhcz0iaDMiPk5ldXRyYWw8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPFRleHQ+WW91ciBlbWFpbCBhZGRyZXNzIGlzbid0IHZlcmlmaWVkLiBQbGVhc2UgdmVyaWZ5IHlvdXIgZW1haWwgYWRkcmVzcy48L1RleHQ+CiAgICAgICAgICAgICAgICA8L05vdGlmaWNhdGlvbkNvbnRlbnQ+CiAgICAgICAgICAgICAgICA8Tm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJ4IiAvPgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25JY29uPgogICAgICAgICAgICA8L05vdGlmaWNhdGlvbj4KCiAgICAgICAgICAgIDxOb3RpZmljYXRpb24gdmFyaWFudD0iY2F1dGlvbiI+CiAgICAgICAgICAgICAgICA8Tm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJ3YXJuaW5nIiAvPgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkNvbnRlbnQ+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5DYXV0aW9uPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgIDxUZXh0PllvdXIgZW1haWwgYWRkcmVzcyBpc24ndCB2ZXJpZmllZC4gUGxlYXNlIHZlcmlmeSB5b3VyIGVtYWlsIGFkZHJlc3MuPC9UZXh0PgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0ieCIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgPC9Ob3RpZmljYXRpb24+CgogICAgICAgICAgICA8Tm90aWZpY2F0aW9uIHZhcmlhbnQ9Indhcm5pbmciPgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0id2FybmluZyIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoMyI+V2FybmluZzwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD5Zb3VyIGVtYWlsIGFkZHJlc3MgaXNuJ3QgdmVyaWZpZWQuIFBsZWFzZSB2ZXJpZnkgeW91ciBlbWFpbCBhZGRyZXNzLjwvVGV4dD4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uQ29udGVudD4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249IngiIC8+CiAgICAgICAgICAgICAgICA8L05vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uPgoKICAgICAgICAgICAgPE5vdGlmaWNhdGlvbiB2YXJpYW50PSJkYW5nZXIiPgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0id2FybmluZyIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoMyI+RGFuZ2VyPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgIDxUZXh0PllvdXIgZW1haWwgYWRkcmVzcyBpc24ndCB2ZXJpZmllZC4gUGxlYXNlIHZlcmlmeSB5b3VyIGVtYWlsIGFkZHJlc3MuPC9UZXh0PgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0ieCIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgPC9Ob3RpZmljYXRpb24+CgogICAgICAgICAgICA8Tm90aWZpY2F0aW9uIHZhcmlhbnQ9ImhpZ2hsaWdodCI+CiAgICAgICAgICAgICAgICA8Tm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJ3YXJuaW5nIiAvPgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkNvbnRlbnQ+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5IaWdobGlnaHQ8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPFRleHQ+WW91ciBlbWFpbCBhZGRyZXNzIGlzbid0IHZlcmlmaWVkLiBQbGVhc2UgdmVyaWZ5IHlvdXIgZW1haWwgYWRkcmVzcy48L1RleHQ+CiAgICAgICAgICAgICAgICA8L05vdGlmaWNhdGlvbkNvbnRlbnQ+CiAgICAgICAgICAgICAgICA8Tm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJ4IiAvPgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25JY29uPgogICAgICAgICAgICA8L05vdGlmaWNhdGlvbj4KICAgICAgICA8L1N0YWNrPgogICAgKQp9" />
+
+```tsx
+export const Variants = () => {
+    return (
+        <Stack
+            direction="vertical"
+            spacing={10}>
+            <Notification>
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Default</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="accent">
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Accent</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+                <NotificationIcon>
+                    <IconLib icon="check" />
+                </NotificationIcon>
+                <NotificationIcon>
+                    <IconLib icon="chevron-right" />
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="success">
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Success</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="neutral">
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Neutral</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="caution">
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Caution</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="warning">
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Warning</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="danger">
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Danger</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="highlight">
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Highlight</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+            </Notification>
+        </Stack>
+    )
+}
+```
+### Accents
+<a name="accents"></a>
+
+export const Accents = () => {
+    return (<Stack direction="vertical" spacing={10}>
+            <Notification variant="success" topAccent>
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Success</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="accent" leftAccent>
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Accent</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+                <NotificationIcon>
+                    <IconLib icon="check"/>
+                </NotificationIcon>
+                <NotificationIcon>
+                    <IconLib icon="chevron-right"/>
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="neutral" rightAccent>
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Neutral</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+            </Notification>
+
+            <Notification variant="caution" bottomAccent>
+                <NotificationIcon>
+                    <IconLib icon="warning"/>
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Caution</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x"/>
+                </NotificationIcon>
+            </Notification>
+        </Stack>);
+};
+
+<div className="story-block">
+<Accents />
+</div>
+
+<CodeComponent filename="Accents.tsx" code="ZXhwb3J0IGNvbnN0IEFjY2VudHMgPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxTdGFjawogICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICBzcGFjaW5nPXsxMH0+CiAgICAgICAgICAgIDxOb3RpZmljYXRpb24KICAgICAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgICAgICB0b3BBY2NlbnQ+CiAgICAgICAgICAgICAgICA8Tm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJ3YXJuaW5nIiAvPgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkNvbnRlbnQ+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5TdWNjZXNzPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgIDxUZXh0PllvdXIgZW1haWwgYWRkcmVzcyBpc24ndCB2ZXJpZmllZC4gUGxlYXNlIHZlcmlmeSB5b3VyIGVtYWlsIGFkZHJlc3MuPC9UZXh0PgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0ieCIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgPC9Ob3RpZmljYXRpb24+CgogICAgICAgICAgICA8Tm90aWZpY2F0aW9uCiAgICAgICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgICAgICAgICBsZWZ0QWNjZW50PgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0id2FybmluZyIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoMyI+QWNjZW50PC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgIDxUZXh0PllvdXIgZW1haWwgYWRkcmVzcyBpc24ndCB2ZXJpZmllZC4gUGxlYXNlIHZlcmlmeSB5b3VyIGVtYWlsIGFkZHJlc3MuPC9UZXh0PgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0ieCIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImNoZWNrIiAvPgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iY2hldnJvbi1yaWdodCIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgPC9Ob3RpZmljYXRpb24+CgogICAgICAgICAgICA8Tm90aWZpY2F0aW9uCiAgICAgICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgICAgICAgICAgcmlnaHRBY2NlbnQ+CiAgICAgICAgICAgICAgICA8Tm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJ3YXJuaW5nIiAvPgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkNvbnRlbnQ+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5OZXV0cmFsPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgIDxUZXh0PllvdXIgZW1haWwgYWRkcmVzcyBpc24ndCB2ZXJpZmllZC4gUGxlYXNlIHZlcmlmeSB5b3VyIGVtYWlsIGFkZHJlc3MuPC9UZXh0PgogICAgICAgICAgICAgICAgPC9Ob3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0ieCIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgPC9Ob3RpZmljYXRpb24+CgogICAgICAgICAgICA8Tm90aWZpY2F0aW9uCiAgICAgICAgICAgICAgICB2YXJpYW50PSJjYXV0aW9uIgogICAgICAgICAgICAgICAgYm90dG9tQWNjZW50PgogICAgICAgICAgICAgICAgPE5vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0id2FybmluZyIgLz4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uSWNvbj4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25Db250ZW50PgogICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoMyI+Q2F1dGlvbjwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD5Zb3VyIGVtYWlsIGFkZHJlc3MgaXNuJ3QgdmVyaWZpZWQuIFBsZWFzZSB2ZXJpZnkgeW91ciBlbWFpbCBhZGRyZXNzLjwvVGV4dD4KICAgICAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uQ29udGVudD4KICAgICAgICAgICAgICAgIDxOb3RpZmljYXRpb25JY29uPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249IngiIC8+CiAgICAgICAgICAgICAgICA8L05vdGlmaWNhdGlvbkljb24+CiAgICAgICAgICAgIDwvTm90aWZpY2F0aW9uPgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
+
+```tsx
+export const Accents = () => {
+    return (
+        <Stack
+            direction="vertical"
+            spacing={10}>
+            <Notification
+                variant="success"
+                topAccent>
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Success</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+            </Notification>
+
+            <Notification
+                variant="accent"
+                leftAccent>
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Accent</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+                <NotificationIcon>
+                    <IconLib icon="check" />
+                </NotificationIcon>
+                <NotificationIcon>
+                    <IconLib icon="chevron-right" />
+                </NotificationIcon>
+            </Notification>
+
+            <Notification
+                variant="neutral"
+                rightAccent>
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Neutral</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+            </Notification>
+
+            <Notification
+                variant="caution"
+                bottomAccent>
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Heading as="h3">Caution</Heading>
+                    <Text>Your email address isn't verified. Please verify your email address.</Text>
+                </NotificationContent>
+                <NotificationIcon>
+                    <IconLib icon="x" />
+                </NotificationIcon>
+            </Notification>
+        </Stack>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

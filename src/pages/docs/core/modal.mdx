@@ -1,0 +1,182 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, Flexer, Heading, Modal, ModalClose, Text, View, useVisibility } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Modal',
+    subtitle:
+        'The Modal component provides a useful method for displaying content within a secondary window that opens on top of the main window.',
+    description:
+        'The Modal component is a fundamental element & useful for crafting any sort of dialogues, popovers, lightboxes, or alerts.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/modal/modal.tsx","description":"","displayName":"ModalClose","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"a\" | \"button\""},"tags":{}},"underlined":{"defaultValue":null,"description":"","name":"underlined","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"flat":{"defaultValue":null,"description":"","name":"flat","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"form":{"defaultValue":null,"description":"","name":"form","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"active":{"defaultValue":null,"description":"","name":"active","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LinkTarget"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"fold-wip/packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"submit\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/modal/modal.tsx","description":"","displayName":"Modal","methods":[],"props":{"focusTrap":{"defaultValue":null,"description":"","name":"focusTrap","declarations":[{"fileName":"packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ModalAnchor"},"tags":{}},"isVisible":{"defaultValue":null,"description":"","name":"isVisible","declarations":[{"fileName":"packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>> | ReactElement<any, string | JSXElementConstructor<any>>[]"},"tags":{}},"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>> | ReactElement<any, string | JSXElementConstructor<any>>[]"},"tags":{}},"borderless":{"defaultValue":null,"description":"","name":"borderless","declarations":[{"fileName":"packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disableBackgroundDismiss":{"defaultValue":null,"description":"","name":"disableBackgroundDismiss","declarations":[{"fileName":"packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"portal":{"defaultValue":null,"description":"","name":"portal","declarations":[{"fileName":"packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"packages/core/src/modal/modal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+
+export const css = [[["--f-modal-overlay","var(--f-color-overlay)"],["--f-modal-box-shadow","var(--f-shadow-lg)"],["--f-modal-background","var(--f-color-surface)"],["--f-modal-border-color","var(--f-color-border)"],["--f-modal-border-width","0.1rem"],["--f-modal-border-radius","var(--f-radius)"],["--f-modal-padding","var(--f-space-4)"],["--f-modal-body-padding","var(--f-space-4)"]]]
+
+
+
+<CodeComponent filename="modal.tsx" code="aW1wb3J0IHsgTW9kYWxDbG9zZSwgTW9kYWwgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { ModalClose, Modal } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const { visible, show, hide } = useVisibility(false);
+    return (<View>
+            <Button onClick={show}>Show Modal</Button>
+
+            <Modal width="500px" height="fit-content" anchor="middle-center" onDismiss={hide} isVisible={visible}>
+                <ModalClose onClick={hide}/>
+                <View p={30} column gap={10} width="100%" alignItems="flex-start">
+                    <Heading>Not this again...</Heading>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </Text>
+                </View>
+            </Modal>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXc+CiAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17c2hvd30+U2hvdyBNb2RhbDwvQnV0dG9uPgoKICAgICAgICAgICAgPE1vZGFsCiAgICAgICAgICAgICAgICB3aWR0aD0iNTAwcHgiCiAgICAgICAgICAgICAgICBoZWlnaHQ9ImZpdC1jb250ZW50IgogICAgICAgICAgICAgICAgYW5jaG9yPSJtaWRkbGUtY2VudGVyIgogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfT4KICAgICAgICAgICAgICAgIDxNb2RhbENsb3NlIG9uQ2xpY2s9e2hpZGV9IC8+CiAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgIHA9ezMwfQogICAgICAgICAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCI+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmc+Tm90IHRoaXMgYWdhaW4uLi48L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPFRleHQ+CiAgICAgICAgICAgICAgICAgICAgICAgIExvcmVtIGlwc3VtIGRvbG9yIHNpdCBhbWV0LCBjb25zZWN0ZXR1ciBhZGlwaXNjaW5nIGVsaXQsIHNlZCBkbyBlaXVzbW9kIHRlbXBvciBpbmNpZGlkdW50IHV0CiAgICAgICAgICAgICAgICAgICAgICAgIGxhYm9yZSBldCBkb2xvcmUgbWFnbmEgYWxpcXVhLiBVdCBlbmltIGFkIG1pbmltIHZlbmlhbSwgcXVpcyBub3N0cnVkIGV4ZXJjaXRhdGlvbiB1bGxhbWNvCiAgICAgICAgICAgICAgICAgICAgICAgIGxhYm9yaXMgbmlzaSB1dCBhbGlxdWlwIGV4IGVhIGNvbW1vZG8gY29uc2VxdWF0LgogICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPC9Nb2RhbD4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    const { visible, show, hide } = useVisibility(false)
+
+    return (
+        <View>
+            <Button onClick={show}>Show Modal</Button>
+
+            <Modal
+                width="500px"
+                height="fit-content"
+                anchor="middle-center"
+                onDismiss={hide}
+                isVisible={visible}>
+                <ModalClose onClick={hide} />
+                <View
+                    p={30}
+                    column
+                    gap={10}
+                    width="100%"
+                    alignItems="flex-start">
+                    <Heading>Not this again...</Heading>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </Text>
+                </View>
+            </Modal>
+        </View>
+    )
+}
+```
+### With Header And Footer
+<a name="withheaderandfooter"></a>
+
+export const WithHeaderAndFooter = () => {
+    const { visible, show, hide } = useVisibility(false);
+    return (<View>
+            <Button onClick={show}>Show Modal</Button>
+
+            <Modal width="500px" height="fit-content" anchor="middle-center" onDismiss={hide} isVisible={visible} header={<View row gap={10} width="100%">
+                        <Heading as="h4">Lorem Ipsum placeholder text</Heading>
+                        <Flexer />
+                        <ModalClose onClick={hide}/>
+                    </View>} footer={<View row gap={10} width="100%">
+                        <Button onClick={hide}>Cancel</Button>
+                        <Flexer />
+                        <Button onClick={hide} variant="danger" outline>
+                            Okay
+                        </Button>
+                    </View>}>
+                <View p={30} column gap={10} width="100%" alignItems="flex-start">
+                    <Heading>Not this again...</Heading>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </Text>
+                </View>
+            </Modal>
+        </View>);
+};
+
+<div className="story-block">
+<WithHeaderAndFooter />
+</div>
+
+<CodeComponent filename="WithHeaderAndFooter.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhIZWFkZXJBbmRGb290ZXIgPSAoKSA9PiB7CiAgICBjb25zdCB7IHZpc2libGUsIHNob3csIGhpZGUgfSA9IHVzZVZpc2liaWxpdHkoZmFsc2UpCgogICAgcmV0dXJuICgKICAgICAgICA8Vmlldz4KICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXtzaG93fT5TaG93IE1vZGFsPC9CdXR0b24+CgogICAgICAgICAgICA8TW9kYWwKICAgICAgICAgICAgICAgIHdpZHRoPSI1MDBweCIKICAgICAgICAgICAgICAgIGhlaWdodD0iZml0LWNvbnRlbnQiCiAgICAgICAgICAgICAgICBhbmNob3I9Im1pZGRsZS1jZW50ZXIiCiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9CiAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgICAgICBoZWFkZXI9ewogICAgICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoNCI+TG9yZW0gSXBzdW0gcGxhY2Vob2xkZXIgdGV4dDwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICAgICAgPEZsZXhlciAvPgogICAgICAgICAgICAgICAgICAgICAgICA8TW9kYWxDbG9zZSBvbkNsaWNrPXtoaWRlfSAvPgogICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgIGZvb3Rlcj17CiAgICAgICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXtoaWRlfT5DYW5jZWw8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICAgICAgPEZsZXhlciAvPgogICAgICAgICAgICAgICAgICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXtoaWRlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIE9rYXkKICAgICAgICAgICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgfT4KICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcD17MzB9CiAgICAgICAgICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgICAgICAgICA8SGVhZGluZz5Ob3QgdGhpcyBhZ2Fpbi4uLjwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdCwgc2VkIGRvIGVpdXNtb2QgdGVtcG9yIGluY2lkaWR1bnQgdXQKICAgICAgICAgICAgICAgICAgICAgICAgbGFib3JlIGV0IGRvbG9yZSBtYWduYSBhbGlxdWEuIFV0IGVuaW0gYWQgbWluaW0gdmVuaWFtLCBxdWlzIG5vc3RydWQgZXhlcmNpdGF0aW9uIHVsbGFtY28KICAgICAgICAgICAgICAgICAgICAgICAgbGFib3JpcyBuaXNpIHV0IGFsaXF1aXAgZXggZWEgY29tbW9kbyBjb25zZXF1YXQuCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L01vZGFsPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const WithHeaderAndFooter = () => {
+    const { visible, show, hide } = useVisibility(false)
+
+    return (
+        <View>
+            <Button onClick={show}>Show Modal</Button>
+
+            <Modal
+                width="500px"
+                height="fit-content"
+                anchor="middle-center"
+                onDismiss={hide}
+                isVisible={visible}
+                header={
+                    <View
+                        row
+                        gap={10}
+                        width="100%">
+                        <Heading as="h4">Lorem Ipsum placeholder text</Heading>
+                        <Flexer />
+                        <ModalClose onClick={hide} />
+                    </View>
+                }
+                footer={
+                    <View
+                        row
+                        gap={10}
+                        width="100%">
+                        <Button onClick={hide}>Cancel</Button>
+                        <Flexer />
+                        <Button
+                            onClick={hide}
+                            variant="danger"
+                            outline>
+                            Okay
+                        </Button>
+                    </View>
+                }>
+                <View
+                    p={30}
+                    column
+                    gap={10}
+                    width="100%"
+                    alignItems="flex-start">
+                    <Heading>Not this again...</Heading>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </Text>
+                </View>
+            </Modal>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

@@ -1,0 +1,102 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Spinner, SpinnerOverlay, Text, View } from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Spinner',
+    subtitle:
+        'The Spinner component is a rotating SVG graphic that informs users that content is currently in the process of loading.',
+    description:
+        'Spinners offer a visual indicator to the user that something is loading or processing. Spinners are useful when a request has been made to the server or a long-running calculation is taking place.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/spinner/spinner.tsx","description":"","displayName":"SpinnerOverlay","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/spinner/spinner.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"thickness":{"defaultValue":null,"description":"","name":"thickness","declarations":[{"fileName":"packages/core/src/spinner/spinner.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"packages/core/src/spinner/spinner.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/spinner/spinner.tsx","description":"","displayName":"Spinner","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/spinner/spinner.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"packages/core/src/spinner/spinner.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"thickness":{"defaultValue":null,"description":"","name":"thickness","declarations":[{"fileName":"packages/core/src/spinner/spinner.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}}]
+
+export const css = [[["--f-spinner-color","var(--f-color-accent)"],["--f-spinner-overlay-background-color","transparent"],["--f-spinner-overlay-z-index","var(--f-index-overlay)"]]]
+
+
+
+<CodeComponent filename="spinner.tsx" code="aW1wb3J0IHsgU3Bpbm5lck92ZXJsYXksIFNwaW5uZXIgfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import { SpinnerOverlay, Spinner } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => <Spinner />;
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gPFNwaW5uZXIgLz4=" />
+
+```tsx
+export const Usage = () => <Spinner />
+```
+### Sizes
+<a name="sizes"></a>
+
+export const Sizes = () => (<View row justifyContent="flex-start" gap={10}>
+        <Spinner size="xs"/>
+        <Spinner size="sm"/>
+        <Spinner size="md" color="var(--f-color-electric-400)"/>
+        <Spinner size="lg"/>
+        <Spinner size="xl"/>
+    </View>);
+
+<div className="story-block">
+<Sizes />
+</div>
+
+<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBqdXN0aWZ5Q29udGVudD0iZmxleC1zdGFydCIKICAgICAgICBnYXA9ezEwfT4KICAgICAgICA8U3Bpbm5lciBzaXplPSJ4cyIgLz4KICAgICAgICA8U3Bpbm5lciBzaXplPSJzbSIgLz4KICAgICAgICA8U3Bpbm5lcgogICAgICAgICAgICBzaXplPSJtZCIKICAgICAgICAgICAgY29sb3I9InZhcigtLWYtY29sb3ItZWxlY3RyaWMtNDAwKSIKICAgICAgICAvPgogICAgICAgIDxTcGlubmVyIHNpemU9ImxnIiAvPgogICAgICAgIDxTcGlubmVyIHNpemU9InhsIiAvPgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const Sizes = () => (
+    <View
+        row
+        justifyContent="flex-start"
+        gap={10}>
+        <Spinner size="xs" />
+        <Spinner size="sm" />
+        <Spinner
+            size="md"
+            color="var(--f-color-electric-400)"
+        />
+        <Spinner size="lg" />
+        <Spinner size="xl" />
+    </View>
+)
+```
+### Overlay
+<a name="overlay"></a>
+
+export const Overlay = () => (<View width={500} height={500} position="relative" bgToken="surface-strong">
+        <SpinnerOverlay size="lg" thickness={4}/>
+    </View>);
+
+<div className="story-block">
+<Overlay />
+</div>
+
+<CodeComponent filename="Overlay.tsx" code="ZXhwb3J0IGNvbnN0IE92ZXJsYXkgPSAoKSA9PiAoCiAgICA8VmlldwogICAgICAgIHdpZHRoPXs1MDB9CiAgICAgICAgaGVpZ2h0PXs1MDB9CiAgICAgICAgcG9zaXRpb249InJlbGF0aXZlIgogICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIj4KICAgICAgICA8U3Bpbm5lck92ZXJsYXkKICAgICAgICAgICAgc2l6ZT0ibGciCiAgICAgICAgICAgIHRoaWNrbmVzcz17NH0KICAgICAgICAvPgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const Overlay = () => (
+    <View
+        width={500}
+        height={500}
+        position="relative"
+        bgToken="surface-strong">
+        <SpinnerOverlay
+            size="lg"
+            thickness={4}
+        />
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

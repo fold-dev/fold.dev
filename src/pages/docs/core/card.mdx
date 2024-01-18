@@ -1,0 +1,436 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import * as Token from '@fold-dev/design/tokens'
+import {
+    Avatar,
+    Badge,
+    Button,
+    ButtonGroup,
+    Card,
+    CardList,
+    Divider,
+    Flexer,
+    Heading,
+    Image,
+    Pill,
+    Stack,
+    Text,
+    View,
+} from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Card',
+    subtitle:
+        'The Card component envelops content within a styled container to ensure a consistent visual style within a design system.',
+    description:
+        'Cards are platforms for presenting content related to a specific subject, they are designed to facilitate quick scanning for important and actionable information.',
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/card/card.tsx","description":"","displayName":"Card","methods":[],"props":{"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/card/card.tsx","description":"","displayName":"CardList","methods":[],"props":{"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"packages/core/src/card/card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/card/card.tsx","description":"","displayName":"CardListItem","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"fold-wip/packages/core/src/view/view.tsx","name":"TypeLiteral"},{"fileName":"fold-wip/node_modules/@types/react/ts5.0/index.d.ts","name":"AllHTMLAttributes"}],"required":false,"type":{"name":"string"},"tags":{}}}}]
+
+export const css = [[["--f-card-color-background","var(--f-color-surface)"],["--f-card-color-solid-background","var(--f-color-surface-inverse)"],["--f-card-border-radius","var(--f-radius)"],["--f-card-border-color","var(--f-color-border)"],["--f-card-shadow","var(--f-shadow-card)"]]]
+
+
+
+<CodeComponent filename="card.tsx" code="aW1wb3J0IHsgQ2FyZCwgQ2FyZExpc3QsIENhcmRMaXN0SXRlbSB9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import { Card, CardList, CardListItem } from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => (<Card width={300} footer={<>
+                <Divider />
+                <ButtonGroup p={15} justifyContent="stretch" width="100%">
+                    <Button>Book Now</Button>
+                    <Button>Add to Wishlist</Button>
+                </ButtonGroup>
+            </>} header={<Image width="100%" height={150} src="/photos/05.jpg"/>}>
+        <View p={20}>
+            <Stack direction="vertical" spacing={10}>
+                <View row gap={5} justifyContent="flex-start">
+                    <Pill color={Token.ColorElectric400} subtle size="sm">
+                        co-working
+                    </Pill>
+                    <Pill color={Token.ColorAccent400} subtle size="sm">
+                        remote
+                    </Pill>
+                </View>
+                <Heading as="h2">Perfect Getaway</Heading>
+                <Text>A once in a lifetime opportunity to live and work remotely in a breathtaking location!</Text>
+                <Heading as="h4" fontWeight="bold">
+                    $ 456,00
+                </Heading>
+                <Text size="sm" colorToken="accent">
+                    Terms & conditions apply
+                </Text>
+            </Stack>
+        </View>
+    </Card>);
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPENhcmQKICAgICAgICB3aWR0aD17MzAwfQogICAgICAgIGZvb3Rlcj17CiAgICAgICAgICAgIDw+CiAgICAgICAgICAgICAgICA8RGl2aWRlciAvPgogICAgICAgICAgICAgICAgPEJ1dHRvbkdyb3VwCiAgICAgICAgICAgICAgICAgICAgcD17MTV9CiAgICAgICAgICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ9InN0cmV0Y2giCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgIDxCdXR0b24+Qm9vayBOb3c8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICA8QnV0dG9uPkFkZCB0byBXaXNobGlzdDwvQnV0dG9uPgogICAgICAgICAgICAgICAgPC9CdXR0b25Hcm91cD4KICAgICAgICAgICAgPC8+CiAgICAgICAgfQogICAgICAgIGhlYWRlcj17CiAgICAgICAgICAgIDxJbWFnZQogICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezE1MH0KICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wNS5qcGciCiAgICAgICAgICAgIC8+CiAgICAgICAgfT4KICAgICAgICA8VmlldyBwPXsyMH0+CiAgICAgICAgICAgIDxTdGFjawogICAgICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgICAgIHNwYWNpbmc9ezEwfT4KICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgZ2FwPXs1fQogICAgICAgICAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgICAgICAgICA8UGlsbAogICAgICAgICAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JFbGVjdHJpYzQwMH0KICAgICAgICAgICAgICAgICAgICAgICAgc3VidGxlCiAgICAgICAgICAgICAgICAgICAgICAgIHNpemU9InNtIj4KICAgICAgICAgICAgICAgICAgICAgICAgY28td29ya2luZwogICAgICAgICAgICAgICAgICAgIDwvUGlsbD4KICAgICAgICAgICAgICAgICAgICA8UGlsbAogICAgICAgICAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JBY2NlbnQ0MDB9CiAgICAgICAgICAgICAgICAgICAgICAgIHN1YnRsZQogICAgICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSI+CiAgICAgICAgICAgICAgICAgICAgICAgIHJlbW90ZQogICAgICAgICAgICAgICAgICAgIDwvUGlsbD4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoMiI+UGVyZmVjdCBHZXRhd2F5PC9IZWFkaW5nPgogICAgICAgICAgICAgICAgPFRleHQ+QSBvbmNlIGluIGEgbGlmZXRpbWUgb3Bwb3J0dW5pdHkgdG8gbGl2ZSBhbmQgd29yayByZW1vdGVseSBpbiBhIGJyZWF0aHRha2luZyBsb2NhdGlvbiE8L1RleHQ+CiAgICAgICAgICAgICAgICA8SGVhZGluZwogICAgICAgICAgICAgICAgICAgIGFzPSJoNCIKICAgICAgICAgICAgICAgICAgICBmb250V2VpZ2h0PSJib2xkIj4KICAgICAgICAgICAgICAgICAgICAkIDQ1NiwwMAogICAgICAgICAgICAgICAgPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJhY2NlbnQiPgogICAgICAgICAgICAgICAgICAgIFRlcm1zICYgY29uZGl0aW9ucyBhcHBseQogICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICA8L1N0YWNrPgogICAgICAgIDwvVmlldz4KICAgIDwvQ2FyZD4KKQ==" />
+
+```tsx
+export const Usage = () => (
+    <Card
+        width={300}
+        footer={
+            <>
+                <Divider />
+                <ButtonGroup
+                    p={15}
+                    justifyContent="stretch"
+                    width="100%">
+                    <Button>Book Now</Button>
+                    <Button>Add to Wishlist</Button>
+                </ButtonGroup>
+            </>
+        }
+        header={
+            <Image
+                width="100%"
+                height={150}
+                src="/photos/05.jpg"
+            />
+        }>
+        <View p={20}>
+            <Stack
+                direction="vertical"
+                spacing={10}>
+                <View
+                    row
+                    gap={5}
+                    justifyContent="flex-start">
+                    <Pill
+                        color={Token.ColorElectric400}
+                        subtle
+                        size="sm">
+                        co-working
+                    </Pill>
+                    <Pill
+                        color={Token.ColorAccent400}
+                        subtle
+                        size="sm">
+                        remote
+                    </Pill>
+                </View>
+                <Heading as="h2">Perfect Getaway</Heading>
+                <Text>A once in a lifetime opportunity to live and work remotely in a breathtaking location!</Text>
+                <Heading
+                    as="h4"
+                    fontWeight="bold">
+                    $ 456,00
+                </Heading>
+                <Text
+                    size="sm"
+                    colorToken="accent">
+                    Terms & conditions apply
+                </Text>
+            </Stack>
+        </View>
+    </Card>
+)
+```
+### Card Lists
+<a name="cardlists"></a>
+
+> The CardList component provides an easy way of grouping related cards into a vertical layout.
+
+export const CardLists = () => (<CardList width="100%">
+        <View row justifyContent="flex-start" p={20}>
+            <Avatar src="/men/01.jpg" name="Brent Fortuin"/>
+            <View column alignItems="flex-start" flex={1} p="0 0 0 1rem">
+                <Heading as="h5" className="f-user-list-name">
+                    Brent Fortuin
+                </Heading>
+            </View>
+            <View row>
+                <Button size="sm" outline>
+                    Message
+                </Button>
+            </View>
+        </View>
+
+        <View row justifyContent="flex-start" p={20}>
+            <Avatar src="/women/01.jpg" name="Margaret Morris"/>
+            <View column alignItems="flex-start" flex={1} p="0 0 0 1rem">
+                <Heading as="h5" className="f-user-list-name">
+                    Margaret Morris
+                </Heading>
+            </View>
+            <View row>
+                <Button size="sm" outline>
+                    Message
+                </Button>
+            </View>
+        </View>
+
+        <View row justifyContent="flex-start" p={20}>
+            <Avatar src="/men/03.jpg" name="Kevin Manuel"/>
+            <View column alignItems="flex-start" flex={1} p="0 0 0 1rem">
+                <Heading as="h5" className="f-user-list-name">
+                    Kevin Manuel
+                </Heading>
+            </View>
+            <View row>
+                <Button size="sm" outline>
+                    Message
+                </Button>
+            </View>
+        </View>
+    </CardList>);
+
+<div className="story-block">
+<CardLists />
+</div>
+
+<CodeComponent filename="CardLists.tsx" code="ZXhwb3J0IGNvbnN0IENhcmRMaXN0cyA9ICgpID0+ICgKICAgIDxDYXJkTGlzdCB3aWR0aD0iMTAwJSI+CiAgICAgICAgPFZpZXcKICAgICAgICAgICAgcm93CiAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PSJmbGV4LXN0YXJ0IgogICAgICAgICAgICBwPXsyMH0+CiAgICAgICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wMS5qcGciCiAgICAgICAgICAgICAgICBuYW1lPSJCcmVudCBGb3J0dWluIgogICAgICAgICAgICAvPgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0IgogICAgICAgICAgICAgICAgZmxleD17MX0KICAgICAgICAgICAgICAgIHA9IjAgMCAwIDFyZW0iPgogICAgICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgICAgICBhcz0iaDUiCiAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPSJmLXVzZXItbGlzdC1uYW1lIj4KICAgICAgICAgICAgICAgICAgICBCcmVudCBGb3J0dWluCiAgICAgICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcgcm93PgogICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgICAgICAgICAgTWVzc2FnZQogICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICA8L1ZpZXc+CgogICAgICAgIDxWaWV3CiAgICAgICAgICAgIHJvdwogICAgICAgICAgICBqdXN0aWZ5Q29udGVudD0iZmxleC1zdGFydCIKICAgICAgICAgICAgcD17MjB9PgogICAgICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgICAgICBzcmM9Ii93b21lbi8wMS5qcGciCiAgICAgICAgICAgICAgICBuYW1lPSJNYXJnYXJldCBNb3JyaXMiCiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiCiAgICAgICAgICAgICAgICBmbGV4PXsxfQogICAgICAgICAgICAgICAgcD0iMCAwIDAgMXJlbSI+CiAgICAgICAgICAgICAgICA8SGVhZGluZwogICAgICAgICAgICAgICAgICAgIGFzPSJoNSIKICAgICAgICAgICAgICAgICAgICBjbGFzc05hbWU9ImYtdXNlci1saXN0LW5hbWUiPgogICAgICAgICAgICAgICAgICAgIE1hcmdhcmV0IE1vcnJpcwogICAgICAgICAgICAgICAgPC9IZWFkaW5nPgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDxWaWV3IHJvdz4KICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICAgICAgICAgIE1lc3NhZ2UKICAgICAgICAgICAgICAgIDwvQnV0dG9uPgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9WaWV3PgoKICAgICAgICA8VmlldwogICAgICAgICAgICByb3cKICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ9ImZsZXgtc3RhcnQiCiAgICAgICAgICAgIHA9ezIwfT4KICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgc3JjPSIvbWVuLzAzLmpwZyIKICAgICAgICAgICAgICAgIG5hbWU9IktldmluIE1hbnVlbCIKICAgICAgICAgICAgLz4KICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgICAgIGZsZXg9ezF9CiAgICAgICAgICAgICAgICBwPSIwIDAgMCAxcmVtIj4KICAgICAgICAgICAgICAgIDxIZWFkaW5nCiAgICAgICAgICAgICAgICAgICAgYXM9Img1IgogICAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0iZi11c2VyLWxpc3QtbmFtZSI+CiAgICAgICAgICAgICAgICAgICAgS2V2aW4gTWFudWVsCiAgICAgICAgICAgICAgICA8L0hlYWRpbmc+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcgcm93PgogICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgICAgICAgICAgTWVzc2FnZQogICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICA8L1ZpZXc+CiAgICA8L0NhcmRMaXN0Pgop" />
+
+```tsx
+export const CardLists = () => (
+    <CardList width="100%">
+        <View
+            row
+            justifyContent="flex-start"
+            p={20}>
+            <Avatar
+                src="/men/01.jpg"
+                name="Brent Fortuin"
+            />
+            <View
+                column
+                alignItems="flex-start"
+                flex={1}
+                p="0 0 0 1rem">
+                <Heading
+                    as="h5"
+                    className="f-user-list-name">
+                    Brent Fortuin
+                </Heading>
+            </View>
+            <View row>
+                <Button
+                    size="sm"
+                    outline>
+                    Message
+                </Button>
+            </View>
+        </View>
+
+        <View
+            row
+            justifyContent="flex-start"
+            p={20}>
+            <Avatar
+                src="/women/01.jpg"
+                name="Margaret Morris"
+            />
+            <View
+                column
+                alignItems="flex-start"
+                flex={1}
+                p="0 0 0 1rem">
+                <Heading
+                    as="h5"
+                    className="f-user-list-name">
+                    Margaret Morris
+                </Heading>
+            </View>
+            <View row>
+                <Button
+                    size="sm"
+                    outline>
+                    Message
+                </Button>
+            </View>
+        </View>
+
+        <View
+            row
+            justifyContent="flex-start"
+            p={20}>
+            <Avatar
+                src="/men/03.jpg"
+                name="Kevin Manuel"
+            />
+            <View
+                column
+                alignItems="flex-start"
+                flex={1}
+                p="0 0 0 1rem">
+                <Heading
+                    as="h5"
+                    className="f-user-list-name">
+                    Kevin Manuel
+                </Heading>
+            </View>
+            <View row>
+                <Button
+                    size="sm"
+                    outline>
+                    Message
+                </Button>
+            </View>
+        </View>
+    </CardList>
+)
+```
+### Card Grid
+<a name="cardgrid"></a>
+
+> The CardGrid component, like the CardList, provides a convenience pattern for creating grid layouts using the Card component.
+
+export const CardGrid = () => (<View row justifyContent="space-between">
+        <Card width="24%" height={200} column alignItems="flex-start" p={30}>
+            <View height={20}/>
+            <Flexer />
+            <View>
+                <Heading as="h3">Work</Heading>
+                <View row>
+                    <Text>3 projects</Text>
+                    <Badge variant="danger" width={10} height={10} m="0.2rem 0 0 1rem"/>
+                </View>
+            </View>
+        </Card>
+        <Card width="24%" height={200} column alignItems="flex-start" p={30}>
+            <View height={20}/>
+            <Flexer />
+            <View>
+                <Heading as="h3">Projects</Heading>
+                <View row>
+                    <Text>2 projects</Text>
+                    <Badge variant="success" width={10} height={10} m="0.2rem 0 0 1rem"/>
+                </View>
+            </View>
+        </Card>
+        <Card width="24%" height={200} column alignItems="flex-start" p={30}>
+            <View height={20}/>
+            <Flexer />
+            <View>
+                <Heading as="h3">Personal</Heading>
+                <View row>
+                    <Text>5 projects</Text>
+                    <Badge variant="success" width={10} height={10} m="0.2rem 0 0 1rem"/>
+                </View>
+            </View>
+        </Card>
+        <Card width="24%" height={200} column alignItems="flex-start" p={30}>
+            <View height={20}/>
+            <Flexer />
+            <View>
+                <Heading as="h3">Hobbies</Heading>
+                <View row>
+                    <Text>9 projects</Text>
+                    <Badge variant="success" width={10} height={10} m="0.2rem 0 0 1rem"/>
+                </View>
+            </View>
+        </Card>
+    </View>);
+
+<div className="story-block">
+<CardGrid />
+</div>
+
+<CodeComponent filename="CardGrid.tsx" code="ZXhwb3J0IGNvbnN0IENhcmRHcmlkID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBqdXN0aWZ5Q29udGVudD0ic3BhY2UtYmV0d2VlbiI+CiAgICAgICAgPENhcmQKICAgICAgICAgICAgd2lkdGg9IjI0JSIKICAgICAgICAgICAgaGVpZ2h0PXsyMDB9CiAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0IgogICAgICAgICAgICBwPXszMH0+CiAgICAgICAgICAgIDxWaWV3IGhlaWdodD17MjB9IC8+CiAgICAgICAgICAgIDxGbGV4ZXIgLz4KICAgICAgICAgICAgPFZpZXc+CiAgICAgICAgICAgICAgICA8SGVhZGluZyBhcz0iaDMiPldvcms8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICA8VmlldyByb3c+CiAgICAgICAgICAgICAgICAgICAgPFRleHQ+MyBwcm9qZWN0czwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIG09IjAuMnJlbSAwIDAgMXJlbSIKICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9DYXJkPgogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHdpZHRoPSIyNCUiCiAgICAgICAgICAgIGhlaWdodD17MjAwfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgcD17MzB9PgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezIwfSAvPgogICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgIDxWaWV3PgogICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5Qcm9qZWN0czwvSGVhZGluZz4KICAgICAgICAgICAgICAgIDxWaWV3IHJvdz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD4yIHByb2plY3RzPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDxCYWRnZQogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIG09IjAuMnJlbSAwIDAgMXJlbSIKICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9DYXJkPgogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHdpZHRoPSIyNCUiCiAgICAgICAgICAgIGhlaWdodD17MjAwfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgcD17MzB9PgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezIwfSAvPgogICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgIDxWaWV3PgogICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5QZXJzb25hbDwvSGVhZGluZz4KICAgICAgICAgICAgICAgIDxWaWV3IHJvdz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD41IHByb2plY3RzPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDxCYWRnZQogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIG09IjAuMnJlbSAwIDAgMXJlbSIKICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9DYXJkPgogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHdpZHRoPSIyNCUiCiAgICAgICAgICAgIGhlaWdodD17MjAwfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgcD17MzB9PgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezIwfSAvPgogICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgIDxWaWV3PgogICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5Ib2JiaWVzPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgPFZpZXcgcm93PgogICAgICAgICAgICAgICAgICAgIDxUZXh0PjkgcHJvamVjdHM8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPEJhZGdlCiAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgbT0iMC4ycmVtIDAgMCAxcmVtIgogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICA8L0NhcmQ+CiAgICA8L1ZpZXc+Cik=" />
+
+```tsx
+export const CardGrid = () => (
+    <View
+        row
+        justifyContent="space-between">
+        <Card
+            width="24%"
+            height={200}
+            column
+            alignItems="flex-start"
+            p={30}>
+            <View height={20} />
+            <Flexer />
+            <View>
+                <Heading as="h3">Work</Heading>
+                <View row>
+                    <Text>3 projects</Text>
+                    <Badge
+                        variant="danger"
+                        width={10}
+                        height={10}
+                        m="0.2rem 0 0 1rem"
+                    />
+                </View>
+            </View>
+        </Card>
+        <Card
+            width="24%"
+            height={200}
+            column
+            alignItems="flex-start"
+            p={30}>
+            <View height={20} />
+            <Flexer />
+            <View>
+                <Heading as="h3">Projects</Heading>
+                <View row>
+                    <Text>2 projects</Text>
+                    <Badge
+                        variant="success"
+                        width={10}
+                        height={10}
+                        m="0.2rem 0 0 1rem"
+                    />
+                </View>
+            </View>
+        </Card>
+        <Card
+            width="24%"
+            height={200}
+            column
+            alignItems="flex-start"
+            p={30}>
+            <View height={20} />
+            <Flexer />
+            <View>
+                <Heading as="h3">Personal</Heading>
+                <View row>
+                    <Text>5 projects</Text>
+                    <Badge
+                        variant="success"
+                        width={10}
+                        height={10}
+                        m="0.2rem 0 0 1rem"
+                    />
+                </View>
+            </View>
+        </Card>
+        <Card
+            width="24%"
+            height={200}
+            column
+            alignItems="flex-start"
+            p={30}>
+            <View height={20} />
+            <Flexer />
+            <View>
+                <Heading as="h3">Hobbies</Heading>
+                <View row>
+                    <Text>9 projects</Text>
+                    <Badge
+                        variant="success"
+                        width={10}
+                        height={10}
+                        m="0.2rem 0 0 1rem"
+                    />
+                </View>
+            </View>
+        </Card>
+    </View>
+)
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>
