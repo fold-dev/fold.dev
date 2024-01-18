@@ -1,0 +1,423 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import * as Token from '@fold-dev/design/tokens'
+import {
+    Divider,
+    Heading,
+    Menu,
+    MenuItem,
+    MenuProvider,
+    Stack,
+    TaskCard,
+    TaskEditMode,
+    TaskListItem,
+    TaskProps,
+    useTaskEdit,
+    View,
+} from '@fold-dev/core'
+import React from 'react'
+
+export const docs = {
+    title: 'Task',
+    subtitle: 'The Task component represents an item on a todo list or card on a kanban board.',
+    description: 'Tasks are useful for giving the user a visual element to interact with on a task list. They are especially relevant in task managers; however, task components can enable a wide variety of tooling within a product.',
+    experimental: true,
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskLabel","methods":[],"props":{"icon":{"defaultValue":{"value":"null"},"description":"","name":"icon","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"text":{"defaultValue":null,"description":"","name":"text","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}},"subtle":{"defaultValue":{"value":"true"},"description":"","name":"subtle","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskLabels","methods":[],"props":{"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskAvatars","methods":[],"props":{"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"UserSelectUser[]"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskBadge","methods":[],"props":{"icon":{"defaultValue":{"value":"null"},"description":"","name":"icon","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"progress":{"defaultValue":null,"description":"","name":"progress","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"label":{"defaultValue":null,"description":"","name":"label","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"hide":{"defaultValue":null,"description":"","name":"hide","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(e: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskBadges","methods":[],"props":{"badges":{"defaultValue":null,"description":"","name":"badges","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"TaskBadge[]"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskMenuButton","methods":[],"props":{"edit":{"defaultValue":{"value":"false"},"description":"","name":"edit","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onEditClick":{"defaultValue":{"value":"null"},"description":"","name":"onEditClick","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(e: any) => void"},"tags":{}},"date":{"defaultValue":{"value":"false"},"description":"","name":"date","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onDateClick":{"defaultValue":{"value":"null"},"description":"","name":"onDateClick","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(e: any) => void"},"tags":{}},"menu":{"defaultValue":{"value":"false"},"description":"","name":"menu","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onMenuClick":{"defaultValue":{"value":"null"},"description":"","name":"onMenuClick","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(e: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskCheckbox","methods":[],"props":{"onCheck":{"defaultValue":null,"description":"","name":"onCheck","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}},"checked":{"defaultValue":null,"description":"","name":"checked","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskTextTitle","methods":[],"props":{"text":{"defaultValue":null,"description":"","name":"text","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"complete":{"defaultValue":null,"description":"","name":"complete","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskTextDescription","methods":[],"props":{"text":{"defaultValue":null,"description":"","name":"text","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"complete":{"defaultValue":null,"description":"","name":"complete","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskCard","methods":[],"props":{"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"hideCheckbox":{"defaultValue":null,"description":"","name":"hideCheckbox","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"complete":{"defaultValue":null,"description":"","name":"complete","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"locked":{"defaultValue":null,"description":"","name":"locked","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"progress":{"defaultValue":null,"description":"","name":"progress","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"priority":{"defaultValue":null,"description":"","name":"priority","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"TaskPriority"},"tags":{}},"image":{"defaultValue":null,"description":"","name":"image","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"UserSelectUser[]"},"tags":{}},"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"badges":{"defaultValue":null,"description":"","name":"badges","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"TaskBadge[]"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskListItem","methods":[],"props":{"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"hideCheckbox":{"defaultValue":null,"description":"","name":"hideCheckbox","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"complete":{"defaultValue":null,"description":"","name":"complete","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"locked":{"defaultValue":null,"description":"","name":"locked","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"progress":{"defaultValue":null,"description":"","name":"progress","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"priority":{"defaultValue":null,"description":"","name":"priority","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"TaskPriority"},"tags":{}},"image":{"defaultValue":null,"description":"","name":"image","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"UserSelectUser[]"},"tags":{}},"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"badges":{"defaultValue":null,"description":"","name":"badges","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"TaskBadge[]"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/task/task.tsx","description":"","displayName":"TaskEditMode","methods":[],"props":{"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"dates":{"defaultValue":null,"description":"","name":"dates","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"hideToolbar":{"defaultValue":null,"description":"","name":"hideToolbar","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"hideDescription":{"defaultValue":null,"description":"","name":"hideDescription","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"monthNames":{"defaultValue":null,"description":"","name":"monthNames","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string[]"},"tags":{}},"onEdit":{"defaultValue":null,"description":"","name":"onEdit","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(e: any) => void"},"tags":{}},"onConfirm":{"defaultValue":null,"description":"","name":"onConfirm","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onIndent":{"defaultValue":null,"description":"","name":"onIndent","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"onOutdent":{"defaultValue":null,"description":"","name":"onOutdent","declarations":[{"fileName":"packages/core/src/task/task.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}}}}]
+
+export const css = [[["--f-task-card-background","var(--f-color-surface)"],["--f-task-card-border","0.1rem solid var(--f-color-border)"],["--f-task-card-radius","var(--f-radius)"],["--f-task-card-spacing-bottom","0.25rem"],["--f-task-card-padding","0.75rem"],["--f-task-card-image-padding","0"],["--f-task-card-content-gap","var(--f-size-2)"],["--f-task-card-text-gap","var(--f-size-2)"],["--f-task-card-text-padding","2px 0 0 0"],["--f-task-card-gap","1rem"],["--f-task-card-panel-padding","0"],["--f-task-card-panel-gap","0.25rem"]],[["--f-task-li-background","var(--f-color-surface)"],["--f-task-li-background-selected","var(--f-color-surface-strong)"],["--f-task-li-outline-selected","none"],["--f-task-li-radius","0rem"],["--f-task-li-padding","0.75rem 0"],["--f-task-li-title-gap","0.75rem"],["--f-task-li-content-gap","0.5rem"],["--f-task-li-checkbox-buffer","30px"],["--f-task-li-panel-gap","0.5rem"]],[["--f-task-text-completed-color","var(--f-color-text-weakest)"],["--f-task-text-title-color","var(--f-color-text)"],["--f-task-text-description-color","var(--f-color-text-weaker)"],["--f-task-text-title-size","var(--f-font-size-md)"],["--f-task-text-description-size","var(--f-font-size-md)"]],[["--f-task-menu-background","var(--f-color-surface)"],["--f-task-menu-x","0.75rem"],["--f-task-menu-y","0.55rem"],["--f-task-menu-hover","var(--f-color-surface-strong)"],["--f-task-menu-color","var(--f-color-text-weaker)"]],[["--f-task-checkbox-padding","0"],["--f-task-checkbox-margin-list","0 0 0 3px"],["--f-task-checkbox-margin-card","0"]],[["--f-task-badge-color","var(--f-color-text-weaker)"]],[["--f-task-em-padding","0.75rem 0"],["--f-task-em-radius","0"],["--f-task-em-description-padding","0 0.75rem 0.25rem 0.75rem"],["--f-task-em-toolbar-padding","0 0 0.5rem 0"]]]
+
+
+
+<CodeComponent filename="task.tsx" code="aW1wb3J0IHsKICBUYXNrTGFiZWwsCiAgVGFza0xhYmVscywKICBUYXNrQXZhdGFycywKICBUYXNrQmFkZ2UsCiAgVGFza0JhZGdlcywKICBUYXNrTWVudUJ1dHRvbiwKICBUYXNrQ2hlY2tib3gsCiAgVGFza1RleHRUaXRsZSwKICBUYXNrVGV4dERlc2NyaXB0aW9uLAogIFRhc2tDYXJkLAogIFRhc2tMaXN0SXRlbSwKICBUYXNrRWRpdE1vZGUsCn0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+```tsx
+import {
+  TaskLabel,
+  TaskLabels,
+  TaskAvatars,
+  TaskBadge,
+  TaskBadges,
+  TaskMenuButton,
+  TaskCheckbox,
+  TaskTextTitle,
+  TaskTextDescription,
+  TaskCard,
+  TaskListItem,
+  TaskEditMode,
+} from "@fold-dev/core";
+```
+
+### Usage
+<a name="usage"></a>
+
+export const Usage = () => {
+    const PopupMenu = ({ target }) => (<Menu>
+            <MenuItem>Menu item for {target}</MenuItem>
+        </Menu>);
+    const task1 = {
+        id: '1',
+        title: 'Component dev pipeline, build pipeline & design system setup',
+        description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don not look even slightly believable.',
+        complete: false,
+        image: 'https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNhcnRvb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        users: [
+            { id: 'u1', name: 'Johannes', image: '/men/09.jpg' },
+            { id: 'u1', name: 'Benjamin', image: '/men/06.jpg' },
+            { id: 'u1', name: 'du Plessis' },
+        ],
+        labels: [
+            { id: 'l1', icon: 'zap', color: Token.ColorElectric400, text: 'mvp' },
+            { id: 'l4', text: 'pull request', color: Token.ColorNeonpink400 },
+            { id: 'l5', icon: 'frontend', color: Token.ColorAccent400, text: 'experiment' },
+        ],
+        badges: [
+            { icon: 'eye' },
+            { icon: 'menu' },
+            { icon: 'message', label: '2' },
+            { icon: 'paperclip', label: '3' },
+            { label: '3/4', progress: 75, color: Token.ColorOrange400 },
+        ],
+    };
+    const task2 = {
+        id: '2',
+        title: 'Component dev pipeline, build pipeline & design system setup. Component dev pipeline, build pipeline & design system setup. Component dev pipeline, build pipeline & design system setup.',
+        description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don not look even slightly believable. ',
+        complete: true,
+        image: 'https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNhcnRvb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        users: [
+            { id: 1, name: 'Johannes', image: '/men/09.jpg' },
+            { id: 1, name: 'Benjamin', image: '/men/06.jpg' },
+            { id: 1, name: 'du Plessis' },
+        ],
+    };
+    const task3 = {
+        id: '3',
+        title: 'Component dev pipeline, build pipeline & design system setup',
+        complete: false,
+        selected: true,
+        users: [{ id: 1, name: '+' }],
+    };
+    const task4 = {
+        id: '4',
+        title: 'Component dev pipeline, build pipeline & design system setup',
+        complete: false,
+        priority: 'medium',
+        locked: true,
+        image: 'https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNhcnRvb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        users: [
+            { id: 1, name: 'Johannes', image: '/men/09.jpg' },
+            { id: 1, name: 'Benjamin', image: '/men/06.jpg' },
+            { id: 1, name: 'du Plessis' },
+        ],
+    };
+    return (<MenuProvider menu={({ data: { target, payload }, dismiss }) => {
+            switch (target) {
+                case 'task-label': return <PopupMenu target={target}/>;
+                case 'task-user': return <PopupMenu target={target}/>;
+                case 'task-menu': return <PopupMenu target={target}/>;
+                case 'task-date': return <PopupMenu target={target}/>;
+                default: return null;
+            }
+        }}>
+            <Heading as="h3">Cards</Heading>
+            <Stack p="50px 50px 0 50px" spacing={10} direction="horizontal">
+                <TaskCard {...task1} width={300}/>
+                <TaskCard {...task2} width={300}/>
+                <TaskCard {...task3} width={300}/>
+                <TaskCard {...task4} width={300}/>
+            </Stack>
+            <Heading as="h3">List</Heading>
+            <Stack p={50} spacing={0} direction="vertical">
+                <TaskListItem {...task1}/>
+                <TaskListItem {...task2}/>
+                <TaskListItem {...task3}/>
+                <TaskListItem {...task4}/>
+            </Stack>
+        </MenuProvider>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgUG9wdXBNZW51ID0gKHsgdGFyZ2V0IH0pID0+ICgKICAgICAgICA8TWVudT4KICAgICAgICAgICAgPE1lbnVJdGVtPk1lbnUgaXRlbSBmb3Ige3RhcmdldH08L01lbnVJdGVtPgogICAgICAgIDwvTWVudT4KICAgICkKCiAgICBjb25zdCB0YXNrMTogVGFza1Byb3BzID0gewogICAgICAgIGlkOiAnMScsCiAgICAgICAgdGl0bGU6ICdDb21wb25lbnQgZGV2IHBpcGVsaW5lLCBidWlsZCBwaXBlbGluZSAmIGRlc2lnbiBzeXN0ZW0gc2V0dXAnLAogICAgICAgIGRlc2NyaXB0aW9uOgogICAgICAgICAgICAnVGhlcmUgYXJlIG1hbnkgdmFyaWF0aW9ucyBvZiBwYXNzYWdlcyBvZiBMb3JlbSBJcHN1bSBhdmFpbGFibGUsIGJ1dCB0aGUgbWFqb3JpdHkgaGF2ZSBzdWZmZXJlZCBhbHRlcmF0aW9uIGluIHNvbWUgZm9ybSwgYnkgaW5qZWN0ZWQgaHVtb3VyLCBvciByYW5kb21pc2VkIHdvcmRzIHdoaWNoIGRvbiBub3QgbG9vayBldmVuIHNsaWdodGx5IGJlbGlldmFibGUuJywKICAgICAgICBjb21wbGV0ZTogZmFsc2UsCiAgICAgICAgaW1hZ2U6ICdodHRwczovL2ltYWdlcy51bnNwbGFzaC5jb20vcGhvdG8tMTYzNzg1ODg2ODc5OS03ZjI2YTA2NDBlYjY/aXhsaWI9cmItNC4wLjMmaXhpZD1NM3d4TWpBM2ZEQjhNSHh6WldGeVkyaDhNVFY4ZkdOaGNuUnZiMjU4Wlc1OE1IeDhNSHg4ZkRBJTNEJmF1dG89Zm9ybWF0JmZpdD1jcm9wJnc9NTAwJnE9NjAnLAogICAgICAgIHVzZXJzOiBbCiAgICAgICAgICAgIHsgaWQ6ICd1MScsIG5hbWU6ICdKb2hhbm5lcycsIGltYWdlOiAnL21lbi8wOS5qcGcnIH0sCiAgICAgICAgICAgIHsgaWQ6ICd1MScsIG5hbWU6ICdCZW5qYW1pbicsIGltYWdlOiAnL21lbi8wNi5qcGcnIH0sCiAgICAgICAgICAgIHsgaWQ6ICd1MScsIG5hbWU6ICdkdSBQbGVzc2lzJyB9LAogICAgICAgIF0sCiAgICAgICAgbGFiZWxzOiBbCiAgICAgICAgICAgIHsgaWQ6ICdsMScsIGljb246ICd6YXAnLCBjb2xvcjogVG9rZW4uQ29sb3JFbGVjdHJpYzQwMCwgdGV4dDogJ212cCcgfSwKICAgICAgICAgICAgeyBpZDogJ2w0JywgdGV4dDogJ3B1bGwgcmVxdWVzdCcsIGNvbG9yOiBUb2tlbi5Db2xvck5lb25waW5rNDAwIH0sCiAgICAgICAgICAgIHsgaWQ6ICdsNScsIGljb246ICdmcm9udGVuZCcsIGNvbG9yOiBUb2tlbi5Db2xvckFjY2VudDQwMCwgdGV4dDogJ2V4cGVyaW1lbnQnIH0sCiAgICAgICAgXSwKICAgICAgICBiYWRnZXM6IFsKICAgICAgICAgICAgeyBpY29uOiAnZXllJyB9LAogICAgICAgICAgICB7IGljb246ICdtZW51JyB9LAogICAgICAgICAgICB7IGljb246ICdtZXNzYWdlJywgbGFiZWw6ICcyJyB9LAogICAgICAgICAgICB7IGljb246ICdwYXBlcmNsaXAnLCBsYWJlbDogJzMnIH0sCiAgICAgICAgICAgIHsgbGFiZWw6ICczLzQnLCBwcm9ncmVzczogNzUsIGNvbG9yOiBUb2tlbi5Db2xvck9yYW5nZTQwMCB9LAogICAgICAgIF0sCiAgICB9CiAgICAKICAgIGNvbnN0IHRhc2syOiBUYXNrUHJvcHMgPSB7CiAgICAgICAgaWQ6ICcyJywKICAgICAgICB0aXRsZTogJ0NvbXBvbmVudCBkZXYgcGlwZWxpbmUsIGJ1aWxkIHBpcGVsaW5lICYgZGVzaWduIHN5c3RlbSBzZXR1cC4gQ29tcG9uZW50IGRldiBwaXBlbGluZSwgYnVpbGQgcGlwZWxpbmUgJiBkZXNpZ24gc3lzdGVtIHNldHVwLiBDb21wb25lbnQgZGV2IHBpcGVsaW5lLCBidWlsZCBwaXBlbGluZSAmIGRlc2lnbiBzeXN0ZW0gc2V0dXAuJywKICAgICAgICBkZXNjcmlwdGlvbjoKICAgICAgICAgICAgJ1RoZXJlIGFyZSBtYW55IHZhcmlhdGlvbnMgb2YgcGFzc2FnZXMgb2YgTG9yZW0gSXBzdW0gYXZhaWxhYmxlLCBidXQgdGhlIG1ham9yaXR5IGhhdmUgc3VmZmVyZWQgYWx0ZXJhdGlvbiBpbiBzb21lIGZvcm0sIGJ5IGluamVjdGVkIGh1bW91ciwgb3IgcmFuZG9taXNlZCB3b3JkcyB3aGljaCBkb24gbm90IGxvb2sgZXZlbiBzbGlnaHRseSBiZWxpZXZhYmxlLiAnLAogICAgICAgIGNvbXBsZXRlOiB0cnVlLAogICAgICAgIGltYWdlOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE2Mzc4NTg4Njg3OTktN2YyNmEwNjQwZWI2P2l4bGliPXJiLTQuMC4zJml4aWQ9TTN3eE1qQTNmREI4TUh4elpXRnlZMmg4TVRWOGZHTmhjblJ2YjI1OFpXNThNSHg4TUh4OGZEQSUzRCZhdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTUwMCZxPTYwJywKICAgICAgICB1c2VyczogWwogICAgICAgICAgICB7IGlkOiAxLCBuYW1lOiAnSm9oYW5uZXMnLCBpbWFnZTogJy9tZW4vMDkuanBnJyB9LAogICAgICAgICAgICB7IGlkOiAxLCBuYW1lOiAnQmVuamFtaW4nLCBpbWFnZTogJy9tZW4vMDYuanBnJyB9LAogICAgICAgICAgICB7IGlkOiAxLCBuYW1lOiAnZHUgUGxlc3NpcycgfSwKICAgICAgICBdLAogICAgfQogICAgCiAgICBjb25zdCB0YXNrMzogVGFza1Byb3BzID0gewogICAgICAgIGlkOiAnMycsCiAgICAgICAgdGl0bGU6ICdDb21wb25lbnQgZGV2IHBpcGVsaW5lLCBidWlsZCBwaXBlbGluZSAmIGRlc2lnbiBzeXN0ZW0gc2V0dXAnLAogICAgICAgIGNvbXBsZXRlOiBmYWxzZSwKICAgICAgICBzZWxlY3RlZDogdHJ1ZSwKICAgICAgICB1c2VyczogW3sgaWQ6IDEsIG5hbWU6ICcrJyB9XSwKICAgIH0KICAgIAogICAgY29uc3QgdGFzazQ6IFRhc2tQcm9wcyA9IHsKICAgICAgICBpZDogJzQnLAogICAgICAgIHRpdGxlOiAnQ29tcG9uZW50IGRldiBwaXBlbGluZSwgYnVpbGQgcGlwZWxpbmUgJiBkZXNpZ24gc3lzdGVtIHNldHVwJywKICAgICAgICBjb21wbGV0ZTogZmFsc2UsCiAgICAgICAgcHJpb3JpdHk6ICdtZWRpdW0nLAogICAgICAgIGxvY2tlZDogdHJ1ZSwKICAgICAgICBpbWFnZTogJ2h0dHBzOi8vaW1hZ2VzLnVuc3BsYXNoLmNvbS9waG90by0xNjM3ODU4ODY4Nzk5LTdmMjZhMDY0MGViNj9peGxpYj1yYi00LjAuMyZpeGlkPU0zd3hNakEzZkRCOE1IeHpaV0Z5WTJoOE1UVjhmR05oY25SdmIyNThaVzU4TUh4OE1IeDhmREElM0QmYXV0bz1mb3JtYXQmZml0PWNyb3Amdz01MDAmcT02MCcsCiAgICAgICAgdXNlcnM6IFsKICAgICAgICAgICAgeyBpZDogMSwgbmFtZTogJ0pvaGFubmVzJywgaW1hZ2U6ICcvbWVuLzA5LmpwZycgfSwKICAgICAgICAgICAgeyBpZDogMSwgbmFtZTogJ0JlbmphbWluJywgaW1hZ2U6ICcvbWVuLzA2LmpwZycgfSwKICAgICAgICAgICAgeyBpZDogMSwgbmFtZTogJ2R1IFBsZXNzaXMnIH0sCiAgICAgICAgXSwKICAgIH0KICAgIAogICAgcmV0dXJuICgKICAgICAgICA8TWVudVByb3ZpZGVyCiAgICAgICAgICAgIG1lbnU9eyh7IGRhdGE6IHsgdGFyZ2V0LCBwYXlsb2FkIH0sIGRpc21pc3MgfSkgPT4gewogICAgICAgICAgICAgICAgc3dpdGNoICh0YXJnZXQpIHsKICAgICAgICAgICAgICAgICAgICBjYXNlICd0YXNrLWxhYmVsJzogcmV0dXJuIDxQb3B1cE1lbnUgdGFyZ2V0PXt0YXJnZXR9IC8+CiAgICAgICAgICAgICAgICAgICAgY2FzZSAndGFzay11c2VyJzogcmV0dXJuIDxQb3B1cE1lbnUgdGFyZ2V0PXt0YXJnZXR9IC8+CiAgICAgICAgICAgICAgICAgICAgY2FzZSAndGFzay1tZW51JzogcmV0dXJuIDxQb3B1cE1lbnUgdGFyZ2V0PXt0YXJnZXR9IC8+CiAgICAgICAgICAgICAgICAgICAgY2FzZSAndGFzay1kYXRlJzogcmV0dXJuIDxQb3B1cE1lbnUgdGFyZ2V0PXt0YXJnZXR9IC8+CiAgICAgICAgICAgICAgICAgICAgZGVmYXVsdDogcmV0dXJuIG51bGwKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfX0+CiAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoMyI+Q2FyZHM8L0hlYWRpbmc+CiAgICAgICAgICAgIDxTdGFjawogICAgICAgICAgICAgICAgcD0iNTBweCA1MHB4IDAgNTBweCIKICAgICAgICAgICAgICAgIHNwYWNpbmc9ezEwfQogICAgICAgICAgICAgICAgZGlyZWN0aW9uPSJob3Jpem9udGFsIj4KICAgICAgICAgICAgICAgIDxUYXNrQ2FyZAogICAgICAgICAgICAgICAgICAgIHsuLi50YXNrMX0KICAgICAgICAgICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDxUYXNrQ2FyZAogICAgICAgICAgICAgICAgICAgIHsuLi50YXNrMn0KICAgICAgICAgICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDxUYXNrQ2FyZAogICAgICAgICAgICAgICAgICAgIHsuLi50YXNrM30KICAgICAgICAgICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDxUYXNrQ2FyZAogICAgICAgICAgICAgICAgICAgIHsuLi50YXNrNH0KICAgICAgICAgICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9TdGFjaz4KICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5MaXN0PC9IZWFkaW5nPgogICAgICAgICAgICA8U3RhY2sKICAgICAgICAgICAgICAgIHA9ezUwfQogICAgICAgICAgICAgICAgc3BhY2luZz17MH0KICAgICAgICAgICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiPgogICAgICAgICAgICAgICAgPFRhc2tMaXN0SXRlbSB7Li4udGFzazF9IC8+CiAgICAgICAgICAgICAgICA8VGFza0xpc3RJdGVtIHsuLi50YXNrMn0gLz4KICAgICAgICAgICAgICAgIDxUYXNrTGlzdEl0ZW0gey4uLnRhc2szfSAvPgogICAgICAgICAgICAgICAgPFRhc2tMaXN0SXRlbSB7Li4udGFzazR9IC8+CiAgICAgICAgICAgIDwvU3RhY2s+CiAgICAgICAgPC9NZW51UHJvdmlkZXI+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    const PopupMenu = ({ target }) => (
+        <Menu>
+            <MenuItem>Menu item for {target}</MenuItem>
+        </Menu>
+    )
+
+    const task1: TaskProps = {
+        id: '1',
+        title: 'Component dev pipeline, build pipeline & design system setup',
+        description:
+            'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don not look even slightly believable.',
+        complete: false,
+        image: 'https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNhcnRvb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        users: [
+            { id: 'u1', name: 'Johannes', image: '/men/09.jpg' },
+            { id: 'u1', name: 'Benjamin', image: '/men/06.jpg' },
+            { id: 'u1', name: 'du Plessis' },
+        ],
+        labels: [
+            { id: 'l1', icon: 'zap', color: Token.ColorElectric400, text: 'mvp' },
+            { id: 'l4', text: 'pull request', color: Token.ColorNeonpink400 },
+            { id: 'l5', icon: 'frontend', color: Token.ColorAccent400, text: 'experiment' },
+        ],
+        badges: [
+            { icon: 'eye' },
+            { icon: 'menu' },
+            { icon: 'message', label: '2' },
+            { icon: 'paperclip', label: '3' },
+            { label: '3/4', progress: 75, color: Token.ColorOrange400 },
+        ],
+    }
+    
+    const task2: TaskProps = {
+        id: '2',
+        title: 'Component dev pipeline, build pipeline & design system setup. Component dev pipeline, build pipeline & design system setup. Component dev pipeline, build pipeline & design system setup.',
+        description:
+            'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don not look even slightly believable. ',
+        complete: true,
+        image: 'https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNhcnRvb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        users: [
+            { id: 1, name: 'Johannes', image: '/men/09.jpg' },
+            { id: 1, name: 'Benjamin', image: '/men/06.jpg' },
+            { id: 1, name: 'du Plessis' },
+        ],
+    }
+    
+    const task3: TaskProps = {
+        id: '3',
+        title: 'Component dev pipeline, build pipeline & design system setup',
+        complete: false,
+        selected: true,
+        users: [{ id: 1, name: '+' }],
+    }
+    
+    const task4: TaskProps = {
+        id: '4',
+        title: 'Component dev pipeline, build pipeline & design system setup',
+        complete: false,
+        priority: 'medium',
+        locked: true,
+        image: 'https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNhcnRvb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        users: [
+            { id: 1, name: 'Johannes', image: '/men/09.jpg' },
+            { id: 1, name: 'Benjamin', image: '/men/06.jpg' },
+            { id: 1, name: 'du Plessis' },
+        ],
+    }
+    
+    return (
+        <MenuProvider
+            menu={({ data: { target, payload }, dismiss }) => {
+                switch (target) {
+                    case 'task-label': return <PopupMenu target={target} />
+                    case 'task-user': return <PopupMenu target={target} />
+                    case 'task-menu': return <PopupMenu target={target} />
+                    case 'task-date': return <PopupMenu target={target} />
+                    default: return null
+                }
+            }}>
+            <Heading as="h3">Cards</Heading>
+            <Stack
+                p="50px 50px 0 50px"
+                spacing={10}
+                direction="horizontal">
+                <TaskCard
+                    {...task1}
+                    width={300}
+                />
+                <TaskCard
+                    {...task2}
+                    width={300}
+                />
+                <TaskCard
+                    {...task3}
+                    width={300}
+                />
+                <TaskCard
+                    {...task4}
+                    width={300}
+                />
+            </Stack>
+            <Heading as="h3">List</Heading>
+            <Stack
+                p={50}
+                spacing={0}
+                direction="vertical">
+                <TaskListItem {...task1} />
+                <TaskListItem {...task2} />
+                <TaskListItem {...task3} />
+                <TaskListItem {...task4} />
+            </Stack>
+        </MenuProvider>
+    )
+}
+```
+### Editable
+<a name="editable"></a>
+
+export const Editable = () => {
+    const { title, description, labels, users, setTask, clearTask } = useTaskEdit();
+    const PopupMenu = ({ target }) => (<Menu>
+            <MenuItem>Menu item for {target}</MenuItem>
+        </Menu>);
+    const task1 = {
+        id: '1',
+        title: 'Component dev pipeline, build pipeline & design system setup',
+        description: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don not look even slightly believable.',
+        complete: false,
+        image: 'https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNhcnRvb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        users: [
+            { id: 'u1', name: 'Johannes', image: '/men/09.jpg' },
+            { id: 'u1', name: 'Benjamin', image: '/men/06.jpg' },
+            { id: 'u1', name: 'du Plessis' },
+        ],
+        labels: [
+            { id: 'l1', icon: 'zap', color: Token.ColorElectric400, text: 'mvp' },
+            { id: 'l4', text: 'pull request', color: Token.ColorNeonpink400 },
+            { id: 'l5', icon: 'frontend', color: Token.ColorAccent400, text: 'experiment' },
+        ],
+        badges: [
+            { icon: 'eye' },
+            { icon: 'menu' },
+            { icon: 'message', label: '2' },
+            { icon: 'paperclip', label: '3' },
+            { label: '3/4', progress: 75, color: Token.ColorOrange400 },
+        ],
+    };
+    return (<MenuProvider menu={({ data: { target, payload }, dismiss }) => {
+            switch (target) {
+                case 'task-label': return <PopupMenu target={target}/>;
+                case 'task-user': return <PopupMenu target={target}/>;
+                case 'task-menu': return <PopupMenu target={target}/>;
+                case 'task-date': return <PopupMenu target={target}/>;
+                default: return null;
+            }
+        }}>
+            <TaskListItem {...task1} onClick={() => setTask(task1)}/>
+            <Divider />
+            <TaskEditMode title={title} description={description} users={users} labels={labels} onEdit={() => console.log('open open')} onConfirm={() => console.log('save!')} onDismiss={clearTask}/>
+            <Divider />
+            <TaskEditMode title={title} description={description} users={users} labels={labels} onEdit={() => console.log('open open')} onConfirm={() => console.log('save!')} onDismiss={clearTask} hideToolbar/>
+            <Divider />
+            <TaskEditMode title={title} description={description} users={users} labels={labels} onEdit={() => console.log('open open')} onConfirm={() => console.log('save!')} onDismiss={clearTask} hideToolbar hideDescription/>
+            <Divider />
+            <TaskEditMode title={title} description={description} users={users} labels={labels} onEdit={() => console.log('open open')} onConfirm={() => console.log('save!')} onDismiss={clearTask} hideDescription/>
+        </MenuProvider>);
+};
+
+<div className="story-block">
+<Editable />
+</div>
+
+<CodeComponent filename="Editable.tsx" code="ZXhwb3J0IGNvbnN0IEVkaXRhYmxlID0gKCkgPT4gewogICAgY29uc3QgeyB0aXRsZSwgZGVzY3JpcHRpb24sIGxhYmVscywgdXNlcnMsIHNldFRhc2ssIGNsZWFyVGFzayB9ID0gdXNlVGFza0VkaXQoKQoKICAgIGNvbnN0IFBvcHVwTWVudSA9ICh7IHRhcmdldCB9KSA9PiAoCiAgICAgICAgPE1lbnU+CiAgICAgICAgICAgIDxNZW51SXRlbT5NZW51IGl0ZW0gZm9yIHt0YXJnZXR9PC9NZW51SXRlbT4KICAgICAgICA8L01lbnU+CiAgICApCgogICAgY29uc3QgdGFzazE6IFRhc2tQcm9wcyA9IHsKICAgICAgICBpZDogJzEnLAogICAgICAgIHRpdGxlOiAnQ29tcG9uZW50IGRldiBwaXBlbGluZSwgYnVpbGQgcGlwZWxpbmUgJiBkZXNpZ24gc3lzdGVtIHNldHVwJywKICAgICAgICBkZXNjcmlwdGlvbjoKICAgICAgICAgICAgJ1RoZXJlIGFyZSBtYW55IHZhcmlhdGlvbnMgb2YgcGFzc2FnZXMgb2YgTG9yZW0gSXBzdW0gYXZhaWxhYmxlLCBidXQgdGhlIG1ham9yaXR5IGhhdmUgc3VmZmVyZWQgYWx0ZXJhdGlvbiBpbiBzb21lIGZvcm0sIGJ5IGluamVjdGVkIGh1bW91ciwgb3IgcmFuZG9taXNlZCB3b3JkcyB3aGljaCBkb24gbm90IGxvb2sgZXZlbiBzbGlnaHRseSBiZWxpZXZhYmxlLicsCiAgICAgICAgY29tcGxldGU6IGZhbHNlLAogICAgICAgIGltYWdlOiAnaHR0cHM6Ly9pbWFnZXMudW5zcGxhc2guY29tL3Bob3RvLTE2Mzc4NTg4Njg3OTktN2YyNmEwNjQwZWI2P2l4bGliPXJiLTQuMC4zJml4aWQ9TTN3eE1qQTNmREI4TUh4elpXRnlZMmg4TVRWOGZHTmhjblJ2YjI1OFpXNThNSHg4TUh4OGZEQSUzRCZhdXRvPWZvcm1hdCZmaXQ9Y3JvcCZ3PTUwMCZxPTYwJywKICAgICAgICB1c2VyczogWwogICAgICAgICAgICB7IGlkOiAndTEnLCBuYW1lOiAnSm9oYW5uZXMnLCBpbWFnZTogJy9tZW4vMDkuanBnJyB9LAogICAgICAgICAgICB7IGlkOiAndTEnLCBuYW1lOiAnQmVuamFtaW4nLCBpbWFnZTogJy9tZW4vMDYuanBnJyB9LAogICAgICAgICAgICB7IGlkOiAndTEnLCBuYW1lOiAnZHUgUGxlc3NpcycgfSwKICAgICAgICBdLAogICAgICAgIGxhYmVsczogWwogICAgICAgICAgICB7IGlkOiAnbDEnLCBpY29uOiAnemFwJywgY29sb3I6IFRva2VuLkNvbG9yRWxlY3RyaWM0MDAsIHRleHQ6ICdtdnAnIH0sCiAgICAgICAgICAgIHsgaWQ6ICdsNCcsIHRleHQ6ICdwdWxsIHJlcXVlc3QnLCBjb2xvcjogVG9rZW4uQ29sb3JOZW9ucGluazQwMCB9LAogICAgICAgICAgICB7IGlkOiAnbDUnLCBpY29uOiAnZnJvbnRlbmQnLCBjb2xvcjogVG9rZW4uQ29sb3JBY2NlbnQ0MDAsIHRleHQ6ICdleHBlcmltZW50JyB9LAogICAgICAgIF0sCiAgICAgICAgYmFkZ2VzOiBbCiAgICAgICAgICAgIHsgaWNvbjogJ2V5ZScgfSwKICAgICAgICAgICAgeyBpY29uOiAnbWVudScgfSwKICAgICAgICAgICAgeyBpY29uOiAnbWVzc2FnZScsIGxhYmVsOiAnMicgfSwKICAgICAgICAgICAgeyBpY29uOiAncGFwZXJjbGlwJywgbGFiZWw6ICczJyB9LAogICAgICAgICAgICB7IGxhYmVsOiAnMy80JywgcHJvZ3Jlc3M6IDc1LCBjb2xvcjogVG9rZW4uQ29sb3JPcmFuZ2U0MDAgfSwKICAgICAgICBdLAogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPE1lbnVQcm92aWRlcgogICAgICAgICAgICBtZW51PXsoeyBkYXRhOiB7IHRhcmdldCwgcGF5bG9hZCB9LCBkaXNtaXNzIH0pID0+IHsKICAgICAgICAgICAgICAgIHN3aXRjaCAodGFyZ2V0KSB7CiAgICAgICAgICAgICAgICAgICAgY2FzZSAndGFzay1sYWJlbCc6IHJldHVybiA8UG9wdXBNZW51IHRhcmdldD17dGFyZ2V0fSAvPgogICAgICAgICAgICAgICAgICAgIGNhc2UgJ3Rhc2stdXNlcic6IHJldHVybiA8UG9wdXBNZW51IHRhcmdldD17dGFyZ2V0fSAvPgogICAgICAgICAgICAgICAgICAgIGNhc2UgJ3Rhc2stbWVudSc6IHJldHVybiA8UG9wdXBNZW51IHRhcmdldD17dGFyZ2V0fSAvPgogICAgICAgICAgICAgICAgICAgIGNhc2UgJ3Rhc2stZGF0ZSc6IHJldHVybiA8UG9wdXBNZW51IHRhcmdldD17dGFyZ2V0fSAvPgogICAgICAgICAgICAgICAgICAgIGRlZmF1bHQ6IHJldHVybiBudWxsCiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH19PgogICAgICAgICAgICA8VGFza0xpc3RJdGVtCiAgICAgICAgICAgICAgICB7Li4udGFzazF9CiAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiBzZXRUYXNrKHRhc2sxKX0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPERpdmlkZXIgLz4KICAgICAgICAgICAgPFRhc2tFZGl0TW9kZQogICAgICAgICAgICAgICAgdGl0bGU9e3RpdGxlfQogICAgICAgICAgICAgICAgZGVzY3JpcHRpb249e2Rlc2NyaXB0aW9ufQogICAgICAgICAgICAgICAgdXNlcnM9e3VzZXJzfQogICAgICAgICAgICAgICAgbGFiZWxzPXtsYWJlbHN9CiAgICAgICAgICAgICAgICBvbkVkaXQ9eygpID0+IGNvbnNvbGUubG9nKCdvcGVuIG9wZW4nKX0KICAgICAgICAgICAgICAgIG9uQ29uZmlybT17KCkgPT4gY29uc29sZS5sb2coJ3NhdmUhJyl9CiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2NsZWFyVGFza30KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPERpdmlkZXIgLz4KICAgICAgICAgICAgPFRhc2tFZGl0TW9kZQogICAgICAgICAgICAgICAgdGl0bGU9e3RpdGxlfQogICAgICAgICAgICAgICAgZGVzY3JpcHRpb249e2Rlc2NyaXB0aW9ufQogICAgICAgICAgICAgICAgdXNlcnM9e3VzZXJzfQogICAgICAgICAgICAgICAgbGFiZWxzPXtsYWJlbHN9CiAgICAgICAgICAgICAgICBvbkVkaXQ9eygpID0+IGNvbnNvbGUubG9nKCdvcGVuIG9wZW4nKX0KICAgICAgICAgICAgICAgIG9uQ29uZmlybT17KCkgPT4gY29uc29sZS5sb2coJ3NhdmUhJyl9CiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2NsZWFyVGFza30KICAgICAgICAgICAgICAgIGhpZGVUb29sYmFyCiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxEaXZpZGVyIC8+CiAgICAgICAgICAgIDxUYXNrRWRpdE1vZGUKICAgICAgICAgICAgICAgIHRpdGxlPXt0aXRsZX0KICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uPXtkZXNjcmlwdGlvbn0KICAgICAgICAgICAgICAgIHVzZXJzPXt1c2Vyc30KICAgICAgICAgICAgICAgIGxhYmVscz17bGFiZWxzfQogICAgICAgICAgICAgICAgb25FZGl0PXsoKSA9PiBjb25zb2xlLmxvZygnb3BlbiBvcGVuJyl9CiAgICAgICAgICAgICAgICBvbkNvbmZpcm09eygpID0+IGNvbnNvbGUubG9nKCdzYXZlIScpfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtjbGVhclRhc2t9CiAgICAgICAgICAgICAgICBoaWRlVG9vbGJhcgogICAgICAgICAgICAgICAgaGlkZURlc2NyaXB0aW9uCiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxEaXZpZGVyIC8+CiAgICAgICAgICAgIDxUYXNrRWRpdE1vZGUKICAgICAgICAgICAgICAgIHRpdGxlPXt0aXRsZX0KICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uPXtkZXNjcmlwdGlvbn0KICAgICAgICAgICAgICAgIHVzZXJzPXt1c2Vyc30KICAgICAgICAgICAgICAgIGxhYmVscz17bGFiZWxzfQogICAgICAgICAgICAgICAgb25FZGl0PXsoKSA9PiBjb25zb2xlLmxvZygnb3BlbiBvcGVuJyl9CiAgICAgICAgICAgICAgICBvbkNvbmZpcm09eygpID0+IGNvbnNvbGUubG9nKCdzYXZlIScpfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtjbGVhclRhc2t9CiAgICAgICAgICAgICAgICBoaWRlRGVzY3JpcHRpb24KICAgICAgICAgICAgLz4KICAgICAgICA8L01lbnVQcm92aWRlcj4KICAgICkKfQ==" />
+
+```tsx
+export const Editable = () => {
+    const { title, description, labels, users, setTask, clearTask } = useTaskEdit()
+
+    const PopupMenu = ({ target }) => (
+        <Menu>
+            <MenuItem>Menu item for {target}</MenuItem>
+        </Menu>
+    )
+
+    const task1: TaskProps = {
+        id: '1',
+        title: 'Component dev pipeline, build pipeline & design system setup',
+        description:
+            'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don not look even slightly believable.',
+        complete: false,
+        image: 'https://images.unsplash.com/photo-1637858868799-7f26a0640eb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNhcnRvb258ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        users: [
+            { id: 'u1', name: 'Johannes', image: '/men/09.jpg' },
+            { id: 'u1', name: 'Benjamin', image: '/men/06.jpg' },
+            { id: 'u1', name: 'du Plessis' },
+        ],
+        labels: [
+            { id: 'l1', icon: 'zap', color: Token.ColorElectric400, text: 'mvp' },
+            { id: 'l4', text: 'pull request', color: Token.ColorNeonpink400 },
+            { id: 'l5', icon: 'frontend', color: Token.ColorAccent400, text: 'experiment' },
+        ],
+        badges: [
+            { icon: 'eye' },
+            { icon: 'menu' },
+            { icon: 'message', label: '2' },
+            { icon: 'paperclip', label: '3' },
+            { label: '3/4', progress: 75, color: Token.ColorOrange400 },
+        ],
+    }
+
+    return (
+        <MenuProvider
+            menu={({ data: { target, payload }, dismiss }) => {
+                switch (target) {
+                    case 'task-label': return <PopupMenu target={target} />
+                    case 'task-user': return <PopupMenu target={target} />
+                    case 'task-menu': return <PopupMenu target={target} />
+                    case 'task-date': return <PopupMenu target={target} />
+                    default: return null
+                }
+            }}>
+            <TaskListItem
+                {...task1}
+                onClick={() => setTask(task1)}
+            />
+            <Divider />
+            <TaskEditMode
+                title={title}
+                description={description}
+                users={users}
+                labels={labels}
+                onEdit={() => console.log('open open')}
+                onConfirm={() => console.log('save!')}
+                onDismiss={clearTask}
+            />
+            <Divider />
+            <TaskEditMode
+                title={title}
+                description={description}
+                users={users}
+                labels={labels}
+                onEdit={() => console.log('open open')}
+                onConfirm={() => console.log('save!')}
+                onDismiss={clearTask}
+                hideToolbar
+            />
+            <Divider />
+            <TaskEditMode
+                title={title}
+                description={description}
+                users={users}
+                labels={labels}
+                onEdit={() => console.log('open open')}
+                onConfirm={() => console.log('save!')}
+                onDismiss={clearTask}
+                hideToolbar
+                hideDescription
+            />
+            <Divider />
+            <TaskEditMode
+                title={title}
+                description={description}
+                users={users}
+                labels={labels}
+                onEdit={() => console.log('open open')}
+                onConfirm={() => console.log('save!')}
+                onDismiss={clearTask}
+                hideDescription
+            />
+        </MenuProvider>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>
