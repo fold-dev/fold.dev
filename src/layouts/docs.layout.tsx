@@ -381,7 +381,7 @@ export default function DocsLayout(props: any) {
                                     noStretch>
                                     {/* <SocialIcon url="https://facebook.com" target="_blank" style={{ width: 30, height: 30 }} fgColor="var(--f-color-surface)" /> */}
                                     <SocialIcon
-                                        url="https://github.com/fold-dev"
+                                        url="https://github.com/fold-dev/fold"
                                         target="_blank"
                                         style={{ width: 30, height: 30 }}
                                         fgColor="var(--f-color-surface)"
