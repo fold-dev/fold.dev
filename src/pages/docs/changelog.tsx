@@ -1,5 +1,5 @@
 import DocsLayout from '@/layouts/docs.layout'
-import { Card, Grid, Heading, Icon, Link, Stack, Text, Timeline, TimelineItem, View } from '@fold-dev/core'
+import { Breadcrumb, BreadcrumbItem, Card, Grid, Heading, Icon, Link, Stack, Text, Timeline, TimelineItem, View } from '@fold-dev/core'
 import { CodeComponent } from '../components/code.component'
 import React from 'react'
 import {
@@ -15,6 +15,10 @@ export default function Changelog(props) {
         <View
             p={30}
             className="docs-content">
+            <Breadcrumb>
+                <BreadcrumbItem>Documentation</BreadcrumbItem>
+                <BreadcrumbItem active>Changelog</BreadcrumbItem>
+            </Breadcrumb>
             <Heading fontWeight="bold">Changelog</Heading>
             <Heading as="h2">Fold release changelog.</Heading>
             <Text as="blockquote">There are no releases yet.</Text>

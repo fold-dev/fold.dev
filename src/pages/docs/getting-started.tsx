@@ -1,5 +1,5 @@
 import DocsLayout from '@/layouts/docs.layout'
-import { Heading, Link, Text, View } from '@fold-dev/core'
+import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View } from '@fold-dev/core'
 import { CodeComponent } from '../components/code.component'
 import React from 'react'
 
@@ -8,6 +8,11 @@ export default function GettingStarted(props) {
         <View
             p={30}
             className="docs-content">
+            <Breadcrumb>
+                <BreadcrumbItem>Documentation</BreadcrumbItem>
+                <BreadcrumbItem>Overview</BreadcrumbItem>
+                <BreadcrumbItem active>Getting Started</BreadcrumbItem>
+            </Breadcrumb>
             <Heading fontWeight="bold">Getting Started</Heading>
             <Heading as="h2">Get started with Fold, the UI component library for product builders.</Heading>
             <Text>

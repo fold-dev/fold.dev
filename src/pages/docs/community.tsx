@@ -1,5 +1,5 @@
 import DocsLayout from '@/layouts/docs.layout'
-import { Card, Grid, Heading, Icon, Link, Text, View } from '@fold-dev/core'
+import { Breadcrumb, BreadcrumbItem, Card, Grid, Heading, Icon, Link, Text, View } from '@fold-dev/core'
 import { CodeComponent } from '../components/code.component'
 import React from 'react'
 import {
@@ -15,6 +15,11 @@ export default function Community(props) {
         <View
             p={30}
             className="docs-content">
+            <Breadcrumb>
+                <BreadcrumbItem>Documentation</BreadcrumbItem>
+                <BreadcrumbItem>Overview</BreadcrumbItem>
+                <BreadcrumbItem active>Community</BreadcrumbItem>
+            </Breadcrumb>
             <Heading fontWeight="bold">Community</Heading>
             <Heading as="h2">
                 Ask questions, submit bugs & request features at our{' '}

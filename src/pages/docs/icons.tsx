@@ -11,7 +11,7 @@ export default function Icons(props) {
             className="docs-content">
             <Breadcrumb>
                 <BreadcrumbItem>Documentation</BreadcrumbItem>
-                <BreadcrumbItem>Design System</BreadcrumbItem>
+                <BreadcrumbItem>Design</BreadcrumbItem>
                 <BreadcrumbItem active>Icons</BreadcrumbItem>
             </Breadcrumb>
             <Heading fontWeight="bold">Icons</Heading>

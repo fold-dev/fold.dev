@@ -1,5 +1,7 @@
 import DocsLayout from '@/layouts/docs.layout'
 import {
+    Breadcrumb,
+    BreadcrumbItem,
     Heading,
     IconLib,
     Li,
@@ -19,6 +21,11 @@ export default function Theming(props) {
         <View
             p={30}
             className="docs-content">
+            <Breadcrumb>
+                <BreadcrumbItem>Documentation</BreadcrumbItem>
+                <BreadcrumbItem>Design</BreadcrumbItem>
+                <BreadcrumbItem active>Theming</BreadcrumbItem>
+            </Breadcrumb>
             <Heading fontWeight="bold">Theming</Heading>
             <Heading as="h2">Create your own theme or customize an existing theme.</Heading>
             <Text>

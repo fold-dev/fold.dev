@@ -11,6 +11,8 @@ import {
     AccordionItem,
     AccordionHeading,
     AccordionPanel,
+    Breadcrumb,
+    BreadcrumbItem,
 } from '@fold-dev/core'
 import { LifebuoyIcon } from '@heroicons/react/24/outline'
 import React from 'react'
@@ -20,6 +22,11 @@ export default function Faq(props) {
         <View
             p={30}
             className="docs-content">
+            <Breadcrumb>
+                <BreadcrumbItem>Documentation</BreadcrumbItem>
+                <BreadcrumbItem>Overview</BreadcrumbItem>
+                <BreadcrumbItem active>FAQ</BreadcrumbItem>
+            </Breadcrumb>
             <Heading fontWeight="bold">FAQ</Heading>
             <Heading as="h2">Frequently asked questions.</Heading>
             <Text as="blockquote">

@@ -16,6 +16,8 @@ import {
     NotificationContent,
     Pill,
     Grid,
+    Breadcrumb,
+    BreadcrumbItem,
 } from '@fold-dev/core'
 import {
     CircleStackIcon,
@@ -102,6 +104,11 @@ export default function DesignSystem(props) {
         <View
             p={30}
             className="docs-content">
+            <Breadcrumb>
+                <BreadcrumbItem>Documentation</BreadcrumbItem>
+                <BreadcrumbItem>Design</BreadcrumbItem>
+                <BreadcrumbItem active>Design System</BreadcrumbItem>
+            </Breadcrumb>
             <Heading fontWeight="bold">Design System</Heading>
             <Heading as="h2">
                 Welcome to the Fold Design System. This comprehensive guide outlines the principles, guidelines, and
