@@ -3,6 +3,7 @@ import {
     BreadcrumbItem,
     Heading,
     IconLib,
+    Link,
     Notification,
     NotificationContent,
     NotificationIcon,
@@ -64,6 +65,16 @@ export default function ComponentLayout({ children, docs, props, css }) {
                 fontWeight={300}>
                 {docs.description}
             </Text>
+            {docs.experimental && (
+                <Notification variant="warning" m="0 30px">
+                    <NotificationIcon>
+                        <IconLib icon="warning" />
+                    </NotificationIcon>
+                    <NotificationContent>
+                        Please note: this is an experimental component.
+                    </NotificationContent>
+                </Notification>
+            )}
             <View
                 m="1rem 0 0 0"
                 width="100%">
@@ -95,6 +106,13 @@ export default function ComponentLayout({ children, docs, props, css }) {
                                 column
                                 alignItems="flex-start"
                                 width="100%">
+                                <Notification
+                                    leftAccent
+                                    width="100%">
+                                    <NotificationContent>
+                                        We are currently improving the documentation. For more information on prop types, <Link href="https://fold-dev.github.io/fold/" target="_blank">see our TypeDocs</Link>.
+                                    </NotificationContent>
+                                </Notification>
                                 <Stack
                                     m="10px 0 0 0"
                                     direction="vertical"
@@ -150,6 +168,13 @@ export default function ComponentLayout({ children, docs, props, css }) {
                                 column
                                 alignItems="flex-start"
                                 width="100%">
+                                <Notification
+                                    leftAccent
+                                    width="100%">
+                                    <NotificationContent>
+                                        For more information about the Fold Design System, <Link href="/docs/design-system">see our guide</Link>.
+                                    </NotificationContent>
+                                </Notification>
                                 <Stack
                                     m="10px 0 0 0"
                                     direction="vertical"
@@ -167,8 +192,8 @@ export default function ComponentLayout({ children, docs, props, css }) {
                                                 {css.map((set) =>
                                                     set.map((property, index) => (
                                                         <Tr key={index}>
-                                                            <Td>{property[0]}</Td>
-                                                            <Td>{property[1]}</Td>
+                                                            <Td><code>{property[0]}</code></Td>
+                                                            <Td><code>{property[1]}</code></Td>
                                                         </Tr>
                                                     ))
                                                 )}
@@ -176,17 +201,6 @@ export default function ComponentLayout({ children, docs, props, css }) {
                                         </Table>
                                     )}
                                     {!hasCss && <Text p={20}>There are no CSS variables available.</Text>}
-                                    <Notification
-                                        rightAccent
-                                        className="f-buttonize"
-                                        onClick={() => router.push('/docs/design-system', { scroll: false })}>
-                                        <NotificationContent>
-                                            Read more about the Fold Design System here.
-                                        </NotificationContent>
-                                        <NotificationIcon>
-                                            <IconLib icon="arrow-right" />
-                                        </NotificationIcon>
-                                    </Notification>
                                 </Stack>
                             </View>
                         </TabPanel>

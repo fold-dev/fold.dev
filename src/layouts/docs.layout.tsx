@@ -294,7 +294,7 @@ export default function DocsLayout(props: any) {
                                                     <View
                                                         gap={5}
                                                         row>
-                                                        {component.beta && (
+                                                        {component.experimental && (
                                                             <Pill
                                                                 color={Token.ColorViolet400}
                                                                 size="xs"
@@ -336,15 +336,14 @@ export default function DocsLayout(props: any) {
                                             Roadmap
                                         </NavigationItem>
                                         <NavigationItem
-                                            active={url == 'roadmap'}
-                                            prefix={<Icon icon={ArrowLeftIcon} />}
-                                            onClick={() => router.push('/', { scroll: false })}>
-                                            Website
-                                        </NavigationItem>
-                                        <NavigationItem
                                             href="https://fold-dev.github.io/fold"
                                             target="_blank">
                                             TypeDocs
+                                        </NavigationItem>
+                                        <NavigationItem
+                                            href="https://fold.dev"
+                                            target="_blank">
+                                            fold.dev
                                         </NavigationItem>
                                         <NavigationSection
                                             row
