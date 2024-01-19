@@ -594,7 +594,7 @@ function HomeOld() {
                                     as="h3"
                                     colorToken="text-weak"
                                     fontWeight={400}>
-                                    Powerful, fully customizable React components for scaling your product to the next
+                                    Powerful, fully customisable React components for scaling your product to the next
                                     level. Supercharge your dev workflow by using our zero-dependency UI components.
                                 </Heading>
 
