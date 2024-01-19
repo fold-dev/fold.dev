@@ -169,7 +169,7 @@ export default function DocsLayout(props: any) {
                                         color={Token.ColorNeonpink400}
                                         subtle
                                         fontWeight={800}>
-                                        PREVIEW
+                                        ALPHA
                                     </Pill>
                                     <Flexer />
                                 </Header>
@@ -299,7 +299,7 @@ export default function DocsLayout(props: any) {
                                                                 color={Token.ColorViolet400}
                                                                 size="xs"
                                                                 subtle>
-                                                                BETA
+                                                                EARLY ACCESS
                                                             </Pill>
                                                         )}
                                                         {component.pro && (
