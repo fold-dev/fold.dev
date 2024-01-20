@@ -673,7 +673,7 @@ function Home() {
                                     text: "We're open source. Free forever, no limits.",
                                 },
                                 {
-                                    title: 'Customisable',
+                                    title: 'Customizable',
                                     text: 'Fold mixes traditional CSS variables with React Props to give you the most flexibility without impacting performance.',
                                 },
                                 {
