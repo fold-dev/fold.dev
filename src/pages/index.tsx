@@ -527,7 +527,7 @@ function Home() {
                         We've just launched the alpha version of Fold. Get started{' '}
                         <Link
                             href="/docs"
-                            colorToken="accent"
+                            colorToken="accent-weak"
                             target="_blank">
                             here
                         </Link>
