@@ -962,7 +962,7 @@ function Home() {
                             style={{ textTransform: 'uppercase' }}
                             letterSpacing={5}
                             colorToken="accent-300">
-                            Helpful Link
+                            Helpful Links
                         </Text>
                         <List flex={1}>
                             <Li>
