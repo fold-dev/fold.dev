@@ -14,7 +14,7 @@ export default function GettingStarted(props) {
                 <BreadcrumbItem active>Getting Started</BreadcrumbItem>
             </Breadcrumb>
             <Heading fontWeight="bold">Getting Started</Heading>
-            <Heading as="h2">Get started with Fold, the UI component library for product builders.</Heading>
+            <Heading as="h2">Get started with Fold, the UI component library for product teams.</Heading>
             <Text>
                 Welcome to Fold, a collection of reusable React components that will help you build beautiful and
                 functional user interfaces. This guide will walk you through the steps to get started with our library

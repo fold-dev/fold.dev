@@ -42,7 +42,7 @@ export default function Introduction(props) {
             </Breadcrumb>
             <Heading fontWeight="bold">Introduction</Heading>
             <Heading as="h2">
-                Fold is a zero-dependency React UI library for product builders, built on modern web standards that aims
+                Fold is a zero-dependency React UI library for product teams, built on modern web standards that aims
                 to be flexible & performant. With this philosphy in mind, we're also aiming to build a developer
                 experience that is pleasant for beginners, but also for veterans.
             </Heading>
