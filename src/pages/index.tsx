@@ -678,11 +678,11 @@ function Home() {
                                 },
                                 {
                                     title: 'Customizable',
-                                    text: 'Fold mixes traditional CSS variables with React Props to give you the most flexibility without impacting performance.',
+                                    text: 'Best of both worlds: traditional CSS & Javascript. Fold gives you flexibility without impacting performance.',
                                 },
                                 {
                                     title: 'Performant',
-                                    text: 'Render performance has been key considered at virtually every step of the way, we believe apps should be snappy.',
+                                    text: 'Render performance has been a key considerzarion at virtually every step of the way, we believe apps should be snappy.',
                                 },
                                 {
                                     title: 'Design System',
@@ -698,7 +698,7 @@ function Home() {
                                 },
                                 {
                                     title: 'Full Featured',
-                                    text: 'Every use-case, we have you covered. Fold currently has 85+ custom compponents, with more on the way.',
+                                    text: 'Every use-case, we have you covered. Fold currently has 85+ custom components, with more on the way.',
                                 },
                                 {
                                     title: 'Aesthetics',
