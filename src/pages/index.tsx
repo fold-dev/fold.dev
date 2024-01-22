@@ -58,6 +58,7 @@ import {
 import Head from 'next/head'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { SocialIcon } from 'react-social-icons'
+import MobileComponent from './components/mobile.component'
 
 const ScrollingPicker = () => {
     const { today, tomorrow, day1, day2, disabled1, disabled2 } = useMemo(() => {
@@ -489,6 +490,7 @@ function Home() {
             </Head>
             <FoldProvider license="fake-license-code">
                 <SkipNavMain />
+                <MobileComponent />
 
                 <Cookie
                     style={{
@@ -575,14 +577,15 @@ function Home() {
                     flex={1}
                     width="100%"
                     p="2rem 0 5rem 0"
-                    justifyContent="stretch">
+                    justifyContent="center">
                     <View
                         column
                         flex={1}
                         gap={30}
                         alignItems="flex-start"
                         p="0 0 0 5rem"
-                        id="home">
+                        id="home"
+                        className="hero">
                         <LogoSolid color="var(--f-color-accent)" />
 
                         <Text
@@ -645,7 +648,8 @@ function Home() {
                         p="0 5rem 0 0"
                         height="100%"
                         position="relative"
-                        justifyContent="flex-end">
+                        justifyContent="flex-start"
+                        className="al1-components">
                         <All />
                     </View>
                 </View>

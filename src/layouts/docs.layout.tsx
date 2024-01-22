@@ -58,6 +58,7 @@ import React, { useEffect, useMemo, useState } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { SocialIcon } from 'react-social-icons'
 import { SearchComponent } from '@/pages/components/search.component'
+import MobileComponent from '@/pages/components/mobile.component'
 
 export default function DocsLayout(props: any) {
     const { children } = props
@@ -120,6 +121,7 @@ export default function DocsLayout(props: any) {
             </Head>
 
             <SkipNav>Skip To Content</SkipNav>
+            <MobileComponent />
 
             <FoldProvider license="fake-license-code">
                 {/* <View
