@@ -520,14 +520,14 @@ function Home() {
                     zIndex={10000}
                     width="100%"
                     position="relative"
-                    bg="linear-gradient(177deg, var(--f-color-accent-500) 00%, var(--f-color-neonpink-500) 200%)">
+                    bgToken="base-700">
                     <Text
                         color="inherit"
-                        colorToken="text-on-color">
+                        colorToken="base-200">
                         We've just launched the alpha version of Fold. Get started{' '}
                         <Link
                             href="/docs"
-                            colorToken="surface"
+                            colorToken="accent"
                             target="_blank">
                             here
                         </Link>
