@@ -178,6 +178,10 @@ body {
         display: flex;
     }
 
+    * {
+        overflow: hidden;
+    }
+
     .all {
         display: none;
     }
