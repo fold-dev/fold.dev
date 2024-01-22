@@ -821,7 +821,7 @@ function Home() {
                             colorToken="accent-300"
                             fontWeight={400}
                             textAlign="right">
-                            Need a some help with using Fold in your project?
+                            Need some help with using Fold in your project?
                         </Heading>
                     </View>
 
@@ -845,7 +845,7 @@ function Home() {
                             {
                                 url: 'mailto:support@fold.dev',
                                 title: 'Email',
-                                text: 'We do love async communication, but sometimes we get that something is urgent.',
+                                text: 'We love async communication, but we get that sometimes it\'s urgent.',
                             },
                         ].map(({ title, text, url }, index) => (
                             <View
