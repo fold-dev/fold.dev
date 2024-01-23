@@ -21,19 +21,18 @@ export default function Roadmap(props) {
             </Breadcrumb>
             <Heading fontWeight="bold">Roadmap</Heading>
             <Heading as="h2">Planned features & enhancements.</Heading>
-            <Text>
-                Below is a list of notable planned components and features. If you've found bugs or have ideas, please
-                check out our{' '}
-                <Link
+            <Text as="blockquote">
+                Please refer to our <Link
                     href="https://github.com/orgs/fold-dev/projects/8/views/2"
                     target="_blank"
                     fontSize="inherit">
                     GitHub
                 </Link>{' '}
-                repository.
+                project..
             </Text>
-            <Text as="blockquote">There are no planned items yet.</Text>
+            
             {/* 
+            <Text as="blockquote">There are no planned items yet.</Text>
             <Timeline>
                 {[
                     {

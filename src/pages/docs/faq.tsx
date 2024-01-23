@@ -44,14 +44,14 @@ export default function Faq(props) {
                 <AccordionItem>
                     <AccordionHeading>Are there really no dependencies?</AccordionHeading>
                     <AccordionPanel>
-                        The sole dependencies are React and ReactDOM, along with any additional libraries you integrate
-                        into your project. There are no other dependencies.
+                        None. The sole dependencies are React and ReactDOM, and of course any additional libraries you integrate
+                        into your project. 
                     </AccordionPanel>
                 </AccordionItem>
                 <AccordionItem>
                     <AccordionHeading>Does Fold use CSS-in-JS?</AccordionHeading>
                     <AccordionPanel>
-                        Fold utilizes pure CSS to tailor the appearance of components and provides helper classes for
+                        No. Fold utilizes pure CSS, compiled at build time, to tailor the appearance of components and provides helper classes for
                         added customization.
                     </AccordionPanel>
                 </AccordionItem>
@@ -61,7 +61,7 @@ export default function Faq(props) {
                         Currently, only ES6 Modules are supported. However, we are actively seeking feedback on how we
                         can accommodate a broader range of users. Please let us on know at our{' '}
                         <Link
-                            href="https://github.com/fold-dev/fold"
+                            href="https://github.com/fold-dev/fold/discussions"
                             target="_blank"
                             fontSize="inherit">
                             repository
@@ -89,7 +89,7 @@ export default function Faq(props) {
                 <AccordionItem>
                     <AccordionHeading>Can I use this for production?</AccordionHeading>
                     <AccordionPanel>
-                        Fold is currently in its alpha stage; nevertheless, you have the option to use it in a
+                        Certainly, however Fold is currently in its alpha stage. Nevertheless, you have the option to use it in a
                         production environment if you wish.
                     </AccordionPanel>
                 </AccordionItem>

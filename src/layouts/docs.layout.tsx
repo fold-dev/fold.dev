@@ -59,6 +59,7 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import { SocialIcon } from 'react-social-icons'
 import { SearchComponent } from '@/pages/components/search.component'
 import MobileComponent from '@/pages/components/mobile.component'
+import { PiFingerprintSimpleDuotone, PiFlagDuotone, PiGithubLogoDuotone, PiLifebuoyDuotone, PiLinkedinLogoDuotone, PiMarkerCircleDuotone, PiPackageDuotone, PiPersonArmsSpreadDuotone, PiPinwheelDuotone, PiPlanetDuotone, PiQuestionDuotone, PiTwitterLogoDuotone } from 'react-icons/pi'
 
 export default function DocsLayout(props: any) {
     const { children } = props
@@ -81,8 +82,6 @@ export default function DocsLayout(props: any) {
             case 'changelog':
                 return true
             case 'roadmap':
-                return true
-            case 'introduction':
                 return true
             default:
                 return false
@@ -189,7 +188,7 @@ export default function DocsLayout(props: any) {
                                             onClick={() => router.push('/docs/introduction', { scroll: false })}
                                             prefix={
                                                 <Icon
-                                                    icon={CubeIcon}
+                                                    icon={PiPackageDuotone}
                                                     color={Token.ColorTeal400}
                                                     strokeWidth={2}
                                                 />
@@ -201,7 +200,7 @@ export default function DocsLayout(props: any) {
                                             onClick={() => router.push('/docs/getting-started', { scroll: false })}
                                             prefix={
                                                 <Icon
-                                                    icon={RectangleGroupIcon}
+                                                    icon={PiFlagDuotone}
                                                     color={Token.ColorBlue400}
                                                     strokeWidth={2}
                                                 />
@@ -213,7 +212,7 @@ export default function DocsLayout(props: any) {
                                             onClick={() => router.push('/docs/community', { scroll: false })}
                                             prefix={
                                                 <Icon
-                                                    icon={LifebuoyIcon}
+                                                    icon={PiPersonArmsSpreadDuotone}
                                                     color={Token.ColorViolet400}
                                                     strokeWidth={2}
                                                 />
@@ -225,7 +224,7 @@ export default function DocsLayout(props: any) {
                                             onClick={() => router.push('/docs/faq', { scroll: false })}
                                             prefix={
                                                 <Icon
-                                                    icon={QuestionMarkCircleIcon}
+                                                    icon={PiQuestionDuotone}
                                                     color={Token.ColorPurple400}
                                                     strokeWidth={2}
                                                 />
@@ -239,7 +238,7 @@ export default function DocsLayout(props: any) {
                                             onClick={() => router.push('/docs/design-system', { scroll: false })}
                                             prefix={
                                                 <Icon
-                                                    icon={PaintBrushIcon}
+                                                    icon={PiPlanetDuotone}
                                                     color={Token.ColorNeonpink400}
                                                     strokeWidth={2}
                                                 />
@@ -251,7 +250,7 @@ export default function DocsLayout(props: any) {
                                             onClick={() => router.push('/docs/theming', { scroll: false })}
                                             prefix={
                                                 <Icon
-                                                    icon={SwatchIcon}
+                                                    icon={PiMarkerCircleDuotone}
                                                     color={Token.ColorOrange400}
                                                     strokeWidth={2}
                                                 />
@@ -263,7 +262,7 @@ export default function DocsLayout(props: any) {
                                             onClick={() => router.push('/docs/icons', { scroll: false })}
                                             prefix={
                                                 <Icon
-                                                    icon={FireIcon}
+                                                    icon={PiPinwheelDuotone}
                                                     color={Token.ColorYellow400}
                                                     strokeWidth={2}
                                                 />
@@ -275,7 +274,7 @@ export default function DocsLayout(props: any) {
                                             onClick={() => router.push('/docs/tokens', { scroll: false })}
                                             prefix={
                                                 <Icon
-                                                    icon={FingerPrintIcon}
+                                                    icon={PiFingerprintSimpleDuotone}
                                                     color={Token.ColorGreen400}
                                                     strokeWidth={2}
                                                 />
@@ -378,9 +377,10 @@ export default function DocsLayout(props: any) {
                                 colorToken="text-weaker">
                                 <SearchComponent />
                                 <Stack
+                                    m="0 0 0 1rem"
                                     spacing={15}
                                     noStretch>
-                                    {/* <SocialIcon url="https://facebook.com" target="_blank" style={{ width: 30, height: 30 }} fgColor="var(--f-color-surface)" /> */}
+                                    {/* 
                                     <SocialIcon
                                         url="https://github.com/fold-dev/fold"
                                         target="_blank"
@@ -399,11 +399,30 @@ export default function DocsLayout(props: any) {
                                         target="_blank"
                                         style={{ width: 30, height: 30 }}
                                         fgColor="var(--f-color-surface)"
-                                    />
+                                    /> 
+                                    */}
+                                    <Link
+                                        href="https://github.com/fold-dev/fold"
+                                        target="_blank"
+                                        style={{ textWrap: 'nowrap' }}>
+                                        <Icon icon={PiGithubLogoDuotone} size="lg" />
+                                    </Link>
+                                    <Link
+                                        href="https://twitter.com/fold_dev"
+                                        target="_blank"
+                                        style={{ textWrap: 'nowrap' }}>
+                                        <Icon icon={PiTwitterLogoDuotone} size="lg" />
+                                    </Link>
+                                    <Link
+                                        href="https://www.linkedin.com/company/fold-dev"
+                                        target="_blank"
+                                        style={{ textWrap: 'nowrap' }}>
+                                        <Icon icon={PiLinkedinLogoDuotone} size="lg" />
+                                    </Link>
                                     <Link
                                         href="/docs/community"
                                         style={{ textWrap: 'nowrap' }}>
-                                        Help & Support
+                                        <Icon icon={PiLifebuoyDuotone} size="lg" />
                                     </Link>
                                     <DarkModeToggle />
                                 </Stack>

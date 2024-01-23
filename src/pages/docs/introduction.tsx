@@ -27,6 +27,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/router'
 import React from 'react'
+import { PiFingerprintSimpleDuotone, PiFlagDuotone, PiLightbulbDuotone, PiMarkerCircleDuotone, PiPlanetDuotone } from 'react-icons/pi'
 
 export default function Introduction(props) {
     const router = useRouter()
@@ -41,14 +42,32 @@ export default function Introduction(props) {
                 <BreadcrumbItem active>Introduction</BreadcrumbItem>
             </Breadcrumb>
             <Heading fontWeight="bold">Introduction</Heading>
+            <Notification variant="highlight">
+                <NotificationIcon>
+                    <Icon icon={PiLightbulbDuotone} />
+                </NotificationIcon>
+                <NotificationContent>
+                    <Text>
+                        Please consider these docs a work in progress. We're adding more detail all
+                        the time, but if you have any questions - please feel free to ask them on{' '}
+                        <Link
+                            href="https://github.com/fold-dev/fold/discussions"
+                            target="_blank">
+                            GitHub
+                        </Link>{' '}
+                        or email us at <Link href="mailto:support@fold.dev">support@fold.dev</Link>.
+                    </Text>
+                </NotificationContent>
+            </Notification>
             <Heading as="h2">
-                Fold is a zero-dependency React UI library for product teams, built on modern web standards that aims
-                to be flexible & performant. With this philosphy in mind, we're also aiming to build a developer
-                experience that is pleasant for beginners, but also for veterans.
+                Fold is a zero-dependency React UI library for product teams, built on modern web
+                standards that aims to be flexible & performant. With this philosphy in mind, we're
+                also aiming to build a developer experience that is pleasant for beginners, but also
+                for veterans.
             </Heading>
             <Text>
-                We've just launched and would love your feedback. If you've found bugs, have ideas or generally want to
-                say hello, please check out our{' '}
+                We've just launched and would love your feedback. If you've found bugs, have ideas
+                or generally want to say hello, please check out our{' '}
                 <Link
                     href="https://github.com/fold-dev/fold/discussions"
                     target="_blank"
@@ -58,59 +77,43 @@ export default function Introduction(props) {
                 repository or our{' '}
                 <Link
                     href="/docs/faq"
-                    target="_blank"
                     fontSize="inherit">
                     FAQ page
                 </Link>
-                .
+                . Below are some links to get you started.
             </Text>
-            <Text>Below are some links to get you started.</Text>
             <Grid
                 m="0 0 1rem 0"
                 gap="1rem"
-                columns={3}
+                columns={4}
                 minChildWidth={150}>
                 {[
                     {
                         title: 'Getting Started',
-                        description: 'Guide on getting up and running quickly.',
+                        description: 'Quick guide on getting up and running with Fold.',
                         color: 'blue-400',
-                        icon: RectangleGroupIcon,
+                        icon: PiFlagDuotone,
                         slug: 'getting-started',
                     },
                     {
-                        title: 'FAQ',
-                        description: 'Frequently asked questions about Fold.',
-                        color: 'purple-400',
-                        icon: QuestionMarkCircleIcon,
-                        slug: 'faq',
-                    },
-                    {
                         title: 'Design System',
-                        description: 'Overview of Fold Design System and tokens.',
+                        description: 'Overview of the Design System architecture of Fold.',
                         color: 'neonpink-400',
-                        icon: PaintBrushIcon,
+                        icon: PiPlanetDuotone,
                         slug: 'design-system',
                     },
                     {
                         title: 'Theming',
-                        description: 'Customize Fold to suit your project.',
+                        description: 'Customize the current themes, or build your own.',
                         color: 'orange-400',
-                        icon: SwatchIcon,
+                        icon: PiMarkerCircleDuotone,
                         slug: 'theming',
                     },
                     {
-                        title: 'Icons',
-                        description: 'Building your own icon library set.',
-                        color: 'yellow-400',
-                        icon: FireIcon,
-                        slug: 'icons',
-                    },
-                    {
                         title: 'Tokens',
-                        description: 'Design tokens used throughout Fold.',
+                        description: 'Reference of the Design Tokens used throughout Fold.',
                         color: 'green-400',
-                        icon: FingerPrintIcon,
+                        icon: PiFingerprintSimpleDuotone,
                         slug: 'tokens',
                     },
                 ].map((section, index) => (
@@ -147,23 +150,82 @@ export default function Introduction(props) {
                     </Card>
                 ))}
             </Grid>
-            <Notification variant="highlight">
-                <NotificationIcon>
-                    <IconLib icon="info" />
-                </NotificationIcon>
-                <NotificationContent>
-                    <Text>
-                        Please consider these docs a work in progress. We're adding more detail all the time, but if you
-                        have any questions - please feel free to ask them on{' '}
-                        <Link
-                            href="https://github.com/fold-dev/fold/discussions"
-                            target="_blank">
-                            GitHub
-                        </Link>{' '}
-                        or email us at <Link href="mailto:support@fold.dev">support@fold.dev</Link>.
-                    </Text>
-                </NotificationContent>
-            </Notification>
+
+            <br />
+
+            <Heading as="h2">Contributing</Heading>
+
+            <Heading as="h3">Reporting Bugs</Heading>
+
+            <Text>
+                If you've come across a bug or an issue, please don't hesitate to <Link
+                    href="https://github.com/fold-dev/fold/issues"
+                    target="_blank"
+                    fontSize="inherit">
+                    open a new issue
+                </Link>.
+                To make the process as smooth as possible, we've created some issue templates to get
+                you started.
+            </Text>
+
+            <Heading as="h3">Sharing Feedback</Heading>
+
+            <Text>
+                We'd love to get your feedback, be it suggestions, feature requests, or general
+                thoughts on your experience. If you believe that creating a new issue isn't the best
+                choice, don't hesitate to initiate a <Link
+                    href="https://github.com/fold-dev/fold/discussions"
+                    target="_blank"
+                    fontSize="inherit">
+                    discussion
+                </Link>{' '}
+                instead.
+            </Text>
+
+            <Heading as="h3">Code of Conduct</Heading>
+
+            <Text>
+                Please note that we have a <Link
+                    href="https://github.com/fold-dev/fold/blob/main/CODE_OF_CONDUCT.md"
+                    target="_blank"
+                    fontSize="inherit">
+                    Code of Conduct
+                </Link> that we expect
+                everyone to follow when participating in this repository. We want to maintain a
+                welcoming and inclusive environment for everyone.
+            </Text>
+
+            <Heading as="h3">License</Heading>
+
+            <Text>
+                This project is licensed under the MIT License - see the{' '}
+                <Link
+                    href="https://github.com/fold-dev/fold/blob/main/LICENSE"
+                    target="_blank"
+                    fontSize="inherit">
+                    license
+                </Link>{' '}
+                file for details.
+            </Text>
+
+            <Heading as="h3">Support</Heading>
+
+            <Text>
+                If you encounter any issues or have questions, feel free to{' '}
+                <Link
+                    href="https://github.com/fold-dev/fold/issues"
+                    target="_blank"
+                    fontSize="inherit">
+                    open an issue
+                </Link>{' '}
+                or start a <Link
+                    href="https://github.com/fold-dev/fold/discussions"
+                    target="_blank"
+                    fontSize="inherit">
+                    discussion
+                </Link>
+                .
+            </Text>
         </View>
     )
 }

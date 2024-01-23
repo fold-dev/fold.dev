@@ -32,6 +32,7 @@ import Link from 'next/link'
 import React, { useEffect, useMemo, useState } from 'react'
 import * as Token from '@fold-dev/design/tokens'
 import { useRouter } from 'next/navigation'
+import { PiBracketsSquareDuotone, PiFrameCornersDuotone, PiPaintBucketDuotone, PiSelectionAllDuotone, PiStackDuotone, PiStopDuotone, PiSubtractSquareDuotone, PiTextAaDuotone } from 'react-icons/pi'
 
 export const useTokens = (): any => {
     const [tokens, setTokens] = useState({ dark: [], light: [], system: [] })
@@ -204,12 +205,12 @@ export default function DesignSystem(props) {
                 columns={3}
                 gap={10}>
                 {[
-                    { color: Token.ColorBlue400, icon: PaintBrushIcon, title: 'Color', path: 'color' },
-                    { color: Token.ColorViolet400, icon: LanguageIcon, title: 'Typography', path: 'typography' },
-                    { color: Token.ColorPurple400, icon: Squares2X2Icon, title: 'Space', path: 'space' },
-                    { color: Token.ColorNeonpink400, icon: StopIcon, title: 'Size', path: 'size' },
-                    { color: Token.ColorRed400, icon: CircleStackIcon, title: 'Radius', path: 'radius' },
-                    { color: Token.ColorOrange400, icon: Square3Stack3DIcon, title: 'Shadow', path: 'shadow' },
+                    { color: Token.ColorBlue400, icon: PiPaintBucketDuotone, title: 'Color', path: 'color' },
+                    { color: Token.ColorViolet400, icon: PiTextAaDuotone, title: 'Typography', path: 'typography' },
+                    { color: Token.ColorPurple400, icon: PiSelectionAllDuotone, title: 'Space', path: 'space' },
+                    { color: Token.ColorNeonpink400, icon: PiFrameCornersDuotone, title: 'Size', path: 'size' },
+                    { color: Token.ColorRed400, icon: PiStopDuotone, title: 'Radius', path: 'radius' },
+                    { color: Token.ColorOrange400, icon: PiSubtractSquareDuotone, title: 'Shadow', path: 'shadow' },
                 ].map(({ color, icon, title, path }, index) => (
                     <Card
                         row
