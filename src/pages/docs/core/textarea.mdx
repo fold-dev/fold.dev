@@ -11,7 +11,7 @@ export const docs = {
         'The Textarea component is useful for enabling users to input a substantial amount of unstructured text, such as a comment on a review or feedback form.',
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/textarea/textarea.tsx","description":"","displayName":"Textarea","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/textarea/textarea.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/textarea/textarea.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"InputHTMLAttributes"}],"required":false,"type":{"name":"string | (string & readonly string[])"},"tags":{}},"minHeight":{"defaultValue":null,"description":"","name":"minHeight","declarations":[{"fileName":"packages/core/src/textarea/textarea.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"maxHeight":{"defaultValue":null,"description":"","name":"maxHeight","declarations":[{"fileName":"packages/core/src/textarea/textarea.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"autoAdjust":{"defaultValue":null,"description":"","name":"autoAdjust","declarations":[{"fileName":"packages/core/src/textarea/textarea.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"fold/packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"number\" | \"hidden\" | \"color\" | \"date\" | \"time\" | \"text\" | \"search\" | \"datetime-local\" | \"email\" | \"month\" | \"password\" | \"tel\" | \"url\" | \"week\""},"tags":{}}}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/textarea/textarea.tsx","description":"","displayName":"Textarea","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/textarea/textarea.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/textarea/textarea.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"InputHTMLAttributes"}],"required":false,"type":{"name":"string | (string & readonly string[])"},"tags":{}},"selectOnFocus":{"defaultValue":null,"description":"","name":"selectOnFocus","declarations":[{"fileName":"packages/core/src/textarea/textarea.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"minHeight":{"defaultValue":null,"description":"","name":"minHeight","declarations":[{"fileName":"packages/core/src/textarea/textarea.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"maxHeight":{"defaultValue":null,"description":"","name":"maxHeight","declarations":[{"fileName":"packages/core/src/textarea/textarea.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"autoAdjust":{"defaultValue":null,"description":"","name":"autoAdjust","declarations":[{"fileName":"packages/core/src/textarea/textarea.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"fold/packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"number\" | \"hidden\" | \"color\" | \"date\" | \"time\" | \"text\" | \"search\" | \"datetime-local\" | \"email\" | \"month\" | \"password\" | \"tel\" | \"url\" | \"week\""},"tags":{}}}}]
 
 export const css = [[["--f-textarea-background-color","var(--f-color-surface)"],["--f-textarea-border-color","var(--f-color-border)"],["--f-textarea-border-width","0.1rem"],["--f-textarea-border-color-active","var(--f-color-border-strong)"],["--f-textarea-color","var(--f-color-text-weak)"],["--f-textarea-color-placeholder","var(--f-color-text-weakest)"],["--f-textarea-color-disabled","var(--f-color-text-weakest)"],["--f-textarea-border-radius","var(--f-radius)"],["--f-textarea-padding","var(--f-space-3)"],["--f-textarea-shadow","var(--f-shadow-sm)"]]]
 
@@ -42,6 +42,36 @@ export const Usage = () => {
 
     return (
         <Textarea
+            value={text}
+            height={100}
+            className="f-scrollbar"
+            placeholder="Write message..."
+            onChange={(e) => setText(e.target.value)}
+        />
+    )
+}
+```
+### Select On Focus
+<a name="selectonfocus"></a>
+
+export const SelectOnFocus = () => {
+    const [text, setText] = useState('Hey there!');
+    return (<Textarea selectOnFocus value={text} height={100} className="f-scrollbar" placeholder="Write message..." onChange={(e) => setText(e.target.value)}/>);
+};
+
+<div className="story-block">
+<SelectOnFocus />
+</div>
+
+<CodeComponent filename="SelectOnFocus.tsx" code="ZXhwb3J0IGNvbnN0IFNlbGVjdE9uRm9jdXMgPSAoKSA9PiB7CiAgICBjb25zdCBbdGV4dCwgc2V0VGV4dF0gPSB1c2VTdGF0ZSgnSGV5IHRoZXJlIScpCgogICAgcmV0dXJuICgKICAgICAgICA8VGV4dGFyZWEKICAgICAgICAgICAgc2VsZWN0T25Gb2N1cwogICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgaGVpZ2h0PXsxMDB9CiAgICAgICAgICAgIGNsYXNzTmFtZT0iZi1zY3JvbGxiYXIiCiAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJXcml0ZSBtZXNzYWdlLi4uIgogICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgIC8+CiAgICApCn0=" />
+
+```tsx
+export const SelectOnFocus = () => {
+    const [text, setText] = useState('Hey there!')
+
+    return (
+        <Textarea
+            selectOnFocus
             value={text}
             height={100}
             className="f-scrollbar"
