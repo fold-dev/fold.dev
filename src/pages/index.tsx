@@ -520,14 +520,14 @@ function Home() {
                     zIndex={10000}
                     width="100%"
                     position="relative"
-                    bgToken="base-700">
+                    bgToken="accent-100">
                     <Text
                         color="inherit"
-                        colorToken="base-200">
+                        colorToken="accent">
                         We've just launched the alpha version of Fold. Get started{' '}
                         <Link
                             href="/docs"
-                            colorToken="accent-weak"
+                            colorToken="accent"
                             target="_blank">
                             here
                         </Link>
@@ -661,7 +661,7 @@ function Home() {
                     flex={1}
                     width="100%"
                     alignItems="flex-start"
-                    bgToken="accent-600"
+                    bgToken="accent-700"
                     p="5rem 0">
                     <View
                         flex={1.5}
@@ -726,7 +726,7 @@ function Home() {
                         <Text
                             style={{ textTransform: 'uppercase' }}
                             letterSpacing={5}
-                            colorToken="accent-200"
+                            colorToken="accent-400"
                             id="features">
                             Features
                         </Text>
@@ -790,7 +790,7 @@ function Home() {
                     flex={1}
                     width="100%"
                     alignItems="flex-start"
-                    bgToken="accent-800"
+                    bgToken="accent-600"
                     p="5rem 0">
                     <View
                         column
@@ -824,7 +824,6 @@ function Home() {
                             Need some help with using Fold in your project?
                         </Heading>
                     </View>
-
                     <View
                         column
                         gap={30}
@@ -845,7 +844,7 @@ function Home() {
                             {
                                 url: 'mailto:support@fold.dev',
                                 title: 'Email',
-                                text: 'We love async communication, but we get that sometimes it\'s urgent.',
+                                text: 'We try to answer all of the emails that land in our inbox.',
                             },
                         ].map(({ title, text, url }, index) => (
                             <View
@@ -870,7 +869,7 @@ function Home() {
                 <View
                     row
                     p={100}
-                    bgToken="accent"
+                    bgToken="accent-500"
                     alignItems="flex-start">
                     <View
                         flex={1}
