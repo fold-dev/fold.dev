@@ -62,8 +62,8 @@ export default function Releases(props) {
 
 Releases.getInitialProps = async (ctx: NextPageContext) => {
     try {
-        const octokit = new Octokit({ 
-            auth: process.env.GH_TOKEN 
+        const octokit = new Octokit({
+            auth: process.env.GH_TOKEN,
         })
 
         const result = await octokit.request('GET /repos/fold-dev/fold/releases', {
