@@ -32,6 +32,7 @@ import {
     SkipNav,
     SkipNavMain,
     Stack,
+    Text,
     View,
     useVisibility,
 } from '@fold-dev/core'
@@ -58,6 +59,7 @@ import {
     PiTwitterLogoDuotone,
 } from 'react-icons/pi'
 import { navigation } from '../navigation'
+import PageNavigationComponent from '@/pages/components/page-navigation.component'
 
 export default function DocsLayout(props: any) {
     const { children } = props
@@ -90,15 +92,21 @@ export default function DocsLayout(props: any) {
 
     useEffect(() => {
         if (!showChild) return
+
         if (!noToc) {
             setTimeout(() => {
-                const headings = document.querySelectorAll('.docs-content > h3')
+                const headings = document.querySelectorAll('.docs-content > h3, .docs-content > h4')
                 const toc: any = []
 
                 Array.from(headings).forEach((element: any) => {
+                    const id = element.innerText.toLowerCase().split(' ').join('-')
+
+                    element.id = id
+
                     toc.push({
-                        href: '#' + element.innerText.toLowerCase(),
+                        href: '#' + id,
                         text: element.innerText,
+                        type: element.tagName.toLowerCase(),
                     })
                 })
 
@@ -271,7 +279,9 @@ export default function DocsLayout(props: any) {
                                     width="101%"
                                     gap={10}
                                     colorToken="text-weakest">
-                                    <Link href="/" row>
+                                    <Link
+                                        href="/"
+                                        row>
                                         <LogoSolid size="sm" />
                                     </Link>
                                     <Heading
@@ -677,6 +687,7 @@ export default function DocsLayout(props: any) {
                                     <SkipNavMain />
                                     {children}
                                 </View>
+                                {/*   <PageNavigationComponent /> */}
 
                                 {!noToc && (
                                     <Sidebar
@@ -688,18 +699,22 @@ export default function DocsLayout(props: any) {
                                         style={{ top: 0 }}
                                         position="sticky">
                                         <Heading as="h4">On this page</Heading>
+
                                         <List
                                             type="none"
                                             bullet=""
                                             p={0}
                                             m="1rem 0 0 0">
-                                            {toc.map((line: any, index: number) => (
+                                            {!toc.length && <Text>No section available.</Text>}
+                                            {toc.map(({ href, text, type }, index: number) => (
                                                 <Li key={index}>
                                                     <Link
-                                                        href={line.href}
+                                                        href={href}
+                                                        size={type == 'h3' ? 'md' : 'sm'}
+                                                        p={type == 'h3' ? '' : '0 0 0 1rem'}
                                                         textDecoration="none"
                                                         fontWeight="normal">
-                                                        {line.text}
+                                                        {text}
                                                     </Link>
                                                 </Li>
                                             ))}
