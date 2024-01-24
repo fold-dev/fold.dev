@@ -1,19 +1,18 @@
-import { navigation } from '../navigation'
-import * as Token from '@fold-dev/design/tokens'
+import { colors } from '@/pages'
+import MobileComponent from '@/pages/components/mobile.component'
+import { SearchComponent } from '@/pages/components/search.component'
 import {
     App,
     Content,
     DarkModeToggle,
-    FISearch,
     Flexer,
     FoldProvider,
     Header,
     Heading,
     Icon,
-    Input,
-    InputControl,
-    InputSuffix,
+    Li,
     Link,
+    List,
     LogoSolid,
     Main,
     Navigation,
@@ -21,45 +20,26 @@ import {
     NavigationHeading,
     NavigationItem,
     NavigationSection,
+    Option,
+    Options,
+    Palette,
     Pill,
     Popover,
+    Range,
     Resizable,
     Sidebar,
-    Text,
-    View,
-    useVisibility,
-    Li,
-    List,
-    IconLib,
-    Stack,
-    useEvent,
     SkipNav,
     SkipNavMain,
+    Stack,
+    View,
+    useVisibility,
 } from '@fold-dev/core'
-import {
-    ArrowLeftIcon,
-    ArrowUpRightIcon,
-    CreditCardIcon,
-    CubeIcon,
-    FingerPrintIcon,
-    FireIcon,
-    FlagIcon,
-    HomeIcon,
-    LifebuoyIcon,
-    MegaphoneIcon,
-    PaintBrushIcon,
-    QuestionMarkCircleIcon,
-    RectangleGroupIcon,
-    SwatchIcon,
-} from '@heroicons/react/24/outline'
+import * as Token from '@fold-dev/design/tokens'
 import Head from 'next/head'
-import { useRouter } from 'next/navigation'
-import React, { useEffect, useMemo, useState } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
-import { SocialIcon } from 'react-social-icons'
-import { SearchComponent } from '@/pages/components/search.component'
-import MobileComponent from '@/pages/components/mobile.component'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useEffect, useMemo, useState } from 'react'
 import {
+    PiDropDuotone,
     PiFingerprintSimpleDuotone,
     PiFlagDuotone,
     PiGithubLogoDuotone,
@@ -71,16 +51,19 @@ import {
     PiPersonArmsSpreadDuotone,
     PiPinwheelDuotone,
     PiPlanetDuotone,
-    PiPlayCircleDuotone,
     PiQuestionDuotone,
-    PiRocketDuotone,
     PiRocketLaunchDuotone,
     PiTwitterLogoDuotone,
 } from 'react-icons/pi'
+import { navigation } from '../navigation'
 
 export default function DocsLayout(props: any) {
     const { children } = props
     const router = useRouter()
+    const { visible, show, hide } = useVisibility(false)
+    const [color, setColor] = useState(Token.ColorElectric400)
+    const [value, setValue] = useState(5)
+    const [option, setOption] = useState(0)
     const [toc, setToc] = useState([])
     const [showChild, setShowChild] = useState(false)
     const [text, setText] = useState('')
@@ -124,6 +107,72 @@ export default function DocsLayout(props: any) {
         }
     }, [children, showChild, noToc])
 
+    const setAccent = (color) => {
+        document.getElementById('custom-styles').innerHTML = colors[color]
+    }
+
+    const setFont = (family) => {
+        const d: any = document.querySelector(':root')
+
+        d.style.setProperty('--f-font-heading', family)
+        d.style.setProperty('--f-font-body', family)
+    }
+
+    useEffect(() => {
+        if (!showChild) return
+
+        switch (option) {
+            case 0:
+                return setFont(
+                    '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                )
+            case 1:
+                return setFont(
+                    'Inter, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                )
+            case 2:
+                return setFont(
+                    'DM Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                )
+        }
+    }, [option])
+
+    useEffect(() => {
+        if (!showChild) return
+
+        const of = 2
+        const percent = value / 10
+        const radius = of * percent + 'rem'
+        const d: any = document.querySelector(':root')
+
+        d.style.setProperty('--f-radius', radius)
+    }, [value])
+
+    useEffect(() => {
+        if (!showChild) return
+
+        switch (color) {
+            case Token.ColorPurple400:
+                return setAccent('purple')
+            case Token.ColorNeonpink400:
+                return setAccent('neonpink')
+            case Token.ColorRed400:
+                return setAccent('red')
+            case Token.ColorOrange400:
+                return setAccent('orange')
+            case Token.ColorYellow400:
+                return setAccent('yellow')
+            case Token.ColorGreen400:
+                return setAccent('green')
+            case Token.ColorTeal400:
+                return setAccent('teal')
+            case Token.ColorCyan400:
+                return setAccent('cyan')
+            case Token.ColorElectric400:
+                return setAccent('electric')
+        }
+    }, [color])
+
     useEffect(() => {
         setShowChild(true)
     }, [])
@@ -135,6 +184,7 @@ export default function DocsLayout(props: any) {
             <Head>
                 <title>Documentation</title>
             </Head>
+            <style id="custom-styles" />
 
             <SkipNav>Skip To Content</SkipNav>
             <MobileComponent />
@@ -214,7 +264,11 @@ export default function DocsLayout(props: any) {
                                         </NavigationItem>
                                         <NavigationItem
                                             active={url == 'getting-started'}
-                                            onClick={() => router.push('/docs/getting-started', { scroll: false })}
+                                            onClick={() =>
+                                                router.push('/docs/getting-started', {
+                                                    scroll: false,
+                                                })
+                                            }
                                             prefix={
                                                 <Icon
                                                     icon={PiRocketLaunchDuotone}
@@ -276,7 +330,11 @@ export default function DocsLayout(props: any) {
                                         <NavigationHeading>Design</NavigationHeading>
                                         <NavigationItem
                                             active={url == 'design-system'}
-                                            onClick={() => router.push('/docs/design-system', { scroll: false })}
+                                            onClick={() =>
+                                                router.push('/docs/design-system', {
+                                                    scroll: false,
+                                                })
+                                            }
                                             prefix={
                                                 <Icon
                                                     icon={PiPlanetDuotone}
@@ -330,7 +388,9 @@ export default function DocsLayout(props: any) {
                                                 key={index}
                                                 style={{ textTransform: 'capitalize' }}
                                                 onClick={() =>
-                                                    router.push('/docs/core/' + component.slug, { scroll: false })
+                                                    router.push('/docs/core/' + component.slug, {
+                                                        scroll: false,
+                                                    })
                                                 }
                                                 suffix={
                                                     <View
@@ -421,6 +481,67 @@ export default function DocsLayout(props: any) {
                                     m="0 0 0 1rem"
                                     spacing={15}
                                     noStretch>
+                                    <Popover
+                                        arrow
+                                        width={310}
+                                        anchor="bottom-center"
+                                        content={
+                                            <View
+                                                p={20}
+                                                column
+                                                gap={10}
+                                                alignItems="flex-start">
+                                                <Heading as="h5">Font Family:</Heading>
+                                                <Options
+                                                    animated
+                                                    width="100%"
+                                                    selected={option}
+                                                    onOptionChange={setOption}>
+                                                    <Option>System Font</Option>
+                                                    <Option>Inter</Option>
+                                                    <Option>DM Sans</Option>
+                                                </Options>
+                                                <Heading as="h5">Color:</Heading>
+                                                <Palette
+                                                    justifyContent="center"
+                                                    gap={1}
+                                                    color={color}
+                                                    colors={[
+                                                        Token.ColorPurple400,
+                                                        Token.ColorNeonpink400,
+                                                        Token.ColorRed400,
+                                                        Token.ColorOrange400,
+                                                        Token.ColorYellow400,
+                                                        Token.ColorGreen400,
+                                                        Token.ColorTeal400,
+                                                        Token.ColorCyan400,
+                                                        Token.ColorElectric400,
+                                                    ]}
+                                                    onChange={setColor}
+                                                />
+                                                <Heading as="h5">Radius:</Heading>
+                                                <Range
+                                                    min={0}
+                                                    max={10}
+                                                    step={1}
+                                                    value={value}
+                                                    onChange={(e) => setValue(e.target.value)}
+                                                />
+                                            </View>
+                                        }
+                                        isVisible={visible}
+                                        onDismiss={hide}>
+                                        <View
+                                            colorToken="neonpink-300"
+                                            m="0 1rem 0 0.5rem"
+                                            className="f-buttonize"
+                                            onClick={show}>
+                                            <Icon
+                                                icon={PiDropDuotone}
+                                                size="lg"
+                                            />
+                                        </View>
+                                    </Popover>
                                     {/* 
                                     <SocialIcon
                                         url="https://github.com/fold-dev/fold"
@@ -495,7 +616,12 @@ export default function DocsLayout(props: any) {
                                     width="100%"
                                     position="relative"
                                     className="f-overflow-y-auto"
-                                    style={{ 'overflow': 'hidden', '--f-tabs-panel-padding': '30px' } as any}>
+                                    style={
+                                        {
+                                            'overflow': 'hidden',
+                                            '--f-tabs-panel-padding': '30px',
+                                        } as any
+                                    }>
                                     <SkipNavMain />
                                     {children}
                                 </View>

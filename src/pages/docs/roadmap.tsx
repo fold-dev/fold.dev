@@ -1,12 +1,5 @@
 import DocsLayout from '@/layouts/docs.layout'
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    Heading,
-    Link,
-    Text,
-    View
-} from '@fold-dev/core'
+import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View } from '@fold-dev/core'
 import React from 'react'
 
 export default function Roadmap(props) {
