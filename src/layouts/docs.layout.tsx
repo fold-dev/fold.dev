@@ -205,7 +205,6 @@ export default function DocsLayout(props: any) {
                     type="image/png"
                     href="/favicon.png"
                 />
-
                 <link
                     rel="preconnect"
                     href="https://fonts.googleapis.com"
@@ -261,8 +260,8 @@ export default function DocsLayout(props: any) {
                                 column
                                 justifyContent="stretch"
                                 width={250}
-                                max={350}
-                                min={160}
+                                max={400}
+                                min={220}
                                 height="100%"
                                 handle={<></>}
                                 style={{ '--f-resizable-color': 'transparent' }}>
@@ -276,14 +275,14 @@ export default function DocsLayout(props: any) {
                                     <Heading
                                         as="h4"
                                         fontWeight="semibold">
-                                        Docs
+                                        Documentation
                                     </Heading>
                                     <Pill
                                         size="xs"
                                         color={Token.ColorNeonpink400}
                                         subtle
                                         fontWeight={800}>
-                                        ALPHA
+                                        v0.1
                                     </Pill>
                                     <Flexer />
                                 </Header>
