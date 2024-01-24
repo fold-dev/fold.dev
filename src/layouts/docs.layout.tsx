@@ -13,6 +13,7 @@ import {
     Li,
     Link,
     List,
+    Logo,
     LogoSolid,
     Main,
     Navigation,
@@ -270,7 +271,9 @@ export default function DocsLayout(props: any) {
                                     width="101%"
                                     gap={10}
                                     colorToken="text-weakest">
-                                    <LogoSolid size="sm" />
+                                    <Link href="/" row>
+                                        <LogoSolid size="sm" />
+                                    </Link>
                                     <Heading
                                         as="h4"
                                         fontWeight="semibold">
@@ -641,6 +644,11 @@ export default function DocsLayout(props: any) {
                                             icon={PiLifebuoyDuotone}
                                             size="lg"
                                         />
+                                    </Link>
+                                    <Link
+                                        href="/"
+                                        style={{ textWrap: 'nowrap' }}>
+                                        <Logo size="sm" />
                                     </Link>
                                     <DarkModeToggle />
                                 </Stack>
