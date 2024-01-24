@@ -1287,7 +1287,7 @@ function Home() {
                 />
                 <meta
                     name="description"
-                    content="Schemabear is a flexible data importer your users will love. "
+                    content="Powerful, fully customizable React components for scaling your product to the next level. Supercharge your dev workflow by using our zero-dependency UI components."
                 />
                 <title>Fold</title>
                 <link
@@ -1310,7 +1310,7 @@ function Home() {
                         />
                         <link
                             data-google="yes"
-                            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+                            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
                             rel="stylesheet"
                         />
                         <link
@@ -1321,7 +1321,9 @@ function Home() {
                     </>
                 )}
             </Head>
+
             <style id="custom-styles" />
+
             <FoldProvider license="fake-license-code">
                 <SkipNavMain />
                 <MobileComponent />
