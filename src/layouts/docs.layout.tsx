@@ -53,6 +53,7 @@ import {
     PiPlanetDuotone,
     PiQuestionDuotone,
     PiRocketLaunchDuotone,
+    PiSignpostDuotone,
     PiTwitterLogoDuotone,
 } from 'react-icons/pi'
 import { navigation } from '../navigation'
@@ -80,8 +81,6 @@ export default function DocsLayout(props: any) {
             case 'faq':
                 return true
             case 'releases':
-                return true
-            case 'roadmap':
                 return true
             default:
                 return false
@@ -360,11 +359,11 @@ export default function DocsLayout(props: any) {
                                             Releases
                                         </NavigationItem>
                                         <NavigationItem
-                                            active={url == 'roadmap'}
-                                            onClick={() => router.push('/docs/roadmap', { scroll: false })}
+                                            href="https://github.com/orgs/fold-dev/projects/8"
+                                            target="_blank"
                                             prefix={
                                                 <Icon
-                                                icon={PiMagicWandDuotone}
+                                                    icon={PiSignpostDuotone}
                                                     color={Token.ColorTeal400}
                                                     strokeWidth={2}
                                                 />
