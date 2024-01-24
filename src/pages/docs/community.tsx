@@ -32,16 +32,6 @@ export default function Community(props) {
                 on GitHub.
             </Heading>
             <Text>
-                If you have any ideas, suggestions, problems or just want to hi, please visit our{' '}
-                <Link
-                    href="https://github.com/fold-dev/fold/discussions"
-                    target="_blank"
-                    fontSize="inherit">
-                    repository
-                </Link>{' '}
-                on GitHub.
-            </Text>
-            <Text>
                 For any other questions, please check out our{' '}
                 <Link
                     href="/docs/faq"

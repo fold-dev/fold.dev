@@ -96,7 +96,7 @@ export default function Introduction(props) {
                     {
                         title: 'Getting Started',
                         description: 'Quick guide on getting up and running with Fold.',
-                        color: 'blue-400',
+                        color: 'purple-400',
                         icon: PiFlagDuotone,
                         slug: 'getting-started',
                     },
@@ -117,7 +117,7 @@ export default function Introduction(props) {
                     {
                         title: 'Tokens',
                         description: 'Reference of the Design Tokens used throughout Fold.',
-                        color: 'green-400',
+                        color: 'blue-400',
                         icon: PiFingerprintSimpleDuotone,
                         slug: 'tokens',
                     },
@@ -133,12 +133,8 @@ export default function Introduction(props) {
                         className="f-buttonize-outline"
                         onClick={() => router.push('/docs/' + section.slug)}>
                         <Icon
-                            icon={section.icon}
-                            size="md"
-                            style={{
-                                '--f-icon-sizing-md': '75px',
-                                '--f-icon-stroke-width-md': '0.06rem',
-                            }}
+                            icon={section.icon}    
+                            style={{ '--f-icon-sizing-md': '50px' }}
                         />
                         <Heading
                             as="h3"

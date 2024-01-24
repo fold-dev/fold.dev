@@ -65,12 +65,16 @@ import {
     PiGithubLogoDuotone,
     PiLifebuoyDuotone,
     PiLinkedinLogoDuotone,
+    PiMagicWandDuotone,
     PiMarkerCircleDuotone,
     PiPackageDuotone,
     PiPersonArmsSpreadDuotone,
     PiPinwheelDuotone,
     PiPlanetDuotone,
+    PiPlayCircleDuotone,
     PiQuestionDuotone,
+    PiRocketDuotone,
+    PiRocketLaunchDuotone,
     PiTwitterLogoDuotone,
 } from 'react-icons/pi'
 
@@ -202,7 +206,7 @@ export default function DocsLayout(props: any) {
                                             prefix={
                                                 <Icon
                                                     icon={PiPackageDuotone}
-                                                    color={Token.ColorTeal400}
+                                                    color={Token.ColorElectric400}
                                                     strokeWidth={2}
                                                 />
                                             }>
@@ -213,8 +217,8 @@ export default function DocsLayout(props: any) {
                                             onClick={() => router.push('/docs/getting-started', { scroll: false })}
                                             prefix={
                                                 <Icon
-                                                    icon={PiFlagDuotone}
-                                                    color={Token.ColorBlue400}
+                                                    icon={PiRocketLaunchDuotone}
+                                                    color={Token.ColorPurple400}
                                                     strokeWidth={2}
                                                 />
                                             }>
@@ -226,7 +230,7 @@ export default function DocsLayout(props: any) {
                                             prefix={
                                                 <Icon
                                                     icon={PiPersonArmsSpreadDuotone}
-                                                    color={Token.ColorViolet400}
+                                                    color={Token.ColorNeonpink400}
                                                     strokeWidth={2}
                                                 />
                                             }>
@@ -238,11 +242,35 @@ export default function DocsLayout(props: any) {
                                             prefix={
                                                 <Icon
                                                     icon={PiQuestionDuotone}
-                                                    color={Token.ColorPurple400}
+                                                    color={Token.ColorOrange400}
                                                     strokeWidth={2}
                                                 />
                                             }>
                                             FAQ
+                                        </NavigationItem>
+                                        <NavigationItem
+                                            active={url == 'changelog'}
+                                            onClick={() => router.push('/docs/changelog', { scroll: false })}
+                                            prefix={
+                                                <Icon
+                                                    icon={PiMagicWandDuotone}
+                                                    color={Token.ColorYellow400}
+                                                    strokeWidth={2}
+                                                />
+                                            }>
+                                            Changelog
+                                        </NavigationItem>
+                                        <NavigationItem
+                                            active={url == 'roadmap'}
+                                            onClick={() => router.push('/docs/roadmap', { scroll: false })}
+                                            prefix={
+                                                <Icon
+                                                    icon={PiFlagDuotone}
+                                                    color={Token.ColorTeal400}
+                                                    strokeWidth={2}
+                                                />
+                                            }>
+                                            Roadmap
                                         </NavigationItem>
                                         <NavigationDivider />
                                         <NavigationHeading>Design</NavigationHeading>
@@ -276,7 +304,7 @@ export default function DocsLayout(props: any) {
                                             prefix={
                                                 <Icon
                                                     icon={PiPinwheelDuotone}
-                                                    color={Token.ColorYellow400}
+                                                    color={Token.ColorPurple400}
                                                     strokeWidth={2}
                                                 />
                                             }>
@@ -288,7 +316,7 @@ export default function DocsLayout(props: any) {
                                             prefix={
                                                 <Icon
                                                     icon={PiFingerprintSimpleDuotone}
-                                                    color={Token.ColorGreen400}
+                                                    color={Token.ColorElectric400}
                                                     strokeWidth={2}
                                                 />
                                             }>
@@ -338,36 +366,36 @@ export default function DocsLayout(props: any) {
                                             </NavigationItem>
                                         ))}
                                         <NavigationDivider />
-                                        <NavigationHeading>Development</NavigationHeading>
+                                        <NavigationHeading>Helpers</NavigationHeading>
+                                        {/* 
                                         <NavigationItem
                                             active={url == 'changelog'}
-                                            onClick={() => router.push('/docs/changelog', { scroll: false })}>
-                                            Changelog
+                                            onClick={() => router.push('/docs/hooks', { scroll: false })}>
+                                            Hooks
                                         </NavigationItem>
                                         <NavigationItem
-                                            active={url == 'roadmap'}
-                                            onClick={() => router.push('/docs/roadmap', { scroll: false })}>
-                                            Roadmap
-                                        </NavigationItem>
+                                            active={url == 'changelog'}
+                                            onClick={() => router.push('/docs/hooks', { scroll: false })}>
+                                            CSS Utilities
+                                        </NavigationItem>   
+                                        */}
                                         <NavigationItem
                                             href="https://fold-dev.github.io/fold"
                                             target="_blank">
                                             TypeDocs
                                         </NavigationItem>
-                                        <NavigationItem
+                                        {/* <NavigationItem
                                             href="https://fold.dev"
                                             target="_blank">
                                             fold.dev
-                                        </NavigationItem>
-                                        <NavigationSection
-                                            row
-                                            gap={10}
-                                            justifyContent="flex-start">
+                                        </NavigationItem> */}
+                                        <NavigationSection>
                                             <Heading
-                                                as="h5"
-                                                colorToken="base-300"
+                                                p="1rem"
+                                                as="h6"
+                                                colorToken="text-weakest"
                                                 fontWeight={500}>
-                                                Fold &copy; 2023
+                                                Fold &copy; 2024
                                             </Heading>
                                         </NavigationSection>
                                     </Navigation>
