@@ -103,7 +103,8 @@ export default function Tokens(props) {
             </Heading>
             <Text as="blockquote">
                 The provided list is not exhaustive, but encompasses the tokens most commonly used. You can locate all
-                the tokens in our repository on <Link href="https://github.com/fold-dev/fold/packages/design">Github</Link>.
+                the tokens in our repository on{' '}
+                <Link href="https://github.com/fold-dev/fold/packages/design">Github</Link>.
             </Text>
             <Heading
                 as="h3"

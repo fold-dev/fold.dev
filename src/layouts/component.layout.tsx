@@ -66,13 +66,13 @@ export default function ComponentLayout({ children, docs, props, css }) {
                 {docs.description}
             </Text>
             {docs.experimental && (
-                <Notification variant="warning" m="0 30px">
+                <Notification
+                    variant="warning"
+                    m="0 30px">
                     <NotificationIcon>
                         <IconLib icon="warning" />
                     </NotificationIcon>
-                    <NotificationContent>
-                        Please note: this is an experimental component.
-                    </NotificationContent>
+                    <NotificationContent>Please note: this is an experimental component.</NotificationContent>
                 </Notification>
             )}
             <View
@@ -110,7 +110,14 @@ export default function ComponentLayout({ children, docs, props, css }) {
                                     leftAccent
                                     width="100%">
                                     <NotificationContent>
-                                        We are currently improving the documentation. For more information on prop types, <Link href="https://fold-dev.github.io/fold/" target="_blank">see our TypeDocs</Link>.
+                                        We are currently improving the documentation. For more information on prop
+                                        types,{' '}
+                                        <Link
+                                            href="https://fold-dev.github.io/fold/"
+                                            target="_blank">
+                                            see our TypeDocs
+                                        </Link>
+                                        .
                                     </NotificationContent>
                                 </Notification>
                                 <Stack
@@ -172,7 +179,8 @@ export default function ComponentLayout({ children, docs, props, css }) {
                                     leftAccent
                                     width="100%">
                                     <NotificationContent>
-                                        For more information about the Fold Design System, <Link href="/docs/design-system">see our guide</Link>.
+                                        For more information about the Fold Design System,{' '}
+                                        <Link href="/docs/design-system">see our guide</Link>.
                                     </NotificationContent>
                                 </Notification>
                                 <Stack
@@ -192,8 +200,12 @@ export default function ComponentLayout({ children, docs, props, css }) {
                                                 {css.map((set) =>
                                                     set.map((property, index) => (
                                                         <Tr key={index}>
-                                                            <Td><code>{property[0]}</code></Td>
-                                                            <Td><code>{property[1]}</code></Td>
+                                                            <Td>
+                                                                <code>{property[0]}</code>
+                                                            </Td>
+                                                            <Td>
+                                                                <code>{property[1]}</code>
+                                                            </Td>
                                                         </Tr>
                                                     ))
                                                 )}

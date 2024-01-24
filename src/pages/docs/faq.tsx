@@ -44,15 +44,15 @@ export default function Faq(props) {
                 <AccordionItem>
                     <AccordionHeading>Are there really no dependencies?</AccordionHeading>
                     <AccordionPanel>
-                        None. The sole dependencies are React and ReactDOM, and of course any additional libraries you integrate
-                        into your project. 
+                        None. The sole dependencies are React and ReactDOM, and of course any additional libraries you
+                        integrate into your project.
                     </AccordionPanel>
                 </AccordionItem>
                 <AccordionItem>
                     <AccordionHeading>Does Fold use CSS-in-JS?</AccordionHeading>
                     <AccordionPanel>
-                        No. Fold utilizes pure CSS, compiled at build time, to tailor the appearance of components and provides helper classes for
-                        added customization.
+                        No. Fold utilizes pure CSS, compiled at build time, to tailor the appearance of components and
+                        provides helper classes for added customization.
                     </AccordionPanel>
                 </AccordionItem>
                 <AccordionItem>
@@ -89,8 +89,8 @@ export default function Faq(props) {
                 <AccordionItem>
                     <AccordionHeading>Can I use this for production?</AccordionHeading>
                     <AccordionPanel>
-                        Certainly, however Fold is currently in its alpha stage. Nevertheless, you have the option to use it in a
-                        production environment if you wish.
+                        Certainly, however Fold is currently in its alpha stage. Nevertheless, you have the option to
+                        use it in a production environment if you wish.
                     </AccordionPanel>
                 </AccordionItem>
                 <AccordionItem>

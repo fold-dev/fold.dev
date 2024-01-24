@@ -27,7 +27,13 @@ import {
 } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/router'
 import React from 'react'
-import { PiFingerprintSimpleDuotone, PiFlagDuotone, PiLightbulbDuotone, PiMarkerCircleDuotone, PiPlanetDuotone } from 'react-icons/pi'
+import {
+    PiFingerprintSimpleDuotone,
+    PiFlagDuotone,
+    PiLightbulbDuotone,
+    PiMarkerCircleDuotone,
+    PiPlanetDuotone,
+} from 'react-icons/pi'
 
 export default function Introduction(props) {
     const router = useRouter()
@@ -48,8 +54,8 @@ export default function Introduction(props) {
                 </NotificationIcon>
                 <NotificationContent>
                     <Text>
-                        Please consider these docs a work in progress. We're adding more detail all
-                        the time, but if you have any questions - please feel free to ask them on{' '}
+                        Please consider these docs a work in progress. We're adding more detail all the time, but if you
+                        have any questions - please feel free to ask them on{' '}
                         <Link
                             href="https://github.com/fold-dev/fold/discussions"
                             target="_blank">
@@ -60,14 +66,13 @@ export default function Introduction(props) {
                 </NotificationContent>
             </Notification>
             <Heading as="h2">
-                Fold is a zero-dependency React UI library for product teams, built on modern web
-                standards that aims to be flexible & performant. With this philosphy in mind, we're
-                also aiming to build a developer experience that is pleasant for beginners, but also
-                for veterans.
+                Fold is a zero-dependency React UI library for product teams, built on modern web standards that aims to
+                be flexible & performant. With this philosphy in mind, we're also aiming to build a developer experience
+                that is pleasant for beginners, but also for veterans.
             </Heading>
             <Text>
-                We've just launched and would love your feedback. If you've found bugs, have ideas
-                or generally want to say hello, please check out our{' '}
+                We've just launched and would love your feedback. If you've found bugs, have ideas or generally want to
+                say hello, please check out our{' '}
                 <Link
                     href="https://github.com/fold-dev/fold/discussions"
                     target="_blank"
@@ -158,22 +163,22 @@ export default function Introduction(props) {
             <Heading as="h3">Reporting Bugs</Heading>
 
             <Text>
-                If you've come across a bug or an issue, please don't hesitate to <Link
+                If you've come across a bug or an issue, please don't hesitate to{' '}
+                <Link
                     href="https://github.com/fold-dev/fold/issues"
                     target="_blank"
                     fontSize="inherit">
                     open a new issue
-                </Link>.
-                To make the process as smooth as possible, we've created some issue templates to get
-                you started.
+                </Link>
+                . To make the process as smooth as possible, we've created some issue templates to get you started.
             </Text>
 
             <Heading as="h3">Sharing Feedback</Heading>
 
             <Text>
-                We'd love to get your feedback, be it suggestions, feature requests, or general
-                thoughts on your experience. If you believe that creating a new issue isn't the best
-                choice, don't hesitate to initiate a <Link
+                We'd love to get your feedback, be it suggestions, feature requests, or general thoughts on your
+                experience. If you believe that creating a new issue isn't the best choice, don't hesitate to initiate a{' '}
+                <Link
                     href="https://github.com/fold-dev/fold/discussions"
                     target="_blank"
                     fontSize="inherit">
@@ -185,14 +190,15 @@ export default function Introduction(props) {
             <Heading as="h3">Code of Conduct</Heading>
 
             <Text>
-                Please note that we have a <Link
+                Please note that we have a{' '}
+                <Link
                     href="https://github.com/fold-dev/fold/blob/main/CODE_OF_CONDUCT.md"
                     target="_blank"
                     fontSize="inherit">
                     Code of Conduct
-                </Link> that we expect
-                everyone to follow when participating in this repository. We want to maintain a
-                welcoming and inclusive environment for everyone.
+                </Link>{' '}
+                that we expect everyone to follow when participating in this repository. We want to maintain a welcoming
+                and inclusive environment for everyone.
             </Text>
 
             <Heading as="h3">License</Heading>
@@ -218,7 +224,8 @@ export default function Introduction(props) {
                     fontSize="inherit">
                     open an issue
                 </Link>{' '}
-                or start a <Link
+                or start a{' '}
+                <Link
                     href="https://github.com/fold-dev/fold/discussions"
                     target="_blank"
                     fontSize="inherit">

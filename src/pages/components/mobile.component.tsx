@@ -13,7 +13,13 @@ export default (props) => {
                 size="xl"
                 textAlign="center">
                 Please view the site on a desktop device, mobile support{' '}
-                <Link size="xl" href="https://github.com/orgs/fold-dev/projects/8" target="_blank">is coming soon</Link>.
+                <Link
+                    size="xl"
+                    href="https://github.com/orgs/fold-dev/projects/8"
+                    target="_blank">
+                    is coming soon
+                </Link>
+                .
             </Text>
         </View>
     )

@@ -32,7 +32,16 @@ import Link from 'next/link'
 import React, { useEffect, useMemo, useState } from 'react'
 import * as Token from '@fold-dev/design/tokens'
 import { useRouter } from 'next/navigation'
-import { PiBracketsSquareDuotone, PiFrameCornersDuotone, PiPaintBucketDuotone, PiSelectionAllDuotone, PiStackDuotone, PiStopDuotone, PiSubtractSquareDuotone, PiTextAaDuotone } from 'react-icons/pi'
+import {
+    PiBracketsSquareDuotone,
+    PiFrameCornersDuotone,
+    PiPaintBucketDuotone,
+    PiSelectionAllDuotone,
+    PiStackDuotone,
+    PiStopDuotone,
+    PiSubtractSquareDuotone,
+    PiTextAaDuotone,
+} from 'react-icons/pi'
 
 export const useTokens = (): any => {
     const [tokens, setTokens] = useState({ dark: [], light: [], system: [] })

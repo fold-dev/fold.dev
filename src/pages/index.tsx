@@ -96,9 +96,7 @@ const ScrollingPicker = () => {
             if (!selected[0]) return setSelection([date, null])
             if (!!selected[0] && !!selected[1]) return setSelection([[date, null]])
             if (!!selected[0] && !selected[1])
-                return setSelection(
-                    selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]]
-                )
+                return setSelection(selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]])
         }
     }
 
@@ -365,8 +363,7 @@ const All = () => {
                             </View>
                             <Heading as="h2">Perfect Getaway</Heading>
                             <Text>
-                                A once in a lifetime opportunity to live and work remotely in a
-                                breathtaking location!
+                                A once in a lifetime opportunity to live and work remotely in a breathtaking location!
                             </Text>
 
                             <Text
@@ -506,9 +503,8 @@ function Home() {
                     title="🍪 Cookie Policy"
                     description={
                         <Text>
-                            We use essential cookies to make our site work. With your consent, we
-                            may also use non-essential cookies to improve user experience and
-                            analyze website traffic.
+                            We use essential cookies to make our site work. With your consent, we may also use
+                            non-essential cookies to improve user experience and analyze website traffic.
                         </Text>
                     }
                 />
@@ -607,9 +603,8 @@ function Home() {
                             as="h3"
                             colorToken="accent"
                             fontWeight={400}>
-                            Powerful, fully customizable React components for scaling your product
-                            to the next level. Supercharge your dev workflow by using our
-                            zero-dependency UI components.
+                            Powerful, fully customizable React components for scaling your product to the next level.
+                            Supercharge your dev workflow by using our zero-dependency UI components.
                         </Heading>
 
                         <View

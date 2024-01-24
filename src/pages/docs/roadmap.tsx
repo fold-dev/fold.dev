@@ -1,5 +1,18 @@
 import DocsLayout from '@/layouts/docs.layout'
-import { Breadcrumb, BreadcrumbItem, Card, Grid, Heading, Icon, Link, Stack, Text, Timeline, TimelineItem, View } from '@fold-dev/core'
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    Card,
+    Grid,
+    Heading,
+    Icon,
+    Link,
+    Stack,
+    Text,
+    Timeline,
+    TimelineItem,
+    View,
+} from '@fold-dev/core'
 import { CodeComponent } from '../components/code.component'
 import React from 'react'
 import {
@@ -22,7 +35,8 @@ export default function Roadmap(props) {
             <Heading fontWeight="bold">Roadmap</Heading>
             <Heading as="h2">Planned features & enhancements.</Heading>
             <Text as="blockquote">
-                Please refer to our <Link
+                Please refer to our{' '}
+                <Link
                     href="https://github.com/orgs/fold-dev/projects/8/views/2"
                     target="_blank"
                     fontSize="inherit">
@@ -30,7 +44,7 @@ export default function Roadmap(props) {
                 </Link>{' '}
                 project..
             </Text>
-            
+
             {/* 
             <Text as="blockquote">There are no planned items yet.</Text>
             <Timeline>

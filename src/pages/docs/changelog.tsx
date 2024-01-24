@@ -1,5 +1,18 @@
 import DocsLayout from '@/layouts/docs.layout'
-import { Breadcrumb, BreadcrumbItem, Card, Grid, Heading, Icon, Link, Stack, Text, Timeline, TimelineItem, View } from '@fold-dev/core'
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    Card,
+    Grid,
+    Heading,
+    Icon,
+    Link,
+    Stack,
+    Text,
+    Timeline,
+    TimelineItem,
+    View,
+} from '@fold-dev/core'
 import { CodeComponent } from '../components/code.component'
 import React from 'react'
 import {

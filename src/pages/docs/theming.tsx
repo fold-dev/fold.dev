@@ -30,8 +30,8 @@ export default function Theming(props) {
             <Heading as="h2">Create your own theme or customize an existing theme.</Heading>
             <Text>
                 Fold uses design tokens & utility methods to manage the overall theme of your project. It's important to
-                note that your project needs to have the <code>{`<FoldProvider />`}</code>{' '}
-                already set up. To find out how to do this, please see the{' '}
+                note that your project needs to have the <code>{`<FoldProvider />`}</code> already set up. To find out
+                how to do this, please see the{' '}
                 <Link
                     href="/docs/getting-started"
                     fontSize="inherit">
@@ -63,7 +63,7 @@ export default function Theming(props) {
                 </NotificationContent>
             </Notification>
             <Text>
-                Fold's design tokens are managed with <code>@fold-dev/design</code>, a package located im {' '}
+                Fold's design tokens are managed with <code>@fold-dev/design</code>, a package located im{' '}
                 <Link
                     href="https://github.com/fold-dev/fold/packages/design"
                     target="_blank">

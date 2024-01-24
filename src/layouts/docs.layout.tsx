@@ -59,7 +59,20 @@ import { usePathname, useSearchParams } from 'next/navigation'
 import { SocialIcon } from 'react-social-icons'
 import { SearchComponent } from '@/pages/components/search.component'
 import MobileComponent from '@/pages/components/mobile.component'
-import { PiFingerprintSimpleDuotone, PiFlagDuotone, PiGithubLogoDuotone, PiLifebuoyDuotone, PiLinkedinLogoDuotone, PiMarkerCircleDuotone, PiPackageDuotone, PiPersonArmsSpreadDuotone, PiPinwheelDuotone, PiPlanetDuotone, PiQuestionDuotone, PiTwitterLogoDuotone } from 'react-icons/pi'
+import {
+    PiFingerprintSimpleDuotone,
+    PiFlagDuotone,
+    PiGithubLogoDuotone,
+    PiLifebuoyDuotone,
+    PiLinkedinLogoDuotone,
+    PiMarkerCircleDuotone,
+    PiPackageDuotone,
+    PiPersonArmsSpreadDuotone,
+    PiPinwheelDuotone,
+    PiPlanetDuotone,
+    PiQuestionDuotone,
+    PiTwitterLogoDuotone,
+} from 'react-icons/pi'
 
 export default function DocsLayout(props: any) {
     const { children } = props
@@ -405,24 +418,36 @@ export default function DocsLayout(props: any) {
                                         href="https://github.com/fold-dev/fold"
                                         target="_blank"
                                         style={{ textWrap: 'nowrap' }}>
-                                        <Icon icon={PiGithubLogoDuotone} size="lg" />
+                                        <Icon
+                                            icon={PiGithubLogoDuotone}
+                                            size="lg"
+                                        />
                                     </Link>
                                     <Link
                                         href="https://twitter.com/fold_dev"
                                         target="_blank"
                                         style={{ textWrap: 'nowrap' }}>
-                                        <Icon icon={PiTwitterLogoDuotone} size="lg" />
+                                        <Icon
+                                            icon={PiTwitterLogoDuotone}
+                                            size="lg"
+                                        />
                                     </Link>
                                     <Link
                                         href="https://www.linkedin.com/company/fold-dev"
                                         target="_blank"
                                         style={{ textWrap: 'nowrap' }}>
-                                        <Icon icon={PiLinkedinLogoDuotone} size="lg" />
+                                        <Icon
+                                            icon={PiLinkedinLogoDuotone}
+                                            size="lg"
+                                        />
                                     </Link>
                                     <Link
                                         href="/docs/community"
                                         style={{ textWrap: 'nowrap' }}>
-                                        <Icon icon={PiLifebuoyDuotone} size="lg" />
+                                        <Icon
+                                            icon={PiLifebuoyDuotone}
+                                            size="lg"
+                                        />
                                     </Link>
                                     <DarkModeToggle />
                                 </Stack>
