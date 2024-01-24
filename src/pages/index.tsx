@@ -26,6 +26,8 @@ import {
     Menu,
     MenuItemOption,
     MenuOptionGroup,
+    Option,
+    Options,
     Palette,
     Pill,
     Range,
@@ -907,10 +909,26 @@ const All = () => {
     const [selected, setSelected] = useState<any>([])
     const [color, setColor] = useState(Token.ColorElectric400)
     const [value, setValue] = useState(5)
+    const [option, setOption] = useState(0)
 
     const setAccent = (color) => {
         document.getElementById('custom-styles').innerHTML = colors[color]
     }
+
+    const setFont = (family) => {
+        const d: any = document.querySelector(':root')
+
+        d.style.setProperty('--f-font-heading', family)
+        d.style.setProperty('--f-font-body', family)
+    }
+
+    useEffect(() => {
+        switch (option) {
+            case 0: return setFont('-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif')
+            case 1: return setFont('Inter, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif')
+            case 2: return setFont('DM Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif')
+        }
+    }, [option])
 
     useEffect(() => {
         const of = 2
@@ -963,12 +981,12 @@ const All = () => {
                         <MenuItemOption value="redux">Redux</MenuItemOption>
                         <MenuItemOption value="mobx">MobX</MenuItemOption>
                         <MenuItemOption value="zustand">Zustand</MenuItemOption>
-                        <MenuItemOption value="none">None</MenuItemOption>
+                        {/* <MenuItemOption value="none">None</MenuItemOption> */}
                     </MenuOptionGroup>
                 </Menu>
 
                 <Card
-                    p={20}
+                    p="0.75rem 1rem"
                     width="100%">
                     <Sparkline
                         data={sparkline}
@@ -976,6 +994,21 @@ const All = () => {
                         width="100%"
                         height={30}
                     />
+                </Card>
+
+                <Card
+                    p="0.5rem 1rem"
+                    width="100%">
+                    <Options
+                        animated
+                        border="none"
+                        width="100%"
+                        selected={option}
+                        onOptionChange={setOption}>
+                        <Option>System Font</Option>
+                        <Option>Inter</Option>
+                        <Option>DM Sans</Option>
+                    </Options>
                 </Card>
 
                 <Card
