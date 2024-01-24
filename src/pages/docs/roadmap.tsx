@@ -2,26 +2,12 @@ import DocsLayout from '@/layouts/docs.layout'
 import {
     Breadcrumb,
     BreadcrumbItem,
-    Card,
-    Grid,
     Heading,
-    Icon,
     Link,
-    Stack,
     Text,
-    Timeline,
-    TimelineItem,
-    View,
+    View
 } from '@fold-dev/core'
-import { CodeComponent } from '../components/code.component'
 import React from 'react'
-import {
-    LifebuoyIcon,
-    PaintBrushIcon,
-    QuestionMarkCircleIcon,
-    RectangleGroupIcon,
-    SwatchIcon,
-} from '@heroicons/react/24/outline'
 
 export default function Roadmap(props) {
     return (

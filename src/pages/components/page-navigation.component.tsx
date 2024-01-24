@@ -1,7 +1,7 @@
 import { Heading, View } from '@fold-dev/core'
 import { useEffect, useState } from 'react'
 
-export default function PageNavigationComponent({ tocHtml }) {
+export default ({ tocHtml }) => {
     const [toc, setToc] = useState([])
 
     useEffect(() => {

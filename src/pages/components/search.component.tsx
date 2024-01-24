@@ -233,4 +233,4 @@ export const SearchComponent = (props: any) => {
     )
 }
 
-export default () => <div></div>
+export default SearchComponent

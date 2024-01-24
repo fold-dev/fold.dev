@@ -23,7 +23,7 @@ const highlightCode = async (code: string, lang = 'javascript') => {
     return String(file)
 }
 
-export const CodeComponent = ({
+export default ({
     code,
     filename = '',
     lang = 'javascript',
@@ -70,5 +70,3 @@ export const CodeComponent = ({
         </>
     )
 }
-
-export default () => <div />
