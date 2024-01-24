@@ -1825,13 +1825,13 @@ function Home() {
                             <Li>
                                 <Text
                                     as="a"
-                                    href="/docs/changelog"
+                                    href="/docs/releases"
                                     target="_blank"
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
                                     colorToken="accent-100">
-                                    Changelog
+                                    Releases
                                 </Text>
                             </Li>
                             <Li>

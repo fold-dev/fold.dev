@@ -79,7 +79,7 @@ export default function DocsLayout(props: any) {
                 return true
             case 'faq':
                 return true
-            case 'changelog':
+            case 'releases':
                 return true
             case 'roadmap':
                 return true
@@ -348,23 +348,23 @@ export default function DocsLayout(props: any) {
                                             FAQ
                                         </NavigationItem>
                                         <NavigationItem
-                                            active={url == 'changelog'}
-                                            onClick={() => router.push('/docs/changelog', { scroll: false })}
+                                            active={url == 'releases'}
+                                            onClick={() => router.push('/docs/releases', { scroll: false })}
                                             prefix={
                                                 <Icon
-                                                    icon={PiMagicWandDuotone}
+                                                    icon={PiFlagDuotone}
                                                     color={Token.ColorYellow400}
                                                     strokeWidth={2}
                                                 />
                                             }>
-                                            Changelog
+                                            Releases
                                         </NavigationItem>
                                         <NavigationItem
                                             active={url == 'roadmap'}
                                             onClick={() => router.push('/docs/roadmap', { scroll: false })}
                                             prefix={
                                                 <Icon
-                                                    icon={PiFlagDuotone}
+                                                icon={PiMagicWandDuotone}
                                                     color={Token.ColorTeal400}
                                                     strokeWidth={2}
                                                 />
