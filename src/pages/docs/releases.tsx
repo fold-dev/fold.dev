@@ -40,8 +40,7 @@ export default function Releases(props) {
             <Heading as="h2">Below is a list of all Fold releases.</Heading>
             {!data.length && <Text as="blockquote">There are no releases yet.</Text>}
 
-            {/* 
-            https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#list-releases-for-a-repository
+            {/* https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#list-releases-for-a-repository */}
             
             <Timeline>
                 {data.map(({ url, name, tag_name, body }, index) => (
@@ -49,13 +48,13 @@ export default function Releases(props) {
                         <Stack direction="vertical" spacing={10}>
                             <Heading as="h3">{name}</Heading>
                             <Text as="blockquote">{tag_name}</Text>
-                            <Text fontWeight="semibold">{description}</Text>
+                            <Text fontWeight="semibold">{body}</Text>
                             <Link size="sm" target="_blank" href={url}>View release</Link>
                         </Stack>
                     </TimelineItem>
                 ))}
             </Timeline> 
-            */}
+            
         </View>
     )
 }

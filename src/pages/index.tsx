@@ -1124,7 +1124,7 @@ const All = () => {
                     header={
                         <Image
                             width="100%"
-                            height={150}
+                            height={125}
                             src="./building.png"
                         />
                     }>

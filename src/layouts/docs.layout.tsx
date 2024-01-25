@@ -676,7 +676,8 @@ export default function DocsLayout(props: any) {
                                     <SkipNavMain />
                                     {children}
                                 </View>
-                                {/*   <PageNavigationComponent /> */}
+
+                                {/* <PageNavigationComponent /> */}
 
                                 {!noToc && (
                                     <Sidebar
@@ -694,7 +695,7 @@ export default function DocsLayout(props: any) {
                                             bullet=""
                                             p={0}
                                             m="1rem 0 0 0">
-                                            {!toc.length && <Text>No section available.</Text>}
+                                            {!toc.length && <Text>No sections available.</Text>}
                                             {toc.map(({ href, text, type }, index: number) => (
                                                 <Li key={index}>
                                                     <Link
