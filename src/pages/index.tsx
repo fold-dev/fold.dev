@@ -9,6 +9,7 @@ import {
     Copy,
     DarkModeButton,
     DarkModeToggle,
+    DatePicker,
     DateRangeProvider,
     Divider,
     Flexer,
@@ -831,33 +832,15 @@ const sparkline = [
     Math.random(),
 ]
 
-const ScrollingPicker = () => {
-    const { today, tomorrow, day1, day2, disabled1, disabled2 } = useMemo(() => {
+export const NormalDatePicker = () => {
+    const [date, setDate] = useState(new Date())
+    const { today, tomorrow } = useMemo(() => {
         const today = new Date()
         const tomorrow = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000)
-        const day1 = new Date(today.getTime() + 3 * 24 * 60 * 60 * 1000)
-        const day2 = new Date(today.getTime() + 6 * 24 * 60 * 60 * 1000)
-        const disabled1 = new Date(today.getTime() - 6 * 24 * 60 * 60 * 1000)
-        const disabled2 = new Date(today.getTime() - 3 * 24 * 60 * 60 * 1000)
-        const disabledMonth1 = new Date(today.getTime() - 196 * 24 * 60 * 60 * 1000)
-        const disabledMonth2 = new Date(today.getTime() - 93 * 24 * 60 * 60 * 1000)
-        const disabledYear1 = new Date(today.getFullYear() - 3, 1, 1)
-        const disabledYear2 = new Date(today.getFullYear() - 2, 1, 1)
-        return {
-            today,
-            tomorrow,
-            day1,
-            day2,
-            disabled1,
-            disabled2,
-        }
+
+        return { today, tomorrow }
     }, [])
-    const ref = useRef(null)
-    const [date, setDate] = useState(new Date())
-    const [selection, setSelection] = useState<any[]>([
-        [today, tomorrow],
-        [day1, day2],
-    ])
+    const [selection, setSelection] = useState<any[]>([[today, tomorrow]])
 
     const handleSelection = (date: Date) => {
         if (selection.length == 0) {
@@ -873,31 +856,12 @@ const ScrollingPicker = () => {
 
     return (
         <DateRangeProvider>
-            <ScrollingDatePicker
-                ref={ref}
-                className="f-scrollbar"
+            <DatePicker
+                height={300}
+                width="100%"
                 defaultDate={date}
                 selection={selection}
                 onChange={handleSelection}
-                disabled={[[disabled1, disabled2]]}
-                renderDay={(day) => {
-                    if (day.getDate() == 7 && day.getMonth() == date.getMonth()) {
-                        return (
-                            <>
-                                {day.getDate()}
-                                <Badge
-                                    variant="danger"
-                                    anchor="top-left"
-                                    width={7}
-                                    height={7}
-                                    style={{ marginLeft: 7, marginTop: 7 }}
-                                />
-                            </>
-                        )
-                    } else {
-                        return day.getDate()
-                    }
-                }}
             />
         </DateRangeProvider>
     )
@@ -1213,8 +1177,9 @@ const All = () => {
 
                 <Card
                     width="100%"
+                    p={10}
                     style={{ overflow: 'hidden' }}>
-                    <ScrollingPicker />
+                    <NormalDatePicker />
                 </Card>
 
                 <View
