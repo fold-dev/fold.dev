@@ -478,28 +478,16 @@ export default function DocsLayout(props: any) {
                                         ))}
                                         <NavigationDivider />
                                         <NavigationHeading>Helpers</NavigationHeading>
-                                        {/* 
                                         <NavigationItem
-                                            active={url == 'changelog'}
-                                            onClick={() => router.push('/docs/hooks', { scroll: false })}>
+                                            active={url == 'hooks'}
+                                            onClick={() => router.push('/docs/core/hooks', { scroll: false })}>
                                             Hooks
                                         </NavigationItem>
-                                        <NavigationItem
-                                            active={url == 'changelog'}
-                                            onClick={() => router.push('/docs/hooks', { scroll: false })}>
-                                            CSS Utilities
-                                        </NavigationItem>   
-                                        */}
                                         <NavigationItem
                                             href="https://fold-dev.github.io/fold"
                                             target="_blank">
                                             TypeDocs
                                         </NavigationItem>
-                                        {/* <NavigationItem
-                                            href="https://fold.dev"
-                                            target="_blank">
-                                            fold.dev
-                                        </NavigationItem> */}
                                         <NavigationSection>
                                             <Heading
                                                 p="1rem"

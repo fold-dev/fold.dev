@@ -210,12 +210,6 @@ export const navigation = [
             'Hiding content is a frequently employed method in web accessibility, allowing information to remain legible for screen readers while remaining concealed from visual clients.',
     },
     {
-        slug: 'hooks',
-        title: 'Hooks',
-        subtitle: 'Fold React Hooks provide various pieces of functionality that can make complex logic simple.',
-        description: 'Below are React Hooks that are available to use with Fold.',
-    },
-    {
         slug: 'icon',
         title: 'Icon',
         subtitle: 'The Icon component displays any SVG icon that is set as a prop.',
