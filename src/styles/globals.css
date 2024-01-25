@@ -171,6 +171,10 @@ body {
     background: var(--f-color-surface);
 }
 
+.f-header .f-popout-bottom-right.has-arrow {
+    left: 40px;
+}
+
 @media only screen and (max-device-width: 640px),
     only screen and (max-device-width: 667px),
     only screen and (max-width: 480px) {
@@ -207,15 +211,5 @@ body {
         font-size: 1.5rem;
         padding: 10px;
         padding-left: 0px;
-    }
-
-    form {
-        padding: 10px;
-        padding-left: 0px;
-        width: 100%;
-        flex-wrap: wrap;
-        align-content: flex-start;
-        justify-content: flex-start;
-        align-items: flex-start;
     }
 }

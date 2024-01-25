@@ -41,6 +41,7 @@ import Head from 'next/head'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import {
+    PiCircleDashedDuotone,
     PiDropDuotone,
     PiFingerprintSimpleDuotone,
     PiFlagDuotone,
@@ -289,13 +290,6 @@ export default function DocsLayout(props: any) {
                                         fontWeight="semibold">
                                         Documentation
                                     </Heading>
-                                    <Pill
-                                        size="xs"
-                                        color={Token.ColorNeonpink400}
-                                        subtle
-                                        fontWeight={800}>
-                                        v0.1
-                                    </Pill>
                                     <Flexer />
                                 </Header>
                                 <View
@@ -538,67 +532,6 @@ export default function DocsLayout(props: any) {
                                     m="0 0 0 1rem"
                                     spacing={15}
                                     noStretch>
-                                    <Popover
-                                        arrow
-                                        width={310}
-                                        anchor="bottom-center"
-                                        content={
-                                            <View
-                                                p={20}
-                                                column
-                                                gap={10}
-                                                alignItems="flex-start">
-                                                <Heading as="h5">Font Family:</Heading>
-                                                <Options
-                                                    animated
-                                                    width="100%"
-                                                    selected={option}
-                                                    onOptionChange={setOption}>
-                                                    <Option>System Font</Option>
-                                                    <Option>Inter</Option>
-                                                    <Option>DM Sans</Option>
-                                                </Options>
-                                                <Heading as="h5">Color:</Heading>
-                                                <Palette
-                                                    justifyContent="center"
-                                                    gap={1}
-                                                    color={color}
-                                                    colors={[
-                                                        Token.ColorPurple400,
-                                                        Token.ColorNeonpink400,
-                                                        Token.ColorRed400,
-                                                        Token.ColorOrange400,
-                                                        Token.ColorYellow400,
-                                                        Token.ColorGreen400,
-                                                        Token.ColorTeal400,
-                                                        Token.ColorCyan400,
-                                                        Token.ColorElectric400,
-                                                    ]}
-                                                    onChange={setColor}
-                                                />
-                                                <Heading as="h5">Radius:</Heading>
-                                                <Range
-                                                    min={0}
-                                                    max={10}
-                                                    step={1}
-                                                    value={value}
-                                                    onChange={(e) => setValue(e.target.value)}
-                                                />
-                                            </View>
-                                        }
-                                        isVisible={visible}
-                                        onDismiss={hide}>
-                                        <View
-                                            colorToken="neonpink-300"
-                                            m="0 1rem 0 0.5rem"
-                                            className="f-buttonize"
-                                            onClick={show}>
-                                            <Icon
-                                                icon={PiDropDuotone}
-                                                size="lg"
-                                            />
-                                        </View>
-                                    </Popover>
                                     {/* 
                                     <SocialIcon
                                         url="https://github.com/fold-dev/fold"
@@ -655,11 +588,79 @@ export default function DocsLayout(props: any) {
                                             size="lg"
                                         />
                                     </Link>
+                                    <Pill
+                                        size="xs"
+                                        color={Token.ColorNeonpink400}
+                                        subtle
+                                        fontWeight={800}>
+                                        v0.1
+                                    </Pill>
                                     <Link
                                         href="/"
                                         style={{ textWrap: 'nowrap' }}>
                                         <Logo size="sm" />
                                     </Link>
+                                    <Popover
+                                        arrow
+                                        width={310}
+                                        anchor="bottom-right"
+                                        content={
+                                            <View
+                                                p={20}
+                                                column
+                                                gap={10}
+                                                alignItems="flex-start">
+                                                <Heading as="h5">Font Family:</Heading>
+                                                <Options
+                                                    animated
+                                                    width="100%"
+                                                    selected={option}
+                                                    onOptionChange={setOption}>
+                                                    <Option>System Font</Option>
+                                                    <Option>Inter</Option>
+                                                    <Option>DM Sans</Option>
+                                                </Options>
+                                                <Heading as="h5">Color:</Heading>
+                                                <Palette
+                                                    justifyContent="center"
+                                                    gap={1}
+                                                    color={color}
+                                                    colors={[
+                                                        Token.ColorPurple400,
+                                                        Token.ColorNeonpink400,
+                                                        Token.ColorRed400,
+                                                        Token.ColorOrange400,
+                                                        Token.ColorYellow400,
+                                                        Token.ColorGreen400,
+                                                        Token.ColorTeal400,
+                                                        Token.ColorCyan400,
+                                                        Token.ColorElectric400,
+                                                    ]}
+                                                    onChange={setColor}
+                                                />
+                                                <Heading as="h5">Radius:</Heading>
+                                                <Range
+                                                    min={0}
+                                                    max={10}
+                                                    step={1}
+                                                    value={value}
+                                                    onChange={(e) => setValue(e.target.value)}
+                                                />
+                                            </View>
+                                        }
+                                        isVisible={visible}
+                                        onDismiss={hide}>
+                                        <View
+                                            row
+                                            colorToken="accent"
+                                            className="f-buttonize"
+                                            onClick={show}>
+                                            <Icon
+                                                icon={PiCircleDashedDuotone}
+                                                size="lg"
+                                            />
+                                        </View>
+                                    </Popover>
                                     <DarkModeToggle />
                                 </Stack>
                             </Header>
