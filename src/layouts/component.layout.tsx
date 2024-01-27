@@ -1,6 +1,7 @@
 import {
     Breadcrumb,
     BreadcrumbItem,
+    Divider,
     Heading,
     IconLib,
     Link,
@@ -220,6 +221,7 @@ export default function ComponentLayout({ children, docs, props, css }) {
                         </TabPanel>
                     </TabPanels>
                 </Tabs>
+                <Divider />
             </View>
         </View>
     )
