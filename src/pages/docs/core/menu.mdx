@@ -47,7 +47,6 @@ import {
 ```
 
 ### Usage
-<a name="usage"></a>
 
 export const Usage = () => (<Menu>
         <MenuItem>Edit</MenuItem>
@@ -87,7 +86,6 @@ export const Usage = () => (
 )
 ```
 ### Disable Auto Focus
-<a name="disableautofocus"></a>
 
 > Whilst not recommended, the automatic focus on the first item can be disabled
 
@@ -129,7 +127,6 @@ export const DisableAutoFocus = () => (
 )
 ```
 ### Prefix And Suffix
-<a name="prefixandsuffix"></a>
 
 export const PrefixAndSuffix = () => (<Menu>
         <MenuItem prefix={<IconLib icon="pen"/>}>Edit</MenuItem>
@@ -167,7 +164,6 @@ export const PrefixAndSuffix = () => (
 )
 ```
 ### States
-<a name="states"></a>
 
 export const States = () => (<Menu>
         <MenuItem>Normal</MenuItem>
@@ -191,7 +187,6 @@ export const States = () => (
 )
 ```
 ### Option Group
-<a name="optiongroup"></a>
 
 export const OptionGroup = () => (<Menu>
         <MenuOptionGroup title="Favourite State Manager" defaultValue="Context" type="radio">
@@ -226,7 +221,6 @@ export const OptionGroup = () => (
 )
 ```
 ### Submenu
-<a name="submenu"></a>
 
 export const Submenu = () => (<Menu>
         <MenuItem prefix={<IconLib icon="pen"/>}>Edit</MenuItem>
@@ -295,7 +289,6 @@ export const Submenu = () => (
 )
 ```
 ### Context
-<a name="context"></a>
 
 export const Context = () => (<MenuProvider menu={({ data, dismiss }) => (<Menu disableAutoFocus>
                 <MenuHeading>{data.heading ?? 'Context Menu'}</MenuHeading>
@@ -351,7 +344,6 @@ export const Context = () => (
 )
 ```
 ### Dropdown Menu Button
-<a name="dropdownmenubutton"></a>
 
 export const DropdownMenuButton = () => (<MenuButton menu={({ dismiss }) => (<Menu>
                 <MenuItem prefix={<IconLib icon="pen"/>}>Edit</MenuItem>
@@ -388,7 +380,6 @@ export const DropdownMenuButton = () => (
 )
 ```
 ### Menu Bar
-<a name="menubar"></a>
 
 export const MenuBar = () => (<Menu variant="menubar">
         <MenuItem prefix={<IconLib icon="pen"/>}>Edit</MenuItem>

@@ -24,7 +24,6 @@ import { ScrollView, View, Flexer, Flex, Blur } from "@fold-dev/core";
 ```
 
 ### Usage
-<a name="usage"></a>
 
 export const Usage = () => (<View p={50} bgToken="surface-strong">
         <Text>Welcome to Fold!</Text>
@@ -46,7 +45,6 @@ export const Usage = () => (
 )
 ```
 ### Flex
-<a name="flex"></a>
 
 > The Flexer component is an extensible wrapper around the `flex: 1` filler pattern.
 
@@ -75,7 +73,6 @@ export const Flex = () => (
 )
 ```
 ### Shorthand Properties
-<a name="shorthandproperties"></a>
 
 > There are limited set of shorthand properties available on the View component. These properties provide access to common inline styles, as well as Fold Design System styling options.
 The properties have been limited to allow for maximum flexibility & render performance.
@@ -108,7 +105,6 @@ export const ShorthandProperties = () => (
 )
 ```
 ### Vertical Alignment
-<a name="verticalalignment"></a>
 
 > The `align` property is a wrapper for preset alignment CSS classes that are available in Fold.
 These properties are distinct and are seperate to the general flexbox shorthand properties like `row` or `alignItems`.
@@ -281,7 +277,6 @@ export const VerticalAlignment = () => {
 }
 ```
 ### Horizontal Alignment
-<a name="horizontalalignment"></a>
 
 export const HorizontalAlignment = () => {
     const blocks = new Array(5)
@@ -451,7 +446,6 @@ export const HorizontalAlignment = () => {
 }
 ```
 ### Scroll View Stickiness
-<a name="scrollviewstickiness"></a>
 
 export const ScrollViewStickiness = () => {
     const [count, setCount] = useState([...new Array(100)]);
@@ -497,7 +491,6 @@ export const ScrollViewStickiness = () => {
 }
 ```
 ### Scroll View Events
-<a name="scrollviewevents"></a>
 
 export const ScrollViewEvents = () => {
     const [count, _] = useState([...new Array(100)]);
@@ -541,7 +534,6 @@ export const ScrollViewEvents = () => {
 }
 ```
 ### Blur Contents
-<a name="blurcontents"></a>
 
 export const BlurContents = () => (<View width="100%" height={300} position="relative">
         <Blur p={50} column overlay={<SpinnerOverlay />}>

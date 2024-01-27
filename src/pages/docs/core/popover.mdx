@@ -37,7 +37,6 @@ import { PopoverContent, Popover } from "@fold-dev/core";
 ```
 
 ### Usage
-<a name="usage"></a>
 
 export const Usage = () => {
     const { visible, show, hide } = useVisibility(true);
@@ -100,7 +99,6 @@ export const Usage = () => {
 }
 ```
 ### Positions
-<a name="positions"></a>
 
 export const Positions = () => {
     const { visible, show, hide } = useVisibility(true);
@@ -275,7 +273,6 @@ export const Positions = () => {
 }
 ```
 ### Positions With Arrows
-<a name="positionswitharrows"></a>
 
 export const PositionsWithArrows = () => {
     const { visible, show, hide } = useVisibility(true);
@@ -458,7 +455,6 @@ export const PositionsWithArrows = () => {
 }
 ```
 ### Focus Trap With Child Width
-<a name="focustrapwithchildwidth"></a>
 
 export const FocusTrapWithChildWidth = () => {
     const { visible, show, hide } = useVisibility(true);
@@ -516,10 +512,9 @@ export const FocusTrapWithChildWidth = () => {
 }
 ```
 ### Anchor
-<a name="anchor"></a>
 
 export const Anchor = () => {
-    const { visible, show, hide } = useVisibility(true);
+    const { visible, show, hide } = useVisibility(false);
     return (<View position="relative">
             <Popover width={400} anchor="bottom-left" fixPosition={{ top: 200, left: 200 }} content={<Text p={20}>This popover is fixed at 200px down & 200px left.</Text>} isVisible={visible} onDismiss={hide}>
                 <Button id="bottom-right" onClick={show}>
@@ -533,11 +528,11 @@ export const Anchor = () => {
 <Anchor />
 </div>
 
-<CodeComponent filename="Anchor.tsx" code="ZXhwb3J0IGNvbnN0IEFuY2hvciA9ICgpID0+IHsKICAgIGNvbnN0IHsgdmlzaWJsZSwgc2hvdywgaGlkZSB9ID0gdXNlVmlzaWJpbGl0eSh0cnVlKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcgcG9zaXRpb249InJlbGF0aXZlIj4KICAgICAgICAgICAgPFBvcG92ZXIKICAgICAgICAgICAgICAgIHdpZHRoPXs0MDB9CiAgICAgICAgICAgICAgICBhbmNob3I9ImJvdHRvbS1sZWZ0IgogICAgICAgICAgICAgICAgZml4UG9zaXRpb249e3sgdG9wOiAyMDAsIGxlZnQ6IDIwMCB9fQogICAgICAgICAgICAgICAgY29udGVudD17PFRleHQgcD17MjB9PlRoaXMgcG9wb3ZlciBpcyBmaXhlZCBhdCAyMDBweCBkb3duICYgMjAwcHggbGVmdC48L1RleHQ+fQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICBpZD0iYm90dG9tLXJpZ2h0IgogICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9e3Nob3d9PgogICAgICAgICAgICAgICAgICAgIFNob3cgUG9wb3ZlcgogICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDwvUG9wb3Zlcj4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+<CodeComponent filename="Anchor.tsx" code="ZXhwb3J0IGNvbnN0IEFuY2hvciA9ICgpID0+IHsKICAgIGNvbnN0IHsgdmlzaWJsZSwgc2hvdywgaGlkZSB9ID0gdXNlVmlzaWJpbGl0eShmYWxzZSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3IHBvc2l0aW9uPSJyZWxhdGl2ZSI+CiAgICAgICAgICAgIDxQb3BvdmVyCiAgICAgICAgICAgICAgICB3aWR0aD17NDAwfQogICAgICAgICAgICAgICAgYW5jaG9yPSJib3R0b20tbGVmdCIKICAgICAgICAgICAgICAgIGZpeFBvc2l0aW9uPXt7IHRvcDogMjAwLCBsZWZ0OiAyMDAgfX0KICAgICAgICAgICAgICAgIGNvbnRlbnQ9ezxUZXh0IHA9ezIwfT5UaGlzIHBvcG92ZXIgaXMgZml4ZWQgYXQgMjAwcHggZG93biAmIDIwMHB4IGxlZnQuPC9UZXh0Pn0KICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0+CiAgICAgICAgICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgICAgICAgICAgaWQ9ImJvdHRvbS1yaWdodCIKICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXtzaG93fT4KICAgICAgICAgICAgICAgICAgICBTaG93IFBvcG92ZXIKICAgICAgICAgICAgICAgIDwvQnV0dG9uPgogICAgICAgICAgICA8L1BvcG92ZXI+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
 
 ```tsx
 export const Anchor = () => {
-    const { visible, show, hide } = useVisibility(true)
+    const { visible, show, hide } = useVisibility(false)
 
     return (
         <View position="relative">
@@ -559,7 +554,6 @@ export const Anchor = () => {
 }
 ```
 ### Offscreen Detection
-<a name="offscreendetection"></a>
 
 export const OffscreenDetection = () => {
     const { visible, show, hide } = useVisibility(false);
@@ -571,7 +565,7 @@ export const OffscreenDetection = () => {
                     <Button onClick={show}>Show Popover</Button>
                 </Popover>
                 <Flexer />
-                <Popover arrow width="fit-content" isVisible={visible} onDismiss={hide} content={<View width={300} height={200}>
+                <Popover arrow width="fit-content" isVisible={visible} onDismiss={hide} content={<View width={500} height={200}>
                             <Text p={20}>This will open to the left</Text>
                         </View>}>
                     <Button onClick={show}>Show Popover</Button>
@@ -600,7 +594,7 @@ export const OffscreenDetection = () => {
 <OffscreenDetection />
 </div>
 
-<CodeComponent filename="OffscreenDetection.tsx" code="ZXhwb3J0IGNvbnN0IE9mZnNjcmVlbkRldGVjdGlvbiA9ICgpID0+IHsKICAgIGNvbnN0IHsgdmlzaWJsZSwgc2hvdywgaGlkZSB9ID0gdXNlVmlzaWJpbGl0eShmYWxzZSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3PgogICAgICAgICAgICA8VmlldyByb3c+CiAgICAgICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgICAgIGFycm93CiAgICAgICAgICAgICAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50IgogICAgICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9CiAgICAgICAgICAgICAgICAgICAgY29udGVudD17CiAgICAgICAgICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXsyMDB9PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQgcD17MjB9PlRoaXMgd2lsbCBvcGVuIHRvIHRoZSByaWdodDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgICAgIH0+CiAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXtzaG93fT5TaG93IFBvcG92ZXI8L0J1dHRvbj4KICAgICAgICAgICAgICAgIDwvUG9wb3Zlcj4KICAgICAgICAgICAgICAgIDxGbGV4ZXIgLz4KICAgICAgICAgICAgICAgIDxQb3BvdmVyCiAgICAgICAgICAgICAgICAgICAgYXJyb3cKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiCiAgICAgICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0KICAgICAgICAgICAgICAgICAgICBjb250ZW50PXsKICAgICAgICAgICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9ezIwMH0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VGV4dCBwPXsyMH0+VGhpcyB3aWxsIG9wZW4gdG8gdGhlIGxlZnQ8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgICAgICB9PgogICAgICAgICAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17c2hvd30+U2hvdyBQb3BvdmVyPC9CdXR0b24+CiAgICAgICAgICAgICAgICA8L1BvcG92ZXI+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPGJyIC8+CiAgICAgICAgICAgIDxNZW51QnV0dG9uCiAgICAgICAgICAgICAgICBtZW51PXsoeyBkaXNtaXNzIH0pID0+ICgKICAgICAgICAgICAgICAgICAgICA8TWVudSB3aWR0aD17MjAwfT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPkZpbGU8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+RWRpdDwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgICAgIDxNZW51SXRlbT5Db3B5PC9NZW51SXRlbT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPlBhc3RlPC9NZW51SXRlbT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPkN1dDwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgICAgIDxNZW51SXRlbT5TZWxlY3Q8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+U2V0dGluZ3M8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+UHJpbnQ8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+RXhwb3J0PC9NZW51SXRlbT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPlNhdmU8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+RXhpdDwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgPC9NZW51PgogICAgICAgICAgICAgICAgKX0+CiAgICAgICAgICAgICAgICBPcGVuIE1lbnUKICAgICAgICAgICAgPC9NZW51QnV0dG9uPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+<CodeComponent filename="OffscreenDetection.tsx" code="ZXhwb3J0IGNvbnN0IE9mZnNjcmVlbkRldGVjdGlvbiA9ICgpID0+IHsKICAgIGNvbnN0IHsgdmlzaWJsZSwgc2hvdywgaGlkZSB9ID0gdXNlVmlzaWJpbGl0eShmYWxzZSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3PgogICAgICAgICAgICA8VmlldyByb3c+CiAgICAgICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgICAgIGFycm93CiAgICAgICAgICAgICAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50IgogICAgICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9CiAgICAgICAgICAgICAgICAgICAgY29udGVudD17CiAgICAgICAgICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXsyMDB9PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPFRleHQgcD17MjB9PlRoaXMgd2lsbCBvcGVuIHRvIHRoZSByaWdodDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgICAgIH0+CiAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXtzaG93fT5TaG93IFBvcG92ZXI8L0J1dHRvbj4KICAgICAgICAgICAgICAgIDwvUG9wb3Zlcj4KICAgICAgICAgICAgICAgIDxGbGV4ZXIgLz4KICAgICAgICAgICAgICAgIDxQb3BvdmVyCiAgICAgICAgICAgICAgICAgICAgYXJyb3cKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiCiAgICAgICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfQogICAgICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0KICAgICAgICAgICAgICAgICAgICBjb250ZW50PXsKICAgICAgICAgICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPXs1MDB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9ezIwMH0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VGV4dCBwPXsyMH0+VGhpcyB3aWxsIG9wZW4gdG8gdGhlIGxlZnQ8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgICAgICB9PgogICAgICAgICAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17c2hvd30+U2hvdyBQb3BvdmVyPC9CdXR0b24+CiAgICAgICAgICAgICAgICA8L1BvcG92ZXI+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPGJyIC8+CiAgICAgICAgICAgIDxNZW51QnV0dG9uCiAgICAgICAgICAgICAgICBtZW51PXsoeyBkaXNtaXNzIH0pID0+ICgKICAgICAgICAgICAgICAgICAgICA8TWVudSB3aWR0aD17MjAwfT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPkZpbGU8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+RWRpdDwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgICAgIDxNZW51SXRlbT5Db3B5PC9NZW51SXRlbT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPlBhc3RlPC9NZW51SXRlbT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPkN1dDwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgICAgIDxNZW51SXRlbT5TZWxlY3Q8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+U2V0dGluZ3M8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+UHJpbnQ8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+RXhwb3J0PC9NZW51SXRlbT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVJdGVtPlNhdmU8L01lbnVJdGVtPgogICAgICAgICAgICAgICAgICAgICAgICA8TWVudUl0ZW0+RXhpdDwvTWVudUl0ZW0+CiAgICAgICAgICAgICAgICAgICAgPC9NZW51PgogICAgICAgICAgICAgICAgKX0+CiAgICAgICAgICAgICAgICBPcGVuIE1lbnUKICAgICAgICAgICAgPC9NZW51QnV0dG9uPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
 
 ```tsx
 export const OffscreenDetection = () => {
@@ -631,7 +625,7 @@ export const OffscreenDetection = () => {
                     onDismiss={hide}
                     content={
                         <View
-                            width={300}
+                            width={500}
                             height={200}>
                             <Text p={20}>This will open to the left</Text>
                         </View>

@@ -23,7 +23,6 @@ import { ImagePlaceholder, Image } from "@fold-dev/core";
 ```
 
 ### Usage
-<a name="usage"></a>
 
 export const Usage = () => (<Image objectFit="cover" src="/photos/01.jpg" width={250} height={250}/>);
 
@@ -44,7 +43,6 @@ export const Usage = () => (
 )
 ```
 ### Failed To Load Image
-<a name="failedtoloadimage"></a>
 
 export const FailedToLoadImage = () => (<Image objectFit="cover" src="something-incorrect" width={250} height={250} errorContent={<Text>Something has gone wrong!</Text>}/>);
 
@@ -66,7 +64,6 @@ export const FailedToLoadImage = () => (
 )
 ```
 ### Custom Loading Placeholder
-<a name="customloadingplaceholder"></a>
 
 export const CustomLoadingPlaceholder = () => {
     const Custom = () => (<View p={10} width="100%">
