@@ -2,31 +2,27 @@ import DocsLayout from '@/layouts/docs.layout'
 import {
     Breadcrumb,
     BreadcrumbItem,
-    Card,
-    Grid,
     Heading,
-    Icon,
     Link,
     Stack,
     Text,
-    Timeline,
-    TimelineItem,
-    View,
+    View
 } from '@fold-dev/core'
-import { CodeComponent } from '../components/code.component'
-import React from 'react'
-import {
-    LifebuoyIcon,
-    PaintBrushIcon,
-    QuestionMarkCircleIcon,
-    RectangleGroupIcon,
-    SwatchIcon,
-} from '@heroicons/react/24/outline'
 import { NextPageContext } from 'next'
 import { Octokit } from 'octokit'
+import React from 'react'
+import { remark } from 'remark'
+import html from 'remark-html'
+
+async function markdownToHtml(markdown: string) {
+    const result = await remark().use(html).process(markdown)
+    return result.toString()
+}
 
 export default function Releases(props) {
-    const { data } = props
+    const { data, content } = props
+
+    console.log(content, data)
 
     return (
         <View
@@ -42,19 +38,14 @@ export default function Releases(props) {
 
             {/* https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#list-releases-for-a-repository */}
             
-            <Timeline>
-                {data.map(({ url, name, tag_name, body }, index) => (
-                    <TimelineItem colorToken="text">
-                        <Stack direction="vertical" spacing={10}>
-                            <Heading as="h3">{name}</Heading>
-                            <Text as="blockquote">{tag_name}</Text>
-                            <Text fontWeight="semibold">{body}</Text>
-                            <Link size="sm" target="_blank" href={url}>View release</Link>
-                        </Stack>
-                    </TimelineItem>
-                ))}
-            </Timeline> 
-            
+            {data.map(({ html_url, name, tag_name, body }, index) => (
+                <Stack direction="vertical" spacing={10} key={index}>
+                    <Heading as="h3" fontWeight={700}>{name}</Heading>
+                    <Text as="blockquote">Tag: {tag_name}</Text>
+                    {/* <Text fontWeight="semibold">{body}</Text> */}
+                    <Link target="_blank" href={html_url}>View release on GitHub</Link>
+                </Stack>
+            ))}            
         </View>
     )
 }
@@ -72,6 +63,8 @@ Releases.getInitialProps = async (ctx: NextPageContext) => {
                 'X-GitHub-Api-Version': '2022-11-28',
             },
         })
+
+        //const content = await markdownToHtml(result.data.body)
 
         return { data: result.data }
     } catch (e) {
