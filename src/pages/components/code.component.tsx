@@ -45,6 +45,7 @@ export const CodeComponent = ({
         <>
             <View
                 row
+                zIndex={0}
                 m="1rem 0 -1rem 0">
                 <Copy
                     prefix={<Icon icon={DocumentIcon} />}
