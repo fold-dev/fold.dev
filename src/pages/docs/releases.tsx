@@ -3,6 +3,7 @@ import {
     Breadcrumb,
     BreadcrumbItem,
     Heading,
+    Icon,
     Link,
     Stack,
     Text,
@@ -11,6 +12,7 @@ import {
 import { NextPageContext } from 'next'
 import { Octokit } from 'octokit'
 import React from 'react'
+import { PiTagDuotone } from 'react-icons/pi'
 import { remark } from 'remark'
 import html from 'remark-html'
 
@@ -41,7 +43,10 @@ export default function Releases(props) {
             {data.map(({ html_url, name, tag_name, body }, index) => (
                 <Stack direction="vertical" spacing={10} key={index}>
                     <Heading as="h3" fontWeight={700}>{name}</Heading>
-                    <Text as="blockquote">Tag: {tag_name}</Text>
+                    <View row gap={5} justifyContent="flex-start">
+                        <Icon icon={PiTagDuotone} size="sm" color="var(--f-color-accent)" />
+                        <Text>{tag_name}</Text>
+                    </View>
                     {/* <Text fontWeight="semibold">{body}</Text> */}
                     <Link target="_blank" href={html_url}>View release on GitHub</Link>
                 </Stack>
