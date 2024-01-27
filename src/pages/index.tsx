@@ -834,13 +834,12 @@ const sparkline = [
 
 export const NormalDatePicker = () => {
     const [date, setDate] = useState(new Date())
-    const { today, tomorrow } = useMemo(() => {
-        const today = new Date()
-        const tomorrow = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000)
-
-        return { today, tomorrow }
+    const { firstDay, lastDay } = useMemo(() => {
+        const firstDay = new Date(date.getFullYear(), date.getMonth(), 14);
+        const lastDay = new Date(date.getFullYear(), date.getMonth(), 18);
+        return { firstDay, lastDay }
     }, [])
-    const [selection, setSelection] = useState<any[]>([[today, tomorrow]])
+    const [selection, setSelection] = useState<any[]>([[firstDay, lastDay]])
 
     const handleSelection = (date: Date) => {
         if (selection.length == 0) {
