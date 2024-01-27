@@ -656,7 +656,7 @@ export default function DocsLayout(props: any) {
                             <View
                                 row
                                 flex={1}
-                                bgToken="surface"
+                                bgToken="surface-strong"
                                 width="100%"
                                 justifyContent="flex-start"
                                 alignItems="flex-start"
