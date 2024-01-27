@@ -270,25 +270,23 @@ export const InputField = () => {
 ```
 ### Observer
 
-> Listen for any mutations on DOM elements (experimental)
+> Tracks mutations on a DOM element (experimental)
 
 export const Observer = () => {
     const mutationRecord = useObserver(documentObject.documentElement);
-    return <View />;
+    return <Text>Example coming soon</Text>;
 };
 
 <div className="story-block">
 <Observer />
 </div>
 
-<CodeComponent filename="Observer.tsx" code="ZXhwb3J0IGNvbnN0IE9ic2VydmVyID0gKCkgPT4gewogICAgCiAgICBjb25zdCBtdXRhdGlvblJlY29yZDogTXV0YXRpb25SZWNvcmQgPSB1c2VPYnNlcnZlcihkb2N1bWVudE9iamVjdC5kb2N1bWVudEVsZW1lbnQpCgogICAgcmV0dXJuIDxWaWV3IC8+Cn0=" />
+<CodeComponent filename="Observer.tsx" code="ZXhwb3J0IGNvbnN0IE9ic2VydmVyID0gKCkgPT4gewogICAgY29uc3QgbXV0YXRpb25SZWNvcmQ6IE11dGF0aW9uUmVjb3JkID0gdXNlT2JzZXJ2ZXIoZG9jdW1lbnRPYmplY3QuZG9jdW1lbnRFbGVtZW50KQogICAgcmV0dXJuIDxUZXh0PkV4YW1wbGUgY29taW5nIHNvb248L1RleHQ+Cn0=" />
 
 ```tsx
 export const Observer = () => {
-    
     const mutationRecord: MutationRecord = useObserver(documentObject.documentElement)
-
-    return <View />
+    return <Text>Example coming soon</Text>
 }
 ```
 ### Pubsub
@@ -318,35 +316,36 @@ export const Pubsub = () => {
 ### Storage
 
 > Interact with LocalStorage
+`getSafeStorage` returns an empty string if there is no value
 
 export const Storage = () => {
     const { getStorage, getSafeStorage, setStorage, deleteStorage, } = useStorage();
     const { isCached, deleteCache, getSafeCache, setCache, } = useCacheValue('foobar');
-    return <View />;
+    return <Text>Example coming soon</Text>;
 };
 
 <div className="story-block">
 <Storage />
 </div>
 
-<CodeComponent filename="Storage.tsx" code="ZXhwb3J0IGNvbnN0IFN0b3JhZ2UgPSAoKSA9PiB7CiAgICBjb25zdCB7CiAgICAgICAgZ2V0U3RvcmFnZSwKICAgICAgICBnZXRTYWZlU3RvcmFnZSwgCiAgICAgICAgc2V0U3RvcmFnZSwKICAgICAgICBkZWxldGVTdG9yYWdlLAogICAgfSA9IHVzZVN0b3JhZ2UoKQogICAgY29uc3QgewogICAgICAgIGlzQ2FjaGVkLAogICAgICAgIGRlbGV0ZUNhY2hlLAogICAgICAgIGdldFNhZmVDYWNoZSwgCiAgICAgICAgc2V0Q2FjaGUsCiAgICB9ID0gdXNlQ2FjaGVWYWx1ZSgnZm9vYmFyJykKCiAgICByZXR1cm4gPFZpZXcgLz4KfQ==" />
+<CodeComponent filename="Storage.tsx" code="ZXhwb3J0IGNvbnN0IFN0b3JhZ2UgPSAoKSA9PiB7CiAgICBjb25zdCB7CiAgICAgICAgZ2V0U3RvcmFnZSwKICAgICAgICBnZXRTYWZlU3RvcmFnZSwKICAgICAgICBzZXRTdG9yYWdlLAogICAgICAgIGRlbGV0ZVN0b3JhZ2UsCiAgICB9ID0gdXNlU3RvcmFnZSgpCiAgICBjb25zdCB7CiAgICAgICAgaXNDYWNoZWQsCiAgICAgICAgZGVsZXRlQ2FjaGUsCiAgICAgICAgZ2V0U2FmZUNhY2hlLAogICAgICAgIHNldENhY2hlLAogICAgfSA9IHVzZUNhY2hlVmFsdWUoJ2Zvb2JhcicpCgogICAgcmV0dXJuIDxUZXh0PkV4YW1wbGUgY29taW5nIHNvb248L1RleHQ+Cn0=" />
 
 ```tsx
 export const Storage = () => {
     const {
         getStorage,
-        getSafeStorage, 
+        getSafeStorage,
         setStorage,
         deleteStorage,
     } = useStorage()
     const {
         isCached,
         deleteCache,
-        getSafeCache, 
+        getSafeCache,
         setCache,
     } = useCacheValue('foobar')
 
-    return <View />
+    return <Text>Example coming soon</Text>
 }
 ```
 ### Tab Visibility
@@ -354,21 +353,37 @@ export const Storage = () => {
 > Listen to tab visibility events (when a tab becomes visible or hidden)
 
 export const TabVisibility = () => {
-    useTabVisibility((e) => alert('Welcome back!'));
-    return <View />;
+    const [text, setText] = useState('');
+    useTabVisibility((e) => {
+        const date = new Date();
+        const seconds = date.getSeconds();
+        const minutes = date.getMinutes();
+        const hour = date.getHours();
+        setText(`Time is ${hour}:${minutes}:${seconds}`);
+    });
+    return <Text>{text || 'Change tabs & come back'}</Text>;
 };
 
 <div className="story-block">
 <TabVisibility />
 </div>
 
-<CodeComponent filename="TabVisibility.tsx" code="ZXhwb3J0IGNvbnN0IFRhYlZpc2liaWxpdHkgPSAoKSA9PiB7CiAgICB1c2VUYWJWaXNpYmlsaXR5KChlKSA9PiBhbGVydCgnV2VsY29tZSBiYWNrIScpKQoKICAgIHJldHVybiA8VmlldyAvPgp9" />
+<CodeComponent filename="TabVisibility.tsx" code="ZXhwb3J0IGNvbnN0IFRhYlZpc2liaWxpdHkgPSAoKSA9PiB7CiAgICBjb25zdCBbdGV4dCwgc2V0VGV4dF0gPSB1c2VTdGF0ZSgnJykKCiAgICB1c2VUYWJWaXNpYmlsaXR5KChlKSA9PiB7CiAgICAgICAgY29uc3QgZGF0ZSA9IG5ldyBEYXRlKCkKICAgICAgICBjb25zdCBzZWNvbmRzID0gZGF0ZS5nZXRTZWNvbmRzKCk7CiAgICAgICAgY29uc3QgbWludXRlcyA9IGRhdGUuZ2V0TWludXRlcygpOwogICAgICAgIGNvbnN0IGhvdXIgPSBkYXRlLmdldEhvdXJzKCk7CgogICAgICAgIHNldFRleHQoYFRpbWUgaXMgJHtob3VyfToke21pbnV0ZXN9OiR7c2Vjb25kc31gKQogICAgfSkKCiAgICByZXR1cm4gPFRleHQ+eyB0ZXh0IHx8ICdDaGFuZ2UgdGFicyAmIGNvbWUgYmFjayd9PC9UZXh0Pgp9" />
 
 ```tsx
 export const TabVisibility = () => {
-    useTabVisibility((e) => alert('Welcome back!'))
+    const [text, setText] = useState('')
 
-    return <View />
+    useTabVisibility((e) => {
+        const date = new Date()
+        const seconds = date.getSeconds();
+        const minutes = date.getMinutes();
+        const hour = date.getHours();
+
+        setText(`Time is ${hour}:${minutes}:${seconds}`)
+    })
+
+    return <Text>{ text || 'Change tabs & come back'}</Text>
 }
 ```
 ### Theme
