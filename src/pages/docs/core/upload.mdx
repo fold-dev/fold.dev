@@ -24,7 +24,6 @@ import { Upload, UploadArea, UploadCustom } from "@fold-dev/core";
 ```
 
 ### Usage
-<a name="usage"></a>
 
 export const Usage = () => (<Upload title="Upload" description="Click or drop your files here to begin your upload." onDrop={(files) => console.log('Your files: ', files)}/>);
 
@@ -44,7 +43,6 @@ export const Usage = () => (
 )
 ```
 ### States
-<a name="states"></a>
 
 export const States = () => (<Stack direction="vertical" spacing={10}>
         <Upload title="Default" description="Click or drop your files here to begin your upload." onDrop={(files) => console.log('Your files: ', files)}/>
@@ -99,7 +97,6 @@ export const States = () => (
 )
 ```
 ### Upload Target
-<a name="uploadtarget"></a>
 
 export const UploadTarget = () => (<UploadArea onDrop={(files) => console.log('Your files: ', files)}>
         {(over) => (<View row p={50} width="100%" height={500} bgToken="surface-strong" border={over ? '0.3rem dashed var(--f-color-accent)' : undefined}>
@@ -131,7 +128,6 @@ export const UploadTarget = () => (
 )
 ```
 ### Custom Upload
-<a name="customupload"></a>
 
 export const CustomUpload = () => (<UploadCustom inputProps={{ accept: '.png,.jpg,.jpeg' }} onChange={(files) => console.log('Your files: ', files)}>
         {(onSelect) => <Button onClick={onSelect}>Upload Image</Button>}

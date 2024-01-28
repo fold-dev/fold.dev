@@ -1,14 +1,6 @@
 import DocsLayout from '@/layouts/docs.layout'
-import { Breadcrumb, BreadcrumbItem, Card, Grid, Heading, Icon, Link, Text, View } from '@fold-dev/core'
-import { CodeComponent } from '../components/code.component'
+import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View } from '@fold-dev/core'
 import React from 'react'
-import {
-    LifebuoyIcon,
-    PaintBrushIcon,
-    QuestionMarkCircleIcon,
-    RectangleGroupIcon,
-    SwatchIcon,
-} from '@heroicons/react/24/outline'
 
 export default function Community(props) {
     return (

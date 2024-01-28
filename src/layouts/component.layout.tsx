@@ -1,6 +1,7 @@
 import {
     Breadcrumb,
     BreadcrumbItem,
+    Divider,
     Heading,
     IconLib,
     Link,
@@ -42,41 +43,43 @@ export default function ComponentLayout({ children, docs, props, css }) {
 
     return (
         <View className="styled-content">
-            <View p="30px 30px 0 30px">
-                <Breadcrumb>
-                    <BreadcrumbItem>Documentation</BreadcrumbItem>
-                    <BreadcrumbItem>Components</BreadcrumbItem>
-                    <BreadcrumbItem active>{docs.title}</BreadcrumbItem>
-                </Breadcrumb>
+            <View className="styled-content" bgToken="surface" p="0 0 1rem 0">
+                <View p="30px 30px 0 30px">
+                    <Breadcrumb>
+                        <BreadcrumbItem>Documentation</BreadcrumbItem>
+                        <BreadcrumbItem>Components</BreadcrumbItem>
+                        <BreadcrumbItem active>{docs.title}</BreadcrumbItem>
+                    </Breadcrumb>
+                </View>
+                <Heading
+                    fontWeight="bold"
+                    p="0px 30px">
+                    {docs.title}
+                </Heading>
+                <Heading
+                    as="h2"
+                    p="0 30px">
+                    {docs.subtitle}
+                </Heading>
+                <Text
+                    p="0 30px"
+                    size="lg"
+                    fontWeight={300}>
+                    {docs.description}
+                </Text>
+                {docs.experimental && (
+                    <Notification
+                        variant="warning"
+                        m="0 30px">
+                        <NotificationIcon>
+                            <IconLib icon="warning" />
+                        </NotificationIcon>
+                        <NotificationContent>Please note: this is an experimental component.</NotificationContent>
+                    </Notification>
+                )}
             </View>
-            <Heading
-                fontWeight="bold"
-                p="0px 30px">
-                {docs.title}
-            </Heading>
-            <Heading
-                as="h2"
-                p="0 30px">
-                {docs.subtitle}
-            </Heading>
-            <Text
-                p="0 30px"
-                size="lg"
-                fontWeight={300}>
-                {docs.description}
-            </Text>
-            {docs.experimental && (
-                <Notification
-                    variant="warning"
-                    m="0 30px">
-                    <NotificationIcon>
-                        <IconLib icon="warning" />
-                    </NotificationIcon>
-                    <NotificationContent>Please note: this is an experimental component.</NotificationContent>
-                </Notification>
-            )}
             <View
-                m="1rem 0 0 0"
+                bgToken="surface"
                 width="100%">
                 <Tabs
                     animated
@@ -218,6 +221,7 @@ export default function ComponentLayout({ children, docs, props, css }) {
                         </TabPanel>
                     </TabPanels>
                 </Tabs>
+                <Divider />
             </View>
         </View>
     )

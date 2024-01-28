@@ -31,6 +31,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/router'
 import React, { useEffect, useMemo, useState } from 'react'
+import { PiCubeDuotone } from 'react-icons/pi'
 
 export const plural = (qty, str) => (qty == 1 ? str : str + 's')
 
@@ -38,18 +39,9 @@ const SearchRow = ({ title, description, resource, type, selected, onSelect }) =
     const [over, setOver] = useState(false)
     const icon = useMemo(() => {
         switch (type) {
-            case 'message':
-                return ChatBubbleBottomCenterIcon
-            case 'task':
-                return CheckCircleIcon
-            case 'task-comment':
-                return ChatBubbleLeftEllipsisIcon
-            case 'user':
-                return UserIcon
-            case 'channel':
-                return HashtagIcon
+            // room for others (eventually)
             default:
-                return CubeIcon
+                return PiCubeDuotone
         }
     }, [type])
 
@@ -233,4 +225,4 @@ export const SearchComponent = (props: any) => {
     )
 }
 
-export default () => <div></div>
+export default SearchComponent

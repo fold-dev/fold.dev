@@ -93,9 +93,19 @@ body {
     background: var(--f-color-surface);
     border-radius: var(--f-radius);
     box-shadow: var(--f-shadow-card); 
-    /* background-image: radial-gradient(var(--f-color-surface-strong) 1px, transparent 0); */
+    background-image: radial-gradient(var(--f-color-surface-strong) 1px, transparent 0);
     background-size: 8px 8px;
     background-position: -19px -19px;
+    z-index: 1;
+}
+
+.story-block .f-menu > * {
+    z-index: 1 !important;
+}
+
+[data-rehype-pretty-code-figure],
+[data-rehype-pretty-code-figure] * {
+    z-index: 0;
 }
 
 .styled-content > h1,
@@ -171,6 +181,10 @@ body {
     background: var(--f-color-surface);
 }
 
+.f-header .f-popout-bottom-right.has-arrow {
+    left: 40px;
+}
+
 @media only screen and (max-device-width: 640px),
     only screen and (max-device-width: 667px),
     only screen and (max-width: 480px) {
@@ -207,15 +221,5 @@ body {
         font-size: 1.5rem;
         padding: 10px;
         padding-left: 0px;
-    }
-
-    form {
-        padding: 10px;
-        padding-left: 0px;
-        width: 100%;
-        flex-wrap: wrap;
-        align-content: flex-start;
-        justify-content: flex-start;
-        align-items: flex-start;
     }
 }

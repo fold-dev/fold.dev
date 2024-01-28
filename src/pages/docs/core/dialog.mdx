@@ -1,7 +1,7 @@
 import { CodeComponent } from '@/pages/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
-import { Button, Dialog, Flexer, Heading, Input, Stack, Text, useVisibility, View } from '@fold-dev/core'
+import { Button, Dialog, Flexer, Heading, Input, Portal, Stack, Text, useVisibility, View } from '@fold-dev/core'
 import React, { useState } from 'react'
 
 export const docs = {
@@ -23,14 +23,13 @@ import { Dialog } from "@fold-dev/core";
 ```
 
 ### Usage
-<a name="usage"></a>
 
 export const Usage = () => {
     const { visible, show, hide } = useVisibility(false);
     return (<View>
             <Button onClick={show}>Show Dialog</Button>
 
-            <Dialog closeButton isVisible={visible} title="Empty Trash?" description="This cannot be undone & you will lose the data forever. Sure you want to continue?" onDismiss={hide} footer={<View row gap={10} width="100%">
+            <Dialog portal={Portal} closeButton isVisible={visible} title="Empty Trash?" description="This cannot be undone & you will lose the data forever. Sure you want to continue?" onDismiss={hide} footer={<View row gap={10} width="100%">
                         <Button onClick={hide}>Cancel</Button>
                         <Flexer />
                         <Button onClick={hide} variant="danger" outline>
@@ -44,7 +43,7 @@ export const Usage = () => {
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXc+CiAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17c2hvd30+U2hvdyBEaWFsb2c8L0J1dHRvbj4KCiAgICAgICAgICAgIDxEaWFsb2cKICAgICAgICAgICAgICAgIGNsb3NlQnV0dG9uCiAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgICAgICB0aXRsZT0iRW1wdHkgVHJhc2g/IgogICAgICAgICAgICAgICAgZGVzY3JpcHRpb249IlRoaXMgY2Fubm90IGJlIHVuZG9uZSAmIHlvdSB3aWxsIGxvc2UgdGhlIGRhdGEgZm9yZXZlci4gU3VyZSB5b3Ugd2FudCB0byBjb250aW51ZT8iCiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9CiAgICAgICAgICAgICAgICBmb290ZXI9ewogICAgICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17aGlkZX0+Q2FuY2VsPC9CdXR0b24+CiAgICAgICAgICAgICAgICAgICAgICAgIDxGbGV4ZXIgLz4KICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17aGlkZX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBFbXB0eQogICAgICAgICAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXc+CiAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17c2hvd30+U2hvdyBEaWFsb2c8L0J1dHRvbj4KCiAgICAgICAgICAgIDxEaWFsb2cKICAgICAgICAgICAgICAgIHBvcnRhbD17UG9ydGFsfQogICAgICAgICAgICAgICAgY2xvc2VCdXR0b24KICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgIHRpdGxlPSJFbXB0eSBUcmFzaD8iCiAgICAgICAgICAgICAgICBkZXNjcmlwdGlvbj0iVGhpcyBjYW5ub3QgYmUgdW5kb25lICYgeW91IHdpbGwgbG9zZSB0aGUgZGF0YSBmb3JldmVyLiBTdXJlIHlvdSB3YW50IHRvIGNvbnRpbnVlPyIKICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0KICAgICAgICAgICAgICAgIGZvb3Rlcj17CiAgICAgICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXtoaWRlfT5DYW5jZWw8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICAgICAgPEZsZXhlciAvPgogICAgICAgICAgICAgICAgICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXtoaWRlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIEVtcHR5CiAgICAgICAgICAgICAgICAgICAgICAgIDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
 
 ```tsx
 export const Usage = () => {
@@ -55,6 +54,7 @@ export const Usage = () => {
             <Button onClick={show}>Show Dialog</Button>
 
             <Dialog
+                portal={Portal}
                 closeButton
                 isVisible={visible}
                 title="Empty Trash?"
@@ -81,7 +81,6 @@ export const Usage = () => {
 }
 ```
 ### Advanced Layout
-<a name="advancedlayout"></a>
 
 export const AdvancedLayout = () => {
     const { visible, show, hide } = useVisibility(false);
@@ -90,7 +89,7 @@ export const AdvancedLayout = () => {
     return (<View>
             <Button onClick={show}>Show Dialog</Button>
 
-            <Dialog isVisible={visible} onDismiss={hide} header={<Stack direction="vertical" spacing={5}>
+            <Dialog portal={Portal} isVisible={visible} onDismiss={hide} header={<Stack direction="vertical" spacing={5}>
                         <Heading as="h3">Profile Setup</Heading>
                         <Text size="sm" colorToken="text-weaker">
                             Please enter all your details correctly.
@@ -114,7 +113,7 @@ export const AdvancedLayout = () => {
 <AdvancedLayout />
 </div>
 
-<CodeComponent filename="AdvancedLayout.tsx" code="ZXhwb3J0IGNvbnN0IEFkdmFuY2VkTGF5b3V0ID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQogICAgY29uc3QgW25hbWUsIHNldE5hbWVdID0gdXNlU3RhdGUoJycpCiAgICBjb25zdCBbc3VybmFtZSwgc2V0U3VybmFtZV0gPSB1c2VTdGF0ZSgnJykKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3PgogICAgICAgICAgICA8QnV0dG9uIG9uQ2xpY2s9e3Nob3d9PlNob3cgRGlhbG9nPC9CdXR0b24+CgogICAgICAgICAgICA8RGlhbG9nCiAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2hpZGV9CiAgICAgICAgICAgICAgICBoZWFkZXI9ewogICAgICAgICAgICAgICAgICAgIDxTdGFjawogICAgICAgICAgICAgICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICAgICAgICAgICAgICBzcGFjaW5nPXs1fT4KICAgICAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5Qcm9maWxlIFNldHVwPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LXdlYWtlciI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBQbGVhc2UgZW50ZXIgYWxsIHlvdXIgZGV0YWlscyBjb3JyZWN0bHkuCiAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8L1N0YWNrPgogICAgICAgICAgICAgICAgfQogICAgICAgICAgICAgICAgZm9vdGVyPXsKICAgICAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICA8QnV0dG9uIG9uQ2xpY2s9e2hpZGV9PkNhbmNlbDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9e2hpZGV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgU2F2ZQogICAgICAgICAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICAgICB9PgogICAgICAgICAgICAgICAgPFN0YWNrCiAgICAgICAgICAgICAgICAgICAgc3BhY2luZz17MTB9CiAgICAgICAgICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgICAgIGF1dG9Gb2N1cwogICAgICAgICAgICAgICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciBuYW1lIgogICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17bmFtZX0KICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXROYW1lKGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlBsZWFzZSBlbnRlciBzdXJuYW1lIgogICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17c3VybmFtZX0KICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRTdXJuYW1lKGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9TdGFjaz4KICAgICAgICAgICAgPC9EaWFsb2c+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+<CodeComponent filename="AdvancedLayout.tsx" code="ZXhwb3J0IGNvbnN0IEFkdmFuY2VkTGF5b3V0ID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQogICAgY29uc3QgW25hbWUsIHNldE5hbWVdID0gdXNlU3RhdGUoJycpCiAgICBjb25zdCBbc3VybmFtZSwgc2V0U3VybmFtZV0gPSB1c2VTdGF0ZSgnJykKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3PgogICAgICAgICAgICA8QnV0dG9uIG9uQ2xpY2s9e3Nob3d9PlNob3cgRGlhbG9nPC9CdXR0b24+CgogICAgICAgICAgICA8RGlhbG9nCiAgICAgICAgICAgICAgICBwb3J0YWw9e1BvcnRhbH0KICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0KICAgICAgICAgICAgICAgIGhlYWRlcj17CiAgICAgICAgICAgICAgICAgICAgPFN0YWNrCiAgICAgICAgICAgICAgICAgICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgICAgICAgICAgICAgICAgIHNwYWNpbmc9ezV9PgogICAgICAgICAgICAgICAgICAgICAgICA8SGVhZGluZyBhcz0iaDMiPlByb2ZpbGUgU2V0dXA8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49InRleHQtd2Vha2VyIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIFBsZWFzZSBlbnRlciBhbGwgeW91ciBkZXRhaWxzIGNvcnJlY3RseS4KICAgICAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDwvU3RhY2s+CiAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBmb290ZXI9ewogICAgICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17aGlkZX0+Q2FuY2VsPC9CdXR0b24+CiAgICAgICAgICAgICAgICAgICAgICAgIDxGbGV4ZXIgLz4KICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17aGlkZX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBTYXZlCiAgICAgICAgICAgICAgICAgICAgICAgIDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgIH0+CiAgICAgICAgICAgICAgICA8U3RhY2sKICAgICAgICAgICAgICAgICAgICBzcGFjaW5nPXsxMH0KICAgICAgICAgICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgICAgICAgICAgYXV0b0ZvY3VzCiAgICAgICAgICAgICAgICAgICAgICAgIHNpemU9ImxnIgogICAgICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIG5hbWUiCiAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlPXtuYW1lfQogICAgICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldE5hbWUoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgICAgIHNpemU9ImxnIgogICAgICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iUGxlYXNlIGVudGVyIHN1cm5hbWUiCiAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlPXtzdXJuYW1lfQogICAgICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFN1cm5hbWUoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L1N0YWNrPgogICAgICAgICAgICA8L0RpYWxvZz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
 
 ```tsx
 export const AdvancedLayout = () => {
@@ -127,6 +126,7 @@ export const AdvancedLayout = () => {
             <Button onClick={show}>Show Dialog</Button>
 
             <Dialog
+                portal={Portal}
                 isVisible={visible}
                 onDismiss={hide}
                 header={

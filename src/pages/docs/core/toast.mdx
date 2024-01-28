@@ -24,7 +24,6 @@ import { Toast, ToastContainer } from "@fold-dev/core";
 ```
 
 ### Usage
-<a name="usage"></a>
 
 export const Usage = () => (<Toast message="Converting your document to PDF format." prefix={<IconLib icon="warning"/>}/>);
 
@@ -43,7 +42,6 @@ export const Usage = () => (
 )
 ```
 ### Progress Meter And Icon
-<a name="progressmeterandicon"></a>
 
 export const ProgressMeterAndIcon = () => (<Toast message="Converting your document to PDF format." prefix={<IconLib icon="warning"/>} showProgress={true} delay={2000}/>);
 
@@ -64,7 +62,6 @@ export const ProgressMeterAndIcon = () => (
 )
 ```
 ### Variants
-<a name="variants"></a>
 
 export const Variants = () => (<Stack direction="vertical" spacing={10}>
         <Toast message="Converting your document to PDF format." prefix={<IconLib icon="warning"/>} delay={1000} variant="accent" showProgress={true}/>
@@ -140,7 +137,6 @@ export const Variants = () => (
 )
 ```
 ### Anchors
-<a name="anchors"></a>
 
 export const Anchors = () => {
     const { showToast } = useToast();
@@ -197,7 +193,6 @@ export const Anchors = () => {
 }
 ```
 ### Custom Component
-<a name="customcomponent"></a>
 
 export const CustomComponent = () => {
     const { showToast } = useToast();

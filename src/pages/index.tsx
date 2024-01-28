@@ -1,135 +1,787 @@
-import React from 'react'
-import * as Token from '@fold-dev/design/tokens'
 import {
-    Affix,
     Attachment,
     Avatar,
     Badge,
+    Button,
     ButtonGroup,
     Card,
+    Cookie,
     Copy,
     DarkModeButton,
     DarkModeToggle,
+    DatePicker,
     DateRangeProvider,
     Divider,
     Flexer,
     FoldProvider,
+    Grid,
+    GridItem,
     Header,
     Heading,
     IconLib,
     Image,
-    Input,
-    Logo,
+    Li,
+    Link,
+    List,
     LogoSolid,
     Menu,
     MenuItemOption,
     MenuOptionGroup,
+    Option,
+    Options,
+    Palette,
     Pill,
+    Range,
     ScrollingDatePicker,
     SkipNavMain,
     Sparkline,
     Stack,
     Tab,
     TabList,
-    TabPanel,
-    TabPanels,
     Tabs,
     Text,
     Timeline,
     TimelineItem,
     View,
-    documentObject,
     useCacheValue,
-    useVisibility,
-    Button,
-    Cookie,
-    Grid,
-    GridItem,
-    Li,
-    List,
-    Navigation,
-    NavigationItem,
-    Link,
-    Options,
-    Option,
-    Toggle,
     useCheck,
+    useVisibility,
 } from '@fold-dev/core'
+import * as Token from '@fold-dev/design/tokens'
 import Head from 'next/head'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { SocialIcon } from 'react-social-icons'
 import MobileComponent from './components/mobile.component'
 
-const ScrollingPicker = () => {
-    const { today, tomorrow, day1, day2, disabled1, disabled2 } = useMemo(() => {
-        const today = new Date()
-        const tomorrow = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000)
-        const day1 = new Date(today.getTime() + 3 * 24 * 60 * 60 * 1000)
-        const day2 = new Date(today.getTime() + 6 * 24 * 60 * 60 * 1000)
-        const disabled1 = new Date(today.getTime() - 6 * 24 * 60 * 60 * 1000)
-        const disabled2 = new Date(today.getTime() - 3 * 24 * 60 * 60 * 1000)
-        const disabledMonth1 = new Date(today.getTime() - 196 * 24 * 60 * 60 * 1000)
-        const disabledMonth2 = new Date(today.getTime() - 93 * 24 * 60 * 60 * 1000)
-        const disabledYear1 = new Date(today.getFullYear() - 3, 1, 1)
-        const disabledYear2 = new Date(today.getFullYear() - 2, 1, 1)
-        return {
-            today,
-            tomorrow,
-            day1,
-            day2,
-            disabled1,
-            disabled2,
-        }
-    }, [])
-    const ref = useRef(null)
-    const [date, setDate] = useState(new Date())
-    const [selection, setSelection] = useState<any[]>([
-        [today, tomorrow],
-        [day1, day2],
-    ])
-
-    const handleSelection = (date: Date) => {
-        if (selection.length == 0) {
-            setSelection([[date, null]])
-        } else {
-            const selected = selection[0]
-            if (!selected[0]) return setSelection([date, null])
-            if (!!selected[0] && !!selected[1]) return setSelection([[date, null]])
-            if (!!selected[0] && !selected[1])
-                return setSelection(selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]])
-        }
+export const colors = {
+    purple: `
+    :root {
+        --f-color-accent-50: #faf5ff;
+        --f-color-accent-100: #e9d8fd;
+        --f-color-accent-200: #d6bcfa;
+        --f-color-accent-300: #b794f4;
+        --f-color-accent-400: #9f7aea;
+        --f-color-accent-500: #805ad5;
+        --f-color-accent-600: #6b46c1;
+        --f-color-accent-700: #553c9a;
+        --f-color-accent-800: #44337a;
+        --f-color-accent-900: #322659;
     }
+    [data-theme='light'] {
+        --f-radius: 1.5rem;
+        --f-focus: 3px solid #d6bcfa;
+        --f-color-background: #f7fafc;
+        --f-color-accent: #805ad5;
+        --f-color-accent-weak: #faf5ff;
+        --f-color-success: #38b2ac;
+        --f-color-success-weak: #b2f5ea;
+        --f-color-neutral: #a0aec0;
+        --f-color-neutral-weak: #f0f5fa;
+        --f-color-caution: #ecc94b;
+        --f-color-caution-weak: #fefcbf;
+        --f-color-warning: #ed8936;
+        --f-color-warning-weak: #feebc8;
+        --f-color-danger: #f56565;
+        --f-color-danger-weak: #fed7d7;
+        --f-color-highlight: #9f7aea;
+        --f-color-highlight-weak: #e9d8fd;
+        --f-color-text: #2d3748;
+        --f-color-text-weak: #4a5568;
+        --f-color-text-weaker: #718096;
+        --f-color-text-weakest: #cbd5e0;
+        --f-color-text-link: #805ad5;
+        --f-color-text-on-color: #ffffff;
+        --f-color-surface: #ffffff;
+        --f-color-surface-strong: #f7fafc;
+        --f-color-surface-stronger: #f0f5fa;
+        --f-color-surface-strongest: #e2e8f0;
+        --f-color-surface-highlight: #e9d8fd;
+        --f-color-surface-inverse: #2d3748;
+        --f-color-border: #e2e8f0;
+        --f-color-border-strong: #cbd5e0;
+        }
+        [data-theme='dark'] {
+        --f-radius: 1.5rem;
+        --f-focus: 3px solid #6b46c1;
+        --f-color-background: #171923;
+        --f-color-accent: #9f7aea;
+        --f-color-accent-weak: #322659;
+        --f-color-success: #38b2ac;
+        --f-color-success-weak: #1d4044;
+        --f-color-neutral: #a0aec0;
+        --f-color-neutral-weak: #171923;
+        --f-color-caution: #ecc94b;
+        --f-color-caution-weak: #5f370e;
+        --f-color-warning: #ed8936;
+        --f-color-warning-weak: #652b19;
+        --f-color-danger: #f56565;
+        --f-color-danger-weak: #63171b;
+        --f-color-highlight: #9f7aea;
+        --f-color-highlight-weak: #322659;
+        --f-color-text: #f0f5fa;
+        --f-color-text-weak: #cbd5e0;
+        --f-color-text-weaker: #a0aec0;
+        --f-color-text-weakest: #4a5568;
+        --f-color-text-link: #9f7aea;
+        --f-color-text-on-color: #000000;
+        --f-color-surface: #1a202c;
+        --f-color-surface-strong: #2d3748;
+        --f-color-surface-stronger: #4a5568;
+        --f-color-surface-strongest: #a0aec0;
+        --f-color-surface-highlight: #553c9a;
+        --f-color-surface-inverse: #cbd5e0;
+        --f-color-border: #2d3748;
+        --f-color-border-strong: #4a5568;
+    }
+`,
+    neonpink: `
+:root {
+    --f-color-accent-50: #ffd6e4;
+    --f-color-accent-100: #ffb9c6;
+    --f-color-accent-200: #ffa2bc;
+    --f-color-accent-300: #ff7aba;
+    --f-color-accent-400: #ff2e7e;
+    --f-color-accent-500: #ed2d49;
+    --f-color-accent-600: #d1002d;
+    --f-color-accent-700: #ac0039;
+    --f-color-accent-800: #7e0019;
+    --f-color-accent-900: #5c0017;
+}
+[data-theme='light'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #ffa2bc;
+    --f-color-background: #f7fafc;
+    --f-color-accent: #ed2d49;
+    --f-color-accent-weak: #ffd6e4;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #b2f5ea;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #f0f5fa;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #fefcbf;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #feebc8;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #fed7d7;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #e9d8fd;
+    --f-color-text: #2d3748;
+    --f-color-text-weak: #4a5568;
+    --f-color-text-weaker: #718096;
+    --f-color-text-weakest: #cbd5e0;
+    --f-color-text-link: #ed2d49;
+    --f-color-text-on-color: #ffffff;
+    --f-color-surface: #ffffff;
+    --f-color-surface-strong: #f7fafc;
+    --f-color-surface-stronger: #f0f5fa;
+    --f-color-surface-strongest: #e2e8f0;
+    --f-color-surface-highlight: #ffb9c6;
+    --f-color-surface-inverse: #2d3748;
+    --f-color-border: #e2e8f0;
+    --f-color-border-strong: #cbd5e0;
+  }
+  [data-theme='dark'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #d1002d;
+    --f-color-background: #171923;
+    --f-color-accent: #ff2e7e;
+    --f-color-accent-weak: #5c0017;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #1d4044;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #171923;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #5f370e;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #652b19;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #63171b;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #322659;
+    --f-color-text: #f0f5fa;
+    --f-color-text-weak: #cbd5e0;
+    --f-color-text-weaker: #a0aec0;
+    --f-color-text-weakest: #4a5568;
+    --f-color-text-link: #ff2e7e;
+    --f-color-text-on-color: #000000;
+    --f-color-surface: #1a202c;
+    --f-color-surface-strong: #2d3748;
+    --f-color-surface-stronger: #4a5568;
+    --f-color-surface-strongest: #a0aec0;
+    --f-color-surface-highlight: #ac0039;
+    --f-color-surface-inverse: #cbd5e0;
+    --f-color-border: #2d3748;
+    --f-color-border-strong: #4a5568;
+  }
+`,
+    red: `
+:root {
+    --f-color-accent-50: #fff5f5;
+    --f-color-accent-100: #fed7d7;
+    --f-color-accent-200: #feb2b2;
+    --f-color-accent-300: #fc8181;
+    --f-color-accent-400: #f56565;
+    --f-color-accent-500: #e53e3e;
+    --f-color-accent-600: #c53030;
+    --f-color-accent-700: #9b2c2c;
+    --f-color-accent-800: #822727;
+    --f-color-accent-900: #63171b;
+}
+[data-theme='light'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #feb2b2;
+    --f-color-background: #f7fafc;
+    --f-color-accent: #e53e3e;
+    --f-color-accent-weak: #fff5f5;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #b2f5ea;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #f0f5fa;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #fefcbf;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #feebc8;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #fed7d7;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #e9d8fd;
+    --f-color-text: #2d3748;
+    --f-color-text-weak: #4a5568;
+    --f-color-text-weaker: #718096;
+    --f-color-text-weakest: #cbd5e0;
+    --f-color-text-link: #e53e3e;
+    --f-color-text-on-color: #ffffff;
+    --f-color-surface: #ffffff;
+    --f-color-surface-strong: #f7fafc;
+    --f-color-surface-stronger: #f0f5fa;
+    --f-color-surface-strongest: #e2e8f0;
+    --f-color-surface-highlight: #fed7d7;
+    --f-color-surface-inverse: #2d3748;
+    --f-color-border: #e2e8f0;
+    --f-color-border-strong: #cbd5e0;
+  }
+  [data-theme='dark'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #c53030;
+    --f-color-background: #171923;
+    --f-color-accent: #f56565;
+    --f-color-accent-weak: #63171b;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #1d4044;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #171923;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #5f370e;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #652b19;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #63171b;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #322659;
+    --f-color-text: #f0f5fa;
+    --f-color-text-weak: #cbd5e0;
+    --f-color-text-weaker: #a0aec0;
+    --f-color-text-weakest: #4a5568;
+    --f-color-text-link: #f56565;
+    --f-color-text-on-color: #000000;
+    --f-color-surface: #1a202c;
+    --f-color-surface-strong: #2d3748;
+    --f-color-surface-stronger: #4a5568;
+    --f-color-surface-strongest: #a0aec0;
+    --f-color-surface-highlight: #9b2c2c;
+    --f-color-surface-inverse: #cbd5e0;
+    --f-color-border: #2d3748;
+    --f-color-border-strong: #4a5568;
+  }
+  
+`,
+    orange: `
+:root {
+    --f-color-accent-50: #fffaf0;
+    --f-color-accent-100: #feebc8;
+    --f-color-accent-200: #fbd38d;
+    --f-color-accent-300: #f6ad55;
+    --f-color-accent-400: #ed8936;
+    --f-color-accent-500: #dd6b20;
+    --f-color-accent-600: #c05621;
+    --f-color-accent-700: #9c4221;
+    --f-color-accent-800: #7b341e;
+    --f-color-accent-900: #652b19;
+}
+[data-theme='light'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #fbd38d;
+    --f-color-background: #f7fafc;
+    --f-color-accent: #dd6b20;
+    --f-color-accent-weak: #fffaf0;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #b2f5ea;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #f0f5fa;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #fefcbf;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #feebc8;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #fed7d7;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #e9d8fd;
+    --f-color-text: #2d3748;
+    --f-color-text-weak: #4a5568;
+    --f-color-text-weaker: #718096;
+    --f-color-text-weakest: #cbd5e0;
+    --f-color-text-link: #dd6b20;
+    --f-color-text-on-color: #ffffff;
+    --f-color-surface: #ffffff;
+    --f-color-surface-strong: #f7fafc;
+    --f-color-surface-stronger: #f0f5fa;
+    --f-color-surface-strongest: #e2e8f0;
+    --f-color-surface-highlight: #feebc8;
+    --f-color-surface-inverse: #2d3748;
+    --f-color-border: #e2e8f0;
+    --f-color-border-strong: #cbd5e0;
+  }
+  [data-theme='dark'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #c05621;
+    --f-color-background: #171923;
+    --f-color-accent: #ed8936;
+    --f-color-accent-weak: #652b19;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #1d4044;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #171923;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #5f370e;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #652b19;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #63171b;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #322659;
+    --f-color-text: #f0f5fa;
+    --f-color-text-weak: #cbd5e0;
+    --f-color-text-weaker: #a0aec0;
+    --f-color-text-weakest: #4a5568;
+    --f-color-text-link: #ed8936;
+    --f-color-text-on-color: #000000;
+    --f-color-surface: #1a202c;
+    --f-color-surface-strong: #2d3748;
+    --f-color-surface-stronger: #4a5568;
+    --f-color-surface-strongest: #a0aec0;
+    --f-color-surface-highlight: #9c4221;
+    --f-color-surface-inverse: #cbd5e0;
+    --f-color-border: #2d3748;
+    --f-color-border-strong: #4a5568;
+  }
+`,
+    yellow: `
+:root {
+    --f-color-accent-50: #fffff0;
+    --f-color-accent-100: #fefcbf;
+    --f-color-accent-200: #faf089;
+    --f-color-accent-300: #f6e05e;
+    --f-color-accent-400: #ecc94b;
+    --f-color-accent-500: #d69e2e;
+    --f-color-accent-600: #b7791f;
+    --f-color-accent-700: #975a16;
+    --f-color-accent-800: #744210;
+    --f-color-accent-900: #5f370e;
+}
 
-    return (
-        <DateRangeProvider>
-            <ScrollingDatePicker
-                ref={ref}
-                className="f-scrollbar"
-                defaultDate={date}
-                selection={selection}
-                onChange={handleSelection}
-                disabled={[[disabled1, disabled2]]}
-                renderDay={(day) => {
-                    if (day.getDate() == 7 && day.getMonth() == date.getMonth()) {
-                        return (
-                            <>
-                                {day.getDate()}
-                                <Badge
-                                    variant="danger"
-                                    anchor="top-left"
-                                    width={7}
-                                    height={7}
-                                    style={{ marginLeft: 7, marginTop: 7 }}
-                                />
-                            </>
-                        )
-                    } else {
-                        return day.getDate()
-                    }
-                }}
-            />
-        </DateRangeProvider>
-    )
+[data-theme='light'] {
+  --f-radius: 1.5rem;
+  --f-focus: 3px solid #faf089;
+  --f-color-background: #f7fafc;
+  --f-color-accent: #d69e2e;
+  --f-color-accent-weak: #fffff0;
+  --f-color-success: #38b2ac;
+  --f-color-success-weak: #b2f5ea;
+  --f-color-neutral: #a0aec0;
+  --f-color-neutral-weak: #f0f5fa;
+  --f-color-caution: #ecc94b;
+  --f-color-caution-weak: #fefcbf;
+  --f-color-warning: #ed8936;
+  --f-color-warning-weak: #feebc8;
+  --f-color-danger: #f56565;
+  --f-color-danger-weak: #fed7d7;
+  --f-color-highlight: #9f7aea;
+  --f-color-highlight-weak: #e9d8fd;
+  --f-color-text: #2d3748;
+  --f-color-text-weak: #4a5568;
+  --f-color-text-weaker: #718096;
+  --f-color-text-weakest: #cbd5e0;
+  --f-color-text-link: #d69e2e;
+  --f-color-text-on-color: #ffffff;
+  --f-color-surface: #ffffff;
+  --f-color-surface-strong: #f7fafc;
+  --f-color-surface-stronger: #f0f5fa;
+  --f-color-surface-strongest: #e2e8f0;
+  --f-color-surface-highlight: #fefcbf;
+  --f-color-surface-inverse: #2d3748;
+  --f-color-border: #e2e8f0;
+  --f-color-border-strong: #cbd5e0;
+}
+
+[data-theme='dark'] {
+  --f-radius: 1.5rem;
+  --f-focus: 3px solid #b7791f;
+  --f-color-background: #171923;
+  --f-color-accent: #ecc94b;
+  --f-color-accent-weak: #5f370e;
+  --f-color-success: #38b2ac;
+  --f-color-success-weak: #1d4044;
+  --f-color-neutral: #a0aec0;
+  --f-color-neutral-weak: #171923;
+  --f-color-caution: #ecc94b;
+  --f-color-caution-weak: #5f370e;
+  --f-color-warning: #ed8936;
+  --f-color-warning-weak: #652b19;
+  --f-color-danger: #f56565;
+  --f-color-danger-weak: #63171b;
+  --f-color-highlight: #9f7aea;
+  --f-color-highlight-weak: #322659;
+  --f-color-text: #f0f5fa;
+  --f-color-text-weak: #cbd5e0;
+  --f-color-text-weaker: #a0aec0;
+  --f-color-text-weakest: #4a5568;
+  --f-color-text-link: #ecc94b;
+  --f-color-text-on-color: #000000;
+  --f-color-surface: #1a202c;
+  --f-color-surface-strong: #2d3748;
+  --f-color-surface-stronger: #4a5568;
+  --f-color-surface-strongest: #a0aec0;
+  --f-color-surface-highlight: #975a16;
+  --f-color-surface-inverse: #cbd5e0;
+  --f-color-border: #2d3748;
+  --f-color-border-strong: #4a5568;
+}
+
+
+`,
+    green: `
+:root {
+    --f-color-accent-50: #f0fff4;
+    --f-color-accent-100: #c6f6d5;
+    --f-color-accent-200: #9ae6b4;
+    --f-color-accent-300: #68d391;
+    --f-color-accent-400: #48bb78;
+    --f-color-accent-500: #38a169;
+    --f-color-accent-600: #2f855a;
+    --f-color-accent-700: #276749;
+    --f-color-accent-800: #22543d;
+    --f-color-accent-900: #1c4532;
+}
+[data-theme='light'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #9ae6b4;
+    --f-color-background: #f7fafc;
+    --f-color-accent: #38a169;
+    --f-color-accent-weak: #f0fff4;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #b2f5ea;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #f0f5fa;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #fefcbf;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #feebc8;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #fed7d7;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #e9d8fd;
+    --f-color-text: #2d3748;
+    --f-color-text-weak: #4a5568;
+    --f-color-text-weaker: #718096;
+    --f-color-text-weakest: #cbd5e0;
+    --f-color-text-link: #38a169;
+    --f-color-text-on-color: #ffffff;
+    --f-color-surface: #ffffff;
+    --f-color-surface-strong: #f7fafc;
+    --f-color-surface-stronger: #f0f5fa;
+    --f-color-surface-strongest: #e2e8f0;
+    --f-color-surface-highlight: #c6f6d5;
+    --f-color-surface-inverse: #2d3748;
+    --f-color-border: #e2e8f0;
+    --f-color-border-strong: #cbd5e0;
+  }
+  [data-theme='dark'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #2f855a;
+    --f-color-background: #171923;
+    --f-color-accent: #48bb78;
+    --f-color-accent-weak: #1c4532;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #1d4044;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #171923;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #5f370e;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #652b19;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #63171b;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #322659;
+    --f-color-text: #f0f5fa;
+    --f-color-text-weak: #cbd5e0;
+    --f-color-text-weaker: #a0aec0;
+    --f-color-text-weakest: #4a5568;
+    --f-color-text-link: #48bb78;
+    --f-color-text-on-color: #000000;
+    --f-color-surface: #1a202c;
+    --f-color-surface-strong: #2d3748;
+    --f-color-surface-stronger: #4a5568;
+    --f-color-surface-strongest: #a0aec0;
+    --f-color-surface-highlight: #276749;
+    --f-color-surface-inverse: #cbd5e0;
+    --f-color-border: #2d3748;
+    --f-color-border-strong: #4a5568;
+  }
+`,
+    teal: `
+:root {
+    --f-color-accent-50: #e6fffa;
+    --f-color-accent-100: #b2f5ea;
+    --f-color-accent-200: #81e6d9;
+    --f-color-accent-300: #4fd1c5;
+    --f-color-accent-400: #38b2ac;
+    --f-color-accent-500: #319795;
+    --f-color-accent-600: #2c7a7b;
+    --f-color-accent-700: #285e61;
+    --f-color-accent-800: #234e52;
+    --f-color-accent-900: #1d4044;
+}
+[data-theme='light'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #81e6d9;
+    --f-color-background: #f7fafc;
+    --f-color-accent: #319795;
+    --f-color-accent-weak: #e6fffa;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #b2f5ea;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #f0f5fa;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #fefcbf;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #feebc8;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #fed7d7;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #e9d8fd;
+    --f-color-text: #2d3748;
+    --f-color-text-weak: #4a5568;
+    --f-color-text-weaker: #718096;
+    --f-color-text-weakest: #cbd5e0;
+    --f-color-text-link: #319795;
+    --f-color-text-on-color: #ffffff;
+    --f-color-surface: #ffffff;
+    --f-color-surface-strong: #f7fafc;
+    --f-color-surface-stronger: #f0f5fa;
+    --f-color-surface-strongest: #e2e8f0;
+    --f-color-surface-highlight: #b2f5ea;
+    --f-color-surface-inverse: #2d3748;
+    --f-color-border: #e2e8f0;
+    --f-color-border-strong: #cbd5e0;
+  }
+  [data-theme='dark'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #2c7a7b;
+    --f-color-background: #171923;
+    --f-color-accent: #38b2ac;
+    --f-color-accent-weak: #1d4044;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #1d4044;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #171923;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #5f370e;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #652b19;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #63171b;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #322659;
+    --f-color-text: #f0f5fa;
+    --f-color-text-weak: #cbd5e0;
+    --f-color-text-weaker: #a0aec0;
+    --f-color-text-weakest: #4a5568;
+    --f-color-text-link: #38b2ac;
+    --f-color-text-on-color: #000000;
+    --f-color-surface: #1a202c;
+    --f-color-surface-strong: #2d3748;
+    --f-color-surface-stronger: #4a5568;
+    --f-color-surface-strongest: #a0aec0;
+    --f-color-surface-highlight: #285e61;
+    --f-color-surface-inverse: #cbd5e0;
+    --f-color-border: #2d3748;
+    --f-color-border-strong: #4a5568;
+  }
+`,
+    cyan: `
+:root {
+    --f-color-accent-50: #edfdfd;
+    --f-color-accent-100: #c4f1f9;
+    --f-color-accent-200: #9decf9;
+    --f-color-accent-300: #76e4f7;
+    --f-color-accent-400: #0bc5ea;
+    --f-color-accent-500: #00b5d8;
+    --f-color-accent-600: #00a3c4;
+    --f-color-accent-700: #0987a0;
+    --f-color-accent-800: #086f83;
+    --f-color-accent-900: #065666;
+}
+[data-theme='light'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #9decf9;
+    --f-color-background: #f7fafc;
+    --f-color-accent: #00b5d8;
+    --f-color-accent-weak: #edfdfd;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #b2f5ea;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #f0f5fa;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #fefcbf;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #feebc8;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #fed7d7;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #e9d8fd;
+    --f-color-text: #2d3748;
+    --f-color-text-weak: #4a5568;
+    --f-color-text-weaker: #718096;
+    --f-color-text-weakest: #cbd5e0;
+    --f-color-text-link: #00b5d8;
+    --f-color-text-on-color: #ffffff;
+    --f-color-surface: #ffffff;
+    --f-color-surface-strong: #f7fafc;
+    --f-color-surface-stronger: #f0f5fa;
+    --f-color-surface-strongest: #e2e8f0;
+    --f-color-surface-highlight: #c4f1f9;
+    --f-color-surface-inverse: #2d3748;
+    --f-color-border: #e2e8f0;
+    --f-color-border-strong: #cbd5e0;
+  }
+  [data-theme='dark'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #00a3c4;
+    --f-color-background: #171923;
+    --f-color-accent: #0bc5ea;
+    --f-color-accent-weak: #065666;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #1d4044;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #171923;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #5f370e;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #652b19;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #63171b;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #322659;
+    --f-color-text: #f0f5fa;
+    --f-color-text-weak: #cbd5e0;
+    --f-color-text-weaker: #a0aec0;
+    --f-color-text-weakest: #4a5568;
+    --f-color-text-link: #0bc5ea;
+    --f-color-text-on-color: #000000;
+    --f-color-surface: #1a202c;
+    --f-color-surface-strong: #2d3748;
+    --f-color-surface-stronger: #4a5568;
+    --f-color-surface-strongest: #a0aec0;
+    --f-color-surface-highlight: #0987a0;
+    --f-color-surface-inverse: #cbd5e0;
+    --f-color-border: #2d3748;
+    --f-color-border-strong: #4a5568;
+  }
+`,
+    electric: `
+:root {
+    --f-color-accent-50: #d0e6ff;
+    --f-color-accent-100: #b9daff;
+    --f-color-accent-200: #a2cdff;
+    --f-color-accent-300: #7ab8ff;
+    --f-color-accent-400: #2e90ff;
+    --f-color-accent-500: #0078ff;
+    --f-color-accent-600: #0063d1;
+    --f-color-accent-700: #0052ac;
+    --f-color-accent-800: #003c7e;
+    --f-color-accent-900: #002c5c;
+}
+
+[data-theme='light'] {
+    --f-radius: 1.5rem;
+    --f-focus: 3px solid #a2cdff;
+    --f-color-background: #f7fafc;
+    --f-color-accent: #0078ff;
+    --f-color-accent-weak: #d0e6ff;
+    --f-color-success: #38b2ac;
+    --f-color-success-weak: #b2f5ea;
+    --f-color-neutral: #a0aec0;
+    --f-color-neutral-weak: #f0f5fa;
+    --f-color-caution: #ecc94b;
+    --f-color-caution-weak: #fefcbf;
+    --f-color-warning: #ed8936;
+    --f-color-warning-weak: #feebc8;
+    --f-color-danger: #f56565;
+    --f-color-danger-weak: #fed7d7;
+    --f-color-highlight: #9f7aea;
+    --f-color-highlight-weak: #e9d8fd;
+    --f-color-text: #2d3748;
+    --f-color-text-weak: #4a5568;
+    --f-color-text-weaker: #718096;
+    --f-color-text-weakest: #cbd5e0;
+    --f-color-text-link: #0078ff;
+    --f-color-text-on-color: #ffffff;
+    --f-color-surface: #ffffff;
+    --f-color-surface-strong: #f7fafc;
+    --f-color-surface-stronger: #f0f5fa;
+    --f-color-surface-strongest: #e2e8f0;
+    --f-color-surface-highlight: #b9daff;
+    --f-color-surface-inverse: #2d3748;
+    --f-color-border: #e2e8f0;
+    --f-color-border-strong: #cbd5e0;
+  }
+
+  [data-theme='dark'] {
+  --f-radius: 1.5rem;
+  --f-focus: 3px solid #0063d1;
+  --f-color-background: #171923;
+  --f-color-accent: #2e90ff;
+  --f-color-accent-weak: #002c5c;
+  --f-color-success: #38b2ac;
+  --f-color-success-weak: #1d4044;
+  --f-color-neutral: #a0aec0;
+  --f-color-neutral-weak: #171923;
+  --f-color-caution: #ecc94b;
+  --f-color-caution-weak: #5f370e;
+  --f-color-warning: #ed8936;
+  --f-color-warning-weak: #652b19;
+  --f-color-danger: #f56565;
+  --f-color-danger-weak: #63171b;
+  --f-color-highlight: #9f7aea;
+  --f-color-highlight-weak: #322659;
+  --f-color-text: #f0f5fa;
+  --f-color-text-weak: #cbd5e0;
+  --f-color-text-weaker: #a0aec0;
+  --f-color-text-weakest: #4a5568;
+  --f-color-text-link: #2e90ff;
+  --f-color-text-on-color: #000000;
+  --f-color-surface: #1a202c;
+  --f-color-surface-strong: #2d3748;
+  --f-color-surface-stronger: #4a5568;
+  --f-color-surface-strongest: #a0aec0;
+  --f-color-surface-highlight: #0052ac;
+  --f-color-surface-inverse: #cbd5e0;
+  --f-color-border: #2d3748;
+  --f-color-border-strong: #4a5568;
+}
+
+`,
 }
 
 const sparkline = [
@@ -180,8 +832,105 @@ const sparkline = [
     Math.random(),
 ]
 
+export const NormalDatePicker = () => {
+    const [date, setDate] = useState(new Date())
+    const { firstDay, lastDay } = useMemo(() => {
+        const firstDay = new Date(date.getFullYear(), date.getMonth(), 14);
+        const lastDay = new Date(date.getFullYear(), date.getMonth(), 18);
+        return { firstDay, lastDay }
+    }, [])
+    const [selection, setSelection] = useState<any[]>([[firstDay, lastDay]])
+
+    const handleSelection = (date: Date) => {
+        if (selection.length == 0) {
+            setSelection([[date, null]])
+        } else {
+            const selected = selection[0]
+            if (!selected[0]) return setSelection([date, null])
+            if (!!selected[0] && !!selected[1]) return setSelection([[date, null]])
+            if (!!selected[0] && !selected[1])
+                return setSelection(selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]])
+        }
+    }
+
+    return (
+        <DateRangeProvider>
+            <DatePicker
+                height={300}
+                width="100%"
+                defaultDate={date}
+                selection={selection}
+                onChange={handleSelection}
+            />
+        </DateRangeProvider>
+    )
+}
+
 const All = () => {
     const [selected, setSelected] = useState<any>([])
+    const [color, setColor] = useState(Token.ColorElectric400)
+    const [value, setValue] = useState(5)
+    const [option, setOption] = useState(0)
+
+    const setAccent = (color) => {
+        document.getElementById('custom-styles').innerHTML = colors[color]
+    }
+
+    const setFont = (family) => {
+        const d: any = document.querySelector(':root')
+
+        d.style.setProperty('--f-font-heading', family)
+        d.style.setProperty('--f-font-body', family)
+    }
+
+    useEffect(() => {
+        switch (option) {
+            case 0:
+                return setFont(
+                    '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                )
+            case 1:
+                return setFont(
+                    'Inter, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                )
+            case 2:
+                return setFont(
+                    'DM Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                )
+        }
+    }, [option])
+
+    useEffect(() => {
+        const of = 2
+        const percent = value / 10
+        const radius = of * percent + 'rem'
+        const d: any = document.querySelector(':root')
+
+        d.style.setProperty('--f-radius', radius)
+    }, [value])
+
+    useEffect(() => {
+        switch (color) {
+            case Token.ColorPurple400:
+                return setAccent('purple')
+            case Token.ColorNeonpink400:
+                return setAccent('neonpink')
+            case Token.ColorRed400:
+                return setAccent('red')
+            case Token.ColorOrange400:
+                return setAccent('orange')
+            case Token.ColorYellow400:
+                return setAccent('yellow')
+            case Token.ColorGreen400:
+                return setAccent('green')
+            case Token.ColorTeal400:
+                return setAccent('teal')
+            case Token.ColorCyan400:
+                return setAccent('cyan')
+            case Token.ColorElectric400:
+                return setAccent('electric')
+        }
+    }, [color])
 
     return (
         <View
@@ -202,12 +951,12 @@ const All = () => {
                         <MenuItemOption value="redux">Redux</MenuItemOption>
                         <MenuItemOption value="mobx">MobX</MenuItemOption>
                         <MenuItemOption value="zustand">Zustand</MenuItemOption>
-                        <MenuItemOption value="none">None</MenuItemOption>
+                        {/* <MenuItemOption value="none">None</MenuItemOption> */}
                     </MenuOptionGroup>
                 </Menu>
 
                 <Card
-                    p={20}
+                    p="0.75rem 1rem"
                     width="100%">
                     <Sparkline
                         data={sparkline}
@@ -215,6 +964,22 @@ const All = () => {
                         width="100%"
                         height={30}
                     />
+                </Card>
+
+                <Card
+                    p="0.5rem 1rem"
+                    width="100%">
+                    <Options
+                        animated
+                        border="none"
+                        shadow="none"
+                        width="100%"
+                        selected={option}
+                        onOptionChange={setOption}>
+                        <Option>System Font</Option>
+                        <Option>Inter</Option>
+                        <Option>DM Sans</Option>
+                    </Options>
                 </Card>
 
                 <Card
@@ -263,6 +1028,28 @@ const All = () => {
                             <Tab>Account</Tab>
                         </TabList>
                     </Tabs>
+                </Card>
+
+                <Card
+                    width="100%"
+                    p="0.5rem 1rem">
+                    <Palette
+                        justifyContent="center"
+                        gap={2}
+                        color={color}
+                        colors={[
+                            Token.ColorPurple400,
+                            Token.ColorNeonpink400,
+                            Token.ColorRed400,
+                            Token.ColorOrange400,
+                            Token.ColorYellow400,
+                            Token.ColorGreen400,
+                            Token.ColorTeal400,
+                            Token.ColorCyan400,
+                            Token.ColorElectric400,
+                        ]}
+                        onChange={setColor}
+                    />
                 </Card>
 
                 <Attachment
@@ -336,7 +1123,7 @@ const All = () => {
                     header={
                         <Image
                             width="100%"
-                            height={150}
+                            height={125}
                             src="./building.png"
                         />
                     }>
@@ -377,8 +1164,21 @@ const All = () => {
 
                 <Card
                     width="100%"
+                    p={20}>
+                    <Range
+                        min={0}
+                        max={10}
+                        step={1}
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                    />
+                </Card>
+
+                <Card
+                    width="100%"
+                    p={10}
                     style={{ overflow: 'hidden' }}>
-                    <ScrollingPicker />
+                    <NormalDatePicker />
                 </Card>
 
                 <View
@@ -451,7 +1251,7 @@ function Home() {
                 />
                 <meta
                     name="description"
-                    content="Schemabear is a flexible data importer your users will love. "
+                    content="Powerful, fully customizable React components for scaling your product to the next level. Supercharge your dev workflow by using our zero-dependency UI components."
                 />
                 <title>Fold</title>
                 <link
@@ -474,7 +1274,7 @@ function Home() {
                         />
                         <link
                             data-google="yes"
-                            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+                            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
                             rel="stylesheet"
                         />
                         <link
@@ -485,6 +1285,9 @@ function Home() {
                     </>
                 )}
             </Head>
+
+            <style id="custom-styles" />
+
             <FoldProvider license="fake-license-code">
                 <SkipNavMain />
                 <MobileComponent />
@@ -632,7 +1435,7 @@ function Home() {
                         <Text
                             size="sm"
                             colorToken="accent-200">
-                            Subscribe to our newsletter to be notified of when we launch!
+                            ...
                         </Text> 
                         */}
                     </View>
@@ -986,13 +1789,13 @@ function Home() {
                             <Li>
                                 <Text
                                     as="a"
-                                    href="/docs/changelog"
+                                    href="/docs/releases"
                                     target="_blank"
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
                                     colorToken="accent-100">
-                                    Changelog
+                                    Releases
                                 </Text>
                             </Li>
                             <Li>

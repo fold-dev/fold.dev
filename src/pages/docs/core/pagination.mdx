@@ -1,7 +1,7 @@
 import { CodeComponent } from '@/pages/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
-import { Pagination } from '@fold-dev/core'
+import { Pagination, View } from '@fold-dev/core'
 import React, { useState } from 'react'
 
 export const docs = {
@@ -23,33 +23,36 @@ import { usePagination, Pagination } from "@fold-dev/core";
 ```
 
 ### Usage
-<a name="usage"></a>
 
 export const Usage = () => {
     const [page, setPage] = useState(1);
-    return (<Pagination width={500} pageSize={5} totalCount={1023} currentPage={page} siblingCount={4} separator="..." onPageChange={(page) => setPage(page)}/>);
+    return (<View row>
+            <Pagination width={500} pageSize={5} totalCount={1023} currentPage={page} siblingCount={4} separator="..." onPageChange={(page) => setPage(page)}/>
+        </View>);
 };
 
 <div className="story-block">
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3BhZ2UsIHNldFBhZ2VdID0gdXNlU3RhdGUoMSkKCiAgICByZXR1cm4gKAogICAgICAgIDxQYWdpbmF0aW9uCiAgICAgICAgICAgIHdpZHRoPXs1MDB9CiAgICAgICAgICAgIHBhZ2VTaXplPXs1fQogICAgICAgICAgICB0b3RhbENvdW50PXsxMDIzfQogICAgICAgICAgICBjdXJyZW50UGFnZT17cGFnZX0KICAgICAgICAgICAgc2libGluZ0NvdW50PXs0fQogICAgICAgICAgICBzZXBhcmF0b3I9Ii4uLiIKICAgICAgICAgICAgb25QYWdlQ2hhbmdlPXsocGFnZSkgPT4gc2V0UGFnZShwYWdlKX0KICAgICAgICAvPgogICAgKQp9" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3BhZ2UsIHNldFBhZ2VdID0gdXNlU3RhdGUoMSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3IHJvdz4KICAgICAgICAgICAgPFBhZ2luYXRpb24KICAgICAgICAgICAgICAgIHdpZHRoPXs1MDB9CiAgICAgICAgICAgICAgICBwYWdlU2l6ZT17NX0KICAgICAgICAgICAgICAgIHRvdGFsQ291bnQ9ezEwMjN9CiAgICAgICAgICAgICAgICBjdXJyZW50UGFnZT17cGFnZX0KICAgICAgICAgICAgICAgIHNpYmxpbmdDb3VudD17NH0KICAgICAgICAgICAgICAgIHNlcGFyYXRvcj0iLi4uIgogICAgICAgICAgICAgICAgb25QYWdlQ2hhbmdlPXsocGFnZSkgPT4gc2V0UGFnZShwYWdlKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
 
 ```tsx
 export const Usage = () => {
     const [page, setPage] = useState(1)
 
     return (
-        <Pagination
-            width={500}
-            pageSize={5}
-            totalCount={1023}
-            currentPage={page}
-            siblingCount={4}
-            separator="..."
-            onPageChange={(page) => setPage(page)}
-        />
+        <View row>
+            <Pagination
+                width={500}
+                pageSize={5}
+                totalCount={1023}
+                currentPage={page}
+                siblingCount={4}
+                separator="..."
+                onPageChange={(page) => setPage(page)}
+            />
+        </View>
     )
 }
 ```

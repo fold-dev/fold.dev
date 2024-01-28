@@ -133,7 +133,7 @@ export default function Introduction(props) {
                         className="f-buttonize-outline"
                         onClick={() => router.push('/docs/' + section.slug)}>
                         <Icon
-                            icon={section.icon}    
+                            icon={section.icon}
                             style={{ '--f-icon-sizing-md': '50px' }}
                         />
                         <Heading
