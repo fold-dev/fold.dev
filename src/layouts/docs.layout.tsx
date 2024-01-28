@@ -653,7 +653,7 @@ export default function DocsLayout(props: any) {
                                         color={Token.ColorNeonpink400}
                                         subtle
                                         fontWeight={800}>
-                                        v0.1
+                                        v0.1.10
                                     </Pill>
                                     <Link
                                         href="/"
