@@ -30,12 +30,21 @@ export default function Document() {
                     name="description"
                     content="Powerful, fully customizable React components for scaling your product to the next level. Supercharge your dev workflow by using our zero-dependency UI components."
                 />
+
                 <title>Fold</title>
+
                 <link
                     rel="icon"
                     type="image/png"
                     href="/favicon.png"
                 />
+
+                <meta property="og:title" content="Fold" />
+                <meta property="og:url" content="https://fold.dev" />
+                <meta property="og:image" content="https://fold.dev/og.png" />
+                <meta property="og:image:type" content="image/png" />
+                <meta property="og:image:width" content="1280" />
+                <meta property="og:image:height" content="630" />
 
                 {showChild && (
                     <>
