@@ -34,7 +34,7 @@ This project is licensed under the MIT License - see the [LICENSE](./LICENSE) fi
 
 ## Versioning
 
-The Fold website & documentation uses [Calendar Versioning](https://calver.org/). The general format used is `YY.MM.DD.pp` (no leading zeros):
+We use [Calendar Versioning](https://calver.org/) for this project. The general format used is `YY.MM.DD.pp` (no leading zeros):
 
 - `YY` is the year
 - `MM` is the month
