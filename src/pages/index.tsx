@@ -943,15 +943,14 @@ const All = () => {
                 column
                 gap={10}
                 width={300}>
-                <Menu width={300}>
+                <Menu width={300} zIndex="0">
                     <MenuOptionGroup
                         title="State Management"
                         defaultValue="redux"
                         type="radio">
-                        <MenuItemOption value="redux">Redux</MenuItemOption>
+                        <MenuItemOption value="redux">Redux1</MenuItemOption>
                         <MenuItemOption value="mobx">MobX</MenuItemOption>
                         <MenuItemOption value="zustand">Zustand</MenuItemOption>
-                        {/* <MenuItemOption value="none">None</MenuItemOption> */}
                     </MenuOptionGroup>
                 </Menu>
 
@@ -1234,649 +1233,558 @@ function Home() {
     if (!showChild) return null
 
     return (
-        <>
-            <Head>
-                <meta charSet="UTF-8" />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1.0"
-                />
-                <meta
-                    httpEquiv="X-UA-Compatible"
-                    content="IE=edge, IE=11, IE=10"
-                />
-                <meta
-                    name="robots"
-                    content="noindex,follow"
-                />
-                <meta
-                    name="description"
-                    content="Powerful, fully customizable React components for scaling your product to the next level. Supercharge your dev workflow by using our zero-dependency UI components."
-                />
-                <title>Fold</title>
-                <link
-                    rel="icon"
-                    type="image/png"
-                    href="/favicon.png"
-                />
-
-                {getSafeCache().trim() != 'no' && (
-                    <>
-                        <link
-                            rel="preconnect"
-                            href="https://fonts.googleapis.com"
-                            data-google="yes"
-                        />
-                        <link
-                            rel="preconnect"
-                            href="https://fonts.gstatic.com"
-                            data-google="yes"
-                        />
-                        <link
-                            data-google="yes"
-                            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-                            rel="stylesheet"
-                        />
-                        <link
-                            data-google="yes"
-                            href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-                            rel="stylesheet"
-                        />
-                    </>
-                )}
-            </Head>
-
+        <FoldProvider license="fake-license-code">
             <style id="custom-styles" />
+            <SkipNavMain />
+            <MobileComponent />
 
-            <FoldProvider license="fake-license-code">
-                <SkipNavMain />
-                <MobileComponent />
-
-                <Cookie
-                    style={{
-                        border: 'none',
-                        background: 'var(--f-color-background)',
-                    }}
-                    onDismiss={() => null}
-                    isVisible={visible}
-                    buttons={[
-                        { label: 'Deny', action: denied, variant: 'accent' },
-                        { label: 'Accept', action: accepted, variant: 'accent' },
-                    ]}
-                    title="🍪 Cookie Policy"
-                    description={
-                        <Text>
-                            We use essential cookies to make our site work. With your consent, we may also use
-                            non-essential cookies to improve user experience and analyze website traffic.
-                        </Text>
-                    }
-                />
-
-                <View
-                    row
-                    p={8}
-                    gap={10}
-                    zIndex={10000}
-                    width="100%"
-                    position="relative"
-                    bgToken="accent-100">
-                    <Text
-                        color="inherit"
-                        colorToken="accent">
-                        We've just launched the alpha version of Fold. Get started{' '}
-                        <Link
-                            href="/docs"
-                            colorToken="accent"
-                            target="_blank">
-                            here
-                        </Link>
-                        ! 🚀
+            <Cookie
+                style={{
+                    border: 'none',
+                    background: 'var(--f-color-background)',
+                }}
+                onDismiss={() => null}
+                isVisible={visible}
+                buttons={[
+                    { label: 'Deny', action: denied, variant: 'accent' },
+                    { label: 'Accept', action: accepted, variant: 'accent' },
+                ]}
+                title="🍪 Cookie Policy"
+                description={
+                    <Text>
+                        We use essential cookies to make our site work. With your consent, we may also use
+                        non-essential cookies to improve user experience and analyze website traffic.
                     </Text>
-                </View>
+                }
+            />
 
-                <Header
-                    display="none"
-                    bg="transparent"
-                    border="none">
-                    <View
-                        row
-                        gap={30}
-                        width="100%"
-                        p="2rem 2rem 0rem 2rem">
-                        <LogoSolid />
-                        <Flexer />
-                        <Link
-                            href="/terms-of-use"
-                            target="_blank"
-                            textDecoration="none">
-                            Terms of Use
-                        </Link>
-                        <Link
-                            href="/privacy-policy"
-                            target="_blank"
-                            textDecoration="none">
-                            Privacy Policy
-                        </Link>
-                        <Link
-                            href="/docs/community"
-                            target="_blank"
-                            textDecoration="none">
-                            Support
-                        </Link>
-                        <Stack
-                            spacing={10}
-                            noStretch></Stack>
-                        <DarkModeButton />
-                    </View>
-                </Header>
+            <View
+                row
+                p={8}
+                gap={10}
+                width="100%"
+                position="relative"
+                bgToken="accent-100">
+                <Text
+                    color="inherit"
+                    colorToken="accent">
+                    We've just launched the alpha version of Fold. Get started{' '}
+                    <Link
+                        href="/docs"
+                        colorToken="accent"
+                        target="_blank">
+                        here
+                    </Link>
+                    ! 🚀
+                </Text>
+            </View>
 
+            <Header
+                display="none"
+                bg="transparent"
+                border="none">
                 <View
                     row
                     gap={30}
-                    flex={1}
                     width="100%"
-                    p="2rem 0 5rem 0"
-                    justifyContent="center">
-                    <View
-                        column
-                        flex={1}
-                        gap={30}
-                        alignItems="flex-start"
-                        p="0 0 0 5rem"
-                        id="home"
-                        className="hero">
-                        <LogoSolid color="var(--f-color-accent)" />
+                    p="2rem 2rem 0rem 2rem">
+                    <LogoSolid />
+                    <Flexer />
+                    <Link
+                        href="/terms-of-use"
+                        target="_blank"
+                        textDecoration="none">
+                        Terms of Use
+                    </Link>
+                    <Link
+                        href="/privacy-policy"
+                        target="_blank"
+                        textDecoration="none">
+                        Privacy Policy
+                    </Link>
+                    <Link
+                        href="/docs/community"
+                        target="_blank"
+                        textDecoration="none">
+                        Support
+                    </Link>
+                    <Stack
+                        spacing={10}
+                        noStretch></Stack>
+                    <DarkModeButton />
+                </View>
+            </Header>
 
-                        <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent">
-                            Introducing
-                        </Text>
+            <View
+                row
+                gap={30}
+                flex={1}
+                width="100%"
+                p="2rem 0 5rem 0"
+                justifyContent="center">
+                <View
+                    column
+                    flex={1}
+                    gap={30}
+                    alignItems="flex-start"
+                    p="0 0 0 5rem"
+                    id="home"
+                    className="hero">
+                    <LogoSolid color="var(--f-color-accent)" />
 
-                        <Heading
-                            jumbo
-                            colorToken="accent"
-                            fontWeight={800}
-                            lineHeight={0.9}>
-                            The UI component library for product teams.
-                        </Heading>
+                    <Text
+                        style={{ textTransform: 'uppercase' }}
+                        letterSpacing={5}
+                        colorToken="accent">
+                        Introducing
+                    </Text>
 
-                        <Heading
-                            as="h3"
-                            colorToken="accent"
-                            fontWeight={400}>
-                            Powerful, fully customizable React components for scaling your product to the next level.
-                            Supercharge your dev workflow by using our zero-dependency UI components.
-                        </Heading>
+                    <Heading
+                        jumbo
+                        colorToken="accent"
+                        fontWeight={800}
+                        lineHeight={0.9}>
+                        The UI component library for product teams.
+                    </Heading>
 
-                        <View
-                            row
-                            gap={5}
-                            colorToken="accent-200">
-                            <Button
-                                variant="accent"
-                                as="a"
-                                target="_blank"
-                                href="/docs">
-                                Get Started
-                            </Button>
-                            <Button
-                                subtle
-                                as="a"
-                                variant="accent"
-                                target="_blank"
-                                href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW">
-                                Subcribe to Newsletter
-                            </Button>
-                        </View>
-
-                        {/* 
-                        <Text
-                            size="sm"
-                            colorToken="accent-200">
-                            ...
-                        </Text> 
-                        */}
-                    </View>
+                    <Heading
+                        as="h3"
+                        colorToken="accent"
+                        fontWeight={400}>
+                        Powerful, fully customizable React components for scaling your product to the next level.
+                        Supercharge your dev workflow by using our zero-dependency UI components.
+                    </Heading>
 
                     <View
                         row
-                        flex={1}
-                        p="0 5rem 0 0"
-                        height="100%"
-                        position="relative"
-                        justifyContent="flex-start"
-                        className="al1-components">
-                        <All />
-                    </View>
-                </View>
-
-                {/* block */}
-                <View
-                    row
-                    gap={100}
-                    flex={1}
-                    width="100%"
-                    alignItems="flex-start"
-                    bgToken="accent-700"
-                    p="5rem 0">
-                    <View
-                        flex={1.5}
-                        p="5rem 0rem 5rem 5rem"
-                        position="relative">
-                        <Grid
-                            columns={2}
-                            gap="40px 40px"
-                            minChildWidth={100}>
-                            {[
-                                {
-                                    title: 'Open Source',
-                                    text: "We're open source. Free forever, no limits.",
-                                },
-                                {
-                                    title: 'Customizable',
-                                    text: 'Best of both worlds: traditional CSS & Javascript. Fold gives you flexibility without impacting performance.',
-                                },
-                                {
-                                    title: 'Performant',
-                                    text: 'Render performance has been a key considerzarion at virtually every step of the way, we believe apps should be snappy.',
-                                },
-                                {
-                                    title: 'Design System',
-                                    text: 'Fold ships with its own Design System and builds on a large palette of options, all available to use.',
-                                },
-                                {
-                                    title: 'Dark Mode',
-                                    text: 'Fold supports Dark Mode, out of the box.',
-                                },
-                                {
-                                    title: 'Zero Dependencies',
-                                    text: 'Say goodbye to dependency hell, no other dependencies are used for Fold other than React & ReactDOM.',
-                                },
-                                {
-                                    title: 'Full Featured',
-                                    text: 'Every use-case, we have you covered. Fold currently has 85+ custom components, with more on the way.',
-                                },
-                                {
-                                    title: 'Aesthetics',
-                                    text: 'Fold has been designed to not only work great, but look great in any project.',
-                                },
-                            ].map(({ title, text }, index) => (
-                                <GridItem key={index}>
-                                    <Heading
-                                        fontWeight={600}
-                                        colorToken="accent-100"
-                                        m="0 0 0.25rem 0">
-                                        {title}
-                                    </Heading>
-                                    <Text colorToken="accent-200">{text}</Text>
-                                </GridItem>
-                            ))}
-                        </Grid>
-                    </View>
-                    <View
-                        column
-                        flex={1}
-                        gap={30}
-                        alignItems="flex-start"
-                        p="5rem 5rem 5rem 0rem">
-                        <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent-400"
-                            id="features">
-                            Features
-                        </Text>
-
-                        <Heading
-                            huge
-                            colorToken="accent-50"
-                            fontWeight={800}
-                            lineHeight={0.9}>
-                            Built to scale with you.
-                        </Heading>
-
-                        <Heading
-                            as="h3"
-                            colorToken="accent-200"
-                            fontWeight={400}>
-                            Whether it's a SaaS product or enterprise app, we have you covered.
-                        </Heading>
-
-                        {/* 
-                        Pro components (coming soon):
-
-                        <List>
-                            {[
-                                'Todo List',
-                                'Kanban Board',
-                                'Data Grid',
-                                'CSV Mapper',
-                                'Rich Text Input',
-                                'Calendar',
-                                'TreeView',
-                                'Gantt',
-                            ].map((text, index) => (
-                                <Li
-                                    row
-                                    gap={5}
-                                    justifyContent="flex-start"
-                                    colorToken="accent-100"
-                                    key={index}>
-                                    <IconLib icon="arrow-right" />
-                                    <Text size="lg">{text}</Text>
-                                    {index > 5 && (
-                                        <Pill
-                                            subtle
-                                            style={{ textTransform: 'uppercase' }}
-                                            size="xs"
-                                            color="#ffffff">
-                                            Q1 2024
-                                        </Pill>
-                                    )}
-                                </Li>
-                            ))}
-                        </List> 
-                        */}
-                    </View>
-                </View>
-
-                <View
-                    row
-                    gap={100}
-                    flex={1}
-                    width="100%"
-                    alignItems="flex-start"
-                    bgToken="accent-600"
-                    p="5rem 0">
-                    <View
-                        column
-                        flex={1}
-                        gap={30}
-                        alignItems="flex-end"
-                        p="5rem 0 5rem 5rem">
-                        <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent-400"
-                            textAlign="right"
-                            id="support">
-                            Support
-                        </Text>
-
-                        <Heading
-                            huge
-                            colorToken="accent-200"
-                            fontWeight={800}
-                            lineHeight={0.9}
-                            textAlign="right">
-                            Need some help?
-                        </Heading>
-
-                        <Heading
-                            as="h3"
-                            colorToken="accent-300"
-                            fontWeight={400}
-                            textAlign="right">
-                            Need some help with using Fold in your project?
-                        </Heading>
-                    </View>
-                    <View
-                        column
-                        gap={30}
-                        flex={1.5}
-                        p="5rem 5rem 5rem 0"
-                        position="relative">
-                        {[
-                            {
-                                url: 'https://github.com/fold-dev/fold/discussions',
-                                title: 'Discussions',
-                                text: 'We rely on GitHub Discussions to power our community. If you have a question or suggestion, start a discussion.',
-                            },
-                            {
-                                url: 'https://github.com/fold-dev/fold/issues',
-                                title: 'Issues',
-                                text: 'Open an issue or pull request on our GitHub repository if you want to contribute or report a bug.',
-                            },
-                            {
-                                url: 'mailto:support@fold.dev',
-                                title: 'Email',
-                                text: 'We try to answer all of the emails that land in our inbox.',
-                            },
-                        ].map(({ title, text, url }, index) => (
-                            <View
-                                key={index}
-                                width="100%">
-                                <Link
-                                    href={url}
-                                    target="_blank"
-                                    textDecoration="none">
-                                    <Heading
-                                        fontWeight={600}
-                                        colorToken="accent-100">
-                                        {title} ↗
-                                    </Heading>
-                                </Link>
-                                <Text colorToken="accent-300">{text}</Text>
-                            </View>
-                        ))}
-                    </View>
-                </View>
-
-                <View
-                    row
-                    p={100}
-                    bgToken="accent-500"
-                    alignItems="flex-start">
-                    <View
-                        flex={1}
-                        column
-                        gap={20}
-                        alignItems="flex-start">
-                        <LogoSolid color="var(--f-color-accent-100)" />
-                        <Text colorToken="accent-50">Fold &copy; 2024</Text>
-                        <View
-                            row
-                            gap={10}
-                            justifyContent="flex-start">
-                            <SocialIcon
-                                url="https://github.com/fold-dev/fold"
-                                target="_blank"
-                                style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent)"
-                                bgColor="var(--f-color-accent-100)"
-                            />
-                            <SocialIcon
-                                url="https://twitter.com/fold_dev"
-                                target="_blank"
-                                style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent)"
-                                bgColor="var(--f-color-accent-100)"
-                            />
-                            <SocialIcon
-                                url="https://www.linkedin.com/company/fold-dev"
-                                target="_blank"
-                                style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent)"
-                                bgColor="var(--f-color-accent-100)"
-                            />
-                        </View>
-                    </View>
-                    <View
-                        column
-                        flex={1}
-                        gap={20}
-                        alignItems="flex-start">
-                        <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent-300">
-                            Navigation
-                        </Text>
-                        <List flex={1}>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="#home"
-                                    size="xl"
-                                    fontWeight={400}
-                                    colorToken="accent-100"
-                                    textDecoration="none">
-                                    Home
-                                </Text>
-                            </Li>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="#features"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="accent-100">
-                                    Features
-                                </Text>
-                            </Li>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="#support"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="accent-100">
-                                    Support
-                                </Text>
-                            </Li>
-                        </List>
-                    </View>
-                    <View
-                        column
-                        flex={1}
-                        gap={20}
-                        alignItems="flex-start">
-                        <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent-300">
-                            Helpful Links
-                        </Text>
-                        <List flex={1}>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="/docs"
-                                    target="_blank"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="accent-100">
-                                    Documentation
-                                </Text>
-                            </Li>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="https://github.com/fold-dev/fold"
-                                    target="_blank"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="accent-100">
-                                    GitHub
-                                </Text>
-                            </Li>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="/docs/releases"
-                                    target="_blank"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="accent-100">
-                                    Releases
-                                </Text>
-                            </Li>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="/docs/roadmap"
-                                    target="_blank"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="accent-100">
-                                    Roadmap
-                                </Text>
-                            </Li>
-                        </List>
-                    </View>
-                    <View
-                        column
-                        flex={1}
-                        gap={20}
-                        alignItems="flex-start">
-                        <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="accent-300">
-                            Legal
-                        </Text>
-                        <List flex={1}>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="/privacy-policy"
-                                    target="_blank"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="accent-100">
-                                    Privacy Policy
-                                </Text>
-                            </Li>
-                            <Li>
-                                <Text
-                                    as="a"
-                                    href="/terms-of-use"
-                                    target="_blank"
-                                    size="xl"
-                                    fontWeight={400}
-                                    textDecoration="none"
-                                    colorToken="accent-100">
-                                    Terms of Use
-                                </Text>
-                            </Li>
-                        </List>
-                    </View>
-                    <View
-                        column
-                        flex={0.5}
-                        gap={20}
-                        alignItems="flex-end">
+                        gap={5}
+                        colorToken="accent-200">
                         <Button
-                            colorToken="accent-50"
                             variant="accent"
-                            border="0.15rem solid white"
                             as="a"
                             target="_blank"
                             href="/docs">
                             Get Started
                         </Button>
                         <Button
-                            colorToken="accent-50"
-                            variant="accent"
-                            border="0.15rem solid white"
+                            subtle
                             as="a"
+                            variant="accent"
                             target="_blank"
                             href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW">
-                            Subscribe to Newsletter
+                            Subcribe to Newsletter
                         </Button>
                     </View>
+
+                    {/* 
+                    <Text
+                        size="sm"
+                        colorToken="accent-200">
+                        ...
+                    </Text> 
+                    */}
                 </View>
-            </FoldProvider>
-        </>
+
+                <View
+                    row
+                    flex={1}
+                    p="0 5rem 0 0"
+                    height="100%"
+                    position="relative"
+                    justifyContent="flex-start"
+                    className="al1-components">
+                    <All />
+                </View>
+            </View>
+
+            {/* block */}
+            <View
+                row
+                gap={100}
+                flex={1}
+                width="100%"
+                alignItems="flex-start"
+                bgToken="accent-700"
+                p="5rem 0">
+                <View
+                    flex={1.5}
+                    p="5rem 0rem 5rem 5rem"
+                    position="relative">
+                    <Grid
+                        columns={2}
+                        gap="40px 40px"
+                        minChildWidth={100}>
+                        {[
+                            {
+                                title: 'Open Source',
+                                text: "We're open source. Free forever, no limits.",
+                            },
+                            {
+                                title: 'Customizable',
+                                text: 'Best of both worlds: traditional CSS & Javascript. Fold gives you flexibility without impacting performance.',
+                            },
+                            {
+                                title: 'Performant',
+                                text: 'Render performance has been a key considerzarion at virtually every step of the way, we believe apps should be snappy.',
+                            },
+                            {
+                                title: 'Design System',
+                                text: 'Fold ships with its own Design System and builds on a large palette of options, all available to use.',
+                            },
+                            {
+                                title: 'Dark Mode',
+                                text: 'Fold supports Dark Mode, out of the box.',
+                            },
+                            {
+                                title: 'Zero Dependencies',
+                                text: 'Say goodbye to dependency hell, no other dependencies are used for Fold other than React & ReactDOM.',
+                            },
+                            {
+                                title: 'Full Featured',
+                                text: 'Every use-case, we have you covered. Fold currently has 85+ custom components, with more on the way.',
+                            },
+                            {
+                                title: 'Aesthetics',
+                                text: 'Fold has been designed to not only work great, but look great in any project.',
+                            },
+                        ].map(({ title, text }, index) => (
+                            <GridItem key={index}>
+                                <Heading
+                                    fontWeight={600}
+                                    colorToken="accent-100"
+                                    m="0 0 0.25rem 0">
+                                    {title}
+                                </Heading>
+                                <Text colorToken="accent-200">{text}</Text>
+                            </GridItem>
+                        ))}
+                    </Grid>
+                </View>
+                <View
+                    column
+                    flex={1}
+                    gap={30}
+                    alignItems="flex-start"
+                    p="5rem 5rem 5rem 0rem">
+                    <Text
+                        style={{ textTransform: 'uppercase' }}
+                        letterSpacing={5}
+                        colorToken="accent-400"
+                        id="features">
+                        Features
+                    </Text>
+
+                    <Heading
+                        huge
+                        colorToken="accent-50"
+                        fontWeight={800}
+                        lineHeight={0.9}>
+                        Built to scale with you.
+                    </Heading>
+
+                    <Heading
+                        as="h3"
+                        colorToken="accent-200"
+                        fontWeight={400}>
+                        Whether it's a SaaS product or enterprise app, we have you covered.
+                    </Heading>
+                </View>
+            </View>
+
+            <View
+                row
+                gap={100}
+                flex={1}
+                width="100%"
+                alignItems="flex-start"
+                bgToken="accent-600"
+                p="5rem 0">
+                <View
+                    column
+                    flex={1}
+                    gap={30}
+                    alignItems="flex-end"
+                    p="5rem 0 5rem 5rem">
+                    <Text
+                        style={{ textTransform: 'uppercase' }}
+                        letterSpacing={5}
+                        colorToken="accent-400"
+                        textAlign="right"
+                        id="support">
+                        Support
+                    </Text>
+
+                    <Heading
+                        huge
+                        colorToken="accent-200"
+                        fontWeight={800}
+                        lineHeight={0.9}
+                        textAlign="right">
+                        Need some help?
+                    </Heading>
+
+                    <Heading
+                        as="h3"
+                        colorToken="accent-300"
+                        fontWeight={400}
+                        textAlign="right">
+                        Need some help with using Fold in your project?
+                    </Heading>
+                </View>
+                <View
+                    column
+                    gap={30}
+                    flex={1.5}
+                    p="5rem 5rem 5rem 0"
+                    position="relative">
+                    {[
+                        {
+                            url: 'https://github.com/fold-dev/fold/discussions',
+                            title: 'Discussions',
+                            text: 'We rely on GitHub Discussions to power our community. If you have a question or suggestion, start a discussion.',
+                        },
+                        {
+                            url: 'https://github.com/fold-dev/fold/issues',
+                            title: 'Issues',
+                            text: 'Open an issue or pull request on our GitHub repository if you want to contribute or report a bug.',
+                        },
+                        {
+                            url: 'mailto:support@fold.dev',
+                            title: 'Email',
+                            text: 'We try to answer all of the emails that land in our inbox.',
+                        },
+                    ].map(({ title, text, url }, index) => (
+                        <View
+                            key={index}
+                            width="100%">
+                            <Link
+                                href={url}
+                                target="_blank"
+                                textDecoration="none">
+                                <Heading
+                                    fontWeight={600}
+                                    colorToken="accent-100">
+                                    {title} ↗
+                                </Heading>
+                            </Link>
+                            <Text colorToken="accent-300">{text}</Text>
+                        </View>
+                    ))}
+                </View>
+            </View>
+
+            <View
+                row
+                p={100}
+                bgToken="accent-500"
+                alignItems="flex-start">
+                <View
+                    flex={1}
+                    column
+                    gap={20}
+                    alignItems="flex-start">
+                    <LogoSolid color="var(--f-color-accent-100)" />
+                    <Text colorToken="accent-50">Fold &copy; 2024</Text>
+                    <View
+                        row
+                        gap={10}
+                        justifyContent="flex-start">
+                        <SocialIcon
+                            url="https://github.com/fold-dev/fold"
+                            target="_blank"
+                            style={{ width: 37, height: 37 }}
+                            fgColor="var(--f-color-accent)"
+                            bgColor="var(--f-color-accent-100)"
+                        />
+                        <SocialIcon
+                            url="https://twitter.com/fold_dev"
+                            target="_blank"
+                            style={{ width: 37, height: 37 }}
+                            fgColor="var(--f-color-accent)"
+                            bgColor="var(--f-color-accent-100)"
+                        />
+                        <SocialIcon
+                            url="https://www.linkedin.com/company/fold-dev"
+                            target="_blank"
+                            style={{ width: 37, height: 37 }}
+                            fgColor="var(--f-color-accent)"
+                            bgColor="var(--f-color-accent-100)"
+                        />
+                    </View>
+                </View>
+                <View
+                    column
+                    flex={1}
+                    gap={20}
+                    alignItems="flex-start">
+                    <Text
+                        style={{ textTransform: 'uppercase' }}
+                        letterSpacing={5}
+                        colorToken="accent-300">
+                        Navigation
+                    </Text>
+                    <List flex={1}>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="#home"
+                                size="xl"
+                                fontWeight={400}
+                                colorToken="accent-100"
+                                textDecoration="none">
+                                Home
+                            </Text>
+                        </Li>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="#features"
+                                size="xl"
+                                fontWeight={400}
+                                textDecoration="none"
+                                colorToken="accent-100">
+                                Features
+                            </Text>
+                        </Li>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="#support"
+                                size="xl"
+                                fontWeight={400}
+                                textDecoration="none"
+                                colorToken="accent-100">
+                                Support
+                            </Text>
+                        </Li>
+                    </List>
+                </View>
+                <View
+                    column
+                    flex={1}
+                    gap={20}
+                    alignItems="flex-start">
+                    <Text
+                        style={{ textTransform: 'uppercase' }}
+                        letterSpacing={5}
+                        colorToken="accent-300">
+                        Helpful Links
+                    </Text>
+                    <List flex={1}>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="/docs"
+                                target="_blank"
+                                size="xl"
+                                fontWeight={400}
+                                textDecoration="none"
+                                colorToken="accent-100">
+                                Documentation
+                            </Text>
+                        </Li>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="https://github.com/fold-dev/fold"
+                                target="_blank"
+                                size="xl"
+                                fontWeight={400}
+                                textDecoration="none"
+                                colorToken="accent-100">
+                                GitHub
+                            </Text>
+                        </Li>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="/docs/releases"
+                                target="_blank"
+                                size="xl"
+                                fontWeight={400}
+                                textDecoration="none"
+                                colorToken="accent-100">
+                                Releases
+                            </Text>
+                        </Li>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="/docs/roadmap"
+                                target="_blank"
+                                size="xl"
+                                fontWeight={400}
+                                textDecoration="none"
+                                colorToken="accent-100">
+                                Roadmap
+                            </Text>
+                        </Li>
+                    </List>
+                </View>
+                <View
+                    column
+                    flex={1}
+                    gap={20}
+                    alignItems="flex-start">
+                    <Text
+                        style={{ textTransform: 'uppercase' }}
+                        letterSpacing={5}
+                        colorToken="accent-300">
+                        Legal
+                    </Text>
+                    <List flex={1}>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="/privacy-policy"
+                                target="_blank"
+                                size="xl"
+                                fontWeight={400}
+                                textDecoration="none"
+                                colorToken="accent-100">
+                                Privacy Policy
+                            </Text>
+                        </Li>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="/terms-of-use"
+                                target="_blank"
+                                size="xl"
+                                fontWeight={400}
+                                textDecoration="none"
+                                colorToken="accent-100">
+                                Terms of Use
+                            </Text>
+                        </Li>
+                    </List>
+                </View>
+                <View
+                    column
+                    flex={0.5}
+                    gap={20}
+                    alignItems="flex-end">
+                    <Button
+                        colorToken="accent-50"
+                        variant="accent"
+                        border="0.15rem solid white"
+                        as="a"
+                        target="_blank"
+                        href="/docs">
+                        Get Started
+                    </Button>
+                    <Button
+                        colorToken="accent-50"
+                        variant="accent"
+                        border="0.15rem solid white"
+                        as="a"
+                        target="_blank"
+                        href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW">
+                        Subscribe to Newsletter
+                    </Button>
+                </View>
+            </View>
+        </FoldProvider>
     )
 }
 
