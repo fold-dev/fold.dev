@@ -45,6 +45,7 @@ export default function Document() {
                 <meta property="og:image:type" content="image/png" />
                 <meta property="og:image:width" content="1280" />
                 <meta property="og:image:height" content="630" />
+                <meta property="og:description" content="Powerful, fully customizable React components for scaling your product to the next level. Supercharge your dev workflow by using our zero-dependency UI components." />
 
                 {showChild && (
                     <>
