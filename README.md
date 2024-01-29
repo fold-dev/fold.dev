@@ -41,7 +41,7 @@ We use [Calendar Versioning](https://calver.org/) for this project. The general 
 - `DD` is the day
 - `pp` is the daily patch
 
-Examples: `24.1.29.0` `24.1.29.0.1`
+Examples: `24.1.29.0`, `24.1.29.1`
 
 ## Support
 
