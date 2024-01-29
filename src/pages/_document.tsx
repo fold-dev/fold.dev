@@ -66,7 +66,7 @@ export default function Document() {
                     </>
                 )}
             </Head>
-            <body>ed
+            <body>
                 <Main />
                 <NextScript />
             </body>

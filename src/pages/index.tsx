@@ -943,15 +943,14 @@ const All = () => {
                 column
                 gap={10}
                 width={300}>
-                <Menu width={300}>
+                <Menu width={300} zIndex="0">
                     <MenuOptionGroup
                         title="State Management"
                         defaultValue="redux"
                         type="radio">
-                        <MenuItemOption value="redux">Redux</MenuItemOption>
+                        <MenuItemOption value="redux">Redux1</MenuItemOption>
                         <MenuItemOption value="mobx">MobX</MenuItemOption>
                         <MenuItemOption value="zustand">Zustand</MenuItemOption>
-                        {/* <MenuItemOption value="none">None</MenuItemOption> */}
                     </MenuOptionGroup>
                 </Menu>
 
@@ -1263,7 +1262,6 @@ function Home() {
                 row
                 p={8}
                 gap={10}
-                zIndex={10000}
                 width="100%"
                 position="relative"
                 bgToken="accent-100">
