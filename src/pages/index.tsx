@@ -1710,7 +1710,7 @@ function Home() {
                         <Li>
                             <Text
                                 as="a"
-                                href="/docs/roadmap"
+                                href="https://github.com/orgs/fold-dev/projects/8"
                                 target="_blank"
                                 size="xl"
                                 fontWeight={400}
