@@ -319,8 +319,8 @@ export const Pubsub = () => {
 `getSafeStorage` returns an empty string if there is no value
 
 export const Storage = () => {
-    const { getStorage, getSafeStorage, setStorage, deleteStorage, } = useStorage();
-    const { isCached, deleteCache, getSafeCache, setCache, } = useCacheValue('foobar');
+    const { getStorage, getSafeStorage, setStorage, deleteStorage } = useStorage();
+    const { isCached, deleteCache, getSafeCache, setCache } = useCacheValue('foobar');
     return <Text>Example coming soon</Text>;
 };
 
@@ -328,22 +328,12 @@ export const Storage = () => {
 <Storage />
 </div>
 
-<CodeComponent filename="Storage.tsx" code="ZXhwb3J0IGNvbnN0IFN0b3JhZ2UgPSAoKSA9PiB7CiAgICBjb25zdCB7CiAgICAgICAgZ2V0U3RvcmFnZSwKICAgICAgICBnZXRTYWZlU3RvcmFnZSwKICAgICAgICBzZXRTdG9yYWdlLAogICAgICAgIGRlbGV0ZVN0b3JhZ2UsCiAgICB9ID0gdXNlU3RvcmFnZSgpCiAgICBjb25zdCB7CiAgICAgICAgaXNDYWNoZWQsCiAgICAgICAgZGVsZXRlQ2FjaGUsCiAgICAgICAgZ2V0U2FmZUNhY2hlLAogICAgICAgIHNldENhY2hlLAogICAgfSA9IHVzZUNhY2hlVmFsdWUoJ2Zvb2JhcicpCgogICAgcmV0dXJuIDxUZXh0PkV4YW1wbGUgY29taW5nIHNvb248L1RleHQ+Cn0=" />
+<CodeComponent filename="Storage.tsx" code="ZXhwb3J0IGNvbnN0IFN0b3JhZ2UgPSAoKSA9PiB7CiAgICBjb25zdCB7IGdldFN0b3JhZ2UsIGdldFNhZmVTdG9yYWdlLCBzZXRTdG9yYWdlLCBkZWxldGVTdG9yYWdlIH0gPSB1c2VTdG9yYWdlKCkKICAgIGNvbnN0IHsgaXNDYWNoZWQsIGRlbGV0ZUNhY2hlLCBnZXRTYWZlQ2FjaGUsIHNldENhY2hlIH0gPSB1c2VDYWNoZVZhbHVlKCdmb29iYXInKQoKICAgIHJldHVybiA8VGV4dD5FeGFtcGxlIGNvbWluZyBzb29uPC9UZXh0Pgp9" />
 
 ```tsx
 export const Storage = () => {
-    const {
-        getStorage,
-        getSafeStorage,
-        setStorage,
-        deleteStorage,
-    } = useStorage()
-    const {
-        isCached,
-        deleteCache,
-        getSafeCache,
-        setCache,
-    } = useCacheValue('foobar')
+    const { getStorage, getSafeStorage, setStorage, deleteStorage } = useStorage()
+    const { isCached, deleteCache, getSafeCache, setCache } = useCacheValue('foobar')
 
     return <Text>Example coming soon</Text>
 }
@@ -368,7 +358,7 @@ export const TabVisibility = () => {
 <TabVisibility />
 </div>
 
-<CodeComponent filename="TabVisibility.tsx" code="ZXhwb3J0IGNvbnN0IFRhYlZpc2liaWxpdHkgPSAoKSA9PiB7CiAgICBjb25zdCBbdGV4dCwgc2V0VGV4dF0gPSB1c2VTdGF0ZSgnJykKCiAgICB1c2VUYWJWaXNpYmlsaXR5KChlKSA9PiB7CiAgICAgICAgY29uc3QgZGF0ZSA9IG5ldyBEYXRlKCkKICAgICAgICBjb25zdCBzZWNvbmRzID0gZGF0ZS5nZXRTZWNvbmRzKCk7CiAgICAgICAgY29uc3QgbWludXRlcyA9IGRhdGUuZ2V0TWludXRlcygpOwogICAgICAgIGNvbnN0IGhvdXIgPSBkYXRlLmdldEhvdXJzKCk7CgogICAgICAgIHNldFRleHQoYFRpbWUgaXMgJHtob3VyfToke21pbnV0ZXN9OiR7c2Vjb25kc31gKQogICAgfSkKCiAgICByZXR1cm4gPFRleHQ+eyB0ZXh0IHx8ICdDaGFuZ2UgdGFicyAmIGNvbWUgYmFjayd9PC9UZXh0Pgp9" />
+<CodeComponent filename="TabVisibility.tsx" code="ZXhwb3J0IGNvbnN0IFRhYlZpc2liaWxpdHkgPSAoKSA9PiB7CiAgICBjb25zdCBbdGV4dCwgc2V0VGV4dF0gPSB1c2VTdGF0ZSgnJykKCiAgICB1c2VUYWJWaXNpYmlsaXR5KChlKSA9PiB7CiAgICAgICAgY29uc3QgZGF0ZSA9IG5ldyBEYXRlKCkKICAgICAgICBjb25zdCBzZWNvbmRzID0gZGF0ZS5nZXRTZWNvbmRzKCkKICAgICAgICBjb25zdCBtaW51dGVzID0gZGF0ZS5nZXRNaW51dGVzKCkKICAgICAgICBjb25zdCBob3VyID0gZGF0ZS5nZXRIb3VycygpCgogICAgICAgIHNldFRleHQoYFRpbWUgaXMgJHtob3VyfToke21pbnV0ZXN9OiR7c2Vjb25kc31gKQogICAgfSkKCiAgICByZXR1cm4gPFRleHQ+e3RleHQgfHwgJ0NoYW5nZSB0YWJzICYgY29tZSBiYWNrJ308L1RleHQ+Cn0=" />
 
 ```tsx
 export const TabVisibility = () => {
@@ -376,14 +366,14 @@ export const TabVisibility = () => {
 
     useTabVisibility((e) => {
         const date = new Date()
-        const seconds = date.getSeconds();
-        const minutes = date.getMinutes();
-        const hour = date.getHours();
+        const seconds = date.getSeconds()
+        const minutes = date.getMinutes()
+        const hour = date.getHours()
 
         setText(`Time is ${hour}:${minutes}:${seconds}`)
     })
 
-    return <Text>{ text || 'Change tabs & come back'}</Text>
+    return <Text>{text || 'Change tabs & come back'}</Text>
 }
 ```
 ### Theme
