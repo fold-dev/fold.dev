@@ -106,14 +106,14 @@ export default function Tokens(props) {
             <CodeComponent
                 showSnippet
                 dontConvert
-                lang="javascript"
-                filename="console"
+                lang="typescript"
+                filename="App.tsx"
                 code={` 
     // NodeJS module
     import * as Token from '@fold-dev/design/tokens'
 
     // ES6 modules
-    import { ColorElectric400 } from '@fold-dev/design/tokens'    
+    import { ColorElectric400 } from '@fold-dev/design/tokens-es6'    
                 `}
             />
             <Text as="blockquote">
