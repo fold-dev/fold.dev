@@ -943,7 +943,7 @@ const All = () => {
                 column
                 gap={10}
                 width={300}>
-                <Menu width={300} zIndex="0">
+                <Menu width={300} zIndex="0" shadow="none">
                     <MenuOptionGroup
                         title="State Management"
                         defaultValue="redux"
@@ -965,21 +965,16 @@ const All = () => {
                     />
                 </Card>
 
-                <Card
-                    p="0.5rem 1rem"
-                    width="100%">
-                    <Options
-                        animated
-                        border="none"
-                        shadow="none"
-                        width="100%"
-                        selected={option}
-                        onOptionChange={setOption}>
-                        <Option>System Font</Option>
-                        <Option>Inter</Option>
-                        <Option>DM Sans</Option>
-                    </Options>
-                </Card>
+                <Options
+                    animated
+                    shadow="none"
+                    width="100%"
+                    selected={option}
+                    onOptionChange={setOption}>
+                    <Option>System Font</Option>
+                    <Option>Inter</Option>
+                    <Option>DM Sans</Option>
+                </Options>            
 
                 <Card
                     p={20}
