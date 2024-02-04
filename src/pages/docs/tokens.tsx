@@ -16,6 +16,7 @@ import { LifebuoyIcon } from '@heroicons/react/24/outline'
 import React, { useMemo } from 'react'
 import { useTokens } from './design-system'
 import { convertTokenToTitle } from './design-system'
+import CodeComponent from '../components/code.component'
 
 export default function Tokens(props) {
     const { system } = useTokens()
@@ -101,10 +102,24 @@ export default function Tokens(props) {
                 Below is a list of the most common Design Tokens, along with their values and examples. Each of these
                 tokens are available to your project and ready to be used by referencing them as CSS variables.
             </Heading>
+            <Text>In addition to CSS variables, tokens can also be consumed as a NodeJS module or named ES6 modules:</Text>
+            <CodeComponent
+                showSnippet
+                dontConvert
+                lang="javascript"
+                filename="console"
+                code={` 
+    // NodeJS module
+    import * as Token from '@fold-dev/design/tokens'
+
+    // ES6 modules
+    import { ColorElectric400 } from '@fold-dev/design/tokens'    
+                `}
+            />
             <Text as="blockquote">
                 The provided list is not exhaustive, but encompasses the tokens most commonly used. You can locate all
                 the tokens in our repository on{' '}
-                <Link href="https://github.com/fold-dev/fold/packages/design">Github</Link>.
+                <Link href="https://github.com/fold-dev/fold/tree/main/packages/design/tokens" target="_blank">Github</Link>.
             </Text>
             <Heading
                 as="h3"
