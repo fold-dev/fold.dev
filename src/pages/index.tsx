@@ -1769,6 +1769,7 @@ function Home() {
                         Get Started
                     </Button>
                     <Button
+                        width={200}
                         colorToken="accent-50"
                         variant="accent"
                         border="0.15rem solid white"
