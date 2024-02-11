@@ -1405,7 +1405,7 @@ function Home() {
                             },
                             {
                                 title: 'Performant',
-                                text: 'Render performance has been a key considerzarion at virtually every step of the way, we believe apps should be snappy.',
+                                text: 'Render performance has been a key consideration at virtually every step of the way, we believe apps should be snappy.',
                             },
                             {
                                 title: 'Design System',
