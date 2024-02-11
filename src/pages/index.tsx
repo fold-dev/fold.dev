@@ -68,7 +68,6 @@ export const colors = {
         --f-color-accent-900: #322659;
     }
     [data-theme='light'] {
-        --f-radius: 1.5rem;
         --f-focus: 3px solid #d6bcfa;
         --f-color-background: #f7fafc;
         --f-color-accent: #805ad5;
@@ -101,7 +100,6 @@ export const colors = {
         --f-color-border-strong: #cbd5e0;
         }
         [data-theme='dark'] {
-        --f-radius: 1.5rem;
         --f-focus: 3px solid #6b46c1;
         --f-color-background: #171923;
         --f-color-accent: #9f7aea;
@@ -148,7 +146,6 @@ export const colors = {
     --f-color-accent-900: #5c0017;
 }
 [data-theme='light'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #ffa2bc;
     --f-color-background: #f7fafc;
     --f-color-accent: #ed2d49;
@@ -181,7 +178,6 @@ export const colors = {
     --f-color-border-strong: #cbd5e0;
   }
   [data-theme='dark'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #d1002d;
     --f-color-background: #171923;
     --f-color-accent: #ff2e7e;
@@ -228,7 +224,6 @@ export const colors = {
     --f-color-accent-900: #63171b;
 }
 [data-theme='light'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #feb2b2;
     --f-color-background: #f7fafc;
     --f-color-accent: #e53e3e;
@@ -261,7 +256,6 @@ export const colors = {
     --f-color-border-strong: #cbd5e0;
   }
   [data-theme='dark'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #c53030;
     --f-color-background: #171923;
     --f-color-accent: #f56565;
@@ -309,7 +303,6 @@ export const colors = {
     --f-color-accent-900: #652b19;
 }
 [data-theme='light'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #fbd38d;
     --f-color-background: #f7fafc;
     --f-color-accent: #dd6b20;
@@ -342,7 +335,6 @@ export const colors = {
     --f-color-border-strong: #cbd5e0;
   }
   [data-theme='dark'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #c05621;
     --f-color-background: #171923;
     --f-color-accent: #ed8936;
@@ -473,7 +465,6 @@ export const colors = {
     --f-color-accent-900: #1c4532;
 }
 [data-theme='light'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #9ae6b4;
     --f-color-background: #f7fafc;
     --f-color-accent: #38a169;
@@ -506,7 +497,6 @@ export const colors = {
     --f-color-border-strong: #cbd5e0;
   }
   [data-theme='dark'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #2f855a;
     --f-color-background: #171923;
     --f-color-accent: #48bb78;
@@ -553,7 +543,6 @@ export const colors = {
     --f-color-accent-900: #1d4044;
 }
 [data-theme='light'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #81e6d9;
     --f-color-background: #f7fafc;
     --f-color-accent: #319795;
@@ -586,7 +575,6 @@ export const colors = {
     --f-color-border-strong: #cbd5e0;
   }
   [data-theme='dark'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #2c7a7b;
     --f-color-background: #171923;
     --f-color-accent: #38b2ac;
@@ -633,7 +621,6 @@ export const colors = {
     --f-color-accent-900: #065666;
 }
 [data-theme='light'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #9decf9;
     --f-color-background: #f7fafc;
     --f-color-accent: #00b5d8;
@@ -666,7 +653,6 @@ export const colors = {
     --f-color-border-strong: #cbd5e0;
   }
   [data-theme='dark'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #00a3c4;
     --f-color-background: #171923;
     --f-color-accent: #0bc5ea;
@@ -714,7 +700,6 @@ export const colors = {
 }
 
 [data-theme='light'] {
-    --f-radius: 1.5rem;
     --f-focus: 3px solid #a2cdff;
     --f-color-background: #f7fafc;
     --f-color-accent: #0078ff;
