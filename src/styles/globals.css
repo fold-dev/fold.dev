@@ -73,7 +73,6 @@ body {
 }
 
 .al1-components {
-    overflow: hidden;
     max-width: fit-content;
 }
 
@@ -222,4 +221,16 @@ body {
         padding: 10px;
         padding-left: 0px;
     }
+}
+
+/* temp fix */
+
+.f-button.is-accent:after,
+.f-button.is-success:after,
+.f-button.is-neutral:after,
+.f-button.is-caution:after,
+.f-button.is-warning:after,
+.f-button.is-danger:after,
+.f-button.is-highlight:after {
+    border-radius: var(--f-button-border-radius);
 }
