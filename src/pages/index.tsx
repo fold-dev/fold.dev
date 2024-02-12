@@ -731,7 +731,6 @@ export const colors = {
   }
 
   [data-theme='dark'] {
-  --f-radius: 1.5rem;
   --f-focus: 3px solid #0063d1;
   --f-color-background: #171923;
   --f-color-accent: #2e90ff;
