@@ -382,7 +382,6 @@ export const colors = {
 }
 
 [data-theme='light'] {
-  --f-radius: 1.5rem;
   --f-focus: 3px solid #faf089;
   --f-color-background: #f7fafc;
   --f-color-accent: #d69e2e;
@@ -416,7 +415,6 @@ export const colors = {
 }
 
 [data-theme='dark'] {
-  --f-radius: 1.5rem;
   --f-focus: 3px solid #b7791f;
   --f-color-background: #171923;
   --f-color-accent: #ecc94b;
@@ -1746,6 +1744,7 @@ function Home() {
                     alignItems="flex-end">
                     <Button
                         colorToken="accent-50"
+                        bg="transparent"
                         variant="accent"
                         border="0.15rem solid white"
                         as="a"
@@ -1756,6 +1755,7 @@ function Home() {
                     <Button
                         width={200}
                         colorToken="accent-50"
+                        bg="transparent"
                         variant="accent"
                         border="0.15rem solid white"
                         as="a"
