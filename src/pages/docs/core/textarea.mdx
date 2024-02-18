@@ -1,7 +1,7 @@
 import { CodeComponent } from '@/pages/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
-import { Textarea, View } from '@fold-dev/core'
+import { IconLib, InputControl, InputPrefix, Textarea, View } from '@fold-dev/core'
 import React, { useState } from 'react'
 
 export const docs = {
@@ -206,6 +206,47 @@ export const Sizes = () => {
                 onChange={(e) => setText(e.target.value)}
             />
         </View>
+    )
+}
+```
+### With Input Control
+
+> The `InputControl` component can also be used to create a `Textarea` with a prefix or suffix.
+
+export const WithInputControl = () => {
+    const [text, setText] = useState('');
+    return (<InputControl>
+            <InputPrefix>
+                <IconLib icon="circle"/>
+            </InputPrefix>
+            <Textarea autoAdjust value={text} maxHeight={300} className="f-scrollbar" placeholder="Write message..." onChange={(e) => setText(e.target.value)}/>
+        </InputControl>);
+};
+
+<div className="story-block">
+<WithInputControl />
+</div>
+
+<CodeComponent filename="WithInputControl.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhJbnB1dENvbnRyb2wgPSAoKSA9PiB7CiAgICBjb25zdCBbdGV4dCwgc2V0VGV4dF0gPSB1c2VTdGF0ZSgnJykKCiAgICByZXR1cm4gKAogICAgICAgIDxJbnB1dENvbnRyb2w+CiAgICAgICAgICAgIDxJbnB1dFByZWZpeD4KICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImNpcmNsZSIgLz4KICAgICAgICAgICAgPC9JbnB1dFByZWZpeD4KICAgICAgICAgICAgPFRleHRhcmVhCiAgICAgICAgICAgICAgICBhdXRvQWRqdXN0CiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIG1heEhlaWdodD17MzAwfQogICAgICAgICAgICAgICAgY2xhc3NOYW1lPSJmLXNjcm9sbGJhciIKICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJXcml0ZSBtZXNzYWdlLi4uIgogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L0lucHV0Q29udHJvbD4KICAgICkKfQ==" />
+
+```tsx
+export const WithInputControl = () => {
+    const [text, setText] = useState('')
+
+    return (
+        <InputControl>
+            <InputPrefix>
+                <IconLib icon="circle" />
+            </InputPrefix>
+            <Textarea
+                autoAdjust
+                value={text}
+                maxHeight={300}
+                className="f-scrollbar"
+                placeholder="Write message..."
+                onChange={(e) => setText(e.target.value)}
+            />
+        </InputControl>
     )
 }
 ```

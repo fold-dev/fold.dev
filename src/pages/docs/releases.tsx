@@ -7,8 +7,14 @@ import {
     Icon,
     Link,
     Stack,
+    TBody,
+    THead,
+    Table,
+    Td,
     Text,
-    View
+    Th,
+    Tr,
+    View,
 } from '@fold-dev/core'
 import { NextPageContext } from 'next'
 import { Octokit } from 'octokit'
@@ -25,8 +31,6 @@ async function markdownToHtml(markdown: string) {
 export default function Releases(props) {
     const { data, content } = props
 
-    console.log(content, data)
-
     return (
         <View
             p={30}
@@ -38,22 +42,49 @@ export default function Releases(props) {
             <Heading fontWeight="bold">Releases</Heading>
             <Heading as="h2">Below is a list of all Fold releases.</Heading>
             <Divider />
-            <br/>
+            <br />
             {!data.length && <Text as="blockquote">There are no releases yet.</Text>}
 
             {/* https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#list-releases-for-a-repository */}
-            
-            {data.map(({ html_url, name, tag_name, body }, index) => (
-                <Stack direction="vertical" spacing={10} key={index} m="0 0 2rem 0">
-                    <Heading as="h3" fontWeight={700}>{name}</Heading>
-                    <View row gap={5} justifyContent="flex-start">
-                        <Icon icon={PiTagDuotone} size="sm" color="var(--f-color-accent)" />
-                        <Text>{tag_name}</Text>
-                    </View>
-                    {/* <Text fontWeight="semibold">{body}</Text> */}
-                    <Link target="_blank" href={html_url}>View release on GitHub</Link>
-                </Stack>
-            ))}            
+
+            <Table>
+                <THead>
+                    <Tr>
+                        <Th>Version</Th>
+                        <Th>Tag</Th>
+                        <Th align="right">Link</Th>
+                    </Tr>
+                </THead>
+                <TBody>
+                    {data.map(({ html_url, name, tag_name, body }, index) => (
+                        <Tr>
+                            <Td>
+                                <Text fontWeight="bold">{name}</Text>
+                            </Td>
+                            <Td>
+                                <View
+                                    row
+                                    gap={5}
+                                    justifyContent="flex-start">
+                                    <Icon
+                                        icon={PiTagDuotone}
+                                        size="sm"
+                                        color="var(--f-color-accent)"
+                                    />
+                                    <Text>{tag_name}</Text>
+                                </View>
+                            </Td>
+                            <Td align="right">
+                                <Link
+                                    target="_blank"
+                                    href={html_url}>
+                                    View release on GitHub
+                                </Link>
+                            </Td>
+                        </Tr>
+                    ))}
+                </TBody>
+            </Table>
         </View>
     )
 }
