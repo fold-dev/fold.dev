@@ -31,8 +31,6 @@ async function markdownToHtml(markdown: string) {
 export default function Releases(props) {
     const { data, content } = props
 
-    console.log(content, data)
-
     return (
         <View
             p={30}
