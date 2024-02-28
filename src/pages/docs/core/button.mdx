@@ -445,8 +445,11 @@ export const States = () => (
 ### As Link
 
 export const AsLink = () => (<Stack spacing={5}>
-        <Button as="a" href="https://google.com" target="_blank" subtle underlined>
+        <Button as="a" href="https://google.com" target="_blank">
             Default
+        </Button>
+        <Button as="a" href="https://google.com" target="_blank" subtle underlined>
+            Subtle
         </Button>
         <Button as="a" href="https://google.com" target="_blank" variant="accent" subtle underlined>
             Accent
@@ -475,7 +478,7 @@ export const AsLink = () => (<Stack spacing={5}>
 <AsLink />
 </div>
 
-<CodeComponent filename="AsLink.tsx" code="ZXhwb3J0IGNvbnN0IEFzTGluayA9ICgpID0+ICgKICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGFzPSJhIgogICAgICAgICAgICBocmVmPSJodHRwczovL2dvb2dsZS5jb20iCiAgICAgICAgICAgIHRhcmdldD0iX2JsYW5rIgogICAgICAgICAgICBzdWJ0bGUKICAgICAgICAgICAgdW5kZXJsaW5lZD4KICAgICAgICAgICAgRGVmYXVsdAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgYXM9ImEiCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZ29vZ2xlLmNvbSIKICAgICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiCiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgc3VidGxlCiAgICAgICAgICAgIHVuZGVybGluZWQ+CiAgICAgICAgICAgIEFjY2VudAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgYXM9ImEiCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZ29vZ2xlLmNvbSIKICAgICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiCiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgIHN1YnRsZQogICAgICAgICAgICB1bmRlcmxpbmVkPgogICAgICAgICAgICBTdWNjZXNzCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICBhcz0iYSIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9nb29nbGUuY29tIgogICAgICAgICAgICB0YXJnZXQ9Il9ibGFuayIKICAgICAgICAgICAgdmFyaWFudD0ibmV1dHJhbCIKICAgICAgICAgICAgc3VidGxlPgogICAgICAgICAgICBOZXV0cmFsCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICBhcz0iYSIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9nb29nbGUuY29tIgogICAgICAgICAgICB0YXJnZXQ9Il9ibGFuayIKICAgICAgICAgICAgdmFyaWFudD0iY2F1dGlvbiIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgQ2F1dGlvbgogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgYXM9ImEiCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZ29vZ2xlLmNvbSIKICAgICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiCiAgICAgICAgICAgIHZhcmlhbnQ9Indhcm5pbmciCiAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgIFdhcm5pbmcKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGFzPSJhIgogICAgICAgICAgICBocmVmPSJodHRwczovL2dvb2dsZS5jb20iCiAgICAgICAgICAgIHRhcmdldD0iX2JsYW5rIgogICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiPgogICAgICAgICAgICBEYW5nZXIKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGFzPSJhIgogICAgICAgICAgICBocmVmPSJodHRwczovL2dvb2dsZS5jb20iCiAgICAgICAgICAgIHRhcmdldD0iX2JsYW5rIgogICAgICAgICAgICB2YXJpYW50PSJoaWdobGlnaHQiCiAgICAgICAgICAgIHVuZGVybGluZWQ+CiAgICAgICAgICAgIEhpZ2hsaWdodAogICAgICAgIDwvQnV0dG9uPgogICAgPC9TdGFjaz4KKQ==" />
+<CodeComponent filename="AsLink.tsx" code="ZXhwb3J0IGNvbnN0IEFzTGluayA9ICgpID0+ICgKICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGFzPSJhIgogICAgICAgICAgICBocmVmPSJodHRwczovL2dvb2dsZS5jb20iCiAgICAgICAgICAgIHRhcmdldD0iX2JsYW5rIj4KICAgICAgICAgICAgRGVmYXVsdAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgYXM9ImEiCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZ29vZ2xlLmNvbSIKICAgICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiCiAgICAgICAgICAgIHN1YnRsZQogICAgICAgICAgICB1bmRlcmxpbmVkPgogICAgICAgICAgICBTdWJ0bGUKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGFzPSJhIgogICAgICAgICAgICBocmVmPSJodHRwczovL2dvb2dsZS5jb20iCiAgICAgICAgICAgIHRhcmdldD0iX2JsYW5rIgogICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgICAgIHN1YnRsZQogICAgICAgICAgICB1bmRlcmxpbmVkPgogICAgICAgICAgICBBY2NlbnQKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGFzPSJhIgogICAgICAgICAgICBocmVmPSJodHRwczovL2dvb2dsZS5jb20iCiAgICAgICAgICAgIHRhcmdldD0iX2JsYW5rIgogICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICBzdWJ0bGUKICAgICAgICAgICAgdW5kZXJsaW5lZD4KICAgICAgICAgICAgU3VjY2VzcwogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgYXM9ImEiCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZ29vZ2xlLmNvbSIKICAgICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiCiAgICAgICAgICAgIHZhcmlhbnQ9Im5ldXRyYWwiCiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgTmV1dHJhbAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgYXM9ImEiCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZ29vZ2xlLmNvbSIKICAgICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiCiAgICAgICAgICAgIHZhcmlhbnQ9ImNhdXRpb24iCiAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgIENhdXRpb24KICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGFzPSJhIgogICAgICAgICAgICBocmVmPSJodHRwczovL2dvb2dsZS5jb20iCiAgICAgICAgICAgIHRhcmdldD0iX2JsYW5rIgogICAgICAgICAgICB2YXJpYW50PSJ3YXJuaW5nIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBXYXJuaW5nCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICBhcz0iYSIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9nb29nbGUuY29tIgogICAgICAgICAgICB0YXJnZXQ9Il9ibGFuayIKICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIj4KICAgICAgICAgICAgRGFuZ2VyCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICBhcz0iYSIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9nb29nbGUuY29tIgogICAgICAgICAgICB0YXJnZXQ9Il9ibGFuayIKICAgICAgICAgICAgdmFyaWFudD0iaGlnaGxpZ2h0IgogICAgICAgICAgICB1bmRlcmxpbmVkPgogICAgICAgICAgICBIaWdobGlnaHQKICAgICAgICA8L0J1dHRvbj4KICAgIDwvU3RhY2s+Cik=" />
 
 ```tsx
 export const AsLink = () => (
@@ -483,10 +486,16 @@ export const AsLink = () => (
         <Button
             as="a"
             href="https://google.com"
+            target="_blank">
+            Default
+        </Button>
+        <Button
+            as="a"
+            href="https://google.com"
             target="_blank"
             subtle
             underlined>
-            Default
+            Subtle
         </Button>
         <Button
             as="a"
@@ -619,7 +628,28 @@ export const ButtonGroups = () => (<Stack spacing={10} direction="vertical">
         <ButtonGroup direction="vertical" width={300}>
             <Button>With</Button>
             <Button>Direction</Button>
+            <Button>Going</Button>
             <Button>Vertical</Button>
+        </ButtonGroup>
+        <ButtonGroup>
+            <Button variant="accent" outline>Accented</Button>
+            <Button variant="accent" outline>Accented</Button>
+        </ButtonGroup>
+        <ButtonGroup direction="vertical" width={300}>
+            <Button variant="highlight" outline>With</Button>
+            <Button variant="highlight" outline>Direction</Button>
+            <Button variant="highlight" outline>Going</Button>
+            <Button variant="highlight" outline>Vertical</Button>
+        </ButtonGroup>
+        <ButtonGroup>
+            <Button variant="accent">Accented</Button>
+            <Button variant="accent">Accented</Button>
+        </ButtonGroup>
+        <ButtonGroup direction="vertical" width={300}>
+            <Button variant="highlight">With</Button>
+            <Button variant="highlight">Direction</Button>
+            <Button variant="highlight">Going</Button>
+            <Button variant="highlight">Vertical</Button>
         </ButtonGroup>
     </Stack>);
 
@@ -627,7 +657,7 @@ export const ButtonGroups = () => (<Stack spacing={10} direction="vertical">
 <ButtonGroups />
 </div>
 
-<CodeComponent filename="ButtonGroups.tsx" code="ZXhwb3J0IGNvbnN0IEJ1dHRvbkdyb3VwcyA9ICgpID0+ICgKICAgIDxTdGFjawogICAgICAgIHNwYWNpbmc9ezEwfQogICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiPgogICAgICAgIDxCdXR0b25Hcm91cD4KICAgICAgICAgICAgPEJ1dHRvbj5GaXJzdDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uPlNlY29uZDwvQnV0dG9uPgogICAgICAgICAgICA8SWNvbkJ1dHRvbiBpY29uPSJiaW4iIC8+CiAgICAgICAgPC9CdXR0b25Hcm91cD4KICAgICAgICA8QnV0dG9uR3JvdXA+CiAgICAgICAgICAgIDxCdXR0b24gc2l6ZT0ic20iPkZpcnN0PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc2l6ZT0ic20iPlNlY29uZDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHNpemU9InNtIj5UaGlyZDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHNpemU9InNtIj5Gb3VydGg8L0J1dHRvbj4KICAgICAgICA8L0J1dHRvbkdyb3VwPgogICAgICAgIDxCdXR0b25Hcm91cCB3aWR0aD17MzAwfT4KICAgICAgICAgICAgPEJ1dHRvbj5XaXRoPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24+Rml4ZWQ8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbj5XaWR0aDwvQnV0dG9uPgogICAgICAgIDwvQnV0dG9uR3JvdXA+CiAgICAgICAgPEJ1dHRvbkdyb3VwPgogICAgICAgICAgICA8QnV0dG9uPk5vcm1hbCBCdXR0b248L0J1dHRvbj4KICAgICAgICA8L0J1dHRvbkdyb3VwPgogICAgICAgIDxCdXR0b25Hcm91cAogICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICB3aWR0aD17MzAwfT4KICAgICAgICAgICAgPEJ1dHRvbj5XaXRoPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24+RGlyZWN0aW9uPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24+VmVydGljYWw8L0J1dHRvbj4KICAgICAgICA8L0J1dHRvbkdyb3VwPgogICAgPC9TdGFjaz4KKQ==" />
+<CodeComponent filename="ButtonGroups.tsx" code="ZXhwb3J0IGNvbnN0IEJ1dHRvbkdyb3VwcyA9ICgpID0+ICgKICAgIDxTdGFjawogICAgICAgIHNwYWNpbmc9ezEwfQogICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiPgogICAgICAgIDxCdXR0b25Hcm91cD4KICAgICAgICAgICAgPEJ1dHRvbj5GaXJzdDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uPlNlY29uZDwvQnV0dG9uPgogICAgICAgICAgICA8SWNvbkJ1dHRvbiBpY29uPSJiaW4iIC8+CiAgICAgICAgPC9CdXR0b25Hcm91cD4KICAgICAgICA8QnV0dG9uR3JvdXA+CiAgICAgICAgICAgIDxCdXR0b24gc2l6ZT0ic20iPkZpcnN0PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc2l6ZT0ic20iPlNlY29uZDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHNpemU9InNtIj5UaGlyZDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHNpemU9InNtIj5Gb3VydGg8L0J1dHRvbj4KICAgICAgICA8L0J1dHRvbkdyb3VwPgogICAgICAgIDxCdXR0b25Hcm91cCB3aWR0aD17MzAwfT4KICAgICAgICAgICAgPEJ1dHRvbj5XaXRoPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24+Rml4ZWQ8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbj5XaWR0aDwvQnV0dG9uPgogICAgICAgIDwvQnV0dG9uR3JvdXA+CiAgICAgICAgPEJ1dHRvbkdyb3VwPgogICAgICAgICAgICA8QnV0dG9uPk5vcm1hbCBCdXR0b248L0J1dHRvbj4KICAgICAgICA8L0J1dHRvbkdyb3VwPgogICAgICAgIDxCdXR0b25Hcm91cAogICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICB3aWR0aD17MzAwfT4KICAgICAgICAgICAgPEJ1dHRvbj5XaXRoPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24+RGlyZWN0aW9uPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24+R29pbmc8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbj5WZXJ0aWNhbDwvQnV0dG9uPgogICAgICAgIDwvQnV0dG9uR3JvdXA+CiAgICAgICAgPEJ1dHRvbkdyb3VwPgogICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9ImFjY2VudCIgb3V0bGluZT5BY2NlbnRlZDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9ImFjY2VudCIgb3V0bGluZT5BY2NlbnRlZDwvQnV0dG9uPgogICAgICAgIDwvQnV0dG9uR3JvdXA+CiAgICAgICAgPEJ1dHRvbkdyb3VwCiAgICAgICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgICAgIHdpZHRoPXszMDB9PgogICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9ImhpZ2hsaWdodCIgb3V0bGluZT5XaXRoPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gdmFyaWFudD0iaGlnaGxpZ2h0IiBvdXRsaW5lPkRpcmVjdGlvbjwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9ImhpZ2hsaWdodCIgb3V0bGluZT5Hb2luZzwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9ImhpZ2hsaWdodCIgb3V0bGluZT5WZXJ0aWNhbDwvQnV0dG9uPgogICAgICAgIDwvQnV0dG9uR3JvdXA+CiAgICAgICAgPEJ1dHRvbkdyb3VwPgogICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9ImFjY2VudCI+QWNjZW50ZWQ8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiB2YXJpYW50PSJhY2NlbnQiPkFjY2VudGVkPC9CdXR0b24+CiAgICAgICAgPC9CdXR0b25Hcm91cD4KICAgICAgICA8QnV0dG9uR3JvdXAKICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgd2lkdGg9ezMwMH0+CiAgICAgICAgICAgIDxCdXR0b24gdmFyaWFudD0iaGlnaGxpZ2h0Ij5XaXRoPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gdmFyaWFudD0iaGlnaGxpZ2h0Ij5EaXJlY3Rpb248L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiB2YXJpYW50PSJoaWdobGlnaHQiPkdvaW5nPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gdmFyaWFudD0iaGlnaGxpZ2h0Ij5WZXJ0aWNhbDwvQnV0dG9uPgogICAgICAgIDwvQnV0dG9uR3JvdXA+CiAgICA8L1N0YWNrPgop" />
 
 ```tsx
 export const ButtonGroups = () => (
@@ -658,7 +688,32 @@ export const ButtonGroups = () => (
             width={300}>
             <Button>With</Button>
             <Button>Direction</Button>
+            <Button>Going</Button>
             <Button>Vertical</Button>
+        </ButtonGroup>
+        <ButtonGroup>
+            <Button variant="accent" outline>Accented</Button>
+            <Button variant="accent" outline>Accented</Button>
+        </ButtonGroup>
+        <ButtonGroup
+            direction="vertical"
+            width={300}>
+            <Button variant="highlight" outline>With</Button>
+            <Button variant="highlight" outline>Direction</Button>
+            <Button variant="highlight" outline>Going</Button>
+            <Button variant="highlight" outline>Vertical</Button>
+        </ButtonGroup>
+        <ButtonGroup>
+            <Button variant="accent">Accented</Button>
+            <Button variant="accent">Accented</Button>
+        </ButtonGroup>
+        <ButtonGroup
+            direction="vertical"
+            width={300}>
+            <Button variant="highlight">With</Button>
+            <Button variant="highlight">Direction</Button>
+            <Button variant="highlight">Going</Button>
+            <Button variant="highlight">Vertical</Button>
         </ButtonGroup>
     </Stack>
 )
