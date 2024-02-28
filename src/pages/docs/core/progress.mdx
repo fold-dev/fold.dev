@@ -1,7 +1,7 @@
 import { CodeComponent } from '@/pages/components/code.component'
 import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
-import { CircularProgress, Heading, Progress, Stack, SubtleProgress, Text } from '@fold-dev/core'
+import { ProgressCircle, Heading, Progress, Stack, ProgressSubtle, Text, ProgressPie } from '@fold-dev/core'
 import React from 'react'
 
 export const docs = {
@@ -11,15 +11,20 @@ export const docs = {
         'Progress indicators provide users with information regarding the status of active operations, such as launching an application, completing a form submission, or saving recent changes. Also see the Spinner component.',
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/progress/progress.tsx","description":"","displayName":"Progress","methods":[],"props":{"indeterminate":{"defaultValue":null,"description":"","name":"indeterminate","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"animated":{"defaultValue":null,"description":"","name":"animated","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"thickness":{"defaultValue":null,"description":"","name":"thickness","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/progress/progress.tsx","description":"","displayName":"CircularProgress","methods":[],"props":{"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"thickness":{"defaultValue":null,"description":"","name":"thickness","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/progress/progress.tsx","description":"","displayName":"SubtleProgress","methods":[],"props":{"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}}}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/progress/progress.tsx","description":"","displayName":"Progress","methods":[],"props":{"indeterminate":{"defaultValue":null,"description":"","name":"indeterminate","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"animated":{"defaultValue":null,"description":"","name":"animated","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"thickness":{"defaultValue":null,"description":"","name":"thickness","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/progress/progress.tsx","description":"","displayName":"ProgressCircle","methods":[],"props":{"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"thickness":{"defaultValue":null,"description":"","name":"thickness","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/progress/progress.tsx","description":"","displayName":"ProgressPie","methods":[],"props":{"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"padding":{"defaultValue":null,"description":"","name":"padding","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/progress/progress.tsx","description":"","displayName":"ProgressSubtle","methods":[],"props":{"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/progress/progress.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}}}}]
 
-export const css = [[["--f-progress-background","var(--f-color-surface-stronger)"],["--f-progress-active","var(--f-color-accent)"],["--f-progress-radius","var(--f-radius)"],["--f-subtle-progress-padding","var(--f-space-1)"],["--f-subtle-progress-opacity","0.2"]]]
+export const css = [[["--f-progress-background","var(--f-color-surface-stronger)"],["--f-progress-active","var(--f-color-surface-strongest)"],["--f-progress-radius","var(--f-radius)"],["--f-progress-subtle-padding","var(--f-space-1)"],["--f-progress-subtle-opacity","0.2"]]]
 
 
 
-<CodeComponent filename="progress.tsx" code="aW1wb3J0IHsgUHJvZ3Jlc3MsIENpcmN1bGFyUHJvZ3Jlc3MsIFN1YnRsZVByb2dyZXNzIH0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
+<CodeComponent filename="progress.tsx" code="aW1wb3J0IHsKICBQcm9ncmVzcywKICBQcm9ncmVzc0NpcmNsZSwKICBQcm9ncmVzc1BpZSwKICBQcm9ncmVzc1N1YnRsZSwKfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
 ```tsx
-import { Progress, CircularProgress, SubtleProgress } from "@fold-dev/core";
+import {
+  Progress,
+  ProgressCircle,
+  ProgressPie,
+  ProgressSubtle,
+} from "@fold-dev/core";
 ```
 
 ### Usage
@@ -218,72 +223,72 @@ export const States = () => (
     </Stack>
 )
 ```
-### Circular
+### Circle
 
-export const Circular = () => (<Stack spacing={10}>
-        <CircularProgress value={20} size={120} thickness={10}>
+export const Circle = () => (<Stack spacing={10}>
+        <ProgressCircle value={20} size={120} thickness={20}>
             <Heading as="h1" colorToken="accent">
                 20%
             </Heading>
-        </CircularProgress>
-        <CircularProgress value={90} size={120} thickness={10} variant="accent"/>
-        <CircularProgress value={50} size={80} thickness={10} variant="success"/>
-        <CircularProgress value={80} size={50} thickness={10} variant="neutral"/>
-        <CircularProgress value={80} size={50} thickness={10} variant="warning"/>
-        <CircularProgress value={80} size={50} thickness={10} variant="danger"/>
-        <CircularProgress value={80} size={50} thickness={20} variant="highlight"/>
+        </ProgressCircle>
+        <ProgressCircle value={90} size={120} thickness={10} variant="accent"/>
+        <ProgressCircle value={50} size={80} thickness={10} variant="success"/>
+        <ProgressCircle value={80} size={50} thickness={10} variant="neutral"/>
+        <ProgressCircle value={80} size={50} thickness={10} variant="warning"/>
+        <ProgressCircle value={80} size={50} thickness={10} variant="danger"/>
+        <ProgressCircle value={80} size={50} thickness={20} variant="highlight"/>
     </Stack>);
 
 <div className="story-block">
-<Circular />
+<Circle />
 </div>
 
-<CodeComponent filename="Circular.tsx" code="ZXhwb3J0IGNvbnN0IENpcmN1bGFyID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezEwfT4KICAgICAgICA8Q2lyY3VsYXJQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17MjB9CiAgICAgICAgICAgIHNpemU9ezEyMH0KICAgICAgICAgICAgdGhpY2tuZXNzPXsxMH0+CiAgICAgICAgICAgIDxIZWFkaW5nCiAgICAgICAgICAgICAgICBhcz0iaDEiCiAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJhY2NlbnQiPgogICAgICAgICAgICAgICAgMjAlCiAgICAgICAgICAgIDwvSGVhZGluZz4KICAgICAgICA8L0NpcmN1bGFyUHJvZ3Jlc3M+CiAgICAgICAgPENpcmN1bGFyUHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezkwfQogICAgICAgICAgICBzaXplPXsxMjB9CiAgICAgICAgICAgIHRoaWNrbmVzcz17MTB9CiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAvPgogICAgICAgIDxDaXJjdWxhclByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXs1MH0KICAgICAgICAgICAgc2l6ZT17ODB9CiAgICAgICAgICAgIHRoaWNrbmVzcz17MTB9CiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgLz4KICAgICAgICA8Q2lyY3VsYXJQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17ODB9CiAgICAgICAgICAgIHNpemU9ezUwfQogICAgICAgICAgICB0aGlja25lc3M9ezEwfQogICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgIC8+CiAgICAgICAgPENpcmN1bGFyUHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezgwfQogICAgICAgICAgICBzaXplPXs1MH0KICAgICAgICAgICAgdGhpY2tuZXNzPXsxMH0KICAgICAgICAgICAgdmFyaWFudD0id2FybmluZyIKICAgICAgICAvPgogICAgICAgIDxDaXJjdWxhclByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXs4MH0KICAgICAgICAgICAgc2l6ZT17NTB9CiAgICAgICAgICAgIHRoaWNrbmVzcz17MTB9CiAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAvPgogICAgICAgIDxDaXJjdWxhclByb2dyZXNzCiAgICAgICAgICAgIHZhbHVlPXs4MH0KICAgICAgICAgICAgc2l6ZT17NTB9CiAgICAgICAgICAgIHRoaWNrbmVzcz17MjB9CiAgICAgICAgICAgIHZhcmlhbnQ9ImhpZ2hsaWdodCIKICAgICAgICAvPgogICAgPC9TdGFjaz4KKQ==" />
+<CodeComponent filename="Circle.tsx" code="ZXhwb3J0IGNvbnN0IENpcmNsZSA9ICgpID0+ICgKICAgIDxTdGFjayBzcGFjaW5nPXsxMH0+CiAgICAgICAgPFByb2dyZXNzQ2lyY2xlCiAgICAgICAgICAgIHZhbHVlPXsyMH0KICAgICAgICAgICAgc2l6ZT17MTIwfQogICAgICAgICAgICB0aGlja25lc3M9ezIwfT4KICAgICAgICAgICAgPEhlYWRpbmcKICAgICAgICAgICAgICAgIGFzPSJoMSIKICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49ImFjY2VudCI+CiAgICAgICAgICAgICAgICAyMCUKICAgICAgICAgICAgPC9IZWFkaW5nPgogICAgICAgIDwvUHJvZ3Jlc3NDaXJjbGU+CiAgICAgICAgPFByb2dyZXNzQ2lyY2xlCiAgICAgICAgICAgIHZhbHVlPXs5MH0KICAgICAgICAgICAgc2l6ZT17MTIwfQogICAgICAgICAgICB0aGlja25lc3M9ezEwfQogICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3NDaXJjbGUKICAgICAgICAgICAgdmFsdWU9ezUwfQogICAgICAgICAgICBzaXplPXs4MH0KICAgICAgICAgICAgdGhpY2tuZXNzPXsxMH0KICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAvPgogICAgICAgIDxQcm9ncmVzc0NpcmNsZQogICAgICAgICAgICB2YWx1ZT17ODB9CiAgICAgICAgICAgIHNpemU9ezUwfQogICAgICAgICAgICB0aGlja25lc3M9ezEwfQogICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgIC8+CiAgICAgICAgPFByb2dyZXNzQ2lyY2xlCiAgICAgICAgICAgIHZhbHVlPXs4MH0KICAgICAgICAgICAgc2l6ZT17NTB9CiAgICAgICAgICAgIHRoaWNrbmVzcz17MTB9CiAgICAgICAgICAgIHZhcmlhbnQ9Indhcm5pbmciCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3NDaXJjbGUKICAgICAgICAgICAgdmFsdWU9ezgwfQogICAgICAgICAgICBzaXplPXs1MH0KICAgICAgICAgICAgdGhpY2tuZXNzPXsxMH0KICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgIC8+CiAgICAgICAgPFByb2dyZXNzQ2lyY2xlCiAgICAgICAgICAgIHZhbHVlPXs4MH0KICAgICAgICAgICAgc2l6ZT17NTB9CiAgICAgICAgICAgIHRoaWNrbmVzcz17MjB9CiAgICAgICAgICAgIHZhcmlhbnQ9ImhpZ2hsaWdodCIKICAgICAgICAvPgogICAgPC9TdGFjaz4KKQ==" />
 
 ```tsx
-export const Circular = () => (
+export const Circle = () => (
     <Stack spacing={10}>
-        <CircularProgress
+        <ProgressCircle
             value={20}
             size={120}
-            thickness={10}>
+            thickness={20}>
             <Heading
                 as="h1"
                 colorToken="accent">
                 20%
             </Heading>
-        </CircularProgress>
-        <CircularProgress
+        </ProgressCircle>
+        <ProgressCircle
             value={90}
             size={120}
             thickness={10}
             variant="accent"
         />
-        <CircularProgress
+        <ProgressCircle
             value={50}
             size={80}
             thickness={10}
             variant="success"
         />
-        <CircularProgress
+        <ProgressCircle
             value={80}
             size={50}
             thickness={10}
             variant="neutral"
         />
-        <CircularProgress
+        <ProgressCircle
             value={80}
             size={50}
             thickness={10}
             variant="warning"
         />
-        <CircularProgress
+        <ProgressCircle
             value={80}
             size={50}
             thickness={10}
             variant="danger"
         />
-        <CircularProgress
+        <ProgressCircle
             value={80}
             size={50}
             thickness={20}
@@ -292,48 +297,112 @@ export const Circular = () => (
     </Stack>
 )
 ```
+### Pie
+
+export const Pie = () => (<Stack spacing={10}>
+        <ProgressPie value={20} size={120}/>
+        <ProgressPie value={90} size={120} variant="accent"/>
+        <ProgressPie value={50} size={80} variant="success"/>
+        <ProgressPie value={80} size={50} variant="neutral"/>
+        <ProgressPie value={80} size={50} variant="warning"/>
+        <ProgressPie value={80} size={50} variant="danger"/>
+        <ProgressPie value={80} size={50} variant="highlight"/>
+        <ProgressPie value={100} size={50} variant="highlight"/>
+    </Stack>);
+
+<div className="story-block">
+<Pie />
+</div>
+
+<CodeComponent filename="Pie.tsx" code="ZXhwb3J0IGNvbnN0IFBpZSA9ICgpID0+ICgKICAgIDxTdGFjayBzcGFjaW5nPXsxMH0+CiAgICAgICAgPFByb2dyZXNzUGllCiAgICAgICAgICAgIHZhbHVlPXsyMH0KICAgICAgICAgICAgc2l6ZT17MTIwfQogICAgICAgIC8+CiAgICAgICAgPFByb2dyZXNzUGllCiAgICAgICAgICAgIHZhbHVlPXs5MH0KICAgICAgICAgICAgc2l6ZT17MTIwfQogICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3NQaWUKICAgICAgICAgICAgdmFsdWU9ezUwfQogICAgICAgICAgICBzaXplPXs4MH0KICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAvPgogICAgICAgIDxQcm9ncmVzc1BpZQogICAgICAgICAgICB2YWx1ZT17ODB9CiAgICAgICAgICAgIHNpemU9ezUwfQogICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgIC8+CiAgICAgICAgPFByb2dyZXNzUGllCiAgICAgICAgICAgIHZhbHVlPXs4MH0KICAgICAgICAgICAgc2l6ZT17NTB9CiAgICAgICAgICAgIHZhcmlhbnQ9Indhcm5pbmciCiAgICAgICAgLz4KICAgICAgICA8UHJvZ3Jlc3NQaWUKICAgICAgICAgICAgdmFsdWU9ezgwfQogICAgICAgICAgICBzaXplPXs1MH0KICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgIC8+CiAgICAgICAgPFByb2dyZXNzUGllCiAgICAgICAgICAgIHZhbHVlPXs4MH0KICAgICAgICAgICAgc2l6ZT17NTB9CiAgICAgICAgICAgIHZhcmlhbnQ9ImhpZ2hsaWdodCIKICAgICAgICAvPgogICAgICAgIDxQcm9ncmVzc1BpZQogICAgICAgICAgICB2YWx1ZT17MTAwfQogICAgICAgICAgICBzaXplPXs1MH0KICAgICAgICAgICAgdmFyaWFudD0iaGlnaGxpZ2h0IgogICAgICAgIC8+CiAgICA8L1N0YWNrPgop" />
+
+```tsx
+export const Pie = () => (
+    <Stack spacing={10}>
+        <ProgressPie
+            value={20}
+            size={120}
+        />
+        <ProgressPie
+            value={90}
+            size={120}
+            variant="accent"
+        />
+        <ProgressPie
+            value={50}
+            size={80}
+            variant="success"
+        />
+        <ProgressPie
+            value={80}
+            size={50}
+            variant="neutral"
+        />
+        <ProgressPie
+            value={80}
+            size={50}
+            variant="warning"
+        />
+        <ProgressPie
+            value={80}
+            size={50}
+            variant="danger"
+        />
+        <ProgressPie
+            value={80}
+            size={50}
+            variant="highlight"
+        />
+        <ProgressPie
+            value={100}
+            size={50}
+            variant="highlight"
+        />
+    </Stack>
+)
+```
 ### Subtle
 
 export const Subtle = () => (<Stack direction="vertical" spacing={10}>
-        <SubtleProgress value={87}>
+        <ProgressSubtle value={87}>
             <Text>Redux</Text>
-        </SubtleProgress>
+        </ProgressSubtle>
 
-        <SubtleProgress value={20} variant="danger">
+        <ProgressSubtle value={20} variant="danger">
             <Text>MobX</Text>
-        </SubtleProgress>
+        </ProgressSubtle>
 
-        <SubtleProgress value={55} variant="highlight">
+        <ProgressSubtle value={55} variant="highlight">
             <Text>Zustand</Text>
-        </SubtleProgress>
+        </ProgressSubtle>
     </Stack>);
 
 <div className="story-block">
 <Subtle />
 </div>
 
-<CodeComponent filename="Subtle.tsx" code="ZXhwb3J0IGNvbnN0IFN1YnRsZSA9ICgpID0+ICgKICAgIDxTdGFjawogICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgc3BhY2luZz17MTB9PgogICAgICAgIDxTdWJ0bGVQcm9ncmVzcyB2YWx1ZT17ODd9PgogICAgICAgICAgICA8VGV4dD5SZWR1eDwvVGV4dD4KICAgICAgICA8L1N1YnRsZVByb2dyZXNzPgoKICAgICAgICA8U3VidGxlUHJvZ3Jlc3MKICAgICAgICAgICAgdmFsdWU9ezIwfQogICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiPgogICAgICAgICAgICA8VGV4dD5Nb2JYPC9UZXh0PgogICAgICAgIDwvU3VidGxlUHJvZ3Jlc3M+CgogICAgICAgIDxTdWJ0bGVQcm9ncmVzcwogICAgICAgICAgICB2YWx1ZT17NTV9CiAgICAgICAgICAgIHZhcmlhbnQ9ImhpZ2hsaWdodCI+CiAgICAgICAgICAgIDxUZXh0Plp1c3RhbmQ8L1RleHQ+CiAgICAgICAgPC9TdWJ0bGVQcm9ncmVzcz4KICAgIDwvU3RhY2s+Cik=" />
+<CodeComponent filename="Subtle.tsx" code="ZXhwb3J0IGNvbnN0IFN1YnRsZSA9ICgpID0+ICgKICAgIDxTdGFjawogICAgICAgIGRpcmVjdGlvbj0idmVydGljYWwiCiAgICAgICAgc3BhY2luZz17MTB9PgogICAgICAgIDxQcm9ncmVzc1N1YnRsZSB2YWx1ZT17ODd9PgogICAgICAgICAgICA8VGV4dD5SZWR1eDwvVGV4dD4KICAgICAgICA8L1Byb2dyZXNzU3VidGxlPgoKICAgICAgICA8UHJvZ3Jlc3NTdWJ0bGUKICAgICAgICAgICAgdmFsdWU9ezIwfQogICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiPgogICAgICAgICAgICA8VGV4dD5Nb2JYPC9UZXh0PgogICAgICAgIDwvUHJvZ3Jlc3NTdWJ0bGU+CgogICAgICAgIDxQcm9ncmVzc1N1YnRsZQogICAgICAgICAgICB2YWx1ZT17NTV9CiAgICAgICAgICAgIHZhcmlhbnQ9ImhpZ2hsaWdodCI+CiAgICAgICAgICAgIDxUZXh0Plp1c3RhbmQ8L1RleHQ+CiAgICAgICAgPC9Qcm9ncmVzc1N1YnRsZT4KICAgIDwvU3RhY2s+Cik=" />
 
 ```tsx
 export const Subtle = () => (
     <Stack
         direction="vertical"
         spacing={10}>
-        <SubtleProgress value={87}>
+        <ProgressSubtle value={87}>
             <Text>Redux</Text>
-        </SubtleProgress>
+        </ProgressSubtle>
 
-        <SubtleProgress
+        <ProgressSubtle
             value={20}
             variant="danger">
             <Text>MobX</Text>
-        </SubtleProgress>
+        </ProgressSubtle>
 
-        <SubtleProgress
+        <ProgressSubtle
             value={55}
             variant="highlight">
             <Text>Zustand</Text>
-        </SubtleProgress>
+        </ProgressSubtle>
     </Stack>
 )
 ```

@@ -52,11 +52,12 @@ export default function Releases(props) {
                     <Tr>
                         <Th>Version</Th>
                         <Th>Tag</Th>
+                        <Th>Release Date</Th>
                         <Th align="right">Link</Th>
                     </Tr>
                 </THead>
                 <TBody>
-                    {data.map(({ html_url, name, tag_name, body }, index) => (
+                    {data.map(({ html_url, name, tag_name, published_at }, index) => (
                         <Tr>
                             <Td>
                                 <Text fontWeight="bold">{name}</Text>
@@ -73,6 +74,9 @@ export default function Releases(props) {
                                     />
                                     <Text>{tag_name}</Text>
                                 </View>
+                            </Td>
+                            <Td>
+                                {new Date(published_at).toLocaleDateString()}
                             </Td>
                             <Td align="right">
                                 <Link
