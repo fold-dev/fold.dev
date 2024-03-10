@@ -11,9 +11,9 @@ export const docs = {
         'The Badge component is useful for conveying important information the user should be aware of, such as unread message counts, notifications, etc. It should be in close proximity to the relative element.',
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/badge/badge.tsx","description":"","displayName":"Badge","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/badge/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/badge/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"packages/core/src/badge/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"BadgeAnchor"},"tags":{}},"bordered":{"defaultValue":null,"description":"","name":"bordered","declarations":[{"fileName":"packages/core/src/badge/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/badge/badge.tsx","description":"","displayName":"Badge","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/badge/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/badge/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"packages/core/src/badge/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"BadgeAnchor"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"packages/core/src/badge/badge.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
 
-export const css = [[["--f-badge-border-radius","var(--f-radius-full)"],["--f-badge-background-color","var(--f-color-surface-stronger)"],["--f-badge-color","var(--f-color-text-weaker)"],["--f-badge-dot-size","var(--f-size-3)"],["--f-badge-border-color","var(--f-color-border)"],["--f-badge-border-size","0.1rem"],["--f-badge-dot-distance","0.3rem"]]]
+export const css = [[["--f-badge-border-radius","var(--f-radius-full)"],["--f-badge-background-color","var(--f-color-surface-stronger)"],["--f-badge-color","var(--f-color-text-weaker)"],["--f-badge-dot-size","var(--f-size-3)"],["--f-badge-border-color","var(--f-color-border)"],["--f-badge-border-size","1px"],["--f-badge-dot-distance","0.3rem"]]]
 
 
 
@@ -26,14 +26,14 @@ import { Badge } from "@fold-dev/core";
 
 export const Usage = () => (<View row gap={5} width="fit-content">
         <Badge>+34 notifications</Badge>
-        <Badge bordered>+12 bordered notifications</Badge>
+        <Badge outline>+12 outline notifications</Badge>
     </View>);
 
 <div className="story-block">
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QmFkZ2U+KzM0IG5vdGlmaWNhdGlvbnM8L0JhZGdlPgogICAgICAgIDxCYWRnZSBib3JkZXJlZD4rMTIgYm9yZGVyZWQgbm90aWZpY2F0aW9uczwvQmFkZ2U+CiAgICA8L1ZpZXc+Cik=" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QmFkZ2U+KzM0IG5vdGlmaWNhdGlvbnM8L0JhZGdlPgogICAgICAgIDxCYWRnZSBvdXRsaW5lPisxMiBvdXRsaW5lIG5vdGlmaWNhdGlvbnM8L0JhZGdlPgogICAgPC9WaWV3Pgop" />
 
 ```tsx
 export const Usage = () => (
@@ -42,7 +42,7 @@ export const Usage = () => (
         gap={5}
         width="fit-content">
         <Badge>+34 notifications</Badge>
-        <Badge bordered>+12 bordered notifications</Badge>
+        <Badge outline>+12 outline notifications</Badge>
     </View>
 )
 ```
@@ -80,71 +80,71 @@ export const Variants = () => (
     </View>
 )
 ```
-### Variants Bordered
+### Variants Outline
 
-export const VariantsBordered = () => (<View row gap={5} width="fit-content">
-        <Badge bordered>default</Badge>
-        <Badge variant="accent" bordered>
+export const VariantsOutline = () => (<View row gap={5} width="fit-content">
+        <Badge outline>default</Badge>
+        <Badge variant="accent" outline>
             accent
         </Badge>
-        <Badge variant="success" bordered>
+        <Badge variant="success" outline>
             success
         </Badge>
-        <Badge variant="neutral" bordered>
+        <Badge variant="neutral" outline>
             neutral
         </Badge>
-        <Badge variant="caution" bordered>
+        <Badge variant="caution" outline>
             caution
         </Badge>
-        <Badge variant="warning" bordered>
+        <Badge variant="warning" outline>
             warning
         </Badge>
-        <Badge variant="danger" bordered>
+        <Badge variant="danger" outline>
             danger
         </Badge>
     </View>);
 
 <div className="story-block">
-<VariantsBordered />
+<VariantsOutline />
 </div>
 
-<CodeComponent filename="VariantsBordered.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzQm9yZGVyZWQgPSAoKSA9PiAoCiAgICA8VmlldwogICAgICAgIHJvdwogICAgICAgIGdhcD17NX0KICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiPgogICAgICAgIDxCYWRnZSBib3JkZXJlZD5kZWZhdWx0PC9CYWRnZT4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0iYWNjZW50IgogICAgICAgICAgICBib3JkZXJlZD4KICAgICAgICAgICAgYWNjZW50CiAgICAgICAgPC9CYWRnZT4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgYm9yZGVyZWQ+CiAgICAgICAgICAgIHN1Y2Nlc3MKICAgICAgICA8L0JhZGdlPgogICAgICAgIDxCYWRnZQogICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgICAgICBib3JkZXJlZD4KICAgICAgICAgICAgbmV1dHJhbAogICAgICAgIDwvQmFkZ2U+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9ImNhdXRpb24iCiAgICAgICAgICAgIGJvcmRlcmVkPgogICAgICAgICAgICBjYXV0aW9uCiAgICAgICAgPC9CYWRnZT4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0id2FybmluZyIKICAgICAgICAgICAgYm9yZGVyZWQ+CiAgICAgICAgICAgIHdhcm5pbmcKICAgICAgICA8L0JhZGdlPgogICAgICAgIDxCYWRnZQogICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiCiAgICAgICAgICAgIGJvcmRlcmVkPgogICAgICAgICAgICBkYW5nZXIKICAgICAgICA8L0JhZGdlPgogICAgPC9WaWV3Pgop" />
+<CodeComponent filename="VariantsOutline.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzT3V0bGluZSA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgcm93CiAgICAgICAgZ2FwPXs1fQogICAgICAgIHdpZHRoPSJmaXQtY29udGVudCI+CiAgICAgICAgPEJhZGdlIG91dGxpbmU+ZGVmYXVsdDwvQmFkZ2U+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgYWNjZW50CiAgICAgICAgPC9CYWRnZT4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgc3VjY2VzcwogICAgICAgIDwvQmFkZ2U+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9Im5ldXRyYWwiCiAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgIG5ldXRyYWwKICAgICAgICA8L0JhZGdlPgogICAgICAgIDxCYWRnZQogICAgICAgICAgICB2YXJpYW50PSJjYXV0aW9uIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBjYXV0aW9uCiAgICAgICAgPC9CYWRnZT4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0id2FybmluZyIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgd2FybmluZwogICAgICAgIDwvQmFkZ2U+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgZGFuZ2VyCiAgICAgICAgPC9CYWRnZT4KICAgIDwvVmlldz4KKQ==" />
 
 ```tsx
-export const VariantsBordered = () => (
+export const VariantsOutline = () => (
     <View
         row
         gap={5}
         width="fit-content">
-        <Badge bordered>default</Badge>
+        <Badge outline>default</Badge>
         <Badge
             variant="accent"
-            bordered>
+            outline>
             accent
         </Badge>
         <Badge
             variant="success"
-            bordered>
+            outline>
             success
         </Badge>
         <Badge
             variant="neutral"
-            bordered>
+            outline>
             neutral
         </Badge>
         <Badge
             variant="caution"
-            bordered>
+            outline>
             caution
         </Badge>
         <Badge
             variant="warning"
-            bordered>
+            outline>
             warning
         </Badge>
         <Badge
             variant="danger"
-            bordered>
+            outline>
             danger
         </Badge>
     </View>
@@ -230,17 +230,17 @@ export const Indicator = () => (
 ### Position
 
 export const Position = () => (<View width={100} height={100} bgToken="surface-strong" position="relative">
-        <Badge variant="accent" anchor="top-left" bordered/>
-        <Badge variant="success" anchor="top-right" bordered/>
-        <Badge variant="neutral" anchor="bottom-left" bordered/>
-        <Badge variant="warning" anchor="bottom-right" bordered/>
+        <Badge variant="accent" anchor="top-left"/>
+        <Badge variant="success" anchor="top-right"/>
+        <Badge variant="neutral" anchor="bottom-left"/>
+        <Badge variant="warning" anchor="bottom-right"/>
     </View>);
 
 <div className="story-block">
 <Position />
 </div>
 
-<CodeComponent filename="Position.tsx" code="ZXhwb3J0IGNvbnN0IFBvc2l0aW9uID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICB3aWR0aD17MTAwfQogICAgICAgIGhlaWdodD17MTAwfQogICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgIHBvc2l0aW9uPSJyZWxhdGl2ZSI+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgYW5jaG9yPSJ0b3AtbGVmdCIKICAgICAgICAgICAgYm9yZGVyZWQKICAgICAgICAvPgogICAgICAgIDxCYWRnZQogICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICBhbmNob3I9InRvcC1yaWdodCIKICAgICAgICAgICAgYm9yZGVyZWQKICAgICAgICAvPgogICAgICAgIDxCYWRnZQogICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgICAgICBhbmNob3I9ImJvdHRvbS1sZWZ0IgogICAgICAgICAgICBib3JkZXJlZAogICAgICAgIC8+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9Indhcm5pbmciCiAgICAgICAgICAgIGFuY2hvcj0iYm90dG9tLXJpZ2h0IgogICAgICAgICAgICBib3JkZXJlZAogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
+<CodeComponent filename="Position.tsx" code="ZXhwb3J0IGNvbnN0IFBvc2l0aW9uID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICB3aWR0aD17MTAwfQogICAgICAgIGhlaWdodD17MTAwfQogICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIgogICAgICAgIHBvc2l0aW9uPSJyZWxhdGl2ZSI+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgYW5jaG9yPSJ0b3AtbGVmdCIKICAgICAgICAvPgogICAgICAgIDxCYWRnZQogICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICBhbmNob3I9InRvcC1yaWdodCIKICAgICAgICAvPgogICAgICAgIDxCYWRnZQogICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgICAgICBhbmNob3I9ImJvdHRvbS1sZWZ0IgogICAgICAgIC8+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9Indhcm5pbmciCiAgICAgICAgICAgIGFuY2hvcj0iYm90dG9tLXJpZ2h0IgogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
 
 ```tsx
 export const Position = () => (
@@ -252,22 +252,18 @@ export const Position = () => (
         <Badge
             variant="accent"
             anchor="top-left"
-            bordered
         />
         <Badge
             variant="success"
             anchor="top-right"
-            bordered
         />
         <Badge
             variant="neutral"
             anchor="bottom-left"
-            bordered
         />
         <Badge
             variant="warning"
             anchor="bottom-right"
-            bordered
         />
     </View>
 )

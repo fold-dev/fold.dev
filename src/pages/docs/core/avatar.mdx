@@ -30,7 +30,7 @@ export const Usage = () => (<View row gap={5} width="fit-content">
         <Avatar size="xl" name="Craig Pather" src="/men/02.jpg"/>
         <Avatar size="xl" name="Charlene Singh" src="https://does.not.exist.jpg"/>
         <Avatar size="xl" name="Patrick Anthony">
-            <Badge variant="success" anchor="bottom-right" bordered width={15} height={15} style={{
+            <Badge variant="success" anchor="bottom-right" width={15} height={15} style={{
         '--f-badge-dot-distance': '0rem',
         '--f-badge-border-size': '0.2rem',
     }}/>
@@ -41,7 +41,7 @@ export const Usage = () => (<View row gap={5} width="fit-content">
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgIHNpemU9InhsIgogICAgICAgICAgICBuYW1lPSJDcmFpZyBQYXRoZXIiCiAgICAgICAgICAgIHNyYz0iL21lbi8wMi5qcGciCiAgICAgICAgLz4KICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgIHNpemU9InhsIgogICAgICAgICAgICBuYW1lPSJDaGFybGVuZSBTaW5naCIKICAgICAgICAgICAgc3JjPSJodHRwczovL2RvZXMubm90LmV4aXN0LmpwZyIKICAgICAgICAvPgogICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgc2l6ZT0ieGwiCiAgICAgICAgICAgIG5hbWU9IlBhdHJpY2sgQW50aG9ueSI+CiAgICAgICAgICAgIDxCYWRnZQogICAgICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgICAgIGFuY2hvcj0iYm90dG9tLXJpZ2h0IgogICAgICAgICAgICAgICAgYm9yZGVyZWQKICAgICAgICAgICAgICAgIHdpZHRoPXsxNX0KICAgICAgICAgICAgICAgIGhlaWdodD17MTV9CiAgICAgICAgICAgICAgICBzdHlsZT17ewogICAgICAgICAgICAgICAgICAgICctLWYtYmFkZ2UtZG90LWRpc3RhbmNlJzogJzByZW0nLAogICAgICAgICAgICAgICAgICAgICctLWYtYmFkZ2UtYm9yZGVyLXNpemUnOiAnMC4ycmVtJywKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9BdmF0YXI+CiAgICA8L1ZpZXc+Cik=" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgIHNpemU9InhsIgogICAgICAgICAgICBuYW1lPSJDcmFpZyBQYXRoZXIiCiAgICAgICAgICAgIHNyYz0iL21lbi8wMi5qcGciCiAgICAgICAgLz4KICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgIHNpemU9InhsIgogICAgICAgICAgICBuYW1lPSJDaGFybGVuZSBTaW5naCIKICAgICAgICAgICAgc3JjPSJodHRwczovL2RvZXMubm90LmV4aXN0LmpwZyIKICAgICAgICAvPgogICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgc2l6ZT0ieGwiCiAgICAgICAgICAgIG5hbWU9IlBhdHJpY2sgQW50aG9ueSI+CiAgICAgICAgICAgIDxCYWRnZQogICAgICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgICAgIGFuY2hvcj0iYm90dG9tLXJpZ2h0IgogICAgICAgICAgICAgICAgd2lkdGg9ezE1fQogICAgICAgICAgICAgICAgaGVpZ2h0PXsxNX0KICAgICAgICAgICAgICAgIHN0eWxlPXt7CiAgICAgICAgICAgICAgICAgICAgJy0tZi1iYWRnZS1kb3QtZGlzdGFuY2UnOiAnMHJlbScsCiAgICAgICAgICAgICAgICAgICAgJy0tZi1iYWRnZS1ib3JkZXItc2l6ZSc6ICcwLjJyZW0nLAogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgLz4KICAgICAgICA8L0F2YXRhcj4KICAgIDwvVmlldz4KKQ==" />
 
 ```tsx
 export const Usage = () => (
@@ -65,7 +65,6 @@ export const Usage = () => (
             <Badge
                 variant="success"
                 anchor="bottom-right"
-                bordered
                 width={15}
                 height={15}
                 style={{

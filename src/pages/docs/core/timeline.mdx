@@ -13,7 +13,7 @@ export const docs = {
 
 export const props = [{"tags":{},"filePath":"packages/core/src/timeline/timeline.tsx","description":"","displayName":"TimelineItem","methods":[],"props":{"marker":{"defaultValue":null,"description":"","name":"marker","declarations":[{"fileName":"packages/core/src/timeline/timeline.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/timeline/timeline.tsx","description":"","displayName":"Timeline","methods":[],"props":{}}]
 
-export const css = [[["--f-timeline-item-marker-color","var(--f-color-accent)"],["--f-timeline-item-text-color","var(--f-color-text)"],["--f-timeline-item-marker-line-color","var(--f-color-surface-strongest)"],["--f-timeline-item-marker-line-size","2px /* has to be px */"],["--f-timeline-item-marker-line-spacing","0.5rem"],["--f-timeline-item-marker-width","1.5rem"],["--f-timeline-item-marker-spacing","var(--f-size-2)"],["--f-timeline-item-spacing","var(--f-size-3)"],["--f-timeline-item-marker-top","1px"]]]
+export const css = [[["--f-timeline-item-marker-color","var(--f-color-accent)"],["--f-timeline-item-text-color","var(--f-color-text)"],["--f-timeline-item-marker-line-color","var(--f-color-surface-strongest)"],["--f-timeline-item-marker-line-size","2px /* has to be px */"],["--f-timeline-item-marker-line-spacing","0.5rem"],["--f-timeline-item-marker-width","1.5rem"],["--f-timeline-item-marker-spacing","var(--f-size-2)"],["--f-timeline-item-margin","var(--f-size-3)"],["--f-timeline-item-padding","var(--f-size-4)"],["--f-timeline-item-marker-top","1px"]]]
 
 
 
@@ -27,13 +27,13 @@ import { TimelineItem, Timeline } from "@fold-dev/core";
 export const Usage = () => (<Timeline>
         <TimelineItem colorToken="text">
             <Text fontWeight="semibold">Checked in at the hotel.</Text>
-            <Text size="sm" colorToken="text-weaker">
+            <Text m="0.25rem 0 0 0" size="sm" colorToken="text-weaker">
                 6m ago
             </Text>
         </TimelineItem>
         <TimelineItem colorToken="text">
             <Text fontWeight="semibold">Departed JFK airport via Uber.</Text>
-            <Text size="sm" colorToken="text-weaker">
+            <Text m="0.25rem 0 0 0" size="sm" colorToken="text-weaker">
                 56m ago
             </Text>
         </TimelineItem>
@@ -41,13 +41,13 @@ export const Usage = () => (<Timeline>
             <Text fontWeight="semibold">Boarded a plane bound for New York.</Text>
             <Text fontWeight="semibold">Passed through security checkpoint.</Text>
             <Text fontWeight="semibold">Entered airport facility.</Text>
-            <Text size="sm" colorToken="text-weaker">
+            <Text m="0.25rem 0 0 0" size="sm" colorToken="text-weaker">
                 3h ago
             </Text>
         </TimelineItem>
         <TimelineItem>
             <Text fontWeight="semibold">Caught an Uber bound for the airport.</Text>
-            <Text size="sm" colorToken="text-weaker">
+            <Text m="0.25rem 0 0 0" size="sm" colorToken="text-weaker">
                 6h ago
             </Text>
         </TimelineItem>
@@ -57,14 +57,15 @@ export const Usage = () => (<Timeline>
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFRpbWVsaW5lPgogICAgICAgIDxUaW1lbGluZUl0ZW0gY29sb3JUb2tlbj0idGV4dCI+CiAgICAgICAgICAgIDxUZXh0IGZvbnRXZWlnaHQ9InNlbWlib2xkIj5DaGVja2VkIGluIGF0IHRoZSBob3RlbC48L1RleHQ+CiAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49InRleHQtd2Vha2VyIj4KICAgICAgICAgICAgICAgIDZtIGFnbwogICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgPC9UaW1lbGluZUl0ZW0+CiAgICAgICAgPFRpbWVsaW5lSXRlbSBjb2xvclRva2VuPSJ0ZXh0Ij4KICAgICAgICAgICAgPFRleHQgZm9udFdlaWdodD0ic2VtaWJvbGQiPkRlcGFydGVkIEpGSyBhaXJwb3J0IHZpYSBVYmVyLjwvVGV4dD4KICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgY29sb3JUb2tlbj0idGV4dC13ZWFrZXIiPgogICAgICAgICAgICAgICAgNTZtIGFnbwogICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgPC9UaW1lbGluZUl0ZW0+CiAgICAgICAgPFRpbWVsaW5lSXRlbT4KICAgICAgICAgICAgPFRleHQgZm9udFdlaWdodD0ic2VtaWJvbGQiPkJvYXJkZWQgYSBwbGFuZSBib3VuZCBmb3IgTmV3IFlvcmsuPC9UZXh0PgogICAgICAgICAgICA8VGV4dCBmb250V2VpZ2h0PSJzZW1pYm9sZCI+UGFzc2VkIHRocm91Z2ggc2VjdXJpdHkgY2hlY2twb2ludC48L1RleHQ+CiAgICAgICAgICAgIDxUZXh0IGZvbnRXZWlnaHQ9InNlbWlib2xkIj5FbnRlcmVkIGFpcnBvcnQgZmFjaWxpdHkuPC9UZXh0PgogICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LXdlYWtlciI+CiAgICAgICAgICAgICAgICAzaCBhZ28KICAgICAgICAgICAgPC9UZXh0PgogICAgICAgIDwvVGltZWxpbmVJdGVtPgogICAgICAgIDxUaW1lbGluZUl0ZW0+CiAgICAgICAgICAgIDxUZXh0IGZvbnRXZWlnaHQ9InNlbWlib2xkIj5DYXVnaHQgYW4gVWJlciBib3VuZCBmb3IgdGhlIGFpcnBvcnQuPC9UZXh0PgogICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LXdlYWtlciI+CiAgICAgICAgICAgICAgICA2aCBhZ28KICAgICAgICAgICAgPC9UZXh0PgogICAgICAgIDwvVGltZWxpbmVJdGVtPgogICAgPC9UaW1lbGluZT4KKQ==" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFRpbWVsaW5lPgogICAgICAgIDxUaW1lbGluZUl0ZW0gY29sb3JUb2tlbj0idGV4dCI+CiAgICAgICAgICAgIDxUZXh0IGZvbnRXZWlnaHQ9InNlbWlib2xkIj5DaGVja2VkIGluIGF0IHRoZSBob3RlbC48L1RleHQ+CiAgICAgICAgICAgIDxUZXh0ICAgCiAgICAgICAgICAgICAgICBtPSIwLjI1cmVtIDAgMCAwIgogICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LXdlYWtlciI+CiAgICAgICAgICAgICAgICA2bSBhZ28KICAgICAgICAgICAgPC9UZXh0PgogICAgICAgIDwvVGltZWxpbmVJdGVtPgogICAgICAgIDxUaW1lbGluZUl0ZW0gY29sb3JUb2tlbj0idGV4dCI+CiAgICAgICAgICAgIDxUZXh0IGZvbnRXZWlnaHQ9InNlbWlib2xkIj5EZXBhcnRlZCBKRksgYWlycG9ydCB2aWEgVWJlci48L1RleHQ+CiAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICBtPSIwLjI1cmVtIDAgMCAwIgogICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LXdlYWtlciI+CiAgICAgICAgICAgICAgICA1Nm0gYWdvCiAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICA8L1RpbWVsaW5lSXRlbT4KICAgICAgICA8VGltZWxpbmVJdGVtPgogICAgICAgICAgICA8VGV4dCBmb250V2VpZ2h0PSJzZW1pYm9sZCI+Qm9hcmRlZCBhIHBsYW5lIGJvdW5kIGZvciBOZXcgWW9yay48L1RleHQ+CiAgICAgICAgICAgIDxUZXh0IGZvbnRXZWlnaHQ9InNlbWlib2xkIj5QYXNzZWQgdGhyb3VnaCBzZWN1cml0eSBjaGVja3BvaW50LjwvVGV4dD4KICAgICAgICAgICAgPFRleHQgZm9udFdlaWdodD0ic2VtaWJvbGQiPkVudGVyZWQgYWlycG9ydCBmYWNpbGl0eS48L1RleHQ+CiAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICBtPSIwLjI1cmVtIDAgMCAwIgogICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LXdlYWtlciI+CiAgICAgICAgICAgICAgICAzaCBhZ28KICAgICAgICAgICAgPC9UZXh0PgogICAgICAgIDwvVGltZWxpbmVJdGVtPgogICAgICAgIDxUaW1lbGluZUl0ZW0+CiAgICAgICAgICAgIDxUZXh0IGZvbnRXZWlnaHQ9InNlbWlib2xkIj5DYXVnaHQgYW4gVWJlciBib3VuZCBmb3IgdGhlIGFpcnBvcnQuPC9UZXh0PgogICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgbT0iMC4yNXJlbSAwIDAgMCIKICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgY29sb3JUb2tlbj0idGV4dC13ZWFrZXIiPgogICAgICAgICAgICAgICAgNmggYWdvCiAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICA8L1RpbWVsaW5lSXRlbT4KICAgIDwvVGltZWxpbmU+Cik=" />
 
 ```tsx
 export const Usage = () => (
     <Timeline>
         <TimelineItem colorToken="text">
             <Text fontWeight="semibold">Checked in at the hotel.</Text>
-            <Text
+            <Text   
+                m="0.25rem 0 0 0"
                 size="sm"
                 colorToken="text-weaker">
                 6m ago
@@ -73,6 +74,7 @@ export const Usage = () => (
         <TimelineItem colorToken="text">
             <Text fontWeight="semibold">Departed JFK airport via Uber.</Text>
             <Text
+                m="0.25rem 0 0 0"
                 size="sm"
                 colorToken="text-weaker">
                 56m ago
@@ -83,6 +85,7 @@ export const Usage = () => (
             <Text fontWeight="semibold">Passed through security checkpoint.</Text>
             <Text fontWeight="semibold">Entered airport facility.</Text>
             <Text
+                m="0.25rem 0 0 0"
                 size="sm"
                 colorToken="text-weaker">
                 3h ago
@@ -91,6 +94,7 @@ export const Usage = () => (
         <TimelineItem>
             <Text fontWeight="semibold">Caught an Uber bound for the airport.</Text>
             <Text
+                m="0.25rem 0 0 0"
                 size="sm"
                 colorToken="text-weaker">
                 6h ago
@@ -108,13 +112,13 @@ export const CustomMarkers = () => (<Timeline style={{
     }}>
         <TimelineItem colorToken="text" marker={<Avatar size="xs" src="/men/09.jpg"/>}>
             <Text fontWeight="semibold">Checked in at the hotel.</Text>
-            <Text size="sm" colorToken="text-weaker">
+            <Text m="0.25rem 0 0 0" size="sm" colorToken="text-weaker">
                 6m ago
             </Text>
         </TimelineItem>
         <TimelineItem colorToken="text" marker={<Avatar size="xs" src="/men/09.jpg"/>}>
             <Text fontWeight="semibold">Departed JFK airport via Uber.</Text>
-            <Text size="sm" colorToken="text-weaker">
+            <Text m="0.25rem 0 0 0" size="sm" colorToken="text-weaker">
                 56m ago
             </Text>
         </TimelineItem>
@@ -122,13 +126,13 @@ export const CustomMarkers = () => (<Timeline style={{
             <Text fontWeight="semibold">Boarded a plane bound for New York.</Text>
             <Text fontWeight="semibold">Passed through security checkpoint.</Text>
             <Text fontWeight="semibold">Entered airport facility.</Text>
-            <Text size="sm" colorToken="text-weaker">
+            <Text m="0.25rem 0 0 0" size="sm" colorToken="text-weaker">
                 3h ago
             </Text>
         </TimelineItem>
         <TimelineItem marker={<IconLib icon="moon"/>}>
             <Text fontWeight="semibold">Caught an Uber bound for the airport.</Text>
-            <Text size="sm" colorToken="text-weaker">
+            <Text m="0.25rem 0 0 0" size="sm" colorToken="text-weaker">
                 6h ago
             </Text>
         </TimelineItem>
@@ -138,7 +142,7 @@ export const CustomMarkers = () => (<Timeline style={{
 <CustomMarkers />
 </div>
 
-<CodeComponent filename="CustomMarkers.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbU1hcmtlcnMgPSAoKSA9PiAoCiAgICA8VGltZWxpbmUKICAgICAgICBzdHlsZT17ewogICAgICAgICAgICAnLS1mLXRpbWVsaW5lLWl0ZW0tbWFya2VyLXNwYWNpbmcnOiAnMS41cmVtJywKICAgICAgICAgICAgJy0tZi10aW1lbGluZS1pdGVtLW1hcmtlci13aWR0aCc6ICcycmVtJywKICAgICAgICAgICAgJy0tZi10aW1lbGluZS1pdGVtLW1hcmtlci1saW5lLWNvbG9yJzogJ3ZhcigtLWYtY29sb3ItYWNjZW50KScsCiAgICAgICAgfX0+CiAgICAgICAgPFRpbWVsaW5lSXRlbQogICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0IgogICAgICAgICAgICBtYXJrZXI9ewogICAgICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgICAgIHNpemU9InhzIgogICAgICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wOS5qcGciCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9PgogICAgICAgICAgICA8VGV4dCBmb250V2VpZ2h0PSJzZW1pYm9sZCI+Q2hlY2tlZCBpbiBhdCB0aGUgaG90ZWwuPC9UZXh0PgogICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LXdlYWtlciI+CiAgICAgICAgICAgICAgICA2bSBhZ28KICAgICAgICAgICAgPC9UZXh0PgogICAgICAgIDwvVGltZWxpbmVJdGVtPgogICAgICAgIDxUaW1lbGluZUl0ZW0KICAgICAgICAgICAgY29sb3JUb2tlbj0idGV4dCIKICAgICAgICAgICAgbWFya2VyPXsKICAgICAgICAgICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgICAgICAgICBzaXplPSJ4cyIKICAgICAgICAgICAgICAgICAgICBzcmM9Ii9tZW4vMDkuanBnIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgfT4KICAgICAgICAgICAgPFRleHQgZm9udFdlaWdodD0ic2VtaWJvbGQiPkRlcGFydGVkIEpGSyBhaXJwb3J0IHZpYSBVYmVyLjwvVGV4dD4KICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgY29sb3JUb2tlbj0idGV4dC13ZWFrZXIiPgogICAgICAgICAgICAgICAgNTZtIGFnbwogICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgPC9UaW1lbGluZUl0ZW0+CiAgICAgICAgPFRpbWVsaW5lSXRlbSBtYXJrZXI9ezxJY29uTGliIGljb249InN1biIgLz59PgogICAgICAgICAgICA8VGV4dCBmb250V2VpZ2h0PSJzZW1pYm9sZCI+Qm9hcmRlZCBhIHBsYW5lIGJvdW5kIGZvciBOZXcgWW9yay48L1RleHQ+CiAgICAgICAgICAgIDxUZXh0IGZvbnRXZWlnaHQ9InNlbWlib2xkIj5QYXNzZWQgdGhyb3VnaCBzZWN1cml0eSBjaGVja3BvaW50LjwvVGV4dD4KICAgICAgICAgICAgPFRleHQgZm9udFdlaWdodD0ic2VtaWJvbGQiPkVudGVyZWQgYWlycG9ydCBmYWNpbGl0eS48L1RleHQ+CiAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49InRleHQtd2Vha2VyIj4KICAgICAgICAgICAgICAgIDNoIGFnbwogICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgPC9UaW1lbGluZUl0ZW0+CiAgICAgICAgPFRpbWVsaW5lSXRlbSBtYXJrZXI9ezxJY29uTGliIGljb249Im1vb24iIC8+fT4KICAgICAgICAgICAgPFRleHQgZm9udFdlaWdodD0ic2VtaWJvbGQiPkNhdWdodCBhbiBVYmVyIGJvdW5kIGZvciB0aGUgYWlycG9ydC48L1RleHQ+CiAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49InRleHQtd2Vha2VyIj4KICAgICAgICAgICAgICAgIDZoIGFnbwogICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgPC9UaW1lbGluZUl0ZW0+CiAgICA8L1RpbWVsaW5lPgop" />
+<CodeComponent filename="CustomMarkers.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbU1hcmtlcnMgPSAoKSA9PiAoCiAgICA8VGltZWxpbmUKICAgICAgICBzdHlsZT17ewogICAgICAgICAgICAnLS1mLXRpbWVsaW5lLWl0ZW0tbWFya2VyLXNwYWNpbmcnOiAnMS41cmVtJywKICAgICAgICAgICAgJy0tZi10aW1lbGluZS1pdGVtLW1hcmtlci13aWR0aCc6ICcycmVtJywKICAgICAgICAgICAgJy0tZi10aW1lbGluZS1pdGVtLW1hcmtlci1saW5lLWNvbG9yJzogJ3ZhcigtLWYtY29sb3ItYWNjZW50KScsCiAgICAgICAgfX0+CiAgICAgICAgPFRpbWVsaW5lSXRlbQogICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0IgogICAgICAgICAgICBtYXJrZXI9ewogICAgICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgICAgIHNpemU9InhzIgogICAgICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wOS5qcGciCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9PgogICAgICAgICAgICA8VGV4dCBmb250V2VpZ2h0PSJzZW1pYm9sZCI+Q2hlY2tlZCBpbiBhdCB0aGUgaG90ZWwuPC9UZXh0PgogICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgbT0iMC4yNXJlbSAwIDAgMCIKICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgY29sb3JUb2tlbj0idGV4dC13ZWFrZXIiPgogICAgICAgICAgICAgICAgNm0gYWdvCiAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICA8L1RpbWVsaW5lSXRlbT4KICAgICAgICA8VGltZWxpbmVJdGVtCiAgICAgICAgICAgIGNvbG9yVG9rZW49InRleHQiCiAgICAgICAgICAgIG1hcmtlcj17CiAgICAgICAgICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgICAgICAgICAgc2l6ZT0ieHMiCiAgICAgICAgICAgICAgICAgICAgc3JjPSIvbWVuLzA5LmpwZyIKICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIH0+CiAgICAgICAgICAgIDxUZXh0IGZvbnRXZWlnaHQ9InNlbWlib2xkIj5EZXBhcnRlZCBKRksgYWlycG9ydCB2aWEgVWJlci48L1RleHQ+CiAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICBtPSIwLjI1cmVtIDAgMCAwIgogICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LXdlYWtlciI+CiAgICAgICAgICAgICAgICA1Nm0gYWdvCiAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICA8L1RpbWVsaW5lSXRlbT4KICAgICAgICA8VGltZWxpbmVJdGVtIG1hcmtlcj17PEljb25MaWIgaWNvbj0ic3VuIiAvPn0+CiAgICAgICAgICAgIDxUZXh0IGZvbnRXZWlnaHQ9InNlbWlib2xkIj5Cb2FyZGVkIGEgcGxhbmUgYm91bmQgZm9yIE5ldyBZb3JrLjwvVGV4dD4KICAgICAgICAgICAgPFRleHQgZm9udFdlaWdodD0ic2VtaWJvbGQiPlBhc3NlZCB0aHJvdWdoIHNlY3VyaXR5IGNoZWNrcG9pbnQuPC9UZXh0PgogICAgICAgICAgICA8VGV4dCBmb250V2VpZ2h0PSJzZW1pYm9sZCI+RW50ZXJlZCBhaXJwb3J0IGZhY2lsaXR5LjwvVGV4dD4KICAgICAgICAgICAgPFRleHQKICAgICAgICAgICAgICAgIG09IjAuMjVyZW0gMCAwIDAiCiAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49InRleHQtd2Vha2VyIj4KICAgICAgICAgICAgICAgIDNoIGFnbwogICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgPC9UaW1lbGluZUl0ZW0+CiAgICAgICAgPFRpbWVsaW5lSXRlbSBtYXJrZXI9ezxJY29uTGliIGljb249Im1vb24iIC8+fT4KICAgICAgICAgICAgPFRleHQgZm9udFdlaWdodD0ic2VtaWJvbGQiPkNhdWdodCBhbiBVYmVyIGJvdW5kIGZvciB0aGUgYWlycG9ydC48L1RleHQ+CiAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICBtPSIwLjI1cmVtIDAgMCAwIgogICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJ0ZXh0LXdlYWtlciI+CiAgICAgICAgICAgICAgICA2aCBhZ28KICAgICAgICAgICAgPC9UZXh0PgogICAgICAgIDwvVGltZWxpbmVJdGVtPgogICAgPC9UaW1lbGluZT4KKQ==" />
 
 ```tsx
 export const CustomMarkers = () => (
@@ -158,6 +162,7 @@ export const CustomMarkers = () => (
             }>
             <Text fontWeight="semibold">Checked in at the hotel.</Text>
             <Text
+                m="0.25rem 0 0 0"
                 size="sm"
                 colorToken="text-weaker">
                 6m ago
@@ -173,6 +178,7 @@ export const CustomMarkers = () => (
             }>
             <Text fontWeight="semibold">Departed JFK airport via Uber.</Text>
             <Text
+                m="0.25rem 0 0 0"
                 size="sm"
                 colorToken="text-weaker">
                 56m ago
@@ -183,6 +189,7 @@ export const CustomMarkers = () => (
             <Text fontWeight="semibold">Passed through security checkpoint.</Text>
             <Text fontWeight="semibold">Entered airport facility.</Text>
             <Text
+                m="0.25rem 0 0 0"
                 size="sm"
                 colorToken="text-weaker">
                 3h ago
@@ -191,6 +198,7 @@ export const CustomMarkers = () => (
         <TimelineItem marker={<IconLib icon="moon" />}>
             <Text fontWeight="semibold">Caught an Uber bound for the airport.</Text>
             <Text
+                m="0.25rem 0 0 0"
                 size="sm"
                 colorToken="text-weaker">
                 6h ago

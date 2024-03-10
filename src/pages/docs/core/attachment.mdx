@@ -183,8 +183,7 @@ export const States = () => (
 > Size variations, include `sm`, `md`, `lg`.
 
 export const Size = () => (<View column gap={10}>
-        <Attachment size="sm" poster="/photos/07.jpg" mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
-        <Attachment poster="/photos/08.jpg" mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
+        <Attachment size="sm" mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
         <Attachment mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
         <Attachment size="lg" mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
     </View>);
@@ -193,7 +192,7 @@ export const Size = () => (<View column gap={10}>
 <Size />
 </div>
 
-<CodeComponent filename="Size.tsx" code="ZXhwb3J0IGNvbnN0IFNpemUgPSAoKSA9PiAoCiAgICA8VmlldwogICAgICAgIGNvbHVtbgogICAgICAgIGdhcD17MTB9PgogICAgICAgIDxBdHRhY2htZW50CiAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICBwb3N0ZXI9Ii9waG90b3MvMDcuanBnIgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGZpbGVzaXplPXsyNDMyNX0KICAgICAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50CiAgICAgICAgICAgIHBvc3Rlcj0iL3Bob3Rvcy8wOC5qcGciCiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgIC8+CiAgICAgICAgPEF0dGFjaG1lbnQKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBmaWxlc2l6ZT17MjQzMjV9CiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgLz4KICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBmaWxlc2l6ZT17MjQzMjV9CiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgLz4KICAgIDwvVmlldz4KKQ==" />
+<CodeComponent filename="Size.tsx" code="ZXhwb3J0IGNvbnN0IFNpemUgPSAoKSA9PiAoCiAgICA8VmlldwogICAgICAgIGNvbHVtbgogICAgICAgIGdhcD17MTB9PgogICAgICAgIDxBdHRhY2htZW50CiAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGZpbGVzaXplPXsyNDMyNX0KICAgICAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50CiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgIC8+CiAgICAgICAgPEF0dGFjaG1lbnQKICAgICAgICAgICAgc2l6ZT0ibGciCiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
 
 ```tsx
 export const Size = () => (
@@ -202,14 +201,6 @@ export const Size = () => (
         gap={10}>
         <Attachment
             size="sm"
-            poster="/photos/07.jpg"
-            mime="image/png"
-            filesize={24325}
-            label="filename.png"
-            href="https://fold.dev"
-        />
-        <Attachment
-            poster="/photos/08.jpg"
             mime="image/png"
             filesize={24325}
             label="filename.png"
