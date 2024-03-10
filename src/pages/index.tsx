@@ -852,7 +852,7 @@ const All = () => {
     const [selected, setSelected] = useState<any>([])
     const [color, setColor] = useState(Token.ColorElectric400)
     const [value, setValue] = useState(5)
-    const [option, setOption] = useState(0)
+    const [option, setOption] = useState(1)
 
     const setAccent = (color) => {
         document.getElementById('custom-styles').innerHTML = colors[color]

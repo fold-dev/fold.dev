@@ -118,7 +118,7 @@ export default function DocsLayout(props: any) {
     const { visible, show, hide } = useVisibility(false)
     const [color, setColor] = useState(Token.ColorElectric400)
     const [value, setValue] = useState(5)
-    const [option, setOption] = useState(0)
+    const [option, setOption] = useState(1)
     const [toc, setToc] = useState([])
     const [showChild, setShowChild] = useState(false)
     const [text, setText] = useState('')
@@ -628,7 +628,7 @@ export default function DocsLayout(props: any) {
                                         color={Token.ColorNeonpink400}
                                         subtle
                                         fontWeight={800}>
-                                        v0.4.0
+                                        v0.5.0
                                     </Pill>
                                     <Link
                                         href="/"
