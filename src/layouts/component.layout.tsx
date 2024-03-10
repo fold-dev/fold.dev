@@ -64,7 +64,7 @@ export default function ComponentLayout({ children, docs, props, css }) {
                 <Text
                     p="0 30px"
                     size="lg"
-                    fontWeight={300}>
+                    fontWeight={400}>
                     {docs.description}
                 </Text>
                 {docs.experimental && (
