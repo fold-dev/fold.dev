@@ -234,3 +234,11 @@ body {
 .f-button.is-highlight:after {
     border-radius: var(--f-button-border-radius);
 }
+
+.f-text.xs,
+.f-text.sm,
+.f-text.md,
+.f-text.lg,
+.f-text.xl {
+    line-height: normal;
+}
