@@ -234,8 +234,3 @@ body {
 .f-button.is-highlight:after {
     border-radius: var(--f-button-border-radius);
 }
-
-.f-menu-item__label,
-.f-navigation-item__label {
-    overflow: visible;
-}
