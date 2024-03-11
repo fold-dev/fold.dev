@@ -88,7 +88,7 @@ export default function Introduction(props) {
                 . Below are some links to get you started.
             </Text>
             <Grid
-                m="0 0 1rem 0"
+                m="2.5rem 0 0rem 0"
                 gap="1rem"
                 columns={4}
                 minChildWidth={150}>

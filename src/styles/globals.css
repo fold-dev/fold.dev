@@ -235,7 +235,10 @@ body {
     border-radius: var(--f-button-border-radius);
 }
 
-.f-menu-item__label,
-.f-navigation-item__label {
-    overflow: visible;
+.f-text.xs,
+.f-text.sm,
+.f-text.md,
+.f-text.lg,
+.f-text.xl {
+    line-height: normal;
 }
