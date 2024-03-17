@@ -5,12 +5,15 @@ import {
     Button,
     ButtonGroup,
     DarkModeButton,
+    Heading,
     IconButton,
     IconLib,
     Menu,
     MenuItem,
     Popover,
     Stack,
+    Text,
+    View,
     useVisibility,
 } from '@fold-dev/core'
 import React from 'react'
@@ -24,7 +27,7 @@ export const docs = {
 
 export const props = [{"tags":{},"filePath":"packages/core/src/button/button.tsx","description":"","displayName":"ButtonGroup","methods":[],"props":{"direction":{"defaultValue":null,"description":"","name":"direction","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"vertical\" | \"horizontal\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/button/button.tsx","description":"","displayName":"Button","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"a\""},"tags":{}},"underlined":{"defaultValue":null,"description":"","name":"underlined","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"flat":{"defaultValue":null,"description":"","name":"flat","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"form":{"defaultValue":null,"description":"","name":"form","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"active":{"defaultValue":null,"description":"","name":"active","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LinkTarget"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"ellipsis":{"defaultValue":null,"description":"","name":"ellipsis","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"submit\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/button/button.tsx","description":"","displayName":"IconButton","methods":[],"props":{"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"iconProps":{"defaultValue":null,"description":"","name":"iconProps","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"a\""},"tags":{}},"underlined":{"defaultValue":null,"description":"","name":"underlined","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"flat":{"defaultValue":null,"description":"","name":"flat","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"form":{"defaultValue":null,"description":"","name":"form","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"active":{"defaultValue":null,"description":"","name":"active","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LinkTarget"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"ellipsis":{"defaultValue":null,"description":"","name":"ellipsis","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"submit\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/button/button.tsx","description":"","displayName":"DarkModeButton","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"lightMode":{"defaultValue":null,"description":"","name":"lightMode","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"darkMode":{"defaultValue":null,"description":"","name":"darkMode","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"a\""},"tags":{}},"underlined":{"defaultValue":null,"description":"","name":"underlined","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"loading":{"defaultValue":null,"description":"","name":"loading","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"flat":{"defaultValue":null,"description":"","name":"flat","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Variant"},"tags":{}},"form":{"defaultValue":null,"description":"","name":"form","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"active":{"defaultValue":null,"description":"","name":"active","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"target":{"defaultValue":null,"description":"","name":"target","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LinkTarget"},"tags":{}},"href":{"defaultValue":null,"description":"","name":"href","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"ellipsis":{"defaultValue":null,"description":"","name":"ellipsis","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/button/button.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"submit\""},"tags":{}}}}]
 
-export const css = [[["--f-button-color","var(--f-color-text-weak)"],["--f-button-color-hover","var(--f-color-text)"],["--f-button-border-width","1px"],["--f-button-border-color","var(--f-color-border)"],["--f-button-background-color","var(--f-color-surface)"],["--f-button-background-color-hover","var(--f-color-surface-stronger)"],["--f-button-disabled-opacity","0.5"],["--f-button-border-radius","var(--f-radius)"],["--f-button-shadow","var(--f-shadow-sm)"]]]
+export const css = [[["--f-button-color","var(--f-color-text-weak)"],["--f-button-color-hover","var(--f-color-text)"],["--f-button-border-width","1px"],["--f-button-border-color","var(--f-color-border)"],["--f-button-background-color","var(--f-color-surface)"],["--f-button-background-color-hover","var(--f-color-surface-strong)"],["--f-button-disabled-opacity","0.5"],["--f-button-border-radius","var(--f-radius)"],["--f-button-shadow","var(--f-shadow-sm)"],["--f-button-variant-opacity-hover","0.1"],["--f-button-active-background","var(--f-color-surface-stronger)"],["--f-button-active-filter-variants","brightness(90%) contrast(110%)"],["--f-button-transition-delay","0.1s"],["--f-button-transition-delay-focus","0.1s"]]]
 
 
 
@@ -78,39 +81,319 @@ export const Sizes = () => (
     </Stack>
 )
 ```
-### Variants
+### Normal Variants
 
-export const Variants = () => (<Stack spacing={5}>
-        <Button>Default</Button>
-        <Button variant="accent">Accent</Button>
-        <Button variant="success">Success</Button>
-        <Button variant="neutral">Neutral</Button>
-        <Button variant="caution">Caution</Button>
-        <Button variant="warning">Warning</Button>
-        <Button variant="danger">Danger</Button>
-        <Button variant="danger">Danger</Button>
-        <Button variant="highlight">Highlight</Button>
-    </Stack>);
+export const NormalVariants = () => (<View column gap="1rem" alignItems="flex-start">
+        <Heading as="h5">Normal</Heading>
+        <Stack spacing={5}>
+            <Button>Default</Button>
+            <Button variant="accent">Accent</Button>
+            <Button variant="success">Success</Button>
+            <Button variant="neutral">Neutral</Button>
+            <Button variant="caution">Caution</Button>
+            <Button variant="warning">Warning</Button>
+            <Button variant="danger">Danger</Button>
+            <Button variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Disabled</Heading>
+        <Stack spacing={5}>
+            <Button disabled>Default</Button>
+            <Button disabled variant="accent">Accent</Button>
+            <Button disabled variant="success">Success</Button>
+            <Button disabled variant="neutral">Neutral</Button>
+            <Button disabled variant="caution">Caution</Button>
+            <Button disabled variant="warning">Warning</Button>
+            <Button disabled variant="danger">Danger</Button>
+            <Button disabled variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Loading</Heading>
+        <Stack spacing={5}>
+            <Button loading>Default</Button>
+            <Button loading variant="accent">Accent</Button>
+            <Button loading variant="success">Success</Button>
+            <Button loading variant="neutral">Neutral</Button>
+            <Button loading variant="caution">Caution</Button>
+            <Button loading variant="warning">Warning</Button>
+            <Button loading variant="danger">Danger</Button>
+            <Button loading variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Active</Heading>
+        <Stack spacing={5}>
+            <Button active>Default</Button>
+            <Button active variant="accent">Accent</Button>
+            <Button active variant="success">Success</Button>
+            <Button active variant="neutral">Neutral</Button>
+            <Button active variant="caution">Caution</Button>
+            <Button active variant="warning">Warning</Button>
+            <Button active variant="danger">Danger</Button>
+            <Button active variant="highlight">Highlight</Button>
+        </Stack>
+    </View>);
 
 <div className="story-block">
-<Variants />
+<NormalVariants />
 </div>
 
-<CodeComponent filename="Variants.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxCdXR0b24+RGVmYXVsdDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24gdmFyaWFudD0iYWNjZW50Ij5BY2NlbnQ8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9InN1Y2Nlc3MiPlN1Y2Nlc3M8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9Im5ldXRyYWwiPk5ldXRyYWw8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9ImNhdXRpb24iPkNhdXRpb248L0J1dHRvbj4KICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9Indhcm5pbmciPldhcm5pbmc8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9ImRhbmdlciI+RGFuZ2VyPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbiB2YXJpYW50PSJkYW5nZXIiPkRhbmdlcjwvQnV0dG9uPgogICAgICAgIDxCdXR0b24gdmFyaWFudD0iaGlnaGxpZ2h0Ij5IaWdobGlnaHQ8L0J1dHRvbj4KICAgIDwvU3RhY2s+Cik=" />
+<CodeComponent filename="NormalVariants.tsx" code="ZXhwb3J0IGNvbnN0IE5vcm1hbFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFZpZXcgY29sdW1uIGdhcD0iMXJlbSIgYWxpZ25JdGVtcz0iZmxleC1zdGFydCI+CiAgICAgICAgPEhlYWRpbmcgYXM9Img1Ij5Ob3JtYWw8L0hlYWRpbmc+CiAgICAgICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgICAgICA8QnV0dG9uPkRlZmF1bHQ8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiB2YXJpYW50PSJhY2NlbnQiPkFjY2VudDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9InN1Y2Nlc3MiPlN1Y2Nlc3M8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiB2YXJpYW50PSJuZXV0cmFsIj5OZXV0cmFsPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gdmFyaWFudD0iY2F1dGlvbiI+Q2F1dGlvbjwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9Indhcm5pbmciPldhcm5pbmc8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiB2YXJpYW50PSJkYW5nZXIiPkRhbmdlcjwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHZhcmlhbnQ9ImhpZ2hsaWdodCI+SGlnaGxpZ2h0PC9CdXR0b24+CiAgICAgICAgPC9TdGFjaz4KICAgICAgICA8SGVhZGluZyBhcz0iaDUiPkRpc2FibGVkPC9IZWFkaW5nPgogICAgICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICAgICAgPEJ1dHRvbiBkaXNhYmxlZD5EZWZhdWx0PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gZGlzYWJsZWQgdmFyaWFudD0iYWNjZW50Ij5BY2NlbnQ8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBkaXNhYmxlZCB2YXJpYW50PSJzdWNjZXNzIj5TdWNjZXNzPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gZGlzYWJsZWQgdmFyaWFudD0ibmV1dHJhbCI+TmV1dHJhbDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIGRpc2FibGVkIHZhcmlhbnQ9ImNhdXRpb24iPkNhdXRpb248L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBkaXNhYmxlZCB2YXJpYW50PSJ3YXJuaW5nIj5XYXJuaW5nPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gZGlzYWJsZWQgdmFyaWFudD0iZGFuZ2VyIj5EYW5nZXI8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBkaXNhYmxlZCB2YXJpYW50PSJoaWdobGlnaHQiPkhpZ2hsaWdodDwvQnV0dG9uPgogICAgICAgIDwvU3RhY2s+CiAgICAgICAgPEhlYWRpbmcgYXM9Img1Ij5Mb2FkaW5nPC9IZWFkaW5nPgogICAgICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICAgICAgPEJ1dHRvbiBsb2FkaW5nPkRlZmF1bHQ8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBsb2FkaW5nIHZhcmlhbnQ9ImFjY2VudCI+QWNjZW50PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gbG9hZGluZyB2YXJpYW50PSJzdWNjZXNzIj5TdWNjZXNzPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gbG9hZGluZyB2YXJpYW50PSJuZXV0cmFsIj5OZXV0cmFsPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gbG9hZGluZyB2YXJpYW50PSJjYXV0aW9uIj5DYXV0aW9uPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gbG9hZGluZyB2YXJpYW50PSJ3YXJuaW5nIj5XYXJuaW5nPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gbG9hZGluZyB2YXJpYW50PSJkYW5nZXIiPkRhbmdlcjwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIGxvYWRpbmcgdmFyaWFudD0iaGlnaGxpZ2h0Ij5IaWdobGlnaHQ8L0J1dHRvbj4KICAgICAgICA8L1N0YWNrPgogICAgICAgIDxIZWFkaW5nIGFzPSJoNSI+QWN0aXZlPC9IZWFkaW5nPgogICAgICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICAgICAgPEJ1dHRvbiBhY3RpdmU+RGVmYXVsdDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIGFjdGl2ZSB2YXJpYW50PSJhY2NlbnQiPkFjY2VudDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIGFjdGl2ZSB2YXJpYW50PSJzdWNjZXNzIj5TdWNjZXNzPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gYWN0aXZlIHZhcmlhbnQ9Im5ldXRyYWwiPk5ldXRyYWw8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBhY3RpdmUgdmFyaWFudD0iY2F1dGlvbiI+Q2F1dGlvbjwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIGFjdGl2ZSB2YXJpYW50PSJ3YXJuaW5nIj5XYXJuaW5nPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gYWN0aXZlIHZhcmlhbnQ9ImRhbmdlciI+RGFuZ2VyPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gYWN0aXZlIHZhcmlhbnQ9ImhpZ2hsaWdodCI+SGlnaGxpZ2h0PC9CdXR0b24+CiAgICAgICAgPC9TdGFjaz4KICAgIDwvVmlldz4KKQ==" />
 
 ```tsx
-export const Variants = () => (
-    <Stack spacing={5}>
-        <Button>Default</Button>
-        <Button variant="accent">Accent</Button>
-        <Button variant="success">Success</Button>
-        <Button variant="neutral">Neutral</Button>
-        <Button variant="caution">Caution</Button>
-        <Button variant="warning">Warning</Button>
-        <Button variant="danger">Danger</Button>
-        <Button variant="danger">Danger</Button>
-        <Button variant="highlight">Highlight</Button>
-    </Stack>
+export const NormalVariants = () => (
+    <View column gap="1rem" alignItems="flex-start">
+        <Heading as="h5">Normal</Heading>
+        <Stack spacing={5}>
+            <Button>Default</Button>
+            <Button variant="accent">Accent</Button>
+            <Button variant="success">Success</Button>
+            <Button variant="neutral">Neutral</Button>
+            <Button variant="caution">Caution</Button>
+            <Button variant="warning">Warning</Button>
+            <Button variant="danger">Danger</Button>
+            <Button variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Disabled</Heading>
+        <Stack spacing={5}>
+            <Button disabled>Default</Button>
+            <Button disabled variant="accent">Accent</Button>
+            <Button disabled variant="success">Success</Button>
+            <Button disabled variant="neutral">Neutral</Button>
+            <Button disabled variant="caution">Caution</Button>
+            <Button disabled variant="warning">Warning</Button>
+            <Button disabled variant="danger">Danger</Button>
+            <Button disabled variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Loading</Heading>
+        <Stack spacing={5}>
+            <Button loading>Default</Button>
+            <Button loading variant="accent">Accent</Button>
+            <Button loading variant="success">Success</Button>
+            <Button loading variant="neutral">Neutral</Button>
+            <Button loading variant="caution">Caution</Button>
+            <Button loading variant="warning">Warning</Button>
+            <Button loading variant="danger">Danger</Button>
+            <Button loading variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Active</Heading>
+        <Stack spacing={5}>
+            <Button active>Default</Button>
+            <Button active variant="accent">Accent</Button>
+            <Button active variant="success">Success</Button>
+            <Button active variant="neutral">Neutral</Button>
+            <Button active variant="caution">Caution</Button>
+            <Button active variant="warning">Warning</Button>
+            <Button active variant="danger">Danger</Button>
+            <Button active variant="highlight">Highlight</Button>
+        </Stack>
+    </View>
+)
+```
+### Subtle Variants
+
+export const SubtleVariants = () => (<View column gap="1rem" alignItems="flex-start">
+        <Heading as="h5">Normal</Heading>
+        <Stack spacing={5}>
+            <Button subtle>Default</Button>
+            <Button subtle variant="accent">Accent</Button>
+            <Button subtle variant="success">Success</Button>
+            <Button subtle variant="neutral">Neutral</Button>
+            <Button subtle variant="caution">Caution</Button>
+            <Button subtle variant="warning">Warning</Button>
+            <Button subtle variant="danger">Danger</Button>
+            <Button subtle variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Disabled</Heading>
+        <Stack spacing={5}>
+            <Button subtle disabled>Default</Button>
+            <Button subtle disabled variant="accent">Accent</Button>
+            <Button subtle disabled variant="success">Success</Button>
+            <Button subtle disabled variant="neutral">Neutral</Button>
+            <Button subtle disabled variant="caution">Caution</Button>
+            <Button subtle disabled variant="warning">Warning</Button>
+            <Button subtle disabled variant="danger">Danger</Button>
+            <Button subtle disabled variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Loading</Heading>
+        <Stack spacing={5}>
+            <Button subtle loading>Default</Button>
+            <Button subtle loading variant="accent">Accent</Button>
+            <Button subtle loading variant="success">Success</Button>
+            <Button subtle loading variant="neutral">Neutral</Button>
+            <Button subtle loading variant="caution">Caution</Button>
+            <Button subtle loading variant="warning">Warning</Button>
+            <Button subtle loading variant="danger">Danger</Button>
+            <Button subtle loading variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Active</Heading>
+        <Stack spacing={5}>
+            <Button subtle active>Default</Button>
+            <Button subtle active variant="accent">Accent</Button>
+            <Button subtle active variant="success">Success</Button>
+            <Button subtle active variant="neutral">Neutral</Button>
+            <Button subtle active variant="caution">Caution</Button>
+            <Button subtle active variant="warning">Warning</Button>
+            <Button subtle active variant="danger">Danger</Button>
+            <Button subtle active variant="highlight">Highlight</Button>
+        </Stack>
+    </View>);
+
+<div className="story-block">
+<SubtleVariants />
+</div>
+
+<CodeComponent filename="SubtleVariants.tsx" code="ZXhwb3J0IGNvbnN0IFN1YnRsZVZhcmlhbnRzID0gKCkgPT4gKAogICAgPFZpZXcgY29sdW1uIGdhcD0iMXJlbSIgYWxpZ25JdGVtcz0iZmxleC1zdGFydCI+CiAgICAgICAgPEhlYWRpbmcgYXM9Img1Ij5Ob3JtYWw8L0hlYWRpbmc+CiAgICAgICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgICAgICA8QnV0dG9uIHN1YnRsZT5EZWZhdWx0PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIHZhcmlhbnQ9ImFjY2VudCI+QWNjZW50PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIHZhcmlhbnQ9InN1Y2Nlc3MiPlN1Y2Nlc3M8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBzdWJ0bGUgdmFyaWFudD0ibmV1dHJhbCI+TmV1dHJhbDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHN1YnRsZSB2YXJpYW50PSJjYXV0aW9uIj5DYXV0aW9uPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIHZhcmlhbnQ9Indhcm5pbmciPldhcm5pbmc8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBzdWJ0bGUgdmFyaWFudD0iZGFuZ2VyIj5EYW5nZXI8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBzdWJ0bGUgdmFyaWFudD0iaGlnaGxpZ2h0Ij5IaWdobGlnaHQ8L0J1dHRvbj4KICAgICAgICA8L1N0YWNrPgogICAgICAgIDxIZWFkaW5nIGFzPSJoNSI+RGlzYWJsZWQ8L0hlYWRpbmc+CiAgICAgICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgICAgICA8QnV0dG9uIHN1YnRsZSBkaXNhYmxlZD5EZWZhdWx0PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGRpc2FibGVkIHZhcmlhbnQ9ImFjY2VudCI+QWNjZW50PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGRpc2FibGVkIHZhcmlhbnQ9InN1Y2Nlc3MiPlN1Y2Nlc3M8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBzdWJ0bGUgZGlzYWJsZWQgdmFyaWFudD0ibmV1dHJhbCI+TmV1dHJhbDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHN1YnRsZSBkaXNhYmxlZCB2YXJpYW50PSJjYXV0aW9uIj5DYXV0aW9uPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGRpc2FibGVkIHZhcmlhbnQ9Indhcm5pbmciPldhcm5pbmc8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBzdWJ0bGUgZGlzYWJsZWQgdmFyaWFudD0iZGFuZ2VyIj5EYW5nZXI8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBzdWJ0bGUgZGlzYWJsZWQgdmFyaWFudD0iaGlnaGxpZ2h0Ij5IaWdobGlnaHQ8L0J1dHRvbj4KICAgICAgICA8L1N0YWNrPgogICAgICAgIDxIZWFkaW5nIGFzPSJoNSI+TG9hZGluZzwvSGVhZGluZz4KICAgICAgICA8U3RhY2sgc3BhY2luZz17NX0+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGxvYWRpbmc+RGVmYXVsdDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHN1YnRsZSBsb2FkaW5nIHZhcmlhbnQ9ImFjY2VudCI+QWNjZW50PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGxvYWRpbmcgdmFyaWFudD0ic3VjY2VzcyI+U3VjY2VzczwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHN1YnRsZSBsb2FkaW5nIHZhcmlhbnQ9Im5ldXRyYWwiPk5ldXRyYWw8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBzdWJ0bGUgbG9hZGluZyB2YXJpYW50PSJjYXV0aW9uIj5DYXV0aW9uPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGxvYWRpbmcgdmFyaWFudD0id2FybmluZyI+V2FybmluZzwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHN1YnRsZSBsb2FkaW5nIHZhcmlhbnQ9ImRhbmdlciI+RGFuZ2VyPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGxvYWRpbmcgdmFyaWFudD0iaGlnaGxpZ2h0Ij5IaWdobGlnaHQ8L0J1dHRvbj4KICAgICAgICA8L1N0YWNrPgogICAgICAgIDxIZWFkaW5nIGFzPSJoNSI+QWN0aXZlPC9IZWFkaW5nPgogICAgICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICAgICAgPEJ1dHRvbiBzdWJ0bGUgYWN0aXZlPkRlZmF1bHQ8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBzdWJ0bGUgYWN0aXZlIHZhcmlhbnQ9ImFjY2VudCI+QWNjZW50PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGFjdGl2ZSB2YXJpYW50PSJzdWNjZXNzIj5TdWNjZXNzPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGFjdGl2ZSB2YXJpYW50PSJuZXV0cmFsIj5OZXV0cmFsPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGFjdGl2ZSB2YXJpYW50PSJjYXV0aW9uIj5DYXV0aW9uPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGFjdGl2ZSB2YXJpYW50PSJ3YXJuaW5nIj5XYXJuaW5nPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gc3VidGxlIGFjdGl2ZSB2YXJpYW50PSJkYW5nZXIiPkRhbmdlcjwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIHN1YnRsZSBhY3RpdmUgdmFyaWFudD0iaGlnaGxpZ2h0Ij5IaWdobGlnaHQ8L0J1dHRvbj4KICAgICAgICA8L1N0YWNrPgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const SubtleVariants = () => (
+    <View column gap="1rem" alignItems="flex-start">
+        <Heading as="h5">Normal</Heading>
+        <Stack spacing={5}>
+            <Button subtle>Default</Button>
+            <Button subtle variant="accent">Accent</Button>
+            <Button subtle variant="success">Success</Button>
+            <Button subtle variant="neutral">Neutral</Button>
+            <Button subtle variant="caution">Caution</Button>
+            <Button subtle variant="warning">Warning</Button>
+            <Button subtle variant="danger">Danger</Button>
+            <Button subtle variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Disabled</Heading>
+        <Stack spacing={5}>
+            <Button subtle disabled>Default</Button>
+            <Button subtle disabled variant="accent">Accent</Button>
+            <Button subtle disabled variant="success">Success</Button>
+            <Button subtle disabled variant="neutral">Neutral</Button>
+            <Button subtle disabled variant="caution">Caution</Button>
+            <Button subtle disabled variant="warning">Warning</Button>
+            <Button subtle disabled variant="danger">Danger</Button>
+            <Button subtle disabled variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Loading</Heading>
+        <Stack spacing={5}>
+            <Button subtle loading>Default</Button>
+            <Button subtle loading variant="accent">Accent</Button>
+            <Button subtle loading variant="success">Success</Button>
+            <Button subtle loading variant="neutral">Neutral</Button>
+            <Button subtle loading variant="caution">Caution</Button>
+            <Button subtle loading variant="warning">Warning</Button>
+            <Button subtle loading variant="danger">Danger</Button>
+            <Button subtle loading variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Active</Heading>
+        <Stack spacing={5}>
+            <Button subtle active>Default</Button>
+            <Button subtle active variant="accent">Accent</Button>
+            <Button subtle active variant="success">Success</Button>
+            <Button subtle active variant="neutral">Neutral</Button>
+            <Button subtle active variant="caution">Caution</Button>
+            <Button subtle active variant="warning">Warning</Button>
+            <Button subtle active variant="danger">Danger</Button>
+            <Button subtle active variant="highlight">Highlight</Button>
+        </Stack>
+    </View>
+)
+```
+### Outline Variants
+
+export const OutlineVariants = () => (<View column gap="1rem" alignItems="flex-start">
+        <Heading as="h5">Normal</Heading>
+        <Stack spacing={5}>
+            <Button outline>Default</Button>
+            <Button outline variant="accent">Accent</Button>
+            <Button outline variant="success">Success</Button>
+            <Button outline variant="neutral">Neutral</Button>
+            <Button outline variant="caution">Caution</Button>
+            <Button outline variant="warning">Warning</Button>
+            <Button outline variant="danger">Danger</Button>
+            <Button outline variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Disabled</Heading>
+        <Stack spacing={5}>
+            <Button outline disabled>Default</Button>
+            <Button outline disabled variant="accent">Accent</Button>
+            <Button outline disabled variant="success">Success</Button>
+            <Button outline disabled variant="neutral">Neutral</Button>
+            <Button outline disabled variant="caution">Caution</Button>
+            <Button outline disabled variant="warning">Warning</Button>
+            <Button outline disabled variant="danger">Danger</Button>
+            <Button outline disabled variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Loading</Heading>
+        <Stack spacing={5}>
+            <Button outline loading>Default</Button>
+            <Button outline loading variant="accent">Accent</Button>
+            <Button outline loading variant="success">Success</Button>
+            <Button outline loading variant="neutral">Neutral</Button>
+            <Button outline loading variant="caution">Caution</Button>
+            <Button outline loading variant="warning">Warning</Button>
+            <Button outline loading variant="danger">Danger</Button>
+            <Button outline loading variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Active</Heading>
+        <Stack spacing={5}>
+            <Button outline active>Default</Button>
+            <Button outline active variant="accent">Accent</Button>
+            <Button outline active variant="success">Success</Button>
+            <Button outline active variant="neutral">Neutral</Button>
+            <Button outline active variant="caution">Caution</Button>
+            <Button outline active variant="warning">Warning</Button>
+            <Button outline active variant="danger">Danger</Button>
+            <Button outline active variant="highlight">Highlight</Button>
+        </Stack>
+    </View>);
+
+<div className="story-block">
+<OutlineVariants />
+</div>
+
+<CodeComponent filename="OutlineVariants.tsx" code="ZXhwb3J0IGNvbnN0IE91dGxpbmVWYXJpYW50cyA9ICgpID0+ICgKICAgIDxWaWV3IGNvbHVtbiBnYXA9IjFyZW0iIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiPgogICAgICAgIDxIZWFkaW5nIGFzPSJoNSI+Tm9ybWFsPC9IZWFkaW5nPgogICAgICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICAgICAgPEJ1dHRvbiBvdXRsaW5lPkRlZmF1bHQ8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBvdXRsaW5lIHZhcmlhbnQ9ImFjY2VudCI+QWNjZW50PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSB2YXJpYW50PSJzdWNjZXNzIj5TdWNjZXNzPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSB2YXJpYW50PSJuZXV0cmFsIj5OZXV0cmFsPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSB2YXJpYW50PSJjYXV0aW9uIj5DYXV0aW9uPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSB2YXJpYW50PSJ3YXJuaW5nIj5XYXJuaW5nPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSB2YXJpYW50PSJkYW5nZXIiPkRhbmdlcjwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIG91dGxpbmUgdmFyaWFudD0iaGlnaGxpZ2h0Ij5IaWdobGlnaHQ8L0J1dHRvbj4KICAgICAgICA8L1N0YWNrPgogICAgICAgIDxIZWFkaW5nIGFzPSJoNSI+RGlzYWJsZWQ8L0hlYWRpbmc+CiAgICAgICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgICAgICA8QnV0dG9uIG91dGxpbmUgZGlzYWJsZWQ+RGVmYXVsdDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIG91dGxpbmUgZGlzYWJsZWQgdmFyaWFudD0iYWNjZW50Ij5BY2NlbnQ8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBvdXRsaW5lIGRpc2FibGVkIHZhcmlhbnQ9InN1Y2Nlc3MiPlN1Y2Nlc3M8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBvdXRsaW5lIGRpc2FibGVkIHZhcmlhbnQ9Im5ldXRyYWwiPk5ldXRyYWw8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBvdXRsaW5lIGRpc2FibGVkIHZhcmlhbnQ9ImNhdXRpb24iPkNhdXRpb248L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBvdXRsaW5lIGRpc2FibGVkIHZhcmlhbnQ9Indhcm5pbmciPldhcm5pbmc8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBvdXRsaW5lIGRpc2FibGVkIHZhcmlhbnQ9ImRhbmdlciI+RGFuZ2VyPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSBkaXNhYmxlZCB2YXJpYW50PSJoaWdobGlnaHQiPkhpZ2hsaWdodDwvQnV0dG9uPgogICAgICAgIDwvU3RhY2s+CiAgICAgICAgPEhlYWRpbmcgYXM9Img1Ij5Mb2FkaW5nPC9IZWFkaW5nPgogICAgICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICAgICAgPEJ1dHRvbiBvdXRsaW5lIGxvYWRpbmc+RGVmYXVsdDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIG91dGxpbmUgbG9hZGluZyB2YXJpYW50PSJhY2NlbnQiPkFjY2VudDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIG91dGxpbmUgbG9hZGluZyB2YXJpYW50PSJzdWNjZXNzIj5TdWNjZXNzPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSBsb2FkaW5nIHZhcmlhbnQ9Im5ldXRyYWwiPk5ldXRyYWw8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBvdXRsaW5lIGxvYWRpbmcgdmFyaWFudD0iY2F1dGlvbiI+Q2F1dGlvbjwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIG91dGxpbmUgbG9hZGluZyB2YXJpYW50PSJ3YXJuaW5nIj5XYXJuaW5nPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSBsb2FkaW5nIHZhcmlhbnQ9ImRhbmdlciI+RGFuZ2VyPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSBsb2FkaW5nIHZhcmlhbnQ9ImhpZ2hsaWdodCI+SGlnaGxpZ2h0PC9CdXR0b24+CiAgICAgICAgPC9TdGFjaz4KICAgICAgICA8SGVhZGluZyBhcz0iaDUiPkFjdGl2ZTwvSGVhZGluZz4KICAgICAgICA8U3RhY2sgc3BhY2luZz17NX0+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSBhY3RpdmU+RGVmYXVsdDwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIG91dGxpbmUgYWN0aXZlIHZhcmlhbnQ9ImFjY2VudCI+QWNjZW50PC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSBhY3RpdmUgdmFyaWFudD0ic3VjY2VzcyI+U3VjY2VzczwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIG91dGxpbmUgYWN0aXZlIHZhcmlhbnQ9Im5ldXRyYWwiPk5ldXRyYWw8L0J1dHRvbj4KICAgICAgICAgICAgPEJ1dHRvbiBvdXRsaW5lIGFjdGl2ZSB2YXJpYW50PSJjYXV0aW9uIj5DYXV0aW9uPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSBhY3RpdmUgdmFyaWFudD0id2FybmluZyI+V2FybmluZzwvQnV0dG9uPgogICAgICAgICAgICA8QnV0dG9uIG91dGxpbmUgYWN0aXZlIHZhcmlhbnQ9ImRhbmdlciI+RGFuZ2VyPC9CdXR0b24+CiAgICAgICAgICAgIDxCdXR0b24gb3V0bGluZSBhY3RpdmUgdmFyaWFudD0iaGlnaGxpZ2h0Ij5IaWdobGlnaHQ8L0J1dHRvbj4KICAgICAgICA8L1N0YWNrPgogICAgPC9WaWV3Pgop" />
+
+```tsx
+export const OutlineVariants = () => (
+    <View column gap="1rem" alignItems="flex-start">
+        <Heading as="h5">Normal</Heading>
+        <Stack spacing={5}>
+            <Button outline>Default</Button>
+            <Button outline variant="accent">Accent</Button>
+            <Button outline variant="success">Success</Button>
+            <Button outline variant="neutral">Neutral</Button>
+            <Button outline variant="caution">Caution</Button>
+            <Button outline variant="warning">Warning</Button>
+            <Button outline variant="danger">Danger</Button>
+            <Button outline variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Disabled</Heading>
+        <Stack spacing={5}>
+            <Button outline disabled>Default</Button>
+            <Button outline disabled variant="accent">Accent</Button>
+            <Button outline disabled variant="success">Success</Button>
+            <Button outline disabled variant="neutral">Neutral</Button>
+            <Button outline disabled variant="caution">Caution</Button>
+            <Button outline disabled variant="warning">Warning</Button>
+            <Button outline disabled variant="danger">Danger</Button>
+            <Button outline disabled variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Loading</Heading>
+        <Stack spacing={5}>
+            <Button outline loading>Default</Button>
+            <Button outline loading variant="accent">Accent</Button>
+            <Button outline loading variant="success">Success</Button>
+            <Button outline loading variant="neutral">Neutral</Button>
+            <Button outline loading variant="caution">Caution</Button>
+            <Button outline loading variant="warning">Warning</Button>
+            <Button outline loading variant="danger">Danger</Button>
+            <Button outline loading variant="highlight">Highlight</Button>
+        </Stack>
+        <Heading as="h5">Active</Heading>
+        <Stack spacing={5}>
+            <Button outline active>Default</Button>
+            <Button outline active variant="accent">Accent</Button>
+            <Button outline active variant="success">Success</Button>
+            <Button outline active variant="neutral">Neutral</Button>
+            <Button outline active variant="caution">Caution</Button>
+            <Button outline active variant="warning">Warning</Button>
+            <Button outline active variant="danger">Danger</Button>
+            <Button outline active variant="highlight">Highlight</Button>
+        </Stack>
+    </View>
 )
 ```
 ### With Prefix And Suffix
@@ -181,265 +464,6 @@ export const EllipsisMode = () => (
         ellipsis>
         This is some really long text!
     </Button>
-)
-```
-### Subtle
-
-export const Subtle = () => (<Stack spacing={5}>
-        <Button subtle>Default</Button>
-        <Button variant="accent" subtle>
-            Accent
-        </Button>
-        <Button variant="success" subtle>
-            Success
-        </Button>
-        <Button variant="neutral" subtle>
-            Neutral
-        </Button>
-        <Button variant="caution" subtle>
-            Caution
-        </Button>
-        <Button variant="warning" subtle>
-            Warning
-        </Button>
-        <Button variant="danger" subtle>
-            Danger
-        </Button>
-        <Button variant="danger" subtle>
-            Danger
-        </Button>
-        <Button variant="highlight" subtle>
-            Highlight
-        </Button>
-    </Stack>);
-
-<div className="story-block">
-<Subtle />
-</div>
-
-<CodeComponent filename="Subtle.tsx" code="ZXhwb3J0IGNvbnN0IFN1YnRsZSA9ICgpID0+ICgKICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICA8QnV0dG9uIHN1YnRsZT5EZWZhdWx0PC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgQWNjZW50CiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICBzdWJ0bGU+CiAgICAgICAgICAgIFN1Y2Nlc3MKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9Im5ldXRyYWwiCiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgTmV1dHJhbAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0iY2F1dGlvbiIKICAgICAgICAgICAgc3VidGxlPgogICAgICAgICAgICBDYXV0aW9uCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJ3YXJuaW5nIgogICAgICAgICAgICBzdWJ0bGU+CiAgICAgICAgICAgIFdhcm5pbmcKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgc3VidGxlPgogICAgICAgICAgICBEYW5nZXIKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgc3VidGxlPgogICAgICAgICAgICBEYW5nZXIKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9ImhpZ2hsaWdodCIKICAgICAgICAgICAgc3VidGxlPgogICAgICAgICAgICBIaWdobGlnaHQKICAgICAgICA8L0J1dHRvbj4KICAgIDwvU3RhY2s+Cik=" />
-
-```tsx
-export const Subtle = () => (
-    <Stack spacing={5}>
-        <Button subtle>Default</Button>
-        <Button
-            variant="accent"
-            subtle>
-            Accent
-        </Button>
-        <Button
-            variant="success"
-            subtle>
-            Success
-        </Button>
-        <Button
-            variant="neutral"
-            subtle>
-            Neutral
-        </Button>
-        <Button
-            variant="caution"
-            subtle>
-            Caution
-        </Button>
-        <Button
-            variant="warning"
-            subtle>
-            Warning
-        </Button>
-        <Button
-            variant="danger"
-            subtle>
-            Danger
-        </Button>
-        <Button
-            variant="danger"
-            subtle>
-            Danger
-        </Button>
-        <Button
-            variant="highlight"
-            subtle>
-            Highlight
-        </Button>
-    </Stack>
-)
-```
-### Outline
-
-export const Outline = () => (<Stack spacing={5}>
-        <Button outline>Default</Button>
-        <Button variant="accent" outline>
-            Accent
-        </Button>
-        <Button variant="success" outline>
-            Success
-        </Button>
-        <Button variant="neutral" outline>
-            Neutral
-        </Button>
-        <Button variant="caution" outline>
-            Caution
-        </Button>
-        <Button variant="warning" outline>
-            Warning
-        </Button>
-        <Button variant="danger" outline>
-            Danger
-        </Button>
-        <Button variant="danger" outline>
-            Danger
-        </Button>
-        <Button variant="highlight" outline>
-            Highlight
-        </Button>
-    </Stack>);
-
-<div className="story-block">
-<Outline />
-</div>
-
-<CodeComponent filename="Outline.tsx" code="ZXhwb3J0IGNvbnN0IE91dGxpbmUgPSAoKSA9PiAoCiAgICA8U3RhY2sgc3BhY2luZz17NX0+CiAgICAgICAgPEJ1dHRvbiBvdXRsaW5lPkRlZmF1bHQ8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgQWNjZW50CiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBTdWNjZXNzCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJuZXV0cmFsIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBOZXV0cmFsCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJjYXV0aW9uIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBDYXV0aW9uCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJ3YXJuaW5nIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBXYXJuaW5nCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJkYW5nZXIiCiAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgIERhbmdlcgogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBEYW5nZXIKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9ImhpZ2hsaWdodCIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgSGlnaGxpZ2h0CiAgICAgICAgPC9CdXR0b24+CiAgICA8L1N0YWNrPgop" />
-
-```tsx
-export const Outline = () => (
-    <Stack spacing={5}>
-        <Button outline>Default</Button>
-        <Button
-            variant="accent"
-            outline>
-            Accent
-        </Button>
-        <Button
-            variant="success"
-            outline>
-            Success
-        </Button>
-        <Button
-            variant="neutral"
-            outline>
-            Neutral
-        </Button>
-        <Button
-            variant="caution"
-            outline>
-            Caution
-        </Button>
-        <Button
-            variant="warning"
-            outline>
-            Warning
-        </Button>
-        <Button
-            variant="danger"
-            outline>
-            Danger
-        </Button>
-        <Button
-            variant="danger"
-            outline>
-            Danger
-        </Button>
-        <Button
-            variant="highlight"
-            outline>
-            Highlight
-        </Button>
-    </Stack>
-)
-```
-### States
-
-export const States = () => (<Stack spacing={5}>
-        <Button variant="success" loading>
-            Loading
-        </Button>
-        <Button disabled subtle>
-            Default
-        </Button>
-        <Button variant="accent" disabled subtle>
-            Accent
-        </Button>
-        <Button variant="success" disabled>
-            Success
-        </Button>
-        <Button variant="neutral" disabled subtle>
-            Neutral
-        </Button>
-        <Button variant="caution" active>
-            Caution
-        </Button>
-        <Button variant="warning" disabled>
-            Warning
-        </Button>
-        <Button variant="danger" disabled outline subtle>
-            Danger
-        </Button>
-        <Button variant="highlight" disabled>
-            Highlight
-        </Button>
-    </Stack>);
-
-<div className="story-block">
-<States />
-</div>
-
-<CodeComponent filename="States.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXRlcyA9ICgpID0+ICgKICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgIGxvYWRpbmc+CiAgICAgICAgICAgIExvYWRpbmcKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIGRpc2FibGVkCiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgRGVmYXVsdAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0iYWNjZW50IgogICAgICAgICAgICBkaXNhYmxlZAogICAgICAgICAgICBzdWJ0bGU+CiAgICAgICAgICAgIEFjY2VudAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgZGlzYWJsZWQ+CiAgICAgICAgICAgIFN1Y2Nlc3MKICAgICAgICA8L0J1dHRvbj4KICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgIHZhcmlhbnQ9Im5ldXRyYWwiCiAgICAgICAgICAgIGRpc2FibGVkCiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgTmV1dHJhbAogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0iY2F1dGlvbiIKICAgICAgICAgICAgYWN0aXZlPgogICAgICAgICAgICBDYXV0aW9uCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJ3YXJuaW5nIgogICAgICAgICAgICBkaXNhYmxlZD4KICAgICAgICAgICAgV2FybmluZwogICAgICAgIDwvQnV0dG9uPgogICAgICAgIDxCdXR0b24KICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgICAgICBkaXNhYmxlZAogICAgICAgICAgICBvdXRsaW5lCiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgRGFuZ2VyCiAgICAgICAgPC9CdXR0b24+CiAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICB2YXJpYW50PSJoaWdobGlnaHQiCiAgICAgICAgICAgIGRpc2FibGVkPgogICAgICAgICAgICBIaWdobGlnaHQKICAgICAgICA8L0J1dHRvbj4KICAgIDwvU3RhY2s+Cik=" />
-
-```tsx
-export const States = () => (
-    <Stack spacing={5}>
-        <Button
-            variant="success"
-            loading>
-            Loading
-        </Button>
-        <Button
-            disabled
-            subtle>
-            Default
-        </Button>
-        <Button
-            variant="accent"
-            disabled
-            subtle>
-            Accent
-        </Button>
-        <Button
-            variant="success"
-            disabled>
-            Success
-        </Button>
-        <Button
-            variant="neutral"
-            disabled
-            subtle>
-            Neutral
-        </Button>
-        <Button
-            variant="caution"
-            active>
-            Caution
-        </Button>
-        <Button
-            variant="warning"
-            disabled>
-            Warning
-        </Button>
-        <Button
-            variant="danger"
-            disabled
-            outline
-            subtle>
-            Danger
-        </Button>
-        <Button
-            variant="highlight"
-            disabled>
-            Highlight
-        </Button>
-    </Stack>
 )
 ```
 ### As Link
@@ -786,6 +810,56 @@ export const DarkMode = () => <DarkModeButton />;
 
 ```tsx
 export const DarkMode = () => <DarkModeButton />
+```
+### Utility Clasees
+
+> Shorthand utility classes are available to easily apply common styles to elements that function as buttons.
+
+export const UtilityClasees = () => {
+    const { visible, show, hide } = useVisibility(false);
+    return (<Stack spacing={10} direction="vertical">
+            <View p="1rem" radius="var(--f-radius)" width="fit-content" border="2px solid var(--f-color-border)" className="f-buttonize">
+                <Text>Button with opacity</Text>
+            </View>
+            <View p="1rem" radius="var(--f-radius)" width="fit-content" border="2px solid var(--f-color-border)" className="f-buttonize-outline">
+                <Text>Button with outline</Text>
+            </View>
+        </Stack>);
+};
+
+<div className="story-block">
+<UtilityClasees />
+</div>
+
+<CodeComponent filename="UtilityClasees.tsx" code="ZXhwb3J0IGNvbnN0IFV0aWxpdHlDbGFzZWVzID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQoKICAgIHJldHVybiAoCiAgICAgICAgPFN0YWNrCiAgICAgICAgICAgIHNwYWNpbmc9ezEwfQogICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIj4KICAgICAgICAgICAgPFZpZXcgCiAgICAgICAgICAgICAgICBwPSIxcmVtIgogICAgICAgICAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cykiCiAgICAgICAgICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiCiAgICAgICAgICAgICAgICBib3JkZXI9IjJweCBzb2xpZCB2YXIoLS1mLWNvbG9yLWJvcmRlcikiCiAgICAgICAgICAgICAgICBjbGFzc05hbWU9ImYtYnV0dG9uaXplIj4KICAgICAgICAgICAgICAgIDxUZXh0PkJ1dHRvbiB3aXRoIG9wYWNpdHk8L1RleHQ+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgPFZpZXcgCiAgICAgICAgICAgICAgICBwPSIxcmVtIgogICAgICAgICAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cykiCiAgICAgICAgICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiCiAgICAgICAgICAgICAgICBib3JkZXI9IjJweCBzb2xpZCB2YXIoLS1mLWNvbG9yLWJvcmRlcikiCiAgICAgICAgICAgICAgICBjbGFzc05hbWU9ImYtYnV0dG9uaXplLW91dGxpbmUiPgogICAgICAgICAgICAgICAgPFRleHQ+QnV0dG9uIHdpdGggb3V0bGluZTwvVGV4dD4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
+
+```tsx
+export const UtilityClasees = () => {
+    const { visible, show, hide } = useVisibility(false)
+
+    return (
+        <Stack
+            spacing={10}
+            direction="vertical">
+            <View 
+                p="1rem"
+                radius="var(--f-radius)"
+                width="fit-content"
+                border="2px solid var(--f-color-border)"
+                className="f-buttonize">
+                <Text>Button with opacity</Text>
+            </View>
+            <View 
+                p="1rem"
+                radius="var(--f-radius)"
+                width="fit-content"
+                border="2px solid var(--f-color-border)"
+                className="f-buttonize-outline">
+                <Text>Button with outline</Text>
+            </View>
+        </Stack>
+    )
+}
 ```
 
 export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>
