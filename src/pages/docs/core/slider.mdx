@@ -146,14 +146,14 @@ export const DoubleHandles = () => {
 
 export const Tooltips = () => {
     const { value, setValue } = useSlider([0.6, 0.9]);
-    return (<Slider markers={10} onChange={setValue} values={value} min={0.5} max={1.5} step={0.05} anchor={0} tooltipValue={(value) => Math.round(value * 100) + ' %'}/>);
+    return (<Slider showTooltip markers={10} onChange={setValue} values={value} min={0.5} max={1.5} step={0.05} anchor={0} tooltipValue={(value) => Math.round(value * 100) + ' %'}/>);
 };
 
 <div className="story-block">
 <Tooltips />
 </div>
 
-<CodeComponent filename="Tooltips.tsx" code="ZXhwb3J0IGNvbnN0IFRvb2x0aXBzID0gKCkgPT4gewogICAgY29uc3QgeyB2YWx1ZSwgc2V0VmFsdWUgfSA9IHVzZVNsaWRlcihbMC42LCAwLjldKQoKICAgIHJldHVybiAoCiAgICAgICAgPFNsaWRlcgogICAgICAgICAgICBtYXJrZXJzPXsxMH0KICAgICAgICAgICAgb25DaGFuZ2U9e3NldFZhbHVlfQogICAgICAgICAgICB2YWx1ZXM9e3ZhbHVlfQogICAgICAgICAgICBtaW49ezAuNX0KICAgICAgICAgICAgbWF4PXsxLjV9CiAgICAgICAgICAgIHN0ZXA9ezAuMDV9CiAgICAgICAgICAgIGFuY2hvcj17MH0KICAgICAgICAgICAgdG9vbHRpcFZhbHVlPXsodmFsdWUpID0+IE1hdGgucm91bmQodmFsdWUgKiAxMDApICsgJyAlJ30KICAgICAgICAvPgogICAgKQp9" />
+<CodeComponent filename="Tooltips.tsx" code="ZXhwb3J0IGNvbnN0IFRvb2x0aXBzID0gKCkgPT4gewogICAgY29uc3QgeyB2YWx1ZSwgc2V0VmFsdWUgfSA9IHVzZVNsaWRlcihbMC42LCAwLjldKQoKICAgIHJldHVybiAoCiAgICAgICAgPFNsaWRlcgogICAgICAgICAgICBzaG93VG9vbHRpcAogICAgICAgICAgICBtYXJrZXJzPXsxMH0KICAgICAgICAgICAgb25DaGFuZ2U9e3NldFZhbHVlfQogICAgICAgICAgICB2YWx1ZXM9e3ZhbHVlfQogICAgICAgICAgICBtaW49ezAuNX0KICAgICAgICAgICAgbWF4PXsxLjV9CiAgICAgICAgICAgIHN0ZXA9ezAuMDV9CiAgICAgICAgICAgIGFuY2hvcj17MH0KICAgICAgICAgICAgdG9vbHRpcFZhbHVlPXsodmFsdWUpID0+IE1hdGgucm91bmQodmFsdWUgKiAxMDApICsgJyAlJ30KICAgICAgICAvPgogICAgKQp9" />
 
 ```tsx
 export const Tooltips = () => {
@@ -161,6 +161,7 @@ export const Tooltips = () => {
 
     return (
         <Slider
+            showTooltip
             markers={10}
             onChange={setValue}
             values={value}

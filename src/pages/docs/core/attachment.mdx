@@ -25,7 +25,7 @@ import { Attachment, AttachmentThumb } from "@fold-dev/core";
 ### Usage
 
 export const Usage = () => {
-    return (<Attachment width={500} heroPoster="/photos/10.jpg" mime="image/png" filesize={24325} label="filename.png" poster="" href="https://fold.dev" tools={<View row gap={10} p="0 0.5rem" color="var(--f-color-base-300)">
+    return (<Attachment as="a" width={500} heroPoster="/photos/10.jpg" mime="image/png" filesize={24325} label="filename.png" poster="" href="https://fold.dev" tools={<View row gap={10} p="0 0.5rem" color="var(--f-color-base-300)">
                     <IconLib icon="eye"/>
                     <IconLib icon="bin"/>
                 </View>}/>);
@@ -35,12 +35,13 @@ export const Usage = () => {
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICBoZXJvUG9zdGVyPSIvcGhvdG9zLzEwLmpwZyIKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBmaWxlc2l6ZT17MjQzMjV9CiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIHBvc3Rlcj0iIgogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgICAgICB0b29scz17CiAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgICAgICAgICAgcD0iMCAwLjVyZW0iCiAgICAgICAgICAgICAgICAgICAgY29sb3I9InZhcigtLWYtY29sb3ItYmFzZS0zMDApIj4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJleWUiIC8+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iYmluIiAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICB9CiAgICAgICAgLz4KICAgICkKfQ==" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICBhcz0iYSIKICAgICAgICAgICAgd2lkdGg9ezUwMH0KICAgICAgICAgICAgaGVyb1Bvc3Rlcj0iL3Bob3Rvcy8xMC5qcGciCiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBwb3N0ZXI9IiIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAgICAgdG9vbHM9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgIHA9IjAgMC41cmVtIgogICAgICAgICAgICAgICAgICAgIGNvbG9yPSJ2YXIoLS1mLWNvbG9yLWJhc2UtMzAwKSI+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iZXllIiAvPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImJpbiIgLz4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgfQogICAgICAgIC8+CiAgICApCn0=" />
 
 ```tsx
 export const Usage = () => {
     return (
         <Attachment
+            as="a"
             width={500}
             heroPoster="/photos/10.jpg"
             mime="image/png"
