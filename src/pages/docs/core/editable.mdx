@@ -11,7 +11,7 @@ export const docs = {
         'The Editable component is useful for providing users an inline experience for editing simple text content. It is suited to headings, names & other text content that is presented on a single line. Editable is not suited to large text blocks where the user needs a more traditional text input element.',
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/editable/editable.tsx","description":"","displayName":"Editable","methods":[],"props":{"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/editable/editable.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/editable/editable.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"packages/core/src/editable/editable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/editable/editable.tsx","description":"","displayName":"Editable","methods":[],"props":{"selectOnFocus":{"defaultValue":null,"description":"","name":"selectOnFocus","declarations":[{"fileName":"packages/core/src/editable/editable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"cursorEnd":{"defaultValue":null,"description":"","name":"cursorEnd","declarations":[{"fileName":"packages/core/src/editable/editable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/editable/editable.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/editable/editable.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}},"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"packages/core/src/editable/editable.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
 
 export const css = []
 
@@ -97,6 +97,70 @@ export const FocusEvent = () => {
                 <Text>This is something that is editable</Text>
             </Editable>
         </View>
+    )
+}
+```
+### Start At End
+
+export const StartAtEnd = () => {
+    const handleChange = (content) => console.log('content changed!', content);
+    const handleCancel = (previousContent) => console.log(previousContent);
+    return (<Editable cursorEnd onChange={handleChange} onCancel={handleCancel}>
+            <Text>This is something that is editable</Text>
+        </Editable>);
+};
+
+<div className="story-block">
+<StartAtEnd />
+</div>
+
+<CodeComponent filename="StartAtEnd.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXJ0QXRFbmQgPSAoKSA9PiB7CiAgICBjb25zdCBoYW5kbGVDaGFuZ2UgPSAoY29udGVudCkgPT4gY29uc29sZS5sb2coJ2NvbnRlbnQgY2hhbmdlZCEnLCBjb250ZW50KQoKICAgIGNvbnN0IGhhbmRsZUNhbmNlbCA9IChwcmV2aW91c0NvbnRlbnQpID0+IGNvbnNvbGUubG9nKHByZXZpb3VzQ29udGVudCkKCiAgICByZXR1cm4gKAogICAgICAgIDxFZGl0YWJsZQogICAgICAgICAgICBjdXJzb3JFbmQKICAgICAgICAgICAgb25DaGFuZ2U9e2hhbmRsZUNoYW5nZX0KICAgICAgICAgICAgb25DYW5jZWw9e2hhbmRsZUNhbmNlbH0+CiAgICAgICAgICAgIDxUZXh0PlRoaXMgaXMgc29tZXRoaW5nIHRoYXQgaXMgZWRpdGFibGU8L1RleHQ+CiAgICAgICAgPC9FZGl0YWJsZT4KICAgICkKfQ==" />
+
+```tsx
+export const StartAtEnd = () => {
+    const handleChange = (content) => console.log('content changed!', content)
+
+    const handleCancel = (previousContent) => console.log(previousContent)
+
+    return (
+        <Editable
+            cursorEnd
+            onChange={handleChange}
+            onCancel={handleCancel}>
+            <Text>This is something that is editable</Text>
+        </Editable>
+    )
+}
+```
+### Select On Focus
+
+export const SelectOnFocus = () => {
+    const handleChange = (content) => console.log('content changed!', content);
+    const handleCancel = (previousContent) => console.log(previousContent);
+    return (<Editable selectOnFocus onChange={handleChange} onCancel={handleCancel}>
+            <Text>This is something that is editable</Text>
+        </Editable>);
+};
+
+<div className="story-block">
+<SelectOnFocus />
+</div>
+
+<CodeComponent filename="SelectOnFocus.tsx" code="ZXhwb3J0IGNvbnN0IFNlbGVjdE9uRm9jdXMgPSAoKSA9PiB7CiAgICBjb25zdCBoYW5kbGVDaGFuZ2UgPSAoY29udGVudCkgPT4gY29uc29sZS5sb2coJ2NvbnRlbnQgY2hhbmdlZCEnLCBjb250ZW50KQoKICAgIGNvbnN0IGhhbmRsZUNhbmNlbCA9IChwcmV2aW91c0NvbnRlbnQpID0+IGNvbnNvbGUubG9nKHByZXZpb3VzQ29udGVudCkKCiAgICByZXR1cm4gKAogICAgICAgIDxFZGl0YWJsZQogICAgICAgICAgICBzZWxlY3RPbkZvY3VzCiAgICAgICAgICAgIG9uQ2hhbmdlPXtoYW5kbGVDaGFuZ2V9CiAgICAgICAgICAgIG9uQ2FuY2VsPXtoYW5kbGVDYW5jZWx9PgogICAgICAgICAgICA8VGV4dD5UaGlzIGlzIHNvbWV0aGluZyB0aGF0IGlzIGVkaXRhYmxlPC9UZXh0PgogICAgICAgIDwvRWRpdGFibGU+CiAgICApCn0=" />
+
+```tsx
+export const SelectOnFocus = () => {
+    const handleChange = (content) => console.log('content changed!', content)
+
+    const handleCancel = (previousContent) => console.log(previousContent)
+
+    return (
+        <Editable
+            selectOnFocus
+            onChange={handleChange}
+            onCancel={handleCancel}>
+            <Text>This is something that is editable</Text>
+        </Editable>
     )
 }
 ```
