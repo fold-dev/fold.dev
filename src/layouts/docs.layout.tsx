@@ -734,7 +734,8 @@ export default function DocsLayout(props: any) {
                                         display="block"
                                         bgToken="surface"
                                         style={{ top: 0 }}
-                                        position="sticky">
+                                        position="sticky"
+                                        alignContent="flex-start">
                                         <Heading as="h4">On this page</Heading>
 
                                         <List
