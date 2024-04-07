@@ -1059,16 +1059,19 @@ const All = () => {
                         React
                     </Pill>
                     <Pill
+                        solid
                         size="sm"
                         color={Token.ColorPurple100}>
                         UI
                     </Pill>
                     <Pill
+                        solid
                         size="sm"
                         color={Token.ColorBlue300}>
                         Components
                     </Pill>
                     <Pill
+                        solid
                         size="sm"
                         color={Token.ColorSeagreen100}>
                         0 Dependency
