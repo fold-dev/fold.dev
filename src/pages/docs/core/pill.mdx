@@ -13,9 +13,9 @@ export const docs = {
         "Pill components highlight fresh and crucial information, effectively directing the user's focus towards significant content that might go unnoticed otherwise.",
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/pill/pill.tsx","description":"","displayName":"Pill","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"solid":{"defaultValue":null,"description":"","name":"solid","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"color":{"defaultValue":null,"description":"CSS hex color value","name":"color","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/pill/pill.tsx","description":"","displayName":"Pill","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"span\""},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"solid":{"defaultValue":null,"description":"","name":"solid","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"color":{"defaultValue":null,"description":"CSS hex color value","name":"color","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}}]
 
-export const css = [[["--f-pill-spacing","0rem"],["--f-pill-label-padding","0 var(--f-space-2)"],["--f-pill-buffer-icon","var(--f-space-1)"],["--f-pill-border-width","1px"],["--f-pill-border-radius","var(--f-radius-full)"],["--f-pill-color","var(--f-color-text-weaker)"],["--f-pill-color-subtle","var(--f-color-text-weaker)"],["--f-pill-background-color","var(--f-color-surface-stronger)"],["--f-pill-background-color-subtle","var(--f-color-surface-strong)"],["--f-pill-border-color","var(--f-color-surface-strongest)"],["--f-pill-inner-background-color","rgba(0,0,0,0.1)"]]]
+export const css = [[["--f-pill-spacing","0rem"],["--f-pill-label-padding","0 var(--f-space-2)"],["--f-pill-buffer-icon","var(--f-space-1)"],["--f-pill-border-width","1px"],["--f-pill-border-radius","var(--f-radius-full)"],["--f-pill-border-color","var(--f-color-surface-strongest)"],["--f-pill-color","var(--f-color-text-weaker)"],["--f-pill-color-subtle","var(--f-color-text-weaker)"],["--f-pill-color-color","var(--f-color-text-on-color)"],["--f-pill-background-color","var(--f-color-surface-strong)"],["--f-pill-background-color-subtle","var(--f-color-surface-strong)"],["--f-pill-background-color-solid","var(--f-color-surface-inverse)"],["--f-pill-inner-background-color","rgba(0,0,0,0.1)"]]]
 
 
 
@@ -156,26 +156,28 @@ export const WithPrefixAndSuffix = () => (
     </Stack>
 )
 ```
-### Variants
+### Styles
 
-export const Variants = () => (<Stack spacing={5}>
+export const Styles = () => (<Stack spacing={5}>
         <Pill>React</Pill>
         <Pill subtle>VueJS</Pill>
         <Pill outline>Svelte</Pill>
+        <Pill solid>SolidJS</Pill>
     </Stack>);
 
 <div className="story-block">
-<Variants />
+<Styles />
 </div>
 
-<CodeComponent filename="Variants.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxQaWxsPlJlYWN0PC9QaWxsPgogICAgICAgIDxQaWxsIHN1YnRsZT5WdWVKUzwvUGlsbD4KICAgICAgICA8UGlsbCBvdXRsaW5lPlN2ZWx0ZTwvUGlsbD4KICAgIDwvU3RhY2s+Cik=" />
+<CodeComponent filename="Styles.tsx" code="ZXhwb3J0IGNvbnN0IFN0eWxlcyA9ICgpID0+ICgKICAgIDxTdGFjayBzcGFjaW5nPXs1fT4KICAgICAgICA8UGlsbD5SZWFjdDwvUGlsbD4KICAgICAgICA8UGlsbCBzdWJ0bGU+VnVlSlM8L1BpbGw+CiAgICAgICAgPFBpbGwgb3V0bGluZT5TdmVsdGU8L1BpbGw+CiAgICAgICAgPFBpbGwgc29saWQ+U29saWRKUzwvUGlsbD4KICAgIDwvU3RhY2s+Cik=" />
 
 ```tsx
-export const Variants = () => (
+export const Styles = () => (
     <Stack spacing={5}>
         <Pill>React</Pill>
         <Pill subtle>VueJS</Pill>
         <Pill outline>Svelte</Pill>
+        <Pill solid>SolidJS</Pill>
     </Stack>
 )
 ```
@@ -184,12 +186,17 @@ export const Variants = () => (
 > The Pill component takes a hex-code value for the color.
 
 export const Color = () => (<Stack spacing={5}>
-        <Pill color={Token.ColorElectric400}>React</Pill>
-        <Pill color={Token.ColorPurple400} subtle>
-            VueJS
+        <Pill color={Token.ColorElectric200}>
+            React
         </Pill>
-        <Pill color={Token.ColorTeal400} outline>
+        <Pill outline color={Token.ColorTeal500}>
             Svelte
+        </Pill>
+        <Pill subtle color={Token.ColorViolet500}>
+            Angular
+        </Pill>
+        <Pill solid color={Token.ColorNeonpink500}>
+            VueJS
         </Pill>
     </Stack>);
 
@@ -197,21 +204,28 @@ export const Color = () => (<Stack spacing={5}>
 <Color />
 </div>
 
-<CodeComponent filename="Color.tsx" code="ZXhwb3J0IGNvbnN0IENvbG9yID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxQaWxsIGNvbG9yPXtUb2tlbi5Db2xvckVsZWN0cmljNDAwfT5SZWFjdDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JQdXJwbGU0MDB9CiAgICAgICAgICAgIHN1YnRsZT4KICAgICAgICAgICAgVnVlSlMKICAgICAgICA8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yVGVhbDQwMH0KICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgU3ZlbHRlCiAgICAgICAgPC9QaWxsPgogICAgPC9TdGFjaz4KKQ==" />
+<CodeComponent filename="Color.tsx" code="ZXhwb3J0IGNvbnN0IENvbG9yID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxQaWxsIGNvbG9yPXtUb2tlbi5Db2xvckVsZWN0cmljMjAwfT4KICAgICAgICAgICAgUmVhY3QKICAgICAgICA8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgb3V0bGluZQogICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JUZWFsNTAwfT4KICAgICAgICAgICAgU3ZlbHRlCiAgICAgICAgPC9QaWxsPgogICAgICAgIDxQaWxsIAogICAgICAgICAgICBzdWJ0bGUKICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yVmlvbGV0NTAwfT4KICAgICAgICAgICAgQW5ndWxhcgogICAgICAgIDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBzb2xpZAogICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JOZW9ucGluazUwMH0+CiAgICAgICAgICAgIFZ1ZUpTCiAgICAgICAgPC9QaWxsPgogICAgPC9TdGFjaz4KKQ==" />
 
 ```tsx
 export const Color = () => (
     <Stack spacing={5}>
-        <Pill color={Token.ColorElectric400}>React</Pill>
-        <Pill
-            color={Token.ColorPurple400}
-            subtle>
-            VueJS
+        <Pill color={Token.ColorElectric200}>
+            React
         </Pill>
         <Pill
-            color={Token.ColorTeal400}
-            outline>
+            outline
+            color={Token.ColorTeal500}>
             Svelte
+        </Pill>
+        <Pill 
+            subtle
+            color={Token.ColorViolet500}>
+            Angular
+        </Pill>
+        <Pill
+            solid
+            color={Token.ColorNeonpink500}>
+            VueJS
         </Pill>
     </Stack>
 )
