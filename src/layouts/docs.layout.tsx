@@ -628,7 +628,7 @@ export default function DocsLayout(props: any) {
                                         color={Token.ColorNeonpink400}
                                         subtle
                                         fontWeight={800}>
-                                        v0.7.0
+                                        v0.8.0
                                     </Pill>
                                     <Link
                                         href="/"
@@ -734,7 +734,8 @@ export default function DocsLayout(props: any) {
                                         display="block"
                                         bgToken="surface"
                                         style={{ top: 0 }}
-                                        position="sticky">
+                                        position="sticky"
+                                        alignContent="flex-start">
                                         <Heading as="h4">On this page</Heading>
 
                                         <List
