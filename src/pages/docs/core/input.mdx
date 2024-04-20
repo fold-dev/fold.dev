@@ -3,8 +3,8 @@ import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
 import {
     ColorPicker,
-    ComboInput,
-    ComboInputField,
+    TagInput,
+    TagInputField,
     focusInputAtEnd,
     getKey,
     Heading,
@@ -36,13 +36,13 @@ export const docs = {
         'Input components are useful for generating interactive controls within web-based forms, enabling users to provide data. The Input component stands as one of the most pivotal elements, serving as the foundation for virtually all user inputs.',
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputNumberControl","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"disableIncrease":{"defaultValue":null,"description":"","name":"disableIncrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disableDecrease":{"defaultValue":null,"description":"","name":"disableDecrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onIncrease":{"defaultValue":null,"description":"","name":"onIncrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onDecrease":{"defaultValue":null,"description":"","name":"onDecrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputControl","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"Input","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"showIndicator":{"defaultValue":null,"description":"","name":"showIndicator","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"selectOnFocus":{"defaultValue":null,"description":"","name":"selectOnFocus","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"number\" | \"date\" | \"time\" | \"text\" | \"search\" | \"color\" | \"hidden\" | \"datetime-local\" | \"email\" | \"month\" | \"password\" | \"tel\" | \"url\" | \"week\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputPrefix","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputSuffix","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"PinInput","methods":[],"props":{"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"digits":{"defaultValue":null,"description":"","name":"digits","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"text\" | \"password\""},"tags":{}},"defaultValue":{"defaultValue":null,"description":"","name":"defaultValue","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"ComboInputField","methods":[],"props":{"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"number\" | \"date\" | \"time\" | \"text\" | \"search\" | \"color\" | \"hidden\" | \"datetime-local\" | \"email\" | \"month\" | \"password\" | \"tel\" | \"url\" | \"week\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"ComboInput","methods":[],"props":{"render":{"defaultValue":null,"description":"","name":"render","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputNumberControl","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"disableIncrease":{"defaultValue":null,"description":"","name":"disableIncrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disableDecrease":{"defaultValue":null,"description":"","name":"disableDecrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onIncrease":{"defaultValue":null,"description":"","name":"onIncrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onDecrease":{"defaultValue":null,"description":"","name":"onDecrease","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputControl","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"Input","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"showIndicator":{"defaultValue":null,"description":"","name":"showIndicator","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"selectOnFocus":{"defaultValue":null,"description":"","name":"selectOnFocus","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"number\" | \"date\" | \"time\" | \"text\" | \"search\" | \"color\" | \"hidden\" | \"datetime-local\" | \"email\" | \"month\" | \"password\" | \"tel\" | \"url\" | \"week\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputPrefix","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"InputSuffix","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"PinInput","methods":[],"props":{"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"digits":{"defaultValue":null,"description":"","name":"digits","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"text\" | \"password\""},"tags":{}},"defaultValue":{"defaultValue":null,"description":"","name":"defaultValue","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"TagInputField","methods":[],"props":{"type":{"defaultValue":null,"description":"","name":"type","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"number\" | \"date\" | \"time\" | \"text\" | \"search\" | \"color\" | \"hidden\" | \"datetime-local\" | \"email\" | \"month\" | \"password\" | \"tel\" | \"url\" | \"week\""},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/input/input.tsx","description":"","displayName":"TagInput","methods":[],"props":{"render":{"defaultValue":null,"description":"","name":"render","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"packages/core/src/input/input.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}}]
 
-export const css = [[["--f-input-background-color","var(--f-color-surface)"],["--f-input-background-color-disabled","var(--f-color-surface-strong)"],["--f-input-border-color","var(--f-color-border)"],["--f-input-border-width","1px"],["--f-input-border-color-active","var(--f-color-border-strong)"],["--f-input-color","var(--f-color-text-weak)"],["--f-input-color-placeholder","var(--f-color-text-weakest)"],["--f-input-color-disabled","var(--f-color-text-weakest)"],["--f-input-border-radius","var(--f-radius)"],["--f-input-base-padding","var(--f-space-4)"],["--f-input-padding","0 var(--f-input-base-padding)"],["--f-input-padding-combo","var(--f-space-1) var(--f-space-2)"],["--f-input-shadow","var(--f-shadow-sm)"],["--f-combo-input-min-width","50px"],["--f-combo-input-spacing","var(--f-space-1)"],["--f-input-prefix-padding","0 0 0 var(--f-input-base-padding)"],["--f-input-suffix-padding","0  var(--f-input-base-padding) 0 0"]]]
+export const css = [[["--f-input-background-color","var(--f-color-surface)"],["--f-input-background-color-disabled","var(--f-color-surface-strong)"],["--f-input-border-color","var(--f-color-border)"],["--f-input-border-width","1px"],["--f-input-border-color-active","var(--f-color-border-strong)"],["--f-input-color","var(--f-color-text-weak)"],["--f-input-color-placeholder","var(--f-color-text-weakest)"],["--f-input-color-disabled","var(--f-color-text-weakest)"],["--f-input-border-radius","var(--f-radius)"],["--f-input-base-padding","var(--f-space-4)"],["--f-input-padding","0 var(--f-input-base-padding)"],["--f-input-padding-tag","0.2rem var(--f-space-2)"],["--f-input-shadow","var(--f-shadow-sm)"],["--f-tag-input-min-width","50px"],["--f-tag-input-spacing","var(--f-space-1)"],["--f-input-prefix-padding","0 0 0 var(--f-input-base-padding)"],["--f-input-suffix-padding","0  var(--f-input-base-padding) 0 0"]]]
 
 
 
-<CodeComponent filename="input.tsx" code="aW1wb3J0IHsKICBJbnB1dE51bWJlckNvbnRyb2wsCiAgSW5wdXRDb250cm9sLAogIElucHV0LAogIElucHV0UHJlZml4LAogIElucHV0U3VmZml4LAogIFBpbklucHV0LAogIENvbWJvSW5wdXRGaWVsZCwKICBDb21ib0lucHV0LAp9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+<CodeComponent filename="input.tsx" code="aW1wb3J0IHsKICBJbnB1dE51bWJlckNvbnRyb2wsCiAgSW5wdXRDb250cm9sLAogIElucHV0LAogIElucHV0UHJlZml4LAogIElucHV0U3VmZml4LAogIFBpbklucHV0LAogIFRhZ0lucHV0RmllbGQsCiAgVGFnSW5wdXQsCn0gZnJvbSAiQGZvbGQtZGV2L2NvcmUiOwo=" />
 ```tsx
 import {
   InputNumberControl,
@@ -51,8 +51,8 @@ import {
   InputPrefix,
   InputSuffix,
   PinInput,
-  ComboInputField,
-  ComboInput,
+  TagInputField,
+  TagInput,
 } from "@fold-dev/core";
 ```
 
@@ -749,9 +749,9 @@ export const WithPopover = () => {
     )
 }
 ```
-### Combo
+### Tag
 
-export const Combo = () => {
+export const Tag = () => {
     const [selected, setSelected] = useState(['React', 'Svelte', 'Vue']);
     const [text, setText] = useState('');
     const handleKeyDown = (e) => {
@@ -763,23 +763,23 @@ export const Combo = () => {
             setText('');
         }
     };
-    return (<ComboInput render={() => {
+    return (<TagInput render={() => {
             return selected.map((name, index) => (<Pill key={index} outline>
                         {name}
                     </Pill>));
         }}>
-            <ComboInputField value={text} placeholder="Type..." onChange={(e) => setText(e.target.value)} onKeyDown={handleKeyDown}/>
-        </ComboInput>);
+            <TagInputField value={text} placeholder="Type..." onChange={(e) => setText(e.target.value)} onKeyDown={handleKeyDown}/>
+        </TagInput>);
 };
 
 <div className="story-block">
-<Combo />
+<Tag />
 </div>
 
-<CodeComponent filename="Combo.tsx" code="ZXhwb3J0IGNvbnN0IENvbWJvID0gKCkgPT4gewogICAgY29uc3QgW3NlbGVjdGVkLCBzZXRTZWxlY3RlZF0gPSB1c2VTdGF0ZTxhbnk+KFsnUmVhY3QnLCAnU3ZlbHRlJywgJ1Z1ZSddKQogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGU8YW55PignJykKCiAgICBjb25zdCBoYW5kbGVLZXlEb3duID0gKGUpID0+IHsKICAgICAgICBjb25zdCB7IGlzRW50ZXIgfSA9IGdldEtleShlKQogICAgICAgIGlmIChpc0VudGVyKSB7CiAgICAgICAgICAgIGUucHJldmVudERlZmF1bHQoKQogICAgICAgICAgICBlLnN0b3BQcm9wYWdhdGlvbigpCiAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZCwgdGV4dF0pCiAgICAgICAgICAgIHNldFRleHQoJycpCiAgICAgICAgfQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPENvbWJvSW5wdXQKICAgICAgICAgICAgcmVuZGVyPXsoKSA9PiB7CiAgICAgICAgICAgICAgICByZXR1cm4gc2VsZWN0ZWQubWFwKChuYW1lLCBpbmRleCkgPT4gKAogICAgICAgICAgICAgICAgICAgIDxQaWxsCiAgICAgICAgICAgICAgICAgICAgICAgIGtleT17aW5kZXh9CiAgICAgICAgICAgICAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgICAgICAgICAgICAgIHtuYW1lfQogICAgICAgICAgICAgICAgICAgIDwvUGlsbD4KICAgICAgICAgICAgICAgICkpCiAgICAgICAgICAgIH19PgogICAgICAgICAgICA8Q29tYm9JbnB1dEZpZWxkCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJUeXBlLi4uIgogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIG9uS2V5RG93bj17aGFuZGxlS2V5RG93bn0KICAgICAgICAgICAgLz4KICAgICAgICA8L0NvbWJvSW5wdXQ+CiAgICApCn0=" />
+<CodeComponent filename="Tag.tsx" code="ZXhwb3J0IGNvbnN0IFRhZyA9ICgpID0+IHsKICAgIGNvbnN0IFtzZWxlY3RlZCwgc2V0U2VsZWN0ZWRdID0gdXNlU3RhdGU8YW55PihbJ1JlYWN0JywgJ1N2ZWx0ZScsICdWdWUnXSkKICAgIGNvbnN0IFt0ZXh0LCBzZXRUZXh0XSA9IHVzZVN0YXRlPGFueT4oJycpCgogICAgY29uc3QgaGFuZGxlS2V5RG93biA9IChlKSA9PiB7CiAgICAgICAgY29uc3QgeyBpc0VudGVyIH0gPSBnZXRLZXkoZSkKICAgICAgICBpZiAoaXNFbnRlcikgewogICAgICAgICAgICBlLnByZXZlbnREZWZhdWx0KCkKICAgICAgICAgICAgZS5zdG9wUHJvcGFnYXRpb24oKQogICAgICAgICAgICBzZXRTZWxlY3RlZChbLi4uc2VsZWN0ZWQsIHRleHRdKQogICAgICAgICAgICBzZXRUZXh0KCcnKQogICAgICAgIH0KICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxUYWdJbnB1dAogICAgICAgICAgICByZW5kZXI9eygpID0+IHsKICAgICAgICAgICAgICAgIHJldHVybiBzZWxlY3RlZC5tYXAoKG5hbWUsIGluZGV4KSA9PiAoCiAgICAgICAgICAgICAgICAgICAgPFBpbGwKICAgICAgICAgICAgICAgICAgICAgICAga2V5PXtpbmRleH0KICAgICAgICAgICAgICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgICAgICAgICAgICAge25hbWV9CiAgICAgICAgICAgICAgICAgICAgPC9QaWxsPgogICAgICAgICAgICAgICAgKSkKICAgICAgICAgICAgfX0+CiAgICAgICAgICAgIDxUYWdJbnB1dEZpZWxkCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJUeXBlLi4uIgogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIG9uS2V5RG93bj17aGFuZGxlS2V5RG93bn0KICAgICAgICAgICAgLz4KICAgICAgICA8L1RhZ0lucHV0PgogICAgKQp9" />
 
 ```tsx
-export const Combo = () => {
+export const Tag = () => {
     const [selected, setSelected] = useState<any>(['React', 'Svelte', 'Vue'])
     const [text, setText] = useState<any>('')
 
@@ -794,7 +794,7 @@ export const Combo = () => {
     }
 
     return (
-        <ComboInput
+        <TagInput
             render={() => {
                 return selected.map((name, index) => (
                     <Pill
@@ -804,13 +804,13 @@ export const Combo = () => {
                     </Pill>
                 ))
             }}>
-            <ComboInputField
+            <TagInputField
                 value={text}
                 placeholder="Type..."
                 onChange={(e) => setText(e.target.value)}
                 onKeyDown={handleKeyDown}
             />
-        </ComboInput>
+        </TagInput>
     )
 }
 ```
