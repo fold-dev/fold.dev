@@ -1002,40 +1002,6 @@ const GraphicLeft = (props: any) => {
     )
 }
 
-export const NormalDatePicker = () => {
-    const [date, setDate] = useState(new Date())
-    const { firstDay, lastDay } = useMemo(() => {
-        const firstDay = new Date(date.getFullYear(), date.getMonth(), 14);
-        const lastDay = new Date(date.getFullYear(), date.getMonth(), 18);
-        return { firstDay, lastDay }
-    }, [])
-    const [selection, setSelection] = useState<any[]>([[firstDay, lastDay]])
-
-    const handleSelection = (date: Date) => {
-        if (selection.length == 0) {
-            setSelection([[date, null]])
-        } else {
-            const selected = selection[0]
-            if (!selected[0]) return setSelection([date, null])
-            if (!!selected[0] && !!selected[1]) return setSelection([[date, null]])
-            if (!!selected[0] && !selected[1])
-                return setSelection(selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]])
-        }
-    }
-
-    return (
-        <DateRangeProvider>
-            <DatePicker
-                height={300}
-                width="100%"
-                defaultDate={date}
-                selection={selection}
-                onChange={handleSelection}
-            />
-        </DateRangeProvider>
-    )
-}
-
 const All = () => {
     const [selected, setSelected] = useState<any>([])
     const [color, setColor] = useState(Token.ColorElectric400)
@@ -1325,19 +1291,6 @@ const All = () => {
                     </View>
                 </Card>
             </View>
-            <View
-                column
-                width={300}
-                gap={10}
-                flex={1}
-                alignItems="flex-end">
-                <Card
-                    width="100%"
-                    p={10}
-                    style={{ overflow: 'hidden' }}>
-                    <NormalDatePicker />
-                </Card>
-            </View>
         </View>
     )
 }
@@ -1490,7 +1443,7 @@ function Home() {
                     gap={70}
                     flex={1}
                     width="100%"
-                    p="4rem 0 600px 0"
+                    p="4rem 0 550px 0"
                     justifyContent="stretch">
                     <View
                         column
@@ -1540,33 +1493,24 @@ function Home() {
                                     '--f-button-color': 'var(--f-color-white)',
                                     '--f-button-color-hover': 'var(--f-color-accent-400)',
                                 }}>
-                                Buy Now
+                                Read Documentation
                             </Button>
                             <Link
-                                href="#"
+                                target="_blank"
+                                href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW"
                                 textDecoration="none"
                                 className="f-underline"
                                 m="0 -1rem 0 0"
                                 colorToken="white">
-                                Read Documentation ↗
+                                Subscribe to Newsletter ↗
                             </Link>
                         </View>
-                        <Button
-                            subtle
-                            as="a"
-                            variant="accent"
-                            target="_blank"
-                            href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW">
-                            Subscribe to Newsletter
-                        </Button>
-
-                        {/* 
+                        
                         <Text
                             size="sm"
                             colorToken="accent-200">
                             Subscribe to our newsletter to be notified of when we launch!
                         </Text> 
-                        */}
 
                         <GraphicLeft
                             style={{ position: 'absolute', top: 400, left: -200, opacity: 0.2 }}
@@ -1595,7 +1539,7 @@ function Home() {
                     alignContent="flex-start"
                     alignItems="flex-start"
                     position="relative">
-                    <Options
+                    {/* <Options
                         m="0 auto 0rem auto"
                         animated
                         position="relative"
@@ -1616,10 +1560,10 @@ function Home() {
                                 </Pill>
                             }>
                             Data Grid
-                        </Option>
+                        </Option> */}
                         {/* <Option suffix={<Pill color={Token.ColorAccent400} size="xs" subtle>SOON</Pill>}>Tree View</Option>
                         <Option suffix={<Pill color={Token.ColorAccent400} size="xs" subtle>SOON</Pill>}>Timeline</Option> */}
-                    </Options>
+                   {/*  </Options> */}
                     <View
                         width="100%"
                         height={600}
@@ -1706,22 +1650,22 @@ function Home() {
                         letterSpacing={5}
                         colorToken="accent-400"
                         id="features">
-                        Features
+                        Level Up
                     </Text>
 
                     <Heading
                         huge
                         colorToken="accent-50"
                         fontWeight={800}
-                        lineHeight={0.9}>
-                        Built for product teams & makers
+                        lineHeight={1}>
+                        Made for product builders
                     </Heading>
 
                     <Heading
                         as="h3"
                         colorToken="accent-200"
                         fontWeight={400}>
-                        Whether it's a SaaS product or enterprise app, we have you covered.
+                        Whether it's a SaaS product or enterprise app, we got you covered.
                     </Heading>
 
                     <Text
