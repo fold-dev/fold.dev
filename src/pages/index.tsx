@@ -18,6 +18,7 @@ import {
     GridItem,
     Header,
     Heading,
+    Icon,
     IconLib,
     Image,
     Li,
@@ -54,6 +55,7 @@ import Head from 'next/head'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { SocialIcon } from 'react-social-icons'
 import MobileComponent from './components/mobile.component'
+import { PiAddressBookDuotone, PiCircleDashedDuotone, PiCircleHalfTiltDuotone } from 'react-icons/pi'
 
 export const colors = {
     purple: `
@@ -1007,9 +1009,9 @@ const All = () => {
     const [color, setColor] = useState(Token.ColorElectric400)
     const [value, setValue] = useState(5)
     const [option, setOption] = useState(1)
-
+    /* 
     const setAccent = (color) => {
-        //documentObject.getElementById('custom-styles').innerHTML = colors[color]
+        documentObject.getElementById('custom-styles').innerHTML = colors[color]
     }
 
     useEffect(() => {
@@ -1034,17 +1036,17 @@ const All = () => {
                 return setAccent('electric')
         }
     }, [color])
-
+    */
     return (
         <View
             row
-            gap={10}
+            gap="2rem"
             height="fit-content"
             width="fit-content"
             alignItems="flex-start">
             <View
                 column
-                gap={10}
+                gap="2rem"
                 width={300}>
                 <Menu
                     width={300}
@@ -1099,9 +1101,10 @@ const All = () => {
                     </Timeline>
                 </Card>
             </View>
+
             <View
                 column
-                gap={10}
+                gap="2rem"
                 width={300}>
                 <Options
                     animated
@@ -1216,24 +1219,12 @@ const All = () => {
                         onChange={(e) => setValue(e.target.value)}
                     />
                 </Card>
-
-                <View
-                    row
-                    justifyContent="flex-end"
-                    gap={10}>
-                    <Text
-                        as="label"
-                        htmlFor="dm">
-                        Toggle Dark Mode
-                    </Text>
-                    <DarkModeToggle id="dm" />
-                </View>
             </View>
 
             <View
                 column
                 width={300}
-                gap={10}
+                gap="2rem"
                 flex={1}
                 alignItems="flex-end">
                 <Card
@@ -1290,6 +1281,18 @@ const All = () => {
                         </Stack>
                     </View>
                 </Card>
+
+                <View
+                    row
+                    justifyContent="flex-end"
+                    gap={10}>
+                    <Text
+                        as="label"
+                        htmlFor="dm">
+                        Toggle Dark Mode
+                    </Text>
+                    <DarkModeToggle id="dm" />
+                </View>
             </View>
         </View>
     )
@@ -1333,7 +1336,8 @@ function Home() {
 
     return (
         <FoldProvider license="fake-license-code">
-            <style id="custom-styles" />
+            {/* <style id="custom-styles" /> */}
+
             <SkipNavMain />
             <MobileComponent />
 
@@ -1364,7 +1368,7 @@ function Home() {
                 zIndex={10000}
                 width="100%"
                 position="relative"
-                bgToken="accent-900">
+                bgToken="accent-300">
                 <Text
                     color="inherit"
                     colorToken="purple-50">
@@ -1380,14 +1384,14 @@ function Home() {
             {/* header */}
             <View
                 //display="none"
+                //bg={`linear-gradient(175deg, ${Token.ColorElectric700}, ${Token.ColorElectric400})`}
                 width="100%"
                 position="relative"
-                style={{ overflow: 'hidden' }}
-                bg={`linear-gradient(175deg, ${Token.ColorElectric700}, ${Token.ColorElectric400})`}>
+                style={{ overflow: 'hidden' }}>
                 <Header
                     position="relative"
                     height="fit-content"
-                    bg="transparent"
+                    //bg="transparent"
                     border="none">
                     <GraphicRight
                         style={{ position: 'absolute', top: -100, right: -100, opacity: 0.2 }}
@@ -1399,18 +1403,18 @@ function Home() {
                         row
                         gap={10}
                         width="100%"
-                        p="2rem 4rem">
+                        p="1rem 4rem">
                         <LogoSolid color={Token.ColorElectric100} />
                         <Flexer />
                         <Navigation
-                            transparent
+//                            transparent
                             variant="navbar"
                             style={{
-                                '--f-navigation-item-background-color-hover': 'var(--f-color-accent-500)',
-                                '--f-navigation-item-background-color-active': 'var(--f-color-accent-500)',
-                                '--f-navigation-item-color': 'var(--f-color-accent-50)',
-                                '--f-navigation-item-color-hover': 'var(--f-color-accent-50)',
-                                '--f-navigation-item-color-active': 'white',
+                                // '--f-navigation-item-background-color-hover': 'var(--f-color-accent-500)',
+                                // '--f-navigation-item-background-color-active': 'var(--f-color-accent-500)',
+                                // '--f-navigation-item-color': 'var(--f-color-accent-50)',
+                                // '--f-navigation-item-color-hover': 'var(--f-color-accent-50)',
+                                // '--f-navigation-item-color-active': 'white',
                             }}>
                             <NavigationItem>Home</NavigationItem>
                             <NavigationItem>Pro</NavigationItem>
@@ -1421,17 +1425,17 @@ function Home() {
                         </Navigation>
                         <Button
                             outline
-                            border="0.15rem solid white"
+                            //border="0.15rem solid white"
                             style={{
-                                '--f-button-color': 'var(--f-color-white)',
-                                '--f-button-color-hover': 'var(--f-color-accent-400)',
+                                // '--f-button-color': 'var(--f-color-white)',
+                                // '--f-button-color-hover': 'var(--f-color-accent-400)',
                             }}>
                             Documentation
                         </Button>
                         <Button
                             style={{
-                                '--f-button-color': 'var(--f-color-accent)',
-                                '--f-button-color-hover': 'var(--f-color-accent-600)',
+                                // '--f-button-color': 'var(--f-color-accent)',
+                                // '--f-button-color-hover': 'var(--f-color-accent-600)',
                             }}>
                             Download
                         </Button>
@@ -1461,7 +1465,7 @@ function Home() {
 
                         <Heading
                             textAlign="center"
-                            colorToken="white"
+                            colorToken="accent-500"
                             fontWeight={700}
                             fontSize="6rem"
                             letterSpacing={-5}
@@ -1474,7 +1478,7 @@ function Home() {
                         <Heading
                             as="h3"
                             textAlign="center"
-                            colorToken="accent-50"
+                            colorToken="accent-400"
                             fontWeight={400}
                             p="0 8rem">
                             Powerful, fully customizable React components for scaling your product to the next
@@ -1490,8 +1494,8 @@ function Home() {
                                 outline
                                 border="0.15rem solid var(--f-color-white)"
                                 style={{
-                                    '--f-button-color': 'var(--f-color-white)',
-                                    '--f-button-color-hover': 'var(--f-color-accent-400)',
+                                    // '--f-button-color': 'var(--f-color-white)',
+                                    // '--f-button-color-hover': 'var(--f-color-accent-400)',
                                 }}>
                                 Read Documentation
                             </Button>
@@ -1582,7 +1586,7 @@ function Home() {
                 flex={1}
                 width="100%"
                 m="-500px 0 0 0"
-                p="550px 0 3rem 0"
+                p="500px 0 3rem 0"
                 alignItems="flex-start"
                 bgToken="accent-700">
                 <View
@@ -1590,7 +1594,7 @@ function Home() {
                     p="5rem 0rem 5rem 5rem"
                     position="relative">
                     <Grid
-                        columns={2}
+                        columns={4}
                         gap="40px 40px"
                         minChildWidth={100}>
                         {[
@@ -1627,14 +1631,26 @@ function Home() {
                                 text: 'Fold has been designed to not only work great, but look great in any project.',
                             },
                         ].map(({ title, text }, index) => (
-                            <GridItem key={index}>
+                            <GridItem 
+                                key={index}
+                                column
+                                justifyContent="flex-start"
+                                alignContent="flex-start"
+                                alignItems="flex-start"
+                                gap={10}>
+                                <Icon 
+                                    size="xl"
+                                    icon={PiCircleHalfTiltDuotone} 
+                                    color={Token.ColorAccent400}
+                                />
                                 <Heading
                                     fontWeight={600}
-                                    colorToken="accent-100"
-                                    m="0 0 0.25rem 0">
+                                    colorToken="accent-100">
                                     {title}
                                 </Heading>
-                                <Text colorToken="accent-200">{text}</Text>
+                                <Text colorToken="accent-200">
+                                    {text}
+                                </Text>
                             </GridItem>
                         ))}
                     </Grid>
@@ -1642,6 +1658,7 @@ function Home() {
                 <View
                     column
                     flex={1}
+                    display="none"
                     gap={30}
                     alignItems="flex-start"
                     p="5rem 5rem 5rem 0rem">
