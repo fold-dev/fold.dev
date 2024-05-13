@@ -1447,12 +1447,10 @@ function Home() {
                 {(stuck) => (
                     <View 
                         position="sticky"
-                        bg={stuck ? 'var(--f-color-accent-700)' : 'transparent'}
                         height={111}
                         zIndex={10}
                         style={{ 
                             top: 0,
-                            backdropFilter: 'blur(5px)',
                         }}>
                         <View
                             row
@@ -1462,9 +1460,10 @@ function Home() {
                             width="100%"
                             height={40}
                             position="relative"
+                            bg={stuck ? 'rgba(0,82,172,0.9)' : 'rgba(0,82,172,0.4)'}
                             style={{ 
                                 backdropFilter: 'blur(5px)',
-                                borderBottom: '1px solid var(--f-color-accent-600)' 
+                                transition: 'background 0.1s',
                             }}>
                             <Text
                                 color="inherit"
@@ -1481,8 +1480,12 @@ function Home() {
                         <Header
                             height={70}
                             position="relative"
-                            bg="transparent"
-                            border="none">
+                            border="none"
+                            bg={stuck ? 'rgba(0,82,172,0.8)' : 'transparent'}
+                            style={{
+                                backdropFilter: 'blur(5px)',
+                                transition: 'background 0.1s',
+                            }}>
                             <View
                                 row
                                 gap="1rem"
@@ -1494,7 +1497,7 @@ function Home() {
                                     bg="transparent"
                                     variant="navbar"
                                     style={{
-                                        '--f-navigation-item-background-color-hover': 'var(--f-color-accent-500)',
+                                        '--f-navigation-item-background-color-hover': 'var(--f-color-accent-700)',
                                         '--f-navigation-item-background-color-active': 'var(--f-color-accent-500)',
                                         '--f-navigation-item-color': 'var(--f-color-accent-50)',
                                         '--f-navigation-item-color-hover': 'var(--f-color-accent-50)',
