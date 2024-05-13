@@ -40,11 +40,12 @@ import Head from 'next/head'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import {
-    PiDrop,
+    PiFaders,
     PiFingerprintSimple,
     PiFlag,
     PiGithubLogo,
     PiLifebuoy,
+    PiLightning,
     PiLinkedinLogo,
     PiMarkerCircle,
     PiPackage,
@@ -347,7 +348,7 @@ export default function DocsLayout(props: any) {
                                             prefix={
                                                 <Icon
                                                     icon={PiPackage}
-                                                    color={Token.ColorElectric400}
+                                                    color={Token.ColorSeagreen400}
                                                     strokeWidth={2}
                                                 />
                                             }>
@@ -362,12 +363,36 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
+                                                    color={Token.ColorElectric400}
                                                     icon={PiRocketLaunch}
-                                                    color={Token.ColorPurple400}
                                                     strokeWidth={2}
                                                 />
                                             }>
                                             Getting Started
+                                        </NavigationItem>
+                                        <NavigationItem
+                                            active={url == 'pro'}
+                                            onClick={() =>
+                                                router.push('/docs/pro', {
+                                                    scroll: false,
+                                                })
+                                            }
+                                            suffix={
+                                                <Pill
+                                                    color={Token.ColorPurple400}
+                                                    size="xs"
+                                                    subtle>
+                                                    NEW
+                                                </Pill>
+                                            }
+                                            prefix={
+                                                <Icon
+                                                    icon={PiLightning}
+                                                    color={Token.ColorPurple400}
+                                                    strokeWidth={2}
+                                                />
+                                            }>
+                                            Pro
                                         </NavigationItem>
                                         <NavigationItem
                                             active={url == 'community'}
@@ -412,7 +437,7 @@ export default function DocsLayout(props: any) {
                                             Releases
                                         </NavigationItem>
                                         <NavigationItem
-                                            href="https://github.com/orgs/fold-dev/projects/8"
+                                            href="https://github.com/orgs/fold-dev/projects/8/views/2"
                                             target="_blank"
                                             prefix={
                                                 <Icon
@@ -490,7 +515,71 @@ export default function DocsLayout(props: any) {
                                             Tokens
                                         </NavigationItem>
                                         <NavigationDivider />
-                                        <NavigationHeading>Components</NavigationHeading>
+                                        <NavigationHeading 
+                                            suffix={(
+                                                <Pill
+                                                    color={Token.ColorAccent400}
+                                                    size="xs"
+                                                    subtle>
+                                                    EARLY ACCESS
+                                                </Pill>)}>
+                                                Pro Components
+                                        </NavigationHeading>
+                                        {navigation.filter((_, i) => i < 6).map((component: any, index: number) => (
+                                            <NavigationItem
+                                                active={url == component.slug}
+                                                key={index}
+                                                style={{ textTransform: 'capitalize' }}
+                                                onClick={() =>
+                                                    router.push('/docs/core/' + component.slug, {
+                                                        scroll: false,
+                                                    })
+                                                }
+                                                suffix={
+                                                    <View
+                                                        gap={5}
+                                                        row>
+                                                        {component.experimental && (
+                                                            <Pill
+                                                                color={Token.ColorViolet400}
+                                                                size="xs"
+                                                                subtle>
+                                                                EARLY ACCESS
+                                                            </Pill>
+                                                        )}
+                                                        {component.pro && (
+                                                            <Pill
+                                                                color={Token.ColorAccent400}
+                                                                size="xs"
+                                                                subtle>
+                                                                PRO
+                                                            </Pill>
+                                                        )}
+                                                        {component.soon && (
+                                                            <Pill
+                                                                color={Token.ColorNeonpink400}
+                                                                size="xs"
+                                                                subtle>
+                                                                COMING SOON
+                                                            </Pill>
+                                                        )}
+                                                    </View>
+                                                }>
+                                                {component.slug.replace('-', ' ')}
+                                            </NavigationItem>
+                                        ))}
+                                        <NavigationDivider />
+                                        <NavigationHeading
+                                            suffix={            
+                                                <Pill
+                                                    size="xs"
+                                                    subtle
+                                                    color={Token.ColorAccent400}>
+                                                    v0.10.0
+                                                </Pill>                                               
+                                            }>
+                                            Core Components
+                                        </NavigationHeading>
                                         {navigation.map((component: any, index: number) => (
                                             <NavigationItem
                                                 active={url == component.slug}
@@ -688,7 +777,7 @@ export default function DocsLayout(props: any) {
                                             className="f-buttonize"
                                             onClick={show}>
                                             <Icon
-                                                icon={PiDrop}
+                                                icon={PiFaders}
                                                 size="lg"
                                             />
                                         </View>
