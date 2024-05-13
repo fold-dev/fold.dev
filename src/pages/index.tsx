@@ -1038,7 +1038,7 @@ export const GraphicLeft = (props: any) => {
 const All = () => {
     const [selected, setSelected] = useState<any>([])
     const [color, setColor] = useState(Token.ColorElectric400)
-    const [value, setValue] = useState(5)
+    const [value, setValue] = useState(2)
     const [option, setOption] = useState(1)
 
     const setAccent = (color) => {
@@ -1340,9 +1340,7 @@ const All = () => {
 }
 
 function Home() {
-    const { checked, check } = useCheck(true)
     const [showChild, setShowChild] = useState(false)
-    const { visible, hide, show } = useVisibility(false)
     const [option, setOption] = useState(1)
     const [seats, setSeats] = useState(1)
 
@@ -1639,7 +1637,7 @@ function Home() {
                             What's Included
                         </Text>
                         <Heading
-                            colorToken="accent-100"
+                            colorToken="accent-50"
                             fontWeight={400}>
                             Made for product builders. Whether it's a SaaS product or enterprise app, we got you covered.
                         </Heading>
@@ -2282,7 +2280,7 @@ function Home() {
                             Ready. Set. Go.
                         </Text>
                         <Heading
-                            colorToken="accent-100"
+                            colorToken="accent-50"
                             fontWeight={400}>
                             Need help scaling your next big idea? Let Fold do the heavy lifting.
                         </Heading>

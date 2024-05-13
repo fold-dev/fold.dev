@@ -85,45 +85,45 @@ export default function SiteLayout({ children }) {
                 }
             />
 
+            <View
+                row
+                p={10}
+                gap={10}
+                zIndex={10000}
+                width="100%"
+                height={40}
+                position="relative"
+                bg="rgba(0, 44, 91, 0.4)"
+                style={{ 
+                    backdropFilter: 'blur(5px)',
+                    transition: 'background 0.1s',
+                }}>
+                <Text
+                    color="inherit"
+                    colorToken="accent-100">
+                    We've just launched! 🚀 Offering a limited time discount for our Early Access release.{' '}
+                    <a
+                        href="#pro"
+                        style={{ color: 'var(--f-color-accent-100)' }}>
+                        Read more below.
+                    </a>
+                </Text>
+            </View>
+
             <Affix zIndex={100}>
                 {(stuck) => (
                     <View 
                         position="sticky"
-                        height={111}
+                        height={70}
                         zIndex={10}
                         style={{ 
                             top: 0,
                         }}>
-                        <View
-                            row
-                            p={10}
-                            gap={10}
-                            zIndex={10000}
-                            width="100%"
-                            height={40}
-                            position="relative"
-                            bg={stuck ? 'rgba(0,82,172,0.9)' : 'rgba(0,82,172,0.4)'}
-                            style={{ 
-                                backdropFilter: 'blur(5px)',
-                                transition: 'background 0.1s',
-                            }}>
-                            <Text
-                                color="inherit"
-                                colorToken="purple-50">
-                                We've just launched! 🚀 Offering a limited time discount for our Early Access release.{' '}
-                                <a
-                                    href="#"
-                                    style={{ color: 'var(--f-color-accent-100)' }}>
-                                    Read more below.
-                                </a>
-                            </Text>
-                        </View>
-
                         <Header
                             height={70}
                             position="relative"
                             border="none"
-                            bg={stuck ? 'rgba(0,82,172,0.8)' : 'transparent'}
+                            bg={stuck ? 'rgba(0,82,172,0.9)' : 'transparent'}
                             style={{
                                 backdropFilter: 'blur(5px)',
                                 transition: 'background 0.1s',
@@ -349,7 +349,7 @@ export default function SiteLayout({ children }) {
                         <Li>
                             <Text
                                 as="a"
-                                href="#home"
+                                href="/"
                                 size="xl"
                                 fontWeight={400}
                                 colorToken="accent-400"
@@ -360,18 +360,40 @@ export default function SiteLayout({ children }) {
                         <Li>
                             <Text
                                 as="a"
-                                href="#features"
+                                href="/#pro"
                                 size="xl"
                                 fontWeight={400}
                                 textDecoration="none"
                                 colorToken="accent-400">
-                                Features
+                                Pro
                             </Text>
                         </Li>
                         <Li>
                             <Text
                                 as="a"
-                                href="#support"
+                                href="/#core"
+                                size="xl"
+                                fontWeight={400}
+                                textDecoration="none"
+                                colorToken="accent-400">
+                                Core
+                            </Text>
+                        </Li>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="/#faq"
+                                size="xl"
+                                fontWeight={400}
+                                textDecoration="none"
+                                colorToken="accent-400">
+                                FAQ
+                            </Text>
+                        </Li>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="/#support"
                                 size="xl"
                                 fontWeight={400}
                                 textDecoration="none"
@@ -432,7 +454,7 @@ export default function SiteLayout({ children }) {
                         <Li>
                             <Text
                                 as="a"
-                                href="https://github.com/orgs/fold-dev/projects/8"
+                                href="https://github.com/orgs/fold-dev/projects/8/views/2"
                                 target="_blank"
                                 size="xl"
                                 fontWeight={400}
