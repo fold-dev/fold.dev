@@ -14,6 +14,8 @@ import {
     NotificationContent,
     Breadcrumb,
     BreadcrumbItem,
+    getForegroundColor,
+    addAlpha,
 } from '@fold-dev/core'
 import {
     CubeIcon,
@@ -25,13 +27,18 @@ import {
     RectangleGroupIcon,
     SwatchIcon,
 } from '@heroicons/react/24/outline'
+import * as Token from '@fold-dev/design/tokens'
 import { useRouter } from 'next/router'
 import React from 'react'
 import {
+    PiFingerprintSimple,
     PiFingerprintSimpleDuotone,
+    PiFlag,
     PiFlagDuotone,
     PiLightbulbDuotone,
+    PiMarkerCircle,
     PiMarkerCircleDuotone,
+    PiPlanet,
     PiPlanetDuotone,
 } from 'react-icons/pi'
 
@@ -96,29 +103,29 @@ export default function Introduction(props) {
                     {
                         title: 'Getting Started',
                         description: 'Quick guide on getting up and running with Fold.',
-                        color: 'purple-400',
-                        icon: PiFlagDuotone,
+                        color: Token.ColorPurple400,
+                        icon: PiFlag,
                         slug: 'getting-started',
                     },
                     {
                         title: 'Design System',
                         description: 'Overview of the Design System architecture of Fold.',
-                        color: 'neonpink-400',
-                        icon: PiPlanetDuotone,
+                        color: Token.ColorNeonpink400,
+                        icon: PiPlanet,
                         slug: 'design-system',
                     },
                     {
                         title: 'Theming',
                         description: 'Customize the current themes, or build your own.',
-                        color: 'orange-400',
-                        icon: PiMarkerCircleDuotone,
+                        color: Token.ColorOrange400,
+                        icon: PiMarkerCircle,
                         slug: 'theming',
                     },
                     {
                         title: 'Tokens',
                         description: 'Reference of the Design Tokens used throughout Fold.',
-                        color: 'blue-400',
-                        icon: PiFingerprintSimpleDuotone,
+                        color: Token.ColorBlue300,
+                        icon: PiFingerprintSimple,
                         slug: 'tokens',
                     },
                 ].map((section, index) => (
@@ -132,13 +139,20 @@ export default function Introduction(props) {
                         gap={5}
                         className="f-buttonize-outline"
                         onClick={() => router.push('/docs/' + section.slug)}>
-                        <Icon
-                            icon={section.icon}
-                            style={{ '--f-icon-sizing-md': '50px' }}
-                        />
+                        <View
+                            row
+                            width={50}
+                            height={50}
+                            radius={50}
+                            bg={addAlpha(section.color, 0.1)}>
+                            <Icon
+                                icon={section.icon}
+                                size="xl"
+                                //style={{ '--f-icon-sizing-md': '50px' }}
+                            />
+                        </View>
                         <Heading
                             as="h3"
-                            fontWeight={600}
                             colorToken={section.color}>
                             {section.title}
                         </Heading>

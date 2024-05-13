@@ -42,11 +42,15 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import {
     PiCircleDashedDuotone,
+    PiDrop,
     PiDropDuotone,
     PiFingerprintSimpleDuotone,
     PiFlagDuotone,
+    PiGithubLogo,
     PiGithubLogoDuotone,
+    PiLifebuoy,
     PiLifebuoyDuotone,
+    PiLinkedinLogo,
     PiLinkedinLogoDuotone,
     PiMagicWandDuotone,
     PiMarkerCircleDuotone,
@@ -57,10 +61,29 @@ import {
     PiQuestionDuotone,
     PiRocketLaunchDuotone,
     PiSignpostDuotone,
+    PiStack,
+    PiTwitterLogo,
     PiTwitterLogoDuotone,
 } from 'react-icons/pi'
 import { navigation } from '../navigation'
 import PageNavigationComponent from '@/pages/components/page-navigation.component'
+
+export const CircleIcon = ({
+    children,
+    background,
+}) => {
+    return (
+        <div 
+            style={{ 
+                width: 20,
+                height: 20,
+                background,
+            }}
+            className="f-row">
+            {children}
+        </div>
+    )
+}
 
 export const StorybookIcon = (props: any) => {
     return (
@@ -558,82 +581,66 @@ export default function DocsLayout(props: any) {
                             style={{ overflow: 'hidden' }}
                             bgToken="surface">
                             <Header
-                                gap={10}
+                                gap="0.5rem"
                                 height="4.5rem"
                                 p="0.5rem 1rem 0.5rem 0"
                                 colorToken="text-weaker">
                                 <SearchComponent />
                                 <Stack
                                     m="0 0 0 1rem"
-                                    spacing={15}
+                                    spacing="0.5rem"
                                     noStretch>
-                                    {/* 
-                                    <SocialIcon
-                                        url="https://github.com/fold-dev/fold"
-                                        target="_blank"
-                                        style={{ width: 30, height: 30 }}
-                                        fgColor="var(--f-color-surface)"
-                                        bgColor="var(--f-color-surface-inverse)"
-                                    />
-                                    <SocialIcon
-                                        url="https://twitter.com/fold_dev"
-                                        target="_blank"
-                                        style={{ width: 30, height: 30 }}
-                                        fgColor="var(--f-color-surface)"
-                                    />
-                                    <SocialIcon
-                                        url="https://www.linkedin.com/company/fold-dev"
-                                        target="_blank"
-                                        style={{ width: 30, height: 30 }}
-                                        fgColor="var(--f-color-surface)"
-                                    /> 
-                                    */}
                                     <Link
-                                        href="https://github.com/fold-dev/fold"
                                         target="_blank"
-                                        style={{ textWrap: 'nowrap' }}>
-                                        <Icon
-                                            icon={PiGithubLogoDuotone}
-                                            size="lg"
-                                        />
+                                        href="https://github.com/fold-dev/fold">
+                                        <Pill
+                                            p="0"
+                                            subtle
+                                            height={30}
+                                            width={30}
+                                            className="f-buttonize-outline"
+                                            color={Token.ColorAccent400}>
+                                            <Icon icon={PiGithubLogo} />
+                                        </Pill>
                                     </Link>
                                     <Link
                                         href="https://twitter.com/fold_dev"
-                                        target="_blank"
-                                        style={{ textWrap: 'nowrap' }}>
-                                        <Icon
-                                            icon={PiTwitterLogoDuotone}
-                                            size="lg"
-                                        />
+                                        target="_blank">
+                                        <Pill
+                                            p="0"
+                                            subtle
+                                            height={30}
+                                            width={30}
+                                            className="f-buttonize-outline"
+                                            color={Token.ColorAccent400}>
+                                            <Icon icon={PiTwitterLogo} />
+                                        </Pill>
                                     </Link>
                                     <Link
                                         href="https://www.linkedin.com/company/fold-dev"
-                                        target="_blank"
-                                        style={{ textWrap: 'nowrap' }}>
-                                        <Icon
-                                            icon={PiLinkedinLogoDuotone}
-                                            size="lg"
-                                        />
+                                        target="_blank">
+                                        <Pill
+                                            p="0"
+                                            subtle
+                                            height={30}
+                                            width={30}
+                                            className="f-buttonize-outline"
+                                            color={Token.ColorAccent400}>
+                                            <Icon icon={PiLinkedinLogo} />
+                                        </Pill>
                                     </Link>
                                     <Link
                                         href="/docs/community"
                                         style={{ textWrap: 'nowrap' }}>
-                                        <Icon
-                                            icon={PiLifebuoyDuotone}
-                                            size="lg"
-                                        />
-                                    </Link>
-                                    <Pill
-                                        size="xs"
-                                        color={Token.ColorNeonpink400}
-                                        subtle
-                                        fontWeight={800}>
-                                        v0.10.0
-                                    </Pill>
-                                    <Link
-                                        href="/"
-                                        style={{ textWrap: 'nowrap' }}>
-                                        <Logo size="sm" />
+                                        <Pill
+                                            p="0"
+                                            subtle
+                                            height={30}
+                                            width={30}
+                                            className="f-buttonize-outline"
+                                            color={Token.ColorAccent400}>
+                                            <Icon icon={PiLifebuoy} />
+                                        </Pill>
                                     </Link>
                                     <Popover
                                         arrow
@@ -691,7 +698,7 @@ export default function DocsLayout(props: any) {
                                             className="f-buttonize"
                                             onClick={show}>
                                             <Icon
-                                                icon={PiCircleDashedDuotone}
+                                                icon={PiDrop}
                                                 size="lg"
                                             />
                                         </View>
