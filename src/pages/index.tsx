@@ -1,4 +1,5 @@
 import {
+    Affix,
     Attachment,
     Avatar,
     Badge,
@@ -1009,34 +1010,44 @@ const All = () => {
     const [color, setColor] = useState(Token.ColorElectric400)
     const [value, setValue] = useState(5)
     const [option, setOption] = useState(1)
-    /* 
+
     const setAccent = (color) => {
-        documentObject.getElementById('custom-styles').innerHTML = colors[color]
+        document.getElementById('custom-styles').innerHTML = colors[color]
+    }
+
+    const setFont = (family) => {
+        const d: any = document.querySelector(':root')
+
+        d.style.setProperty('--f-font-heading', family)
+        d.style.setProperty('--f-font-body', family)
     }
 
     useEffect(() => {
-        switch (color) {
-            case Token.ColorPurple400:
-                return setAccent('purple')
-            case Token.ColorNeonpink400:
-                return setAccent('neonpink')
-            case Token.ColorRed400:
-                return setAccent('red')
-            case Token.ColorOrange400:
-                return setAccent('orange')
-            case Token.ColorYellow400:
-                return setAccent('yellow')
-            case Token.ColorGreen400:
-                return setAccent('green')
-            case Token.ColorTeal400:
-                return setAccent('teal')
-            case Token.ColorCyan400:
-                return setAccent('cyan')
-            case Token.ColorElectric400:
-                return setAccent('electric')
+        switch (option) {
+            case 0:
+                return setFont(
+                    '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                )
+            case 1:
+                return setFont(
+                    'Inter, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                )
+            case 2:
+                return setFont(
+                    'DM Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                )
         }
-    }, [color])
-    */
+    }, [option])
+
+    useEffect(() => {
+        const of = 2
+        const percent = value / 10
+        const radius = of * percent + 'rem'
+        const d: any = document.querySelector(':root')
+
+        d.style.setProperty('--f-radius', radius)
+    }, [value])
+
     return (
         <View
             row
@@ -1300,10 +1311,37 @@ const All = () => {
 
 function Home() {
     const { checked, check } = useCheck(true)
-    const [option, setOption] = useState(-1)
     const [showChild, setShowChild] = useState(false)
     const { visible, hide, show } = useVisibility(false)
     const { isCached, getSafeCache, setCache } = useCacheValue('cookies')
+    const [option, setOption] = useState(1)
+    const [seats, setSeats] = useState(1)
+
+    const clamp = (price, min, max) => {
+        return Math.min(Math.max(price, min), max)
+    }
+
+    const formatCurrency = (amount) => {
+        return Intl.NumberFormat('en-US', {
+            notation: 'standard',
+            maximumFractionDigits: 2,
+        }).format(amount)
+    }
+
+    const pricingEnterprise = () => {
+        const price = Math.min(Math.max(seats, 1), 30) * 699
+        return formatCurrency(clamp(price, 0, 99999))
+    }
+
+    const pricingSaas = () => {
+        const price = Math.min(Math.max(seats, 1), 30) * 2499
+        return formatCurrency(clamp(price, 0, 99999))
+    }
+
+    const pricingIndie = () => {
+        const price = Math.min(Math.max(seats, 1), 30) * 379
+        return formatCurrency(clamp(price, 0, 9999))
+    }
 
     const denied = () => {
         setCache('no')
@@ -1336,7 +1374,7 @@ function Home() {
 
     return (
         <FoldProvider license="fake-license-code">
-            {/* <style id="custom-styles" /> */}
+            <style id="custom-styles" />
 
             <SkipNavMain />
             <MobileComponent />
@@ -1360,94 +1398,117 @@ function Home() {
                     </Text>
                 }
             />
-
-            <View
-                row
-                p={10}
-                gap={10}
-                zIndex={10000}
-                width="100%"
-                position="relative"
-                bgToken="accent-300">
-                <Text
-                    color="inherit"
-                    colorToken="purple-50">
-                    We've just launched! 🚀 Offering a limited time discount for our Early Access release.{' '}
-                    <a
-                        href="#"
-                        style={{ color: 'var(--f-color-accent-100)' }}>
-                        Read more below.
-                    </a>
-                </Text>
-            </View>
-
-            {/* header */}
-            <View
-                //display="none"
-                //bg={`linear-gradient(175deg, ${Token.ColorElectric700}, ${Token.ColorElectric400})`}
-                width="100%"
-                position="relative"
-                style={{ overflow: 'hidden' }}>
-                <Header
-                    position="relative"
-                    height="fit-content"
-                    //bg="transparent"
-                    border="none">
-                    <GraphicRight
-                        style={{ position: 'absolute', top: -100, right: -100, opacity: 0.2 }}
-                        height={882 / 2}
-                        width={1456 / 2}
-                    />
-
-                    <View
-                        row
-                        gap={10}
-                        width="100%"
-                        p="1rem 4rem">
-                        <LogoSolid color={Token.ColorElectric100} />
-                        <Flexer />
-                        <Navigation
-//                            transparent
-                            variant="navbar"
-                            style={{
-                                // '--f-navigation-item-background-color-hover': 'var(--f-color-accent-500)',
-                                // '--f-navigation-item-background-color-active': 'var(--f-color-accent-500)',
-                                // '--f-navigation-item-color': 'var(--f-color-accent-50)',
-                                // '--f-navigation-item-color-hover': 'var(--f-color-accent-50)',
-                                // '--f-navigation-item-color-active': 'white',
+            <Affix zIndex={100}>
+                {(stuck) => (
+                    <View 
+                        position="sticky"
+                        bg={stuck ? 'var(--f-color-accent-700)' : 'transparent'}
+                        height={111}
+                        zIndex={10}
+                        style={{ 
+                            top: 0,
+                            backdropFilter: 'blur(5px)',
+                        }}>
+                        <View
+                            row
+                            p={10}
+                            gap={10}
+                            zIndex={10000}
+                            width="100%"
+                            height={40}
+                            position="relative"
+                            style={{ 
+                                backdropFilter: 'blur(5px)',
+                                borderBottom: '1px solid var(--f-color-accent-600)' 
                             }}>
-                            <NavigationItem>Home</NavigationItem>
-                            <NavigationItem>Pro</NavigationItem>
-                            <NavigationItem>Core</NavigationItem>
-                            <NavigationItem>Features</NavigationItem>
-                            <NavigationItem>Pricing</NavigationItem>
-                            <NavigationItem>Support</NavigationItem>
-                        </Navigation>
-                        <Button
-                            outline
-                            //border="0.15rem solid white"
-                            style={{
-                                // '--f-button-color': 'var(--f-color-white)',
-                                // '--f-button-color-hover': 'var(--f-color-accent-400)',
-                            }}>
-                            Documentation
-                        </Button>
-                        <Button
-                            style={{
-                                // '--f-button-color': 'var(--f-color-accent)',
-                                // '--f-button-color-hover': 'var(--f-color-accent-600)',
-                            }}>
-                            Download
-                        </Button>
+                            <Text
+                                color="inherit"
+                                colorToken="purple-50">
+                                We've just launched! 🚀 Offering a limited time discount for our Early Access release.{' '}
+                                <a
+                                    href="#"
+                                    style={{ color: 'var(--f-color-accent-100)' }}>
+                                    Read more below.
+                                </a>
+                            </Text>
+                        </View>
+
+                        <Header
+                            height={70}
+                            position="relative"
+                            bg="transparent"
+                            border="none">
+                            <View
+                                row
+                                gap={10}
+                                width="100%"
+                                p="0 4rem">
+                                <LogoSolid color={Token.ColorElectric100} />
+                                <Flexer />
+                                <Navigation
+                                    bg="transparent"
+                                    variant="navbar"
+                                    style={{
+                                        '--f-navigation-item-background-color-hover': 'var(--f-color-accent-500)',
+                                        '--f-navigation-item-background-color-active': 'var(--f-color-accent-500)',
+                                        '--f-navigation-item-color': 'var(--f-color-accent-50)',
+                                        '--f-navigation-item-color-hover': 'var(--f-color-accent-50)',
+                                        '--f-navigation-item-color-active': 'white',
+                                    }}>
+                                    <NavigationItem href="#home">Home</NavigationItem>
+                                    <NavigationItem href="#core">Core</NavigationItem>
+                                    <NavigationItem href="#pro">Pro</NavigationItem>
+                                    <NavigationItem href="#pro">Pricing</NavigationItem>
+                                    <NavigationItem href="#support">Support</NavigationItem>
+                                </Navigation>
+                                <Button
+                                    href="/docs"
+                                    as="a"
+                                    target="_blank"
+                                    outline
+                                    border="0.15rem solid white"
+                                    style={{
+                                        '--f-button-color': 'var(--f-color-white)',
+                                        '--f-button-color-hover': 'var(--f-color-accent-400)',
+                                    }}>
+                                    Documentation
+                                </Button>
+                                <Button
+                                    href="#pro"
+                                    as="a"
+                                    target="_blank"
+                                    style={{
+                                        '--f-button-color': 'var(--f-color-accent)',
+                                        '--f-button-color-hover': 'var(--f-color-accent-600)',
+                                    }}>
+                                    Buy
+                                </Button>
+                            </View>
+                        </Header>
                     </View>
-                </Header>
+                )}
+            </Affix>
+
+            <View
+                width="100%"
+                p="111px 0 0 0"
+                m="-111px 0 0 0"
+                position="relative"
+                style={{ overflow: 'hidden' }}
+                bg={`linear-gradient(175deg, ${Token.ColorElectric700}, ${Token.ColorElectric400})`}>
+                <GraphicRight
+                    style={{ position: 'absolute', top: -100, right: -100, opacity: 0.2 }}
+                    height={882 / 2}
+                    width={1456 / 2}
+                />
 
                 <View
                     column
+                    id="home"
                     gap={70}
                     flex={1}
                     width="100%"
-                    p="4rem 0 550px 0"
+                    p="4rem 0 600px 0"
                     justifyContent="stretch">
                     <View
                         column
@@ -1465,7 +1526,7 @@ function Home() {
 
                         <Heading
                             textAlign="center"
-                            colorToken="accent-500"
+                            colorToken="white"
                             fontWeight={700}
                             fontSize="6rem"
                             letterSpacing={-5}
@@ -1478,11 +1539,10 @@ function Home() {
                         <Heading
                             as="h3"
                             textAlign="center"
-                            colorToken="accent-400"
+                            colorToken="accent-50"
                             fontWeight={400}
                             p="0 8rem">
                             Powerful, fully customizable React components for scaling your product to the next
-                            <br />
                             level. Supercharge your dev workflow by using our zero-dependency UI components.
                         </Heading>
 
@@ -1492,30 +1552,41 @@ function Home() {
                             colorToken="white">
                             <Button
                                 outline
+                                as="a"
+                                href="#pro"
                                 border="0.15rem solid var(--f-color-white)"
                                 style={{
-                                    // '--f-button-color': 'var(--f-color-white)',
-                                    // '--f-button-color-hover': 'var(--f-color-accent-400)',
+                                    '--f-button-color': 'var(--f-color-white)',
+                                    '--f-button-color-hover': 'var(--f-color-accent-400)',
                                 }}>
-                                Read Documentation
+                                Buy Now
                             </Button>
                             <Link
+                                href="/docs"
                                 target="_blank"
-                                href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW"
                                 textDecoration="none"
                                 className="f-underline"
                                 m="0 -1rem 0 0"
                                 colorToken="white">
-                                Subscribe to Newsletter ↗
+                                Read Documentation ↗
                             </Link>
                         </View>
-                        
+
                         <Text
                             size="sm"
                             colorToken="accent-200">
-                            Subscribe to our newsletter to be notified of when we launch!
+                            <Link
+                                style={{ '--f-underline-size': '1px' }}
+                                size="sm"
+                                textDecoration="none"
+                                className="f-underline"
+                                color={Token.ColorAccent100}
+                                href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW">
+                                Subscribe to our newsletter
+                            </Link> 
+                            &nbsp; to get notified of any updates!
                         </Text> 
-
+                       
                         <GraphicLeft
                             style={{ position: 'absolute', top: 400, left: -200, opacity: 0.2 }}
                             width={1107 / 2}
@@ -1525,25 +1596,22 @@ function Home() {
                 </View>
             </View>
 
-            {/* pro */}
-            
             <View
                 row
-                //display="none"
                 height="fit-content"
                 zIndex={10}
                 position="relative"
                 m="-500px 0 0 0">
                 <View
                     bgToken="surface"
-                    width="90%"
+                    width="95%"
                     p="1rem"
                     radius="var(--f-radius)"
                     justifyContent="flex-start"
                     alignContent="flex-start"
                     alignItems="flex-start"
                     position="relative">
-                    {/* <Options
+                    <Options
                         m="0 auto 0rem auto"
                         animated
                         position="relative"
@@ -1564,10 +1632,12 @@ function Home() {
                                 </Pill>
                             }>
                             Data Grid
-                        </Option> */}
-                        {/* <Option suffix={<Pill color={Token.ColorAccent400} size="xs" subtle>SOON</Pill>}>Tree View</Option>
-                        <Option suffix={<Pill color={Token.ColorAccent400} size="xs" subtle>SOON</Pill>}>Timeline</Option> */}
-                   {/*  </Options> */}
+                        </Option>
+                        <Option>
+                            Date Picker
+                        </Option>
+                    </Options>
+                    
                     <View
                         width="100%"
                         height={600}
@@ -1578,138 +1648,18 @@ function Home() {
                 </View>
             </View>
 
-            {/* intro */}
-
-            <View
-                row
-                gap={100}
-                flex={1}
-                width="100%"
-                m="-500px 0 0 0"
-                p="500px 0 3rem 0"
-                alignItems="flex-start"
-                bgToken="accent-700">
-                <View
-                    flex={1.5}
-                    p="5rem 0rem 5rem 5rem"
-                    position="relative">
-                    <Grid
-                        columns={4}
-                        gap="40px 40px"
-                        minChildWidth={100}>
-                        {[
-                            {
-                                title: 'Customizable',
-                                text: 'Best of both worlds: traditional CSS & Javascript. Fold gives you flexibility without impacting performance.',
-                            },
-                            {
-                                title: 'Performant',
-                                text: 'Render performance has been a key consideration at virtually every step of the way, we believe apps should be snappy.',
-                            },
-                            {
-                                title: 'Design System',
-                                text: 'Fold ships with its own Design System and builds on a large palette of options, all available to use.',
-                            },
-                            {
-                                title: 'Dark Mode',
-                                text: 'Fold supports Dark Mode, out of the box.',
-                            },
-                            {
-                                title: 'Zero Dependencies',
-                                text: 'Say goodbye to dependency hell, no other dependencies are used for Fold other than React & ReactDOM.',
-                            },
-                            {
-                                title: 'Full Featured',
-                                text: 'Every use-case, we have you covered. Fold currently has 85+ custom components, with more on the way.',
-                            },
-                            {
-                                title: 'Modern',
-                                text: "We're open source. Free forever, no limits.",
-                            },
-                            {
-                                title: 'Aesthetics',
-                                text: 'Fold has been designed to not only work great, but look great in any project.',
-                            },
-                        ].map(({ title, text }, index) => (
-                            <GridItem 
-                                key={index}
-                                column
-                                justifyContent="flex-start"
-                                alignContent="flex-start"
-                                alignItems="flex-start"
-                                gap={10}>
-                                <Icon 
-                                    size="xl"
-                                    icon={PiCircleHalfTiltDuotone} 
-                                    color={Token.ColorAccent400}
-                                />
-                                <Heading
-                                    fontWeight={600}
-                                    colorToken="accent-100">
-                                    {title}
-                                </Heading>
-                                <Text colorToken="accent-200">
-                                    {text}
-                                </Text>
-                            </GridItem>
-                        ))}
-                    </Grid>
-                </View>
-                <View
-                    column
-                    flex={1}
-                    display="none"
-                    gap={30}
-                    alignItems="flex-start"
-                    p="5rem 5rem 5rem 0rem">
-                    <Text
-                        style={{ textTransform: 'uppercase' }}
-                        letterSpacing={5}
-                        colorToken="accent-400"
-                        id="features">
-                        Level Up
-                    </Text>
-
-                    <Heading
-                        huge
-                        colorToken="accent-50"
-                        fontWeight={800}
-                        lineHeight={1}>
-                        Made for product builders
-                    </Heading>
-
-                    <Heading
-                        as="h3"
-                        colorToken="accent-200"
-                        fontWeight={400}>
-                        Whether it's a SaaS product or enterprise app, we got you covered.
-                    </Heading>
-
-                    <Text
-                        colorToken="accent-300"
-                        fontWeight={400}>
-                        Whether it's a SaaS product or enterprise app, we have you covered. Whether it's a SaaS
-                        product or enterprise app, we have you covered. Whether it's a SaaS product or enterprise
-                        app, we have you covered. Whether it's a SaaS product or enterprise app, we have you
-                        covered. Whether it's a SaaS product or enterprise app, we have you covered. Whether it's a
-                        SaaS product or enterprise app, we have you covered. Whether it's a SaaS product or
-                        enterprise app, we have you covered.
-                    </Text>
-                </View>
-            </View>
-
             {/* core */}
-
             <View
+                id="core"
                 column
-                //display="none"
                 gap={70}
                 flex={1}
                 width="100%"
-                p="5rem 2rem"
                 justifyContent="flex-start"
                 alignContent="flex-start"
-                alignItems="flex-start">
+                alignItems="flex-start"
+                m="-500px 0 0 0"
+                p="600px 0 100px 0">
                 <View
                     column
                     flex={1}
@@ -1725,30 +1675,19 @@ function Home() {
                         style={{ textTransform: 'uppercase' }}
                         letterSpacing={5}
                         colorToken="accent">
-                        Free Forever
+                        Open Source Core
                     </Text>
                     <Heading
                         textAlign="center"
-                        colorToken="accent-strong"
-                        fontWeight={700}
-                        fontSize="6rem"
-                        letterSpacing={-5}
-                        lineHeight={0.9}>
-                        Fold Core
-                    </Heading>
-                    <Heading
-                        as="h3"
-                        textAlign="center"
                         colorToken="accent"
-                        width="100%"
                         fontWeight={400}
-                        p="0 5rem">
-                        Leverage Fold Core's 85+ components to power your next project. Fold Core is completely{' '}
-                        <br /> Open Source (MIT), and will always remain that way.
+                        width="80%">
+                        Leverage Fold Core's 85+ components to power your next project. Fold Core is completely Open Source (MIT), and will always remain that way.
                     </Heading>
                     <View
                         row
                         gap={20}
+                        m="0 0 5rem 0"
                         colorToken="accent-200">
                         <Button
                             outline
@@ -1759,7 +1698,7 @@ function Home() {
                             href="#"
                             className="f-underline"
                             textDecoration="none">
-                            Read Documentation ↗
+                            Get Started ↗
                         </Link>
                     </View>
 
@@ -1767,235 +1706,620 @@ function Home() {
                 </View>
             </View>
 
-            <View
-                height={2}
-                bgToken="base-100"
-                width="100%"
-            />
+            {/* features */}
+            
+            <View 
+                row 
+                width="100%">
+                <View
+                    row
+                    gap="2rem"
+                    width="85%"
+                    radius="var(--f-radius)"
+                    bgToken="accent-500"
+                    position="relative"
+                    style={{ overflow: 'hidden' }}
+                    alignItems="flex-start">
+                    <GraphicLeft
+                        color={Token.ColorAccent200}
+                        style={{ position: 'absolute', bottom: -100, left: -200, opacity: 0.1 }}
+                        width={1107 / 2}
+                        height={559 / 2}
+                    />
+
+                    <View
+                        column
+                        flex={1}
+                        gap={30}
+                        alignItems="flex-start"
+                        p="5rem 0rem 5rem 5rem">
+                        <Text
+                            style={{ textTransform: 'uppercase' }}
+                            letterSpacing={5}
+                            colorToken="accent-300"
+                            id="features">
+                            Fully Loaded
+                        </Text>
+                        <Heading
+                            colorToken="accent-100"
+                            fontWeight={400}>
+                            Made for product builders. Whether it's a SaaS product or enterprise app, we got you covered.
+                        </Heading>
+                    </View>
+
+                    <View
+                        flex={2}
+                        p="5rem"
+                        position="relative">
+                        <Grid
+                            columns={2}
+                            gap="40px 40px"
+                            minChildWidth={100}>
+                            {[
+                                {
+                                    title: 'Customizable',
+                                    text: 'Best of both worlds: traditional CSS & Javascript. Fold gives you flexibility without impacting performance.',
+                                },
+                                {
+                                    title: 'Performant',
+                                    text: 'Render performance has been a key consideration at virtually every step of the way, we believe apps should be snappy.',
+                                },
+                                {
+                                    title: 'Design System',
+                                    text: 'Fold ships with its own Design System and builds on a large palette of options, all available to use.',
+                                },
+                                {
+                                    title: 'Dark Mode',
+                                    text: 'Fold supports Dark Mode, out of the box.',
+                                },
+                                {
+                                    title: 'Zero Dependencies',
+                                    text: 'Say goodbye to dependency hell, no other dependencies are used for Fold other than React & ReactDOM.',
+                                },
+                                {
+                                    title: 'Full Featured',
+                                    text: 'Every use-case, we have you covered. Fold currently has 85+ custom components, with more on the way.',
+                                },
+                            ].map(({ title, text }, index) => (
+                                <GridItem key={index}>
+                                    <Heading
+                                        as="h2"
+                                        colorToken="accent-50"
+                                        m="0 0 0.25rem 0">
+                                        {title}
+                                    </Heading>
+                                    <Text colorToken="accent-100">{text}</Text>
+                                </GridItem>
+                            ))}
+                        </Grid>
+                    </View>
+                </View>
+            </View>
+
+            <View 
+                row 
+                m="2rem 0 2rem 0"
+                width="100%">
+                <View
+                    row
+                    gap={50}
+                    width="85%"
+                    radius="var(--f-radius)"
+                    position="relative"
+                    style={{ overflow: 'hidden' }}
+                    alignItems="flex-start">
+                    <View
+                        column
+                        flex={1}
+                        gap={30}
+                        alignItems="flex-start"
+                        p="5rem 0rem 5rem 5rem">
+                        <Text
+                            style={{ textTransform: 'uppercase' }}
+                            letterSpacing={5}
+                            colorToken="text-weakest"
+                            id="features">
+                            Product Driven
+                        </Text>
+                        <Heading
+                            colorToken="text"
+                            fontWeight={400}>
+                            Fold has been built through many years building real world products
+                        </Heading>
+                        <Link
+                            href="#"
+                            color="var(--f-color-text)"
+                            className="f-underline"
+                            textDecoration="none">
+                            Get Started ↗
+                        </Link>
+                    </View>
+
+                    <View
+                        column
+                        flex={2}
+                        gap={30}
+                        alignItems="flex-start"
+                        p="5rem 5rem 5rem 5rem">
+                        <Text
+                            style={{ textTransform: 'uppercase' }}
+                            letterSpacing={5}
+                            colorToken="text-weakest"
+                            id="features">
+                            Used in Production
+                        </Text>
+                        <Heading
+                            colorToken="text"
+                            fontWeight={400}>
+                            Fold has been built through many years building real world products
+                        </Heading>
+                        <Text
+                            size="lg"
+                            colorToken="text-weak"
+                            fontWeight={400}>
+                            Get access to our Pro components to supercharge your product. Whether you're building a SaaS or internal dashboard, we have flexible licensing options.
+                        </Text>
+                        <Link
+                            href="#"
+                            color="var(--f-color-text)"
+                            className="f-underline"
+                            textDecoration="none">
+                            Get Started ↗
+                        </Link>
+                    </View>
+                </View>
+            </View>
+
+
+            <Divider />
 
             {/* pro */}
 
             <View
+                id="pro"
                 column
-                gap={30}
+                gap="2rem"
                 flex={1}
-                bgToken="accent-50"
+                bgToken="base-800"
                 width="100%"
                 position="relative"
                 style={{ overflow: 'hidden' }}
-                //display="none"
-                p="5rem 0">
+                p="10rem 0">
                 <GraphicRight
                     color={Token.ColorAccent200}
-                    style={{ position: 'absolute', top: -100, right: -100, opacity: 0.4 }}
+                    style={{ position: 'absolute', top: -100, right: -100, opacity: 0.1 }}
                     height={882 / 2}
                     width={1456 / 2}
                 />
 
-                <GraphicLeft
-                    color={Token.ColorAccent200}
-                    style={{ position: 'absolute', bottom: -100, left: -200, opacity: 0.4 }}
-                    width={1107 / 2}
-                    height={559 / 2}
-                />
                 <Text
                     textAlign="center"
                     style={{ textTransform: 'uppercase' }}
                     letterSpacing={5}
-                    colorToken="accent">
-                    Level Up
+                    colorToken="base-500">
+                    Fold Pro 
                 </Text>
+
                 <Heading
                     textAlign="center"
-                    colorToken="accent-500"
-                    fontWeight={700}
-                    fontSize="6rem"
-                    letterSpacing={-5}
-                    lineHeight={0.9}>
-                    Fold Pro
+                    colorToken="base-200"
+                    fontWeight={400}
+                    width="80%">
+                    Get access to our Pro components to supercharge your product. Whether you're building a SaaS or internal dashboard, we have flexible licensing options.
                 </Heading>
-                <Heading
-                    as="h3"
-                    textAlign="center"
-                    colorToken="accent"
-                    fontWeight={400}>
-                    Get access to our Pro components to supercharge your product. Whether you're building a<br />{' '}
-                    SaaS or internal dashboard, we have flexible licensing options.
-                </Heading>
+
+                <Pill
+                    subtle
+                    color={Token.ColorPurple500}
+                    m="2rem 0">
+                    We are currently in Early Access. 🚀 &nbsp; <Link color={Token.ColorPurple400} href="">Read more here</Link> &nbsp; about how that affects licensing & pricing.
+                </Pill>
+
+                <View 
+                    row
+                    gap="1rem"
+                    width={500}>
+                    <Range
+                        style={{ '--f-range-background': 'var(--f-color-base-700)' }}
+                        min={1}
+                        max={10}
+                        step={1}
+                        value={seats}
+                        onChange={(e) => setSeats(+e.target.value)}
+                    />
+                    <Text colorToken="base-400" display="inline-block" width={130}>
+                        {seats} {seats == 1 ? 'Developer' : 'Developers'}
+                    </Text>
+                </View>
+
                 <View
                     row
+                    justifyContent="space-between"
+                    width="fit-content"
                     flex={1}
                     gap={20}
-                    width="fit-content"
                     position="relative">
-                    {new Array(2).fill(null).map((_, index) => (
-                        <Card
-                            key={index}
-                            column
-                            p={30}
-                            gap={20}
-                            border="none"
-                            alignItems="flex-start">
-                            <Heading
-                                as="h3"
-                                colorToken="accent"
-                                fontWeight={400}>
-                                Pro Early Access
-                            </Heading>
-
-                            <View
-                                row
-                                gap={5}
-                                alignItems="flex-start">
-                                <Heading
-                                    jumbo
-                                    fontWeight="bold"
-                                    colorToken="accent-strong">
-                                    279
-                                </Heading>
-                                <Heading
-                                    as="h4"
-                                    fontWeight={900}
-                                    colorToken="accent-weak">
-                                    USD
-                                </Heading>
-                            </View>
-
-                            <List>
-                                {['Kanban Board', 'Todo List', 'Calendar', 'TreeView', 'Data Grid'].map(
-                                    (text, index) => (
-                                        <Li
-                                            key={index}
-                                            row
-                                            width="fit-content">
-                                            <IconLib icon="check" />
-                                            {text}
-                                            <Pill
-                                                subtle
-                                                size="xs"
-                                                m="0 0 0 0.5rem"
-                                                color={Token.ColorAccent400}>
-                                                Q2
-                                            </Pill>
-                                        </Li>
-                                    )
-                                )}
-                            </List>
-
-                            <Button
-                                size="xl"
-                                width="100%"
-                                variant="accent">
-                                Buy
-                            </Button>
-                        </Card>
-                    ))}
-                </View>
-                <View row>
-                    <Text colorToken="accent">
-                        Pro licensing are subject to our terms & conditions and privacy policy.
-                    </Text>
-                </View>
-            </View>
-
-            {/* support */}
-
-            <View
-                row
-                gap={100}
-                flex={1}
-                width="100%"
-                alignItems="flex-start"
-                bgToken="accent-600"
-                p="5rem 0">
-                <View
-                    column
-                    flex={1}
-                    gap={30}
-                    alignItems="flex-end"
-                    p="5rem 0 5rem 5rem">
-                    <Text
-                        style={{ textTransform: 'uppercase' }}
-                        letterSpacing={5}
-                        colorToken="accent-400"
-                        textAlign="right"
-                        id="support">
-                        Support
-                    </Text>
-
-                    <Heading
-                        huge
-                        colorToken="accent-200"
-                        fontWeight={800}
-                        lineHeight={0.9}
-                        textAlign="right">
-                        Need some help?
-                    </Heading>
-
-                    <Heading
-                        as="h3"
-                        colorToken="accent-300"
-                        fontWeight={400}
-                        textAlign="right">
-                        Need some help with using Fold in your project?
-                    </Heading>
-                </View>
-                <View
-                    column
-                    gap={30}
-                    flex={1.5}
-                    p="5rem 5rem 5rem 0"
-                    position="relative">
-                    {[
-                        {
-                            url: 'https://github.com/fold-dev/fold/discussions',
-                            title: 'Discussions',
-                            text: 'We rely on GitHub Discussions to power our community. If you have a question or suggestion, start a discussion.',
-                        },
-                        {
-                            url: 'https://github.com/fold-dev/fold/issues',
-                            title: 'Issues',
-                            text: 'Open an issue or pull request on our GitHub repository if you want to contribute or report a bug.',
-                        },
-                        {
-                            url: 'mailto:support@fold.dev',
-                            title: 'Email',
-                            text: 'We try to answer all of the emails that land in our inbox.',
-                        },
-                    ].map(({ title, text, url }, index) => (
+                    <Card
+                        column
+                        width={325}
+                        height={650}
+                        p="2rem"
+                        gap="1rem"
+                        border="none"
+                        alignItems="flex-start"
+                        alignContent="flex-start"
+                        justifyContent="flex-start">
+                        <Heading as="h2">Indie</Heading>
+                        <Text colorToken="base-300">
+                            For teams building products that haven't launched to market yet.
+                        </Text>
                         <View
-                            key={index}
-                            width="100%">
-                            <Link
-                                href={url}
-                                target="_blank"
-                                textDecoration="none">
-                                <Heading
-                                    fontWeight={600}
-                                    colorToken="accent-100">
-                                    {title} ↗
-                                </Heading>
-                            </Link>
-                            <Text colorToken="accent-300">{text}</Text>
+                            row
+                            m="1rem 0"
+                            gap={5}
+                            alignItems="flex-start">
+                            <Heading huge>{pricingIndie()}</Heading>
+                            <Heading as="h5" fontWeight={600}>USD</Heading>
                         </View>
-                    ))}
+                        <List>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Kanban Board
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Todo List
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Calendar
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Data Grid
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> CSV Importer
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Date Picker
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Limited to internal use
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Access to private support group
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> 1 year of updates
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> 
+                                NPM access
+                                <Pill
+                                    subtle
+                                    size="xs"
+                                    m="0 0 0 0.5rem"
+                                    color={Token.ColorAccent400}>
+                                    Coming Soon
+                                </Pill>
+                            </Li>
+                            <Li row colorToken="purrple-400" width="fit-content">
+                                <IconLib icon="check" />
+                                Unreleased roadmap components
+                            </Li>
+                        </List>
+                        <Flexer />
+                        <Button
+                            m="1rem 0 0 0"
+                            size="xl"
+                            width="100%"
+                            variant="accent">
+                            Buy
+                        </Button>
+                    </Card>
+
+                    <Card
+                        column
+                        width={325}
+                        height={650}
+                        p="2rem"
+                        gap="1rem"
+                        border="none"
+                        alignItems="flex-start"
+                        alignContent="flex-start"
+                        justifyContent="flex-start">
+                        <Heading as="h2">Enterprise</Heading>
+                        <Text colorToken="base-300">
+                            For teams building internal-use products that generate no revenue.
+                        </Text>
+                        <View
+                            row
+                            m="1rem 0"
+                            gap={5}
+                            alignItems="flex-start">
+                            <Heading huge>{pricingEnterprise()}</Heading>
+                            <Heading as="h5" fontWeight={600}>USD</Heading>
+                        </View>
+                        <List>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Everything in Indie
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Unlimited internal use
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Prioritized support
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Prioritized feature requests
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Source code
+                            </Li>
+                        </List>
+                        <Flexer />
+                        <Button
+                            m="1rem 0 0 0"
+                            size="xl"
+                            width="100%"
+                            variant="accent">
+                            Buy
+                        </Button>
+                    </Card>
+
+                    <Card
+                        column
+                        width={325}
+                        height={650}
+                        p="2rem"
+                        gap="1rem"
+                        border="none"
+                        alignItems="flex-start"
+                        alignContent="flex-start"
+                        justifyContent="flex-start">
+                        <Heading as="h2">SaaS</Heading>
+                        <Text colorToken="base-300">
+                            For teams that have launched to market or acquired external funding.
+                        </Text>
+                        <View
+                            row
+                            m="1rem 0"
+                            gap={5}
+                            alignItems="flex-start">
+                            <Heading huge>{pricingSaas()}</Heading>
+                            <Heading as="h5" fontWeight={600}>USD</Heading>
+                        </View>
+                        <List>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Everything in Indie
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Dedicated support email
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Onboarding call
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Unlimited internal & external use
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Prioritized support
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Prioritized feature requests
+                            </Li>
+                            <Li row width="fit-content">
+                                <IconLib icon="check" /> Source code
+                            </Li>
+                        </List>
+                        <Flexer />
+                        <Button
+                            m="1rem 0 0 0"
+                            size="xl"
+                            width="100%"
+                            variant="accent">
+                            Buy
+                        </Button>
+                    </Card>
+                </View>
+
+                <View row>
+                    <Text colorToken="base-600">
+                        More than 10 developers? <Link href="#">Contact us.</Link> Pro licensing are subject to our <Link href="#">terms & conditions</Link>.
+                    </Text>
                 </View>
             </View>
+
+            <View 
+                bgToken="base-800"
+                row 
+                position="relative"
+                p="0 0rem 11rem 0rem"
+                width="100%"
+                style={{ overflow: 'hidden' }}>
+                <GraphicLeft
+                    color={Token.ColorAccent200}
+                    style={{ position: 'absolute', bottom: -100, left: -200, opacity: 0.1 }}
+                    width={1107 / 2}
+                    height={559 / 2}
+                />
+                <View
+                    row
+                    gap={50}
+                    width="85%"
+                    radius="var(--f-radius)"
+                    bgToken="base-700"
+                    position="relative"
+                    style={{ overflow: 'hidden' }}
+                    alignItems="flex-start">
+                    <View
+                        column
+                        flex={1}
+                        gap={30}
+                        alignItems="flex-start"
+                        p="5rem 0rem 5rem 5rem">
+                        <Text
+                            style={{ textTransform: 'uppercase' }}
+                            letterSpacing={5}
+                            colorToken="base-500"
+                            id="features">
+                            Ready. Set. Go.
+                        </Text>
+                        <Heading
+                            colorToken="base-100"
+                            fontWeight={400}>
+                            Need help scaling your next big idea? Let Fold do the heavy lifting.
+                        </Heading>
+                    </View>
+
+                    <View
+                        column
+                        flex={2}
+                        gap={30}
+                        alignItems="flex-start"
+                        p="5rem">
+                        <View
+                            column
+                            gap={30}
+                            position="relative">
+                            {[
+                                {
+                                    url: 'https://github.com/fold-dev/fold/discussions',
+                                    title: 'SaaS Licensing',
+                                    text: 'Fold offers a SaaS license option that enables you to leverage all Pro components for your next project.',
+                                },
+                                {
+                                    url: 'https://github.com/fold-dev/fold/issues',
+                                    title: 'Custom Development',
+                                    text: 'Open an issue or pull request on our GitHub repository if you want to contribute or report a bug.',
+                                },
+                                {
+                                    url: 'mailto:support@fold.dev',
+                                    title: 'Email',
+                                    text: 'We try to answer all of the emails that land in our inbox.',
+                                },
+                            ].map(({ title, text, url }, index) => (
+                                <View
+                                    key={index}
+                                    width="100%">
+                                    <Link
+                                        href={url}
+                                        target="_blank"
+                                        textDecoration="none">
+                                        <Heading
+                                            as="h2"
+                                            m="0 0 0.25rem 0"
+                                            colorToken="base-100">
+                                            {title} ↗
+                                        </Heading>
+                                    </Link>
+                                    <Text colorToken="base-300">{text}</Text>
+                                </View>
+                            ))}
+                        </View>
+                    </View>
+                </View>
+            </View>
+
+            <Divider />
+
+            {/* support  */}                    
+
+            <View 
+                row 
+                id="support"
+                position="relative"
+                p="5rem 0rem"
+                width="100%"
+                style={{ overflow: 'hidden' }}>
+                <View
+                    row
+                    gap={50}
+                    width="85%"
+                    radius="var(--f-radius)"
+                    position="relative"
+                    style={{ overflow: 'hidden' }}
+                    alignItems="flex-start">
+                    <View
+                        column
+                        flex={1}
+                        gap={30}
+                        alignItems="flex-start"
+                        p="5rem 0rem 5rem 5rem">
+                        <Text
+                            style={{ textTransform: 'uppercase' }}
+                            letterSpacing={5}
+                            colorToken="text-weakest"
+                            id="features">
+                            Support
+                        </Text>
+                        <Heading
+                            fontWeight={400}>
+                            Need some help with using Fold in your project?
+                        </Heading>
+                    </View>
+
+                    <View
+                        column
+                        flex={2}
+                        gap={30}
+                        alignItems="flex-start"
+                        p="5rem">
+                        <View
+                            column
+                            gap={30}
+                            position="relative">
+                            {[
+                                {
+                                    url: 'https://github.com/fold-dev/fold/discussions',
+                                    title: 'Discussions',
+                                    text: 'We rely on GitHub Discussions to power our community. If you have a question or suggestion, start a discussion.',
+                                },
+                                {
+                                    url: 'https://github.com/fold-dev/fold/issues',
+                                    title: 'Issues',
+                                    text: 'Open an issue or pull request on our GitHub repository if you want to contribute or report a bug.',
+                                },
+                                {
+                                    url: 'mailto:support@fold.dev',
+                                    title: 'Email',
+                                    text: 'We try to answer all of the emails that land in our inbox.',
+                                },
+                            ].map(({ title, text, url }, index) => (
+                                <View
+                                    key={index}
+                                    width="100%">
+                                    <Link
+                                        href={url}
+                                        target="_blank"
+                                        textDecoration="none">
+                                        <Heading
+                                            as="h2"
+                                            m="0 0 0.25rem 0"
+                                            colorToken="text">
+                                            {title} ↗
+                                        </Heading>
+                                    </Link>
+                                    <Text colorToken="text-weaker">{text}</Text>
+                                </View>
+                            ))}
+                        </View>
+                    </View>
+                </View>
+            </View>
+
+            <Divider />
 
             {/* footer */}
 
             <View
                 row
                 p={100}
-                bgToken="accent-500"
                 alignItems="flex-start">
                 <View
                     flex={1}
                     column
                     gap={20}
                     alignItems="flex-start">
-                    <LogoSolid color="var(--f-color-accent-100)" />
-                    <Text colorToken="accent-50">Fold &copy; 2024</Text>
+                    <LogoSolid color="var(--f-color-accent-400)" />
+                    <Text colorToken="accent-400">Fold &copy; 2024</Text>
                     <View
                         row
                         gap={10}
@@ -2041,7 +2365,7 @@ function Home() {
                                 href="#home"
                                 size="xl"
                                 fontWeight={400}
-                                colorToken="accent-100"
+                                colorToken="accent-400"
                                 textDecoration="none">
                                 Home
                             </Text>
@@ -2053,7 +2377,7 @@ function Home() {
                                 size="xl"
                                 fontWeight={400}
                                 textDecoration="none"
-                                colorToken="accent-100">
+                                colorToken="accent-400">
                                 Features
                             </Text>
                         </Li>
@@ -2064,7 +2388,7 @@ function Home() {
                                 size="xl"
                                 fontWeight={400}
                                 textDecoration="none"
-                                colorToken="accent-100">
+                                colorToken="accent-400">
                                 Support
                             </Text>
                         </Li>
@@ -2090,7 +2414,7 @@ function Home() {
                                 size="xl"
                                 fontWeight={400}
                                 textDecoration="none"
-                                colorToken="accent-100">
+                                colorToken="accent-400">
                                 Documentation
                             </Text>
                         </Li>
@@ -2102,7 +2426,7 @@ function Home() {
                                 size="xl"
                                 fontWeight={400}
                                 textDecoration="none"
-                                colorToken="accent-100">
+                                colorToken="accent-400">
                                 GitHub
                             </Text>
                         </Li>
@@ -2114,7 +2438,7 @@ function Home() {
                                 size="xl"
                                 fontWeight={400}
                                 textDecoration="none"
-                                colorToken="accent-100">
+                                colorToken="accent-400">
                                 Releases
                             </Text>
                         </Li>
@@ -2126,7 +2450,7 @@ function Home() {
                                 size="xl"
                                 fontWeight={400}
                                 textDecoration="none"
-                                colorToken="accent-100">
+                                colorToken="accent-400">
                                 Roadmap
                             </Text>
                         </Li>
@@ -2152,7 +2476,7 @@ function Home() {
                                 size="xl"
                                 fontWeight={400}
                                 textDecoration="none"
-                                colorToken="accent-100">
+                                colorToken="accent-400">
                                 Privacy Policy
                             </Text>
                         </Li>
@@ -2164,7 +2488,7 @@ function Home() {
                                 size="xl"
                                 fontWeight={400}
                                 textDecoration="none"
-                                colorToken="accent-100">
+                                colorToken="accent-400">
                                 Terms of Use
                             </Text>
                         </Li>
@@ -2176,10 +2500,7 @@ function Home() {
                     gap={20}
                     alignItems="flex-end">
                     <Button
-                        colorToken="accent-50"
-                        bg="transparent"
                         variant="accent"
-                        border="0.15rem solid white"
                         as="a"
                         target="_blank"
                         href="/docs">
@@ -2187,10 +2508,7 @@ function Home() {
                     </Button>
                     <Button
                         width={200}
-                        colorToken="accent-50"
-                        bg="transparent"
                         variant="accent"
-                        border="0.15rem solid white"
                         as="a"
                         target="_blank"
                         href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW">
@@ -2198,6 +2516,8 @@ function Home() {
                     </Button>
                 </View>
             </View>
+
+
         </FoldProvider>
     )
 }

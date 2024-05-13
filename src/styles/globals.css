@@ -3,6 +3,7 @@ body {
     height: 100%;
     font-size: 14px;
     background-color: var(--f-color-background) !important;
+    scroll-behavior: smooth;
 }
 
 /* shinji */
