@@ -1,45 +1,28 @@
 import DocsLayout from '@/layouts/docs.layout'
 import {
-    Text,
-    Progress,
-    Heading,
-    View,
-    Card,
-    Icon,
-    Link,
-    Grid,
-    IconLib,
-    Notification,
-    NotificationIcon,
-    NotificationContent,
     Breadcrumb,
     BreadcrumbItem,
-    getForegroundColor,
-    addAlpha,
+    Card,
+    Grid,
+    Heading,
+    Icon,
+    Link,
+    Notification,
+    NotificationContent,
+    NotificationIcon,
+    Text,
+    View,
+    addAlpha
 } from '@fold-dev/core'
-import {
-    CubeIcon,
-    FingerPrintIcon,
-    FireIcon,
-    LifebuoyIcon,
-    PaintBrushIcon,
-    QuestionMarkCircleIcon,
-    RectangleGroupIcon,
-    SwatchIcon,
-} from '@heroicons/react/24/outline'
 import * as Token from '@fold-dev/design/tokens'
 import { useRouter } from 'next/router'
 import React from 'react'
 import {
     PiFingerprintSimple,
-    PiFingerprintSimpleDuotone,
     PiFlag,
-    PiFlagDuotone,
-    PiLightbulbDuotone,
+    PiLightbulb,
     PiMarkerCircle,
-    PiMarkerCircleDuotone,
-    PiPlanet,
-    PiPlanetDuotone,
+    PiPlanet
 } from 'react-icons/pi'
 
 export default function Introduction(props) {
@@ -57,7 +40,7 @@ export default function Introduction(props) {
             <Heading fontWeight="bold">Introduction</Heading>
             <Notification variant="highlight">
                 <NotificationIcon>
-                    <Icon icon={PiLightbulbDuotone} />
+                    <Icon icon={PiLightbulb} />
                 </NotificationIcon>
                 <NotificationContent>
                     <Text>

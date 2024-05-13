@@ -13,7 +13,6 @@ import {
     Li,
     Link,
     List,
-    Logo,
     LogoSolid,
     Main,
     Navigation,
@@ -34,39 +33,30 @@ import {
     Stack,
     Text,
     View,
-    useVisibility,
+    useVisibility
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
 import Head from 'next/head'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import {
-    PiCircleDashedDuotone,
     PiDrop,
-    PiDropDuotone,
-    PiFingerprintSimpleDuotone,
-    PiFlagDuotone,
+    PiFingerprintSimple,
+    PiFlag,
     PiGithubLogo,
-    PiGithubLogoDuotone,
     PiLifebuoy,
-    PiLifebuoyDuotone,
     PiLinkedinLogo,
-    PiLinkedinLogoDuotone,
-    PiMagicWandDuotone,
-    PiMarkerCircleDuotone,
-    PiPackageDuotone,
-    PiPersonArmsSpreadDuotone,
-    PiPinwheelDuotone,
-    PiPlanetDuotone,
-    PiQuestionDuotone,
-    PiRocketLaunchDuotone,
-    PiSignpostDuotone,
-    PiStack,
-    PiTwitterLogo,
-    PiTwitterLogoDuotone,
+    PiMarkerCircle,
+    PiPackage,
+    PiPersonArmsSpread,
+    PiPinwheel,
+    PiPlanet,
+    PiQuestion,
+    PiRocketLaunch,
+    PiSignpost,
+    PiTwitterLogo
 } from 'react-icons/pi'
 import { navigation } from '../navigation'
-import PageNavigationComponent from '@/pages/components/page-navigation.component'
 
 export const CircleIcon = ({
     children,
@@ -356,7 +346,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiPackageDuotone}
+                                                    icon={PiPackage}
                                                     color={Token.ColorElectric400}
                                                     strokeWidth={2}
                                                 />
@@ -372,7 +362,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiRocketLaunchDuotone}
+                                                    icon={PiRocketLaunch}
                                                     color={Token.ColorPurple400}
                                                     strokeWidth={2}
                                                 />
@@ -386,7 +376,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiPersonArmsSpreadDuotone}
+                                                    icon={PiPersonArmsSpread}
                                                     color={Token.ColorNeonpink400}
                                                     strokeWidth={2}
                                                 />
@@ -400,7 +390,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiQuestionDuotone}
+                                                    icon={PiQuestion}
                                                     color={Token.ColorOrange400}
                                                     strokeWidth={2}
                                                 />
@@ -414,7 +404,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiFlagDuotone}
+                                                    icon={PiFlag}
                                                     color={Token.ColorYellow400}
                                                     strokeWidth={2}
                                                 />
@@ -426,7 +416,7 @@ export default function DocsLayout(props: any) {
                                             target="_blank"
                                             prefix={
                                                 <Icon
-                                                    icon={PiSignpostDuotone}
+                                                    icon={PiSignpost}
                                                     color={Token.ColorTeal400}
                                                     strokeWidth={2}
                                                 />
@@ -450,7 +440,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiPlanetDuotone}
+                                                    icon={PiPlanet}
                                                     color={Token.ColorNeonpink400}
                                                     strokeWidth={2}
                                                 />
@@ -464,7 +454,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiMarkerCircleDuotone}
+                                                    icon={PiMarkerCircle}
                                                     color={Token.ColorOrange400}
                                                     strokeWidth={2}
                                                 />
@@ -478,7 +468,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiPinwheelDuotone}
+                                                    icon={PiPinwheel}
                                                     color={Token.ColorPurple400}
                                                     strokeWidth={2}
                                                 />
@@ -492,7 +482,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiFingerprintSimpleDuotone}
+                                                    icon={PiFingerprintSimple}
                                                     color={Token.ColorElectric400}
                                                     strokeWidth={2}
                                                 />
@@ -588,7 +578,7 @@ export default function DocsLayout(props: any) {
                                 <SearchComponent />
                                 <Stack
                                     m="0 0 0 1rem"
-                                    spacing="0.5rem"
+                                    spacing="1rem"
                                     noStretch>
                                     <Link
                                         target="_blank"
