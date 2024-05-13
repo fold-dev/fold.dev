@@ -49,6 +49,7 @@ import {
     View,
     useCacheValue,
     useCheck,
+    useCopy,
     useVisibility,
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
@@ -57,6 +58,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { SocialIcon } from 'react-social-icons'
 import MobileComponent from './components/mobile.component'
 import { PiAddressBookDuotone, PiCircleDashedDuotone, PiCircleHalfTiltDuotone } from 'react-icons/pi'
+import CodeComponent from './components/code.component'
 
 export const colors = {
     purple: `
@@ -819,6 +821,49 @@ const sparkline = [
     Math.random(),
 ]
 
+const Code = ({ snippet }) => {
+    const { copyToClipboard } = useCopy()
+
+    return (
+        <View width={500} position="relative">
+            <Button
+                onClick={() => copyToClipboard(snippet)}
+                zIndex={10}
+                size="xs"
+                style={{ 
+                    position: 'absolute', 
+                    top: '50%', 
+                    right: 10, 
+                    transform: 'translateY(-50%)',
+                    '--f-button-active-background': 'var(--f-color-base-600)',
+                    '--f-button-border-color': 'var(--f-color-base-600)',
+                    '--f-button-background-color': 'var(--f-color-base-800)',
+                    '--f-button-background-color-hover': 'var(--f-color-base-600)',
+                    '--f-button-color': 'var(--f-color-base-100)',
+                    '--f-button-color-hover': 'var(--f-color-base-200)',
+                }}>
+                <IconLib icon="copy" size="sm" />
+            </Button>
+            <style>
+                {`
+                    [data-rehype-pretty-code-figure] pre { 
+                        border-radius: var(--f-radius) !important;
+                        border: 1px solid var(--f-color-base-700);
+                    }
+                `}
+            </style>
+            <CodeComponent 
+                lang="bash"
+                showSnippet
+                showCopy={false}
+                filename="main.tsx"
+                code={btoa(`
+    ${snippet}`)}
+            />
+        </View>
+    )
+}
+
 const GraphicRight = (props: any) => {
     const { style = {}, color = 'white', ...rest } = props
     return (
@@ -1440,7 +1485,7 @@ function Home() {
                             border="none">
                             <View
                                 row
-                                gap={10}
+                                gap="1rem"
                                 width="100%"
                                 p="0 4rem">
                                 <LogoSolid color={Token.ColorElectric100} />
@@ -1470,6 +1515,7 @@ function Home() {
                                     style={{
                                         '--f-button-color': 'var(--f-color-white)',
                                         '--f-button-color-hover': 'var(--f-color-accent-400)',
+                                        '--f-button-background-color-hover': 'var(--f-color-white)',
                                     }}>
                                     Documentation
                                 </Button>
@@ -1477,12 +1523,36 @@ function Home() {
                                     href="#pro"
                                     as="a"
                                     target="_blank"
+                                    border="0.15rem solid white"
                                     style={{
+                                        '--f-button-background-color': 'var(--f-color-white)',
+                                        '--f-button-background-color-hover': 'var(--f-color-base-100)',
                                         '--f-button-color': 'var(--f-color-accent)',
                                         '--f-button-color-hover': 'var(--f-color-accent-600)',
                                     }}>
                                     Buy
                                 </Button>
+                                <SocialIcon
+                                    url="https://github.com/fold-dev"
+                                    target="_blank"
+                                    style={{ width: 35, height: 35 }}
+                                    fgColor="var(--f-color-accent)"
+                                    bgColor="var(--f-color-white)"
+                                />
+                                <SocialIcon
+                                    url="https://twitter.com/fold_dev"
+                                    target="_blank"
+                                    style={{ width: 35, height: 35 }}
+                                    fgColor="var(--f-color-accent)"
+                                    bgColor="var(--f-color-white)"
+                                />
+                                <SocialIcon
+                                    url="https://www.linkedin.com/company/fold-dev"
+                                    target="_blank"
+                                    style={{ width: 35, height: 35 }}
+                                    fgColor="var(--f-color-accent)"
+                                    bgColor="var(--f-color-white)"
+                                />
                             </View>
                         </Header>
                     </View>
@@ -1684,6 +1754,10 @@ function Home() {
                         width="80%">
                         Leverage Fold Core's 85+ components to power your next project. Fold Core is completely Open Source (MIT), and will always remain that way.
                     </Heading>
+                    <Code 
+                        snippet="npm i --save @fold-dev/core @fold-dev/design"
+                    />
+                    {/* 
                     <View
                         row
                         gap={20}
@@ -1692,16 +1766,17 @@ function Home() {
                         <Button
                             outline
                             variant="accent">
-                            Download Now
+                            Read Documentation ↗
                         </Button>
                         <Link
-                            href="#"
+                            target="_blank"
+                            href="/docs"
                             className="f-underline"
                             textDecoration="none">
-                            Get Started ↗
+                            GitHub ↗
                         </Link>
                     </View>
-
+                    */}
                     <All />
                 </View>
             </View>
