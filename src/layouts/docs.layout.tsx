@@ -318,7 +318,7 @@ export default function DocsLayout(props: any) {
                                     p="0 1.5rem"
                                     width="101%"
                                     gap={10}
-                                    colorToken="text-weakest">
+                                    bgToken="base-800">
                                     <Link
                                         href="/"
                                         row>
@@ -326,6 +326,7 @@ export default function DocsLayout(props: any) {
                                     </Link>
                                     <Heading
                                         as="h4"
+                                        colorToken="base-200"
                                         fontWeight="semibold">
                                         Documentation
                                     </Heading>
@@ -664,6 +665,7 @@ export default function DocsLayout(props: any) {
                                 gap="0.5rem"
                                 height="4.5rem"
                                 p="0.5rem 1rem 0.5rem 0"
+                                bgToken="base-800"
                                 colorToken="text-weaker">
                                 <SearchComponent />
                                 <Stack

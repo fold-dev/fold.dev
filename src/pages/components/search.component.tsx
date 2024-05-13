@@ -19,6 +19,7 @@ import {
     useEvent,
     useVisibility,
 } from '@fold-dev/core'
+import * as Token from '@fold-dev/design/tokens'
 import {
     ChatBubbleBottomCenterIcon,
     ChatBubbleLeftEllipsisIcon,
@@ -202,12 +203,20 @@ export const SearchComponent = (props: any) => {
             <View
                 p="0 0 0 0.5rem"
                 flex={1}>
-                <InputControl>
+                <InputControl 
+                    border="1px solid var(--f-color-base-700)"
+                    bgToken="base-800">
                     <Input
                         placeholder="Search"
+                        border="none"
+                        bgToken="base-800"
+                        colorToken="base-300"
                         value={search}
                         onFocus={handleFocus}
                         onKeyDown={handleKeyDown}
+                        style={{
+                            '--f-input-color-placeholder': 'var(--f-color-base-600)',
+                        }}
                         onChange={(e) => {
                             setSearch(e.target.value)
                             searchPages(e.target.value)
@@ -215,6 +224,7 @@ export const SearchComponent = (props: any) => {
                     />
                     <InputSuffix>
                         <Icon
+                            color={Token.ColorBase600}
                             icon={FISearch}
                             className="f-buttonize"
                         />

@@ -129,6 +129,7 @@ export default function Introduction(props) {
                             radius={50}
                             bg={addAlpha(section.color, 0.1)}>
                             <Icon
+                                color={section.color}
                                 icon={section.icon}
                                 size="xl"
                                 //style={{ '--f-icon-sizing-md': '50px' }}
