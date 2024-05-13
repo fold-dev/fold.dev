@@ -318,6 +318,7 @@ export default function DocsLayout(props: any) {
                                     p="0 1.5rem"
                                     width="101%"
                                     gap={10}
+                                    style={{ borderColor: Token.ColorBase700 }}
                                     bgToken="base-800">
                                     <Link
                                         href="/"
@@ -666,6 +667,7 @@ export default function DocsLayout(props: any) {
                                 height="4.5rem"
                                 p="0.5rem 1rem 0.5rem 0"
                                 bgToken="base-800"
+                                style={{ borderColor: Token.ColorBase700 }}
                                 colorToken="text-weaker">
                                 <SearchComponent />
                                 <Stack
