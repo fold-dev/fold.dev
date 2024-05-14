@@ -338,7 +338,10 @@ export default function DocsLayout(props: any) {
                                     width="100%"
                                     style={{ overflow: 'scroll' }}>
                                     <Navigation
-                                        style={{ '--f-navigation-item-color-active': 'var(--f-color-text)' }}
+                                        style={{ 
+                                            '--f-navigation-item-color-active': 'var(--f-color-text)',
+                                            '--f-navigation-item-height': '33px',
+                                        }}
                                         width="100%"
                                         height="100%"
                                         alignItems="flex-start">
