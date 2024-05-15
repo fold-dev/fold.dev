@@ -1355,18 +1355,18 @@ function Home() {
         }).format(amount)
     }
 
-    const pricingEnterprise = () => {
-        const price = Math.min(Math.max(seats, 1), 30) * 699
+    const pricingEnterprise = (p = 699) => {
+        const price = Math.min(Math.max(seats, 1), 30) * p
         return formatCurrency(clamp(price, 0, 99999))
     }
 
-    const pricingSaas = () => {
-        const price = Math.min(Math.max(seats, 1), 30) * 2499
+    const pricingSaas = (p = 2449) => {
+        const price = Math.min(Math.max(seats, 1), 30) * p
         return formatCurrency(clamp(price, 0, 99999))
     }
 
-    const pricingIndie = () => {
-        const price = Math.min(Math.max(seats, 1), 30) * 379
+    const pricingIndie = (p = 349) => {
+        const price = Math.min(Math.max(seats, 1), 30) * p
         return formatCurrency(clamp(price, 0, 9999))
     }
 
@@ -1851,12 +1851,18 @@ function Home() {
                         </Text>
                         <View
                             row
-                            m="1rem 0"
+                            m="1rem 0 0 0"
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>{pricingIndie()}</Heading>
                             <Heading as="h5" fontWeight={600}>USD</Heading>
                         </View>
+                        <Heading
+                            as="h4"
+                            colorToken="text-weakest"
+                            textDecoration="line-through">
+                            {pricingIndie(499)} USD
+                        </Heading>
                         <List>
                             <Li row width="fit-content">
                                 <IconLib icon="check" /> Kanban Board
@@ -1877,7 +1883,7 @@ function Home() {
                                 <IconLib icon="check" /> Date Picker
                             </Li>
                             <Li row width="fit-content">
-                                <IconLib icon="check" /> Limited to internal use
+                                <IconLib icon="check" /> Limited to prototyping
                             </Li>
                             <Li row width="fit-content">
                                 <IconLib icon="check" /> Access to private support group
@@ -1927,12 +1933,18 @@ function Home() {
                         </Text>
                         <View
                             row
-                            m="1rem 0"
+                            m="1rem 0 0 0"
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>{pricingEnterprise()}</Heading>
                             <Heading as="h5" fontWeight={600}>USD</Heading>
                         </View>
+                        <Heading
+                            as="h4"
+                            colorToken="text-weakest"
+                            textDecoration="line-through">
+                            {pricingEnterprise(999)} USD
+                        </Heading>
                         <List>
                             <Li row width="fit-content">
                                 <IconLib icon="check" /> Everything in Indie
@@ -1976,12 +1988,18 @@ function Home() {
                         </Text>
                         <View
                             row
-                            m="1rem 0"
+                            m="1rem 0 0 0"
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>{pricingSaas()}</Heading>
                             <Heading as="h5" fontWeight={600}>USD</Heading>
                         </View>
+                        <Heading
+                            as="h4"
+                            colorToken="text-weakest"
+                            textDecoration="line-through">
+                            {pricingSaas(3399)} USD
+                        </Heading>
                         <List>
                             <Li row width="fit-content">
                                 <IconLib icon="check" /> Everything in Indie

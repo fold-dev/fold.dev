@@ -20,7 +20,9 @@ export default function GettingStarted(props) {
                 <BreadcrumbItem active>Pro</BreadcrumbItem>
             </Breadcrumb>
             <Heading fontWeight="bold">Pro</Heading>
-            <Heading as="h2">Get started with Fold, the UI component library for product teams.</Heading>
+            <Heading as="h2">
+                Get started with Fold, the UI component library for product teams.
+            </Heading>
             <Text>
                 Welcome to Fold, a collection of reusable React components that will help you build beautiful and
                 functional user interfaces. This guide will walk you through the steps to get started with our library
@@ -36,10 +38,9 @@ export default function GettingStarted(props) {
                 gap="2rem"
                 width="100%"
                 radius="var(--f-radius)"
+                alignItems="flex-start"
                 bgToken="accent-500"
-                position="relative"
-                style={{ overflow: 'hidden' }}
-                alignItems="flex-start">
+                m="2rem 0 0 0">
                 <GraphicLeft
                     color={Token.ColorAccent200}
                     style={{ position: 'absolute', bottom: -100, left: -200, opacity: 0.1 }}
@@ -50,7 +51,7 @@ export default function GettingStarted(props) {
                 <View
                     column
                     flex={1}
-                    gap={30}
+                    gap="1rem"
                     alignItems="flex-start"
                     p="5rem 5rem 0rem 5rem">
                     <Text
@@ -58,12 +59,12 @@ export default function GettingStarted(props) {
                         letterSpacing={5}
                         colorToken="accent-300"
                         id="features">
-                        What's Included
+                        Before we get started
                     </Text>
                     <Heading
                         colorToken="accent-50"
                         fontWeight={400}>
-                        Made for product builders. Whether it's a SaaS product or enterprise app, we got you covered.
+                        What is Early Access?
                     </Heading>
                 </View>
 
@@ -74,6 +75,7 @@ export default function GettingStarted(props) {
                         '--f-accordion-border-color': 'var(--f-color-accent-400)',
                         '--f-accordion-background': 'var(--f-color-accent-500)',
                         '--f-accordion-color': 'var(--f-color-accent-100)',
+                        '--f-accordion-color-heading': 'var(--f-color-accent-300)',
                         '--f-accordion-color-description': 'var(--f-color-accent-300)',
                         '--f-accordion-hover-border-color': 'var(--f-color-accent-400)',
                         '--f-accordion-hover-background-color': 'var(--f-color-accent-400)',
@@ -127,43 +129,6 @@ export default function GettingStarted(props) {
                             <AccordionHeading>Are there plans to support other frameworks like Svelte or Vue?</AccordionHeading>
                             <AccordionPanel>Not yet.</AccordionPanel>
                         </AccordionItem>
-                        <AccordionItem>
-                            <AccordionHeading>Can I use this for production?</AccordionHeading>
-                            <AccordionPanel>
-                                Certainly, however Fold is currently in its alpha stage. Nevertheless, you have the option to
-                                use it in a production environment if you wish.
-                            </AccordionPanel>
-                        </AccordionItem>
-                        <AccordionItem>
-                            <AccordionHeading>Can I contribute?</AccordionHeading>
-                            <AccordionPanel>
-                                Absolutely! Please visit at our{' '}
-                                <Link
-                                    href="https://github.com/fold-dev/fold"
-                                    target="_blank"
-                                    fontSize="inherit">
-                                    repository
-                                </Link>{' '}
-                                on GitHub to find out how.
-                            </AccordionPanel>
-                        </AccordionItem>
-                        <AccordionItem>
-                            <AccordionHeading>Is there a premium support package available?</AccordionHeading>
-                            <AccordionPanel>Not yet.</AccordionPanel>
-                        </AccordionItem>
-                        <AccordionItem>
-                            <AccordionHeading>What are the future plans for Fold?</AccordionHeading>
-                            <AccordionPanel>
-                                Please see our{' '}
-                                <Link
-                                    href="https://github.com/orgs/fold-dev/projects/8"
-                                    target="_blank"
-                                    fontSize="inherit">
-                                    Roadmap
-                                </Link>{' '}
-                                for upcoming development.
-                            </AccordionPanel>
-                        </AccordionItem>
                     </Accordion>
 
 
@@ -174,7 +139,7 @@ export default function GettingStarted(props) {
             </View>
         
 
-            <Text as="blockquote">Fold has been developed using React v18.2</Text>
+            <Text as="blockquote">Fold Pro has been developed using React v18.2</Text>
             <Heading as="h3">Installation</Heading>
             <Text>
                 To begin using Fold, you'll need to install it in your project. You can do this via npm or Yarn:

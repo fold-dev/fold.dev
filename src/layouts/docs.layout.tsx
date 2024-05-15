@@ -3,6 +3,7 @@ import MobileComponent from '@/pages/components/mobile.component'
 import { SearchComponent } from '@/pages/components/search.component'
 import {
     App,
+    Button,
     Content,
     DarkModeToggle,
     Flexer,
@@ -131,7 +132,7 @@ export default function DocsLayout(props: any) {
     const router = useRouter()
     const { visible, show, hide } = useVisibility(false)
     const [color, setColor] = useState(Token.ColorElectric400)
-    const [value, setValue] = useState(5)
+    const [value, setValue] = useState(3)
     const [option, setOption] = useState(1)
     const [toc, setToc] = useState([])
     const [showChild, setShowChild] = useState(false)
@@ -670,7 +671,7 @@ export default function DocsLayout(props: any) {
                                 height="4.5rem"
                                 p="0.5rem 1rem 0.5rem 0"
                                 bgToken="base-800"
-                                style={{ borderColor: Token.ColorBase700 }}
+                                style={{ borderColor: Token.ColorBase700, '--f-popout-buffer': '1rem' }}
                                 colorToken="text-weaker">
                                 <SearchComponent />
                                 <Stack
@@ -790,6 +791,13 @@ export default function DocsLayout(props: any) {
                                             />
                                         </View>
                                     </Popover>
+                                    <Button
+                                        as="a"
+                                        href="/#pro"
+                                        target="_blank"
+                                        variant="accent">
+                                        Buy Now
+                                    </Button>
                                     <DarkModeToggle />
                                 </Stack>
                             </Header>
