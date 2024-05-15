@@ -1,7 +1,13 @@
 import DocsLayout from '@/layouts/docs.layout'
-import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View } from '@fold-dev/core'
+import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View, 
+    Accordion,
+    AccordionItem,
+    AccordionHeading,
+    AccordionPanel, } from '@fold-dev/core'
 import { CodeComponent } from '../components/code.component'
 import React from 'react'
+import { GraphicLeft } from '..'
+import * as Token from '@fold-dev/design/tokens'
 
 export default function GettingStarted(props) {
     return (
@@ -20,6 +26,154 @@ export default function GettingStarted(props) {
                 functional user interfaces. This guide will walk you through the steps to get started with our library
                 so that you can quickly integrate these components into your projects.
             </Text>
+            
+
+
+
+
+            <View
+                column
+                gap="2rem"
+                width="100%"
+                radius="var(--f-radius)"
+                bgToken="accent-500"
+                position="relative"
+                style={{ overflow: 'hidden' }}
+                alignItems="flex-start">
+                <GraphicLeft
+                    color={Token.ColorAccent200}
+                    style={{ position: 'absolute', bottom: -100, left: -200, opacity: 0.1 }}
+                    width={1107 / 2}
+                    height={559 / 2}
+                />
+
+                <View
+                    column
+                    flex={1}
+                    gap={30}
+                    alignItems="flex-start"
+                    p="5rem 5rem 0rem 5rem">
+                    <Text
+                        style={{ textTransform: 'uppercase' }}
+                        letterSpacing={5}
+                        colorToken="accent-300"
+                        id="features">
+                        What's Included
+                    </Text>
+                    <Heading
+                        colorToken="accent-50"
+                        fontWeight={400}>
+                        Made for product builders. Whether it's a SaaS product or enterprise app, we got you covered.
+                    </Heading>
+                </View>
+
+                <View
+                    p="0 5rem 5rem 5rem"
+                    position="relative"
+                    style={{
+                        '--f-accordion-border-color': 'var(--f-color-accent-400)',
+                        '--f-accordion-background': 'var(--f-color-accent-500)',
+                        '--f-accordion-color': 'var(--f-color-accent-100)',
+                        '--f-accordion-color-description': 'var(--f-color-accent-300)',
+                        '--f-accordion-hover-border-color': 'var(--f-color-accent-400)',
+                        '--f-accordion-hover-background-color': 'var(--f-color-accent-400)',
+                        '--f-accordion-active-background-color': 'var(--f-color-accent-300)',
+                        '--f-accordion-active-background': 'var(--f-color-accent-200)',
+                        '--f-accordion-active-color': 'var(--f-color-accent-100)',
+                    } as any}>
+                    <Accordion>
+                        <AccordionItem>
+                            <AccordionHeading>Are there really no dependencies?</AccordionHeading>
+                            <AccordionPanel>
+                                None. The sole dependencies are React and ReactDOM, and of course any additional libraries you
+                                integrate into your project.
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem>
+                            <AccordionHeading>Does Fold use CSS-in-JS?</AccordionHeading>
+                            <AccordionPanel>
+                                No. Fold utilizes pure CSS, compiled at build time, to tailor the appearance of components and
+                                provides helper classes for added customization.
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem>
+                            <AccordionHeading>Are there other runtime targets available?</AccordionHeading>
+                            <AccordionPanel>
+                                Currently, only ES6 Modules are supported. However, we are actively seeking feedback on how we
+                                can accommodate a broader range of users. Please let us on know at our{' '}
+                                <Link
+                                    href="https://github.com/fold-dev/fold/discussions"
+                                    target="_blank"
+                                    fontSize="inherit">
+                                    repository
+                                </Link>{' '}
+                                on GitHub.
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem>
+                            <AccordionHeading>Where can I file bugs or feature requests?</AccordionHeading>
+                            <AccordionPanel>
+                                Please visit at our{' '}
+                                <Link
+                                    href="https://github.com/fold-dev/fold"
+                                    target="_blank"
+                                    fontSize="inherit">
+                                    repository
+                                </Link>{' '}
+                                on GitHub.
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem>
+                            <AccordionHeading>Are there plans to support other frameworks like Svelte or Vue?</AccordionHeading>
+                            <AccordionPanel>Not yet.</AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem>
+                            <AccordionHeading>Can I use this for production?</AccordionHeading>
+                            <AccordionPanel>
+                                Certainly, however Fold is currently in its alpha stage. Nevertheless, you have the option to
+                                use it in a production environment if you wish.
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem>
+                            <AccordionHeading>Can I contribute?</AccordionHeading>
+                            <AccordionPanel>
+                                Absolutely! Please visit at our{' '}
+                                <Link
+                                    href="https://github.com/fold-dev/fold"
+                                    target="_blank"
+                                    fontSize="inherit">
+                                    repository
+                                </Link>{' '}
+                                on GitHub to find out how.
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem>
+                            <AccordionHeading>Is there a premium support package available?</AccordionHeading>
+                            <AccordionPanel>Not yet.</AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem>
+                            <AccordionHeading>What are the future plans for Fold?</AccordionHeading>
+                            <AccordionPanel>
+                                Please see our{' '}
+                                <Link
+                                    href="https://github.com/orgs/fold-dev/projects/8"
+                                    target="_blank"
+                                    fontSize="inherit">
+                                    Roadmap
+                                </Link>{' '}
+                                for upcoming development.
+                            </AccordionPanel>
+                        </AccordionItem>
+                    </Accordion>
+
+
+
+
+
+                </View>
+            </View>
+        
+
             <Text as="blockquote">Fold has been developed using React v18.2</Text>
             <Heading as="h3">Installation</Heading>
             <Text>
