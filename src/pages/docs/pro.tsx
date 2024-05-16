@@ -21,12 +21,10 @@ export default function GettingStarted(props) {
             </Breadcrumb>
             <Heading fontWeight="bold">Pro</Heading>
             <Heading as="h2">
-                Get started with Fold, the UI component library for product teams.
+                Ready to take your project to the next level? 
             </Heading>
             <Text>
-                Welcome to Fold, a collection of reusable React components that will help you build beautiful and
-                functional user interfaces. This guide will walk you through the steps to get started with our library
-                so that you can quickly integrate these components into your projects.
+                Introducing Fold Pro, designed specifically for developers and teams who need components for building exceptional products. Built on the solid foundation of Fold Core.
             </Text>
             
 
@@ -85,49 +83,62 @@ export default function GettingStarted(props) {
                     } as any}>
                     <Accordion>
                         <AccordionItem>
-                            <AccordionHeading>Are there really no dependencies?</AccordionHeading>
+                            <AccordionHeading>Is it production ready?</AccordionHeading>
                             <AccordionPanel>
-                                None. The sole dependencies are React and ReactDOM, and of course any additional libraries you
-                                integrate into your project.
+                                Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
+                                but there is still work left to do. If you have a Pro license & have experienced a bug, please consider posting 
+                                it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-100">Google Group</Link> or 
+                                on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-100">GitHub.</Link> (label it as Pro)
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
-                            <AccordionHeading>Does Fold use CSS-in-JS?</AccordionHeading>
+                            <AccordionHeading>Is the Source Code available?</AccordionHeading>
                             <AccordionPanel>
-                                No. Fold utilizes pure CSS, compiled at build time, to tailor the appearance of components and
-                                provides helper classes for added customization.
+                                The source code will not be available during Early Access. If you have an Enterprise or SaaS license, the source code will be made available once Early Access ends.
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
-                            <AccordionHeading>Are there other runtime targets available?</AccordionHeading>
+                            <AccordionHeading>How long will Early Access last?</AccordionHeading>
                             <AccordionPanel>
-                                Currently, only ES6 Modules are supported. However, we are actively seeking feedback on how we
-                                can accommodate a broader range of users. Please let us on know at our{' '}
-                                <Link
-                                    href="https://github.com/fold-dev/fold/discussions"
+                                Until it is stable. However we anticipate this being no more than 2 to 3 months at most.
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem>
+                            <AccordionHeading>What comes after Early Access?</AccordionHeading>
+                            <AccordionPanel>
+                                After Early Access we will go into public Beta. If you have purchased an Early Access license, you will automatically get access. Any licensing purchase limits will fall away for Beta.
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem>
+                            <AccordionHeading>Does it include future components?</AccordionHeading>
+                            <AccordionPanel>
+                                If you purchase an Early Access licence, you will get access to any <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2" colorToken="accent-100">Roadmap</Link> items
+                                when they become available.
+                            </AccordionPanel>
+                        </AccordionItem>
+                        <AccordionItem>
+                            <AccordionHeading>Will the price increase after Early Access?</AccordionHeading>
+                            <AccordionPanel>
+                                Yes. The Indie package will increase to 499 USD per developer, Enterprise to 999 USD per developer & SaaS to 3,399 USD per developer.
+                                Please feel free to <Link
+                                    href="licensing@fold.dev"
                                     target="_blank"
-                                    fontSize="inherit">
-                                    repository
-                                </Link>{' '}
-                                on GitHub.
+                                    fontSize="inherit"
+                                    colorToken="accent-100">
+                                    email
+                                </Link> us for more information. After the Beta release, there will be another increase - however we have not finalised this.
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
-                            <AccordionHeading>Where can I file bugs or feature requests?</AccordionHeading>
+                            <AccordionHeading>Where can I file bugs or feature requests for Early Access?</AccordionHeading>
                             <AccordionPanel>
-                                Please visit at our{' '}
-                                <Link
-                                    href="https://github.com/fold-dev/fold"
-                                    target="_blank"
-                                    fontSize="inherit">
-                                    repository
-                                </Link>{' '}
-                                on GitHub.
+                            On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-100">Google Group</Link> or 
+                                on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-100">GitHub.</Link> (label it as Pro).
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
-                            <AccordionHeading>Are there plans to support other frameworks like Svelte or Vue?</AccordionHeading>
-                            <AccordionPanel>Not yet.</AccordionPanel>
+                            <AccordionHeading>Can I get my money back?</AccordionHeading>
+                            <AccordionPanel>Absolutely, there is a 14 day money back guarantee. This will also revoke any access to the NPM server.</AccordionPanel>
                         </AccordionItem>
                     </Accordion>
 
