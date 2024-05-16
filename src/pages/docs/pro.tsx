@@ -75,7 +75,7 @@ export default function GettingStarted(props) {
                         '--f-accordion-border-color': 'var(--f-color-accent-400)',
                         '--f-accordion-background': 'var(--f-color-accent-500)',
                         '--f-accordion-color': 'var(--f-color-accent-100)',
-                        '--f-accordion-color-heading': 'var(--f-color-accent-300)',
+                        '--f-accordion-color-heading': 'var(--f-color-accent-100)',
                         '--f-accordion-color-description': 'var(--f-color-accent-300)',
                         '--f-accordion-hover-border-color': 'var(--f-color-accent-400)',
                         '--f-accordion-hover-background-color': 'var(--f-color-accent-400)',
@@ -138,12 +138,28 @@ export default function GettingStarted(props) {
                 </View>
             </View>
         
-
-            <Text as="blockquote">Fold Pro has been developed using React v18.2</Text>
-            <Heading as="h3">Installation</Heading>
+            <Heading as="h3">Getting the Files</Heading>
             <Text>
-                To begin using Fold, you'll need to install it in your project. You can do this via npm or Yarn:
+                After buying a license, you will be added a private Google Group.
+                The Fold Pro source code will be posted there after every release.
             </Text>
+            <Text>
+                <Link 
+                    target="_blank"
+                    href="https://groups.google.com/a/fold.dev/g/early-access">
+                    Google Group link
+                </Link>
+            </Text>
+            <Text>
+                If you have a Pro license and have not been added to the group, 
+                please email Pro support <Link href="mailto:pro@fold.dev">here</Link>.
+            </Text>
+
+            <Heading as="h3">Requirements</Heading>
+
+
+            <Heading as="h3">Installation</Heading>
+
             <CodeComponent
                 showSnippet
                 dontConvert
