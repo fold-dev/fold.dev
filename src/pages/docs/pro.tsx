@@ -24,7 +24,7 @@ export default function GettingStarted(props) {
                 Ready to take your project to the next level? 
             </Heading>
             <Text>
-                Introducing Fold Pro, designed specifically for developers and teams who need components for building exceptional products. Built on the solid foundation of Fold Core.
+                Introducing Fold Pro, built on the foundation of Fold Core, designed specifically for teams who need components for building exceptional products.
             </Text>
             
 
@@ -92,7 +92,7 @@ export default function GettingStarted(props) {
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
-                            <AccordionHeading>Is the Source Code available?</AccordionHeading>
+                            <AccordionHeading>Is the source code available?</AccordionHeading>
                             <AccordionPanel>
                                 The source code will not be available during Early Access. If you have an Enterprise or SaaS license, the source code will be made available once Early Access ends.
                             </AccordionPanel>
@@ -110,23 +110,28 @@ export default function GettingStarted(props) {
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
-                            <AccordionHeading>Does it include future components?</AccordionHeading>
+                            <AccordionHeading>I'm unsure which license applies to me?</AccordionHeading>
                             <AccordionPanel>
-                                If you purchase an Early Access licence, you will get access to any <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2" colorToken="accent-100">Roadmap</Link> items
-                                when they become available.
-                            </AccordionPanel>
-                        </AccordionItem>
-                        <AccordionItem>
-                            <AccordionHeading>Will the price increase after Early Access?</AccordionHeading>
-                            <AccordionPanel>
-                                Yes. The Indie package will increase to 499 USD per developer, Enterprise to 999 USD per developer & SaaS to 3,399 USD per developer.
-                                Please feel free to <Link
+                                To briefly explain the license types: 
+                                Indie is for teams currently building a product that hasn't launched yet, or need to prototype on an idea.
+                                Enterpise is for teams generally inward facing, building apps that do not generate revenue or who do not directly contribute to revenue generation within the company.
+                                SaaS is for teams that have a product that users pay for.
+                                We are more than happy to assist with any questions you may have.
+                                Please <Link
                                     href="licensing@fold.dev"
                                     target="_blank"
                                     fontSize="inherit"
                                     colorToken="accent-100">
                                     email
-                                </Link> us for more information. After the Beta release, there will be another increase - however we have not finalised this.
+                                </Link> us & we'll reply as soon as we can.
+                            </AccordionPanel>
+                        </AccordionItem>
+                    
+{/*                         <AccordionItem>
+                            <AccordionHeading>Does it include future components?</AccordionHeading>
+                            <AccordionPanel>
+                                If you purchase an Early Access licence, you will get access to any <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2" colorToken="accent-100">Roadmap</Link> items
+                                when they become available.
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
@@ -139,7 +144,7 @@ export default function GettingStarted(props) {
                         <AccordionItem>
                             <AccordionHeading>Can I get my money back?</AccordionHeading>
                             <AccordionPanel>Absolutely, there is a 14 day money back guarantee. This will also revoke any access to the NPM server.</AccordionPanel>
-                        </AccordionItem>
+                        </AccordionItem> */}
                     </Accordion>
 
 
