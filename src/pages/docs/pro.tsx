@@ -8,6 +8,7 @@ import { CodeComponent } from '../components/code.component'
 import React from 'react'
 import { GraphicLeft } from '..'
 import * as Token from '@fold-dev/design/tokens'
+import * as data from '@/dummy_data'
 
 export default function GettingStarted(props) {
     return (
