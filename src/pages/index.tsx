@@ -6161,6 +6161,9 @@ function Home() {
                         </List>
                         <Flexer />
                         <Button
+                            as="a"
+                            href="https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?quantity=2" 
+                            className="lemonsqueezy-button"
                             m="1rem 0 0 0"
                             size="xl"
                             width="100%"
@@ -6216,6 +6219,9 @@ function Home() {
                         </List>
                         <Flexer />
                         <Button
+                            as="a"
+                            href="https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?embed=1&discount=0" 
+                            className="lemonsqueezy-button"
                             m="1rem 0 0 0"
                             size="xl"
                             width="100%"
@@ -6277,6 +6283,9 @@ function Home() {
                         </List>
                         <Flexer />
                         <Button
+                            as="a"
+                            href="https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?embed=1&discount=0" 
+                            className="lemonsqueezy-button"
                             m="1rem 0 0 0"
                             size="xl"
                             width="100%"

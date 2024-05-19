@@ -33,6 +33,8 @@ export default function Document() {
 
                 <title>Fold</title>
 
+                <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+
                 <link
                     rel="icon"
                     type="image/png"
