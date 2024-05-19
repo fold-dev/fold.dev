@@ -5754,7 +5754,7 @@ function Home() {
                     alignItems="flex-start"
                     position="relative">
                     <Options
-                        m="0 auto 0rem auto"
+                        m="0 auto 1rem auto"
                         animated
                         position="relative"
                         zIndex={10000}
@@ -5782,13 +5782,10 @@ function Home() {
                     
                     <View
                         width="100%"
-                        height={600}
+                        height="fit-content"
                         position="relative"
                         zIndex={0}>
-
-
-
-                        {/* <Usage /> */}
+                        <Borderless />
                     </View>
                 </View>
             </View>
