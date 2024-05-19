@@ -1,0 +1,333 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { MenuProvider, View } from '@fold-dev/core'
+import React, { useState } from 'react'
+import { Detail, Kanban, KanbanColumnMenu, KanbanSelection, KanbanSwimlaneMenu, KanbanTypes, LabelMenu, Popup, UserMenu, kanbanState } from '@fold-pro/react'
+import * as data from '@/dummy_data'
+
+export const docs = {"title":"Kanban","subtitle":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","description":"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."}
+
+export const props = [{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanAddCard","methods":[],"props":{"onAdd":{"defaultValue":null,"description":"","name":"onAdd","declarations":[{"fileName":"pro/src/kanban/kanban-add-card.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanAddColumn","methods":[],"props":{"onAdd":{"defaultValue":null,"description":"","name":"onAdd","declarations":[{"fileName":"pro/src/kanban/kanban-add-column.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanImage","methods":[],"props":{}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanCardMenuButton","methods":[],"props":{"onMenuClick":{"defaultValue":null,"description":"","name":"onMenuClick","declarations":[{"fileName":"pro/src/kanban/kanban-card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(e: any) => void"},"tags":{}}}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanCard","methods":[],"props":{"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"pro/src/kanban/kanban-card.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"areaId":{"defaultValue":null,"description":"","name":"areaId","declarations":[{"fileName":"pro/src/kanban/kanban-card.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"pro/src/kanban/kanban-card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"hideCheckbox":{"defaultValue":null,"description":"","name":"hideCheckbox","declarations":[{"fileName":"pro/src/kanban/kanban-card.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanColumnHeader","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"name":{"defaultValue":null,"description":"","name":"name","declarations":[{"fileName":"pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"cards":{"defaultValue":null,"description":"","name":"cards","declarations":[{"fileName":"pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"collapsed":{"defaultValue":null,"description":"","name":"collapsed","declarations":[{"fileName":"pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onCollapseToggle":{"defaultValue":null,"description":"","name":"onCollapseToggle","declarations":[{"fileName":"pro/src/kanban/kanban-column-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanColumnMenu","methods":[],"props":{}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanColumn","methods":[],"props":{"swimlaneIndex":{"defaultValue":null,"description":"","name":"swimlaneIndex","declarations":[{"fileName":"pro/src/kanban/kanban-column.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"pro/src/kanban/kanban-column.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanColumns","methods":[],"props":{"linedColumnDrag":{"defaultValue":null,"description":"","name":"linedColumnDrag","declarations":[{"fileName":"pro/src/kanban/kanban-columns.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"columns":{"defaultValue":null,"description":"","name":"columns","declarations":[{"fileName":"pro/src/kanban/kanban-columns.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Column[]"},"tags":{}},"swimlaneId":{"defaultValue":null,"description":"","name":"swimlaneId","declarations":[{"fileName":"pro/src/kanban/kanban-columns.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"swimlaneIndex":{"defaultValue":null,"description":"","name":"swimlaneIndex","declarations":[{"fileName":"pro/src/kanban/kanban-columns.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}}}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanSwimlaneHeader","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"description":{"defaultValue":null,"description":"","name":"description","declarations":[{"fileName":"pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"collapsed":{"defaultValue":null,"description":"","name":"collapsed","declarations":[{"fileName":"pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}},"onCollapse":{"defaultValue":null,"description":"","name":"onCollapse","declarations":[{"fileName":"pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onTitleChange":{"defaultValue":null,"description":"","name":"onTitleChange","declarations":[{"fileName":"pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onMenuClick":{"defaultValue":null,"description":"","name":"onMenuClick","declarations":[{"fileName":"pro/src/kanban/kanban-swimlane-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanSwimlaneMenu","methods":[],"props":{}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanSwimlane","methods":[],"props":{"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"pro/src/kanban/kanban-swimlane.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"linedColumnDrag":{"defaultValue":null,"description":"","name":"linedColumnDrag","declarations":[{"fileName":"pro/src/kanban/kanban-swimlane.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanSwimlanes","methods":[],"props":{"swimlanes":{"defaultValue":null,"description":"","name":"swimlanes","declarations":[{"fileName":"pro/src/kanban/kanban-swimlanes.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Swimlane[]"},"tags":{}}}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"KanbanProvider","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"},{"fileName":"pro/src/kanban/kanban.types.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"defaultInteraction":{"defaultValue":null,"description":"","name":"defaultInteraction","declarations":[{"fileName":"pro/src/kanban/kanban.provider.tsx","name":"TypeLiteral"},{"fileName":"pro/src/kanban/kanban.types.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"\"animated\" | \"lined\""},"tags":{}}}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"Kanban","methods":[],"props":{}},{"tags":{},"filePath":"src/kanban/index.ts","description":"Get the column & swimlane index from the id","displayName":"getColumnAndSwimlaneIndex","methods":[],"props":{}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"getCustomColumnGhostElement","methods":[],"props":{}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"getCustomSwimlaneGhostElement","methods":[],"props":{}},{"tags":{},"filePath":"src/kanban/index.ts","description":"","displayName":"kanbanState","methods":[],"props":{}}]
+
+export const css = [[["--f-kanban-padding","0.5rem"],["--f-kanban-background","var(--f-color-surface)"],["--f-kanban-add-background","transparent"]],[["--f-kanban-swimlane-minheight","100%"],["--f-kanban-swimlane-color","var(--f-color-text-weak)"],["--f-kanban-swimlane-color-background","var(--f-color-surface-stronger)"],["--f-kanban-swimlane-border-radius","var(--f-radius)"],["--f-kanban-swimlane-border","1px solid var(--f-color-border)"],["--f-kanban-swimlane-padding","var(--f-space-4)"],["--f-kanban-swimlane-collapse-icon-width","3px"],["--f-kanban-swimlane-gap","4px"]],[["--f-kanban-column-header-padding","0 0.25rem"],["--f-kanban-column-width","300px"],["--f-kanban-column-border","1px solid var(--f-color-border)"],["--f-kanban-column-outer-padding","0 2px"],["--f-kanban-column-padding","1rem 0.75rem"],["--f-kanban-column-background"," var(--f-color-surface-strong)"],["--f-kanban-column-background-hover","var(--f-color-surface-stronger)"],["--f-kanban-column-header-spacing","0.5rem"],["--f-kanban-column-header-color","var(--f-color-text-weak)"],["--f-kanban-column-description-color","var(--f-color-text-weaker)"],["--f-kanban-column-footer-padding","0.35rem 0 0 0"],["--f-kanban-column-footer-background","var(--f-color-surface-strong)"],["--f-kanban-column-radius","var(--f-radius)"]],[["--f-kanban-column-placeholder-background","var(--f-color-surface-stronger)"],["--f-kanban-column-placeholder-radius","var(--f-radius)"],["--f-kanban-column-placeholder-border","none"],["--f-kanban-column-placeholder-outline","none"],["--f-kanban-column-placeholder-margin","0"]],[["--f-kanban-add-column-margin","2px 20px 0px 5px"]],[["--f-kanban-card-background","var(--f-color-surface)"],["--f-kanban-card-bottom-border","3px"],["--f-kanban-card-border","var(--f-kanban-card-bottom-border) solid var(--f-color-border)"],["--f-kanban-card-border-hover","2px solid var(--f-color-border)"],["--f-kanban-card-radius","var(--f-radius)"],["--f-kanban-card-spacing-bottom","0.25rem"],["--f-kanban-card-padding","0.75rem"],["--f-kanban-card-image-padding","0"],["--f-kanban-card-content-gap","var(--f-size-2)"],["--f-kanban-card-text-gap","var(--f-size-2)"],["--f-kanban-card-text-padding","2px 0 0 0"],["--f-kanban-card-gap","1rem"],["--f-kanban-card-panel-padding","0"],["--f-kanban-card-panel-gap","0.35rem"],["--f-kanban-card-color-size","0.25rem"],["--f-kanban-card-select-color","var(--f-color-accent)"],["--f-kanban-card-select-width","0.2rem"]],[["--f-kanban-card-menu-background","var(--f-color-surface)"],["--f-kanban-card-menu-x","0.75rem"],["--f-kanban-card-menu-y","0.55rem"],["--f-kanban-card-menu-hover","var(--f-color-surface-strong)"],["--f-kanban-card-menu-color","var(--f-color-text-weaker)"]]]
+
+
+
+<CodeComponent filename="kanban.tsx" code="aW1wb3J0IHsKICBLYW5iYW5BZGRDYXJkLAogIEthbmJhbkFkZENvbHVtbiwKICBLYW5iYW5JbWFnZSwKICBLYW5iYW5DYXJkTWVudUJ1dHRvbiwKICBLYW5iYW5DYXJkLAogIEthbmJhbkNvbHVtbkhlYWRlciwKICBLYW5iYW5Db2x1bW5NZW51LAogIEthbmJhbkNvbHVtbiwKICBLYW5iYW5Db2x1bW5zLAogIEthbmJhblN3aW1sYW5lSGVhZGVyLAogIEthbmJhblN3aW1sYW5lTWVudSwKICBLYW5iYW5Td2ltbGFuZSwKICBLYW5iYW5Td2ltbGFuZXMsCiAgS2FuYmFuUHJvdmlkZXIsCiAgS2FuYmFuLAogIGdldENvbHVtbkFuZFN3aW1sYW5lSW5kZXgsCiAgZ2V0Q3VzdG9tQ29sdW1uR2hvc3RFbGVtZW50LAogIGdldEN1c3RvbVN3aW1sYW5lR2hvc3RFbGVtZW50LAogIGthbmJhblN0YXRlLAp9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import {
+  KanbanAddCard,
+  KanbanAddColumn,
+  KanbanImage,
+  KanbanCardMenuButton,
+  KanbanCard,
+  KanbanColumnHeader,
+  KanbanColumnMenu,
+  KanbanColumn,
+  KanbanColumns,
+  KanbanSwimlaneHeader,
+  KanbanSwimlaneMenu,
+  KanbanSwimlane,
+  KanbanSwimlanes,
+  KanbanProvider,
+  Kanban,
+  getColumnAndSwimlaneIndex,
+  getCustomColumnGhostElement,
+  getCustomSwimlaneGhostElement,
+  kanbanState,
+} from "@fold-dev/core";
+```
+
+### Usage
+
+export const Usage = () => {
+    const [swimlanes, setSwimlanes] = useState([data.swimlanes[0]]);
+    const [card, setCard] = useState({});
+    const handleCardMove = ({ origin, target }, selection) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardMove({ origin, target }, selection);
+    };
+    const handleColumnMove = ({ origin, target }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnMove({ origin, target });
+    };
+    const handleSwimlaneMove = ({ origin, target }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneMove({ origin, target });
+    };
+    const handleCardOpen = (card) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardOpen(card);
+    };
+    const handleCardAdd = ({ value, swimlaneIndex, columnIndex }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardAdd({ value, swimlaneIndex, columnIndex });
+    };
+    const handleCardUpdate = (ca) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardUpdate(ca);
+    };
+    const handleCardDelete = (ca) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardDelete(ca);
+    };
+    const handleColumnAdd = ({ value, swimlaneIndex }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnAdd({ value, swimlaneIndex });
+    };
+    const handleColumnUpdate = (col) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnUpdate(col);
+    };
+    const handleColumnDelete = (col) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnDelete(col);
+    };
+    const handleSwimlaneUpdate = (sl) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneUpdate(sl);
+    };
+    const handleSwimlaneDelete = (sl) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneDelete(sl);
+    };
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        switch (target) {
+            case 'kanban-label':
+                return (<LabelMenu onFilter={(value) => console.log('filter', value)} availableLabels={data.availableLabels} labels={payload.labels} onCancel={dismiss} onSave={(labels) => {
+                        handleCardUpdate({ ...payload, labels });
+                        dismiss();
+                    }}/>);
+            case 'kanban-user':
+                return (<UserMenu onFilter={(value) => console.log('filter', value)} availableUsers={data.availableUsers} users={payload.users} onCancel={dismiss} onSave={(users) => {
+                        handleCardUpdate({ ...payload, users });
+                        dismiss();
+                    }}/>);
+            case 'kanban-menu':
+                return (<Popup colorPalette={data.colorPalette} item={payload} onCancel={dismiss} onSave={(card) => {
+                        dismiss();
+                        handleCardUpdate({ ...payload, ...card });
+                    }} onView={() => {
+                        dismiss();
+                        setCard(payload);
+                    }} onDelete={() => {
+                        dismiss();
+                        handleCardDelete(payload);
+                    }}/>);
+            case 'kanban-column':
+                return (<KanbanColumnMenu colorPalette={data.colorPalette} onSave={(column) => {
+                        handleColumnUpdate({ ...payload, ...column });
+                        dismiss();
+                    }} onDelete={() => {
+                        handleColumnDelete(payload);
+                        dismiss();
+                    }} column={payload}/>);
+            case 'kanban-swimlane':
+                return (<KanbanSwimlaneMenu colorPalette={data.colorPalette} onSave={(swimlane) => {
+                        handleSwimlaneUpdate({ ...payload, ...swimlane });
+                        dismiss();
+                    }} onDelete={() => {
+                        handleSwimlaneDelete(payload);
+                        dismiss();
+                    }} swimlane={payload}/>);
+            default:
+                return null;
+        }
+    };
+    return (<View width="100%" height={1000}>
+            {!!card.id && (<Detail colorPalette={data.colorPalette} availableLabels={data.availableLabels} availableUsers={data.availableUsers} item={card} onCancel={() => setCard({})} onSave={(card) => {
+                handleCardUpdate(card);
+                setCard({});
+            }} onDelete={(card) => {
+                handleCardDelete(card);
+                setCard({});
+            }}/>)}
+
+            <MenuProvider menu={getMenu}>
+                <Kanban style={{ '--f-kanban-swimlane-minheight': '100%' }} swimlanes={swimlanes} onCardOpen={handleCardOpen} onCardAdd={handleCardAdd} onCardMove={handleCardMove} onColumnAdd={handleColumnAdd} onColumnMove={handleColumnMove} onSwimlaneMove={handleSwimlaneMove} onColumnUpdate={handleColumnUpdate} onSwimlaneUpdate={handleSwimlaneUpdate} editableColumnName={true} showColumnCount={true} hideCheckbox={false} collapsibleColumn={true} targetVariant={{ cards: 'animated', nav: 'focus' }} card={undefined} columnHeader={undefined} swimlaneHeader={undefined}/>
+            </MenuProvider>
+        </View>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3N3aW1sYW5lcywgc2V0U3dpbWxhbmVzXSA9IHVzZVN0YXRlPEthbmJhblR5cGVzLlN3aW1sYW5lW10+KFtkYXRhLnN3aW1sYW5lc1swXV0pCiAgICBjb25zdCBbY2FyZCwgc2V0Q2FyZF0gPSB1c2VTdGF0ZTxhbnk+KHt9KQoKICAgIGNvbnN0IGhhbmRsZUNhcmRNb3ZlID0gKHsgb3JpZ2luLCB0YXJnZXQgfSwgc2VsZWN0aW9uOiBLYW5iYW5TZWxlY3Rpb25bXSkgPT4gewogICAgICAgIGthbmJhblN0YXRlKHsgc3dpbWxhbmVzLCBzZXRTd2ltbGFuZXMsIGNhcmQsIHNldENhcmQgfSkuaGFuZGxlQ2FyZE1vdmUoeyBvcmlnaW4sIHRhcmdldCB9LCBzZWxlY3Rpb24pCiAgICB9CgogICAgY29uc3QgaGFuZGxlQ29sdW1uTW92ZSA9ICh7IG9yaWdpbiwgdGFyZ2V0IH0pID0+IHsKICAgICAgICBrYW5iYW5TdGF0ZSh7IHN3aW1sYW5lcywgc2V0U3dpbWxhbmVzLCBjYXJkLCBzZXRDYXJkIH0pLmhhbmRsZUNvbHVtbk1vdmUoeyBvcmlnaW4sIHRhcmdldCB9KQogICAgfQoKICAgIGNvbnN0IGhhbmRsZVN3aW1sYW5lTW92ZSA9ICh7IG9yaWdpbiwgdGFyZ2V0IH0pID0+IHsKICAgICAgICBrYW5iYW5TdGF0ZSh7IHN3aW1sYW5lcywgc2V0U3dpbWxhbmVzLCBjYXJkLCBzZXRDYXJkIH0pLmhhbmRsZVN3aW1sYW5lTW92ZSh7IG9yaWdpbiwgdGFyZ2V0IH0pCiAgICB9CgogICAgY29uc3QgaGFuZGxlQ2FyZE9wZW4gPSAoY2FyZCkgPT4gewogICAgICAgIGthbmJhblN0YXRlKHsgc3dpbWxhbmVzLCBzZXRTd2ltbGFuZXMsIGNhcmQsIHNldENhcmQgfSkuaGFuZGxlQ2FyZE9wZW4oY2FyZCkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVDYXJkQWRkID0gKHsgdmFsdWUsIHN3aW1sYW5lSW5kZXgsIGNvbHVtbkluZGV4IH0pID0+IHsKICAgICAgICBrYW5iYW5TdGF0ZSh7IHN3aW1sYW5lcywgc2V0U3dpbWxhbmVzLCBjYXJkLCBzZXRDYXJkIH0pLmhhbmRsZUNhcmRBZGQoeyB2YWx1ZSwgc3dpbWxhbmVJbmRleCwgY29sdW1uSW5kZXggfSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVDYXJkVXBkYXRlID0gKGNhKSA9PiB7CiAgICAgICAga2FuYmFuU3RhdGUoeyBzd2ltbGFuZXMsIHNldFN3aW1sYW5lcywgY2FyZCwgc2V0Q2FyZCB9KS5oYW5kbGVDYXJkVXBkYXRlKGNhKQogICAgfQoKICAgIGNvbnN0IGhhbmRsZUNhcmREZWxldGUgPSAoY2EpID0+IHsKICAgICAgICBrYW5iYW5TdGF0ZSh7IHN3aW1sYW5lcywgc2V0U3dpbWxhbmVzLCBjYXJkLCBzZXRDYXJkIH0pLmhhbmRsZUNhcmREZWxldGUoY2EpCiAgICB9CgogICAgY29uc3QgaGFuZGxlQ29sdW1uQWRkID0gKHsgdmFsdWUsIHN3aW1sYW5lSW5kZXggfSkgPT4gewogICAgICAgIGthbmJhblN0YXRlKHsgc3dpbWxhbmVzLCBzZXRTd2ltbGFuZXMsIGNhcmQsIHNldENhcmQgfSkuaGFuZGxlQ29sdW1uQWRkKHsgdmFsdWUsIHN3aW1sYW5lSW5kZXggfSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVDb2x1bW5VcGRhdGUgPSAoY29sKSA9PiB7CiAgICAgICAga2FuYmFuU3RhdGUoeyBzd2ltbGFuZXMsIHNldFN3aW1sYW5lcywgY2FyZCwgc2V0Q2FyZCB9KS5oYW5kbGVDb2x1bW5VcGRhdGUoY29sKQogICAgfQoKICAgIGNvbnN0IGhhbmRsZUNvbHVtbkRlbGV0ZSA9IChjb2wpID0+IHsKICAgICAgICBrYW5iYW5TdGF0ZSh7IHN3aW1sYW5lcywgc2V0U3dpbWxhbmVzLCBjYXJkLCBzZXRDYXJkIH0pLmhhbmRsZUNvbHVtbkRlbGV0ZShjb2wpCiAgICB9CgogICAgY29uc3QgaGFuZGxlU3dpbWxhbmVVcGRhdGUgPSAoc2wpID0+IHsKICAgICAgICBrYW5iYW5TdGF0ZSh7IHN3aW1sYW5lcywgc2V0U3dpbWxhbmVzLCBjYXJkLCBzZXRDYXJkIH0pLmhhbmRsZVN3aW1sYW5lVXBkYXRlKHNsKQogICAgfQoKICAgIGNvbnN0IGhhbmRsZVN3aW1sYW5lRGVsZXRlID0gKHNsKSA9PiB7CiAgICAgICAga2FuYmFuU3RhdGUoeyBzd2ltbGFuZXMsIHNldFN3aW1sYW5lcywgY2FyZCwgc2V0Q2FyZCB9KS5oYW5kbGVTd2ltbGFuZURlbGV0ZShzbCkKICAgIH0KCiAgICBjb25zdCBnZXRNZW51ID0gKHsgZGF0YTogeyB0YXJnZXQsIHBheWxvYWQgfSwgZGlzbWlzcyB9KSA9PiB7CiAgICAgICAgc3dpdGNoICh0YXJnZXQpIHsKICAgICAgICAgICAgY2FzZSAna2FuYmFuLWxhYmVsJzoKICAgICAgICAgICAgICAgIHJldHVybiAoCiAgICAgICAgICAgICAgICAgICAgPExhYmVsTWVudQogICAgICAgICAgICAgICAgICAgICAgICBvbkZpbHRlcj17KHZhbHVlKSA9PiBjb25zb2xlLmxvZygnZmlsdGVyJywgdmFsdWUpfQogICAgICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVMYWJlbHM9e2RhdGEuYXZhaWxhYmxlTGFiZWxzfQogICAgICAgICAgICAgICAgICAgICAgICBsYWJlbHM9e3BheWxvYWQubGFiZWxzfQogICAgICAgICAgICAgICAgICAgICAgICBvbkNhbmNlbD17ZGlzbWlzc30KICAgICAgICAgICAgICAgICAgICAgICAgb25TYXZlPXsobGFiZWxzKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVDYXJkVXBkYXRlKHsgLi4ucGF5bG9hZCwgbGFiZWxzIH0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgKQogICAgICAgICAgICBjYXNlICdrYW5iYW4tdXNlcic6CiAgICAgICAgICAgICAgICByZXR1cm4gKAogICAgICAgICAgICAgICAgICAgIDxVc2VyTWVudQogICAgICAgICAgICAgICAgICAgICAgICBvbkZpbHRlcj17KHZhbHVlKSA9PiBjb25zb2xlLmxvZygnZmlsdGVyJywgdmFsdWUpfQogICAgICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVVc2Vycz17ZGF0YS5hdmFpbGFibGVVc2Vyc30KICAgICAgICAgICAgICAgICAgICAgICAgdXNlcnM9e3BheWxvYWQudXNlcnN9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXtkaXNtaXNzfQogICAgICAgICAgICAgICAgICAgICAgICBvblNhdmU9eyh1c2VycykgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlQ2FyZFVwZGF0ZSh7IC4uLnBheWxvYWQsIHVzZXJzIH0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgKQogICAgICAgICAgICBjYXNlICdrYW5iYW4tbWVudSc6CiAgICAgICAgICAgICAgICByZXR1cm4gKAogICAgICAgICAgICAgICAgICAgIDxQb3B1cAogICAgICAgICAgICAgICAgICAgICAgICBjb2xvclBhbGV0dGU9e2RhdGEuY29sb3JQYWxldHRlfQogICAgICAgICAgICAgICAgICAgICAgICBpdGVtPXtwYXlsb2FkfQogICAgICAgICAgICAgICAgICAgICAgICBvbkNhbmNlbD17ZGlzbWlzc30KICAgICAgICAgICAgICAgICAgICAgICAgb25TYXZlPXsoY2FyZCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVDYXJkVXBkYXRlKHsgLi4ucGF5bG9hZCwgLi4uY2FyZCB9KQogICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICBvblZpZXc9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0Q2FyZChwYXlsb2FkKQogICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICBvbkRlbGV0ZT17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVDYXJkRGVsZXRlKHBheWxvYWQpCiAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgY2FzZSAna2FuYmFuLWNvbHVtbic6CiAgICAgICAgICAgICAgICByZXR1cm4gKAogICAgICAgICAgICAgICAgICAgIDxLYW5iYW5Db2x1bW5NZW51CiAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yUGFsZXR0ZT17ZGF0YS5jb2xvclBhbGV0dGV9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uU2F2ZT17KGNvbHVtbikgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlQ29sdW1uVXBkYXRlKHsgLi4ucGF5bG9hZCwgLi4uY29sdW1uIH0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgb25EZWxldGU9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZUNvbHVtbkRlbGV0ZShwYXlsb2FkKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIGNvbHVtbj17cGF5bG9hZH0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgKQogICAgICAgICAgICBjYXNlICdrYW5iYW4tc3dpbWxhbmUnOgogICAgICAgICAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgICAgICAgICA8S2FuYmFuU3dpbWxhbmVNZW51CiAgICAgICAgICAgICAgICAgICAgICAgIGNvbG9yUGFsZXR0ZT17ZGF0YS5jb2xvclBhbGV0dGV9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uU2F2ZT17KHN3aW1sYW5lKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVTd2ltbGFuZVVwZGF0ZSh7IC4uLnBheWxvYWQsIC4uLnN3aW1sYW5lIH0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgb25EZWxldGU9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZVN3aW1sYW5lRGVsZXRlKHBheWxvYWQpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgc3dpbWxhbmU9e3BheWxvYWR9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgZGVmYXVsdDoKICAgICAgICAgICAgICAgIHJldHVybiBudWxsCiAgICAgICAgfQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcKICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgIGhlaWdodD17MTAwMH0+CiAgICAgICAgICAgIHshIWNhcmQuaWQgJiYgKAogICAgICAgICAgICAgICAgPERldGFpbAogICAgICAgICAgICAgICAgICAgIGNvbG9yUGFsZXR0ZT17ZGF0YS5jb2xvclBhbGV0dGV9CiAgICAgICAgICAgICAgICAgICAgYXZhaWxhYmxlTGFiZWxzPXtkYXRhLmF2YWlsYWJsZUxhYmVsc30KICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVVc2Vycz17ZGF0YS5hdmFpbGFibGVVc2Vyc30KICAgICAgICAgICAgICAgICAgICBpdGVtPXtjYXJkfQogICAgICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXsoKSA9PiBzZXRDYXJkKHt9KX0KICAgICAgICAgICAgICAgICAgICBvblNhdmU9eyhjYXJkKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZUNhcmRVcGRhdGUoY2FyZCkKICAgICAgICAgICAgICAgICAgICAgICAgc2V0Q2FyZCh7fSkKICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgIG9uRGVsZXRlPXsoY2FyZCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVDYXJkRGVsZXRlKGNhcmQpCiAgICAgICAgICAgICAgICAgICAgICAgIHNldENhcmQoe30pCiAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICl9CgogICAgICAgICAgICA8TWVudVByb3ZpZGVyIG1lbnU9e2dldE1lbnV9PgogICAgICAgICAgICAgICAgPEthbmJhbgogICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgIHN0eWxlPXt7ICctLWYta2FuYmFuLXN3aW1sYW5lLW1pbmhlaWdodCc6ICcxMDAlJyB9fQogICAgICAgICAgICAgICAgICAgIHN3aW1sYW5lcz17c3dpbWxhbmVzfQogICAgICAgICAgICAgICAgICAgIG9uQ2FyZE9wZW49e2hhbmRsZUNhcmRPcGVufQogICAgICAgICAgICAgICAgICAgIG9uQ2FyZEFkZD17aGFuZGxlQ2FyZEFkZH0KICAgICAgICAgICAgICAgICAgICBvbkNhcmRNb3ZlPXtoYW5kbGVDYXJkTW92ZX0KICAgICAgICAgICAgICAgICAgICBvbkNvbHVtbkFkZD17aGFuZGxlQ29sdW1uQWRkfQogICAgICAgICAgICAgICAgICAgIG9uQ29sdW1uTW92ZT17aGFuZGxlQ29sdW1uTW92ZX0KICAgICAgICAgICAgICAgICAgICBvblN3aW1sYW5lTW92ZT17aGFuZGxlU3dpbWxhbmVNb3ZlfQogICAgICAgICAgICAgICAgICAgIG9uQ29sdW1uVXBkYXRlPXtoYW5kbGVDb2x1bW5VcGRhdGV9CiAgICAgICAgICAgICAgICAgICAgb25Td2ltbGFuZVVwZGF0ZT17aGFuZGxlU3dpbWxhbmVVcGRhdGV9CiAgICAgICAgICAgICAgICAgICAgZWRpdGFibGVDb2x1bW5OYW1lPXt0cnVlfQogICAgICAgICAgICAgICAgICAgIHNob3dDb2x1bW5Db3VudD17dHJ1ZX0KICAgICAgICAgICAgICAgICAgICBoaWRlQ2hlY2tib3g9e2ZhbHNlfQogICAgICAgICAgICAgICAgICAgIGNvbGxhcHNpYmxlQ29sdW1uPXt0cnVlfQogICAgICAgICAgICAgICAgICAgIHRhcmdldFZhcmlhbnQ9e3sgY2FyZHM6ICdhbmltYXRlZCcsIG5hdjogJ2ZvY3VzJyB9fQogICAgICAgICAgICAgICAgICAgIGNhcmQ9e3VuZGVmaW5lZH0KICAgICAgICAgICAgICAgICAgICBjb2x1bW5IZWFkZXI9e3VuZGVmaW5lZH0KICAgICAgICAgICAgICAgICAgICBzd2ltbGFuZUhlYWRlcj17dW5kZWZpbmVkfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9NZW51UHJvdmlkZXI+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const Usage = () => {
+    const [swimlanes, setSwimlanes] = useState<KanbanTypes.Swimlane[]>([data.swimlanes[0]])
+    const [card, setCard] = useState<any>({})
+
+    const handleCardMove = ({ origin, target }, selection: KanbanSelection[]) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardMove({ origin, target }, selection)
+    }
+
+    const handleColumnMove = ({ origin, target }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnMove({ origin, target })
+    }
+
+    const handleSwimlaneMove = ({ origin, target }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneMove({ origin, target })
+    }
+
+    const handleCardOpen = (card) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardOpen(card)
+    }
+
+    const handleCardAdd = ({ value, swimlaneIndex, columnIndex }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardAdd({ value, swimlaneIndex, columnIndex })
+    }
+
+    const handleCardUpdate = (ca) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardUpdate(ca)
+    }
+
+    const handleCardDelete = (ca) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardDelete(ca)
+    }
+
+    const handleColumnAdd = ({ value, swimlaneIndex }) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnAdd({ value, swimlaneIndex })
+    }
+
+    const handleColumnUpdate = (col) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnUpdate(col)
+    }
+
+    const handleColumnDelete = (col) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleColumnDelete(col)
+    }
+
+    const handleSwimlaneUpdate = (sl) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneUpdate(sl)
+    }
+
+    const handleSwimlaneDelete = (sl) => {
+        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleSwimlaneDelete(sl)
+    }
+
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        switch (target) {
+            case 'kanban-label':
+                return (
+                    <LabelMenu
+                        onFilter={(value) => console.log('filter', value)}
+                        availableLabels={data.availableLabels}
+                        labels={payload.labels}
+                        onCancel={dismiss}
+                        onSave={(labels) => {
+                            handleCardUpdate({ ...payload, labels })
+                            dismiss()
+                        }}
+                    />
+                )
+            case 'kanban-user':
+                return (
+                    <UserMenu
+                        onFilter={(value) => console.log('filter', value)}
+                        availableUsers={data.availableUsers}
+                        users={payload.users}
+                        onCancel={dismiss}
+                        onSave={(users) => {
+                            handleCardUpdate({ ...payload, users })
+                            dismiss()
+                        }}
+                    />
+                )
+            case 'kanban-menu':
+                return (
+                    <Popup
+                        colorPalette={data.colorPalette}
+                        item={payload}
+                        onCancel={dismiss}
+                        onSave={(card) => {
+                            dismiss()
+                            handleCardUpdate({ ...payload, ...card })
+                        }}
+                        onView={() => {
+                            dismiss()
+                            setCard(payload)
+                        }}
+                        onDelete={() => {
+                            dismiss()
+                            handleCardDelete(payload)
+                        }}
+                    />
+                )
+            case 'kanban-column':
+                return (
+                    <KanbanColumnMenu
+                        colorPalette={data.colorPalette}
+                        onSave={(column) => {
+                            handleColumnUpdate({ ...payload, ...column })
+                            dismiss()
+                        }}
+                        onDelete={() => {
+                            handleColumnDelete(payload)
+                            dismiss()
+                        }}
+                        column={payload}
+                    />
+                )
+            case 'kanban-swimlane':
+                return (
+                    <KanbanSwimlaneMenu
+                        colorPalette={data.colorPalette}
+                        onSave={(swimlane) => {
+                            handleSwimlaneUpdate({ ...payload, ...swimlane })
+                            dismiss()
+                        }}
+                        onDelete={() => {
+                            handleSwimlaneDelete(payload)
+                            dismiss()
+                        }}
+                        swimlane={payload}
+                    />
+                )
+            default:
+                return null
+        }
+    }
+
+    return (
+        <View
+            width="100%"
+            height={1000}>
+            {!!card.id && (
+                <Detail
+                    colorPalette={data.colorPalette}
+                    availableLabels={data.availableLabels}
+                    availableUsers={data.availableUsers}
+                    item={card}
+                    onCancel={() => setCard({})}
+                    onSave={(card) => {
+                        handleCardUpdate(card)
+                        setCard({})
+                    }}
+                    onDelete={(card) => {
+                        handleCardDelete(card)
+                        setCard({})
+                    }}
+                />
+            )}
+
+            <MenuProvider menu={getMenu}>
+                <Kanban
+                    
+                    style={{ '--f-kanban-swimlane-minheight': '100%' }}
+                    swimlanes={swimlanes}
+                    onCardOpen={handleCardOpen}
+                    onCardAdd={handleCardAdd}
+                    onCardMove={handleCardMove}
+                    onColumnAdd={handleColumnAdd}
+                    onColumnMove={handleColumnMove}
+                    onSwimlaneMove={handleSwimlaneMove}
+                    onColumnUpdate={handleColumnUpdate}
+                    onSwimlaneUpdate={handleSwimlaneUpdate}
+                    editableColumnName={true}
+                    showColumnCount={true}
+                    hideCheckbox={false}
+                    collapsibleColumn={true}
+                    targetVariant={{ cards: 'animated', nav: 'focus' }}
+                    card={undefined}
+                    columnHeader={undefined}
+                    swimlaneHeader={undefined}
+                />
+            </MenuProvider>
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

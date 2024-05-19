@@ -1,0 +1,1064 @@
+import { CodeComponent } from '@/pages/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import {
+    Badge,
+    Button,
+    Card,
+    IconLib,
+    Input,
+    InputControl,
+    InputSuffix,
+    pad,
+    Popover,
+    Stack,
+    Text,
+    useVisibility,
+    View,
+} from '@fold-dev/core'
+import React, { useMemo, useRef, useState } from 'react'
+import {
+    DateCell,
+    DatePicker,
+    DatePickerMonth,
+    DateRangeProvider,
+    MonthPicker,
+    ScrollingDatePicker,
+    TimePicker,
+    useScrollingDatePicker,
+    YearPicker,
+} from './'
+import { DatePickerWeekdays } from './date-picker-weekdays'
+
+export const docs = {"title":"Date Time","subtitle":"Date Time components offer highly versatile options for displaying and inputting dates.","description":"Date and Time components serve as fundamental elements for creating a wide range of date input controls, adapting to various requirements. While date elements can function on their own, their value is enhanced when incorporated within a DateRange context."}
+
+export const props = [{"tags":{},"filePath":"src/date-picker/index.ts","description":"","displayName":"DateCell","methods":[],"props":{"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"pro/src/date-picker/date-cell.tsx","name":"TypeLiteral"},{"fileName":"packages/core/dist/types/index.d.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"unavailable":{"defaultValue":null,"description":"","name":"unavailable","declarations":[{"fileName":"pro/src/date-picker/date-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"pro/src/date-picker/date-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"today":{"defaultValue":null,"description":"","name":"today","declarations":[{"fileName":"pro/src/date-picker/date-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"pending":{"defaultValue":null,"description":"","name":"pending","declarations":[{"fileName":"pro/src/date-picker/date-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"pendingStart":{"defaultValue":null,"description":"","name":"pendingStart","declarations":[{"fileName":"pro/src/date-picker/date-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"pendingEnd":{"defaultValue":null,"description":"","name":"pendingEnd","declarations":[{"fileName":"pro/src/date-picker/date-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"weekend":{"defaultValue":null,"description":"","name":"weekend","declarations":[{"fileName":"pro/src/date-picker/date-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"start":{"defaultValue":null,"description":"","name":"start","declarations":[{"fileName":"pro/src/date-picker/date-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"end":{"defaultValue":null,"description":"","name":"end","declarations":[{"fileName":"pro/src/date-picker/date-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"src/date-picker/index.ts","description":"","displayName":"DatePickerMonth","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"pro/src/date-picker/date-picker-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"selectWeek":{"defaultValue":null,"description":"","name":"selectWeek","declarations":[{"fileName":"pro/src/date-picker/date-picker-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"selection":{"defaultValue":null,"description":"","name":"selection","declarations":[{"fileName":"pro/src/date-picker/date-picker-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"DateSelection[]"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"pro/src/date-picker/date-picker-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"DateSelection[]"},"tags":{}},"weekendDays":{"defaultValue":null,"description":"","name":"weekendDays","declarations":[{"fileName":"pro/src/date-picker/date-picker-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number[]"},"tags":{}},"date":{"defaultValue":null,"description":"","name":"date","declarations":[{"fileName":"pro/src/date-picker/date-picker-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Date"},"tags":{}},"offsetDays":{"defaultValue":null,"description":"","name":"offsetDays","declarations":[{"fileName":"pro/src/date-picker/date-picker-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"renderDay":{"defaultValue":null,"description":"","name":"renderDay","declarations":[{"fileName":"pro/src/date-picker/date-picker-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"pro/src/date-picker/date-picker-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"dateCellProps":{"defaultValue":null,"description":"","name":"dateCellProps","declarations":[{"fileName":"pro/src/date-picker/date-picker-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ disabled?: boolean; unavailable?: boolean; selected?: boolean; today?: boolean; pending?: boolean; pendingStart?: boolean; pendingEnd?: boolean; weekend?: boolean; start?: boolean; end?: boolean; } & { ...; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<...>"},"tags":{}}}},{"tags":{},"filePath":"src/date-picker/index.ts","description":"","displayName":"DatePickerWeekdays","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"pro/src/date-picker/date-picker-weekdays.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"weekdays":{"defaultValue":null,"description":"","name":"weekdays","declarations":[{"fileName":"pro/src/date-picker/date-picker-weekdays.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string[]"},"tags":{}}}},{"tags":{},"filePath":"src/date-picker/index.ts","description":"","displayName":"DatePicker","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"selectWeek":{"defaultValue":null,"description":"","name":"selectWeek","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"selection":{"defaultValue":null,"description":"","name":"selection","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"DateSelection[]"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"DateSelection[]"},"tags":{}},"weekendDays":{"defaultValue":null,"description":"","name":"weekendDays","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number[]"},"tags":{}},"weekdays":{"defaultValue":null,"description":"","name":"weekdays","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string[]"},"tags":{}},"defaultDate":{"defaultValue":null,"description":"","name":"defaultDate","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"offsetDays":{"defaultValue":null,"description":"","name":"offsetDays","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"renderDay":{"defaultValue":null,"description":"","name":"renderDay","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"dateCellProps":{"defaultValue":null,"description":"","name":"dateCellProps","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ disabled?: boolean; unavailable?: boolean; selected?: boolean; today?: boolean; pending?: boolean; pendingStart?: boolean; pendingEnd?: boolean; weekend?: boolean; start?: boolean; end?: boolean; } & { ...; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<...>"},"tags":{}},"yearAmount":{"defaultValue":null,"description":"","name":"yearAmount","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"defaultLevel":{"defaultValue":null,"description":"","name":"defaultLevel","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"days\" | \"months\" | \"years\""},"tags":{}},"lockLevel":{"defaultValue":null,"description":"","name":"lockLevel","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"panels":{"defaultValue":null,"description":"","name":"panels","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"weekdaysProps":{"defaultValue":null,"description":"","name":"weekdaysProps","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ size?: Size; weekdays?: string[]; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any>"},"tags":{}},"monthProps":{"defaultValue":null,"description":"","name":"monthProps","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Omit<DatePickerMonthProps, \"date\">"},"tags":{}},"monthsProps":{"defaultValue":null,"description":"","name":"monthsProps","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Omit<MonthPickerProps, \"date\">"},"tags":{}},"yearsProps":{"defaultValue":null,"description":"","name":"yearsProps","declarations":[{"fileName":"pro/src/date-picker/date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Omit<YearPickerProps, \"date\">"},"tags":{}}}},{"tags":{},"filePath":"src/date-picker/index.ts","description":"","displayName":"DateRangeProvider","methods":[],"props":{}},{"tags":{},"filePath":"src/date-picker/index.ts","description":"","displayName":"MonthPicker","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"pro/src/date-picker/month-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"selection":{"defaultValue":null,"description":"","name":"selection","declarations":[{"fileName":"pro/src/date-picker/month-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"DateSelection[]"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"pro/src/date-picker/month-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"DateSelection[]"},"tags":{}},"date":{"defaultValue":null,"description":"","name":"date","declarations":[{"fileName":"pro/src/date-picker/month-picker.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"renderMonth":{"defaultValue":null,"description":"","name":"renderMonth","declarations":[{"fileName":"pro/src/date-picker/month-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"monthNames":{"defaultValue":null,"description":"","name":"monthNames","declarations":[{"fileName":"pro/src/date-picker/month-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any[]"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"pro/src/date-picker/month-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"dateCellProps":{"defaultValue":null,"description":"","name":"dateCellProps","declarations":[{"fileName":"pro/src/date-picker/month-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ disabled?: boolean; unavailable?: boolean; selected?: boolean; today?: boolean; pending?: boolean; pendingStart?: boolean; pendingEnd?: boolean; weekend?: boolean; start?: boolean; end?: boolean; } & { ...; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<...>"},"tags":{}}}},{"tags":{},"filePath":"src/date-picker/index.ts","description":"","displayName":"ScrollingDatePicker","methods":[],"props":{"width":{"defaultValue":null,"description":"CSS width","name":"width","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"},{"fileName":"packages/core/dist/types/index.d.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"height":{"defaultValue":null,"description":"CSS height","name":"height","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"},{"fileName":"packages/core/dist/types/index.d.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"scrollThreshold":{"defaultValue":null,"description":"","name":"scrollThreshold","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"selection":{"defaultValue":null,"description":"","name":"selection","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"DateSelection[]"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"DateSelection[]"},"tags":{}},"defaultDate":{"defaultValue":null,"description":"","name":"defaultDate","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Date"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"renderDay":{"defaultValue":null,"description":"","name":"renderDay","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"dateCellProps":{"defaultValue":null,"description":"","name":"dateCellProps","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ disabled?: boolean; unavailable?: boolean; selected?: boolean; today?: boolean; pending?: boolean; pendingStart?: boolean; pendingEnd?: boolean; weekend?: boolean; start?: boolean; end?: boolean; } & { ...; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<...>"},"tags":{}},"weekdaysProps":{"defaultValue":null,"description":"","name":"weekdaysProps","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ size?: Size; weekdays?: string[]; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<any>"},"tags":{}},"monthProps":{"defaultValue":null,"description":"","name":"monthProps","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Omit<DatePickerMonthProps, \"date\">"},"tags":{}},"monthNames":{"defaultValue":null,"description":"","name":"monthNames","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string[]"},"tags":{}},"monthTitle":{"defaultValue":null,"description":"","name":"monthTitle","declarations":[{"fileName":"pro/src/date-picker/scrolling-date-picker.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(date: Date) => ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}},{"tags":{},"filePath":"src/date-picker/index.ts","description":"","displayName":"TimePickerColumn","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"pro/src/date-picker/time-picker-column.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"items":{"defaultValue":null,"description":"","name":"items","declarations":[{"fileName":"pro/src/date-picker/time-picker-column.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number[]"},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"pro/src/date-picker/time-picker-column.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"onSelect":{"defaultValue":null,"description":"","name":"onSelect","declarations":[{"fileName":"pro/src/date-picker/time-picker-column.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"src/date-picker/index.ts","description":"","displayName":"TimePickerTime","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"pro/src/date-picker/time-picker-time.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Size"},"tags":{}},"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"pro/src/date-picker/time-picker-time.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"pro/src/date-picker/time-picker-time.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}},"onSelect":{"defaultValue":null,"description":"","name":"onSelect","declarations":[{"fileName":"pro/src/date-picker/time-picker-time.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"src/date-picker/index.ts","description":"","displayName":"TimePicker","methods":[],"props":{"twelveHours":{"defaultValue":null,"description":"","name":"twelveHours","declarations":[{"fileName":"pro/src/date-picker/time-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"customHours":{"defaultValue":null,"description":"","name":"customHours","declarations":[{"fileName":"pro/src/date-picker/time-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"hideAmPm":{"defaultValue":null,"description":"","name":"hideAmPm","declarations":[{"fileName":"pro/src/date-picker/time-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"date":{"defaultValue":null,"description":"","name":"date","declarations":[{"fileName":"pro/src/date-picker/time-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Date"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"pro/src/date-picker/time-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"pro/src/date-picker/time-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"pro/src/date-picker/time-picker.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(date: Date) => void"},"tags":{}}}},{"tags":{},"filePath":"src/date-picker/index.ts","description":"","displayName":"YearPicker","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"pro/src/date-picker/year-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"selection":{"defaultValue":null,"description":"","name":"selection","declarations":[{"fileName":"pro/src/date-picker/year-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"DateSelection[]"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"pro/src/date-picker/year-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"DateSelection[]"},"tags":{}},"date":{"defaultValue":null,"description":"","name":"date","declarations":[{"fileName":"pro/src/date-picker/year-picker.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"renderYear":{"defaultValue":null,"description":"","name":"renderYear","declarations":[{"fileName":"pro/src/date-picker/year-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"yearAmount":{"defaultValue":null,"description":"","name":"yearAmount","declarations":[{"fileName":"pro/src/date-picker/year-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"onChange":{"defaultValue":null,"description":"","name":"onChange","declarations":[{"fileName":"pro/src/date-picker/year-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"dateCellProps":{"defaultValue":null,"description":"","name":"dateCellProps","declarations":[{"fileName":"pro/src/date-picker/year-picker.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ disabled?: boolean; unavailable?: boolean; selected?: boolean; today?: boolean; pending?: boolean; pendingStart?: boolean; pendingEnd?: boolean; weekend?: boolean; start?: boolean; end?: boolean; } & { ...; } & AriaAttributes & CommonProps & ShorthandProps & DOMAttributes<...>"},"tags":{}}}}]
+
+export const css = [[["--f-date-cell-weekend","var(--f-color-text)"],["--f-date-cell-weekend-background","var(--f-color-surface-strong)"],["--f-date-cell-unavailable","var(--f-color-text-weakest)"],["--f-date-cell-disabled","var(--f-color-text-weakest)"],["--f-date-cell-disabled-background","var(--f-color-surface-strong)"],["--f-date-cell-pending","var(--f-color-accent)"],["--f-date-cell-pending-background","var(--f-color-accent-weak)"],["--f-date-cell-edge-selected","var(--f-color-accent-weak)"],["--f-date-cell-edge-selected-background","var(--f-color-accent)"],["--f-date-cell-selected","var(--f-color-accent)"],["--f-date-cell-selected-background","var(--f-color-accent-weak)"],["--f-date-cell-selected-space","1%"],["--f-date-cell-today","var(--f-color-accent)"],["--f-date-cell-pending-opacity","0.25"]],[["--f-month-weekday-padding","var(--f-space-5) 0"],["--f-month-weekdays-background","transparent"]],[["--f-month-day-width","calc(100%/7)"]],[["--f-months-month-width","calc(100%/12*3)"]],[["--f-years-year-width","calc(100%/12*3)"]],[["--f-date-picker-height","300px"]],[["--f-time-picker-background-color-hover","var(--f-color-surface-strong)"],["--f-time-picker-background-color-active","var(--f-color-surface-strong)"],["--f-time-picker-color","var(--f-color-text-weaker)"],["--f-time-picker-color-hover","var(--f-color-text-weak)"],["--f-time-picker-color-active","var(--f-color-accent)"],["--f-time-picker-padding","var(--f-space-2) var(--f-space-5)"],["--f-time-picker-ampm-padding","var(--f-space-3)"]]]
+
+
+
+<CodeComponent filename="date-picker.tsx" code="aW1wb3J0IHsKICBEYXRlQ2VsbCwKICBEYXRlUGlja2VyTW9udGgsCiAgRGF0ZVBpY2tlcldlZWtkYXlzLAogIERhdGVQaWNrZXIsCiAgRGF0ZVJhbmdlUHJvdmlkZXIsCiAgTW9udGhQaWNrZXIsCiAgU2Nyb2xsaW5nRGF0ZVBpY2tlciwKICBUaW1lUGlja2VyQ29sdW1uLAogIFRpbWVQaWNrZXJUaW1lLAogIFRpbWVQaWNrZXIsCiAgWWVhclBpY2tlciwKfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import {
+  DateCell,
+  DatePickerMonth,
+  DatePickerWeekdays,
+  DatePicker,
+  DateRangeProvider,
+  MonthPicker,
+  ScrollingDatePicker,
+  TimePickerColumn,
+  TimePickerTime,
+  TimePicker,
+  YearPicker,
+} from "@fold-dev/core";
+```
+
+### Usage
+
+export const Usage = () => {
+    const [date, setDate] = useState(new Date());
+    const { today, tomorrow } = useMemo(() => {
+        const today = new Date();
+        const tomorrow = new Date(today.getTime() + 4 * 24 * 60 * 60 * 1000);
+        return { today, tomorrow };
+    }, []);
+    const [selection, setSelection] = useState([[today, tomorrow]]);
+    const handleSelection = (date) => {
+        if (selection.length == 0) {
+            setSelection([[date, null]]);
+        }
+        else {
+            const selected = selection[0];
+            if (!selected[0])
+                return setSelection([date, null]);
+            if (!!selected[0] && !!selected[1])
+                return setSelection([[date, null]]);
+            if (!!selected[0] && !selected[1])
+                return setSelection(selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]]);
+        }
+    };
+    return (<Card p={10} width="fit-content">
+            <DateRangeProvider>
+                <DatePicker height={350} width={300} defaultDate={date} selection={selection} onChange={handleSelection}/>
+            </DateRangeProvider>
+        </Card>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW2RhdGUsIHNldERhdGVdID0gdXNlU3RhdGUobmV3IERhdGUoKSkKICAgIGNvbnN0IHsgdG9kYXksIHRvbW9ycm93IH0gPSB1c2VNZW1vKCgpID0+IHsKICAgICAgICBjb25zdCB0b2RheSA9IG5ldyBEYXRlKCkKICAgICAgICBjb25zdCB0b21vcnJvdyA9IG5ldyBEYXRlKHRvZGF5LmdldFRpbWUoKSArIDQgKiAyNCAqIDYwICogNjAgKiAxMDAwKQoKICAgICAgICByZXR1cm4geyB0b2RheSwgdG9tb3Jyb3cgfQogICAgfSwgW10pCiAgICBjb25zdCBbc2VsZWN0aW9uLCBzZXRTZWxlY3Rpb25dID0gdXNlU3RhdGU8YW55W10+KFtbdG9kYXksIHRvbW9ycm93XV0pCgogICAgY29uc3QgaGFuZGxlU2VsZWN0aW9uID0gKGRhdGU6IERhdGUpID0+IHsKICAgICAgICBpZiAoc2VsZWN0aW9uLmxlbmd0aCA9PSAwKSB7CiAgICAgICAgICAgIHNldFNlbGVjdGlvbihbW2RhdGUsIG51bGxdXSkKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBjb25zdCBzZWxlY3RlZCA9IHNlbGVjdGlvblswXQogICAgICAgICAgICBpZiAoIXNlbGVjdGVkWzBdKSByZXR1cm4gc2V0U2VsZWN0aW9uKFtkYXRlLCBudWxsXSkKICAgICAgICAgICAgaWYgKCEhc2VsZWN0ZWRbMF0gJiYgISFzZWxlY3RlZFsxXSkgcmV0dXJuIHNldFNlbGVjdGlvbihbW2RhdGUsIG51bGxdXSkKICAgICAgICAgICAgaWYgKCEhc2VsZWN0ZWRbMF0gJiYgIXNlbGVjdGVkWzFdKQogICAgICAgICAgICAgICAgcmV0dXJuIHNldFNlbGVjdGlvbihzZWxlY3RlZFswXSA+IGRhdGUgPyBbW2RhdGUsIHNlbGVjdGVkWzBdXV0gOiBbW3NlbGVjdGVkWzBdLCBkYXRlXV0pCiAgICAgICAgfQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPENhcmQKICAgICAgICAgICAgcD17MTB9CiAgICAgICAgICAgIHdpZHRoPSJmaXQtY29udGVudCI+CiAgICAgICAgICAgIDxEYXRlUmFuZ2VQcm92aWRlcj4KICAgICAgICAgICAgICAgIDxEYXRlUGlja2VyCiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXszNTB9CiAgICAgICAgICAgICAgICAgICAgd2lkdGg9ezMwMH0KICAgICAgICAgICAgICAgICAgICBkZWZhdWx0RGF0ZT17ZGF0ZX0KICAgICAgICAgICAgICAgICAgICBzZWxlY3Rpb249e3NlbGVjdGlvbn0KICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17aGFuZGxlU2VsZWN0aW9ufQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9EYXRlUmFuZ2VQcm92aWRlcj4KICAgICAgICA8L0NhcmQ+CiAgICApCn0=" />
+
+```tsx
+export const Usage = () => {
+    const [date, setDate] = useState(new Date())
+    const { today, tomorrow } = useMemo(() => {
+        const today = new Date()
+        const tomorrow = new Date(today.getTime() + 4 * 24 * 60 * 60 * 1000)
+
+        return { today, tomorrow }
+    }, [])
+    const [selection, setSelection] = useState<any[]>([[today, tomorrow]])
+
+    const handleSelection = (date: Date) => {
+        if (selection.length == 0) {
+            setSelection([[date, null]])
+        } else {
+            const selected = selection[0]
+            if (!selected[0]) return setSelection([date, null])
+            if (!!selected[0] && !!selected[1]) return setSelection([[date, null]])
+            if (!!selected[0] && !selected[1])
+                return setSelection(selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]])
+        }
+    }
+
+    return (
+        <Card
+            p={10}
+            width="fit-content">
+            <DateRangeProvider>
+                <DatePicker
+                    height={350}
+                    width={300}
+                    defaultDate={date}
+                    selection={selection}
+                    onChange={handleSelection}
+                />
+            </DateRangeProvider>
+        </Card>
+    )
+}
+```
+### Select Week
+
+export const SelectWeek = () => {
+    const [date, setDate] = useState(new Date());
+    const { today, tomorrow } = useMemo(() => {
+        const today = new Date();
+        const tomorrow = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000);
+        return { today, tomorrow };
+    }, []);
+    const [selection, setSelection] = useState([]);
+    const handleWeekSelection = (dates) => {
+        setSelection([...selection, dates]);
+    };
+    return (<DateRangeProvider>
+            <DatePicker selectWeek height={300} width={300} defaultDate={date} selection={selection} onChange={handleWeekSelection}/>
+        </DateRangeProvider>);
+};
+
+<div className="story-block">
+<SelectWeek />
+</div>
+
+<CodeComponent filename="SelectWeek.tsx" code="ZXhwb3J0IGNvbnN0IFNlbGVjdFdlZWsgPSAoKSA9PiB7CiAgICBjb25zdCBbZGF0ZSwgc2V0RGF0ZV0gPSB1c2VTdGF0ZShuZXcgRGF0ZSgpKQogICAgY29uc3QgeyB0b2RheSwgdG9tb3Jyb3cgfSA9IHVzZU1lbW8oKCkgPT4gewogICAgICAgIGNvbnN0IHRvZGF5ID0gbmV3IERhdGUoKQogICAgICAgIGNvbnN0IHRvbW9ycm93ID0gbmV3IERhdGUodG9kYXkuZ2V0VGltZSgpICsgMSAqIDI0ICogNjAgKiA2MCAqIDEwMDApCgogICAgICAgIHJldHVybiB7IHRvZGF5LCB0b21vcnJvdyB9CiAgICB9LCBbXSkKICAgIGNvbnN0IFtzZWxlY3Rpb24sIHNldFNlbGVjdGlvbl0gPSB1c2VTdGF0ZTxhbnlbXT4oW10pCgogICAgY29uc3QgaGFuZGxlV2Vla1NlbGVjdGlvbiA9IChkYXRlczogRGF0ZVtdKSA9PiB7CiAgICAgICAgc2V0U2VsZWN0aW9uKFsuLi5zZWxlY3Rpb24sIGRhdGVzXSkKICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxEYXRlUmFuZ2VQcm92aWRlcj4KICAgICAgICAgICAgPERhdGVQaWNrZXIKICAgICAgICAgICAgICAgIHNlbGVjdFdlZWsKICAgICAgICAgICAgICAgIGhlaWdodD17MzAwfQogICAgICAgICAgICAgICAgd2lkdGg9ezMwMH0KICAgICAgICAgICAgICAgIGRlZmF1bHREYXRlPXtkYXRlfQogICAgICAgICAgICAgICAgc2VsZWN0aW9uPXtzZWxlY3Rpb259CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17aGFuZGxlV2Vla1NlbGVjdGlvbn0KICAgICAgICAgICAgLz4KICAgICAgICA8L0RhdGVSYW5nZVByb3ZpZGVyPgogICAgKQp9" />
+
+```tsx
+export const SelectWeek = () => {
+    const [date, setDate] = useState(new Date())
+    const { today, tomorrow } = useMemo(() => {
+        const today = new Date()
+        const tomorrow = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000)
+
+        return { today, tomorrow }
+    }, [])
+    const [selection, setSelection] = useState<any[]>([])
+
+    const handleWeekSelection = (dates: Date[]) => {
+        setSelection([...selection, dates])
+    }
+
+    return (
+        <DateRangeProvider>
+            <DatePicker
+                selectWeek
+                height={300}
+                width={300}
+                defaultDate={date}
+                selection={selection}
+                onChange={handleWeekSelection}
+            />
+        </DateRangeProvider>
+    )
+}
+```
+### Month Display
+
+export const MonthDisplay = () => {
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const date = new Date(year, month, 1);
+    const selected = new Date(year, month, 16);
+    const disabled = new Date(year, month, 14);
+    return (<DatePickerMonth width={300} height={300} date={date} selection={[[selected, selected]]} disabled={[[disabled]]}/>);
+};
+
+<div className="story-block">
+<MonthDisplay />
+</div>
+
+<CodeComponent filename="MonthDisplay.tsx" code="ZXhwb3J0IGNvbnN0IE1vbnRoRGlzcGxheSA9ICgpID0+IHsKICAgIGNvbnN0IHRvZGF5ID0gbmV3IERhdGUoKQogICAgY29uc3QgbW9udGggPSB0b2RheS5nZXRNb250aCgpCiAgICBjb25zdCB5ZWFyID0gdG9kYXkuZ2V0RnVsbFllYXIoKQogICAgY29uc3QgZGF0ZSA9IG5ldyBEYXRlKHllYXIsIG1vbnRoLCAxKQogICAgY29uc3Qgc2VsZWN0ZWQgPSBuZXcgRGF0ZSh5ZWFyLCBtb250aCwgMTYpCiAgICBjb25zdCBkaXNhYmxlZCA9IG5ldyBEYXRlKHllYXIsIG1vbnRoLCAxNCkKCiAgICByZXR1cm4gKAogICAgICAgIDxEYXRlUGlja2VyTW9udGgKICAgICAgICAgICAgd2lkdGg9ezMwMH0KICAgICAgICAgICAgaGVpZ2h0PXszMDB9CiAgICAgICAgICAgIGRhdGU9e2RhdGV9CiAgICAgICAgICAgIHNlbGVjdGlvbj17W1tzZWxlY3RlZCwgc2VsZWN0ZWRdXX0KICAgICAgICAgICAgZGlzYWJsZWQ9e1tbZGlzYWJsZWRdXX0KICAgICAgICAvPgogICAgKQp9" />
+
+```tsx
+export const MonthDisplay = () => {
+    const today = new Date()
+    const month = today.getMonth()
+    const year = today.getFullYear()
+    const date = new Date(year, month, 1)
+    const selected = new Date(year, month, 16)
+    const disabled = new Date(year, month, 14)
+
+    return (
+        <DatePickerMonth
+            width={300}
+            height={300}
+            date={date}
+            selection={[[selected, selected]]}
+            disabled={[[disabled]]}
+        />
+    )
+}
+```
+### Month And Weekdays
+
+export const MonthAndWeekdays = () => {
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const date = new Date(year, month, 1);
+    const start = new Date(year, month, 16);
+    const end = new Date(year, month, 19);
+    const disabled = new Date(year, month, 13);
+    return (<View width={300}>
+            <DatePickerWeekdays width="100%"/>
+            <DatePickerMonth width="100%" height={300} date={date} selection={[[start, end]]} disabled={[[disabled]]}/>
+        </View>);
+};
+
+<div className="story-block">
+<MonthAndWeekdays />
+</div>
+
+<CodeComponent filename="MonthAndWeekdays.tsx" code="ZXhwb3J0IGNvbnN0IE1vbnRoQW5kV2Vla2RheXMgPSAoKSA9PiB7CiAgICBjb25zdCB0b2RheSA9IG5ldyBEYXRlKCkKICAgIGNvbnN0IG1vbnRoID0gdG9kYXkuZ2V0TW9udGgoKQogICAgY29uc3QgeWVhciA9IHRvZGF5LmdldEZ1bGxZZWFyKCkKICAgIGNvbnN0IGRhdGUgPSBuZXcgRGF0ZSh5ZWFyLCBtb250aCwgMSkKICAgIGNvbnN0IHN0YXJ0ID0gbmV3IERhdGUoeWVhciwgbW9udGgsIDE2KQogICAgY29uc3QgZW5kID0gbmV3IERhdGUoeWVhciwgbW9udGgsIDE5KQogICAgY29uc3QgZGlzYWJsZWQgPSBuZXcgRGF0ZSh5ZWFyLCBtb250aCwgMTMpCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldyB3aWR0aD17MzAwfT4KICAgICAgICAgICAgPERhdGVQaWNrZXJXZWVrZGF5cyB3aWR0aD0iMTAwJSIgLz4KICAgICAgICAgICAgPERhdGVQaWNrZXJNb250aAogICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezMwMH0KICAgICAgICAgICAgICAgIGRhdGU9e2RhdGV9CiAgICAgICAgICAgICAgICBzZWxlY3Rpb249e1tbc3RhcnQsIGVuZF1dfQogICAgICAgICAgICAgICAgZGlzYWJsZWQ9e1tbZGlzYWJsZWRdXX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const MonthAndWeekdays = () => {
+    const today = new Date()
+    const month = today.getMonth()
+    const year = today.getFullYear()
+    const date = new Date(year, month, 1)
+    const start = new Date(year, month, 16)
+    const end = new Date(year, month, 19)
+    const disabled = new Date(year, month, 13)
+
+    return (
+        <View width={300}>
+            <DatePickerWeekdays width="100%" />
+            <DatePickerMonth
+                width="100%"
+                height={300}
+                date={date}
+                selection={[[start, end]]}
+                disabled={[[disabled]]}
+            />
+        </View>
+    )
+}
+```
+### Month Custom Day Render
+
+export const MonthCustomDayRender = () => {
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const date = new Date(year, month, 1);
+    const start = new Date(year, month, 16);
+    const end = new Date(year, month, 17);
+    const disabled = new Date(year, month, 13);
+    return (<View width={300}>
+            <DatePickerWeekdays width="100%"/>
+            <DatePickerMonth width="100%" height={300} date={date} selection={[[start, end]]} disabled={[[disabled]]} renderDay={(day) => {
+            if (day.getDate() == 11 && day.getMonth() == date.getMonth()) {
+                return (<IconLib icon="warning" color="var(--f-color-danger)"/>);
+            }
+            else if (day.getDate() == 7 && day.getMonth() == date.getMonth()) {
+                return (<>
+                                <span>{day.getDate()}</span>
+                                <Badge variant="danger" anchor="top-left" width={7} height={7} style={{ marginLeft: 7, marginTop: 7 }}/>
+                            </>);
+            }
+            else {
+                return day.getDate();
+            }
+        }}/>
+        </View>);
+};
+
+<div className="story-block">
+<MonthCustomDayRender />
+</div>
+
+<CodeComponent filename="MonthCustomDayRender.tsx" code="ZXhwb3J0IGNvbnN0IE1vbnRoQ3VzdG9tRGF5UmVuZGVyID0gKCkgPT4gewogICAgY29uc3QgdG9kYXkgPSBuZXcgRGF0ZSgpCiAgICBjb25zdCBtb250aCA9IHRvZGF5LmdldE1vbnRoKCkKICAgIGNvbnN0IHllYXIgPSB0b2RheS5nZXRGdWxsWWVhcigpCiAgICBjb25zdCBkYXRlID0gbmV3IERhdGUoeWVhciwgbW9udGgsIDEpCiAgICBjb25zdCBzdGFydCA9IG5ldyBEYXRlKHllYXIsIG1vbnRoLCAxNikKICAgIGNvbnN0IGVuZCA9IG5ldyBEYXRlKHllYXIsIG1vbnRoLCAxNykKICAgIGNvbnN0IGRpc2FibGVkID0gbmV3IERhdGUoeWVhciwgbW9udGgsIDEzKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcgd2lkdGg9ezMwMH0+CiAgICAgICAgICAgIDxEYXRlUGlja2VyV2Vla2RheXMgd2lkdGg9IjEwMCUiIC8+CiAgICAgICAgICAgIDxEYXRlUGlja2VyTW9udGgKICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgaGVpZ2h0PXszMDB9CiAgICAgICAgICAgICAgICBkYXRlPXtkYXRlfQogICAgICAgICAgICAgICAgc2VsZWN0aW9uPXtbW3N0YXJ0LCBlbmRdXX0KICAgICAgICAgICAgICAgIGRpc2FibGVkPXtbW2Rpc2FibGVkXV19CiAgICAgICAgICAgICAgICByZW5kZXJEYXk9eyhkYXkpID0+IHsKICAgICAgICAgICAgICAgICAgICBpZiAoZGF5LmdldERhdGUoKSA9PSAxMSAmJiBkYXkuZ2V0TW9udGgoKSA9PSBkYXRlLmdldE1vbnRoKCkpIHsKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWNvbj0id2FybmluZyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2xvcj0idmFyKC0tZi1jb2xvci1kYW5nZXIpIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgIH0gZWxzZSBpZiAoZGF5LmdldERhdGUoKSA9PSA3ICYmIGRheS5nZXRNb250aCgpID09IGRhdGUuZ2V0TW9udGgoKSkgewogICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgPD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8c3Bhbj57ZGF5LmdldERhdGUoKX08L3NwYW4+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEJhZGdlCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYW5jaG9yPSJ0b3AtbGVmdCIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9ezd9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17N30KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3sgbWFyZ2luTGVmdDogNywgbWFyZ2luVG9wOiA3IH19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvPgogICAgICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGRheS5nZXREYXRlKCkKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAvPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const MonthCustomDayRender = () => {
+    const today = new Date()
+    const month = today.getMonth()
+    const year = today.getFullYear()
+    const date = new Date(year, month, 1)
+    const start = new Date(year, month, 16)
+    const end = new Date(year, month, 17)
+    const disabled = new Date(year, month, 13)
+
+    return (
+        <View width={300}>
+            <DatePickerWeekdays width="100%" />
+            <DatePickerMonth
+                width="100%"
+                height={300}
+                date={date}
+                selection={[[start, end]]}
+                disabled={[[disabled]]}
+                renderDay={(day) => {
+                    if (day.getDate() == 11 && day.getMonth() == date.getMonth()) {
+                        return (
+                            <IconLib
+                                icon="warning"
+                                color="var(--f-color-danger)"
+                            />
+                        )
+                    } else if (day.getDate() == 7 && day.getMonth() == date.getMonth()) {
+                        return (
+                            <>
+                                <span>{day.getDate()}</span>
+                                <Badge
+                                    variant="danger"
+                                    anchor="top-left"
+                                    width={7}
+                                    height={7}
+                                    style={{ marginLeft: 7, marginTop: 7 }}
+                                />
+                            </>
+                        )
+                    } else {
+                        return day.getDate()
+                    }
+                }}
+            />
+        </View>
+    )
+}
+```
+### Custom Weekend
+
+export const CustomWeekend = () => {
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const date = new Date(year, month, 1);
+    const start = new Date(year, month, 16);
+    const end = new Date(year, month, 17);
+    const disabled = new Date(year, month, 13);
+    return (<View width={300}>
+            <DatePickerWeekdays width="100%"/>
+            <DatePickerMonth width="100%" height={300} date={date} selection={[[start, end]]} disabled={[[disabled]]} weekendDays={[0, 5]}/>
+        </View>);
+};
+
+<div className="story-block">
+<CustomWeekend />
+</div>
+
+<CodeComponent filename="CustomWeekend.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVdlZWtlbmQgPSAoKSA9PiB7CiAgICBjb25zdCB0b2RheSA9IG5ldyBEYXRlKCkKICAgIGNvbnN0IG1vbnRoID0gdG9kYXkuZ2V0TW9udGgoKQogICAgY29uc3QgeWVhciA9IHRvZGF5LmdldEZ1bGxZZWFyKCkKICAgIGNvbnN0IGRhdGUgPSBuZXcgRGF0ZSh5ZWFyLCBtb250aCwgMSkKICAgIGNvbnN0IHN0YXJ0ID0gbmV3IERhdGUoeWVhciwgbW9udGgsIDE2KQogICAgY29uc3QgZW5kID0gbmV3IERhdGUoeWVhciwgbW9udGgsIDE3KQogICAgY29uc3QgZGlzYWJsZWQgPSBuZXcgRGF0ZSh5ZWFyLCBtb250aCwgMTMpCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldyB3aWR0aD17MzAwfT4KICAgICAgICAgICAgPERhdGVQaWNrZXJXZWVrZGF5cyB3aWR0aD0iMTAwJSIgLz4KICAgICAgICAgICAgPERhdGVQaWNrZXJNb250aAogICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezMwMH0KICAgICAgICAgICAgICAgIGRhdGU9e2RhdGV9CiAgICAgICAgICAgICAgICBzZWxlY3Rpb249e1tbc3RhcnQsIGVuZF1dfQogICAgICAgICAgICAgICAgZGlzYWJsZWQ9e1tbZGlzYWJsZWRdXX0KICAgICAgICAgICAgICAgIHdlZWtlbmREYXlzPXtbMCwgNV19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const CustomWeekend = () => {
+    const today = new Date()
+    const month = today.getMonth()
+    const year = today.getFullYear()
+    const date = new Date(year, month, 1)
+    const start = new Date(year, month, 16)
+    const end = new Date(year, month, 17)
+    const disabled = new Date(year, month, 13)
+
+    return (
+        <View width={300}>
+            <DatePickerWeekdays width="100%" />
+            <DatePickerMonth
+                width="100%"
+                height={300}
+                date={date}
+                selection={[[start, end]]}
+                disabled={[[disabled]]}
+                weekendDays={[0, 5]}
+            />
+        </View>
+    )
+}
+```
+### Months Display
+
+export const MonthsDisplay = () => {
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const date = new Date(year, month, 1);
+    const selectedStart = new Date(year, month, 16);
+    const selectedEnd = new Date(year, month + 3, 16);
+    const disabled = new Date(year, month + 7, 14);
+    return (<MonthPicker width={300} height={300} date={date} selection={[[selectedStart, selectedEnd]]} disabled={[[disabled]]}/>);
+};
+
+<div className="story-block">
+<MonthsDisplay />
+</div>
+
+<CodeComponent filename="MonthsDisplay.tsx" code="ZXhwb3J0IGNvbnN0IE1vbnRoc0Rpc3BsYXkgPSAoKSA9PiB7CiAgICBjb25zdCB0b2RheSA9IG5ldyBEYXRlKCkKICAgIGNvbnN0IG1vbnRoID0gdG9kYXkuZ2V0TW9udGgoKQogICAgY29uc3QgeWVhciA9IHRvZGF5LmdldEZ1bGxZZWFyKCkKICAgIGNvbnN0IGRhdGUgPSBuZXcgRGF0ZSh5ZWFyLCBtb250aCwgMSkKICAgIGNvbnN0IHNlbGVjdGVkU3RhcnQgPSBuZXcgRGF0ZSh5ZWFyLCBtb250aCwgMTYpCiAgICBjb25zdCBzZWxlY3RlZEVuZCA9IG5ldyBEYXRlKHllYXIsIG1vbnRoICsgMywgMTYpCiAgICBjb25zdCBkaXNhYmxlZCA9IG5ldyBEYXRlKHllYXIsIG1vbnRoICsgNywgMTQpCgogICAgcmV0dXJuICgKICAgICAgICA8TW9udGhQaWNrZXIKICAgICAgICAgICAgd2lkdGg9ezMwMH0KICAgICAgICAgICAgaGVpZ2h0PXszMDB9CiAgICAgICAgICAgIGRhdGU9e2RhdGV9CiAgICAgICAgICAgIHNlbGVjdGlvbj17W1tzZWxlY3RlZFN0YXJ0LCBzZWxlY3RlZEVuZF1dfQogICAgICAgICAgICBkaXNhYmxlZD17W1tkaXNhYmxlZF1dfQogICAgICAgIC8+CiAgICApCn0=" />
+
+```tsx
+export const MonthsDisplay = () => {
+    const today = new Date()
+    const month = today.getMonth()
+    const year = today.getFullYear()
+    const date = new Date(year, month, 1)
+    const selectedStart = new Date(year, month, 16)
+    const selectedEnd = new Date(year, month + 3, 16)
+    const disabled = new Date(year, month + 7, 14)
+
+    return (
+        <MonthPicker
+            width={300}
+            height={300}
+            date={date}
+            selection={[[selectedStart, selectedEnd]]}
+            disabled={[[disabled]]}
+        />
+    )
+}
+```
+### Years Display
+
+export const YearsDisplay = () => {
+    const today = new Date();
+    const month = today.getMonth();
+    const year = today.getFullYear();
+    const date = new Date(year, month, 1);
+    const selectedStart = new Date(year - 1, month, 16);
+    const selectedEnd = new Date(year + 1, month, 16);
+    const disabled = new Date(year + 4, month, 14);
+    return (<YearPicker width={300} height={300} date={date} selection={[[selectedStart, selectedEnd]]} disabled={[[disabled]]}/>);
+};
+
+<div className="story-block">
+<YearsDisplay />
+</div>
+
+<CodeComponent filename="YearsDisplay.tsx" code="ZXhwb3J0IGNvbnN0IFllYXJzRGlzcGxheSA9ICgpID0+IHsKICAgIGNvbnN0IHRvZGF5ID0gbmV3IERhdGUoKQogICAgY29uc3QgbW9udGggPSB0b2RheS5nZXRNb250aCgpCiAgICBjb25zdCB5ZWFyID0gdG9kYXkuZ2V0RnVsbFllYXIoKQogICAgY29uc3QgZGF0ZSA9IG5ldyBEYXRlKHllYXIsIG1vbnRoLCAxKQogICAgY29uc3Qgc2VsZWN0ZWRTdGFydCA9IG5ldyBEYXRlKHllYXIgLSAxLCBtb250aCwgMTYpCiAgICBjb25zdCBzZWxlY3RlZEVuZCA9IG5ldyBEYXRlKHllYXIgKyAxLCBtb250aCwgMTYpCiAgICBjb25zdCBkaXNhYmxlZCA9IG5ldyBEYXRlKHllYXIgKyA0LCBtb250aCwgMTQpCgogICAgcmV0dXJuICgKICAgICAgICA8WWVhclBpY2tlcgogICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICBoZWlnaHQ9ezMwMH0KICAgICAgICAgICAgZGF0ZT17ZGF0ZX0KICAgICAgICAgICAgc2VsZWN0aW9uPXtbW3NlbGVjdGVkU3RhcnQsIHNlbGVjdGVkRW5kXV19CiAgICAgICAgICAgIGRpc2FibGVkPXtbW2Rpc2FibGVkXV19CiAgICAgICAgLz4KICAgICkKfQ==" />
+
+```tsx
+export const YearsDisplay = () => {
+    const today = new Date()
+    const month = today.getMonth()
+    const year = today.getFullYear()
+    const date = new Date(year, month, 1)
+    const selectedStart = new Date(year - 1, month, 16)
+    const selectedEnd = new Date(year + 1, month, 16)
+    const disabled = new Date(year + 4, month, 14)
+
+    return (
+        <YearPicker
+            width={300}
+            height={300}
+            date={date}
+            selection={[[selectedStart, selectedEnd]]}
+            disabled={[[disabled]]}
+        />
+    )
+}
+```
+### Date Cell Variants
+
+> The DateCell inherits directly from Text, enabling regular Text props to be used
+
+export const DateCellVariants = () => (<View row>
+        <DateCell height={50} size="xl">
+            23
+        </DateCell>
+        <DateCell height={50} weekend>
+            19
+        </DateCell>
+        <DateCell height={50} pending>
+            8
+        </DateCell>
+        <DateCell height={50} today>
+            31
+        </DateCell>
+        <DateCell height={50} disabled>
+            June
+        </DateCell>
+        <DateCell height={50} selected>
+            2023
+        </DateCell>
+        <DateCell height={50} unavailable>
+            2022
+        </DateCell>
+        <DateCell height={50} border="0.15rem solid var(--f-color-danger)">
+            13
+            <Badge variant="accent" anchor="top-left" style={{ marginLeft: 5, marginTop: 5 }}/>
+        </DateCell>
+    </View>);
+
+<div className="story-block">
+<DateCellVariants />
+</div>
+
+<CodeComponent filename="DateCellVariants.tsx" code="ZXhwb3J0IGNvbnN0IERhdGVDZWxsVmFyaWFudHMgPSAoKSA9PiAoCiAgICA8VmlldyByb3c+CiAgICAgICAgPERhdGVDZWxsCiAgICAgICAgICAgIGhlaWdodD17NTB9CiAgICAgICAgICAgIHNpemU9InhsIj4KICAgICAgICAgICAgMjMKICAgICAgICA8L0RhdGVDZWxsPgogICAgICAgIDxEYXRlQ2VsbAogICAgICAgICAgICBoZWlnaHQ9ezUwfQogICAgICAgICAgICB3ZWVrZW5kPgogICAgICAgICAgICAxOQogICAgICAgIDwvRGF0ZUNlbGw+CiAgICAgICAgPERhdGVDZWxsCiAgICAgICAgICAgIGhlaWdodD17NTB9CiAgICAgICAgICAgIHBlbmRpbmc+CiAgICAgICAgICAgIDgKICAgICAgICA8L0RhdGVDZWxsPgogICAgICAgIDxEYXRlQ2VsbAogICAgICAgICAgICBoZWlnaHQ9ezUwfQogICAgICAgICAgICB0b2RheT4KICAgICAgICAgICAgMzEKICAgICAgICA8L0RhdGVDZWxsPgogICAgICAgIDxEYXRlQ2VsbAogICAgICAgICAgICBoZWlnaHQ9ezUwfQogICAgICAgICAgICBkaXNhYmxlZD4KICAgICAgICAgICAgSnVuZQogICAgICAgIDwvRGF0ZUNlbGw+CiAgICAgICAgPERhdGVDZWxsCiAgICAgICAgICAgIGhlaWdodD17NTB9CiAgICAgICAgICAgIHNlbGVjdGVkPgogICAgICAgICAgICAyMDIzCiAgICAgICAgPC9EYXRlQ2VsbD4KICAgICAgICA8RGF0ZUNlbGwKICAgICAgICAgICAgaGVpZ2h0PXs1MH0KICAgICAgICAgICAgdW5hdmFpbGFibGU+CiAgICAgICAgICAgIDIwMjIKICAgICAgICA8L0RhdGVDZWxsPgogICAgICAgIDxEYXRlQ2VsbAogICAgICAgICAgICBoZWlnaHQ9ezUwfQogICAgICAgICAgICBib3JkZXI9IjAuMTVyZW0gc29saWQgdmFyKC0tZi1jb2xvci1kYW5nZXIpIj4KICAgICAgICAgICAgMTMKICAgICAgICAgICAgPEJhZGdlCiAgICAgICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgICAgICAgICBhbmNob3I9InRvcC1sZWZ0IgogICAgICAgICAgICAgICAgc3R5bGU9e3sgbWFyZ2luTGVmdDogNSwgbWFyZ2luVG9wOiA1IH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9EYXRlQ2VsbD4KICAgIDwvVmlldz4KKQ==" />
+
+```tsx
+export const DateCellVariants = () => (
+    <View row>
+        <DateCell
+            height={50}
+            size="xl">
+            23
+        </DateCell>
+        <DateCell
+            height={50}
+            weekend>
+            19
+        </DateCell>
+        <DateCell
+            height={50}
+            pending>
+            8
+        </DateCell>
+        <DateCell
+            height={50}
+            today>
+            31
+        </DateCell>
+        <DateCell
+            height={50}
+            disabled>
+            June
+        </DateCell>
+        <DateCell
+            height={50}
+            selected>
+            2023
+        </DateCell>
+        <DateCell
+            height={50}
+            unavailable>
+            2022
+        </DateCell>
+        <DateCell
+            height={50}
+            border="0.15rem solid var(--f-color-danger)">
+            13
+            <Badge
+                variant="accent"
+                anchor="top-left"
+                style={{ marginLeft: 5, marginTop: 5 }}
+            />
+        </DateCell>
+    </View>
+)
+```
+### Time
+
+export const Time = () => {
+    const [date, setDate] = useState(new Date());
+    return (<Stack spacing={20}>
+            <TimePicker twelveHours width={250} height={300} date={date} onChange={setDate}/>
+            <TimePicker hideAmPm width={200} height={300} date={date} onChange={setDate}/>
+        </Stack>);
+};
+
+<div className="story-block">
+<Time />
+</div>
+
+<CodeComponent filename="Time.tsx" code="ZXhwb3J0IGNvbnN0IFRpbWUgPSAoKSA9PiB7CiAgICBjb25zdCBbZGF0ZSwgc2V0RGF0ZV0gPSB1c2VTdGF0ZShuZXcgRGF0ZSgpKQoKICAgIHJldHVybiAoCiAgICAgICAgPFN0YWNrIHNwYWNpbmc9ezIwfT4KICAgICAgICAgICAgPFRpbWVQaWNrZXIKICAgICAgICAgICAgICAgIHR3ZWx2ZUhvdXJzCiAgICAgICAgICAgICAgICB3aWR0aD17MjUwfQogICAgICAgICAgICAgICAgaGVpZ2h0PXszMDB9CiAgICAgICAgICAgICAgICBkYXRlPXtkYXRlfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9e3NldERhdGV9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxUaW1lUGlja2VyCiAgICAgICAgICAgICAgICBoaWRlQW1QbQogICAgICAgICAgICAgICAgd2lkdGg9ezIwMH0KICAgICAgICAgICAgICAgIGhlaWdodD17MzAwfQogICAgICAgICAgICAgICAgZGF0ZT17ZGF0ZX0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXtzZXREYXRlfQogICAgICAgICAgICAvPgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
+
+```tsx
+export const Time = () => {
+    const [date, setDate] = useState(new Date())
+
+    return (
+        <Stack spacing={20}>
+            <TimePicker
+                twelveHours
+                width={250}
+                height={300}
+                date={date}
+                onChange={setDate}
+            />
+            <TimePicker
+                hideAmPm
+                width={200}
+                height={300}
+                date={date}
+                onChange={setDate}
+            />
+        </Stack>
+    )
+}
+```
+### Multiple Months
+
+export const MultipleMonths = () => {
+    const date = new Date();
+    const { today, tomorrow, disabled1, disabled2 } = useMemo(() => {
+        const today = new Date();
+        const tomorrow = new Date(today.getTime() + 5 * 24 * 60 * 60 * 1000);
+        const disabled1 = new Date(today.getTime() - 6 * 24 * 60 * 60 * 1000);
+        const disabled2 = new Date(today.getTime() - 3 * 24 * 60 * 60 * 1000);
+        return {
+            today,
+            tomorrow,
+            disabled1,
+            disabled2,
+        };
+    }, []);
+    const [selection, setSelection] = useState([[today, tomorrow]]);
+    const handleSelection = (date) => {
+        if (selection.length == 0) {
+            setSelection([[date, null]]);
+        }
+        else {
+            const selected = selection[0];
+            if (!selected[0])
+                return setSelection([date, null]);
+            if (!!selected[0] && !!selected[1])
+                return setSelection([[date, null]]);
+            if (!!selected[0] && !selected[1])
+                return setSelection(selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]]);
+        }
+    };
+    return (<DateRangeProvider>
+            <Stack direction="vertical" spacing={20}>
+                <Card p={10} width="fit-content">
+                    <DatePicker defaultDate={date} selection={selection} onChange={handleSelection} disabled={[[disabled1, disabled2]]} height={350} width={300}/>
+                </Card>
+
+                <Card p={10} width="fit-content">
+                    <DatePicker defaultDate={date} selection={selection} onChange={handleSelection} width={600} height={350} disabled={[[disabled1, disabled2]]} panels={2}/>
+                </Card>
+
+                <Card p={10} width="fit-content">
+                    <DatePicker defaultDate={date} selection={selection} onChange={handleSelection} disabled={[[disabled1, disabled2]]} width={900} height={350} panels={3}/>
+                </Card>
+            </Stack>
+        </DateRangeProvider>);
+};
+
+<div className="story-block">
+<MultipleMonths />
+</div>
+
+<CodeComponent filename="MultipleMonths.tsx" code="ZXhwb3J0IGNvbnN0IE11bHRpcGxlTW9udGhzID0gKCkgPT4gewogICAgY29uc3QgZGF0ZSA9IG5ldyBEYXRlKCkKICAgIGNvbnN0IHsgdG9kYXksIHRvbW9ycm93LCBkaXNhYmxlZDEsIGRpc2FibGVkMiB9ID0gdXNlTWVtbygoKSA9PiB7CiAgICAgICAgY29uc3QgdG9kYXkgPSBuZXcgRGF0ZSgpCiAgICAgICAgY29uc3QgdG9tb3Jyb3cgPSBuZXcgRGF0ZSh0b2RheS5nZXRUaW1lKCkgKyA1ICogMjQgKiA2MCAqIDYwICogMTAwMCkKICAgICAgICBjb25zdCBkaXNhYmxlZDEgPSBuZXcgRGF0ZSh0b2RheS5nZXRUaW1lKCkgLSA2ICogMjQgKiA2MCAqIDYwICogMTAwMCkKICAgICAgICBjb25zdCBkaXNhYmxlZDIgPSBuZXcgRGF0ZSh0b2RheS5nZXRUaW1lKCkgLSAzICogMjQgKiA2MCAqIDYwICogMTAwMCkKICAgICAgICByZXR1cm4gewogICAgICAgICAgICB0b2RheSwKICAgICAgICAgICAgdG9tb3Jyb3csCiAgICAgICAgICAgIGRpc2FibGVkMSwKICAgICAgICAgICAgZGlzYWJsZWQyLAogICAgICAgIH0KICAgIH0sIFtdKQogICAgY29uc3QgW3NlbGVjdGlvbiwgc2V0U2VsZWN0aW9uXSA9IHVzZVN0YXRlPGFueVtdPihbW3RvZGF5LCB0b21vcnJvd11dKQoKICAgIGNvbnN0IGhhbmRsZVNlbGVjdGlvbiA9IChkYXRlOiBEYXRlKSA9PiB7CiAgICAgICAgaWYgKHNlbGVjdGlvbi5sZW5ndGggPT0gMCkgewogICAgICAgICAgICBzZXRTZWxlY3Rpb24oW1tkYXRlLCBudWxsXV0pCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgY29uc3Qgc2VsZWN0ZWQgPSBzZWxlY3Rpb25bMF0KICAgICAgICAgICAgaWYgKCFzZWxlY3RlZFswXSkgcmV0dXJuIHNldFNlbGVjdGlvbihbZGF0ZSwgbnVsbF0pCiAgICAgICAgICAgIGlmICghIXNlbGVjdGVkWzBdICYmICEhc2VsZWN0ZWRbMV0pIHJldHVybiBzZXRTZWxlY3Rpb24oW1tkYXRlLCBudWxsXV0pCiAgICAgICAgICAgIGlmICghIXNlbGVjdGVkWzBdICYmICFzZWxlY3RlZFsxXSkKICAgICAgICAgICAgICAgIHJldHVybiBzZXRTZWxlY3Rpb24oc2VsZWN0ZWRbMF0gPiBkYXRlID8gW1tkYXRlLCBzZWxlY3RlZFswXV1dIDogW1tzZWxlY3RlZFswXSwgZGF0ZV1dKQogICAgICAgIH0KICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDxEYXRlUmFuZ2VQcm92aWRlcj4KICAgICAgICAgICAgPFN0YWNrCiAgICAgICAgICAgICAgICBkaXJlY3Rpb249InZlcnRpY2FsIgogICAgICAgICAgICAgICAgc3BhY2luZz17MjB9PgogICAgICAgICAgICAgICAgPENhcmQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiPgogICAgICAgICAgICAgICAgICAgIDxEYXRlUGlja2VyCiAgICAgICAgICAgICAgICAgICAgICAgIGRlZmF1bHREYXRlPXtkYXRlfQogICAgICAgICAgICAgICAgICAgICAgICBzZWxlY3Rpb249e3NlbGVjdGlvbn0KICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9e2hhbmRsZVNlbGVjdGlvbn0KICAgICAgICAgICAgICAgICAgICAgICAgZGlzYWJsZWQ9e1tbZGlzYWJsZWQxLCBkaXNhYmxlZDJdXX0KICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXszNTB9CiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDwvQ2FyZD4KCiAgICAgICAgICAgICAgICA8Q2FyZAogICAgICAgICAgICAgICAgICAgIHA9ezEwfQogICAgICAgICAgICAgICAgICAgIHdpZHRoPSJmaXQtY29udGVudCI+CiAgICAgICAgICAgICAgICAgICAgPERhdGVQaWNrZXIKICAgICAgICAgICAgICAgICAgICAgICAgZGVmYXVsdERhdGU9e2RhdGV9CiAgICAgICAgICAgICAgICAgICAgICAgIHNlbGVjdGlvbj17c2VsZWN0aW9ufQogICAgICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17aGFuZGxlU2VsZWN0aW9ufQogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17NjAwfQogICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9ezM1MH0KICAgICAgICAgICAgICAgICAgICAgICAgZGlzYWJsZWQ9e1tbZGlzYWJsZWQxLCBkaXNhYmxlZDJdXX0KICAgICAgICAgICAgICAgICAgICAgICAgcGFuZWxzPXsyfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L0NhcmQ+CgogICAgICAgICAgICAgICAgPENhcmQKICAgICAgICAgICAgICAgICAgICBwPXsxMH0KICAgICAgICAgICAgICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiPgogICAgICAgICAgICAgICAgICAgIDxEYXRlUGlja2VyCiAgICAgICAgICAgICAgICAgICAgICAgIGRlZmF1bHREYXRlPXtkYXRlfQogICAgICAgICAgICAgICAgICAgICAgICBzZWxlY3Rpb249e3NlbGVjdGlvbn0KICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9e2hhbmRsZVNlbGVjdGlvbn0KICAgICAgICAgICAgICAgICAgICAgICAgZGlzYWJsZWQ9e1tbZGlzYWJsZWQxLCBkaXNhYmxlZDJdXX0KICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9ezkwMH0KICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXszNTB9CiAgICAgICAgICAgICAgICAgICAgICAgIHBhbmVscz17M30KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9DYXJkPgogICAgICAgICAgICA8L1N0YWNrPgogICAgICAgIDwvRGF0ZVJhbmdlUHJvdmlkZXI+CiAgICApCn0=" />
+
+```tsx
+export const MultipleMonths = () => {
+    const date = new Date()
+    const { today, tomorrow, disabled1, disabled2 } = useMemo(() => {
+        const today = new Date()
+        const tomorrow = new Date(today.getTime() + 5 * 24 * 60 * 60 * 1000)
+        const disabled1 = new Date(today.getTime() - 6 * 24 * 60 * 60 * 1000)
+        const disabled2 = new Date(today.getTime() - 3 * 24 * 60 * 60 * 1000)
+        return {
+            today,
+            tomorrow,
+            disabled1,
+            disabled2,
+        }
+    }, [])
+    const [selection, setSelection] = useState<any[]>([[today, tomorrow]])
+
+    const handleSelection = (date: Date) => {
+        if (selection.length == 0) {
+            setSelection([[date, null]])
+        } else {
+            const selected = selection[0]
+            if (!selected[0]) return setSelection([date, null])
+            if (!!selected[0] && !!selected[1]) return setSelection([[date, null]])
+            if (!!selected[0] && !selected[1])
+                return setSelection(selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]])
+        }
+    }
+
+    return (
+        <DateRangeProvider>
+            <Stack
+                direction="vertical"
+                spacing={20}>
+                <Card
+                    p={10}
+                    width="fit-content">
+                    <DatePicker
+                        defaultDate={date}
+                        selection={selection}
+                        onChange={handleSelection}
+                        disabled={[[disabled1, disabled2]]}
+                        height={350}
+                        width={300}
+                    />
+                </Card>
+
+                <Card
+                    p={10}
+                    width="fit-content">
+                    <DatePicker
+                        defaultDate={date}
+                        selection={selection}
+                        onChange={handleSelection}
+                        width={600}
+                        height={350}
+                        disabled={[[disabled1, disabled2]]}
+                        panels={2}
+                    />
+                </Card>
+
+                <Card
+                    p={10}
+                    width="fit-content">
+                    <DatePicker
+                        defaultDate={date}
+                        selection={selection}
+                        onChange={handleSelection}
+                        disabled={[[disabled1, disabled2]]}
+                        width={900}
+                        height={350}
+                        panels={3}
+                    />
+                </Card>
+            </Stack>
+        </DateRangeProvider>
+    )
+}
+```
+### Date Inputs
+
+export const DateInputs = () => {
+    const [text, setText] = useState('');
+    const [date, setDate] = useState(new Date());
+    const [selection, setSelection] = useState([]);
+    const dateModal = useVisibility(false);
+    const timeModal = useVisibility(false);
+    const getTimeFormat = (date) => {
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const seconds = date.getSeconds();
+        return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+    };
+    const getDateFormat = (date) => {
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${pad(year)}-${pad(month)}-${pad(day)}`;
+    };
+    const handleSelection = (ndate) => {
+        setSelection([[ndate, ndate]]);
+        const d = new Date(date);
+        d.setFullYear(ndate.getFullYear());
+        d.setMonth(ndate.getMonth());
+        d.setDate(ndate.getDate());
+        setDate(new Date(d));
+        dateModal.hide();
+    };
+    return (<DateRangeProvider>
+            <Stack direction="horizontal" spacing={10}>
+                <Popover isVisible={dateModal.visible} onDismiss={dateModal.hide} anchor="bottom-center" content={<View p={20}>
+                            <DatePicker defaultDate={new Date()} selection={selection} onChange={handleSelection} width="100%" height={300} monthProps={{ flex: 1 }}/>
+                        </View>}>
+                    <InputControl onFocus={(e) => dateModal.delayedShow()}>
+                        <Input onChange={(e) => setText(e.target.value)} placeholder="Type here - datetimelocal" value={getDateFormat(date)} type="date"/>
+                        <InputSuffix>
+                            <IconLib icon="date" style={{ pointerEvents: 'none' }}/>
+                        </InputSuffix>
+                    </InputControl>
+                </Popover>
+
+                <Popover isVisible={timeModal.visible} onDismiss={timeModal.hide} anchor="bottom-center" content={<View p={20}>
+                            <TimePicker width="100%" height={300} date={date} onChange={(date) => setDate(date)}/>
+                        </View>}>
+                    <InputControl onFocus={(e) => timeModal.delayedShow()} onClick={(e) => timeModal.delayedShow()}>
+                        <Input onChange={(e) => setText(e.target.value)} placeholder="Type here - datetimelocal" value={getTimeFormat(date)} type="time"/>
+                        <InputSuffix>
+                            <IconLib icon="time" style={{ pointerEvents: 'none' }}/>
+                        </InputSuffix>
+                    </InputControl>
+                </Popover>
+            </Stack>
+        </DateRangeProvider>);
+};
+
+<div className="story-block">
+<DateInputs />
+</div>
+
+<CodeComponent filename="DateInputs.tsx" code="ZXhwb3J0IGNvbnN0IERhdGVJbnB1dHMgPSAoKSA9PiB7CiAgICBjb25zdCBbdGV4dCwgc2V0VGV4dF0gPSB1c2VTdGF0ZTxhbnk+KCcnKQogICAgY29uc3QgW2RhdGUsIHNldERhdGVdID0gdXNlU3RhdGU8RGF0ZT4obmV3IERhdGUoKSkKICAgIGNvbnN0IFtzZWxlY3Rpb24sIHNldFNlbGVjdGlvbl0gPSB1c2VTdGF0ZTxhbnlbXT4oW10pCiAgICBjb25zdCBkYXRlTW9kYWwgPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQogICAgY29uc3QgdGltZU1vZGFsID0gdXNlVmlzaWJpbGl0eShmYWxzZSkKCiAgICBjb25zdCBnZXRUaW1lRm9ybWF0ID0gKGRhdGU6IERhdGUpID0+IHsKICAgICAgICBjb25zdCBob3VycyA9IGRhdGUuZ2V0SG91cnMoKQogICAgICAgIGNvbnN0IG1pbnV0ZXMgPSBkYXRlLmdldE1pbnV0ZXMoKQogICAgICAgIGNvbnN0IHNlY29uZHMgPSBkYXRlLmdldFNlY29uZHMoKQogICAgICAgIHJldHVybiBgJHtwYWQoaG91cnMpfToke3BhZChtaW51dGVzKX06JHtwYWQoc2Vjb25kcyl9YAogICAgfQoKICAgIGNvbnN0IGdldERhdGVGb3JtYXQgPSAoZGF0ZSkgPT4gewogICAgICAgIGNvbnN0IGRheSA9IGRhdGUuZ2V0RGF0ZSgpCiAgICAgICAgY29uc3QgbW9udGggPSBkYXRlLmdldE1vbnRoKCkgKyAxCiAgICAgICAgY29uc3QgeWVhciA9IGRhdGUuZ2V0RnVsbFllYXIoKQogICAgICAgIHJldHVybiBgJHtwYWQoeWVhcil9LSR7cGFkKG1vbnRoKX0tJHtwYWQoZGF5KX1gCiAgICB9CgogICAgY29uc3QgaGFuZGxlU2VsZWN0aW9uID0gKG5kYXRlOiBEYXRlKSA9PiB7CiAgICAgICAgc2V0U2VsZWN0aW9uKFtbbmRhdGUsIG5kYXRlXV0pCiAgICAgICAgY29uc3QgZCA9IG5ldyBEYXRlKGRhdGUpCiAgICAgICAgZC5zZXRGdWxsWWVhcihuZGF0ZS5nZXRGdWxsWWVhcigpKQogICAgICAgIGQuc2V0TW9udGgobmRhdGUuZ2V0TW9udGgoKSkKICAgICAgICBkLnNldERhdGUobmRhdGUuZ2V0RGF0ZSgpKQogICAgICAgIHNldERhdGUobmV3IERhdGUoZCkpCiAgICAgICAgZGF0ZU1vZGFsLmhpZGUoKQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPERhdGVSYW5nZVByb3ZpZGVyPgogICAgICAgICAgICA8U3RhY2sKICAgICAgICAgICAgICAgIGRpcmVjdGlvbj0iaG9yaXpvbnRhbCIKICAgICAgICAgICAgICAgIHNwYWNpbmc9ezEwfT4KICAgICAgICAgICAgICAgIDxQb3BvdmVyCiAgICAgICAgICAgICAgICAgICAgaXNWaXNpYmxlPXtkYXRlTW9kYWwudmlzaWJsZX0KICAgICAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2RhdGVNb2RhbC5oaWRlfQogICAgICAgICAgICAgICAgICAgIGFuY2hvcj0iYm90dG9tLWNlbnRlciIKICAgICAgICAgICAgICAgICAgICBjb250ZW50PXsKICAgICAgICAgICAgICAgICAgICAgICAgPFZpZXcgcD17MjB9PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPERhdGVQaWNrZXIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZWZhdWx0RGF0ZT17bmV3IERhdGUoKX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZWxlY3Rpb249e3NlbGVjdGlvbn0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17aGFuZGxlU2VsZWN0aW9ufQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MzAwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1vbnRoUHJvcHM9e3sgZmxleDogMSB9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgICAgIH0+CiAgICAgICAgICAgICAgICAgICAgPElucHV0Q29udHJvbCBvbkZvY3VzPXsoZSkgPT4gZGF0ZU1vZGFsLmRlbGF5ZWRTaG93KCl9PgogICAgICAgICAgICAgICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iVHlwZSBoZXJlIC0gZGF0ZXRpbWVsb2NhbCIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlPXtnZXREYXRlRm9ybWF0KGRhdGUpfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdHlwZT0iZGF0ZSIKICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICAgICAgPElucHV0U3VmZml4PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPEljb25MaWIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpY29uPSJkYXRlIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0eWxlPXt7IHBvaW50ZXJFdmVudHM6ICdub25lJyB9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICAgICAgPC9JbnB1dFN1ZmZpeD4KICAgICAgICAgICAgICAgICAgICA8L0lucHV0Q29udHJvbD4KICAgICAgICAgICAgICAgIDwvUG9wb3Zlcj4KCiAgICAgICAgICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dGltZU1vZGFsLnZpc2libGV9CiAgICAgICAgICAgICAgICAgICAgb25EaXNtaXNzPXt0aW1lTW9kYWwuaGlkZX0KICAgICAgICAgICAgICAgICAgICBhbmNob3I9ImJvdHRvbS1jZW50ZXIiCiAgICAgICAgICAgICAgICAgICAgY29udGVudD17CiAgICAgICAgICAgICAgICAgICAgICAgIDxWaWV3IHA9ezIwfT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxUaW1lUGlja2VyCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXszMDB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF0ZT17ZGF0ZX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGRhdGUpID0+IHNldERhdGUoZGF0ZSl9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICAgICAgICAgfT4KICAgICAgICAgICAgICAgICAgICA8SW5wdXRDb250cm9sCiAgICAgICAgICAgICAgICAgICAgICAgIG9uRm9jdXM9eyhlKSA9PiB0aW1lTW9kYWwuZGVsYXllZFNob3coKX0KICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KGUpID0+IHRpbWVNb2RhbC5kZWxheWVkU2hvdygpfT4KICAgICAgICAgICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlR5cGUgaGVyZSAtIGRhdGV0aW1lbG9jYWwiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17Z2V0VGltZUZvcm1hdChkYXRlKX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHR5cGU9InRpbWUiCiAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgICAgIDxJbnB1dFN1ZmZpeD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaWNvbj0idGltZSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHlsZT17eyBwb2ludGVyRXZlbnRzOiAnbm9uZScgfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgICAgIDwvSW5wdXRTdWZmaXg+CiAgICAgICAgICAgICAgICAgICAgPC9JbnB1dENvbnRyb2w+CiAgICAgICAgICAgICAgICA8L1BvcG92ZXI+CiAgICAgICAgICAgIDwvU3RhY2s+CiAgICAgICAgPC9EYXRlUmFuZ2VQcm92aWRlcj4KICAgICkKfQ==" />
+
+```tsx
+export const DateInputs = () => {
+    const [text, setText] = useState<any>('')
+    const [date, setDate] = useState<Date>(new Date())
+    const [selection, setSelection] = useState<any[]>([])
+    const dateModal = useVisibility(false)
+    const timeModal = useVisibility(false)
+
+    const getTimeFormat = (date: Date) => {
+        const hours = date.getHours()
+        const minutes = date.getMinutes()
+        const seconds = date.getSeconds()
+        return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`
+    }
+
+    const getDateFormat = (date) => {
+        const day = date.getDate()
+        const month = date.getMonth() + 1
+        const year = date.getFullYear()
+        return `${pad(year)}-${pad(month)}-${pad(day)}`
+    }
+
+    const handleSelection = (ndate: Date) => {
+        setSelection([[ndate, ndate]])
+        const d = new Date(date)
+        d.setFullYear(ndate.getFullYear())
+        d.setMonth(ndate.getMonth())
+        d.setDate(ndate.getDate())
+        setDate(new Date(d))
+        dateModal.hide()
+    }
+
+    return (
+        <DateRangeProvider>
+            <Stack
+                direction="horizontal"
+                spacing={10}>
+                <Popover
+                    isVisible={dateModal.visible}
+                    onDismiss={dateModal.hide}
+                    anchor="bottom-center"
+                    content={
+                        <View p={20}>
+                            <DatePicker
+                                defaultDate={new Date()}
+                                selection={selection}
+                                onChange={handleSelection}
+                                width="100%"
+                                height={300}
+                                monthProps={{ flex: 1 }}
+                            />
+                        </View>
+                    }>
+                    <InputControl onFocus={(e) => dateModal.delayedShow()}>
+                        <Input
+                            onChange={(e) => setText(e.target.value)}
+                            placeholder="Type here - datetimelocal"
+                            value={getDateFormat(date)}
+                            type="date"
+                        />
+                        <InputSuffix>
+                            <IconLib
+                                icon="date"
+                                style={{ pointerEvents: 'none' }}
+                            />
+                        </InputSuffix>
+                    </InputControl>
+                </Popover>
+
+                <Popover
+                    isVisible={timeModal.visible}
+                    onDismiss={timeModal.hide}
+                    anchor="bottom-center"
+                    content={
+                        <View p={20}>
+                            <TimePicker
+                                width="100%"
+                                height={300}
+                                date={date}
+                                onChange={(date) => setDate(date)}
+                            />
+                        </View>
+                    }>
+                    <InputControl
+                        onFocus={(e) => timeModal.delayedShow()}
+                        onClick={(e) => timeModal.delayedShow()}>
+                        <Input
+                            onChange={(e) => setText(e.target.value)}
+                            placeholder="Type here - datetimelocal"
+                            value={getTimeFormat(date)}
+                            type="time"
+                        />
+                        <InputSuffix>
+                            <IconLib
+                                icon="time"
+                                style={{ pointerEvents: 'none' }}
+                            />
+                        </InputSuffix>
+                    </InputControl>
+                </Popover>
+            </Stack>
+        </DateRangeProvider>
+    )
+}
+```
+### Scrolling Picker
+
+export const ScrollingPicker = () => {
+    const { goToToday } = useScrollingDatePicker();
+    const ref = useRef(null);
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const { today, tomorrow, start, end } = useMemo(() => {
+        const today = new Date();
+        const tomorrow = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000);
+        const start = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000);
+        const end = new Date(today.getTime() + 6 * 24 * 60 * 60 * 1000);
+        return {
+            today,
+            tomorrow,
+            start,
+            end,
+        };
+    }, []);
+    const [selection, setSelection] = useState([[start, end]]);
+    const handleSelection = (date) => {
+        if (selection.length == 0) {
+            setSelection([[date, null]]);
+        }
+        else {
+            const selected = selection[0];
+            if (!selected[0])
+                return setSelection([date, null]);
+            if (!!selected[0] && !!selected[1])
+                return setSelection([[date, null]]);
+            if (!!selected[0] && !selected[1])
+                return setSelection(selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]]);
+        }
+    };
+    const handleTodayClick = (e) => {
+        goToToday(ref.current);
+    };
+    return (<View width={300}>
+            <DateRangeProvider>
+                <Button onClick={handleTodayClick}>Go to Today</Button>
+                <ScrollingDatePicker height={300} ref={ref} defaultDate={today} selection={selection} onChange={handleSelection} monthTitle={(date) => (<Text p="1rem" as="span" width="100%">
+                            {monthNames[date.getMonth()]} / {date.getFullYear()}
+                        </Text>)}/>
+            </DateRangeProvider>
+        </View>);
+};
+
+<div className="story-block">
+<ScrollingPicker />
+</div>
+
+<CodeComponent filename="ScrollingPicker.tsx" code="ZXhwb3J0IGNvbnN0IFNjcm9sbGluZ1BpY2tlciA9ICgpID0+IHsKICAgIGNvbnN0IHsgZ29Ub1RvZGF5IH0gPSB1c2VTY3JvbGxpbmdEYXRlUGlja2VyKCkKICAgIGNvbnN0IHJlZiA9IHVzZVJlZihudWxsKQogICAgY29uc3QgbW9udGhOYW1lcyA9IFsnSmFuJywgJ0ZlYicsICdNYXInLCAnQXByJywgJ01heScsICdKdW4nLCAnSnVsJywgJ0F1ZycsICdTZXAnLCAnT2N0JywgJ05vdicsICdEZWMnXQogICAgY29uc3QgeyB0b2RheSwgdG9tb3Jyb3csIHN0YXJ0LCBlbmQgfSA9IHVzZU1lbW8oKCkgPT4gewogICAgICAgIGNvbnN0IHRvZGF5ID0gbmV3IERhdGUoKQogICAgICAgIGNvbnN0IHRvbW9ycm93ID0gbmV3IERhdGUodG9kYXkuZ2V0VGltZSgpICsgMSAqIDI0ICogNjAgKiA2MCAqIDEwMDApCiAgICAgICAgY29uc3Qgc3RhcnQgPSBuZXcgRGF0ZSh0b2RheS5nZXRUaW1lKCkgKyAxICogMjQgKiA2MCAqIDYwICogMTAwMCkKICAgICAgICBjb25zdCBlbmQgPSBuZXcgRGF0ZSh0b2RheS5nZXRUaW1lKCkgKyA2ICogMjQgKiA2MCAqIDYwICogMTAwMCkKICAgICAgICByZXR1cm4gewogICAgICAgICAgICB0b2RheSwKICAgICAgICAgICAgdG9tb3Jyb3csCiAgICAgICAgICAgIHN0YXJ0LAogICAgICAgICAgICBlbmQsCiAgICAgICAgfQogICAgfSwgW10pCiAgICBjb25zdCBbc2VsZWN0aW9uLCBzZXRTZWxlY3Rpb25dID0gdXNlU3RhdGU8YW55W10+KFtbc3RhcnQsIGVuZF1dKQoKICAgIGNvbnN0IGhhbmRsZVNlbGVjdGlvbiA9IChkYXRlOiBEYXRlKSA9PiB7CiAgICAgICAgaWYgKHNlbGVjdGlvbi5sZW5ndGggPT0gMCkgewogICAgICAgICAgICBzZXRTZWxlY3Rpb24oW1tkYXRlLCBudWxsXV0pCiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgICAgY29uc3Qgc2VsZWN0ZWQgPSBzZWxlY3Rpb25bMF0KICAgICAgICAgICAgaWYgKCFzZWxlY3RlZFswXSkgcmV0dXJuIHNldFNlbGVjdGlvbihbZGF0ZSwgbnVsbF0pCiAgICAgICAgICAgIGlmICghIXNlbGVjdGVkWzBdICYmICEhc2VsZWN0ZWRbMV0pIHJldHVybiBzZXRTZWxlY3Rpb24oW1tkYXRlLCBudWxsXV0pCiAgICAgICAgICAgIGlmICghIXNlbGVjdGVkWzBdICYmICFzZWxlY3RlZFsxXSkKICAgICAgICAgICAgICAgIHJldHVybiBzZXRTZWxlY3Rpb24oc2VsZWN0ZWRbMF0gPiBkYXRlID8gW1tkYXRlLCBzZWxlY3RlZFswXV1dIDogW1tzZWxlY3RlZFswXSwgZGF0ZV1dKQogICAgICAgIH0KICAgIH0KCiAgICBjb25zdCBoYW5kbGVUb2RheUNsaWNrID0gKGUpID0+IHsKICAgICAgICBnb1RvVG9kYXkocmVmLmN1cnJlbnQpCiAgICB9CgogICAgcmV0dXJuICgKICAgICAgICA8VmlldyB3aWR0aD17MzAwfT4KICAgICAgICAgICAgPERhdGVSYW5nZVByb3ZpZGVyPgogICAgICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXtoYW5kbGVUb2RheUNsaWNrfT5HbyB0byBUb2RheTwvQnV0dG9uPgogICAgICAgICAgICAgICAgPFNjcm9sbGluZ0RhdGVQaWNrZXIKICAgICAgICAgICAgICAgICAgICBoZWlnaHQ9ezMwMH0KICAgICAgICAgICAgICAgICAgICByZWY9e3JlZn0KICAgICAgICAgICAgICAgICAgICBkZWZhdWx0RGF0ZT17dG9kYXl9CiAgICAgICAgICAgICAgICAgICAgc2VsZWN0aW9uPXtzZWxlY3Rpb259CiAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9e2hhbmRsZVNlbGVjdGlvbn0KICAgICAgICAgICAgICAgICAgICBtb250aFRpdGxlPXsoZGF0ZTogRGF0ZSkgPT4gKAogICAgICAgICAgICAgICAgICAgICAgICA8VGV4dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgcD0iMXJlbSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFzPSJzcGFuIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAge21vbnRoTmFtZXNbZGF0ZS5nZXRNb250aCgpXX0gLyB7ZGF0ZS5nZXRGdWxsWWVhcigpfQogICAgICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgKX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDwvRGF0ZVJhbmdlUHJvdmlkZXI+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const ScrollingPicker = () => {
+    const { goToToday } = useScrollingDatePicker()
+    const ref = useRef(null)
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const { today, tomorrow, start, end } = useMemo(() => {
+        const today = new Date()
+        const tomorrow = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000)
+        const start = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000)
+        const end = new Date(today.getTime() + 6 * 24 * 60 * 60 * 1000)
+        return {
+            today,
+            tomorrow,
+            start,
+            end,
+        }
+    }, [])
+    const [selection, setSelection] = useState<any[]>([[start, end]])
+
+    const handleSelection = (date: Date) => {
+        if (selection.length == 0) {
+            setSelection([[date, null]])
+        } else {
+            const selected = selection[0]
+            if (!selected[0]) return setSelection([date, null])
+            if (!!selected[0] && !!selected[1]) return setSelection([[date, null]])
+            if (!!selected[0] && !selected[1])
+                return setSelection(selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]])
+        }
+    }
+
+    const handleTodayClick = (e) => {
+        goToToday(ref.current)
+    }
+
+    return (
+        <View width={300}>
+            <DateRangeProvider>
+                <Button onClick={handleTodayClick}>Go to Today</Button>
+                <ScrollingDatePicker
+                    height={300}
+                    ref={ref}
+                    defaultDate={today}
+                    selection={selection}
+                    onChange={handleSelection}
+                    monthTitle={(date: Date) => (
+                        <Text
+                            p="1rem"
+                            as="span"
+                            width="100%">
+                            {monthNames[date.getMonth()]} / {date.getFullYear()}
+                        </Text>
+                    )}
+                />
+            </DateRangeProvider>
+        </View>
+    )
+}
+```
+### Date Time Picker
+
+export const DateTimePicker = () => {
+    const [date, setDate] = useState(new Date());
+    return (<View>
+            <TimePicker twelveHours width={250} height={300} date={date} onChange={setDate}/>
+            <TimePicker hideAmPm width={200} height={300} date={date} onChange={setDate}/>
+        </View>);
+};
+
+<div className="story-block">
+<DateTimePicker />
+</div>
+
+<CodeComponent filename="DateTimePicker.tsx" code="ZXhwb3J0IGNvbnN0IERhdGVUaW1lUGlja2VyID0gKCkgPT4gewogICAgY29uc3QgW2RhdGUsIHNldERhdGVdID0gdXNlU3RhdGUobmV3IERhdGUoKSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3PgogICAgICAgICAgICA8VGltZVBpY2tlcgogICAgICAgICAgICAgICAgdHdlbHZlSG91cnMKICAgICAgICAgICAgICAgIHdpZHRoPXsyNTB9CiAgICAgICAgICAgICAgICBoZWlnaHQ9ezMwMH0KICAgICAgICAgICAgICAgIGRhdGU9e2RhdGV9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17c2V0RGF0ZX0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPFRpbWVQaWNrZXIKICAgICAgICAgICAgICAgIGhpZGVBbVBtCiAgICAgICAgICAgICAgICB3aWR0aD17MjAwfQogICAgICAgICAgICAgICAgaGVpZ2h0PXszMDB9CiAgICAgICAgICAgICAgICBkYXRlPXtkYXRlfQogICAgICAgICAgICAgICAgb25DaGFuZ2U9e3NldERhdGV9CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const DateTimePicker = () => {
+    const [date, setDate] = useState(new Date())
+
+    return (
+        <View>
+            <TimePicker
+                twelveHours
+                width={250}
+                height={300}
+                date={date}
+                onChange={setDate}
+            />
+            <TimePicker
+                hideAmPm
+                width={200}
+                height={300}
+                date={date}
+                onChange={setDate}
+            />
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>
