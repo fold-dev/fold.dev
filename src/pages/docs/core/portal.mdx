@@ -12,7 +12,7 @@ export const docs = {
         'Useful for creating a seamless React element hierarchy within a distinct DOM hierarchy, preventing potential style conflicts with parent elements that might obscure or conceal content (commonly used for popovers, dropdowns, and modals). It supports custom root mounts.',
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/portal/portal.tsx","description":"","displayName":"Portal","methods":[],"props":{"portalRef":{"defaultValue":null,"description":"","name":"portalRef","declarations":[{"fileName":"packages/core/src/portal/portal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"HTMLDivElement"},"tags":{}}}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/portal/index.ts","description":"","displayName":"Portal","methods":[],"props":{"portalRef":{"defaultValue":null,"description":"","name":"portalRef","declarations":[{"fileName":"fold/packages/core/src/portal/portal.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"HTMLDivElement"},"tags":{}}}}]
 
 export const css = []
 
@@ -27,7 +27,7 @@ import { Portal } from "@fold-dev/core";
 
 export const Usage = () => {
     const [show, setShow] = useState(false);
-    const portalRef = useRef(null);
+    const portalRef = useRef(undefined);
     return (<>
             <Button onClick={() => setShow(!show)}>Toggle Portal</Button>
 
@@ -43,12 +43,12 @@ export const Usage = () => {
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3Nob3csIHNldFNob3ddID0gdXNlU3RhdGUoZmFsc2UpCiAgICBjb25zdCBwb3J0YWxSZWYgPSB1c2VSZWYobnVsbCkKCiAgICByZXR1cm4gKAogICAgICAgIDw+CiAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17KCkgPT4gc2V0U2hvdyghc2hvdyl9PlRvZ2dsZSBQb3J0YWw8L0J1dHRvbj4KCiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICBwPSIxcmVtIDAgMCAwIgogICAgICAgICAgICAgICAgaWQ9ImN1c3RvbS1yb290IgogICAgICAgICAgICAgICAgcmVmPXtwb3J0YWxSZWZ9CiAgICAgICAgICAgIC8+CgogICAgICAgICAgICB7c2hvdyAmJiAoCiAgICAgICAgICAgICAgICA8UG9ydGFsIHBvcnRhbFJlZj17cG9ydGFsUmVmLmN1cnJlbnR9PgogICAgICAgICAgICAgICAgICAgIDxUZXh0PkNvbnRlbnQgaW4gYSBwb3J0YWwsIGluIGEgY3VzdG9tIHJvb3Q8L1RleHQ+CiAgICAgICAgICAgICAgICA8L1BvcnRhbD4KICAgICAgICAgICAgKX0KICAgICAgICA8Lz4KICAgICkKfQ==" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3Nob3csIHNldFNob3ddID0gdXNlU3RhdGUoZmFsc2UpCiAgICBjb25zdCBwb3J0YWxSZWYgPSB1c2VSZWYodW5kZWZpbmVkKQoKICAgIHJldHVybiAoCiAgICAgICAgPD4KICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXsoKSA9PiBzZXRTaG93KCFzaG93KX0+VG9nZ2xlIFBvcnRhbDwvQnV0dG9uPgoKICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIHA9IjFyZW0gMCAwIDAiCiAgICAgICAgICAgICAgICBpZD0iY3VzdG9tLXJvb3QiCiAgICAgICAgICAgICAgICByZWY9e3BvcnRhbFJlZn0KICAgICAgICAgICAgLz4KCiAgICAgICAgICAgIHtzaG93ICYmICgKICAgICAgICAgICAgICAgIDxQb3J0YWwgcG9ydGFsUmVmPXtwb3J0YWxSZWYuY3VycmVudH0+CiAgICAgICAgICAgICAgICAgICAgPFRleHQ+Q29udGVudCBpbiBhIHBvcnRhbCwgaW4gYSBjdXN0b20gcm9vdDwvVGV4dD4KICAgICAgICAgICAgICAgIDwvUG9ydGFsPgogICAgICAgICAgICApfQogICAgICAgIDwvPgogICAgKQp9" />
 
 ```tsx
 export const Usage = () => {
     const [show, setShow] = useState(false)
-    const portalRef = useRef(null)
+    const portalRef = useRef(undefined)
 
     return (
         <>
