@@ -603,10 +603,9 @@ export default function DocsLayout(props: any) {
                                                         row>
                                                         {component.experimental && (
                                                             <Pill
-                                                                color={Token.ColorViolet400}
                                                                 size="xs"
                                                                 subtle>
-                                                                EARLY ACCESS
+                                                                BETA
                                                             </Pill>
                                                         )}
                                                         {component.pro && (
