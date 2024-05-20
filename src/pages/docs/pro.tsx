@@ -3,12 +3,14 @@ import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View,
     Accordion,
     AccordionItem,
     AccordionHeading,
-    AccordionPanel, } from '@fold-dev/core'
+    AccordionPanel, 
+} from '@fold-dev/core'
 import { CodeComponent } from '../components/code.component'
 import React from 'react'
-import { GraphicLeft } from '..'
+import { GraphicLeft } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
 import * as data from '@/dummy_data'
+import { FAQ } from '../components/pricing.component'
 
 export default function GettingStarted(props) {
     return (
@@ -28,10 +30,8 @@ export default function GettingStarted(props) {
                 Introducing Fold Pro, built on the foundation of Fold Core, designed specifically for teams who need components for building exceptional products.
             </Text>
             
-
-
-
-
+            <FAQ />
+            
             <View
                 column
                 gap="2rem"

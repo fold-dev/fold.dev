@@ -6,6 +6,10 @@ import {
     GridItem,
     Heading,
     IconLib,
+    Accordion,
+    AccordionItem,
+    AccordionHeading,
+    AccordionPanel, 
     Li,
     Link,
     List,
@@ -17,6 +21,83 @@ import {
 import * as Token from '@fold-dev/design/tokens'
 import { useState } from 'react'
 import { GraphicLeft, GraphicRight } from './graphic.component'
+
+export const FAQ = (props) => (
+    <View
+        row
+        flex={2}
+        alignItems="flex-start"
+        p="4rem 2rem 4rem 0"
+        style={{
+            //minHeight: 600,
+            '--f-accordion-border-color': 'var(--f-color-base-700)',
+            '--f-accordion-background': 'var(--f-color-base-800)',
+            '--f-accordion-color': 'var(--f-color-base-300)',
+            '--f-accordion-color-heading': 'var(--f-color-base-300)',
+            '--f-accordion-color-description': 'var(--f-color-base-300)',
+            '--f-accordion-hover-border-color': 'var(--f-color-base-700)',
+            '--f-accordion-hover-background-color': 'var(--f-color-base-700)',
+            '--f-accordion-active-background-color': 'var(--f-color-base-500)',
+            '--f-accordion-active-background': 'var(--f-color-base-600)',
+            '--f-accordion-active-color': 'var(--f-color-base-300)',
+        } as any}>
+        <Accordion>
+            <AccordionItem>
+                <AccordionHeading>Is it production ready?</AccordionHeading>
+                <AccordionPanel>
+                    Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
+                    but there is still work left to do. If you have a Pro license & have experienced a bug, please consider posting 
+                    it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-400">Google Group</Link> or 
+                    on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-400">GitHub.</Link> (label it as Pro)
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Is the source code available?</AccordionHeading>
+                <AccordionPanel>
+                    The source code will not be available during Early Access. If you have an Enterprise or SaaS license, the source code will be made available once Early Access ends.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>How long will Early Access last?</AccordionHeading>
+                <AccordionPanel>
+                    Until it is stable. However we anticipate this being no more than 2 to 3 months at most.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>What comes after Early Access?</AccordionHeading>
+                <AccordionPanel>
+                    After Early Access we will go into public Beta. If you have purchased an Early Access license, you will automatically get access. Any licensing purchase limits will fall away for Beta.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>What does private support mean?</AccordionHeading>
+                <AccordionPanel>
+                    To briefly explain the license types: 
+                    Indie is for teams currently building a product that hasn't launched yet, or need to prototype on an idea.
+                    Enterpise is for teams generally inward facing, building apps that do not generate revenue or who do not directly contribute to revenue generation within the company.
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Where can I file bugs or feature requests for Early Access?</AccordionHeading>
+                <AccordionPanel>
+                On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-100">Google Group</Link> or 
+                    on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-100">GitHub.</Link> (label it as Pro).
+                </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Can I get my money back?</AccordionHeading>
+                <AccordionPanel>Absolutely, there is a 14 day money back guarantee. This will also revoke any access to the NPM server.</AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+                <AccordionHeading>Does it include future components?</AccordionHeading>
+                <AccordionPanel>
+                    If you purchase an Early Access licence, you will get access to any <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2" colorToken="accent-100">Roadmap</Link> items
+                    when they become available.
+                </AccordionPanel>
+            </AccordionItem>
+        </Accordion>
+    </View>
+)
 
 export const PricingComponent = () => {
     const [seats, setSeats] = useState(1)
@@ -79,21 +160,15 @@ export const PricingComponent = () => {
                     colorToken="base-200"
                     fontWeight={400}
                     width="80%">
-                    Get access to our Pro components to supercharge your product. Whether you're
-                    building a SaaS or internal dashboard, we have flexible licensing options.
+                    Get access to Fold Pro components to supercharge your product.
+                    Whether you're building an MVP or internal dashboard, we have you covered.
                 </Heading>
 
                 <Pill
                     subtle
                     color={Token.ColorPurple500}
                     m="2rem 0">
-                    We are currently in Early Access. 🚀 &nbsp;{' '}
-                    <Link
-                        color={Token.ColorPurple400}
-                        href="">
-                        Read more here
-                    </Link>{' '}
-                    &nbsp; about how that affects licensing & pricing.
+                    Early Access has launched. 🎉 Keep reading below to find out more.
                 </Pill>
 
                 <View
@@ -387,10 +462,12 @@ export const PricingComponent = () => {
                     </Card>
                 </View>
 
-                <View row>
-                    <Text colorToken="base-600">
-                        More than 10 developers? <Link href="#">Contact us.</Link> Pro licensing are
-                        subject to our <Link href="#">terms & conditions</Link>.
+                <View lineHeight={2}>
+                    <Text colorToken="base-600" textAlign="center">
+                        Please <Link href="mailto:licensing@fold.dev" colorToken="accent-400">email</Link> us if you are unsure about which license applies to you.
+                    </Text>
+                    <Text colorToken="base-600" textAlign="center">
+                        Purchasing a license is subject to our <Link href="/terms-conditions">terms & conditions</Link>.
                     </Text>
                 </View>
             </View>
@@ -408,88 +485,48 @@ export const PricingComponent = () => {
                     width={1107 / 2}
                     height={559 / 2}
                 />
+
                 <View
-                    row
-                    gap={50}
+                    p="0.5rem"
                     width="85%"
                     radius="var(--f-radius)"
-                    bgToken="base-700"
-                    position="relative"
-                    style={{ overflow: 'hidden' }}
-                    alignItems="flex-start">
+                    bg="linear-gradient(162deg, #EDCB1B -110.38%, #FF154D -59.98%, #C15AF1 -14.21%, #2087FF 41.76%, #00E1B9 100%)">
                     <View
-                        column
-                        flex={1}
-                        gap={30}
-                        alignItems="flex-start"
-                        p="5rem 0rem 5rem 5rem">
-                        <Pill
-                            subtle
-                            style={{ textTransform: 'uppercase' }}
-                            color={Token.ColorAccent400}>
-                            Fold Pro Early Access
-                        </Pill>
-                        <Text
-                            style={{ textTransform: 'uppercase' }}
-                            letterSpacing={5}
-                            colorToken="base-500"
-                            id="features">
-                            Fineprint
-                        </Text>
-                        <Heading
-                            colorToken="base-100"
-                            fontWeight={400}>
-                            We've just released Early Access, but what does that mean?
-                        </Heading>
-                    </View>
+                        row
+                        gap={50}
+                        width="100%"
+                        radius="var(--f-radius)"
+                        bgToken="base-800"
+                        position="relative"
+                        style={{ overflow: 'hidden' }}
+                        alignItems="flex-start">
+                        <View
+                            column
+                            flex={1}
+                            gap={30}
+                            alignItems="flex-start"
+                            p="5rem 0rem 5rem 5rem">
+                            <Pill
+                                subtle
+                                style={{ textTransform: 'uppercase' }}
+                                color={Token.ColorPurple400}>
+                                Fold Pro Early Access
+                            </Pill>
+                            <Text
+                                style={{ textTransform: 'uppercase' }}
+                                letterSpacing={5}
+                                colorToken="base-500"
+                                id="features">
+                                Fineprint
+                            </Text>
+                            <Heading
+                                colorToken="base-100"
+                                fontWeight={400}>
+                                We've just released Early Access, but what does that mean?
+                            </Heading>
+                        </View>
 
-                    <View
-                        column
-                        flex={2}
-                        gap={30}
-                        alignItems="flex-start"
-                        p="5rem">
-                        <Grid
-                            columns={2}
-                            gap="40px 40px"
-                            minChildWidth={100}>
-                            {[
-                                {
-                                    title: 'Customizable',
-                                    text: 'Best of both worlds: traditional CSS & Javascript. Fold gives you flexibility without impacting performance.',
-                                },
-                                {
-                                    title: 'Performant',
-                                    text: 'Render performance has been a key consideration at virtually every step of the way, we believe apps should be snappy.',
-                                },
-                                {
-                                    title: 'Design System',
-                                    text: 'Fold ships with its own Design System and builds on a large palette of options, all available to use.',
-                                },
-                                {
-                                    title: 'Dark Mode',
-                                    text: 'Fold supports Dark Mode, out of the box.',
-                                },
-                                {
-                                    title: 'Zero Dependencies',
-                                    text: 'Say goodbye to dependency hell, no other dependencies are used for Fold other than React & ReactDOM.',
-                                },
-                                {
-                                    title: 'Full Featured',
-                                    text: 'Every use-case, we have you covered. Fold currently has 85+ custom components, with more on the way.',
-                                },
-                            ].map(({ title, text }, index) => (
-                                <GridItem key={index}>
-                                    <Heading
-                                        as="h2"
-                                        colorToken="base-100"
-                                        m="0 0 0.25rem 0">
-                                        {title}
-                                    </Heading>
-                                    <Text colorToken="base-400">{text}</Text>
-                                </GridItem>
-                            ))}
-                        </Grid>
+                        <FAQ />
                     </View>
                 </View>
             </View>

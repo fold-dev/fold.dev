@@ -40,85 +40,47 @@ export const FAQComponent = () => {
                     width="85%"
                     style={{ '--f-accordion-background': 'transparent' }}>
                     <AccordionItem>
-                        <AccordionHeading>Are there really no dependencies?</AccordionHeading>
+                        <AccordionHeading>Is it production ready?</AccordionHeading>
                         <AccordionPanel>
-                            None. The sole dependencies are React and ReactDOM, and of course any additional libraries you
-                            integrate into your project.
+                            Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
+                            but there is still work left to do. If you have a Pro license & have experienced a bug, please consider posting 
+                            it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-100">Google Group</Link> or 
+                            on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-100">GitHub.</Link> (label it as Pro)
                         </AccordionPanel>
                     </AccordionItem>
                     <AccordionItem>
-                        <AccordionHeading>Does Fold use CSS-in-JS?</AccordionHeading>
+                        <AccordionHeading>Is the source code available?</AccordionHeading>
                         <AccordionPanel>
-                            No. Fold utilizes pure CSS, compiled at build time, to tailor the appearance of components and
-                            provides helper classes for added customization.
+                            The source code will not be available during Early Access. If you have an Enterprise or SaaS license, the source code will be made available once Early Access ends.
                         </AccordionPanel>
                     </AccordionItem>
                     <AccordionItem>
-                        <AccordionHeading>Are there other runtime targets available?</AccordionHeading>
+                        <AccordionHeading>How long will Early Access last?</AccordionHeading>
                         <AccordionPanel>
-                            Currently, only ES6 Modules are supported. However, we are actively seeking feedback on how we
-                            can accommodate a broader range of users. Please let us on know at our{' '}
-                            <Link
-                                href="https://github.com/fold-dev/fold/discussions"
+                            Until it is stable. However we anticipate this being no more than 2 to 3 months at most.
+                        </AccordionPanel>
+                    </AccordionItem>
+                    <AccordionItem>
+                        <AccordionHeading>What comes after Early Access?</AccordionHeading>
+                        <AccordionPanel>
+                            After Early Access we will go into public Beta. If you have purchased an Early Access license, you will automatically get access. Any licensing purchase limits will fall away for Beta.
+                        </AccordionPanel>
+                    </AccordionItem>
+                    <AccordionItem>
+                        <AccordionHeading>I'm unsure which license applies to me?</AccordionHeading>
+                        <AccordionPanel>
+                            To briefly explain the license types: 
+                            Indie is for teams currently building a product that hasn't launched yet, or need to prototype on an idea.
+                            Enterpise is for teams generally inward facing, building apps that do not generate revenue or who do not directly contribute to revenue generation within the company.
+                            SaaS is for teams that have a product that users pay for.
+                            We are more than happy to assist with any questions you may have.
+                            Please <Link
+                                href="licensing@fold.dev"
                                 target="_blank"
-                                fontSize="inherit">
-                                repository
-                            </Link>{' '}
-                            on GitHub.
-                        </AccordionPanel>
-                    </AccordionItem>
-                    <AccordionItem>
-                        <AccordionHeading>Where can I file bugs or feature requests?</AccordionHeading>
-                        <AccordionPanel>
-                            Please visit at our{' '}
-                            <Link
-                                href="https://github.com/fold-dev/fold"
-                                target="_blank"
-                                fontSize="inherit">
-                                repository
-                            </Link>{' '}
-                            on GitHub.
-                        </AccordionPanel>
-                    </AccordionItem>
-                    <AccordionItem>
-                        <AccordionHeading>Are there plans to support other frameworks like Svelte or Vue?</AccordionHeading>
-                        <AccordionPanel>Not yet.</AccordionPanel>
-                    </AccordionItem>
-                    <AccordionItem>
-                        <AccordionHeading>Can I use this for production?</AccordionHeading>
-                        <AccordionPanel>
-                            Certainly, however Fold is currently in its alpha stage. Nevertheless, you have the option to
-                            use it in a production environment if you wish.
-                        </AccordionPanel>
-                    </AccordionItem>
-                    <AccordionItem>
-                        <AccordionHeading>Can I contribute?</AccordionHeading>
-                        <AccordionPanel>
-                            Absolutely! Please visit at our{' '}
-                            <Link
-                                href="https://github.com/fold-dev/fold"
-                                target="_blank"
-                                fontSize="inherit">
-                                repository
-                            </Link>{' '}
-                            on GitHub to find out how.
-                        </AccordionPanel>
-                    </AccordionItem>
-                    <AccordionItem>
-                        <AccordionHeading>Is there a premium support package available?</AccordionHeading>
-                        <AccordionPanel>Not yet.</AccordionPanel>
-                    </AccordionItem>
-                    <AccordionItem>
-                        <AccordionHeading>What are the future plans for Fold?</AccordionHeading>
-                        <AccordionPanel>
-                            Please see our{' '}
-                            <Link
-                                href="https://github.com/orgs/fold-dev/projects/8"
-                                target="_blank"
-                                fontSize="inherit">
-                                Roadmap
-                            </Link>{' '}
-                            for upcoming development.
+                                fontSize="inherit"
+                                colorToken="accent-100">
+                                email
+                            </Link> us & we'll reply as soon as we can.
                         </AccordionPanel>
                     </AccordionItem>
                 </Accordion>
