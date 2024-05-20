@@ -168,7 +168,6 @@ export default function SiteLayout({ children }) {
                                 <Button
                                     href="#pro"
                                     as="a"
-                                    target="_blank"
                                     border="0.15rem solid white"
                                     style={{
                                         '--f-button-background-color': 'var(--f-color-white)',

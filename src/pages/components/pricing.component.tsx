@@ -19,7 +19,7 @@ import {
     View,
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { GraphicLeft, GraphicRight } from './graphic.component'
 
 export const FAQ = (props) => (
@@ -100,7 +100,8 @@ export const FAQ = (props) => (
 )
 
 export const PricingComponent = () => {
-    const [seats, setSeats] = useState(1)
+    const [seatsIndie, setSeatsIndie] = useState(1)
+    const [seatsInternal, setSeatsInternal] = useState(1)
 
     const clamp = (price, min, max) => {
         return Math.min(Math.max(price, min), max)
@@ -113,20 +114,43 @@ export const PricingComponent = () => {
         }).format(amount)
     }
 
-    const pricingEnterprise = (p = 699) => {
-        const price = Math.min(Math.max(seats, 1), 30) * p
-        return formatCurrency(clamp(price, 0, 99999))
-    }
-
-    const pricingSaas = (p = 2449) => {
-        const price = Math.min(Math.max(seats, 1), 30) * p
+    const pricingInternal = (p = 699) => {
+        const price = Math.min(Math.max(seatsInternal, 1), 30) * p
         return formatCurrency(clamp(price, 0, 99999))
     }
 
     const pricingIndie = (p = 349) => {
-        const price = Math.min(Math.max(seats, 1), 30) * p
+        const price = Math.min(Math.max(seatsIndie, 1), 30) * p
         return formatCurrency(clamp(price, 0, 9999))
     }
+
+    useEffect(() => {
+       /*  
+       const Paddle: any = window['Paddle']
+        Paddle.Environment.set("sandbox")
+        Paddle.Initialize({ 
+            token: 'test_341b6905e3ca3a3b2a7b42ffdcc'
+        })
+        Paddle.Checkout.open({
+            items: [
+                {
+                  priceId: "pri_01hyazedstjg85vqm34pj8pfry",
+                  quantity: 5
+                },
+                {
+                  priceId: "pri_01hq64m3jpm5y1vf3rx6a5g8cx",
+                  quantity: 1
+                }
+            ],
+            // customer: {
+            //     email: "sam@example.com",
+            //     address: {
+            //       countryCode: "US",
+            //       postalCode: "10021"
+            //     }
+            //   }
+        }) */
+    }, [])
 
     return (
         <>
@@ -173,26 +197,6 @@ export const PricingComponent = () => {
 
                 <View
                     row
-                    gap="1rem"
-                    width={500}>
-                    <Range
-                        style={{ '--f-range-background': 'var(--f-color-base-700)' }}
-                        min={1}
-                        max={10}
-                        step={1}
-                        value={seats}
-                        onChange={(e) => setSeats(+e.target.value)}
-                    />
-                    <Text
-                        colorToken="base-400"
-                        display="inline-block"
-                        width={130}>
-                        {seats} {seats == 1 ? 'Developer' : 'Developers'}
-                    </Text>
-                </View>
-
-                <View
-                    row
                     justifyContent="space-between"
                     width="fit-content"
                     flex={1}
@@ -201,7 +205,7 @@ export const PricingComponent = () => {
                     <Card
                         column
                         width={325}
-                        height={650}
+                        height={700}
                         p="2rem"
                         gap="1rem"
                         border="none"
@@ -230,6 +234,24 @@ export const PricingComponent = () => {
                             textDecoration="line-through">
                             {pricingIndie(499)} USD
                         </Heading>
+                        <View
+                            row
+                            gap="1rem"
+                            width="100%">
+                            <Range
+                                min={1}
+                                max={10}
+                                step={1}
+                                value={seatsIndie}
+                                onChange={(e) => setSeatsIndie(+e.target.value)}
+                            />
+                            <Text
+                                colorToken="base-400"
+                                display="inline-block"
+                                width={160}>
+                                {seatsIndie} {seatsIndie == 1 ? 'Developer' : 'Developers'}
+                            </Text>
+                        </View>
                         <List>
                             <Li
                                 row
@@ -301,7 +323,8 @@ export const PricingComponent = () => {
                         <Flexer />
                         <Button
                             as="a"
-                            href="https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?quantity=2"
+                            target="_blank"
+                            href={"https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?enabled=179904%2C385207&quantity=" + seatsIndie}
                             className="lemonsqueezy-button"
                             m="1rem 0 0 0"
                             size="xl"
@@ -314,7 +337,7 @@ export const PricingComponent = () => {
                     <Card
                         column
                         width={325}
-                        height={650}
+                        height={700}
                         p="2rem"
                         gap="1rem"
                         border="none"
@@ -330,7 +353,7 @@ export const PricingComponent = () => {
                             m="1rem 0 0 0"
                             gap={5}
                             alignItems="flex-start">
-                            <Heading huge>{pricingEnterprise()}</Heading>
+                            <Heading huge>{pricingInternal()}</Heading>
                             <Heading
                                 as="h5"
                                 fontWeight={600}>
@@ -341,8 +364,26 @@ export const PricingComponent = () => {
                             as="h4"
                             colorToken="text-weakest"
                             textDecoration="line-through">
-                            {pricingEnterprise(999)} USD
+                            {pricingInternal(999)} USD
                         </Heading>
+                        <View
+                            row
+                            gap="1rem"
+                            width="100%">
+                            <Range
+                                min={1}
+                                max={10}
+                                step={1}
+                                value={seatsInternal}
+                                onChange={(e) => setSeatsInternal(+e.target.value)}
+                            />
+                            <Text
+                                colorToken="base-400"
+                                display="inline-block"
+                                width={160}>
+                                {seatsInternal} {seatsInternal == 1 ? 'Developer' : 'Developers'}
+                            </Text>
+                        </View>
                         <List>
                             <Li
                                 row
@@ -373,7 +414,8 @@ export const PricingComponent = () => {
                         <Flexer />
                         <Button
                             as="a"
-                            href="https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?embed=1&discount=0"
+                            target="_blank"
+                            href={"https://fold.lemonsqueezy.com/buy/080b3f6a-0e21-46d7-9a02-4c13258efeb6?enabled=179904%2C385207&quantity=" + seatsInternal}
                             className="lemonsqueezy-button"
                             m="1rem 0 0 0"
                             size="xl"
@@ -386,7 +428,7 @@ export const PricingComponent = () => {
                     <Card
                         column
                         width={325}
-                        height={650}
+                        height={700}
                         p="2rem"
                         gap="1rem"
                         border="none"
@@ -451,8 +493,7 @@ export const PricingComponent = () => {
                         <Flexer />
                         <Button
                             as="a"
-                            href="https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?embed=1&discount=0"
-                            className="lemonsqueezy-button"
+                            href="mailto:saas@fold.dev"
                             m="1rem 0 0 0"
                             size="xl"
                             width="100%"

@@ -34,6 +34,7 @@ export default function Document() {
                 <title>Fold</title>
 
                 <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
+                <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 
                 <link
                     rel="icon"
