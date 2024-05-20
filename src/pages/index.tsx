@@ -6,6 +6,7 @@ import { GoComponent } from './components/go.component'
 import { HeroComponent } from './components/hero.component'
 import { PricingComponent } from './components/pricing.component'
 import { ProComponent } from './components/pro.component'
+import { SupportComponent } from './components/support.component'
 
 function Home() {
     const [showChild, setShowChild] = useState(false)
@@ -23,9 +24,13 @@ function Home() {
             <CoreComponent />
             <Divider />
             <PricingComponent />
-            <Divider />                 
-            {/* <FAQComponent />
-            <Divider />      */} 
+            <Divider />
+            {/* 
+            <FAQComponent />
+            <Divider />      
+            */} 
+            <SupportComponent />
+            <Divider />
             <GoComponent />
         </>
     )
