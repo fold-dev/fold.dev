@@ -1,193 +1,12 @@
-import { FIX, Icon, Option, Options, Pill, Text, View } from '@fold-dev/core'
+import { Option, Options, Pill, View } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
-import {
-    DataGrid,
-    DataGridHeader,
-    DataGridTypes,
-    dataGridState,
-    dispatchDataGridEvent,
-    setExperimentalGlobalRowCellComponents,
-} from '@fold-pro/react'
-import { useLayoutEffect, useState } from 'react'
-import * as data from '@/dummy_data'
-
-export const Borderless = () => {
-    const [columnWidths, setColumnWidths] = useState(data.widths)
-    const [columns, setColumns] = useState<DataGridTypes.Column[]>(data.columns)
-    const [footerColumns, setFooterColumns] = useState<DataGridTypes.Column[]>(data.footer)
-    const [rows, setRows] = useState<DataGridTypes.Cell[][]>(data.rows)
-
-    const handleColumnMove = ({ origin, target }) => {
-        dataGridState({
-            columnWidths,
-            setColumnWidths,
-            columns,
-            setColumns,
-            footerColumns,
-            setFooterColumns,
-            rows,
-            setRows,
-        }).handleColumnMove({ origin, target })
-    }
-
-    const handleRowMove = ({ origin, target }) => {
-        dataGridState({
-            columnWidths,
-            setColumnWidths,
-            columns,
-            setColumns,
-            footerColumns,
-            setFooterColumns,
-            rows,
-            setRows,
-        }).handleRowMove({ origin, target })
-    }
-
-    const handleColumnClick = (index, column: DataGridTypes.Column) => {
-        dataGridState({
-            columnWidths,
-            setColumnWidths,
-            columns,
-            setColumns,
-            footerColumns,
-            setFooterColumns,
-            rows,
-            setRows,
-        }).handleColumnClick(index, column)
-    }
-
-    const handleCellUpdate = ({ value, row, col }) => {
-        dataGridState({
-            columnWidths,
-            setColumnWidths,
-            columns,
-            setColumns,
-            footerColumns,
-            setFooterColumns,
-            rows,
-            setRows,
-        }).handleCellUpdate({ value, row, col })
-    }
-
-    const handleCellDelete = ({ row, col }) => {
-        dataGridState({
-            columnWidths,
-            setColumnWidths,
-            columns,
-            setColumns,
-            footerColumns,
-            setFooterColumns,
-            rows,
-            setRows,
-        }).handleCellDelete({ row, col })
-    }
-
-    useLayoutEffect(() => {
-        // Why do we do this?
-        // Specifying a custom component on each row cell is supported,
-        // however to optimise render performance (for larger datasets),
-        // a global array of custom components is stored that is accessible
-        // to each row cell at render time. We store it as a global variable
-        // to not pollute the Context (for now).
-        setExperimentalGlobalRowCellComponents(data._rowCellComponents)
-    }, [])
-
-    return (
-        <div
-            style={
-                {
-                    '--f-data-grid-row-padding-left': '3rem',
-                    '--f-data-grid-row-padding-right': '3px',
-                } as any
-            }>
-            <DataGrid
-                border="0"
-                id="instance-1"
-                // provider:
-                defaultCellSelection={{}}
-                defaultRowSelection={{}}
-                draggableColumns
-                draggableRows
-                maxRowsSelectable={undefined}
-                singleRowSelect={false}
-                onSelect={({ rows, cols }: any) => null}
-                // core:
-                // height={467}
-                // variant="default"
-                variant="virtual"
-                virtual={{
-                    rows: 10,
-                    rowHeight: 40,
-                    paddingTop: 40,
-                    paddingBottom: 30,
-                }}
-                hideCheckbox={false}
-                hideGutter={false}
-                rows={rows}
-                columnWidths={columnWidths}
-                header={
-                    <DataGridHeader
-                        resizableColumns
-                        columns={columns}
-                        onColumnClick={handleColumnClick}
-                        onWidthChange={(index, width) =>
-                            setColumnWidths(columnWidths.map((w, i) => (i == index ? width : w)))
-                        }
-                    />
-                }
-                footer={
-                    <DataGridHeader
-                        hideCheckbox
-                        component={data.FooterCell}
-                        columns={footerColumns}
-                        style={{
-                            '--f-data-grid-cell-height': '30px',
-                            'bottom': 0,
-                        }}
-                    />
-                }
-                pinFirst
-                pinLast
-                onCellUpdate={handleCellUpdate}
-                onCellDelete={handleCellDelete}
-                onColumnMove={handleColumnMove}
-                onRowMove={handleRowMove}
-                toolbar={({ rowSelection, cellSelection }) => (
-                    <View
-                        row
-                        position="absolute"
-                        bgToken="surface-inverse"
-                        colorToken="text-on-color"
-                        p="1rem 2rem"
-                        radius="var(--f-radius)"
-                        shadow="var(--f-shadow-xl)"
-                        zIndex={1000}
-                        gap={10}
-                        display={
-                            !Object.values(rowSelection).length &&
-                            Object.values(cellSelection).length < 2
-                                ? 'none'
-                                : 'flex'
-                        }
-                        style={{ bottom: 10, left: '50%', transform: 'translateX(-50%)' }}>
-                        <Text color="inherit">
-                            {Object.values(rowSelection).length} rows, &nbsp;
-                            {Object.values(cellSelection).length} cells
-                        </Text>
-                        <Icon
-                            icon={FIX}
-                            className="f-buttonize"
-                            onClick={() => {
-                                dispatchDataGridEvent('select-cells', { instanceId: 'instance-1' })
-                                dispatchDataGridEvent('select-rows', { instanceId: 'instance-1' })
-                            }}
-                        />
-                    </View>
-                )}
-            />
-        </div>
-    )
-}
+import { useState } from 'react'
+import { WeekView as Calendar } from '../pages/docs/pro/calendar.mdx'
+import { Usage as CSVImporter } from '../pages/docs/pro/csv-importer.mdx'
+import { Borderless as DataGrid } from '../pages/docs/pro/data-grid.mdx'
+import { Usage as DatePicker } from '../pages/docs/pro/date-picker.mdx'
+import { Usage as Kanban } from '../pages/docs/pro/kanban.mdx'
+import { Usage as Todo } from '../pages/docs/pro/todo.mdx'
 
 export const ProComponent = () => {
     const [option, setOption] = useState(4)
@@ -203,15 +22,20 @@ export const ProComponent = () => {
                 bgToken="surface"
                 width="95%"
                 p="1rem"
+                style={{ 
+                    maxHeight: 1150, 
+                    overflow: 'scroll' 
+                }}
                 radius="var(--f-radius)"
                 justifyContent="flex-start"
                 alignContent="flex-start"
                 alignItems="flex-start"
                 position="relative">
                 <Options
-                    m="0 auto 1rem auto"
+                    m="0 auto 2rem auto"
                     animated
-                    position="relative"
+                    position="sticky"
+                    style={{ top: 10 }}
                     zIndex={10000}
                     selected={option}
                     onOptionChange={setOption}>
@@ -238,7 +62,12 @@ export const ProComponent = () => {
                     height="fit-content"
                     position="relative"
                     zIndex={0}>
-                    <Borderless />
+                    {option == 0 && (<Kanban />)}
+                    {option == 1 && (<Todo />)}
+                    {option == 2 && (<Calendar />)}
+                    {option == 3 && (<CSVImporter />)}
+                    {option == 4 && (<DataGrid />)}
+                    {option == 5 && (<View row><DatePicker /></View>)}
                 </View>
             </View>
         </View>
