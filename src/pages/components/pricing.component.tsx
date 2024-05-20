@@ -160,7 +160,7 @@ export const PricingComponent = () => {
                     colorToken="base-200"
                     fontWeight={400}
                     width="80%">
-                    Get access to Fold Pro components to supercharge your product.
+                    Get access to Fold Pro components to supercharge your next project.
                     Whether you're building an MVP or internal dashboard, we have you covered.
                 </Heading>
 
@@ -502,7 +502,7 @@ export const PricingComponent = () => {
                         alignItems="flex-start">
                         <View
                             column
-                            flex={1}
+                            flex={0.5}
                             gap={30}
                             alignItems="flex-start"
                             p="5rem 0rem 5rem 5rem">
