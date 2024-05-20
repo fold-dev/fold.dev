@@ -1,6 +1,6 @@
 import React from 'react'
 import { Heading, Text, View } from '@fold-dev/core'
-import { GraphicLeft, GraphicRight } from '.'
+import { GraphicLeft, GraphicRight } from '../pages/components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
 
 function TermsOfUse(props){
