@@ -55,7 +55,7 @@ export const SupportComponent = (props) => {
                             {
                                 url: 'https://github.com/fold-dev/fold/discussions',
                                 title: 'Discussions',
-                                text: 'We rely on GitHub Discussions to power our open source community. If you have a question or suggestion, start a discussion.',
+                                text: 'We love feedback, and if you have a GitHub account, you can use GitHub Discussions for any sort of question or suggestion.',
                             },
                             {
                                 url: 'https://github.com/fold-dev/fold/issues',

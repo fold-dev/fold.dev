@@ -22,6 +22,68 @@ import * as Token from '@fold-dev/design/tokens'
 import { useEffect, useState } from 'react'
 import { GraphicLeft, GraphicRight } from './graphic.component'
 
+export const FAQAccordion = (props) => (
+    <Accordion>
+        <AccordionItem>
+            <AccordionHeading>Is it production ready?</AccordionHeading>
+            <AccordionPanel>
+                Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
+                but there is still work left to do. If you have a Pro license & have experienced a bug, please consider posting 
+                it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-400">Google Group</Link> or 
+                on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-400">GitHub.</Link> (label it as Pro)
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>Is the source code available?</AccordionHeading>
+            <AccordionPanel>
+                The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-400">Google Group</Link>.
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>How long will Early Access last?</AccordionHeading>
+            <AccordionPanel>
+                Until it is stable. However, we don't anticipate this being more than a quarter. We will keep everyone updated as we progress.
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>What comes after Early Access?</AccordionHeading>
+            <AccordionPanel>
+                After Early Access we will go into Beta. 
+                If you have purchased an Early Access license, you will automatically get access. 
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>What does private support mean?</AccordionHeading>
+            <AccordionPanel>
+                Access to a private <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-400">Google Group</Link> where support issues are prioritized.
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>Where can I file bugs or feature requests for Early Access?</AccordionHeading>
+            <AccordionPanel>
+            On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-100">Google Group</Link> or 
+                on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-100">GitHub.</Link> (label it as Pro).
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>Can I get my money back?</AccordionHeading>
+            <AccordionPanel>Absolutely, there is a limited 14 day money back guarantee. This is subject to our <Link href="/license" target="_blank">licence</Link> terms.</AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>What roadmap components are included?</AccordionHeading>
+            <AccordionPanel>
+                If you purchase an Early Access licence, you will get access to any <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2" colorToken="accent-100">Roadmap</Link> components as they become available.
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>I have another question?</AccordionHeading>
+            <AccordionPanel>
+                No worriess, please email us at <Link target="_blank" href="mailto:support@fold.dev" colorToken="accent-100">support@fold.dev</Link>.
+            </AccordionPanel>
+        </AccordionItem>
+    </Accordion>
+)
+
 export const FAQ = (props) => (
     <View
         row
@@ -41,61 +103,7 @@ export const FAQ = (props) => (
             '--f-accordion-active-background': 'var(--f-color-base-600)',
             '--f-accordion-active-color': 'var(--f-color-base-300)',
         } as any}>
-        <Accordion>
-            <AccordionItem>
-                <AccordionHeading>Is it production ready?</AccordionHeading>
-                <AccordionPanel>
-                    Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
-                    but there is still work left to do. If you have a Pro license & have experienced a bug, please consider posting 
-                    it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-400">Google Group</Link> or 
-                    on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-400">GitHub.</Link> (label it as Pro)
-                </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-                <AccordionHeading>Is the source code available?</AccordionHeading>
-                <AccordionPanel>
-                    The source code will not be available during Early Access. If you have an Enterprise or SaaS license, the source code will be made available once Early Access ends.
-                </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-                <AccordionHeading>How long will Early Access last?</AccordionHeading>
-                <AccordionPanel>
-                    Until it is stable. However we anticipate this being no more than 2 to 3 months at most.
-                </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-                <AccordionHeading>What comes after Early Access?</AccordionHeading>
-                <AccordionPanel>
-                    After Early Access we will go into public Beta. If you have purchased an Early Access license, you will automatically get access. Any licensing purchase limits will fall away for Beta.
-                </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-                <AccordionHeading>What does private support mean?</AccordionHeading>
-                <AccordionPanel>
-                    To briefly explain the license types: 
-                    Indie is for teams currently building a product that hasn't launched yet, or need to prototype on an idea.
-                    Enterpise is for teams generally inward facing, building apps that do not generate revenue or who do not directly contribute to revenue generation within the company.
-                </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-                <AccordionHeading>Where can I file bugs or feature requests for Early Access?</AccordionHeading>
-                <AccordionPanel>
-                On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-100">Google Group</Link> or 
-                    on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-100">GitHub.</Link> (label it as Pro).
-                </AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-                <AccordionHeading>Can I get my money back?</AccordionHeading>
-                <AccordionPanel>Absolutely, there is a 14 day money back guarantee. This will also revoke any access to the NPM server.</AccordionPanel>
-            </AccordionItem>
-            <AccordionItem>
-                <AccordionHeading>Does it include future components?</AccordionHeading>
-                <AccordionPanel>
-                    If you purchase an Early Access licence, you will get access to any <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2" colorToken="accent-100">Roadmap</Link> items
-                    when they become available.
-                </AccordionPanel>
-            </AccordionItem>
-        </Accordion>
+        <FAQAccordion />
     </View>
 )
 
