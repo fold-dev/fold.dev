@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { WeekView as Calendar } from '../pages/docs/pro/calendar.mdx'
 import { Usage as CSVImporter } from '../pages/docs/pro/csv-importer.mdx'
 import { Borderless as DataGrid } from '../pages/docs/pro/data-grid.mdx'
-import { Usage as DatePicker } from '../pages/docs/pro/date-picker.mdx'
+import { MultipleMonths as DatePicker } from '../pages/docs/pro/date-picker.mdx'
 import { Usage as Kanban } from '../pages/docs/pro/kanban.mdx'
 import { Usage as Todo } from '../pages/docs/pro/todo.mdx'
 
@@ -23,7 +23,7 @@ export const ProComponent = () => {
                 width="95%"
                 p="1rem"
                 style={{ 
-                    maxHeight: 1150, 
+                    maxHeight: 1000, 
                     overflow: 'scroll' 
                 }}
                 radius="var(--f-radius)"
@@ -36,24 +36,14 @@ export const ProComponent = () => {
                     animated
                     position="sticky"
                     style={{ top: 10 }}
-                    zIndex={10000}
+                    zIndex={1000}
                     selected={option}
                     onOptionChange={setOption}>
                     <Option>Kanban Board</Option>
                     <Option>Todo List</Option>
                     <Option>Calendar</Option>
                     <Option>CSV Importer</Option>
-                    <Option
-                        suffix={
-                            <Pill
-                                color={Token.ColorAccent400}
-                                size="xs"
-                                subtle>
-                                BETA
-                            </Pill>
-                        }>
-                        Data Grid
-                    </Option>
+                    <Option>Data Grid</Option>
                     <Option>Date Picker</Option>
                 </Options>
 
