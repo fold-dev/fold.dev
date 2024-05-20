@@ -3,7 +3,8 @@ import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View,
     Accordion,
     AccordionItem,
     AccordionHeading,
-    AccordionPanel, 
+    AccordionPanel,
+    Pill, 
 } from '@fold-dev/core'
 import { CodeComponent } from '../components/code.component'
 import React from 'react'
@@ -24,14 +25,12 @@ export default function GettingStarted(props) {
             </Breadcrumb>
             <Heading fontWeight="bold">Pro</Heading>
             <Heading as="h2">
-                Ready to take your project to the next level? 
+                Welcome to Fold Pro, premium UI components to supercharge your project.
             </Heading>
             <Text>
-                Introducing Fold Pro, built on the foundation of Fold Core, designed specifically for teams who need components for building exceptional products.
+                Fold Pro, built on the foundation of Fold Core, is designed specifically for teams who need high-end components for building exceptional product experiences.
             </Text>
-            
-            <FAQ />
-            
+
             <View
                 column
                 gap="2rem"
@@ -39,6 +38,8 @@ export default function GettingStarted(props) {
                 radius="var(--f-radius)"
                 alignItems="flex-start"
                 bgToken="accent-500"
+                position="relative"
+                style={{ overflow: 'hidden' }}
                 m="2rem 0 0 0">
                 <GraphicLeft
                     color={Token.ColorAccent200}
@@ -154,26 +155,55 @@ export default function GettingStarted(props) {
 
                 </View>
             </View>
+
+            <Text as="blockquote">Fold Pro has been developed using React v18.2</Text>
         
-            <Heading as="h3">Getting the Files</Heading>
+            <Heading as="h3">
+                Getting a License Key
+            </Heading>
+
             <Text>
-                After buying a license, you will be added a private Google Group.
-                The Fold Pro source code will be posted there after every release.
+                You are able to purchase a license but clicking <a href="http://localhost:3000/#pro" target="_blank">here</a>.
             </Text>
+
             <Text>
-                <Link 
-                    target="_blank"
-                    href="https://groups.google.com/a/fold.dev/g/early-access">
-                    Google Group link
-                </Link>
+                After purchasing a license, you will receive an automated email containing a list of license keys, quantity, when the license keys are valid until & a OTP to use for support (more on that below).
+                You will also receive an invoice from <a href="https://www.lemonsqueezy.com/" target="_blank">Lemon Squeezy</a>, who we use as our merchant of record.
             </Text>
+
+            <Heading as="h3">
+                Set up the Fold Pro NPM registry
+            </Heading>
+
             <Text>
-                If you have a Pro license and have not been added to the group, 
-                please email Pro support <Link href="mailto:pro@fold.dev">here</Link>.
+                Once you have a valid license key ready, you're ready to install Fold Pro in your project. 
             </Text>
+
+            <Text>
+                Add a license key to your <code>.npmrc</code> file. <code>NPM_TOKEN</code> in this case must be available as an environment variable.
+            </Text>
+
+            <CodeComponent
+                showSnippet
+                dontConvert
+                lang="bash"
+                filename=".npmrc"
+                code={`
+    @fold-pro:registry=https://npm.fold.dev
+    //npm.fold.dev/:_authToken=\${NPM_TOKEN}
+                `}
+            />
 
             <Heading as="h3">Requirements</Heading>
 
+            <Text>
+                Fold Pro relies on the latest version of Fold Core. 
+                Make sure you have Fold Core installed correctly by following the guide <a href="/docs/getting-started" target="_blank">here</a>. 
+            </Text>
+
+            <Text>
+                Once you have Fold Core installed, you're ready to proceed.
+            </Text>
 
             <Heading as="h3">Installation</Heading>
 
@@ -184,15 +214,15 @@ export default function GettingStarted(props) {
                 filename="console"
                 code={`
     # Using npm
-    npm install @fold-dev/core
+    npm install @fold-pro/react
 
     # Using yarn
-    yarn add @fold-dev/core
+    yarn add @fold-pro/react
                 `}
             />
             <Heading as="h3">Setup</Heading>
             <Text>
-                Once the library is installed, you'll need to include the CSS stylesheet & React Context Provider.
+                Once Pro is installed, you'll need to include the Pro CSS stylesheet.
             </Text>
             <Heading as="h4">CSS</Heading>
             <Text>
@@ -201,68 +231,33 @@ export default function GettingStarted(props) {
             </Text>
             <CodeComponent
                 code={`
-    import '@fold-dev/core/dist/styles.css'
+    import '@fold-pro/react/dist/styles.css'
                 `}
                 showSnippet
                 dontConvert
                 filename="App.tsx"
             />
-            <Heading as="h4">Context Provider</Heading>
-            <Text>
-                Include <code>FoldProvider</code> in the root if your app.
-            </Text>
-            <CodeComponent
-                code={`
-    import React from 'react'
-    import { FoldProvider } from '@fold-dev/core'
-
-    function App() {
-        return (
-            <FoldProvider>
-                <YourApp />
-            </FoldProvider>
-        )
-    }
-                `}
-                showSnippet
-                dontConvert
-                filename="App.tsx"
-            />
-
             <Heading as="h3">Done</Heading>
+
             <Text>
-                You're now ready to start building with Fold. Here's an example of how to use one of our components:
+                You're now ready to start building with Fold Pro. 
             </Text>
 
-            <CodeComponent
-                code={`
-    import React from 'react'
-    import { FoldProvider } from '@fold-dev/core'
+            <Heading as="h3">Support</Heading>
 
-    function MyComponent() {
-        return (
-            <View>
-                <Heading>Hello Fold!</Heading>
-                <Button label="Click me" onClick={() => alert('Button clicked!')} />
-            </View>
-        )
-    }
-                `}
-                showSnippet
-                dontConvert
-                filename="App.tsx"
-            />
-            <br />
-            <Heading as="h3">Build Targets</Heading>
             <Text>
-                Fold has been crafted using TypeScript and exported to es2015 as a target. If you have preferences for
-                an alternative compilation target,{' '}
-                <Link
-                    href="https://github.com/fold-dev/fold/discussions"
-                    target="_blank">
-                    let us know
-                </Link>
-                . We aim to cater to as many users as possible to facilitate the use of Fold in their projects.
+                You can request access to join the exclusive <a href="https://groups.google.com/a/fold.dev/g/early-access" target="_blank">Fold Pro Early Access Google Group</a>.
+                This private community is dedicated to providing you with premium support, access to the source code, and a platform to connect with fellow Early Access users.
+            </Text>
+            
+            <Text>
+                To get access, simply visit the Google Group & request access using your secret code that was emailed (see above).
+            </Text>
+
+            <Heading as="h3">Source Code</Heading>
+
+            <Text>
+                After every release, we post the source code to the Early Access Google Group.
             </Text>
         </View>
     )
