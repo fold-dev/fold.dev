@@ -439,20 +439,22 @@ export const PricingComponent = () => {
                         <Text colorToken="base-300">
                             For teams that have launched to market or acquired external funding.
                         </Text>
-                        {/*  <View
-                        row
-                        m="1rem 0 0 0"
-                        gap={5}
-                        alignItems="flex-start">
-                        <Heading huge>{pricingSaas()}</Heading>
-                        <Heading as="h5" fontWeight={600}>USD</Heading>
-                    </View>
-                    <Heading
-                        as="h4"
-                        colorToken="text-weakest"
-                        textDecoration="line-through">
-                        {pricingSaas(3399)} USD
-                    </Heading> */}
+                        {/*  
+                        <View
+                            row
+                            m="1rem 0 0 0"
+                            gap={5}
+                            alignItems="flex-start">
+                            <Heading huge>{pricingSaas()}</Heading>
+                            <Heading as="h5" fontWeight={600}>USD</Heading>
+                        </View>
+                        <Heading
+                            as="h4"
+                            colorToken="text-weakest"
+                            textDecoration="line-through">
+                            {pricingSaas(3399)} USD
+                        </Heading> 
+                        */}
                         <List>
                             <Li
                                 row

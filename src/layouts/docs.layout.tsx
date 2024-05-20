@@ -1,4 +1,3 @@
-import { colors } from '@/pages'
 import MobileComponent from '@/pages/components/mobile.component'
 import { SearchComponent } from '@/pages/components/search.component'
 import {
@@ -60,6 +59,7 @@ import {
 } from 'react-icons/pi'
 import { navigation } from '../navigation'
 import { navigationPro } from '../navigation-pro'
+import { colors } from '@/pages/components/core.component'
 
 export const CircleIcon = ({
     children,
