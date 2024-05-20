@@ -123,7 +123,7 @@ export default function SiteLayout({ children }) {
                             height={70}
                             position="relative"
                             border="none"
-                            bg={stuck ? 'rgba(0,82,172,0.9)' : 'transparent'}
+                            bg={stuck ? 'var(--f-color-accent-500)' : 'transparent'}
                             style={{
                                 backdropFilter: 'blur(5px)',
                                 transition: 'background 0.1s',
@@ -133,7 +133,7 @@ export default function SiteLayout({ children }) {
                                 gap="1rem"
                                 width="100%"
                                 p="0 4rem">
-                                <LogoSolid color={Token.ColorElectric100} />
+                                <LogoSolid color="var(--f-color-accent-200)" />
                                 <Flexer />
                                 <Navigation
                                     bg="transparent"

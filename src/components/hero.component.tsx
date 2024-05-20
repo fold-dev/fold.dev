@@ -10,7 +10,7 @@ export const HeroComponent = () => {
             m="-111px 0 0 0"
             position="relative"
             style={{ overflow: 'hidden' }}
-            bg={`linear-gradient(175deg, ${Token.ColorElectric700}, ${Token.ColorElectric400})`}>
+            bg={`linear-gradient(175deg, var(--f-color-accent-700), var(--f-color-accent-400))`}>
             <GraphicRight
                 style={{ position: 'absolute', top: -100, right: -100, opacity: 0.2 }}
                 height={882 / 2}
@@ -34,7 +34,7 @@ export const HeroComponent = () => {
                         textAlign="center"
                         style={{ textTransform: 'uppercase' }}
                         letterSpacing={5}
-                        colorToken="electric-300">
+                        colorToken="accent-300">
                         Introducing
                     </Text>
 
@@ -95,7 +95,7 @@ export const HeroComponent = () => {
                             target="_blank"
                             textDecoration="none"
                             className="f-underline"
-                            color={Token.ColorAccent100}
+                            colorToken="accent-100"
                             href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW">
                             Subscribe to our newsletter
                         </Link>

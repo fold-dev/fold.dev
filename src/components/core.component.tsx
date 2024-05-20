@@ -896,6 +896,29 @@ const All = () => {
     }, [option])
 
     useEffect(() => {
+        switch (color) {
+            case Token.ColorPurple400:
+                return setAccent('purple')
+            case Token.ColorNeonpink400:
+                return setAccent('neonpink')
+            case Token.ColorRed400:
+                return setAccent('red')
+            case Token.ColorOrange400:
+                return setAccent('orange')
+            case Token.ColorYellow400:
+                return setAccent('yellow')
+            case Token.ColorGreen400:
+                return setAccent('green')
+            case Token.ColorTeal400:
+                return setAccent('teal')
+            case Token.ColorCyan400:
+                return setAccent('cyan')
+            case Token.ColorElectric400:
+                return setAccent('electric')
+        }
+    }, [color])
+
+    useEffect(() => {
         const of = 2
         const percent = value / 10
         const radius = of * percent + 'rem'
