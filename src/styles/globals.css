@@ -24,6 +24,7 @@ body {
     border-top-right-radius: 0;
     background: var(--f-color-base-900) !important;
     max-height: inherit;
+    max-height: 500px;
     width: 100%;
 }
 
