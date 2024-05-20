@@ -61,13 +61,15 @@ export const FAQAccordion = (props) => (
         <AccordionItem>
             <AccordionHeading>Where can I file bugs or feature requests for Early Access?</AccordionHeading>
             <AccordionPanel>
-            On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-100">Google Group</Link> or 
+                On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-100">Google Group</Link> or 
                 on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-100">GitHub.</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>Can I get my money back?</AccordionHeading>
-            <AccordionPanel>Absolutely, there is a limited 14 day money back guarantee. This is subject to our <Link href="/license" target="_blank">licence</Link> terms.</AccordionPanel>
+            <AccordionPanel>
+                Absolutely, there is a limited 14 day money back guarantee. This is subject to our <Link href="/license" target="_blank">licence</Link> terms.
+            </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>What roadmap components are included?</AccordionHeading>
@@ -216,7 +218,6 @@ export const PricingComponent = () => {
                         height={700}
                         p="2rem"
                         gap="1rem"
-                        border="none"
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start">
@@ -353,7 +354,6 @@ export const PricingComponent = () => {
                         height={700}
                         p="2rem"
                         gap="1rem"
-                        border="none"
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start">
@@ -439,7 +439,6 @@ export const PricingComponent = () => {
                         height={700}
                         p="2rem"
                         gap="1rem"
-                        border="none"
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start">

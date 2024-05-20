@@ -30,11 +30,12 @@ export const GoComponent = () => {
                     gap={30}
                     alignItems="flex-start"
                     p="5rem">
-                    <Pill
-                        subtle
-                        color={Token.ColorAccent100}>
-                        Coming Soon ✨
-                    </Pill>
+                    <View
+                        bgToken="accent-400"
+                        radius={50}
+                        p="0.25rem 1rem">
+                        <Text colorToken="accent-100">Coming Soon ✨</Text>
+                    </View>
                     <Text
                         style={{ textTransform: 'uppercase' }}
                         letterSpacing={5}
