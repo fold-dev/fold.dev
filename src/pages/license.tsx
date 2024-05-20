@@ -89,7 +89,7 @@ function License(props){
                 
                 <h1>Fold Pro License Agreement</h1>
                 
-                <p>This license is a legal agreement between you (either an individual or a single entity, also referred to as "LICENSEE", "YOU") and Appulse Holding B.V. ("Johannes du Plessis (Fold)") for the use of Fold Pro (the "SOFTWARE") or Fold Figma Pro (the "DESIGN SYSTEM").</p>
+                <p>This license is a legal agreement between you (either an individual or a single entity, also referred to as "LICENSEE", "YOU") and Fold ("Johannes du Plessis") for the use of Fold Pro (the "SOFTWARE") or Fold Figma Pro (the "DESIGN SYSTEM").</p>
                 <p>By purchasing, installing, or using the SOFTWARE or DESIGN SYSTEM, you agree to be bound by the terms and conditions of this License Agreement. Johannes du Plessis (Fold) reserves the right to alter this agreement at any time, for any reason, without notice.</p>
 
                 <h2>Permitted Use</h2>
