@@ -23,6 +23,7 @@ import {
     Li,
     Link,
     List,
+    LogoSolid,
     Menu,
     MenuItemOption,
     MenuOptionGroup,
@@ -1268,8 +1269,14 @@ export const CoreComponent = () => {
                         <Heading
                             colorToken="accent-50"
                             fontWeight={400}>
-                            Made for product builders. Whether it's a SaaS product or enterprise app, we got you covered.
+                            Made for product teams that need to move quickly.
                         </Heading>
+                        <Text colorToken="accent-100">
+                            Spend less time grokking build sizes & fixing dependency conflicts.
+                            Fold has no other dependencies besides React & ReactDOM.
+
+                            
+                        </Text>
                     </View>
 
                     <View
@@ -1282,28 +1289,28 @@ export const CoreComponent = () => {
                             minChildWidth={100}>
                             {[
                                 {
-                                    title: 'Customizable',
-                                    text: 'Best of both worlds: traditional CSS & Javascript. Fold gives you flexibility without impacting performance.',
+                                    title: 'Great DX',
+                                    text: 'Discover the perfect balance of component composability, CSS3 magic, and intuitive prop design – all tailored to fuel your rapid iterations.',
                                 },
                                 {
-                                    title: 'Performant',
-                                    text: 'Render performance has been a key consideration at virtually every step of the way, we believe apps should be snappy.',
+                                    title: 'Fast',
+                                    text: 'At every turn, we\'ve prioritized render performance because let\'s face it - apps should be snapp',
                                 },
                                 {
                                     title: 'Design System',
-                                    text: 'Fold ships with its own Design System and builds on a large palette of options, all available to use.',
+                                    text: 'A well-crafted design system isn\'t just a luxury – it\'s a necessity. Fold ships with its own Design System based on sane defaults.',
                                 },
                                 {
                                     title: 'Dark Mode',
-                                    text: 'Fold supports Dark Mode, out of the box.',
+                                    text: 'Fold supports Dark Mode out of the box, and it includes all the tools necessary for you to craft your own theme.',
                                 },
                                 {
                                     title: 'Zero Dependencies',
-                                    text: 'Say goodbye to dependency hell, no other dependencies are used for Fold other than React & ReactDOM.',
+                                    text: 'Like we said, say goodbye to dependency hell. No other dependencies are used for Fold other than React & ReactDOM.',
                                 },
                                 {
-                                    title: 'Full Featured',
-                                    text: 'Every use-case, we have you covered. Fold currently has 85+ custom components, with more on the way.',
+                                    title: 'Open Source',
+                                    text: 'We\'re committed to transparency and collaboration, which is why Fold Core is proudly open source software, and it always will be.',
                                 },
                             ].map(({ title, text }, index) => (
                                 <GridItem key={index}>
@@ -1313,7 +1320,9 @@ export const CoreComponent = () => {
                                         m="0 0 0.25rem 0">
                                         {title}
                                     </Heading>
-                                    <Text colorToken="accent-100">{text}</Text>
+                                    <Text colorToken="accent-100">
+                                        {text}
+                                    </Text>
                                 </GridItem>
                             ))}
                         </Grid>
@@ -1344,19 +1353,20 @@ export const CoreComponent = () => {
                             letterSpacing={5}
                             colorToken="text-weakest"
                             id="features">
-                            Product Driven
+                            The art of design
                         </Text>
                         <Heading
                             colorToken="text"
                             fontWeight={400}>
-                            Fold has been built through many years building real world products
+                            Learn more about the design principals that underpin Fold.
                         </Heading>
                         <Link
-                            href="#"
+                            href="https://www.fold.dev/docs/design-system"
+                            target="_blank"
                             color="var(--f-color-text)"
                             className="f-underline"
                             textDecoration="none">
-                            Get Started ↗
+                            Read More ↗
                         </Link>
                     </View>
 
@@ -1371,28 +1381,27 @@ export const CoreComponent = () => {
                             letterSpacing={5}
                             colorToken="text-weakest"
                             id="features">
-                            Used in Production
+                            Community Driven
                         </Text>
                         <Heading
                             colorToken="text"
                             fontWeight={400}>
-                            Fold has been built through many years building real world products
+                            Need some help getting started?
                         </Heading>
                         <Text
                             size="lg"
                             colorToken="text-weak"
                             fontWeight={400}>
-                            Get access to our Pro components to supercharge your product. Whether
-                            you're building a SaaS or internal dashboard, we have flexible licensing
-                            options.
+                            We rely on GitHub Discussions to power our community. If you have a question or suggestion, start a discussion.
                         </Text>
                         <Link
-                            href="#"
+                            target="_blank"
+                            href="https://github.com/fold-dev/fold/discussions"
                             color="var(--f-color-text)"
                             className="f-underline"
                             textDecoration="none">
-                            Get Started ↗
-                        </Link>
+                            GitHub Discussions ↗
+                        </Link> 
                     </View>
                 </View>
             </View>

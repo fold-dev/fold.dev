@@ -20,8 +20,8 @@ function Home() {
         <>
             {/* <HeroComponent /> */}
             {/* <ProComponent /> */}
-            <CoreComponent />
-            <Divider />
+            {/* <CoreComponent />
+            <Divider /> */}
             <PricingComponent />
             <Divider />                 
             <FAQComponent />
