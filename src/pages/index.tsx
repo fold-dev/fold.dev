@@ -5593,7 +5593,7 @@ export const Borderless = () => {
 
 function Home() {
     const [showChild, setShowChild] = useState(false)
-    const [option, setOption] = useState(1)
+    const [option, setOption] = useState(4)
     const [seats, setSeats] = useState(1)
 
     const clamp = (price, min, max) => {
@@ -6097,7 +6097,9 @@ function Home() {
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start">
-                        <Heading as="h2">Indie</Heading>
+                        <Heading as="h2">
+                            Indie
+                        </Heading>
                         <Text colorToken="base-300">
                             For teams building products that haven't launched to market yet.
                         </Text>
@@ -6126,19 +6128,20 @@ function Home() {
                                 <IconLib icon="check" /> Calendar
                             </Li>
                             <Li row width="fit-content">
+                                <IconLib icon="check" /> Date & Time Pickers
+                            </Li>
+                            <Li row width="fit-content">
                                 <IconLib icon="check" /> Data Grid
                             </Li>
                             <Li row width="fit-content">
                                 <IconLib icon="check" /> CSV Importer
                             </Li>
-                            <Li row width="fit-content">
-                                <IconLib icon="check" /> Date Picker
-                            </Li>
+
                             <Li row width="fit-content">
                                 <IconLib icon="check" /> Limited to prototyping
                             </Li>
                             <Li row width="fit-content">
-                                <IconLib icon="check" /> Access to private support group
+                                <IconLib icon="check" /> Private support group
                             </Li>
                             <Li row width="fit-content">
                                 <IconLib icon="check" /> 1 year of updates
@@ -6156,7 +6159,7 @@ function Home() {
                             </Li>
                             <Li row colorToken="purrple-400" width="fit-content">
                                 <IconLib icon="check" />
-                                Unreleased roadmap components
+                                Roadmap components
                             </Li>
                         </List>
                         <Flexer />
@@ -6182,7 +6185,9 @@ function Home() {
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start">
-                        <Heading as="h2">Enterprise</Heading>
+                        <Heading as="h2">
+                            Internal
+                        </Heading>
                         <Text colorToken="base-300">
                             For teams building internal-use products that generate no revenue.
                         </Text>
@@ -6240,7 +6245,9 @@ function Home() {
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start">
-                        <Heading as="h2">SaaS</Heading>
+                        <Heading as="h2">
+                            SaaS
+                        </Heading>
                         <Text colorToken="base-300">
                             For teams that have launched to market or acquired external funding.
                         </Text>

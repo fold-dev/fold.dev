@@ -1,4 +1,4 @@
-export const navigation = [
+export const navigationPro = [
   {
     slug: "calendar",
     title: "Calendar",

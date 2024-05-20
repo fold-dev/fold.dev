@@ -59,9 +59,7 @@ import {
     PiTwitterLogo
 } from 'react-icons/pi'
 import { navigation } from '../navigation'
-import * as np from '../navigation-pro'
-
-const navigationPro = np.navigation
+import { navigationPro } from '../navigation-pro'
 
 export const CircleIcon = ({
     children,
@@ -535,7 +533,7 @@ export default function DocsLayout(props: any) {
                                                 </Pill>)}>
                                                 Pro Components
                                         </NavigationHeading>
-                                        {navigationPro.filter((_, i) => i < 6).map((component: any, index: number) => (
+                                        {navigationPro.map((component: any, index: number) => (
                                             <NavigationItem
                                                 active={url == component.slug}
                                                 key={index}
