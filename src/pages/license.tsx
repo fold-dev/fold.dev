@@ -3,7 +3,7 @@ import { Heading, Text, View } from '@fold-dev/core'
 import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
 
-function TermsOfUse(props){
+function License(props){
     return (
         <View>
             <View
@@ -34,7 +34,7 @@ function TermsOfUse(props){
                         fontSize="6rem"
                         letterSpacing={-5}
                         lineHeight={0.9}>
-                        Terms of Use
+                        License
                     </Heading>
                 
                     <GraphicLeft
@@ -480,6 +480,6 @@ function TermsOfUse(props){
     )
 }
 
-TermsOfUse.noLayout = true
+License.noLayout = true
 
-export default TermsOfUse
+export default License

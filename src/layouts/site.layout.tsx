@@ -22,7 +22,7 @@ import {
 import * as Token from '@fold-dev/design/tokens'
 import { useEffect, useState } from 'react'
 import { SocialIcon } from 'react-social-icons'
-import MobileComponent from '../pages/components/mobile.component'
+import MobileComponent from '../components/mobile.component'
 
 export default function SiteLayout({ children }) {
     const [showChild, setShowChild] = useState(false)
@@ -149,7 +149,6 @@ export default function SiteLayout({ children }) {
                                     <NavigationItem href="/#core">Core</NavigationItem>
                                     <NavigationItem href="/#pro">Pro</NavigationItem>
                                     <NavigationItem href="/#pro">Pricing</NavigationItem>
-                                    <NavigationItem href="/#faq">Studio</NavigationItem>
                                     <NavigationItem href="/#support">Support</NavigationItem>
                                 </Navigation>
                                 <Button
@@ -160,13 +159,14 @@ export default function SiteLayout({ children }) {
                                     border="0.15rem solid white"
                                     style={{
                                         '--f-button-color': 'var(--f-color-white)',
+                                        '--f-color-text-on-color': 'var(--f-color-accent-400)',
                                         '--f-button-color-hover': 'var(--f-color-accent-400)',
                                         '--f-button-background-color-hover': 'var(--f-color-white)',
                                     }}>
                                     Documentation
                                 </Button>
                                 <Button
-                                    href="#pro"
+                                    href="/#pro"
                                     as="a"
                                     border="0.15rem solid white"
                                     style={{
@@ -274,17 +274,6 @@ export default function SiteLayout({ children }) {
                         <Li>
                             <Text
                                 as="a"
-                                href="/#pro"
-                                size="xl"
-                                fontWeight={400}
-                                textDecoration="none"
-                                colorToken="accent-400">
-                                Pro
-                            </Text>
-                        </Li>
-                        <Li>
-                            <Text
-                                as="a"
                                 href="/#core"
                                 size="xl"
                                 fontWeight={400}
@@ -296,12 +285,12 @@ export default function SiteLayout({ children }) {
                         <Li>
                             <Text
                                 as="a"
-                                href="/#faq"
+                                href="/#pro"
                                 size="xl"
                                 fontWeight={400}
                                 textDecoration="none"
                                 colorToken="accent-400">
-                                FAQ
+                                Pro
                             </Text>
                         </Li>
                         <Li>
@@ -411,6 +400,17 @@ export default function SiteLayout({ children }) {
                                 textDecoration="none"
                                 colorToken="accent-400">
                                 Terms of Use
+                            </Text>
+                        </Li>
+                        <Li>
+                            <Text
+                                as="a"
+                                href="/license"
+                                size="xl"
+                                fontWeight={400}
+                                textDecoration="none"
+                                colorToken="accent-400">
+                                License
                             </Text>
                         </Li>
                     </List>

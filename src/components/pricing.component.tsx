@@ -119,7 +119,7 @@ export const PricingComponent = () => {
         return formatCurrency(clamp(price, 0, 99999))
     }
 
-    const pricingIndie = (p = 349) => {
+    const pricingIndie = (p = 399) => {
         const price = Math.min(Math.max(seatsIndie, 1), 30) * p
         return formatCurrency(clamp(price, 0, 9999))
     }
@@ -214,7 +214,7 @@ export const PricingComponent = () => {
                         justifyContent="flex-start">
                         <Heading as="h2">Indie</Heading>
                         <Text colorToken="base-300">
-                            For teams building products that haven't launched to market yet.
+                            For teams building projects that haven't launched to market yet.
                         </Text>
                         <View
                             row
@@ -232,7 +232,7 @@ export const PricingComponent = () => {
                             as="h4"
                             colorToken="text-weakest"
                             textDecoration="line-through">
-                            {pricingIndie(499)} USD
+                            {pricingIndie(599)} USD
                         </Heading>
                         <View
                             row
@@ -304,13 +304,11 @@ export const PricingComponent = () => {
                                 width="fit-content">
                                 <IconLib icon="check" />
                                 NPM access
-                                <Pill
-                                    subtle
-                                    size="xs"
-                                    m="0 0 0 0.5rem"
-                                    color={Token.ColorAccent400}>
-                                    Coming Soon
-                                </Pill>
+                            </Li>
+                            <Li
+                                row
+                                width="fit-content">
+                                <IconLib icon="check" /> Source code
                             </Li>
                             <Li
                                 row
@@ -318,6 +316,13 @@ export const PricingComponent = () => {
                                 width="fit-content">
                                 <IconLib icon="check" />
                                 Roadmap components
+                                <Pill
+                                    subtle
+                                    size="xs"
+                                    m="0 0 0 0.5rem"
+                                    color={Token.ColorAccent400}>
+                                    Coming Soon
+                                </Pill>
                             </Li>
                         </List>
                         <Flexer />
@@ -346,7 +351,7 @@ export const PricingComponent = () => {
                         justifyContent="flex-start">
                         <Heading as="h2">Internal</Heading>
                         <Text colorToken="base-300">
-                            For teams building internal-use products that generate no revenue.
+                            For teams building internal-use projects that generate no revenue.
                         </Text>
                         <View
                             row
@@ -404,11 +409,6 @@ export const PricingComponent = () => {
                                 row
                                 width="fit-content">
                                 <IconLib icon="check" /> Prioritized feature requests
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Source code
                             </Li>
                         </List>
                         <Flexer />
@@ -486,11 +486,6 @@ export const PricingComponent = () => {
                                 width="fit-content">
                                 <IconLib icon="check" /> Prioritized feature requests
                             </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Source code
-                            </Li>
                         </List>
                         <Flexer />
                         <Button
@@ -510,7 +505,7 @@ export const PricingComponent = () => {
                         Please <Link href="mailto:licensing@fold.dev" colorToken="accent-400">email</Link> us if you are unsure about which license applies to you.
                     </Text>
                     <Text colorToken="base-600" textAlign="center">
-                        Purchasing a license is subject to our <Link href="/terms-conditions">terms & conditions</Link>.
+                        Purchasing a license is subject to the <Link href="/license" target="_blank">licencing</Link> terms & <Link href="/terms-of-use" target="_blank">terms of use</Link> .
                     </Text>
                 </View>
             </View>

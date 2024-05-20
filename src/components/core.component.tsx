@@ -1204,8 +1204,8 @@ export const CoreComponent = () => {
                         colorToken="accent"
                         fontWeight={400}
                         width="80%">
-                        Leverage Fold Core's 80+ components to power your next project. Fold Core is
-                        completely Open Source (MIT), and will always remain that way.
+                        Leverage Fold Core's 85+ components to power your next project. 
+                        Fold Core is completely Open Source (MIT), and will always remain that way.
                     </Heading>
                     <Code snippet="npm i --save @fold-dev/core @fold-dev/design" />
                     {/* 
@@ -1272,10 +1272,8 @@ export const CoreComponent = () => {
                             Made for product teams that need to move quickly.
                         </Heading>
                         <Text colorToken="accent-100">
-                            Spend less time grokking build sizes & fixing dependency conflicts.
-                            Fold has no other dependencies besides React & ReactDOM.
-
-                            
+                            Spend less time grokking build sizes & resolving dependency conflicts.
+                            Fold has no other dependencies, other than React & ReactDOM.
                         </Text>
                     </View>
 
@@ -1290,15 +1288,15 @@ export const CoreComponent = () => {
                             {[
                                 {
                                     title: 'Great DX',
-                                    text: 'Discover the perfect balance of component composability, CSS3 magic, and intuitive prop design – all tailored to fuel your rapid iterations.',
+                                    text: 'Discover the perfect balance of component composability, CSS3 magic, and intuitive prop design – all tailored to fuel rapid iteration.',
                                 },
                                 {
                                     title: 'Fast',
-                                    text: 'At every turn, we\'ve prioritized render performance because let\'s face it - apps should be snapp',
+                                    text: 'At every turn, render performance has been a consideration, because let\'s face it - apps should be snappy.',
                                 },
                                 {
                                     title: 'Design System',
-                                    text: 'A well-crafted design system isn\'t just a luxury – it\'s a necessity. Fold ships with its own Design System based on sane defaults.',
+                                    text: 'A well-crafted design system isn\'t just a luxury – it\'s a necessity. Fold ships with its own Design System based on sensible defaults.',
                                 },
                                 {
                                     title: 'Dark Mode',

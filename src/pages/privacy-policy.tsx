@@ -1,6 +1,6 @@
 import React from 'react'
 import { Heading, Text, View } from '@fold-dev/core'
-import { GraphicLeft, GraphicRight } from '../pages/components/graphic.component'
+import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
 
 function PrivacyPolicy(props) {

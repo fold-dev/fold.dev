@@ -49,8 +49,7 @@ export const GoComponent = () => {
                         That's why we offer tailored design and development services to businesses in need of that expert touch working with Fold Core, and Fold Pro.
                     </Heading>
                     <Link
-                        href="/docs"
-                        target="_blank"
+                        href="mailto:studio@fold.dev"
                         textDecoration="none"
                         className="f-underline"
                         m="0 -1rem 0 0"

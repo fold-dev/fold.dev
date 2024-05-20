@@ -1,17 +1,15 @@
 import DocsLayout from '@/layouts/docs.layout'
-import { Breadcrumb, BreadcrumbItem, Heading, Link, Text, View, 
+import {
     Accordion,
-    AccordionItem,
     AccordionHeading,
+    AccordionItem,
     AccordionPanel,
-    Pill, 
+    Breadcrumb, BreadcrumbItem, Heading, Link, Text, View
 } from '@fold-dev/core'
-import { CodeComponent } from '../components/code.component'
-import React from 'react'
-import { GraphicLeft } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
-import * as data from '@/dummy_data'
-import { FAQ } from '../components/pricing.component'
+import React from 'react'
+import { CodeComponent } from '../../components/code.component'
+import { GraphicLeft } from '../../components/graphic.component'
 
 export default function GettingStarted(props) {
     return (

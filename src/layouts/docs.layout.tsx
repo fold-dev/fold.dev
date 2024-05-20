@@ -1,5 +1,5 @@
-import MobileComponent from '@/pages/components/mobile.component'
-import { SearchComponent } from '@/pages/components/search.component'
+import MobileComponent from '@/components/mobile.component'
+import { SearchComponent } from '@/components/search.component'
 import {
     App,
     Button,
@@ -59,7 +59,7 @@ import {
 } from 'react-icons/pi'
 import { navigation } from '../navigation'
 import { navigationPro } from '../navigation-pro'
-import { colors } from '@/pages/components/core.component'
+import { colors } from '@/components/core.component'
 
 export const CircleIcon = ({
     children,

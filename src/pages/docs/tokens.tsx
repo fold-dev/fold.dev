@@ -16,7 +16,7 @@ import { LifebuoyIcon } from '@heroicons/react/24/outline'
 import React, { useMemo } from 'react'
 import { useTokens } from './design-system'
 import { convertTokenToTitle } from './design-system'
-import CodeComponent from '../components/code.component'
+import CodeComponent from '../../components/code.component'
 
 export default function Tokens(props) {
     const { system } = useTokens()

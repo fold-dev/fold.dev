@@ -1,6 +1,6 @@
 import DocsLayout from '@/layouts/docs.layout'
 import { Breadcrumb, BreadcrumbItem, Heading, IconLib, Link, Text, View, defaultIcons } from '@fold-dev/core'
-import { CodeComponent } from '../components/code.component'
+import { CodeComponent } from '../../components/code.component'
 import React, { useMemo } from 'react'
 import { Table, TBody, Td, Th, THead, Tr } from '@fold-dev/core'
 

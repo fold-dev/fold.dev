@@ -71,7 +71,7 @@ export const HeroComponent = () => {
                             border="0.15rem solid var(--f-color-white)"
                             style={{
                                 '--f-button-color': 'var(--f-color-white)',
-                                '--f-button-color-hover': 'var(--f-color-accent-400)',
+                                '--f-color-text-on-color': 'var(--f-color-accent-400)',
                             }}>
                             Buy Now
                         </Button>
@@ -92,6 +92,7 @@ export const HeroComponent = () => {
                         <Link
                             style={{ '--f-underline-size': '1px' }}
                             size="sm"
+                            target="_blank"
                             textDecoration="none"
                             className="f-underline"
                             color={Token.ColorAccent100}
