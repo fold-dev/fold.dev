@@ -382,6 +382,7 @@ export default function SiteLayout({ children }) {
                         <Li>
                             <Text
                                 as="a"
+                                target="_blank"
                                 href="/privacy-policy"
                                 size="xl"
                                 fontWeight={400}
@@ -393,6 +394,7 @@ export default function SiteLayout({ children }) {
                         <Li>
                             <Text
                                 as="a"
+                                target="_blank"
                                 href="/terms-of-use"
                                 size="xl"
                                 fontWeight={400}
@@ -404,6 +406,7 @@ export default function SiteLayout({ children }) {
                         <Li>
                             <Text
                                 as="a"
+                                target="_blank"
                                 href="/license"
                                 size="xl"
                                 fontWeight={400}
