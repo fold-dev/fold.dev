@@ -121,8 +121,7 @@ function License(props){
 
                 <h2>Refunds</h2>
                 <p>Johannes du Plessis (Fold) does not provide refunds, whether full or partial, for Fold Pro Early Access. </p>
-                <p>Exceptions to this policy may be made solely at the discretion of Johannes du Plessis (Fold) on a case-by-case basis.</p>
-                <p>If you believe your situation warrants a refund, please contact us at licensing@fold.dev for assistance.</p>
+                <p>Exceptions to this policy may be made solely at the discretion of Johannes du Plessis (Fold) on a case-by-case basis. Refund requests may be sent to licensing@fold.dev.</p>
                 <p>If we do issue a refund, you agree to delete all files within 24 hours and are not permitted to use SOFTWARE in projects (including personal/non-commercial projects).</p>
 
                 <h2>Indemnity</h2>
