@@ -34,7 +34,7 @@ function License(props){
                         fontSize="6rem"
                         letterSpacing={-5}
                         lineHeight={0.9}>
-                        License
+                        License Agreement
                     </Heading>
                 
                     <GraphicLeft
