@@ -74,7 +74,7 @@ export default function ComponentLayout({ children, docs, props, css }) {
                         <NotificationIcon>
                             <IconLib icon="warning" />
                         </NotificationIcon>
-                        <NotificationContent>Please note: this is an experimental component.</NotificationContent>
+                        <NotificationContent>Please note; this is component is in beta.</NotificationContent>
                     </Notification>
                 )}
             </View>
