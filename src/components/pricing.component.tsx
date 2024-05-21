@@ -209,7 +209,7 @@ export const PricingComponent = () => {
                     <Card
                         column
                         width={325}
-                        height={700}
+                        height={750}
                         p="2rem"
                         gap="1rem"
                         alignItems="flex-start"
@@ -300,11 +300,6 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" /> 1 year of updates
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
                                 <IconLib icon="check" />
                                 NPM access
                             </Li>
@@ -324,8 +319,20 @@ export const PricingComponent = () => {
                                     size="xs"
                                     m="0 0 0 0.5rem"
                                     color={Token.ColorAccent400}>
-                                    Coming Soon
+                                    Planned
                                 </Pill>
+                            </Li>
+                            <Li
+                                row
+                                textDecoration="line-through"
+                                width="fit-content"
+                                color="var(--f-color-text-weakest)">
+                                <IconLib icon="check" /> 1 year of updates
+                            </Li>
+                            <Li
+                                row
+                                width="fit-content">
+                                <IconLib icon="check" /> 2 years of updates
                             </Li>
                         </List>
                         <Flexer />
@@ -345,7 +352,7 @@ export const PricingComponent = () => {
                     <Card
                         column
                         width={325}
-                        height={700}
+                        height={750}
                         p="2rem"
                         gap="1rem"
                         alignItems="flex-start"
@@ -430,7 +437,7 @@ export const PricingComponent = () => {
                     <Card
                         column
                         width={325}
-                        height={700}
+                        height={750}
                         p="2rem"
                         gap="1rem"
                         alignItems="flex-start"
