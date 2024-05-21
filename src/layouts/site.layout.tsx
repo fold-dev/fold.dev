@@ -101,11 +101,10 @@ export default function SiteLayout({ children }) {
                 <Text
                     color="inherit"
                     colorToken="accent-100">
-                    We've just launched! 🚀 Offering a limited time discount for our Early Access release.{' '}
-                    <a
+                    We've just launched Fold Pro Early Access! 🚀 There are limited seats available <a
                         href="#pro"
                         style={{ color: 'var(--f-color-accent-100)' }}>
-                        Read more below.
+                        read more below.
                     </a>
                 </Text>
             </View>

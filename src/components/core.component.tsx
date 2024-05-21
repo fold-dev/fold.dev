@@ -1135,7 +1135,7 @@ const All = () => {
                         <Image
                             width="100%"
                             height={125}
-                            src="photos/03.jpg"
+                            src="building.png"
                         />
                     }>
                     <View p={20}>
@@ -1295,8 +1295,8 @@ export const CoreComponent = () => {
                             Made for product teams that need to move quickly.
                         </Heading>
                         <Text colorToken="accent-100">
-                            Spend less time grokking build sizes & resolving dependency conflicts.
-                            Fold has no other dependencies, other than React & ReactDOM.
+                            Spend less time groking build sizes and resolving dependency conflicts.
+                            Fold has no other dependencies, other than React and ReactDOM.
                         </Text>
                     </View>
 
@@ -1311,15 +1311,15 @@ export const CoreComponent = () => {
                             {[
                                 {
                                     title: 'Great DX',
-                                    text: 'Discover the perfect balance of component composability, CSS3 magic, and intuitive prop design – all tailored to fuel rapid iteration.',
+                                    text: 'Discover the perfect balance of component composability, CSS3 magic, and intuitive prop design - working together to enable quick iteration.',
                                 },
                                 {
                                     title: 'Fast',
-                                    text: 'At every turn, render performance has been a consideration, because let\'s face it - apps should be snappy.',
+                                    text: 'At every step, render performance has been a consideration, because let\'s face it - apps should be snappy.',
                                 },
                                 {
                                     title: 'Design System',
-                                    text: 'A well-crafted design system isn\'t just a luxury – it\'s a necessity. Fold ships with its own Design System based on sensible defaults.',
+                                    text: 'A well-crafted design system isn\'t just a luxury; it\'s a necessity. Fold ships with its own design system based on sensible defaults.',
                                 },
                                 {
                                     title: 'Dark Mode',
@@ -1327,7 +1327,7 @@ export const CoreComponent = () => {
                                 },
                                 {
                                     title: 'Zero Dependencies',
-                                    text: 'Like we said, say goodbye to dependency hell. No other dependencies are used for Fold other than React & ReactDOM.',
+                                    text: 'Like we said, say goodbye to dependency hell. No other dependencies are used for Fold other than React and ReactDOM.',
                                 },
                                 {
                                     title: 'Open Source',

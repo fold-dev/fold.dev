@@ -4,7 +4,7 @@ import {
     AccordionHeading,
     AccordionItem,
     AccordionPanel,
-    Breadcrumb, BreadcrumbItem, Heading, Link, Text, View
+    Breadcrumb, BreadcrumbItem, Button, Heading, Link, Text, View
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
 import React from 'react'
@@ -87,30 +87,41 @@ export default function GettingStarted(props) {
             </View>
 
             <Text as="blockquote">Fold Pro has been developed using React v18.2</Text>
-        
-            <Heading as="h3">
-                Getting a License Key
-            </Heading>
+
+            <Heading as="h3">Before you get started</Heading>
 
             <Text>
-                You are able to purchase a license but clicking <a href="http://localhost:3000/#pro" target="_blank">here</a>.
+                Fold Pro relies on the latest version of Fold Core. 
+                Make sure you have Fold Core installed correctly by following the guide <a href="/docs/getting-started" target="_blank">here</a>. 
             </Text>
 
             <Text>
-                After purchasing a license, you will receive an automated email containing a list of license keys, quantity, when the license keys are valid until & a OTP to use for support (more on that below).
+                Once you have Fold Core installed, you're ready to proceed.
+            </Text>
+        
+            <Heading as="h3">
+                License Key
+            </Heading>
+
+            <Text>
+                You are able to purchase a license by <a href="http://localhost:3000/#pro" target="_blank">clicking here</a>.
+            </Text>
+
+            <Text>
+                After purchasing a license, you will receive an automated email containing a list of license keys, license quantity, when the license keys are valid until & a OTP to use for support (more on this below).
                 You will also receive an invoice from <a href="https://www.lemonsqueezy.com/" target="_blank">Lemon Squeezy</a>, who we use as our merchant of record.
             </Text>
 
+            <Text>
+                Once you have a valid license key ready, you're ready to proceed. 
+            </Text>
+
             <Heading as="h3">
-                Set up the Fold Pro NPM registry
+                NPM registry
             </Heading>
 
             <Text>
-                Once you have a valid license key ready, you're ready to install Fold Pro in your project. 
-            </Text>
-
-            <Text>
-                Add a license key to your <code>.npmrc</code> file. <code>NPM_TOKEN</code> in this case must be available as an environment variable.
+                Add a license key to your <code>.npmrc</code> file. <code>NPM_TOKEN</code> must be available as an environment variable.
             </Text>
 
             <CodeComponent
@@ -123,17 +134,6 @@ export default function GettingStarted(props) {
     //npm.fold.dev/:_authToken=\${NPM_TOKEN}
                 `}
             />
-
-            <Heading as="h3">Requirements</Heading>
-
-            <Text>
-                Fold Pro relies on the latest version of Fold Core. 
-                Make sure you have Fold Core installed correctly by following the guide <a href="/docs/getting-started" target="_blank">here</a>. 
-            </Text>
-
-            <Text>
-                Once you have Fold Core installed, you're ready to proceed.
-            </Text>
 
             <Heading as="h3">Installation</Heading>
 
@@ -152,7 +152,7 @@ export default function GettingStarted(props) {
             />
             <Heading as="h3">Setup</Heading>
             <Text>
-                Once Pro is installed, you'll need to include the Pro CSS stylesheet.
+                Once Pro is installed, you'll need to include the Fold Pro CSS stylesheet.
             </Text>
             <Heading as="h4">CSS</Heading>
             <Text>
@@ -176,18 +176,27 @@ export default function GettingStarted(props) {
             <Heading as="h3">Support</Heading>
 
             <Text>
-                You can request access to join the exclusive <a href="https://groups.google.com/a/fold.dev/g/early-access" target="_blank">Fold Pro Early Access Google Group</a>.
+                Request access to join the private Fold Pro Early Access <a href="https://groups.google.com/a/fold.dev/g/early-access" target="_blank">Google Group</a>.
                 This private community is dedicated to providing you with premium support, access to the source code, and a platform to connect with fellow Early Access users.
             </Text>
             
             <Text>
-                To get access, simply visit the Google Group & request access using your secret code that was emailed (see above).
+                To get access, simply click the button below & request access using your secret code that was emailed (see above).
             </Text>
+
+            <Button
+                as="a"
+                size="lg" 
+                variant="accent"
+                target="_blank"
+                href="https://groups.google.com/a/fold.dev/g/early-access">
+                Join Now
+            </Button>
 
             <Heading as="h3">Source Code</Heading>
 
             <Text>
-                After every release, we post the source code to the Early Access Google Group.
+                After every release, we post the source code to the Fold Pro Early Access Google Group.
             </Text>
         </View>
     )

@@ -28,7 +28,7 @@ export const FAQAccordion = (props) => (
             <AccordionHeading>Is it production ready?</AccordionHeading>
             <AccordionPanel>
                 Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
-                but there is still work left to do. If you have a Pro license & have experienced a bug, please consider posting 
+                but there is still work left to do. If you have a Fold Pro Early Access license & have experienced a bug, please consider posting 
                 it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-400">Google Group</Link> or 
                 on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-400">GitHub.</Link> (label it as Pro)
             </AccordionPanel>
@@ -42,20 +42,20 @@ export const FAQAccordion = (props) => (
         <AccordionItem>
             <AccordionHeading>How long will Early Access last?</AccordionHeading>
             <AccordionPanel>
-                Until it is stable. However, we don't anticipate this being more than a quarter. We will keep everyone updated as we progress.
+                Until it is stable. However, we don't anticipate this taking longer than a quarter.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>What comes after Early Access?</AccordionHeading>
             <AccordionPanel>
-                After Early Access we will go into Beta. 
-                If you have purchased an Early Access license, you will automatically get access. 
+                Once Fold Pro is stable, we will go into Beta (which will also mean a price change).
+                If you have purchased a Fold Pro Early Access license, you will automatically get access without having to pay extra. 
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>What does private support mean?</AccordionHeading>
             <AccordionPanel>
-                Access to a private <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-400">Google Group</Link> where support issues are prioritized.
+                Access to a private Fold Pro Early Access <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-400">Google Group</Link> where support issues are prioritized.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -66,21 +66,15 @@ export const FAQAccordion = (props) => (
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-            <AccordionHeading>Can I get my money back?</AccordionHeading>
+            <AccordionHeading>What are Roadmap components?</AccordionHeading>
             <AccordionPanel>
-                Absolutely, there is a limited 14 day money back guarantee. This is subject to our <Link href="/license" target="_blank">licence</Link> terms.
-            </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-            <AccordionHeading>What roadmap components are included?</AccordionHeading>
-            <AccordionPanel>
-                If you purchase an Early Access licence, you will get access to any <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2" colorToken="accent-100">Roadmap</Link> components as they become available.
+                If you purchase a Fold Pro Early Access licence, you will get access to any <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2" colorToken="accent-100">Roadmap</Link> components as they become available.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>I have another question?</AccordionHeading>
             <AccordionPanel>
-                No worriess, please email us at <Link target="_blank" href="mailto:support@fold.dev" colorToken="accent-100">support@fold.dev</Link>.
+                For any other questions, please email us at <Link target="_blank" href="mailto:support@fold.dev" colorToken="accent-100">support@fold.dev</Link>.
             </AccordionPanel>
         </AccordionItem>
     </Accordion>
@@ -338,7 +332,7 @@ export const PricingComponent = () => {
                         <Button
                             as="a"
                             target="_blank"
-                            href={"https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?enabled=179904%2C385207&quantity=" + seatsIndie}
+                            href={"https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?enabled=179904%2C385207?quantity=" + seatsIndie}
                             className="lemonsqueezy-button"
                             m="1rem 0 0 0"
                             size="xl"
@@ -493,6 +487,11 @@ export const PricingComponent = () => {
                                 width="fit-content">
                                 <IconLib icon="check" /> Prioritized feature requests
                             </Li>
+                            <Li
+                                row
+                                width="fit-content">
+                                <IconLib icon="check" /> Distributable
+                            </Li>
                         </List>
                         <Flexer />
                         <Button
@@ -509,10 +508,10 @@ export const PricingComponent = () => {
 
                 <View lineHeight={2}>
                     <Text colorToken="base-600" textAlign="center">
-                        Please <Link href="mailto:licensing@fold.dev" colorToken="accent-400">email</Link> us if you are unsure about which license applies to you.
+                        Please <Link href="mailto:licensing@fold.dev" colorToken="accent-400">email</Link> us if you are unsure which license applies to you.
                     </Text>
                     <Text colorToken="base-600" textAlign="center">
-                        Purchasing a license is subject to the <Link href="/license" target="_blank">licencing</Link> terms & <Link href="/terms-of-use" target="_blank">terms of use</Link> .
+                        Purchasing a license is subject to the <Link href="/license" target="_blank">licence</Link> terms & <Link href="/terms-of-use" target="_blank">terms of use</Link> .
                     </Text>
                 </View>
             </View>
