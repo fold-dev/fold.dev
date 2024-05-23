@@ -117,7 +117,7 @@ function License(props){
                 <p>You may not redistribute the SOFTWARE to anyone and via any means other than to your customers as a part of a purchased, integrated solution, that includes functionality above and beyond that provided solely by the SOFTWARE.</p>
 
                 <h2>Technical Support</h2>
-                <p>Technical support is limited to bug reports and feature requests. No support will be provided to diagnose or advise application-level code issues. If you require more specialised support or consultancy contact us at hello@fold.dev.</p>
+                <p>Technical support is limited to bug reports and feature requests. No support will be provided to diagnose or advise application-level code issues. If you require more specialised support or consultancy contact us at support@fold.dev.</p>
 
                 <h2>Refunds</h2>
                 <p>Johannes du Plessis ("Fold") does not provide refunds, whether full or partial, for Fold Pro Early Access. </p>
@@ -126,6 +126,9 @@ function License(props){
 
                 <h2>Indemnity</h2>
                 <p>You agree to indemnify and hold harmless Johannes du Plessis ("Fold") and its resellers for any third-party claims, actions or suits, as well as any related expenses, liabilities, damages, settlements or fees arising from your use or misuse of the Software, or a violation of any terms of this license.</p>
+
+                <h2>Expiration</h2>
+                <p>Upon the expiration of the initial SOFTWARE access duration, the LICENSEE remains bound by the terms and conditions set forth in the initial agreement. All obligations, restrictions, and permissions granted under this license will continue to apply, ensuring that the LICENSEE's responsibilities and commitments stipulated in the initial agreement persist beyond the termination of the license. This continuation of the license terms ensures that the LICENSEE's conduct and usage remain in compliance with the original provisions, even after the license period has ended.</p>
 
                 <h2>Disclaimer Of Warranty</h2>
                 <p>The software is provided “as is,” without warranty of any kind, expressed or implied, including, but not limited to, warranties of quality, performance, non-infringement, merchantability, or fitness for a particular purpose. Further, Johannes du Plessis ("Fold") does not warrant that the software or any related service will always be available.</p>
@@ -136,10 +139,10 @@ function License(props){
                 <h2>Miscellaneous</h2>
                 <p>This license is governed by the laws of South Africa. If any provision of this license is to be held unenforceable, such holding will not affect the validity of the other provisions hereof. Failure of a party to enforce any provision of this license shall not constitute or be construed as a waiver of such provision or of the right to enforce such provision. This license represents the entire understanding between the parties with respect to its subject matter.</p>
 
-                <p>Last updated 21 May, 2024</p>
                 <h2>Contact Information</h2>
                 <p>Address: Marine Drive, Umhlanga, KZN, ZA</p>
                 <p>Email: legal@fold.dev</p>
+                <p>Last updated 23 May, 2024</p>
             </View>
         </View>
     )

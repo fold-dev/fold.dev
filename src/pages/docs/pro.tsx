@@ -199,6 +199,12 @@ export default function GettingStarted(props) {
             <Text>
                 After every release, we post the source code to the Fold Pro Early Access Google Group.
             </Text>
+
+            <Heading as="h3">License</Heading>
+
+            <Text>
+                Using Fold Pro is subject to our <a href="/license" target="_blank">License</a> agreement.
+            </Text>
         </View>
     )
 }
