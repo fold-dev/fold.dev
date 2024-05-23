@@ -160,7 +160,15 @@ export default function SiteLayout({ children }) {
                                                 p="0.5rem 1rem"
                                                 radius="var(--f-radius-2xl)"
                                                 bg="linear-gradient(162deg, #C15AF1 -64.21%, #2087FF 21.76%, #00E1B9 100%)">
-                                                <Text size="xs" fontWeight="bold" colorToken="white">EARLY ACCESS</Text>
+                                                <Text
+                                                    m={0} 
+                                                    p={0}
+                                                    size="xs" 
+                                                    lineHeight="normal"
+                                                    fontWeight="bold" 
+                                                    colorToken="white">
+                                                    EARLY ACCESS
+                                                </Text>
                                             </View>
                                         )}
                                         href="/#pro">
