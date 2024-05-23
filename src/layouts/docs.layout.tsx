@@ -566,7 +566,7 @@ export default function DocsLayout(props: any) {
                                                     size="xs"
                                                     subtle
                                                     color={Token.ColorAccent400}>
-                                                    v0.10.0
+                                                    v0.11.0
                                                 </Pill>                                               
                                             }>
                                             Core Components
