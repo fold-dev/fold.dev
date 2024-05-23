@@ -25,71 +25,96 @@ import { GraphicLeft, GraphicRight } from './graphic.component'
 export const FAQAccordion = (props) => (
     <Accordion>
         <AccordionItem>
-            <AccordionHeading>Is it production ready?</AccordionHeading>
+            <AccordionHeading>
+                Is it production ready?
+            </AccordionHeading>
             <AccordionPanel>
-                Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
-                but there is still work left to do. If you have a Fold Pro Early Access license & have experienced a bug, please consider posting 
-                it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> or 
+                Consider Early Access to be pre-release software & still relatively unstable, however, every effort is being made to fix bugs & other issues.
+                If you have a Fold Pro Early Access license & have experienced a bug, please consider posting it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> or 
                 on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-            <AccordionHeading>Is the source code available?</AccordionHeading>
+            <AccordionHeading>
+                Is the source code available?
+            </AccordionHeading>
             <AccordionPanel>
                 The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-            <AccordionHeading>How long will Early Access last?</AccordionHeading>
+            <AccordionHeading>
+                How long will Early Access last?
+            </AccordionHeading>
             <AccordionPanel>
-                Until it is stable. However, we don't anticipate this taking longer than a quarter. We will post regular updates.
+                Until it is stable & mobile (touch) support has landed. 
+                You can view progress via the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-            <AccordionHeading>What comes after Early Access?</AccordionHeading>
+            <AccordionHeading>
+                What comes after Early Access?
+            </AccordionHeading>
             <AccordionPanel>
-                Once Fold Pro is stable, we will go into Beta, which will also mean a price change.
+                After Early Access a public beta will be launched, which will bring a price change.
                 If you have purchased a Fold Pro Early Access license, you will automatically get access without having to pay extra. 
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-            <AccordionHeading>Will the Beta affect my Early Access license?</AccordionHeading>
+            <AccordionHeading>
+                Will the beta affect the Early Access license?
+            </AccordionHeading>
             <AccordionPanel>
                 If you've purchased a Fold Pro Early Access license, you won't be affected by the new license terms or price increase.
-                And if you choose to renew your license after the initial 2 year period, you will be charged for the Early Access price and not the full price.
-                Our way of saying thank you for your ongoing support.
+                And if you choose to renew your license after the initial 2 year period, you will be charged for the Early Access pricing and not the new pricing.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-            <AccordionHeading>What support channels are available?</AccordionHeading>
+            <AccordionHeading>
+                What support channels are available?
+            </AccordionHeading>
             <AccordionPanel>
-                Access to a private <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>.
+                A private <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> and email at <Link target="_blank" href="mailto:support@fold.dev">support@fold.dev</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-            <AccordionHeading>Where can I file bugs or feature requests for Early Access?</AccordionHeading>
+            <AccordionHeading>
+                Where can I file bugs or feature requests?
+            </AccordionHeading>
             <AccordionPanel>
-                On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> or 
-                on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
+                On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>, <Link target="_blank" href="https://github.com/fold-dev/fold/discussions">GitHub Discussions</Link> or on <Link href="https://github.com/fold-dev/fold/issues" target="_blank" fontSize="inherit">GitHub Issues</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-            <AccordionHeading>What are Roadmap components?</AccordionHeading>
+            <AccordionHeading>
+                Does Early Access include the planned roadmap?
+            </AccordionHeading>
             <AccordionPanel>
-                If you purchase a Fold Pro Early Access licence, you will get access to any <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">Roadmap</Link> components as they become available.
+                The roadmap includes planned features, enhancements, and new components.
+                If you purchase any Fold Pro licence, you will automatically get access to the <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">roadmap items</Link> as they become available.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-            <AccordionHeading>What if I don't renew my license?</AccordionHeading>
+            <AccordionHeading>
+                What if I don't renew my license?
+            </AccordionHeading>
             <AccordionPanel>
-                You will have access to the last available version you downloaded & would still be bound to the initial terms & conditions when you purchased the license.
-                However, we will remove your access to the NPM server & premium support channels.
+                You will retain access to the last version you downloaded and remain bound by the same license agreement as when you purchased the license.
+                However, your access to NPM and the Google Group will be revoked, and you will not receive any future roadmap functionalities.
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>
+                I bought a license, now what?
+            </AccordionHeading>
+            <AccordionPanel>
+                Head over to the <Link target="_blank" href="/docs/pro">documentation</Link> to get started.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>I have another question?</AccordionHeading>
             <AccordionPanel>
-                For any other questions, please email us at <Link target="_blank" href="mailto:support@fold.dev">support@fold.dev</Link>.
+                For any other questions, please email <Link target="_blank" href="mailto:support@fold.dev">support@fold.dev</Link>.
             </AccordionPanel>
         </AccordionItem>
     </Accordion>
@@ -204,7 +229,7 @@ export const PricingComponent = () => {
                     fontWeight={400}
                     width="80%">
                     Supercharge your next project with Fold Pro.
-                    Fold Pro, built on the foundation of Fold Core, is designed specifically for teams who need high-end components for building exceptional product experiences.
+                    Fold Pro is built specifically for teams who need high-end components for building exceptional product experiences.
                 </Heading>
 
                 <Pill

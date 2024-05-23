@@ -30,12 +30,14 @@ export const GoComponent = () => {
                     gap={30}
                     alignItems="flex-start"
                     p="5rem">
+                    {/* 
                     <View
                         bgToken="accent-400"
                         radius={50}
                         p="0.25rem 1rem">
                         <Text colorToken="accent-100">Coming Soon ✨</Text>
-                    </View>
+                    </View> 
+                    */}
                     <Text
                         style={{ textTransform: 'uppercase' }}
                         letterSpacing={5}
@@ -46,16 +48,16 @@ export const GoComponent = () => {
                     <Heading
                         colorToken="accent-50"
                         fontWeight={400}>
-                        We understand that every business is unique, with its own set of challenges, goals, and aspirations. 
+                        Every business is unique, with its own set of challenges, goals, and aspirations. 
                         That's why we offer tailored design and development services to businesses in need of that expert touch working with Fold Core, and Fold Pro.
                     </Heading>
                     <Link
-                        href="mailto:studio@fold.dev"
+                        href="/docs/pro"
                         textDecoration="none"
                         className="f-underline"
                         m="0 -1rem 0 0"
                         colorToken="white">
-                        Get in touch for more information ↗
+                        Get Started ↗
                     </Link>
                 </View>
             </View>

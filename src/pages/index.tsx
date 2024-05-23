@@ -31,7 +31,9 @@ function Home() {
             */} 
             <SupportComponent />
             <Divider />
-            <GoComponent />
+            {/* 
+            <GoComponent /> 
+            */}
         </>
     )
 }

@@ -1379,7 +1379,7 @@ export const CoreComponent = () => {
                         <Heading
                             colorToken="text"
                             fontWeight={400}>
-                            Learn more about the design principals that underpin Fold.
+                            Learn about the design principals that underpin Fold.
                         </Heading>
                         <Link
                             href="/docs/design-system"
