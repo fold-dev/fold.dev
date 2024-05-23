@@ -338,7 +338,7 @@ export const PricingComponent = () => {
                         <Flexer />
                         <Button
                             as="a"
-                            target="_blank"
+                            //target="_blank"
                             href={"https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?enabled=179904%2C385207?quantity=" + seatsIndie}
                             className="lemonsqueezy-button"
                             m="1rem 0 0 0"
@@ -423,7 +423,7 @@ export const PricingComponent = () => {
                         <Flexer />
                         <Button
                             as="a"
-                            target="_blank"
+                            //target="_blank"
                             href={"https://fold.lemonsqueezy.com/buy/080b3f6a-0e21-46d7-9a02-4c13258efeb6?enabled=179904%2C385207&quantity=" + seatsInternal}
                             className="lemonsqueezy-button"
                             m="1rem 0 0 0"
