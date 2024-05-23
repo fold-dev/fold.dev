@@ -54,9 +54,9 @@ export const HeroComponent = () => {
                         textAlign="center"
                         colorToken="accent-50"
                         fontWeight={400}
-                        p="0 8rem">
+                        width="90%">
                         Powerful, fully customizable React components for scaling your product to the
-                        next level. Supercharge your dev workflow by using our zero-dependency UI
+                        next level. Supercharge your dev workflow by using Fold's zero-dependency UI
                         components.
                     </Heading>
 
@@ -90,16 +90,15 @@ export const HeroComponent = () => {
                         size="sm"
                         colorToken="accent-200">
                         <Link
-                            style={{ '--f-underline-size': '1px' }}
+                            style={{ '--f-underline-size': '1.5px' }}
                             size="sm"
                             target="_blank"
                             textDecoration="none"
                             className="f-underline"
                             colorToken="accent-100"
                             href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW">
-                            Subscribe to our newsletter
-                        </Link>
-                        &nbsp; to get notified of any updates!
+                            Subscribe to the newsletter
+                        </Link> & get notified of any updates.
                     </Text>
 
                     <GraphicLeft

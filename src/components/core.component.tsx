@@ -1292,7 +1292,7 @@ export const CoreComponent = () => {
                         <Heading
                             colorToken="accent-50"
                             fontWeight={400}>
-                            Made for product teams that need to move quickly.
+                            Made for product teams that need to scale quickly.
                         </Heading>
                         <Text colorToken="accent-100">
                             Spend less time groking build sizes and resolving dependency conflicts.
@@ -1315,7 +1315,7 @@ export const CoreComponent = () => {
                                 },
                                 {
                                     title: 'Fast',
-                                    text: 'At every step, render performance has been a consideration, because let\'s face it - apps should be snappy.',
+                                    text: 'Build apps & websites that are snappy. Render performance has been a consideration at every step.',
                                 },
                                 {
                                     title: 'Design System',
@@ -1323,15 +1323,15 @@ export const CoreComponent = () => {
                                 },
                                 {
                                     title: 'Dark Mode',
-                                    text: 'Fold supports Dark Mode out of the box, and it includes all the tools necessary for you to craft your own theme.',
+                                    text: 'Fold supports Dark Mode out of the box, and includes all of the tools necessary for you to roll your own theme.',
                                 },
                                 {
                                     title: 'Zero Dependencies',
-                                    text: 'Like we said, say goodbye to dependency hell. No other dependencies are used for Fold other than React and ReactDOM.',
+                                    text: 'Say goodbye to dependency hell. No other dependencies are used in Fold, other than React and ReactDOM.',
                                 },
                                 {
                                     title: 'Open Source',
-                                    text: 'We\'re committed to transparency and collaboration, which is why Fold Core is proudly open source software, and it always will be.',
+                                    text: 'Fold Core is proudly open source software, and always will be.',
                                 },
                             ].map(({ title, text }, index) => (
                                 <GridItem key={index}>
@@ -1382,7 +1382,7 @@ export const CoreComponent = () => {
                             Learn more about the design principals that underpin Fold.
                         </Heading>
                         <Link
-                            href="https://www.fold.dev/docs/design-system"
+                            href="/docs/design-system"
                             target="_blank"
                             color="var(--f-color-text)"
                             className="f-underline"
@@ -1413,7 +1413,7 @@ export const CoreComponent = () => {
                             size="lg"
                             colorToken="text-weak"
                             fontWeight={400}>
-                            We rely on GitHub Discussions to power our community. If you have a question or suggestion, start a discussion.
+                            GitHub Discussions powers Fold's community. If you have a question or suggestion, start a discussion or submit an issue.
                         </Text>
                         <Link
                             target="_blank"

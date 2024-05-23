@@ -203,8 +203,8 @@ export const PricingComponent = () => {
                     colorToken="base-200"
                     fontWeight={400}
                     width="80%">
-                    Get access to Fold Pro components to supercharge your next project.
-                    Whether you're building an MVP or internal dashboard, we have you covered.
+                    Supercharge your next project with Fold Pro.
+                    Fold Pro, built on the foundation of Fold Core, is designed specifically for teams who need high-end components for building exceptional product experiences.
                 </Heading>
 
                 <Pill
@@ -530,10 +530,10 @@ export const PricingComponent = () => {
 
                 <View lineHeight={2}>
                     <Text colorToken="base-600" textAlign="center">
-                        Please <Link href="mailto:licensing@fold.dev" colorToken="accent-400">email</Link> us if you are unsure which license applies to you.
+                        Please email <Link href="mailto:licensing@fold.dev" colorToken="accent-400">licensing@fold.dev</Link> if you are unsure which license applies to you.
                     </Text>
                     <Text colorToken="base-600" textAlign="center">
-                        Purchasing a license is subject to the <Link href="/license" target="_blank">licence</Link> terms & <Link href="/terms-of-use" target="_blank">terms of use</Link> .
+                        Purchasing a license is subject to the <Link href="/license" target="_blank">licence agreement</Link> & <Link href="/terms-of-use" target="_blank">terms of use</Link> .
                     </Text>
                 </View>
             </View>
@@ -588,7 +588,7 @@ export const PricingComponent = () => {
                             <Heading
                                 colorToken="base-100"
                                 fontWeight={400}>
-                                We've just released Early Access, but what does that mean?
+                                Fold Pro Early Access has launched, but what does that mean?
                             </Heading>
                         </View>
 

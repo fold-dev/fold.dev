@@ -252,7 +252,7 @@ export default function SiteLayout({ children }) {
                     gap={20}
                     alignItems="flex-start">
                     <LogoSolid color="var(--f-color-accent-400)" />
-                    <Text colorToken="accent-400">Fold &copy; 2024</Text>
+                    <Text colorToken="accent-400">fold.dev &copy; 2024</Text>
                     <View
                         row
                         gap={10}

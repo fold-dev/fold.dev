@@ -55,17 +55,17 @@ export const SupportComponent = (props) => {
                             {
                                 url: 'https://github.com/fold-dev/fold/discussions',
                                 title: 'Discussions',
-                                text: 'We love feedback, and if you have a GitHub account, you can use GitHub Discussions for any sort of question or suggestion.',
+                                text: 'If you have a question or a suggestion, feel free to engage with the community on GitHub Discussions. Discussions allow you to ask for help, share ideas, and participate in conversations with other contributors.',
                             },
                             {
                                 url: 'https://github.com/fold-dev/fold/issues',
                                 title: 'Issues',
-                                text: 'Open an issue or pull request on our GitHub repository if you want to contribute or report a bug.',
+                                text: 'If you want to contribute to the project or report a bug, you can open an issue or submit a pull request on the GitHub repository.',
                             },
                             {
                                 url: 'https://groups.google.com/a/fold.dev/g/pro',
                                 title: 'Fold Pro',
-                                text: 'Have an issue related to Fold Pro? If you\'ve bought a license you get access to premium support via the private Google Group.',
+                                text: 'If you\'ve purchased a license, you will gain access to the Fold Pro Google Group. This exclusive group provides additional support, resources, and discussions specifically for licensed users.',
                             },
                         ].map(({ title, text, url }, index) => (
                             <View
