@@ -36,6 +36,14 @@ function License(props){
                         lineHeight={0.9}>
                         License Agreement
                     </Heading>
+
+                    <Heading
+                        as="h5"
+                        textAlign="center"
+                        colorToken="white"
+                        width="80%">
+                        Last updated on 23 May 2024
+                    </Heading>
                 
                     <GraphicLeft
                         style={{ position: 'absolute', top: 400, left: -200, opacity: 0.2 }}
@@ -58,26 +66,6 @@ function License(props){
                             margin: 1rem 0 1rem 0;
                         }
 
-                        h3 {
-                            line-height: 2rem;
-                            margin: 1.75rem 0 0rem 0;
-                        }
-
-                        h4 {
-                            line-height: 1.25rem;
-                            margin: 1.75rem 0;
-                            font-weight: bold;
-                        }
-
-                        h5 {
-                            line-height: 1rem;
-                            margin: 1.75rem 0;
-                        }
-
-                        h6 {
-                            line-height: 1rem;
-                        }
-
                         p {
                             line-height: 1.5rem;
                             margin: 1rem 0;
@@ -86,19 +74,19 @@ function License(props){
                 </style>
                 <div>
                 
-                
-                <h1>Fold Pro License Agreement</h1>
-                
                 <p>This license is a legal agreement between you (either an individual or a single entity, also referred to as "LICENSEE", "YOU") and Johannes du Plessis ("Fold") for the use of Fold Pro (the "SOFTWARE").</p>
                 <p>By purchasing, installing, or using the SOFTWARE, you agree to be bound by the terms and conditions of this License Agreement. Johannes du Plessis ("Fold") reserves the right to alter this agreement at any time, for any reason, without notice.</p>
 
                 <h2>Permitted Use</h2>
                 
                 <h3>Indie License</h3>
-                <p>The LICENSEE is granted a license to use the SOFTWARE as the basis of non commercial applications, unlimited internal applications and one developer per license key, so long as that application is owned and operated by you, the LICENSEE, or is owned and operated by clients of LICENSEE.</p>
+                <p>The LICENSEE is granted a license to use the SOFTWARE as the basis of non commercial applications, so long as that application is owned and operated by you, the LICENSEE, or is owned and operated by clients of LICENSEE.</p>
 
                 <h3>Internal License</h3>
-                <p>The LICENSEE is granted a license to use the SOFTWARE as the basis of unlimited non commercial/internal, applications, so long as that application is owned and operated by you, the LICENSEE.</p>
+                <p>The LICENSEE is granted a license to use the SOFTWARE as the basis of unlimited non commercial/internal applications, so long as that application is owned and operated by you, the LICENSEE.</p>
+
+                <h3>Developer seats</h3>
+                <p>The LICENSEE is granted 1 license key per developer.</p>
 
                 <h2>Restrictions</h2>
                 <p>Unless the LICENSEE has been granted prior, written consent from Johannes du Plessis ("Fold"), the LICENSEE may not:</p>
@@ -117,10 +105,10 @@ function License(props){
                 <p>The LICENSEE may not redistribute the SOFTWARE to anyone and via any means other than to the LICENSEE's customers as a part of a purchased, integrated solution, that includes functionality above and beyond that provided solely by the SOFTWARE.</p>
 
                 <h2>Technical Support</h2>
-                <p>Technical support is limited to bug reports and feature requests. No support will be provided to diagnose or advise application-level code issues. If you require more specialised support or consultancy contact us at support@fold.dev.</p>
+                <p>Technical support is limited to bug reports and feature requests. No support will be provided to diagnose or advise application-level code issues. If you require more specialised support or consultancy email support@fold.dev.</p>
 
                 <h2>Refunds</h2>
-                <p>Johannes du Plessis ("Fold") does not provide refunds, whether full or partial, for the SOFTWARE.</p>
+                <p>Johannes du Plessis ("Fold") does not provide refunds, whether full or partial, for the SOFTWARE during Early Access.</p>
                 <p>Exceptions to this policy may be made solely at the discretion of Johannes du Plessis ("Fold") on a case-by-case basis. Refund requests may be sent to licensing@fold.dev.</p>
                 <p>If a refund is issued, the LICENSEE agrees to delete all files within 24 hours and is not permitted to use SOFTWARE in projects (including personal/non-commercial projects).</p>
 
@@ -134,15 +122,14 @@ function License(props){
                 <p>The software is provided “as is,” without warranty of any kind, expressed or implied, including, but not limited to, warranties of quality, performance, non-infringement, merchantability, or fitness for a particular purpose. Further, Johannes du Plessis ("Fold") does not warrant that the software or any related service will always be available.</p>
 
                 <h2>Limitations Of Liability</h2>
-                <p>You assume all risk associated with the installation and use of the software. In no event shall the authors or copyright holders of the software be liable for claims, damages, or other liability arising from, out of, or in connection with the software. License holders are solely responsible for determining the appropriateness of use and assume all risks associated with its use, including but not limited to the risks of program errors, damage to equipment, loss of data or software programs, or unavailability or interruption of operations.</p></div>
+                <p>You assume all risk associated with the installation and use of the software. In no event shall Johannes du Plessis ("Fold") be liable for claims, damages, or other liability arising from, out of, or in connection with the software. License holders are solely responsible for determining the appropriateness of use and assume all risks associated with its use, including but not limited to the risks of program errors, damage to equipment, loss of data or software programs, or unavailability or interruption of operations.</p></div>
 
                 <h2>Miscellaneous</h2>
                 <p>This license is governed by the laws of South Africa. If any provision of this license is to be held unenforceable, such holding will not affect the validity of the other provisions hereof. Failure of a party to enforce any provision of this license shall not constitute or be construed as a waiver of such provision or of the right to enforce such provision. This license represents the entire understanding between the parties with respect to its subject matter.</p>
 
                 <h2>Contact Information</h2>
                 <p>Address: Marine Drive, Umhlanga, KZN, ZA</p>
-                <p>Email: legal@fold.dev</p>
-                <p>Last updated 23 May, 2024</p>
+                <p>Email: licensing@fold.dev</p>
             </View>
         </View>
     )
