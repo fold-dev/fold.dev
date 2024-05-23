@@ -141,8 +141,8 @@ export default function SiteLayout({ children }) {
                                     variant="navbar"
                                     style={{
                                         '--f-navigation-item-color-system-active': 'var(--f-color-accent-600)',
-                                        '--f-navigation-item-background-color-hover': 'var(--f-color-accent-700)',
-                                        '--f-navigation-item-background-color-active': 'var(--f-color-accent-500)',
+                                        '--f-navigation-item-background-color-hover': stuck ? 'var(--f-color-accent-400)' : 'var(--f-color-accent-600)',
+                                        '--f-navigation-item-background-color-active':  stuck ? 'var(--f-color-accent-500)' : 'var(--f-color-accent-700)',
                                         '--f-navigation-item-color': 'var(--f-color-accent-50)',
                                         '--f-navigation-item-color-hover': 'var(--f-color-accent-50)',
                                         '--f-navigation-item-color-active': 'white',
@@ -152,16 +152,16 @@ export default function SiteLayout({ children }) {
                                     <NavigationItem 
                                         style={{
                                             '--f-pill-color': 'var(--f-color-accent-3200)',
-                                            '--f-pill-background-color': 'var(--f-color-accent-800)',
+                                            '--f-pill-background-color': stuck ? 'var(--f-color-accent-600)' : 'var(--f-color-accent-800)',
                                             '--f-pill-border-color': 'var(--f-color-accent-100)',
                                         }}
                                         suffix={(
-                                            <Pill
-                                                border="0"
-                                                height={25} 
-                                                size="xs">
-                                                EARLY ACCESS
-                                            </Pill>
+                                            <View
+                                                p="0.5rem 1rem"
+                                                radius="var(--f-radius-2xl)"
+                                                bg="linear-gradient(162deg, #C15AF1 -64.21%, #2087FF 21.76%, #00E1B9 100%)">
+                                                <Text size="xs" fontWeight="bold" colorToken="white">EARLY ACCESS</Text>
+                                            </View>
                                         )}
                                         href="/#pro">
                                         Pro
@@ -185,12 +185,19 @@ export default function SiteLayout({ children }) {
                                 <Button
                                     href="/#pro"
                                     as="a"
+                                    target="_blank"
+                                    outline
                                     border="0.15rem solid white"
                                     style={{
-                                        '--f-button-background-color': 'var(--f-color-white)',
-                                        '--f-button-background-color-hover': 'var(--f-color-base-100)',
-                                        '--f-button-color': 'var(--f-color-accent)',
-                                        '--f-button-color-hover': 'var(--f-color-accent-600)',
+                                        // '--f-button-background-color': 'var(--f-color-white)',
+                                        // '--f-button-background-color-hover': 'var(--f-color-base-100)',
+                                        // '--f-button-color': 'var(--f-color-accent)',
+                                        // '--f-button-color-hover': 'var(--f-color-accent-600)',
+
+                                        '--f-button-color': 'var(--f-color-white)',
+                                        '--f-color-text-on-color': 'var(--f-color-accent-400)',
+                                        '--f-button-color-hover': 'var(--f-color-accent-400)',
+                                        '--f-button-background-color-hover': 'var(--f-color-white)',
                                     }}>
                                     Buy
                                 </Button>
