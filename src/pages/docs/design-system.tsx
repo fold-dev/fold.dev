@@ -34,12 +34,18 @@ import * as Token from '@fold-dev/design/tokens'
 import { useRouter } from 'next/navigation'
 import {
     PiBracketsSquareDuotone,
+    PiFrameCorners,
     PiFrameCornersDuotone,
+    PiPaintBucket,
     PiPaintBucketDuotone,
+    PiSelectionAll,
     PiSelectionAllDuotone,
     PiStackDuotone,
+    PiStop,
     PiStopDuotone,
+    PiSubtractSquare,
     PiSubtractSquareDuotone,
+    PiTextAa,
     PiTextAaDuotone,
 } from 'react-icons/pi'
 
@@ -214,12 +220,12 @@ export default function DesignSystem(props) {
                 columns={3}
                 gap={10}>
                 {[
-                    { color: Token.ColorBlue400, icon: PiPaintBucketDuotone, title: 'Color', path: 'color' },
-                    { color: Token.ColorViolet400, icon: PiTextAaDuotone, title: 'Typography', path: 'typography' },
-                    { color: Token.ColorPurple400, icon: PiSelectionAllDuotone, title: 'Space', path: 'space' },
-                    { color: Token.ColorNeonpink400, icon: PiFrameCornersDuotone, title: 'Size', path: 'size' },
-                    { color: Token.ColorRed400, icon: PiStopDuotone, title: 'Radius', path: 'radius' },
-                    { color: Token.ColorOrange400, icon: PiSubtractSquareDuotone, title: 'Shadow', path: 'shadow' },
+                    { color: Token.ColorBlue400, icon: PiPaintBucket, title: 'Color', path: 'color' },
+                    { color: Token.ColorViolet400, icon: PiTextAa, title: 'Typography', path: 'typography' },
+                    { color: Token.ColorPurple400, icon: PiSelectionAll, title: 'Space', path: 'space' },
+                    { color: Token.ColorNeonpink400, icon: PiFrameCorners, title: 'Size', path: 'size' },
+                    { color: Token.ColorRed400, icon: PiStop, title: 'Radius', path: 'radius' },
+                    { color: Token.ColorOrange400, icon: PiSubtractSquare, title: 'Shadow', path: 'shadow' },
                 ].map(({ color, icon, title, path }, index) => (
                     <Card
                         row
@@ -230,10 +236,11 @@ export default function DesignSystem(props) {
                         width="none"
                         onClick={() => router.push('/docs/tokens#' + path, { scroll: false })}>
                         <Pill
+                            height={50}
                             color={color}
                             subtle
                             size="xl">
-                            <Icon icon={icon} />
+                            <Icon icon={icon} size="lg" />
                         </Pill>
                         <Heading
                             as="h4"
@@ -269,7 +276,8 @@ export default function DesignSystem(props) {
                         <View
                             row
                             key={index}
-                            gap={10}>
+                            gap={10}
+                            m="3px 0">
                             <Text
                                 as="code"
                                 flex={2}
@@ -281,9 +289,11 @@ export default function DesignSystem(props) {
                                 colorToken="base-200">
                                 {key[1]}
                             </Text>
-                            <Palette
-                                colors={[key[1]]}
-                                color=""
+                            <View 
+                                radius="var(--f-radius)"
+                                bg={key[1]}
+                                width={20}
+                                height={20}
                             />
                         </View>
                     ))}
@@ -305,7 +315,8 @@ export default function DesignSystem(props) {
                         <View
                             row
                             key={index}
-                            gap={10}>
+                            gap={10}
+                            m="3px 0">
                             <Text
                                 as="code"
                                 flex={2}
@@ -317,9 +328,11 @@ export default function DesignSystem(props) {
                                 colorToken="base-600">
                                 {key[1]}
                             </Text>
-                            <Palette
-                                colors={[key[1]]}
-                                color=""
+                            <View 
+                                radius="var(--f-radius)"
+                                bg={key[1]}
+                                width={20}
+                                height={20}
                             />
                         </View>
                     ))}
