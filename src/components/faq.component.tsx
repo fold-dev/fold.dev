@@ -44,7 +44,7 @@ export const FAQComponent = () => {
                         <AccordionPanel>
                             Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
                             but there is still work left to do. If you have a Pro license & have experienced a bug, please consider posting 
-                            it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-100">Google Group</Link> or 
+                            it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro" colorToken="accent-100">Fold Pro Google Group</Link> or 
                             on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-100">GitHub.</Link> (label it as Pro)
                         </AccordionPanel>
                     </AccordionItem>

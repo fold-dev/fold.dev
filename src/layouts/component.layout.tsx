@@ -78,9 +78,9 @@ export default function ComponentLayout({ children, docs, props, css }) {
                         </NotificationIcon>
                         <NotificationContent>
                             More documentation & examples coming very soon.
-                            If you are a Fold Pro Early Access customer and need help implementing this component, 
+                            If you are a Fold Pro customer and need help implementing this component, 
                             please email us at <a href="mailto:support@fold.dev">support</a> or leave a message 
-                            on the Fold Pro Early Access <a href="https://groups.google.com/a/fold.dev/g/early-access" target="_blank">Google Group</a>.
+                            on the <a href="https://groups.google.com/a/fold.dev/g/pro" target="_blank">Fold Pro Google Group</a>.
                         </NotificationContent>
                     </Notification>
                 )}

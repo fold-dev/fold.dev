@@ -177,8 +177,8 @@ export default function GettingStarted(props) {
             <Heading as="h3">Support</Heading>
 
             <Text>
-                Request access to join the private Fold Pro Early Access <a href="https://groups.google.com/a/fold.dev/g/early-access" target="_blank">Google Group</a>.
-                This private community is dedicated to providing you with premium support, access to the source code, and a platform to connect with fellow Early Access users.
+                Request access to join the private <a href="https://groups.google.com/a/fold.dev/g/pro" target="_blank">Fold Pro Google Group</a>.
+                This private community is dedicated to providing you with premium support, access to the source code, and a platform to connect with fellow Fold Pro users.
             </Text>
             
             <Text>
@@ -190,14 +190,14 @@ export default function GettingStarted(props) {
                 size="lg" 
                 variant="accent"
                 target="_blank"
-                href="https://groups.google.com/a/fold.dev/g/early-access">
+                href="https://groups.google.com/a/fold.dev/g/pro">
                 Join Now
             </Button>
 
             <Heading as="h3">Source Code</Heading>
 
             <Text>
-                After every release, we post the source code to the Fold Pro Early Access Google Group.
+                After every release, we post the source code to the Fold Pro Google Group.
             </Text>
 
             <Heading as="h3">License</Heading>

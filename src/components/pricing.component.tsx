@@ -29,14 +29,14 @@ export const FAQAccordion = (props) => (
             <AccordionPanel>
                 Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
                 but there is still work left to do. If you have a Fold Pro Early Access license & have experienced a bug, please consider posting 
-                it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access">Google Group</Link> or 
+                it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> or 
                 on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>Is the source code available?</AccordionHeading>
             <AccordionPanel>
-                The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access">Early Access Google Group</Link>.
+                The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -63,13 +63,13 @@ export const FAQAccordion = (props) => (
         <AccordionItem>
             <AccordionHeading>What support channels are available?</AccordionHeading>
             <AccordionPanel>
-                Access to a private Fold Pro Early Access <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access">Google Group</Link>.
+                Access to a private <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>Where can I file bugs or feature requests for Early Access?</AccordionHeading>
             <AccordionPanel>
-                On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access">Google Group</Link> or 
+                On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> or 
                 on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
