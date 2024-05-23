@@ -95,37 +95,37 @@ function License(props){
                 <h2>Permitted Use</h2>
                 
                 <h3>Indie License</h3>
-                <p>You are granted a license to use the SOFTWARE as the basis of non commercial application, unlimited internal applications and one developer per license key, so long as that application is owned and operated by you, the LICENSEE, or is owned and operated by clients of LICENSEE.</p>
+                <p>The LICENSEE is granted a license to use the SOFTWARE as the basis of non commercial applications, unlimited internal applications and one developer per license key, so long as that application is owned and operated by you, the LICENSEE, or is owned and operated by clients of LICENSEE.</p>
 
                 <h3>Internal License</h3>
-                <p>You are granted a license to use the SOFTWARE as the basis of unlimited non commercial/internal, applications, so long as that application is owned and operated by you, the LICENSEE.</p>
+                <p>The LICENSEE is granted a license to use the SOFTWARE as the basis of unlimited non commercial/internal, applications, so long as that application is owned and operated by you, the LICENSEE.</p>
 
                 <h2>Restrictions</h2>
-                <p>Unless you have been granted prior, written consent from Johannes du Plessis ("Fold"), you may not:</p>
+                <p>Unless the LICENSEE has been granted prior, written consent from Johannes du Plessis ("Fold"), the LICENSEE may not:</p>
                 <ul>
                 <li>At no time may the SOFTWARE be used for development purposes by other individuals than the licensed developer(s).</li>
-                <li>The SOFTWARE may not be distributed for use with solutions or packaged products other than those developed by you.</li>
+                <li>The SOFTWARE may not be distributed for use with solutions or packaged products other than those developed by the LICENSEE.</li>
                 <li>The SOFTWARE may not be distributed as part of products that have the same or substantially the same primary functionality.</li>
-                <li>You are not allowed to resell, transfer, rent, lease, or sublicense the SOFTWARE and your associated rights.</li>
-                <li>Under no circumstances shall you grant further redistribution rights to the end-users of your solution.</li>
-                <li>You are not allowed to use, copy, modify, or merge copies of the SOFTWARE, and any accompanying documents except as permitted in this LICENSE.</li>
+                <li>The LICENSEE is not allowed to resell, transfer, rent, lease, or sublicense the SOFTWARE and the LICENSEE's associated rights.</li>
+                <li>Under no circumstances shall the LICENSEE grant further redistribution rights to the end-users of the LICENSEE's solution or product.</li>
+                <li>The LICENSEE is not allowed to use, copy, modify, or merge copies of the SOFTWARE, and any accompanying documents except as permitted in this LICENSE.</li>
                 </ul>
 
                 <h2>Redistribution Rights</h2>
-                <p>You may distribute the SOFTWARE provided that:</p>
-                <p>You reasonably ensure that the SOFTWARE is not distributed in any form that allows it to be reused by any application other than your solution. You need to duly inform your customers that they are not allowed to use the SOFTWARE independently from your solution, and that to redistribute the SOFTWARE in any form they must obtain an appropriate license from Johannes du Plessis ("Fold").</p>
-                <p>You may not redistribute the SOFTWARE to anyone and via any means other than to your customers as a part of a purchased, integrated solution, that includes functionality above and beyond that provided solely by the SOFTWARE.</p>
+                <p>The LICENSEE may distribute the SOFTWARE provided that:</p>
+                <p>The LICENSEE must reasonably ensure that the SOFTWARE is not distributed in any form that allows it to be reused by any application other than the LICENSEE's solution. The LICENSEE needs to duly inform its customers that they are not allowed to use the SOFTWARE independently from their solution, and that to redistribute the SOFTWARE in any form they must obtain an appropriate license from Johannes du Plessis ("Fold").</p>
+                <p>The LICENSEE may not redistribute the SOFTWARE to anyone and via any means other than to the LICENSEE's customers as a part of a purchased, integrated solution, that includes functionality above and beyond that provided solely by the SOFTWARE.</p>
 
                 <h2>Technical Support</h2>
                 <p>Technical support is limited to bug reports and feature requests. No support will be provided to diagnose or advise application-level code issues. If you require more specialised support or consultancy contact us at support@fold.dev.</p>
 
                 <h2>Refunds</h2>
-                <p>Johannes du Plessis ("Fold") does not provide refunds, whether full or partial, for Fold Pro Early Access. </p>
+                <p>Johannes du Plessis ("Fold") does not provide refunds, whether full or partial, for the SOFTWARE.</p>
                 <p>Exceptions to this policy may be made solely at the discretion of Johannes du Plessis ("Fold") on a case-by-case basis. Refund requests may be sent to licensing@fold.dev.</p>
-                <p>If a refund is issued, you agree to delete all files within 24 hours and are not permitted to use SOFTWARE in projects (including personal/non-commercial projects).</p>
+                <p>If a refund is issued, the LICENSEE agrees to delete all files within 24 hours and is not permitted to use SOFTWARE in projects (including personal/non-commercial projects).</p>
 
                 <h2>Indemnity</h2>
-                <p>You agree to indemnify and hold harmless Johannes du Plessis ("Fold") and its resellers for any third-party claims, actions or suits, as well as any related expenses, liabilities, damages, settlements or fees arising from your use or misuse of the Software, or a violation of any terms of this license.</p>
+                <p>LICENSEE agrees to indemnify and hold harmless Johannes du Plessis ("Fold") and its resellers for any third-party claims, actions or suits, as well as any related expenses, liabilities, damages, settlements or fees arising from your use or misuse of the Software, or a violation of any terms of this license.</p>
 
                 <h2>Expiration</h2>
                 <p>Upon the expiration of the initial SOFTWARE access duration, the LICENSEE remains bound by the terms and conditions set forth in the initial agreement. All obligations, restrictions, and permissions granted under this license will continue to apply, ensuring that the LICENSEE's responsibilities and commitments stipulated in the initial agreement persist beyond the termination of the license. This continuation of the license terms ensures that the LICENSEE's conduct and usage remain in compliance with the original provisions, even after the license period has ended.</p>

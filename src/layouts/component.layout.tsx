@@ -77,7 +77,7 @@ export default function ComponentLayout({ children, docs, props, css }) {
                             <LogoSolid color={Token.ColorPurple400} size="sm" />
                         </NotificationIcon>
                         <NotificationContent>
-                            More documentation & examples coming very coming soon.
+                            More documentation & examples coming very soon.
                             If you are a Fold Pro Early Access customer and need help implementing this component, 
                             please email us at <a href="mailto:support@fold.dev">support</a> or leave a message 
                             on the Fold Pro Early Access <a href="https://groups.google.com/a/fold.dev/g/early-access" target="_blank">Google Group</a>.
