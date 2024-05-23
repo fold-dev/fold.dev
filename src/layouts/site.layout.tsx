@@ -13,6 +13,7 @@ import {
     LogoSolid,
     Navigation,
     NavigationItem,
+    Pill,
     SkipNavMain,
     Text,
     View,
@@ -86,6 +87,7 @@ export default function SiteLayout({ children }) {
             />
 
             <View
+                display="none"
                 row
                 p={10}
                 gap={10}
@@ -113,13 +115,13 @@ export default function SiteLayout({ children }) {
                 {(stuck) => (
                     <View 
                         position="sticky"
-                        height={70}
+                        height={100}
                         zIndex={10}
                         style={{ 
                             top: 0,
                         }}>
                         <Header
-                            height={70}
+                            height={100}
                             position="relative"
                             border="none"
                             bg={stuck ? 'var(--f-color-accent-500)' : 'transparent'}
@@ -138,6 +140,7 @@ export default function SiteLayout({ children }) {
                                     bg="transparent"
                                     variant="navbar"
                                     style={{
+                                        '--f-navigation-item-color-system-active': 'var(--f-color-accent-600)',
                                         '--f-navigation-item-background-color-hover': 'var(--f-color-accent-700)',
                                         '--f-navigation-item-background-color-active': 'var(--f-color-accent-500)',
                                         '--f-navigation-item-color': 'var(--f-color-accent-50)',
@@ -146,8 +149,23 @@ export default function SiteLayout({ children }) {
                                     }}>
                                     <NavigationItem href="/#home">Home</NavigationItem>
                                     <NavigationItem href="/#core">Core</NavigationItem>
-                                    <NavigationItem href="/#pro">Pro</NavigationItem>
-                                    <NavigationItem href="/#pro">Pricing</NavigationItem>
+                                    <NavigationItem 
+                                        style={{
+                                            '--f-pill-color': 'var(--f-color-accent-3200)',
+                                            '--f-pill-background-color': 'var(--f-color-accent-800)',
+                                            '--f-pill-border-color': 'var(--f-color-accent-100)',
+                                        }}
+                                        suffix={(
+                                            <Pill
+                                                border="0"
+                                                height={25} 
+                                                size="xs">
+                                                EARLY ACCESS
+                                            </Pill>
+                                        )}
+                                        href="/#pro">
+                                        Pro
+                                    </NavigationItem>
                                     <NavigationItem href="/#support">Support</NavigationItem>
                                 </Navigation>
                                 <Button
