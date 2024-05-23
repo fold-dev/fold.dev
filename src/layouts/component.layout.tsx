@@ -5,6 +5,7 @@ import {
     Heading,
     IconLib,
     Link,
+    LogoSolid,
     Notification,
     NotificationContent,
     NotificationIcon,
@@ -27,6 +28,7 @@ import { useEffect, useMemo, useState } from 'react'
 import React from 'react'
 import DocsLayout from './docs.layout'
 import { useRouter } from 'next/navigation'
+import * as Token from '@fold-dev/design/tokens'
 
 export default function ComponentLayout({ children, docs, props, css }) {
     const [showChild, setShowChild] = useState(false)
@@ -67,6 +69,21 @@ export default function ComponentLayout({ children, docs, props, css }) {
                     fontWeight={400}>
                     {docs.description}
                 </Text>
+                {docs.pro && (
+                    <Notification
+                        variant="highlight"
+                        m="0 30px">
+                        <NotificationIcon>
+                            <LogoSolid color={Token.ColorPurple400} size="sm" />
+                        </NotificationIcon>
+                        <NotificationContent>
+                            More documentation & examples coming very coming soon.
+                            If you are a Fold Pro Early Access customer and need help implementing this component, 
+                            please email us at <a href="mailto:support@fold.dev">support</a> or leave a message 
+                            on the Fold Pro Early Access <a href="https://groups.google.com/a/fold.dev/g/early-access" target="_blank">Google Group</a>.
+                        </NotificationContent>
+                    </Notification>
+                )}
                 {docs.experimental && (
                     <Notification
                         variant="warning"
