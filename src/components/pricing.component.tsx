@@ -29,52 +29,67 @@ export const FAQAccordion = (props) => (
             <AccordionPanel>
                 Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
                 but there is still work left to do. If you have a Fold Pro Early Access license & have experienced a bug, please consider posting 
-                it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-400">Google Group</Link> or 
-                on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-400">GitHub.</Link> (label it as Pro)
+                it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access">Google Group</Link> or 
+                on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>Is the source code available?</AccordionHeading>
             <AccordionPanel>
-                The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-400">Google Group</Link>.
+                The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access">Early Access Google Group</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>How long will Early Access last?</AccordionHeading>
             <AccordionPanel>
-                Until it is stable. However, we don't anticipate this taking longer than a quarter.
+                Until it is stable. However, we don't anticipate this taking longer than a quarter. We will post regular updates.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>What comes after Early Access?</AccordionHeading>
             <AccordionPanel>
-                Once Fold Pro is stable, we will go into Beta (which will also mean a price change).
+                Once Fold Pro is stable, we will go into Beta, which will also mean a price change.
                 If you have purchased a Fold Pro Early Access license, you will automatically get access without having to pay extra. 
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
-            <AccordionHeading>What does private support mean?</AccordionHeading>
+            <AccordionHeading>Will the Beta affect my Early Access license?</AccordionHeading>
             <AccordionPanel>
-                Access to a private Fold Pro Early Access <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-400">Google Group</Link> where support issues are prioritized.
+                If you've purchased a Fold Pro Early Access license, you won't be affected by the new license terms or price increase.
+                Even more, if you choose to renew your license after the initial 2 year period, you will be charged for the Early Access price and not the full price.
+                Our way of saying thank you for your ongoing support.
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>What support channels are available?</AccordionHeading>
+            <AccordionPanel>
+                Access to a private Fold Pro Early Access <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access">Google Group</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>Where can I file bugs or feature requests for Early Access?</AccordionHeading>
             <AccordionPanel>
-                On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access" colorToken="accent-100">Google Group</Link> or 
-                on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-100">GitHub.</Link> (label it as Pro).
+                On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/early-access">Google Group</Link> or 
+                on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>What are Roadmap components?</AccordionHeading>
             <AccordionPanel>
-                If you purchase a Fold Pro Early Access licence, you will get access to any <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2" colorToken="accent-100">Roadmap</Link> components as they become available.
+                If you purchase a Fold Pro Early Access licence, you will get access to any <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">Roadmap</Link> components as they become available.
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>What if I don't renew my license?</AccordionHeading>
+            <AccordionPanel>
+                You will have access to the last available version you downloaded & would still be bound to the initial terms & conditions when you purchased the license.
+                However, we will remove your access to the NPM server & premium support channels.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>I have another question?</AccordionHeading>
             <AccordionPanel>
-                For any other questions, please email us at <Link target="_blank" href="mailto:support@fold.dev" colorToken="accent-100">support@fold.dev</Link>.
+                For any other questions, please email us at <Link target="_blank" href="mailto:support@fold.dev">support@fold.dev</Link>.
             </AccordionPanel>
         </AccordionItem>
     </Accordion>
@@ -87,7 +102,7 @@ export const FAQ = (props) => (
         alignItems="flex-start"
         p="4rem 2rem 4rem 0"
         style={{
-            //minHeight: 600,
+            '--f-link-color': 'var(--f-color-accent-400)',
             '--f-accordion-border-color': 'var(--f-color-base-700)',
             '--f-accordion-background': 'var(--f-color-base-800)',
             '--f-accordion-color': 'var(--f-color-base-300)',

@@ -13,6 +13,7 @@ import {
     Li,
     Link,
     List,
+    Logo,
     LogoSolid,
     Main,
     Navigation,
@@ -387,17 +388,17 @@ export default function DocsLayout(props: any) {
                                             }
                                             suffix={
                                                 <Pill
-                                                    color={Token.ColorPurple400}
                                                     size="xs"
-                                                    subtle>
-                                                    NEW
+                                                    border="0"
+                                                    color={Token.ColorAccent400}>
+                                                    EARLY ACCESS
                                                 </Pill>
                                             }
                                             prefix={
-                                                <Icon
-                                                    icon={PiLightning}
-                                                    color={Token.ColorPurple400}
-                                                    strokeWidth={2}
+                                                <Logo
+                                                    customSize={18} 
+                                                    color={Token.ColorAccent400}
+                                                    style={{ marginLeft: 2 }} 
                                                 />
                                             }>
                                             Pro
@@ -529,7 +530,7 @@ export default function DocsLayout(props: any) {
                                                     color={Token.ColorAccent400}
                                                     size="xs"
                                                     subtle>
-                                                    EARLY ACCESS
+                                                    v0.0.1
                                                 </Pill>)}>
                                                 Pro Components
                                         </NavigationHeading>

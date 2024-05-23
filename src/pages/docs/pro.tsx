@@ -71,6 +71,7 @@ export default function GettingStarted(props) {
                     p="0 5rem 5rem 5rem"
                     position="relative"
                     style={{
+                        '--f-link-color': 'var(--f-color-accent-100)',
                         '--f-accordion-border-color': 'var(--f-color-accent-400)',
                         '--f-accordion-background': 'var(--f-color-accent-500)',
                         '--f-accordion-color': 'var(--f-color-accent-100)',
