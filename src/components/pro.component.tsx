@@ -857,7 +857,8 @@ export const DatePicker1 = () => {
     return (
         <DateRangeProvider>
             <Card
-                p={10}
+                m="2rem 0 0 0"
+                p="1rem"
                 width="fit-content">
                 <DatePicker
                     defaultDate={date}
@@ -865,7 +866,7 @@ export const DatePicker1 = () => {
                     onChange={handleSelection}
                     disabled={[[disabled1, disabled2]]}
                     width={900}
-                    height={350}
+                    height={400}
                     panels={3}
                 />
             </Card>
@@ -878,17 +879,31 @@ export const ProComponent = () => {
 
     return (
         <View
-            row
+            column
             height="fit-content"
             zIndex={10}
             position="relative"
             m="-500px 0 0 0">
+            <Options
+                m="0rem auto 0.5rem auto"
+                animated
+                zIndex={1000}
+                selected={option}
+                onOptionChange={setOption}>
+                <Option>Kanban Board</Option>
+                <Option>Todo List</Option>
+                <Option>Calendar</Option>
+                <Option>CSV Importer</Option>
+                <Option>Data Grid</Option>
+                <Option>Date Picker</Option>
+            </Options>
             <View
                 bgToken="surface"
                 width="95%"
                 p="1rem"
                 style={{ 
-                    maxHeight: 1000, 
+                    maxHeight: 1100, 
+                    minHeight: 510,
                     overflow: 'scroll' 
                 }}
                 radius="var(--f-radius)"
@@ -896,22 +911,6 @@ export const ProComponent = () => {
                 alignContent="flex-start"
                 alignItems="flex-start"
                 position="relative">
-                <Options
-                    m="0 auto 2rem auto"
-                    animated
-                    position="sticky"
-                    style={{ top: 10 }}
-                    zIndex={1000}
-                    selected={option}
-                    onOptionChange={setOption}>
-                    <Option>Kanban Board</Option>
-                    <Option>Todo List</Option>
-                    <Option>Calendar</Option>
-                    <Option>CSV Importer</Option>
-                    <Option>Data Grid</Option>
-                    <Option>Date Picker</Option>
-                </Options>
-
                 <View
                     width="100%"
                     height="fit-content"

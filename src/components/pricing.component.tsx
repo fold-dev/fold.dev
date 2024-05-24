@@ -17,10 +17,15 @@ import {
     Range,
     Text,
     View,
+    Modal,
+    Portal,
+    useVisibility,
+    ModalClose,
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { GraphicLeft, GraphicRight } from './graphic.component'
+import { LicenseContent } from '@/pages/license'
 
 export const FAQAccordion = (props) => (
     <Accordion>
@@ -146,6 +151,20 @@ export const FAQ = (props) => (
 export const PricingComponent = () => {
     const [seatsIndie, setSeatsIndie] = useState(1)
     const [seatsInternal, setSeatsInternal] = useState(1)
+    const [down, setDown] = useState(false)
+    const [selection, setSelection] = useState<'indie' | 'internal' | ''>('')
+
+    const openPayment = () => {
+        if (selection == 'indie') {
+            window.open("https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?enabled=179904%2C385207?quantity=" + seatsIndie)
+        }
+
+        if (selection == 'internal') {
+            window.open("https://fold.lemonsqueezy.com/buy/080b3f6a-0e21-46d7-9a02-4c13258efeb6?enabled=179904%2C385207&quantity=" + seatsInternal)
+        }
+
+        setSelection('')
+    }
 
     const clamp = (price, min, max) => {
         return Math.min(Math.max(price, min), max)
@@ -198,6 +217,54 @@ export const PricingComponent = () => {
 
     return (
         <>
+            <Modal
+                portal={Portal}
+                width={600}
+                height="fit-content"
+                anchor="middle-center"
+                onDismiss={() => setSelection('')}
+                isVisible={selection != ''}
+                header={
+                    <View
+                        row
+                        gap={10}
+                        width="100%">
+                        <Heading as="h4">
+                            License Agreement
+                        </Heading>
+                        <Flexer />
+                        <ModalClose onClick={() => setSelection('')} />
+                    </View>
+                }
+                footer={
+                    <View
+                        row
+                        gap={10}
+                        width="100%">
+                        <Button onClick={() => setSelection('')}>
+                            Cancel
+                        </Button>
+                        <Flexer />
+                        <Button
+                            onClick={openPayment}
+                            variant="accent"
+                            outline
+                            disabled={!down}>
+                            Accept License & Continue
+                        </Button>
+                    </View>
+                }>
+                <View
+                    p={20}
+                    width="100%"
+                    className="f-overflow-y-auto"
+                    onScroll={(e) => {
+                        setDown((e.currentTarget.scrollTop + 50) > (e.currentTarget.scrollHeight - e.currentTarget.offsetHeight))
+                    }}
+                    height={500}>
+                    <LicenseContent />
+                </View>
+            </Modal>
             <View
                 id="pro"
                 column
@@ -377,10 +444,7 @@ export const PricingComponent = () => {
                         </List>
                         <Flexer />
                         <Button
-                            as="a"
-                            target="_blank"
-                            href={"https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?enabled=179904%2C385207?quantity=" + seatsIndie}
-                            //className="lemonsqueezy-button"
+                            onClick={() => setSelection('indie')}
                             m="1rem 0 0 0"
                             size="xl"
                             width="100%"
@@ -462,10 +526,7 @@ export const PricingComponent = () => {
                         </List>
                         <Flexer />
                         <Button
-                            as="a"
-                            target="_blank"
-                            href={"https://fold.lemonsqueezy.com/buy/080b3f6a-0e21-46d7-9a02-4c13258efeb6?enabled=179904%2C385207&quantity=" + seatsInternal}
-                            //className="lemonsqueezy-button"
+                            onClick={() => setSelection('internal')}
                             m="1rem 0 0 0"
                             size="xl"
                             width="100%"
