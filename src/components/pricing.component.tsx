@@ -250,7 +250,7 @@ export const PricingComponent = () => {
                             variant="accent"
                             outline
                             disabled={!down}>
-                            Accept License & Continue
+                            Accept & Continue
                         </Button>
                     </View>
                 }>
