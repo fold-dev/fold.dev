@@ -245,3 +245,21 @@ body {
     line-height: normal;
 }
  */
+
+
+
+
+ .license-content h1 {
+    line-height: 4rem;
+    margin: 0.5rem 0 0.5rem 0;
+}
+
+.license-content h2 {
+    line-height: 2rem;
+    margin: 1rem 0 1rem 0;
+}
+
+.license-content p {
+    line-height: 1.5rem;
+    margin: 1rem 0;
+}

@@ -1,31 +1,28 @@
+import { LicenseContent } from '@/pages/license'
 import {
+    Accordion,
+    AccordionHeading,
+    AccordionItem,
+    AccordionPanel,
     Button,
     Card,
     Flexer,
-    Grid,
-    GridItem,
     Heading,
     IconLib,
-    Accordion,
-    AccordionItem,
-    AccordionHeading,
-    AccordionPanel, 
     Li,
     Link,
     List,
+    Modal,
+    ModalClose,
     Pill,
+    Portal,
     Range,
     Text,
-    View,
-    Modal,
-    Portal,
-    useVisibility,
-    ModalClose,
+    View
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { GraphicLeft, GraphicRight } from './graphic.component'
-import { LicenseContent } from '@/pages/license'
 
 export const FAQAccordion = (props) => (
     <Accordion>
@@ -218,6 +215,7 @@ export const PricingComponent = () => {
     return (
         <>
             <Modal
+                //noDocumentScrolling
                 portal={Portal}
                 width={600}
                 height="fit-content"
