@@ -4,13 +4,14 @@ import {
     AccordionHeading,
     AccordionItem,
     AccordionPanel,
-    Breadcrumb, BreadcrumbItem, Button, Heading, Link, Text, View
+    Breadcrumb, BreadcrumbItem, Button, Heading, Icon, IconLib, Link, Notification, NotificationContent, NotificationIcon, Text, View
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
 import React from 'react'
 import { CodeComponent } from '../../components/code.component'
 import { GraphicLeft } from '../../components/graphic.component'
 import { FAQAccordion } from '@/components/pricing.component'
+import { PiComputerTower } from 'react-icons/pi'
 
 export default function GettingStarted(props) {
     return (
@@ -29,6 +30,16 @@ export default function GettingStarted(props) {
             <Text>
                 Fold Pro, built on the foundation of Fold Core, is designed specifically for teams who need high-end components for building exceptional product experiences.
             </Text>
+
+            <Notification
+                variant="highlight">
+                <NotificationIcon>
+                    <IconLib icon="warning" />
+                </NotificationIcon>
+                <NotificationContent>                    
+                    Check out the <Link href="https://codesandbox.io/p/devbox/zen-banach-wdgzlr?file=%2Fsrc%2Fmain.tsx%3A13%2C1" target="_blank">Fold Pro CodeSandbox</Link> and test it out before making a decision to purchase.
+                </NotificationContent>
+            </Notification>            
 
             <View
                 column

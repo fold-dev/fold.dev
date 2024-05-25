@@ -60,6 +60,39 @@ body {
     width: 3rem;
 }
 
+/* info blocks*/
+
+.dotted {
+    background-image: radial-gradient(var(--f-color-border) 1px, transparent 0);    
+    background-size: 9px 9px;
+    background-position: -19px -19px;
+}
+
+.dx > * {
+    z-index: 1;
+}
+
+.dx-code {
+    mask-image: linear-gradient(to bottom, var(--f-color-surface) 10%, rgba(255,255,255,0.1), transparent, rgba(255,255,255,0.1), var(--f-color-surface));
+    z-index: 0;
+    transform: rotateZ(8deg);
+}
+
+.dx-code [data-rehype-pretty-code-figure] pre {
+    background: transparent !important;
+    border: none;
+    margin: 0;
+    user-select: none;
+}
+
+.dx-code [data-rehype-pretty-code-figure] pre [data-line] > span {
+    font-size: 1.1rem;
+}
+
+.dx-code [data-rehype-pretty-code-figure] code > [data-line]::before {
+    display: none;
+}
+
 /* page */
 
 .main {

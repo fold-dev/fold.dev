@@ -884,26 +884,13 @@ export const ProComponent = () => {
             zIndex={10}
             position="relative"
             m="-500px 0 0 0">
-            <Options
-                m="0rem auto 0.5rem auto"
-                animated
-                zIndex={1000}
-                selected={option}
-                onOptionChange={setOption}>
-                <Option>Kanban Board</Option>
-                <Option>Todo List</Option>
-                <Option>Calendar</Option>
-                <Option>CSV Importer</Option>
-                <Option>Data Grid</Option>
-                <Option>Date Picker</Option>
-            </Options>
             <View
                 bgToken="surface"
                 width="95%"
                 p="1rem"
                 style={{ 
-                    maxHeight: 1100, 
-                    minHeight: 510,
+                    maxHeight: 1200, 
+                    minHeight: 600,
                     overflow: 'scroll' 
                 }}
                 radius="var(--f-radius)"
@@ -911,6 +898,22 @@ export const ProComponent = () => {
                 alignContent="flex-start"
                 alignItems="flex-start"
                 position="relative">
+                <Options
+                    m="1rem auto 2rem auto"
+                    position="sticky"
+                    style={{ top: '1rem' }}
+                    animated
+                    shadow="var(--f-shadow-card)"
+                    zIndex={1000}
+                    selected={option}
+                    onOptionChange={setOption}>
+                    <Option>Kanban Board</Option>
+                    <Option>Todo List</Option>
+                    <Option>Calendar</Option>
+                    <Option>CSV Importer</Option>
+                    <Option>Data Grid</Option>
+                    <Option>Date Picker</Option>
+                </Options>
                 <View
                     width="100%"
                     height="fit-content"

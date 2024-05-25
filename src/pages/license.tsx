@@ -1,10 +1,18 @@
 import React from 'react'
-import { Heading, Li, List, Text, View } from '@fold-dev/core'
+import { Heading, Li, Link, List, Notification, NotificationContent, Text, View } from '@fold-dev/core'
 import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
 
 export const LicenseContent = (props) => (
     <View className="license-content">
+        <Notification variant="highlight">
+            <NotificationContent>
+                We encourage you to first check out the <Link href="https://codesandbox.io/p/devbox/zen-banach-wdgzlr?file=%2Fsrc%2Fmain.tsx%3A13%2C1" target="_blank">Fold Pro CodeSandbox</Link> and test it out before making a decision to purchase.
+            </NotificationContent>
+        </Notification>
+
+        <br/>
+
         <Heading as="h4">This license is a legal agreement between you (either an individual or a single entity, also referred to as "LICENSEE", "YOU") and Johannes du Plessis ("Fold") for the use of Fold Pro (the "SOFTWARE").</Heading>
         <Text>By purchasing, installing, or using the SOFTWARE, you agree to be bound by the terms and conditions of this License Agreement. Johannes du Plessis ("Fold") reserves the right to alter this agreement at any time, for any reason, without notice.</Text>
 

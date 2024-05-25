@@ -48,8 +48,9 @@ import {
     waitForRender,
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
-import { FunctionComponent, useContext, useEffect, useRef, useState } from 'react'
+import { FunctionComponent, useContext, useEffect, useMemo, useRef, useState } from 'react'
 import { GraphicLeft } from './graphic.component'
+import { highlightCode } from './code.component'
 import CodeComponent from './code.component'
 import { CalendarProvider, CalendarSchedule } from '@fold-pro/react'
 import * as data from '@/dummy_data'
@@ -1216,11 +1217,42 @@ export const OverviewCalendar = () => {
     )
 }
 
+const snippet1 = `
+\`\`\`
+    <View 
+        row 
+        gap="0.5rem"
+        wrap="wrap"
+        justifyContent="flex-start">
+        <Pill>Typescript</Pill>
+        <Pill>Prettier</Pill>
+        <Pill>Design Tokens</Pill>
+        <Pill>StyleGuidist</Pill>
+        <Pill>Storybook</Pill>
+        <Pill>Hooks</Pill>
+        <Pill>CSS3</Pill>
+        <Pill>Typedocs</Pill>
+        <Pill>Typescript</Pill>
+        <Pill>Prettier</Pill>
+        <Pill>Design Tokens</Pill>
+        <Pill>StyleGuidist</Pill>
+        <Pill>Storybook</Pill>
+        <Pill>Hooks</Pill>
+        <Pill>CSS3</Pill>
+        <Pill>Typedocs</Pill>
+    </View>
+\`\`\`
+`
+
 export const CoreComponent = () => {
+    const [html, setHtml] = useState('')
+
+    useEffect(() => {
+        highlightCode(snippet1, 'javascript').then((html) => setHtml(html))
+    }, [])
+
     return (
         <>
-            {/* core */}
-
             <View
                 id="core"
                 column
@@ -1293,6 +1325,7 @@ export const CoreComponent = () => {
                     width="85%"
                     radius="var(--f-radius)"
                     bgToken="accent-500"
+                    border="1px solid var(--f-color-border)"
                     position="relative"
                     style={{ overflow: 'hidden' }}
                     alignItems="flex-start">
@@ -1357,89 +1390,91 @@ export const CoreComponent = () => {
                 row
                 gap="3rem"
                 width="85%"
-                m="3rem auto 3rem auto"
+                m="6rem auto 3rem auto"
                 radius="var(--f-radius)"
                 position="relative"
                 style={{ overflow: 'hidden' }}
                 alignItems="stretch">
-                <View
-                    column
-                    flex={2}
-                    gap="2rem"
-                    alignItems="flex-start"
-                    alignContent="flex-start"
-                    justifyContent="flex-start"
+
+                <View 
                     border="1px solid var(--f-color-border)"
                     radius="var(--f-radius)"
-                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)"
-                    p="3rem">
-                    <Text
-                        style={{ textTransform: 'uppercase' }}
-                        letterSpacing={5}
-                        colorToken="text-weakest"
-                        id="features">
-                        Lightweight
-                    </Text>
-                    <Heading
-                        colorToken="text"
-                        fontWeight={400}>
-                        Zero Dependencies
-                    </Heading>
-                    <Text
-                        size="lg"
-                        colorToken="text-weak"
-                        fontWeight={400}>
-                        Say goodbye to dependency hell. No other dependencies are used in Fold, other than React and ReactDOM.
-                    </Text>
-                    <Link
-                        href="/docs/design-system"
-                        target="_blank"
-                        color="var(--f-color-text)"
-                        className="f-underline"
-                        textDecoration="none">
-                        Read More ↗
-                    </Link>
+                    flex={2}
+                    style={{ overflow: 'hidden' }}
+                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
+                    <View
+                        column
+                        gap="2rem"
+                        className="dotted"
+                        alignItems="flex-start"
+                        alignContent="flex-start"
+                        justifyContent="flex-start"
+                        p="3rem">
+                        <Text
+                            style={{ textTransform: 'uppercase' }}
+                            letterSpacing={5}
+                            colorToken="text-weakest"
+                            id="features">
+                            Lightweight
+                        </Text>
+                        <Heading
+                            colorToken="text"
+                            fontWeight={400}>
+                            Zero Dependencies
+                        </Heading>
+                        <Text
+                            size="lg"
+                            colorToken="text-weak"
+                            fontWeight={400}>
+                            Say goodbye to dependency hell. No other dependencies are used in Fold, other than React and ReactDOM.
+                        </Text>
+                        <Link
+                            href="/docs/faq"
+                            target="_blank"
+                            color="var(--f-color-text)"
+                            className="f-underline"
+                            textDecoration="none">
+                            Read More ↗
+                        </Link>
+                    </View>
                 </View>
 
-                <View
-                    column
-                    flex={1}
-                    gap="2rem"
-                    alignItems="flex-start"
-                    alignContent="flex-start"
-                    justifyContent="flex-start"
+
+                <View 
                     border="1px solid var(--f-color-border)"
                     radius="var(--f-radius)"
-                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)"
-                    p="3rem">
-                    <Text
-                        style={{ textTransform: 'uppercase' }}
-                        letterSpacing={5}
-                        colorToken="text-weakest"
-                        id="features">
-                        Themable
-                    </Text>
-                    <Heading
-                        colorToken="text"
-                        fontWeight={400}>
-                        Dark Mode
-                    </Heading>
-                    <Text
-                        size="lg"
-                        colorToken="text-weak"
-                        fontWeight={400}>
-                        Fold supports Dark Mode out of the box, and includes all of the tools necessary for you to roll your own theme.
-                    </Text>
-                    <Link
-                        display="none"
-                        target="_blank"
-                        href="https://github.com/fold-dev/fold/discussions"
-                        color="var(--f-color-text)"
-                        className="f-underline"
-                        textDecoration="none">
-                        GitHub Discussions ↗
-                    </Link> 
+                    flex={1}
+                    style={{ overflow: 'hidden' }}
+                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
+                    <View
+                        column
+                        gap="2rem"
+                        className="dotted"
+                        alignItems="flex-start"
+                        alignContent="flex-start"
+                        justifyContent="flex-start"
+                        p="3rem">
+                        <Text
+                            style={{ textTransform: 'uppercase' }}
+                            letterSpacing={5}
+                            colorToken="text-weakest"
+                            id="features">
+                            Themable
+                        </Text>
+                        <Heading
+                            colorToken="text"
+                            fontWeight={400}>
+                            Dark Mode
+                        </Heading>
+                        <Text
+                            size="lg"
+                            colorToken="text-weak"
+                            fontWeight={400}>
+                            Fold supports Dark Mode out of the box, and includes all of the tools necessary for you to roll your own theme.
+                        </Text>
+                    </View>
                 </View>
+
             </View>
 
 
@@ -1449,99 +1484,127 @@ export const CoreComponent = () => {
                 row
                 gap="3rem"
                 width="85%"
-                m="0 auto 6rem auto"
+                m="3rem auto 6rem auto"
                 radius="var(--f-radius)"
                 position="relative"
                 style={{ overflow: 'hidden' }}
                 alignItems="stretch">
-                <View
-                    column
-                    flex={1}
-                    gap="2rem"
-                    alignItems="flex-start"
-                    alignContent="flex-start"
-                    justifyContent="flex-start"
-                    border="1px solid var(--f-color-border)"
-                    radius="var(--f-radius)"
-                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)"
-                    p="3rem">
-                    <Text
-                        style={{ textTransform: 'uppercase' }}
-                        letterSpacing={5}
-                        colorToken="text-weakest"
-                        id="features">
-                        Design System
-                    </Text>
-                    <Heading
-                        colorToken="text"
-                        fontWeight={400}>
-                        Learn about the principals that underpin Fold's Design System.
-                    </Heading>
-                    <Text
-                        size="lg"
-                        colorToken="text-weak"
-                        fontWeight={400}>
-                        Let Fold do the heavy lifting. Fold ships with its own design system based on sensible defaults.
-                    </Text>
-                    <Link
-                        href="/docs/design-system"
-                        target="_blank"
-                        color="var(--f-color-text)"
-                        className="f-underline"
-                        textDecoration="none">
-                        Read More ↗
-                    </Link>
-                </View>
 
-                <View
-                    column
-                    flex={2}
-                    gap="2rem"
-                    alignItems="flex-start"
-                    alignContent="flex-start"
-                    justifyContent="flex-start"
+                <View 
                     border="1px solid var(--f-color-border)"
                     radius="var(--f-radius)"
-                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)"
-                    p="3rem">
-                    <Text
-                        style={{ textTransform: 'uppercase' }}
-                        letterSpacing={5}
-                        colorToken="text-weakest"
-                        id="features">
-                        Developer Friendly
-                    </Text>
-                    <Heading
-                        colorToken="text"
-                        fontWeight={400}>
-                        Great DX
-                    </Heading>
-                    <Text
-                        size="lg"
-                        colorToken="text-weak"
-                        fontWeight={400}>
-                        Discover the perfect balance of component composability, CSS3 magic, and intuitive prop design - working together to enable quick iteration.
-                    </Text>
-                    <View 
-                        row 
-                        gap="0.5rem"
-                        wrap="wrap"
-                        justifyContent="flex-start">
-                        <Pill subtle color={Token.ColorAccent400}>Typescript</Pill>
-                        <Pill subtle color={Token.ColorPurple400}>Prettier</Pill>
-                        <Pill subtle color={Token.ColorNeonpink400}>Design Tokens</Pill>
-                        <Pill subtle color={Token.ColorRed400}>StyleGuidist</Pill>
-                        <Pill subtle color={Token.ColorOrange400}>Storybook</Pill>
-                        <Pill subtle color={Token.ColorYellow400}>Hooks</Pill>
-                        <Pill subtle color={Token.ColorTeal400}>CSS3</Pill>
-                        <Pill subtle color={Token.ColorBluegreen300}>Typedocs</Pill>
+                    flex={1}
+                    style={{ overflow: 'hidden' }}
+                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
+                    <View
+                        column
+                        gap="2rem"
+                        className="dotted"
+                        alignItems="flex-start"
+                        alignContent="flex-start"
+                        justifyContent="flex-start"
+                        p="3rem">
+                        <Text
+                            style={{ textTransform: 'uppercase' }}
+                            letterSpacing={5}
+                            colorToken="text-weakest"
+                            id="features">
+                            Design System
+                        </Text>
+                        <Heading
+                            colorToken="text"
+                            fontWeight={400}>
+                            Learn about the principals that underpin Fold's Design System.
+                        </Heading>
+                        <Text
+                            size="lg"
+                            colorToken="text-weak"
+                            fontWeight={400}>
+                            Let Fold do the heavy lifting. Fold ships with its own design system based on sensible defaults.
+                        </Text>
+                        <Link
+                            href="/docs/design-system"
+                            target="_blank"
+                            color="var(--f-color-text)"
+                            className="f-underline"
+                            textDecoration="none">
+                            Read More ↗
+                        </Link>
                     </View>
                 </View>
+
+
+                <View 
+                    border="1px solid var(--f-color-border)"
+                    radius="var(--f-radius)"
+                    flex={2}
+                    style={{ overflow: 'hidden' }}
+                    bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
+                    <View
+                        column
+                        height="100%"
+                        className="dotted dx"
+                        gap="2rem"
+                        alignItems="flex-start"
+                        alignContent="flex-start"
+                        justifyContent="flex-start"
+                        p="3rem"
+                        position="relative">
+                        <Text
+                            style={{ textTransform: 'uppercase' }}
+                            letterSpacing={5}
+                            colorToken="text-weakest"
+                            id="features">
+                            Developer Friendly
+                        </Text>
+                        <Heading
+                            colorToken="text"
+                            fontWeight={400}>
+                            Great DX
+                        </Heading>
+                        <Text
+                            size="lg"
+                            colorToken="text-weak"
+                            fontWeight={400}>
+                            Powered by TypeScript, Fold lets you discover the perfect balance of component composability, CSS3 magic, and intuitive prop design - working together to enable quick iteration.
+                        </Text>
+                        <View 
+                            row 
+                            gap="0.5rem"
+                            wrap="wrap"
+                            justifyContent="flex-start">
+                            <Pill subtle color={Token.ColorAccent400}>Typescript</Pill>
+                            <Pill subtle color={Token.ColorPurple400}>Prettier</Pill>
+                            <Pill subtle color={Token.ColorNeonpink400}>Design Tokens</Pill>
+                            <Pill subtle color={Token.ColorRed400}>StyleGuidist</Pill>
+                            <Pill subtle color={Token.ColorOrange400}>Storybook</Pill>
+                            <Pill subtle color={Token.ColorYellow400}>Hooks</Pill>
+                            <Pill subtle color={Token.ColorTeal400}>CSS3</Pill>
+                            <Pill subtle color={Token.ColorBluegreen300}>Typedocs</Pill>
+                        </View>
+                        <Link
+                            href="/docs"
+                            target="_blank"
+                            color="var(--f-color-text)"
+                            className="f-underline"
+                            textDecoration="none">
+                            Read More ↗
+                        </Link>
+                        <View 
+                            height="fit-content"
+                            width="50%"
+                            style={{ top: 0, right: 0, overflow: 'hidden' }}
+                            position="absolute"
+                            className="dx-code">
+                            <section
+                                style={{ width: '100%',  height: '100%' }}
+                                dangerouslySetInnerHTML={{ __html: html }}
+                            />
+                        </View>
+                    </View>
+                </View>
+
             </View>
-
-
-
-
         </>
     )
 }

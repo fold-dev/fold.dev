@@ -8,7 +8,7 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import { Copy, Icon, View } from '@fold-dev/core'
 import { DocumentIcon } from '@heroicons/react/24/outline'
 
-const highlightCode = async (code: string, lang = 'javascript') => {
+export const highlightCode = async (code: string, lang = 'javascript') => {
     const file = await unified()
         .use(remarkParse)
         .use(remarkRehype)
