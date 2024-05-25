@@ -369,68 +369,27 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" /> Kanban Board
+                                <IconLib icon="check" /> Pro components
                             </Li>
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" /> Todo List
+                                <IconLib icon="check" /> Perpetual use
                             </Li>
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" /> Calendar
+                                <IconLib icon="check" /> Google Group access
                             </Li>
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" /> Date & Time Pickers
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Data Grid
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> CSV Importer
-                            </Li>
-
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Limited to prototyping
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Private support group
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" />
-                                NPM access
+                                <IconLib icon="check" /> NPM access
                             </Li>
                             <Li
                                 row
                                 width="fit-content">
                                 <IconLib icon="check" /> Source code
-                            </Li>
-                            <Li
-                                row
-                                colorToken="purrple-400"
-                                width="fit-content">
-                                <IconLib icon="check" />
-                                Roadmap components
-                                <Pill
-                                    subtle
-                                    size="xs"
-                                    m="0 0 0 0.5rem"
-                                    color={Token.ColorAccent400}>
-                                    Planned
-                                </Pill>
                             </Li>
                             <Li
                                 row
@@ -627,6 +586,9 @@ export const PricingComponent = () => {
                     </Text>
                     <Text colorToken="base-600" textAlign="center">
                         Purchasing a license is subject to the <Link href="/license" target="_blank">licence agreement</Link>.
+                    </Text>
+                    <Text colorToken="base-600" textAlign="center">
+                        VAT may apply based on your location.
                     </Text>
                 </View>
             </View>
