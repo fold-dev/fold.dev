@@ -134,7 +134,9 @@ export default function SiteLayout({ children }) {
                                 gap="1rem"
                                 width="100%"
                                 p="0 4rem">
-                                <LogoSolid color="var(--f-color-accent-200)" />
+                                <Link href="/">
+                                    <LogoSolid color="var(--f-color-accent-200)" />
+                                </Link>
                                 <Flexer />
                                 <Navigation
                                     bg="transparent"

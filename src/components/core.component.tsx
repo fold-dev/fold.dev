@@ -9,7 +9,9 @@ import {
     Button,
     ButtonGroup,
     Card,
+    ColorPicker,
     Copy,
+    DarkModeButton,
     DarkModeToggle,
     Divider,
     FIX,
@@ -42,6 +44,7 @@ import {
     Timeline,
     TimelineItem,
     View,
+    timezones,
     useCheck,
     useCopy,
     useVisibility,
@@ -54,6 +57,7 @@ import { highlightCode } from './code.component'
 import CodeComponent from './code.component'
 import { CalendarProvider, CalendarSchedule } from '@fold-pro/react'
 import * as data from '@/dummy_data'
+import { PiCompassTool, PiCompassToolDuotone, PiSmiley, PiSmileyDuotone, PiSun } from 'react-icons/pi'
 
 export const colors = {
     purple: `
@@ -864,6 +868,21 @@ const Code = ({ snippet }) => {
     )
 }
 
+export const Picker = () => {
+    const [color, setColor] = useState(Token.ColorCyan400)
+
+    return (
+        <ColorPicker
+            border="0.1rem solid var(--f-color-border)"
+            radius="var(--f-radius)"
+            bgToken="surface"
+            p={20}
+            color={color}
+            onChange={setColor}
+        />
+    )
+}
+
 const All = () => {
     const [selected, setSelected] = useState<any>([])
     const [color, setColor] = useState(Token.ColorElectric400)
@@ -931,264 +950,323 @@ const All = () => {
     }, [value])
 
     return (
-        <View
-            row
-            gap="2rem"
-            height="fit-content"
-            width="fit-content"
-            alignItems="flex-start">
+        <View 
+            border="1px solid var(--f-color-border)"
+            radius="var(--f-radius)"
+            width="85%"
+            m="0 auto 6rem auto"
+            style={{ overflow: 'hidden' }}
+            bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
             <View
                 column
+                height="100%"
+                className="dotted"
                 gap="2rem"
-                width={300}>
-                <Menu
-                    width={300}
-                    zIndex="0"
-                    shadow="none">
-                    <MenuOptionGroup
-                        title="State Management"
-                        defaultValue="redux"
-                        type="radio">
-                        <MenuItemOption value="redux">Redux1</MenuItemOption>
-                        <MenuItemOption value="mobx">MobX</MenuItemOption>
-                        <MenuItemOption value="zustand">Zustand</MenuItemOption>
-                    </MenuOptionGroup>
-                </Menu>
+                alignItems="flex-start"
+                alignContent="flex-start"
+                justifyContent="flex-start"
+                p="3rem"
+                position="relative">
+                <View
+                    row
+                    gap="2rem"
+                    height="fit-content"
+                    alignItems="flex-start">
+                    <View
+                        column
+                        gap="1rem"
+                        flex={1.25}>
+                        <Menu
+                            width="100%"
+                            zIndex="0"
+                            shadow="none">
+                            <MenuOptionGroup
+                                title="State Management"
+                                defaultValue="redux"
+                                type="radio">
+                                <MenuItemOption value="redux">Redux1</MenuItemOption>
+                                <MenuItemOption value="mobx">MobX</MenuItemOption>
+                                <MenuItemOption value="zustand">Zustand</MenuItemOption>
+                            </MenuOptionGroup>
+                        </Menu>
 
-                <Card
-                    p="0.75rem 1rem"
-                    width="100%">
-                    <Sparkline
-                        data={sparkline}
-                        variant="bar"
-                        width="100%"
-                        height={30}
-                    />
-                </Card>
+                        <Card
+                            p="0.75rem 1rem"
+                            width="100%">
+                            <Sparkline
+                                style={{ 
+                                    maskImage: 'linear-gradient(to bottom, var(--f-color-surface) 10%, transparent)',
+                                }}
+                                data={sparkline}
+                                variant="square"
+                                width="100%"
+                                height={30}
+                            />
+                        </Card>
 
-                <Card
-                    p={20}
-                    width="100%">
-                    <Heading
-                        as="h5"
-                        fontWeight="bold"
-                        m="0 0 1rem 0">
-                        Activity
-                    </Heading>
-                    <Timeline>
-                        <TimelineItem
-                            marker={
-                                <Avatar
+                        <Card
+                            p={20}
+                            width="100%">
+                            <Heading
+                                as="h5"
+                                fontWeight="bold"
+                                m="0 0 1rem 0">
+                                Activity
+                            </Heading>
+                            <Timeline>
+                                <TimelineItem
+                                    marker={
+                                        <Avatar
+                                            size="xs"
+                                            src="https://randomuser.me/api/portraits/men/12.jpg"
+                                        />
+                                    }>
+                                    <Text>Rob opened the attachment in Microsoft Outlook</Text>
+                                </TimelineItem>
+                                <TimelineItem colorToken="text">
+                                    <Text>Image attachment downloaded from the server</Text>
+                                </TimelineItem>
+                                <TimelineItem colorToken="text">
+                                    <Text>Message flagged as harmless by anti-virus system</Text>
+                                </TimelineItem>
+                            </Timeline>
+                        </Card>
+                    </View>
+
+
+
+                    <View
+                        column
+                        gap="1rem"
+                        flex={1}>
+                        <Dropdown />
+                        <Picker />
+                    </View>
+
+
+
+                    <View
+                        column
+                        gap="1rem"
+                        width={300}>
+                        <Options
+                            animated
+                            shadow="none"
+                            width="100%"
+                            selected={option}
+                            onOptionChange={setOption}>
+                            <Option>System Font</Option>
+                            <Option>Inter</Option>
+                            <Option>DM Sans</Option>
+                        </Options>
+                        <Card
+                            p="0rem 1rem"
+                            width="100%"
+                            row>
+                            <Tabs
+                                selected={selected}
+                                onSelect={setSelected}
+                                animated>
+                                <TabList
+                                    height={60}
+                                    border="none"
+                                    stretch
+                                    disableScroll>
+                                    <Tab>Members</Tab>
+                                    <Tab>Security</Tab>
+                                    <Tab>Account</Tab>
+                                </TabList>
+                            </Tabs>
+                        </Card>
+
+                        <Card
+                            width="100%"
+                            p="0.5rem 1rem">
+                            <Palette
+                                justifyContent="center"
+                                gap={2}
+                                color={color}
+                                colors={[
+                                    Token.ColorPurple400,
+                                    Token.ColorNeonpink400,
+                                    Token.ColorRed400,
+                                    Token.ColorOrange400,
+                                    Token.ColorYellow400,
+                                    Token.ColorGreen400,
+                                    Token.ColorTeal400,
+                                    Token.ColorCyan400,
+                                    Token.ColorElectric400,
+                                ]}
+                                onChange={setColor}
+                            />
+                        </Card>
+
+                        <Attachment
+                            width="100%"
+                            mime="image/png"
+                            filesize={24325}
+                            label="screenshot.png"
+                            href="https://fold.dev"
+                        />
+
+                        <Copy
+                            value="049d2ee4-6672-11ee-8c99-0242ac120002"
+                            prefix={<IconLib icon="circle" />}
+                            suffix={
+                                <Pill
                                     size="xs"
-                                    src="https://randomuser.me/api/portraits/men/12.jpg"
+                                    m="0 1rem">
+                                    UUID
+                                </Pill>
+                            }
+                        />
+
+                        <View
+                            row
+                            justifyContent="flex-start"
+                            gap={5}
+                            width="100%">
+                            <Pill
+                                size="sm"
+                                color={Token.ColorNeonpink500}>
+                                React
+                            </Pill>
+                            <Pill
+                                solid
+                                size="sm"
+                                color={Token.ColorPurple100}>
+                                UI
+                            </Pill>
+                            <Pill
+                                solid
+                                size="sm"
+                                color={Token.ColorBlue300}>
+                                Components
+                            </Pill>
+                            <Pill
+                                solid
+                                size="sm"
+                                color={Token.ColorSeagreen100}>
+                                0 Dependency
+                            </Pill>
+                        </View>
+
+                        <Card
+                            width="100%"
+                            p={20}>
+                            <Range
+                                min={0}
+                                max={10}
+                                step={1}
+                                value={value}
+                                onChange={(e) => setValue(e.target.value)}
+                            />
+                        </Card>
+                    </View>
+
+                    <View
+                        column
+                        gap="1rem"
+                        flex={1.25}
+                        alignItems="flex-end">
+                        <Card
+                            width="100%"
+                            footer={
+                                <>
+                                    <Divider />
+                                    <ButtonGroup
+                                        p={15}
+                                        justifyContent="stretch"
+                                        width="100%">
+                                        <Button>Book Now</Button>
+                                        <Button>Add to Wishlist</Button>
+                                    </ButtonGroup>
+                                </>
+                            }
+                            header={
+                                <Image
+                                    width="100%"
+                                    height={125}
+                                    src="building.png"
                                 />
                             }>
-                            <Text>Rob opened the attachment in Microsoft Outlook</Text>
-                        </TimelineItem>
-                        <TimelineItem colorToken="text">
-                            <Text>Image attachment downloaded from the server</Text>
-                        </TimelineItem>
-                        <TimelineItem colorToken="text">
-                            <Text>Message flagged as harmless by anti-virus system</Text>
-                        </TimelineItem>
-                    </Timeline>
-                </Card>
-            </View>
-
-            <View
-                column
-                gap="2rem"
-                width={300}>
-                <Options
-                    animated
-                    shadow="none"
-                    width="100%"
-                    selected={option}
-                    onOptionChange={setOption}>
-                    <Option>System Font</Option>
-                    <Option>Inter</Option>
-                    <Option>DM Sans</Option>
-                </Options>
-                <Card
-                    p="0rem 1rem"
-                    width="100%"
-                    row>
-                    <Tabs
-                        selected={selected}
-                        onSelect={setSelected}
-                        animated>
-                        <TabList
-                            height={60}
-                            border="none"
-                            stretch
-                            disableScroll>
-                            <Tab>Members</Tab>
-                            <Tab>Security</Tab>
-                            <Tab>Account</Tab>
-                        </TabList>
-                    </Tabs>
-                </Card>
-
-                <Card
-                    width="100%"
-                    p="0.5rem 1rem">
-                    <Palette
-                        justifyContent="center"
-                        gap={2}
-                        color={color}
-                        colors={[
-                            Token.ColorPurple400,
-                            Token.ColorNeonpink400,
-                            Token.ColorRed400,
-                            Token.ColorOrange400,
-                            Token.ColorYellow400,
-                            Token.ColorGreen400,
-                            Token.ColorTeal400,
-                            Token.ColorCyan400,
-                            Token.ColorElectric400,
-                        ]}
-                        onChange={setColor}
-                    />
-                </Card>
-
-                <Attachment
-                    width="100%"
-                    mime="image/png"
-                    filesize={24325}
-                    label="screenshot.png"
-                    href="https://fold.dev"
-                />
-
-                <Copy
-                    value="049d2ee4-6672-11ee-8c99-0242ac120002"
-                    prefix={<IconLib icon="circle" />}
-                    suffix={
-                        <Pill
-                            size="xs"
-                            m="0 1rem">
-                            UUID
-                        </Pill>
-                    }
-                />
-
-                <View
-                    row
-                    justifyContent="flex-start"
-                    gap={5}
-                    width="100%">
-                    <Pill
-                        size="sm"
-                        color={Token.ColorNeonpink500}>
-                        React
-                    </Pill>
-                    <Pill
-                        solid
-                        size="sm"
-                        color={Token.ColorPurple100}>
-                        UI
-                    </Pill>
-                    <Pill
-                        solid
-                        size="sm"
-                        color={Token.ColorBlue300}>
-                        Components
-                    </Pill>
-                    <Pill
-                        solid
-                        size="sm"
-                        color={Token.ColorSeagreen100}>
-                        0 Dependency
-                    </Pill>
-                </View>
-
-                <Card
-                    width="100%"
-                    p={20}>
-                    <Range
-                        min={0}
-                        max={10}
-                        step={1}
-                        value={value}
-                        onChange={(e) => setValue(e.target.value)}
-                    />
-                </Card>
-            </View>
-
-            <View
-                column
-                width={300}
-                gap="2rem"
-                flex={1}
-                alignItems="flex-end">
-                <Card
-                    width={300}
-                    footer={
-                        <>
-                            <Divider />
-                            <ButtonGroup
-                                p={15}
-                                justifyContent="stretch"
-                                width="100%">
-                                <Button>Book Now</Button>
-                                <Button>Add to Wishlist</Button>
-                            </ButtonGroup>
-                        </>
-                    }
-                    header={
-                        <Image
-                            width="100%"
-                            height={125}
-                            src="building.png"
-                        />
-                    }>
-                    <View p={20}>
-                        <Stack
-                            direction="vertical"
-                            spacing={10}>
-                            <View
-                                row
-                                gap={5}
-                                justifyContent="flex-start">
-                                <Pill
-                                    color={Token.ColorElectric400}
-                                    subtle
-                                    size="sm">
-                                    co-working
-                                </Pill>
-                                <Pill
-                                    color={Token.ColorAccent400}
-                                    subtle
-                                    size="sm">
-                                    remote
-                                </Pill>
+                            <View p={20}>
+                                <Stack
+                                    direction="vertical"
+                                    spacing={10}>
+                                    <View
+                                        row
+                                        gap={5}
+                                        justifyContent="flex-start">
+                                        <Pill
+                                            color={Token.ColorElectric400}
+                                            subtle
+                                            size="sm">
+                                            co-working
+                                        </Pill>
+                                        <Pill
+                                            color={Token.ColorAccent400}
+                                            subtle
+                                            size="sm">
+                                            remote
+                                        </Pill>
+                                    </View>
+                                    <Heading as="h2">Perfect Getaway</Heading>
+                                    <Text>
+                                        A once in a lifetime opportunity to live and work remotely in a
+                                        breathtaking location!
+                                    </Text>
+                                    <Text
+                                        size="sm"
+                                        colorToken="accent">
+                                        Terms & conditions apply
+                                    </Text>
+                                </Stack>
                             </View>
-                            <Heading as="h2">Perfect Getaway</Heading>
-                            <Text>
-                                A once in a lifetime opportunity to live and work remotely in a
-                                breathtaking location!
-                            </Text>
-                            <Text
-                                size="sm"
-                                colorToken="accent">
-                                Terms & conditions apply
-                            </Text>
-                        </Stack>
-                    </View>
-                </Card>
+                        </Card>
 
-                <View
-                    row
-                    justifyContent="flex-end"
-                    gap={10}>
-                    <Text
-                        as="label"
-                        htmlFor="dm">
-                        Toggle Dark Mode
-                    </Text>
-                    <DarkModeToggle id="dm" />
+                        <View
+                            row
+                            justifyContent="flex-end"
+                            gap={10}>
+                            <Text
+                                as="label"
+                                htmlFor="dm">
+                                Toggle Dark Mode
+                            </Text>
+                            <DarkModeToggle id="dm" />
+                        </View>
+                    </View>
                 </View>
             </View>
         </View>
+    )
+}
+
+export const Dropdown = () => {
+    const [selected, setSelected] = useState<any>([timezones[0], timezones[4], timezones[8]])
+
+    const handleSelect = (option, dismiss) => {
+        if (selected.includes(option.key)) {
+            setSelected([...selected.filter((optionKey) => option.key != optionKey)])
+        } else {
+            setSelected([...selected, option.key])
+        }
+    }
+
+    return (
+        <Select
+            width={250}
+            prefix={<IconLib icon="time" />}
+            suffix={<IconLib icon="chevron-down" />}
+            placeholder="Select a timezone"
+            selected={selected}
+            onSelect={handleSelect}
+            options={timezones.map((tz) => ({
+                key: tz,
+                label: tz,
+            }))}
+        />
     )
 }
 
@@ -1267,8 +1345,9 @@ export const CoreComponent = () => {
                 <View
                     column
                     flex={1}
-                    gap={40}
-                    width="100%"
+                    gap="2rem"
+                    width="85%"
+                    m="0 auto"
                     height="fit-content"
                     justifyContent="flex-start"
                     alignContent="flex-start"
@@ -1310,9 +1389,10 @@ export const CoreComponent = () => {
                         </Link>
                     </View>
                     */}
-                    <All />
                 </View>
             </View>
+
+            <All />
 
             {/* features */}
 
@@ -1400,6 +1480,7 @@ export const CoreComponent = () => {
                     border="1px solid var(--f-color-border)"
                     radius="var(--f-radius)"
                     flex={2}
+                    position="relative"
                     style={{ overflow: 'hidden' }}
                     bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
                     <View
@@ -1436,6 +1517,13 @@ export const CoreComponent = () => {
                             textDecoration="none">
                             Read More ↗
                         </Link>
+                        <View 
+                            height="fit-content"
+                            width="fit-content"
+                            style={{ bottom: 10, right: 10, overflow: 'hidden' }}
+                            position="absolute">
+                            
+                        </View>
                     </View>
                 </View>
 
@@ -1450,6 +1538,7 @@ export const CoreComponent = () => {
                         column
                         gap="2rem"
                         className="dotted"
+                        position="relative"
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start"
@@ -1472,6 +1561,13 @@ export const CoreComponent = () => {
                             fontWeight={400}>
                             Fold supports Dark Mode out of the box, and includes all of the tools necessary for you to roll your own theme.
                         </Text>
+                    </View>
+                    <View 
+                        height="fit-content"
+                        width="fit-content"
+                        style={{ bottom: 20, right: 20 }}
+                        position="absolute">
+                        <DarkModeButton />
                     </View>
                 </View>
 
@@ -1499,6 +1595,7 @@ export const CoreComponent = () => {
                     <View
                         column
                         gap="2rem"
+                        position="relative"
                         className="dotted"
                         alignItems="flex-start"
                         alignContent="flex-start"
@@ -1530,6 +1627,18 @@ export const CoreComponent = () => {
                             textDecoration="none">
                             Read More ↗
                         </Link>
+                        <View 
+                            height="fit-content"
+                            width="fit-content"
+                            style={{ bottom: 20, right: 20, overflow: 'hidden' }}
+                            position="absolute">
+                            <Icon 
+                                style={{ '--f-icon-sizing-xl': '4rem', '--f-icon-stroke-width-xl': '0.1' }}
+                                icon={PiCompassTool}
+                                size="xl"
+                                color="var(--f-color-text-weakest)"
+                            />
+                        </View>
                     </View>
                 </View>
 
