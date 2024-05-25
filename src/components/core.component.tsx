@@ -1506,7 +1506,8 @@ export const CoreComponent = () => {
                         <Text
                             size="lg"
                             colorToken="text-weak"
-                            fontWeight={400}>
+                            fontWeight={400}
+                            width="70%">
                             Say goodbye to dependency hell. No other dependencies are used in Fold, other than React and ReactDOM.
                         </Text>
                         <Link
@@ -1520,9 +1521,13 @@ export const CoreComponent = () => {
                         <View 
                             height="fit-content"
                             width="fit-content"
-                            style={{ bottom: 10, right: 10, overflow: 'hidden' }}
+                            style={{ bottom: -100, right: -90, overflow: 'hidden' }}
                             position="absolute">
-                            
+                            <img 
+                                src="lines.svg" 
+                                width="413" 
+                                height="434" 
+                            />
                         </View>
                     </View>
                 </View>
