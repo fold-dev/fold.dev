@@ -19,8 +19,8 @@ function Home() {
 
     return (
         <>
-            {/* <HeroComponent /> */}
-            {/* <ProComponent /> */}
+            <HeroComponent />
+            <ProComponent />
             <CoreComponent />
             <Divider />
             <PricingComponent />

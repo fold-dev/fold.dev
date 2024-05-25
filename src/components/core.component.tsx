@@ -1264,6 +1264,7 @@ export const OverviewCalendar = () => {
 
     return (
         <CalendarProvider
+            canAdd={false}
             dimPastEvents={false}
             hideDateLabels={true}
             scheduleEvent={undefined}
@@ -1503,7 +1504,7 @@ export const CoreComponent = () => {
                         <View 
                             height="fit-content"
                             width="fit-content"
-                            style={{ bottom: -100, right: -90, overflow: 'hidden' }}
+                            style={{ bottom: -130, right: -90, overflow: 'hidden' }}
                             position="absolute">
                             <img 
                                 src="lines.svg" 
