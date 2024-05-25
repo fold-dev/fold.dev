@@ -1,11 +1,7 @@
+import * as data from '@/dummy_data'
 import {
-    Accordion,
-    AccordionHeading,
-    AccordionItem,
-    AccordionPanel,
     Attachment,
     Avatar,
-    Badge,
     Button,
     ButtonGroup,
     Card,
@@ -14,18 +10,11 @@ import {
     DarkModeButton,
     DarkModeToggle,
     Divider,
-    FIX,
-    Flexer,
-    Grid,
-    GridItem,
     Heading,
     Icon,
     IconLib,
     Image,
-    Li,
     Link,
-    List,
-    LogoSolid,
     Menu,
     MenuItemOption,
     MenuOptionGroup,
@@ -45,19 +34,14 @@ import {
     TimelineItem,
     View,
     timezones,
-    useCheck,
-    useCopy,
-    useVisibility,
-    waitForRender,
+    useCopy
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
-import { FunctionComponent, useContext, useEffect, useMemo, useRef, useState } from 'react'
-import { GraphicLeft } from './graphic.component'
-import { highlightCode } from './code.component'
-import CodeComponent from './code.component'
 import { CalendarProvider, CalendarSchedule } from '@fold-pro/react'
-import * as data from '@/dummy_data'
-import { PiCompassTool, PiCompassToolDuotone, PiSmiley, PiSmileyDuotone, PiSun } from 'react-icons/pi'
+import { useEffect, useState } from 'react'
+import { PiCompassTool } from 'react-icons/pi'
+import CodeComponent, { highlightCode } from './code.component'
+import { GraphicLeft } from './graphic.component'
 
 export const colors = {
     purple: `
@@ -1048,7 +1032,7 @@ const All = () => {
                     <View
                         column
                         gap="1rem"
-                        width={300}>
+                        width={275}>
                         <Options
                             animated
                             shadow="none"
@@ -1081,10 +1065,10 @@ const All = () => {
 
                         <Card
                             width="100%"
-                            p="0.5rem 1rem">
+                            p="0.5rem 0.5rem">
                             <Palette
                                 justifyContent="center"
-                                gap={2}
+                                gap={0}
                                 color={color}
                                 colors={[
                                     Token.ColorPurple400,
@@ -1147,7 +1131,7 @@ const All = () => {
                                 solid
                                 size="sm"
                                 color={Token.ColorSeagreen100}>
-                                0 Dependency
+                                TypeScript
                             </Pill>
                         </View>
 
@@ -1167,7 +1151,7 @@ const All = () => {
                     <View
                         column
                         gap="1rem"
-                        flex={1.25}
+                        flex={1}
                         alignItems="flex-end">
                         <Card
                             width="100%"
@@ -1179,7 +1163,7 @@ const All = () => {
                                         justifyContent="stretch"
                                         width="100%">
                                         <Button>Book Now</Button>
-                                        <Button>Add to Wishlist</Button>
+                                        <Button>Wishlist</Button>
                                     </ButtonGroup>
                                 </>
                             }
@@ -1302,22 +1286,21 @@ const snippet1 = `
         gap="0.5rem"
         wrap="wrap"
         justifyContent="flex-start">
-        <Pill>Typescript</Pill>
+        <Pill>TypeScript</Pill>
+        <Pill>Prettier</Pill>
+        <Pill>Design Tokens</Pill>
+        <Pill>StyleGuidist</Pill>
+        <Pill>Storybook</Pill>
+        <Pill>React</Pill>
+        <Pill>CSS3</Pill>
+        <Pill>Typedocs</Pill>
+        <Pill>TypeScript</Pill>
         <Pill>Prettier</Pill>
         <Pill>Design Tokens</Pill>
         <Pill>StyleGuidist</Pill>
         <Pill>Storybook</Pill>
         <Pill>Hooks</Pill>
         <Pill>CSS3</Pill>
-        <Pill>Typedocs</Pill>
-        <Pill>Typescript</Pill>
-        <Pill>Prettier</Pill>
-        <Pill>Design Tokens</Pill>
-        <Pill>StyleGuidist</Pill>
-        <Pill>Storybook</Pill>
-        <Pill>Hooks</Pill>
-        <Pill>CSS3</Pill>
-        <Pill>Typedocs</Pill>
     </View>
 \`\`\`
 `
@@ -1427,7 +1410,7 @@ export const CoreComponent = () => {
                             letterSpacing={5}
                             colorToken="accent-300"
                             id="features">
-                            Overview
+                            Fold Pro 
                         </Text>
                         <Heading
                             colorToken="accent-50"
@@ -1435,8 +1418,7 @@ export const CoreComponent = () => {
                             Made for product teams that need to scale quickly.
                         </Heading>
                         <Text colorToken="accent-100">
-                            Spend less time groking build sizes and resolving dependency conflicts.
-                            Fold has no other dependencies, other than React and ReactDOM.
+                            Scale ideas, not effort. Introducing Fold Pro, premium UI components to power your next idea, no matter how big.
                         </Text>
                         <Link
                             href="/pro"
@@ -1508,7 +1490,7 @@ export const CoreComponent = () => {
                             colorToken="text-weak"
                             fontWeight={400}
                             width="70%">
-                            Say goodbye to dependency hell. No other dependencies are used in Fold, other than React and ReactDOM.
+                            Stop spending time groking build sizes and resolving dependency conflicts. Fold has no other dependencies, other than React and ReactDOM.
                         </Text>
                         <Link
                             href="/docs/faq"
@@ -1687,12 +1669,12 @@ export const CoreComponent = () => {
                             gap="0.5rem"
                             wrap="wrap"
                             justifyContent="flex-start">
-                            <Pill subtle color={Token.ColorAccent400}>Typescript</Pill>
+                            <Pill subtle color={Token.ColorAccent400}>TypeScript</Pill>
                             <Pill subtle color={Token.ColorPurple400}>Prettier</Pill>
                             <Pill subtle color={Token.ColorNeonpink400}>Design Tokens</Pill>
                             <Pill subtle color={Token.ColorRed400}>StyleGuidist</Pill>
                             <Pill subtle color={Token.ColorOrange400}>Storybook</Pill>
-                            <Pill subtle color={Token.ColorYellow400}>Hooks</Pill>
+                            <Pill subtle color={Token.ColorYellow400}>React</Pill>
                             <Pill subtle color={Token.ColorTeal400}>CSS3</Pill>
                             <Pill subtle color={Token.ColorBluegreen300}>Typedocs</Pill>
                         </View>

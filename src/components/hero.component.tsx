@@ -55,7 +55,7 @@ export const HeroComponent = () => {
                         colorToken="accent-50"
                         fontWeight={400}
                         width="90%">
-                        Powerful, fully customizable React components for scaling your product to the
+                        Powerful, fully customizable React components for scaling your project to the
                         next level. Supercharge your dev workflow by using Fold's zero-dependency UI
                         components.
                     </Heading>

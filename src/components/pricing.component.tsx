@@ -31,8 +31,8 @@ export const FAQAccordion = (props) => (
                 Is it production ready?
             </AccordionHeading>
             <AccordionPanel>
-                Consider Early Access to be pre-release software & still relatively unstable, however, every effort is being made to fix bugs & other issues.
-                If you have a Fold Pro Early Access license & have experienced a bug, please consider posting it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> or 
+                Consider Early Access to be alpha/pre-release software & still relatively unstable. However, every effort is being made to fix bugs & other issues.
+                If you have a Fold Pro Early Access license & have experienced a bug, or have a suggestion, please consider posting it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> or 
                 on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
@@ -172,6 +172,11 @@ export const PricingComponent = () => {
             notation: 'standard',
             maximumFractionDigits: 2,
         }).format(amount)
+    }
+
+    const pricingSaas = (p = 1399) => {
+        const price = Math.min(Math.max(seatsInternal, 1), 30) * p
+        return formatCurrency(clamp(price, 0, 99999))
     }
 
     const pricingInternal = (p = 699) => {
@@ -322,7 +327,7 @@ export const PricingComponent = () => {
                         justifyContent="flex-start">
                         <Heading as="h2">Indie</Heading>
                         <Text colorToken="base-300">
-                            For teams building projects that haven't launched to market yet.
+                            For teams of up to 3 people, building internal or non commercial projects.
                         </Text>
                         <View
                             row
@@ -460,9 +465,11 @@ export const PricingComponent = () => {
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start">
-                        <Heading as="h2">Internal</Heading>
+                        <Heading as="h2">
+                            Startup
+                        </Heading>
                         <Text colorToken="base-300">
-                            For teams building internal-use projects that generate no revenue.
+                            For teams of up to 10, building internal-use projects that generate no revenue.
                         </Text>
                         <View
                             row
@@ -542,11 +549,13 @@ export const PricingComponent = () => {
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start">
-                        <Heading as="h2">SaaS</Heading>
+                        <Heading as="h2">
+                            Enterprise
+                        </Heading>
                         <Text colorToken="base-300">
-                            For teams that have launched to market or acquired external funding.
+                            For teams for up to 20 people, that have launched to market or acquired external funding.
                         </Text>
-                        {/*  
+                         
                         <View
                             row
                             m="1rem 0 0 0"
@@ -559,9 +568,9 @@ export const PricingComponent = () => {
                             as="h4"
                             colorToken="text-weakest"
                             textDecoration="line-through">
-                            {pricingSaas(3399)} USD
+                            {pricingSaas(1999)} USD
                         </Heading> 
-                        */}
+                       
                         <List>
                             <Li
                                 row
