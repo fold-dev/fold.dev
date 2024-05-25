@@ -19,7 +19,7 @@ function Home() {
 
     return (
         <>
-            {/* <HeroComponent /> */}
+            <HeroComponent />
             <ProComponent />
             <CoreComponent />
             <Divider />
