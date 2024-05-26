@@ -2,6 +2,7 @@ import React from 'react'
 import { Heading, Text, View } from '@fold-dev/core'
 import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
+import Link from 'next/link'
 
 function TermsOfUse(props){
     return (
@@ -61,26 +62,7 @@ function TermsOfUse(props){
                 </View>
             </View>
 
-            <View p={100}>
-                <style>
-                    {`
-                        h1 {
-                            line-height: 4rem;
-                            margin: 0.5rem 0 0.5rem 0;
-                        }
-
-                        h2 {
-                            line-height: 2rem;
-                            margin: 2rem 0 1rem 0;
-                        }
-
-                        p {
-                            line-height: 1.5rem;
-                            margin: 1rem 0;
-                        }
-                    `}
-                </style>
-
+            <View p={100} className="legal-content">
                 <h2>Use of Website</h2>
                 <p>You may use this website for lawful purposes only. You agree not to use this website in any way that violates any applicable laws or regulations.</p>
 
@@ -100,11 +82,11 @@ function TermsOfUse(props){
                 <p>These Terms shall be governed by and construed in accordance with the laws of South Africa, without regard to its conflict of law provisions.</p>
 
                 <h2>Contact Us</h2>
-                <p>If you have any questions about these Terms, please contact us at support@fold.dev.</p>
+                <p>If you have any questions about these Terms, please contact us at <Link href="mailto:support@fold.dev">support@fold.dev</Link>.</p>
 
                 <h2>Contact Information</h2>
                 <p>Address: Marine Drive, Umhlanga, KZN, ZA</p>
-                <p>Email: support@fold.dev</p>
+                <p>Email: <Link href="mailto:support@fold.dev">support@fold.dev</Link></p>
             </View>
         </View>
     )

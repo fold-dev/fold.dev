@@ -16,6 +16,8 @@ import {
     List,
     Modal,
     ModalClose,
+    Notification,
+    NotificationContent,
     Option,
     Options,
     Pill,
@@ -40,7 +42,6 @@ export const FAQAccordion = (props) => (
             </AccordionHeading>
             <AccordionPanel>
                 Fold Pro Early Access is the very first release of Fold Pro, offering developers early access to Fold Pro's premium UI components.
-                Most of the licensing & pricing information on this page is Early Access specific & subject to change once Early Access ends.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -49,7 +50,7 @@ export const FAQAccordion = (props) => (
             </AccordionHeading>
             <AccordionPanel>
                 Consider Early Access to be alpha/pre-release software & still relatively unstable. However, every effort is being made to fix bugs & other issues.
-                If you have a Fold Pro Early Access license & have experienced a bug, or have a suggestion, please consider posting it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> or 
+                If you have a Fold Pro Early Access license & want to report a bug, please post it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> or 
                 on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
@@ -120,14 +121,6 @@ export const FAQAccordion = (props) => (
             <AccordionPanel>
                 You will retain access to the last version you downloaded and remain bound by the same license agreement as when you purchased the license.
                 However, your access to NPM and the Google Group will be revoked, and you will not receive any future roadmap functionalities.
-            </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-            <AccordionHeading>
-                I bought a license, now what?
-            </AccordionHeading>
-            <AccordionPanel>
-                Head over to the <Link target="_blank" href="/docs/pro">documentation</Link> to get started.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -350,7 +343,9 @@ export const PricingComponent = () => {
 
                 <View
                     row
-                    justifyContent="space-between"
+                    justifyContent="stretch"
+                    alignContent="stretch"
+                    alignItems="stretch"
                     width="75%"
                     style={{ minWidth: '50%', maxWidth: '90%' }}
                     m="0 auto"
@@ -360,7 +355,6 @@ export const PricingComponent = () => {
                     <Card
                         column
                         flex={1}
-                        height={535}
                         p="2rem"
                         gap="1rem"
                         alignItems="flex-start"
@@ -432,18 +426,11 @@ export const PricingComponent = () => {
                                     <Icon icon={PiSparkle} color="var(--f-color-accent)" /> 2 years of updates&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
-                            <Tooltip text="Subject to finalizing.">
-                                <Li
-                                    row
-                                    width="fit-content">
-                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> 50% discount off planned pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
-                                </Li>
-                            </Tooltip>
                             <Tooltip text="Subject to Early Access only, renews at regular 1 year duration." contentProps={{ style: { width: 200, whiteSpace: 'break-spaces', textAlign: 'center' }}}>
                                 <Li
                                     row
                                     width="fit-content">
-                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Renewals fixed at Early Access pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Renews at Early Access pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
                         </List>
@@ -455,9 +442,9 @@ export const PricingComponent = () => {
                     </Card>
 
                     <Card
-                        width={325}
+                        width={320}
                         column
-                        height={535}
+                        height="auto"
                         p="2rem"
                         gap="1rem"
                         alignItems="flex-start"
@@ -504,10 +491,10 @@ export const PricingComponent = () => {
                     </Card>
 
                     <Card
-                        width={325}
+                        width={320}
                         column
-                        height={535}
                         p="2rem"
+                        height="auto"
                         gap="1rem"
                         alignItems="flex-start"
                         alignContent="flex-start"
@@ -516,7 +503,7 @@ export const PricingComponent = () => {
                             Team <small style={{ position: 'relative', top: -10, color: 'var(--f-color-text-weakest', fontWeight: 'bold' }}>EARLY ACCESS</small>
                         </Heading>
                         <Text colorToken="base-300">
-                            For teams of 3+ developers, building internal or non commercial projects.
+                            For teams of developers, building internal or non commercial projects.
                         </Text>
                         <View
                             row
@@ -552,7 +539,7 @@ export const PricingComponent = () => {
                             <Text
                                 colorToken="base-400"
                                 display="inline-block"
-                                width={190}>
+                                width={160}>
                                 {developers()}
                             </Text>
                         </View>

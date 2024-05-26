@@ -4,52 +4,52 @@ import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
 
 export const LicenseContent = (props) => (
-    <View className="license-content">
-        <Notification variant="highlight">
-            <NotificationContent>
-                We encourage you to first check out the <Link href="https://codesandbox.io/p/devbox/zen-banach-wdgzlr?file=%2Fsrc%2Fmain.tsx%3A13%2C1" target="_blank">Fold Pro CodeSandbox</Link> and test it out before making a decision to purchase.
-            </NotificationContent>
-        </Notification>
-
-        <br/>
-
-        <Heading as="h4">This license is a legal agreement between you (either an individual or a single entity, also referred to as "LICENSEE", "YOU") and Johannes du Plessis ("Fold") for the use of Fold Pro (the "SOFTWARE").</Heading>
+    <View className="legal-content">
+        <Text>This license is a legal agreement between you (either an individual or a single entity, also referred to as "LICENSEE", "YOU") and Johannes du Plessis ("Fold") for the use of Fold Pro (the "SOFTWARE").</Text>
         <Text>By purchasing, installing, or using the SOFTWARE, you agree to be bound by the terms and conditions of this License Agreement. Johannes du Plessis ("Fold") reserves the right to alter this agreement at any time, for any reason, without notice.</Text>
 
         <Heading as="h2">Permitted Use</Heading>
         
-        <Heading as="h3">Indie License</Heading>
-        <Text>The LICENSEE is granted a license to use the SOFTWARE as the basis of non commercial applications, so long as that application is owned and operated by you, the LICENSEE, or is owned and operated by clients of LICENSEE.</Text>
+        <Heading as="h3">Indie & Team License</Heading>
+        <Text>The LICENSEE is granted a license to use the SOFTWARE as the basis of a single active non commercial/internal application, so long as that application is owned and operated by you, the LICENSEE.</Text>
 
-        <Heading as="h3">Internal License</Heading>
-        <Text>The LICENSEE is granted a license to use the SOFTWARE as the basis of unlimited non commercial/internal applications, so long as that application is owned and operated by you, the LICENSEE.</Text>
-
-        <Heading as="h3">Developer seats</Heading>
-        <Text>The LICENSEE is granted 1 license key per single commercial/non commercial/internal applications project.</Text>
+        <Heading as="h3">OEM License</Heading>
+        <Text>Please enquire about OEM license options by emailing <Link href="mailto:licensing@fold.dev">licensing@fold.dev</Link>.</Text>
 
         <Heading as="h2">Restrictions</Heading>
         <Text>Unless the LICENSEE has been granted prior, written consent from Johannes du Plessis ("Fold"), the LICENSEE may not:</Text>
-        <List>
-        <Li>At no time may the SOFTWARE be used for development purposes by other individuals than the licensed developer(s).</Li>
-        <Li>The SOFTWARE may not be distributed for use with solutions or packaged products other than those developed by the LICENSEE.</Li>
-        <Li>The SOFTWARE may not be distributed as part of products that have the same or substantially the same primary functionality.</Li>
-        <Li>The LICENSEE is not allowed to resell, transfer, rent, lease, or sublicense the SOFTWARE and the LICENSEE's associated rights.</Li>
-        <Li>Under no circumstances shall the LICENSEE grant further redistribution rights to the end-users of the LICENSEE's solution or product.</Li>
-        <Li>The LICENSEE is not allowed to use, copy, modify, or merge copies of the SOFTWARE, and any accompanying documents except as permitted in this LICENSE.</Li>
+        <List as="ul">
+            <Li>At no time may the SOFTWARE be used for development purposes by other individuals than the licensed developer(s).</Li>
+            <Li>The SOFTWARE may not be distributed without entering into an OEM licensing agreement with Johannes du Plessis ("Fold").</Li>
+            <Li>The SOFTWARE may not be distributed for use with solutions or packaged products other than those developed by the LICENSEE.</Li>
+            <Li>The SOFTWARE may not be distributed as part of products that have the same or substantially the same primary functionality.</Li>
+            <Li>The LICENSEE is not allowed to resell, transfer, rent, lease, or sublicense the SOFTWARE and the LICENSEE's associated rights.</Li>
+            <Li>Under no circumstances shall the LICENSEE grant further redistribution rights to the end-users of the LICENSEE's solution or product.</Li>
+            <Li>The LICENSEE is not allowed to use, copy, modify, or merge copies of the SOFTWARE, and any accompanying documents except as permitted in this LICENSE.</Li>
         </List>
 
         <Heading as="h2">Redistribution Rights</Heading>
         <Text>The LICENSEE may distribute the SOFTWARE provided that:</Text>
-        <Text>The LICENSEE must reasonably ensure that the SOFTWARE is not distributed in any form that allows it to be reused by any application other than the LICENSEE's solution. The LICENSEE needs to duly inform its customers that they are not allowed to use the SOFTWARE independently from their solution, and that to redistribute the SOFTWARE in any form they must obtain an appropriate license from Johannes du Plessis ("Fold").</Text>
-        <Text>The LICENSEE may not redistribute the SOFTWARE to anyone and via any means other than to the LICENSEE's customers as a part of a purchased, integrated solution, that includes functionality above and beyond that provided solely by the SOFTWARE.</Text>
+        <List as="ul">
+            <Li>The LICENSEE has entered into an OEM licensing agreement with Johannes du Plessis ("Fold").</Li>
+            <Li>The LICENSEE must reasonably ensure that the SOFTWARE is not distributed in any form that allows it to be reused by any application other than the LICENSEE's solution. The LICENSEE needs to duly inform its customers that they are not allowed to use the SOFTWARE independently from their solution, and that to redistribute the SOFTWARE in any form they must obtain an appropriate license from Johannes du Plessis ("Fold").</Li>
+            <Li>The LICENSEE may not redistribute the SOFTWARE to anyone and via any means other than to the LICENSEE's customers as a part of a purchased, integrated solution, that includes functionality above and beyond that provided solely by the SOFTWARE.</Li>
+        </List>
 
         <Heading as="h2">Technical Support</Heading>
         <Text>Technical support is limited to bug reports and feature requests. No support will be provided to diagnose or advise application-level code issues. If you require more specialised support or consultancy email support@fold.dev.</Text>
 
         <Heading as="h2">Refunds</Heading>
         <Text>Johannes du Plessis ("Fold") does not provide refunds, whether full or partial, for the SOFTWARE during Early Access.</Text>
-        <Text>Exceptions to this policy may be made solely at the discretion of Johannes du Plessis ("Fold") on a case-by-case basis. Refund requests may be sent to licensing@fold.dev.</Text>
+        <Text>Exceptions to this policy may be made solely at the discretion of Johannes du Plessis ("Fold") on a case-by-case basis. Refund requests may be sent to <Link href="mailto:licensing@fold.dev">licensing@fold.dev</Link>.</Text>
         <Text>If a refund is issued, the LICENSEE agrees to delete all files within 24 hours and is not permitted to use SOFTWARE in projects (including personal/non-commercial projects).</Text>
+
+
+        <Notification variant="highlight">
+            <NotificationContent>
+                We encourage you to try out the <Link href="https://codesandbox.io/p/devbox/zen-banach-wdgzlr?file=%2Fsrc%2Fmain.tsx%3A13%2C1" target="_blank">CodeSandbox</Link> before making a decision to purchase a license, to make sure it's right for you.
+            </NotificationContent>
+        </Notification>
 
         <Heading as="h2">Indemnity</Heading>
         <Text>LICENSEE agrees to indemnify and hold harmless Johannes du Plessis ("Fold") and its resellers for any third-party claims, actions or suits, as well as any related expenses, liabilities, damages, settlements or fees arising from your use or misuse of the Software, or a violation of any terms of this license.</Text>
@@ -68,7 +68,7 @@ export const LicenseContent = (props) => (
 
         <Heading as="h2">Contact Information</Heading>
         <Text>Address: Marine Drive, Umhlanga, KZN, ZA</Text>
-        <Text>Email: licensing@fold.dev</Text>
+        <Text>Email: <Link href="mailto:licensing@fold.dev">licensing@fold.dev</Link></Text>
     </View>
 )
 
@@ -111,7 +111,7 @@ function License(props){
                         textAlign="center"
                         colorToken="white"
                         width="80%">
-                        Last updated on 23 May 2024
+                        Last updated on 26 May 2024
                     </Heading>
                 
                     <GraphicLeft

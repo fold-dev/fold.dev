@@ -34,10 +34,10 @@ export default function GettingStarted(props) {
             <Notification
                 variant="highlight">
                 <NotificationIcon>
-                    <IconLib icon="warning" />
+                    <IconLib icon="star" />
                 </NotificationIcon>
                 <NotificationContent>                    
-                    Check out the <Link href="https://codesandbox.io/p/devbox/zen-banach-wdgzlr?file=%2Fsrc%2Fmain.tsx%3A13%2C1" target="_blank">Fold Pro CodeSandbox</Link> and test it out before making a decision to purchase.
+                    You can try out Fold Pro on <Link href="https://codesandbox.io/p/devbox/zen-banach-wdgzlr?file=%2Fsrc%2Fmain.tsx%3A13%2C1" target="_blank">CodeSandbox</Link>.
                 </NotificationContent>
             </Notification>            
 

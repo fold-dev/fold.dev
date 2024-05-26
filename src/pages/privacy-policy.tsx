@@ -2,6 +2,7 @@ import React from 'react'
 import { Heading, Text, View } from '@fold-dev/core'
 import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
+import Link from 'next/link'
 
 function PrivacyPolicy(props) {
     return (
@@ -62,26 +63,7 @@ function PrivacyPolicy(props) {
                 </View>
             </View>
 
-            <View p={100}>
-                <style>
-                    {`
-                        h1 {
-                            line-height: 4rem;
-                            margin: 0.5rem 0 0.5rem 0;
-                        }
-
-                        h2 {
-                            line-height: 2rem;
-                            margin: 2rem 0 1rem 0;
-                        }
-
-                        p {
-                            line-height: 1.5rem;
-                            margin: 1rem 0;
-                        }
-                    `}
-                </style>
-
+            <View p={100} className="legal-content">
                 <h2>Information Collection</h2>
                 <p>We do not collect or track any personal information about our visitors. You can browse this website without revealing any personal data.</p>
 
@@ -98,14 +80,14 @@ function PrivacyPolicy(props) {
                 We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the date of the latest revision will be indicated at the top.
 
                 <h2>Contact Us</h2>
-                If you have any questions or concerns about this Privacy Policy, please contact us at support@fold.dev.
+                If you have any questions or concerns about this Privacy Policy, please contact us at <Link href="mailto:support@fold.dev">support@fold.dev</Link>.
                 
                 <h2>Consent</h2>
                 <p>By using this website, you hereby consent to our Privacy Policy and agree to its terms.</p>
 
                 <h2>Contact Information</h2>
                 <p>Address: Marine Drive, Umhlanga, KZN, ZA</p>
-                <p>Email: support@fold.dev</p>
+                <p>Email: <Link href="mailto:support@fold.dev">support@fold.dev</Link></p>
             </View>
         </View>
     )

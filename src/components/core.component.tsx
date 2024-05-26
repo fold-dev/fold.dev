@@ -1162,7 +1162,7 @@ const All = () => {
                                         p={15}
                                         justifyContent="stretch"
                                         width="100%">
-                                        <Button>Book Now</Button>
+                                        <Button>Visit</Button>
                                         <Button>Wishlist</Button>
                                     </ButtonGroup>
                                 </>
@@ -1663,7 +1663,7 @@ export const CoreComponent = () => {
                             size="lg"
                             colorToken="text-weak"
                             fontWeight={400}>
-                            Powered by TypeScript, Fold lets you discover the perfect balance of component composability, CSS3 magic, and intuitive prop design - working together to enable quick iteration.
+                            Powered by TypeScript, Fold lets you discover the perfect balance of component composability, CSS3 magic, and intuitive prop design - working together to deliver an enjoyable developer experience.
                         </Text>
                         <View 
                             row 
