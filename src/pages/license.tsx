@@ -25,7 +25,7 @@ export const LicenseContent = (props) => (
         <Text>The LICENSEE is granted a license to use the SOFTWARE as the basis of unlimited non commercial/internal applications, so long as that application is owned and operated by you, the LICENSEE.</Text>
 
         <Heading as="h3">Developer seats</Heading>
-        <Text>The LICENSEE is granted 1 license key per developer.</Text>
+        <Text>The LICENSEE is granted 1 license key per single commercial/non commercial/internal applications project.</Text>
 
         <Heading as="h2">Restrictions</Heading>
         <Text>Unless the LICENSEE has been granted prior, written consent from Johannes du Plessis ("Fold"), the LICENSEE may not:</Text>
