@@ -16,16 +16,20 @@ import {
     List,
     Modal,
     ModalClose,
+    Option,
+    Options,
     Pill,
     Portal,
     Range,
     Text,
+    Tooltip,
+    TooltipContent,
     View
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
 import { useEffect, useState } from 'react'
-import { GraphicLeft, GraphicRight } from './graphic.component'
 import { PiSparkle } from 'react-icons/pi'
+import { GraphicLeft, GraphicRight } from './graphic.component'
 
 export const FAQAccordion = (props) => (
     <Accordion>
@@ -149,18 +153,17 @@ export const FAQ = (props) => (
 )
 
 export const PricingComponent = () => {
-    const [seatsIndie, setSeatsIndie] = useState(1)
-    const [seatsInternal, setSeatsInternal] = useState(1)
+    const [seats, setSeats] = useState(2)
     const [down, setDown] = useState(false)
     const [selection, setSelection] = useState<'indie' | 'internal' | ''>('')
 
     const openPayment = () => {
         if (selection == 'indie') {
-            window.open("https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?enabled=179904%2C385207?quantity=" + seatsIndie)
+            window.open("https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?enabled=179904%2C385207")
         }
 
         if (selection == 'internal') {
-            window.open("https://fold.lemonsqueezy.com/buy/080b3f6a-0e21-46d7-9a02-4c13258efeb6?enabled=179904%2C385207&quantity=" + seatsInternal)
+            window.open("https://fold.lemonsqueezy.com/buy/080b3f6a-0e21-46d7-9a02-4c13258efeb6?enabled=179904%2C385207")
         }
 
         setSelection('')
@@ -177,19 +180,34 @@ export const PricingComponent = () => {
         }).format(amount)
     }
 
-    const pricingSaas = (p = 1399) => {
-        const price = Math.min(Math.max(seatsInternal, 1), 30) * p
-        return formatCurrency(clamp(price, 0, 99999))
+    const developers = () => {
+        switch (seats) {
+            case 1: return '1 Developer'
+            case 2: return '3 Developers'
+            case 3: return '5 Developers'
+            case 4: return '10 Developers'
+            case 5: return '20 Developers'
+        }
     }
 
-    const pricingInternal = (p = 799) => {
-        const price = Math.min(Math.max(seatsInternal, 1), 30) * p
-        return formatCurrency(clamp(price, 0, 99999))
+    const pricingEA = (seats) => {
+        switch (seats) {
+            case 1: return 399
+            case 2: return 599
+            case 3: return 749
+            case 4: return 1399
+            case 5: return 2699
+        }
     }
 
-    const pricingIndie = (p = 399) => {
-        const price = Math.min(Math.max(seatsIndie, 1), 30) * p
-        return formatCurrency(clamp(price, 0, 9999))
+    const pricingFull = (seats) => {
+        switch (seats) {
+            case 1: return 799
+            case 2: return 1199
+            case 3: return 1499
+            case 4: return 2799
+            case 5: return 5399
+        }
     }
 
     useEffect(() => {
@@ -316,6 +334,7 @@ export const PricingComponent = () => {
                     row
                     justifyContent="space-between"
                     width="75%"
+                    style={{ minWidth: '50%', maxWidth: '90%' }}
                     m="0 auto"
                     gap={20}
                     position="relative">
@@ -331,11 +350,11 @@ export const PricingComponent = () => {
                         justifyContent="flex-start"
                         bgToken="base-200">
                         <Heading as="h2">
-                            Early Access License
+                            Early Access
                         </Heading>
                         <Text colorToken="base-600" size="lg">
-                            For teams that need to scale their project to the next nevel, 
-                            Fold Pro Early Access give you access to the following.
+                            For developers & teams that need to scale their project to the next nevel.
+                            Fold Pro gives you tools you need to get there.
                         </Text>
                         {/* 
                         <View
@@ -387,13 +406,22 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> 2 years of updates
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Single active project
                             </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Renewals fixed at Early Access pricing
-                            </Li>
+                            <Tooltip text="Renews at regular 1 year duration.">
+                                <Li
+                                    row
+                                    width="fit-content">
+                                    <IconLib icon="check" color="var(--f-color-accent)" /> 2 years of updates&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                </Li>
+                            </Tooltip>
+                            <Tooltip text="Subject to Early Access only, renews at regular 1 year duration.">
+                                <Li
+                                    row
+                                    width="fit-content">
+                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Renewals fixed at Early Access pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                </Li>
+                            </Tooltip>
                         </List>
                         <Divider style={{ '--f-divider-color': 'var(--f-color-border-strong)' }} />
                         <Text colorToken="base-600" textAlign="center">
@@ -415,7 +443,7 @@ export const PricingComponent = () => {
                             Indie
                         </Heading>
                         <Text colorToken="base-300">
-                            For teams of up to 2 people, building internal or non commercial projects.
+                            For single developers who need to level up their next big idea.
                         </Text>
                         <View
                             row
@@ -423,7 +451,7 @@ export const PricingComponent = () => {
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>
-                                {pricingIndie()}
+                                {formatCurrency(pricingEA(1))}
                             </Heading>
                             <Heading
                                 as="h5"
@@ -435,66 +463,8 @@ export const PricingComponent = () => {
                             as="h4"
                             colorToken="text-weakest"
                             textDecoration="line-through">
-                            {pricingIndie(599)} USD
+                            {formatCurrency(pricingFull(1))} USD
                         </Heading>
-                        <View
-                            row
-                            display="none"
-                            gap="1rem"
-                            width="100%">
-                            <Range
-                                min={1}
-                                max={10}
-                                step={1}
-                                value={seatsIndie}
-                                onChange={(e) => setSeatsIndie(+e.target.value)}
-                            />
-                            <Text
-                                colorToken="base-400"
-                                display="inline-block"
-                                width={160}>
-                                {seatsIndie} {seatsIndie == 1 ? 'Developer' : 'Developers'}
-                            </Text>
-                        </View>
-                        <List display="none">
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Pro components
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Perpetual use
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Google Group access
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> NPM access
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Source code
-                            </Li>
-                            <Li
-                                row
-                                textDecoration="line-through"
-                                width="fit-content"
-                                color="var(--f-color-text-weakest)">
-                                <IconLib icon="check" /> 1 year of updates
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> 2 years of updates
-                            </Li>
-                        </List>
                         <Flexer />
                         <Button
                             onClick={() => setSelection('indie')}
@@ -506,11 +476,9 @@ export const PricingComponent = () => {
                         </Button>
                     </Card>
 
-
-
                     <Card
-                        column
                         width={325}
+                        column
                         height={450}
                         p="2rem"
                         gap="1rem"
@@ -521,7 +489,7 @@ export const PricingComponent = () => {
                             Team
                         </Heading>
                         <Text colorToken="base-300">
-                            For teams of up to 10 people, building internal or non commercial projects.
+                            For teams of 3+ developers, building internal or non commercial projects.
                         </Text>
                         <View
                             row
@@ -529,7 +497,7 @@ export const PricingComponent = () => {
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>
-                                {pricingInternal()}
+                                {formatCurrency(pricingEA(seats))}
                             </Heading>
                             <Heading
                                 as="h5"
@@ -541,66 +509,33 @@ export const PricingComponent = () => {
                             as="h4"
                             colorToken="text-weakest"
                             textDecoration="line-through">
-                            {pricingInternal(999)} USD
+                            {formatCurrency(pricingFull(seats))} USD
                         </Heading>
                         <View
-                            display="none"
                             row
                             gap="1rem"
                             width="100%">
                             <Range
-                                min={1}
-                                max={10}
+                                min={2}
+                                max={5}
                                 step={1}
-                                value={seatsIndie}
-                                onChange={(e) => setSeatsIndie(+e.target.value)}
+                                value={seats}
+                                onChange={(e) => setSeats(+e.target.value)}
                             />
                             <Text
                                 colorToken="base-400"
                                 display="inline-block"
-                                width={160}>
-                                {seatsIndie} {seatsIndie == 1 ? 'Developer' : 'Developers'}
+                                width={190}>
+                                {developers()}
                             </Text>
                         </View>
-                        <List display="none">
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Pro components
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Perpetual use
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Google Group access
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> NPM access
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Source code
-                            </Li>
-                            <Li
-                                row
-                                textDecoration="line-through"
-                                width="fit-content"
-                                color="var(--f-color-text-weakest)">
-                                <IconLib icon="check" /> 1 year of updates
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> 2 years of updates
-                            </Li>
-                        </List>
+                        {seats == 5 && (
+                            <Text
+                                size="sm"
+                                m="1rem 0 0 0">
+                                Need more than 20 developers? <Link href="mailto:licensing@fold.dev" size="sm">Contact us</Link>.
+                            </Text>
+                        )}
                         <Flexer />
                         <Button
                             onClick={() => setSelection('indie')}
@@ -611,171 +546,6 @@ export const PricingComponent = () => {
                             Buy
                         </Button>
                     </Card>
-{/* 
-                    <Card
-                        column
-                        width={325}
-                        height={750}
-                        p="2rem"
-                        gap="1rem"
-                        alignItems="flex-start"
-                        alignContent="flex-start"
-                        justifyContent="flex-start">
-                        <Heading as="h2">
-                            Startup
-                        </Heading>
-                        <Text colorToken="base-300">
-                            For teams of up to 10, building internal-use projects that generate no revenue.
-                        </Text>
-                        <View
-                            row
-                            m="1rem 0 0 0"
-                            gap={5}
-                            alignItems="flex-start">
-                            <Heading huge>{pricingInternal()}</Heading>
-                            <Heading
-                                as="h5"
-                                fontWeight={600}>
-                                USD
-                            </Heading>
-                        </View>
-                        <Heading
-                            as="h4"
-                            colorToken="text-weakest"
-                            textDecoration="line-through">
-                            {pricingInternal(999)} USD
-                        </Heading>
-                        <View
-                            row
-                            gap="1rem"
-                            width="100%">
-                            <Range
-                                min={1}
-                                max={10}
-                                step={1}
-                                value={seatsInternal}
-                                onChange={(e) => setSeatsInternal(+e.target.value)}
-                            />
-                            <Text
-                                colorToken="base-400"
-                                display="inline-block"
-                                width={160}>
-                                {seatsInternal} {seatsInternal == 1 ? 'Developer' : 'Developers'}
-                            </Text>
-                        </View>
-                        <List>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Everything in Indie
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Unlimited internal use
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Prioritized support
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Prioritized feature requests
-                            </Li>
-                        </List>
-                        <Flexer />
-                        <Button
-                            onClick={() => setSelection('internal')}
-                            m="1rem 0 0 0"
-                            size="xl"
-                            width="100%"
-                            variant="accent">
-                            Buy
-                        </Button>
-                    </Card>
-
-                    <Card
-                        column
-                        width={325}
-                        height={750}
-                        p="2rem"
-                        gap="1rem"
-                        alignItems="flex-start"
-                        alignContent="flex-start"
-                        justifyContent="flex-start">
-                        <Heading as="h2">
-                            Enterprise
-                        </Heading>
-                        <Text colorToken="base-300">
-                            For teams for up to 20 people, that have launched to market or acquired external funding.
-                        </Text>
-                         
-                        <View
-                            row
-                            m="1rem 0 0 0"
-                            gap={5}
-                            alignItems="flex-start">
-                            <Heading huge>{pricingSaas()}</Heading>
-                            <Heading as="h5" fontWeight={600}>USD</Heading>
-                        </View>
-                        <Heading
-                            as="h4"
-                            colorToken="text-weakest"
-                            textDecoration="line-through">
-                            {pricingSaas(1999)} USD
-                        </Heading> 
-                       
-                        <List>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Everything in Indie
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Dedicated support email
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Onboarding call
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Unlimited internal & external use
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Prioritized support
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Prioritized feature requests
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" /> Distributable
-                            </Li>
-                        </List>
-                        <Flexer />
-                        <Button
-                            as="a"
-                            href="mailto:saas@fold.dev"
-                            m="1rem 0 0 0"
-                            size="xl"
-                            width="100%"
-                            variant="accent">
-                            Contact Us
-                        </Button>
-                    </Card>
-                     */}
                 </View>
 
                 <View lineHeight={2}>
