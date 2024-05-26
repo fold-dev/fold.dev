@@ -357,7 +357,7 @@ export const PricingComponent = () => {
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start"
-                        bgToken="surface-strongest">
+                        bgToken="surface">
                         <Heading as="h2">
                             Early Access
                         </Heading>
