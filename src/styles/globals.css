@@ -127,7 +127,7 @@ body {
     background: var(--f-color-surface);
     border-radius: var(--f-radius);
     box-shadow: var(--f-shadow-card); 
-    background-image: radial-gradient(var(--f-color-border) 1px, transparent 0);
+    background-image: radial-gradient(var(--f-color-surface-strong) 1px, transparent 0);
     background-size: 8px 8px;
     background-position: -19px -19px;
     z-index: 2;

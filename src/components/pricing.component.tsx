@@ -166,16 +166,16 @@ export const PricingComponent = () => {
 
         switch (seats) {
             case 1: 
-                url = 'https://store.fold.dev/buy/e5520e31-4851-4aa8-be18-b79f9f509bb0'
+                url = 'https://store.fold.dev/checkout/buy/e5520e31-4851-4aa8-be18-b79f9f509bb0'
                 break
             case 2: 
-                url = 'https://store.fold.dev/buy/503cb195-7f56-4608-b32d-1124e545aa24'
+                url = 'https://store.fold.dev/checkout/buy/503cb195-7f56-4608-b32d-1124e545aa24'
                 break
             case 3: 
-                url = 'https://store.fold.dev/buy/60e2704b-f358-4b30-bdac-a0aac1f981ef'
+                url = 'https://store.fold.dev/checkout/buy/60e2704b-f358-4b30-bdac-a0aac1f981ef'
                 break
             case 4: 
-                url = 'https://store.fold.dev/buy/66d427b3-7df1-4aed-b943-ac8d9171b9ff'
+                url = 'https://store.fold.dev/checkout/buy/66d427b3-7df1-4aed-b943-ac8d9171b9ff'
                 break
         }
 

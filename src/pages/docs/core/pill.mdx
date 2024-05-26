@@ -186,9 +186,7 @@ export const Styles = () => (
 > The Pill component takes a hex-code value for the color.
 
 export const Color = () => (<Stack spacing={5}>
-        <Pill color={Token.ColorElectric200}>
-            React
-        </Pill>
+        <Pill color={Token.ColorElectric200}>React</Pill>
         <Pill outline color={Token.ColorTeal500}>
             Svelte
         </Pill>
@@ -204,20 +202,18 @@ export const Color = () => (<Stack spacing={5}>
 <Color />
 </div>
 
-<CodeComponent filename="Color.tsx" code="ZXhwb3J0IGNvbnN0IENvbG9yID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxQaWxsIGNvbG9yPXtUb2tlbi5Db2xvckVsZWN0cmljMjAwfT4KICAgICAgICAgICAgUmVhY3QKICAgICAgICA8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgb3V0bGluZQogICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JUZWFsNTAwfT4KICAgICAgICAgICAgU3ZlbHRlCiAgICAgICAgPC9QaWxsPgogICAgICAgIDxQaWxsIAogICAgICAgICAgICBzdWJ0bGUKICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yVmlvbGV0NTAwfT4KICAgICAgICAgICAgQW5ndWxhcgogICAgICAgIDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBzb2xpZAogICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JOZW9ucGluazUwMH0+CiAgICAgICAgICAgIFZ1ZUpTCiAgICAgICAgPC9QaWxsPgogICAgPC9TdGFjaz4KKQ==" />
+<CodeComponent filename="Color.tsx" code="ZXhwb3J0IGNvbnN0IENvbG9yID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9PgogICAgICAgIDxQaWxsIGNvbG9yPXtUb2tlbi5Db2xvckVsZWN0cmljMjAwfT5SZWFjdDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBvdXRsaW5lCiAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvclRlYWw1MDB9PgogICAgICAgICAgICBTdmVsdGUKICAgICAgICA8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgc3VidGxlCiAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvclZpb2xldDUwMH0+CiAgICAgICAgICAgIEFuZ3VsYXIKICAgICAgICA8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgc29saWQKICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yTmVvbnBpbms1MDB9PgogICAgICAgICAgICBWdWVKUwogICAgICAgIDwvUGlsbD4KICAgIDwvU3RhY2s+Cik=" />
 
 ```tsx
 export const Color = () => (
     <Stack spacing={5}>
-        <Pill color={Token.ColorElectric200}>
-            React
-        </Pill>
+        <Pill color={Token.ColorElectric200}>React</Pill>
         <Pill
             outline
             color={Token.ColorTeal500}>
             Svelte
         </Pill>
-        <Pill 
+        <Pill
             subtle
             color={Token.ColorViolet500}>
             Angular
