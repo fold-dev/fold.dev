@@ -24,10 +24,11 @@ import {
     Text,
     Tooltip,
     TooltipContent,
-    View
+    View,
+    useVisibility
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { PiSparkle } from 'react-icons/pi'
 import { GraphicLeft, GraphicRight } from './graphic.component'
 
@@ -155,23 +156,36 @@ export const FAQ = (props) => (
 export const PricingComponent = () => {
     const [seats, setSeats] = useState(2)
     const [down, setDown] = useState(false)
-    const [selection, setSelection] = useState<'indie' | 'internal' | ''>('')
+    const selectSeat = useRef(null)
+    const { show, hide, visible } = useVisibility()
 
     const openPayment = () => {
-        if (selection == 'indie') {
-            window.open("https://fold.lemonsqueezy.com/buy/5c98013d-1db7-4377-8980-39fcc04ab206?enabled=179904%2C385207")
+        const seats = selectSeat.current
+        hide()
+
+        let url = ''
+
+        switch (seats) {
+            case 1: 
+                url = 'https://store.fold.dev/buy/e5520e31-4851-4aa8-be18-b79f9f509bb0'
+                break
+            case 2: 
+                url = 'https://store.fold.dev/buy/503cb195-7f56-4608-b32d-1124e545aa24'
+                break
+            case 3: 
+                url = 'https://store.fold.dev/buy/60e2704b-f358-4b30-bdac-a0aac1f981ef'
+                break
+            case 4: 
+                url = 'https://store.fold.dev/buy/66d427b3-7df1-4aed-b943-ac8d9171b9ff'
+                break
+            case 5: 
+                url = 'https://store.fold.dev/buy/62f55ddd-b257-49ac-9b50-8f920b8b6e3e'
+                break
         }
 
-        if (selection == 'internal') {
-            window.open("https://fold.lemonsqueezy.com/buy/080b3f6a-0e21-46d7-9a02-4c13258efeb6?enabled=179904%2C385207")
-        }
-
-        setSelection('')
+        window.open(url)
     }
 
-    const clamp = (price, min, max) => {
-        return Math.min(Math.max(price, min), max)
-    }
 
     const formatCurrency = (amount) => {
         return Intl.NumberFormat('en-US', {
@@ -236,7 +250,8 @@ export const PricingComponent = () => {
             //     }
             //   }
         }) */
-    }, [])
+        if (!visible) setDown(false)
+    }, [visible])
 
     return (
         <>
@@ -246,8 +261,8 @@ export const PricingComponent = () => {
                 width={600}
                 height="fit-content"
                 anchor="middle-center"
-                onDismiss={() => setSelection('')}
-                isVisible={selection != ''}
+                onDismiss={hide}
+                isVisible={visible}
                 header={
                     <View
                         row
@@ -257,7 +272,7 @@ export const PricingComponent = () => {
                             License Agreement
                         </Heading>
                         <Flexer />
-                        <ModalClose onClick={() => setSelection('')} />
+                        <ModalClose onClick={hide} />
                     </View>
                 }
                 footer={
@@ -265,7 +280,7 @@ export const PricingComponent = () => {
                         row
                         gap={10}
                         width="100%">
-                        <Button onClick={() => setSelection('')}>
+                        <Button onClick={hide}>
                             Cancel
                         </Button>
                         <Flexer />
@@ -467,7 +482,10 @@ export const PricingComponent = () => {
                         </Heading>
                         <Flexer />
                         <Button
-                            onClick={() => setSelection('indie')}
+                            onClick={() => {
+                                selectSeat.current = 1
+                                show()
+                            }}
                             m="1rem 0 0 0"
                             size="xl"
                             width="100%"
@@ -538,7 +556,10 @@ export const PricingComponent = () => {
                         )}
                         <Flexer />
                         <Button
-                            onClick={() => setSelection('indie')}
+                            onClick={() => {
+                                selectSeat.current = seats
+                                show()
+                            }}
                             m="1rem 0 0 0"
                             size="xl"
                             width="100%"
