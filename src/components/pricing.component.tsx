@@ -36,6 +36,15 @@ export const FAQAccordion = (props) => (
     <Accordion>
         <AccordionItem>
             <AccordionHeading>
+                What is Early Access?
+            </AccordionHeading>
+            <AccordionPanel>
+                Fold Pro Early Access is the very first release of Fold Pro, offering developers early access to Fold Pro's premium UI components.
+                Most of the licensing & pricing information on this page is Early Access specific & subject to change once Early Access ends.
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>
                 Is it production ready?
             </AccordionHeading>
             <AccordionPanel>
@@ -178,9 +187,6 @@ export const PricingComponent = () => {
             case 4: 
                 url = 'https://store.fold.dev/buy/66d427b3-7df1-4aed-b943-ac8d9171b9ff'
                 break
-            case 5: 
-                url = 'https://store.fold.dev/buy/62f55ddd-b257-49ac-9b50-8f920b8b6e3e'
-                break
         }
 
         window.open(url)
@@ -200,27 +206,24 @@ export const PricingComponent = () => {
             case 2: return '3 Developers'
             case 3: return '5 Developers'
             case 4: return '10 Developers'
-            case 5: return '20 Developers'
         }
     }
 
     const pricingEA = (seats) => {
         switch (seats) {
             case 1: return 399
-            case 2: return 599
-            case 3: return 749
-            case 4: return 1399
-            case 5: return 2699
+            case 2: return 749
+            case 3: return 1299
+            case 4: return 1999
         }
     }
 
     const pricingFull = (seats) => {
         switch (seats) {
             case 1: return 799
-            case 2: return 1199
-            case 3: return 1499
-            case 4: return 2799
-            case 5: return 5399
+            case 2: return 1499
+            case 3: return 2599
+            case 4: return 3999
         }
     }
 
@@ -368,8 +371,7 @@ export const PricingComponent = () => {
                             Early Access
                         </Heading>
                         <Text colorToken="base-600" size="lg">
-                            For developers & teams that need to scale their project to the next nevel.
-                            Fold Pro gives you tools you need to get there.
+                            Fold Pro gives you tools you need to scale their project to the next nevel with Fold Pro Early Access.
                         </Text>
                         {/* 
                         <View
@@ -455,7 +457,7 @@ export const PricingComponent = () => {
                         alignContent="flex-start"
                         justifyContent="flex-start">
                         <Heading as="h2">
-                            Indie
+                            Indie <small style={{ position: 'relative', top: -10, color: 'var(--f-color-text-weakest', fontWeight: 'bold' }}>EARLY ACCESS</small>
                         </Heading>
                         <Text colorToken="base-300">
                             For single developers who need to level up their next big idea.
@@ -504,7 +506,7 @@ export const PricingComponent = () => {
                         alignContent="flex-start"
                         justifyContent="flex-start">
                         <Heading as="h2">
-                            Team
+                            Team <small style={{ position: 'relative', top: -10, color: 'var(--f-color-text-weakest', fontWeight: 'bold' }}>EARLY ACCESS</small>
                         </Heading>
                         <Text colorToken="base-300">
                             For teams of 3+ developers, building internal or non commercial projects.
@@ -535,7 +537,7 @@ export const PricingComponent = () => {
                             width="100%">
                             <Range
                                 min={2}
-                                max={5}
+                                max={4}
                                 step={1}
                                 value={seats}
                                 onChange={(e) => setSeats(+e.target.value)}
@@ -547,11 +549,11 @@ export const PricingComponent = () => {
                                 {developers()}
                             </Text>
                         </View>
-                        {seats == 5 && (
+                        {seats == 4 && (
                             <Text
                                 size="sm"
                                 m="1rem 0 0 0">
-                                Need more than 20 developers? <Link href="mailto:licensing@fold.dev" size="sm">Contact us</Link>.
+                                Need more than 10 developers? <Link href="mailto:licensing@fold.dev" size="sm">Contact us</Link>.
                             </Text>
                         )}
                         <Flexer />
