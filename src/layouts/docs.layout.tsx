@@ -1,8 +1,8 @@
-import { colors } from '@/pages'
-import MobileComponent from '@/pages/components/mobile.component'
-import { SearchComponent } from '@/pages/components/search.component'
+import MobileComponent from '@/components/mobile.component'
+import { SearchComponent } from '@/components/search.component'
 import {
     App,
+    Button,
     Content,
     DarkModeToggle,
     Flexer,
@@ -34,33 +34,50 @@ import {
     Stack,
     Text,
     View,
-    useVisibility,
+    useVisibility
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
 import Head from 'next/head'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import {
-    PiCircleDashedDuotone,
-    PiDropDuotone,
-    PiFingerprintSimpleDuotone,
-    PiFlagDuotone,
-    PiGithubLogoDuotone,
-    PiLifebuoyDuotone,
-    PiLinkedinLogoDuotone,
-    PiMagicWandDuotone,
-    PiMarkerCircleDuotone,
-    PiPackageDuotone,
-    PiPersonArmsSpreadDuotone,
-    PiPinwheelDuotone,
-    PiPlanetDuotone,
-    PiQuestionDuotone,
-    PiRocketLaunchDuotone,
-    PiSignpostDuotone,
-    PiTwitterLogoDuotone,
+    PiFaders,
+    PiFingerprintSimple,
+    PiFlag,
+    PiGithubLogo,
+    PiLifebuoy,
+    PiLightning,
+    PiLinkedinLogo,
+    PiMarkerCircle,
+    PiPackage,
+    PiPersonArmsSpread,
+    PiPinwheel,
+    PiPlanet,
+    PiQuestion,
+    PiRocketLaunch,
+    PiSignpost,
+    PiTwitterLogo
 } from 'react-icons/pi'
 import { navigation } from '../navigation'
-import PageNavigationComponent from '@/pages/components/page-navigation.component'
+import { navigationPro } from '../navigation-pro'
+import { colors } from '@/components/core.component'
+
+export const CircleIcon = ({
+    children,
+    background,
+}) => {
+    return (
+        <div 
+            style={{ 
+                width: 20,
+                height: 20,
+                background,
+            }}
+            className="f-row">
+            {children}
+        </div>
+    )
+}
 
 export const StorybookIcon = (props: any) => {
     return (
@@ -117,7 +134,7 @@ export default function DocsLayout(props: any) {
     const router = useRouter()
     const { visible, show, hide } = useVisibility(false)
     const [color, setColor] = useState(Token.ColorElectric400)
-    const [value, setValue] = useState(5)
+    const [value, setValue] = useState(3)
     const [option, setOption] = useState(1)
     const [toc, setToc] = useState([])
     const [showChild, setShowChild] = useState(false)
@@ -304,7 +321,8 @@ export default function DocsLayout(props: any) {
                                     p="0 1.5rem"
                                     width="101%"
                                     gap={10}
-                                    colorToken="text-weakest">
+                                    style={{ borderColor: Token.ColorBase700 }}
+                                    bgToken="base-800">
                                     <Link
                                         href="/"
                                         row>
@@ -312,6 +330,7 @@ export default function DocsLayout(props: any) {
                                     </Link>
                                     <Heading
                                         as="h4"
+                                        colorToken="base-200"
                                         fontWeight="semibold">
                                         Documentation
                                     </Heading>
@@ -322,6 +341,10 @@ export default function DocsLayout(props: any) {
                                     width="100%"
                                     style={{ overflow: 'scroll' }}>
                                     <Navigation
+                                        style={{ 
+                                            '--f-navigation-item-color-active': 'var(--f-color-text)',
+                                            '--f-navigation-item-height': '33px',
+                                        }}
                                         width="100%"
                                         height="100%"
                                         alignItems="flex-start">
@@ -333,8 +356,8 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiPackageDuotone}
-                                                    color={Token.ColorElectric400}
+                                                    icon={PiPackage}
+                                                    color={Token.ColorSeagreen400}
                                                     strokeWidth={2}
                                                 />
                                             }>
@@ -349,12 +372,36 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiRocketLaunchDuotone}
-                                                    color={Token.ColorPurple400}
+                                                    color={Token.ColorElectric400}
+                                                    icon={PiRocketLaunch}
                                                     strokeWidth={2}
                                                 />
                                             }>
                                             Getting Started
+                                        </NavigationItem>
+                                        <NavigationItem
+                                            active={url == 'pro'}
+                                            onClick={() =>
+                                                router.push('/docs/pro', {
+                                                    scroll: false,
+                                                })
+                                            }
+                                            suffix={
+                                                <Pill
+                                                    size="xs"
+                                                    border="0"
+                                                    color={Token.ColorAccent400}>
+                                                    EARLY ACCESS
+                                                </Pill>
+                                            }
+                                            prefix={
+                                                <Logo
+                                                    customSize={18} 
+                                                    color={Token.ColorAccent400}
+                                                    style={{ marginLeft: 2 }} 
+                                                />
+                                            }>
+                                            Pro
                                         </NavigationItem>
                                         <NavigationItem
                                             active={url == 'community'}
@@ -363,7 +410,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiPersonArmsSpreadDuotone}
+                                                    icon={PiPersonArmsSpread}
                                                     color={Token.ColorNeonpink400}
                                                     strokeWidth={2}
                                                 />
@@ -377,7 +424,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiQuestionDuotone}
+                                                    icon={PiQuestion}
                                                     color={Token.ColorOrange400}
                                                     strokeWidth={2}
                                                 />
@@ -391,7 +438,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiFlagDuotone}
+                                                    icon={PiFlag}
                                                     color={Token.ColorYellow400}
                                                     strokeWidth={2}
                                                 />
@@ -399,11 +446,11 @@ export default function DocsLayout(props: any) {
                                             Releases
                                         </NavigationItem>
                                         <NavigationItem
-                                            href="https://github.com/orgs/fold-dev/projects/8"
+                                            href="https://github.com/orgs/fold-dev/projects/8/views/2"
                                             target="_blank"
                                             prefix={
                                                 <Icon
-                                                    icon={PiSignpostDuotone}
+                                                    icon={PiSignpost}
                                                     color={Token.ColorTeal400}
                                                     strokeWidth={2}
                                                 />
@@ -427,7 +474,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiPlanetDuotone}
+                                                    icon={PiPlanet}
                                                     color={Token.ColorNeonpink400}
                                                     strokeWidth={2}
                                                 />
@@ -441,7 +488,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiMarkerCircleDuotone}
+                                                    icon={PiMarkerCircle}
                                                     color={Token.ColorOrange400}
                                                     strokeWidth={2}
                                                 />
@@ -455,7 +502,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiPinwheelDuotone}
+                                                    icon={PiPinwheel}
                                                     color={Token.ColorPurple400}
                                                     strokeWidth={2}
                                                 />
@@ -469,7 +516,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    icon={PiFingerprintSimpleDuotone}
+                                                    icon={PiFingerprintSimple}
                                                     color={Token.ColorElectric400}
                                                     strokeWidth={2}
                                                 />
@@ -477,7 +524,54 @@ export default function DocsLayout(props: any) {
                                             Tokens
                                         </NavigationItem>
                                         <NavigationDivider />
-                                        <NavigationHeading>Components</NavigationHeading>
+                                        <NavigationHeading 
+                                            suffix={(
+                                                <Pill
+                                                    color={Token.ColorAccent400}
+                                                    size="xs"
+                                                    subtle>
+                                                    v0.0.9
+                                                </Pill>)}>
+                                                Pro Components
+                                        </NavigationHeading>
+                                        {navigationPro.map((component: any, index: number) => (
+                                            <NavigationItem
+                                                active={url == component.slug}
+                                                key={index}
+                                                style={{ textTransform: 'capitalize' }}
+                                                onClick={() =>
+                                                    router.push('/docs/pro/' + component.slug, {
+                                                        scroll: false,
+                                                    })
+                                                }
+                                                suffix={
+                                                    <View
+                                                        gap={5}
+                                                        row>
+                                                        {component.experimental && (
+                                                            <Pill
+                                                                size="xs"
+                                                                subtle>
+                                                                BETA
+                                                            </Pill>
+                                                        )}
+                                                    </View>
+                                                }>
+                                                {component.slug.replace('-', ' ')}
+                                            </NavigationItem>
+                                        ))}
+                                        <NavigationDivider />
+                                        <NavigationHeading
+                                            suffix={            
+                                                <Pill
+                                                    size="xs"
+                                                    subtle
+                                                    color={Token.ColorAccent400}>
+                                                    v0.11.0
+                                                </Pill>                                               
+                                            }>
+                                            Core Components
+                                        </NavigationHeading>
                                         {navigation.map((component: any, index: number) => (
                                             <NavigationItem
                                                 active={url == component.slug}
@@ -494,26 +588,9 @@ export default function DocsLayout(props: any) {
                                                         row>
                                                         {component.experimental && (
                                                             <Pill
-                                                                color={Token.ColorViolet400}
                                                                 size="xs"
                                                                 subtle>
-                                                                EARLY ACCESS
-                                                            </Pill>
-                                                        )}
-                                                        {component.pro && (
-                                                            <Pill
-                                                                color={Token.ColorAccent400}
-                                                                size="xs"
-                                                                subtle>
-                                                                PRO
-                                                            </Pill>
-                                                        )}
-                                                        {component.soon && (
-                                                            <Pill
-                                                                color={Token.ColorNeonpink400}
-                                                                size="xs"
-                                                                subtle>
-                                                                COMING SOON
+                                                                BETA
                                                             </Pill>
                                                         )}
                                                     </View>
@@ -558,82 +635,68 @@ export default function DocsLayout(props: any) {
                             style={{ overflow: 'hidden' }}
                             bgToken="surface">
                             <Header
-                                gap={10}
+                                gap="0.5rem"
                                 height="4.5rem"
                                 p="0.5rem 1rem 0.5rem 0"
+                                bgToken="base-800"
+                                style={{ borderColor: Token.ColorBase700, '--f-popout-buffer': '1rem' }}
                                 colorToken="text-weaker">
                                 <SearchComponent />
                                 <Stack
                                     m="0 0 0 1rem"
-                                    spacing={15}
+                                    spacing="1rem"
                                     noStretch>
-                                    {/* 
-                                    <SocialIcon
-                                        url="https://github.com/fold-dev/fold"
-                                        target="_blank"
-                                        style={{ width: 30, height: 30 }}
-                                        fgColor="var(--f-color-surface)"
-                                        bgColor="var(--f-color-surface-inverse)"
-                                    />
-                                    <SocialIcon
-                                        url="https://twitter.com/fold_dev"
-                                        target="_blank"
-                                        style={{ width: 30, height: 30 }}
-                                        fgColor="var(--f-color-surface)"
-                                    />
-                                    <SocialIcon
-                                        url="https://www.linkedin.com/company/fold-dev"
-                                        target="_blank"
-                                        style={{ width: 30, height: 30 }}
-                                        fgColor="var(--f-color-surface)"
-                                    /> 
-                                    */}
                                     <Link
-                                        href="https://github.com/fold-dev/fold"
                                         target="_blank"
-                                        style={{ textWrap: 'nowrap' }}>
-                                        <Icon
-                                            icon={PiGithubLogoDuotone}
-                                            size="lg"
-                                        />
+                                        href="https://github.com/fold-dev/fold">
+                                        <Pill
+                                            p="0"
+                                            subtle
+                                            height={30}
+                                            width={30}
+                                            className="f-buttonize-outline"
+                                            color={Token.ColorAccent400}>
+                                            <Icon icon={PiGithubLogo} />
+                                        </Pill>
                                     </Link>
                                     <Link
                                         href="https://twitter.com/fold_dev"
-                                        target="_blank"
-                                        style={{ textWrap: 'nowrap' }}>
-                                        <Icon
-                                            icon={PiTwitterLogoDuotone}
-                                            size="lg"
-                                        />
+                                        target="_blank">
+                                        <Pill
+                                            p="0"
+                                            subtle
+                                            height={30}
+                                            width={30}
+                                            className="f-buttonize-outline"
+                                            color={Token.ColorAccent400}>
+                                            <Icon icon={PiTwitterLogo} />
+                                        </Pill>
                                     </Link>
                                     <Link
                                         href="https://www.linkedin.com/company/fold-dev"
-                                        target="_blank"
-                                        style={{ textWrap: 'nowrap' }}>
-                                        <Icon
-                                            icon={PiLinkedinLogoDuotone}
-                                            size="lg"
-                                        />
+                                        target="_blank">
+                                        <Pill
+                                            p="0"
+                                            subtle
+                                            height={30}
+                                            width={30}
+                                            className="f-buttonize-outline"
+                                            color={Token.ColorAccent400}>
+                                            <Icon icon={PiLinkedinLogo} />
+                                        </Pill>
                                     </Link>
                                     <Link
-                                        href="/docs/community"
+                                        href="mailto:support@fold.dev"
                                         style={{ textWrap: 'nowrap' }}>
-                                        <Icon
-                                            icon={PiLifebuoyDuotone}
-                                            size="lg"
-                                        />
-                                    </Link>
-                                    <Pill
-                                        size="xs"
-                                        color={Token.ColorNeonpink400}
-                                        subtle
-                                        fontWeight={800}>
-                                        v0.10.0
-                                    </Pill>
-                                    <Link
-                                        href="/"
-                                        style={{ textWrap: 'nowrap' }}>
-                                        <Logo size="sm" />
+                                        <Pill
+                                            p="0"
+                                            subtle
+                                            height={30}
+                                            width={30}
+                                            className="f-buttonize-outline"
+                                            color={Token.ColorAccent400}>
+                                            <Icon icon={PiLifebuoy} />
+                                        </Pill>
                                     </Link>
                                     <Popover
                                         arrow
@@ -691,11 +754,18 @@ export default function DocsLayout(props: any) {
                                             className="f-buttonize"
                                             onClick={show}>
                                             <Icon
-                                                icon={PiCircleDashedDuotone}
+                                                icon={PiFaders}
                                                 size="lg"
                                             />
                                         </View>
                                     </Popover>
+                                    <Button
+                                        as="a"
+                                        href="/#pro"
+                                        target="_blank"
+                                        variant="accent">
+                                        Buy Now
+                                    </Button>
                                     <DarkModeToggle />
                                 </Stack>
                             </Header>

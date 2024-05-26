@@ -1,6 +1,6 @@
 import DocsLayout from '@/layouts/docs.layout'
 import { Breadcrumb, BreadcrumbItem, Heading, IconLib, Link, Text, View, defaultIcons } from '@fold-dev/core'
-import { CodeComponent } from '../components/code.component'
+import { CodeComponent } from '../../components/code.component'
 import React, { useMemo } from 'react'
 import { Table, TBody, Td, Th, THead, Tr } from '@fold-dev/core'
 
@@ -21,7 +21,7 @@ export default function Icons(props) {
             </Heading>
             <Text>Fold ships with utility methods, giving you the ability to change some or all icons used.</Text>
             <Text as="blockquote">
-                The core set of icons are based on{' '}
+                The core set of icons are adapted from{' '}
                 <Link
                     href="https://heroicons.com/"
                     target="_blank">

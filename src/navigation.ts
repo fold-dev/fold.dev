@@ -143,14 +143,6 @@ export const navigation = [
       "Image cropper components have become a common feature in modern web and mobile applications, enabling users to upload and fine-tune images. They are particularly useful for profile images & social media websites.",
   },
   {
-    slug: "date-time",
-    title: "Date Time",
-    subtitle:
-      "Date Time components offer highly versatile options for displaying and inputting dates.",
-    description:
-      "Date and Time components serve as fundamental elements for creating a wide range of date input controls, adapting to various requirements. While date elements can function on their own, their value is enhanced when incorporated within a DateRange context.",
-  },
-  {
     slug: "dialog",
     title: "Dialog",
     subtitle:

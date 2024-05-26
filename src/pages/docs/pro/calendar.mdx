@@ -1,0 +1,1054 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import {
+    Button,
+    Flexer,
+    Form,
+    Heading,
+    Input,
+    MenuProvider,
+    Modal,
+    Portal,
+    Text,
+    View,
+    generateUEID,
+} from '@fold-dev/core'
+import React, { useMemo, useState } from 'react'
+import { CalendarMonth, CalendarProvider, CalendarSchedule, Detail, Popup, getShortDateFormat } from '@fold-pro/react'
+import * as data from '@/dummy_data'
+
+export const docs = {"title":"Calendar","subtitle":"Effortlessly organize events across multiple views with the Calendar component.","description":"The Calendar component offers the user a familiar, Google Calendar-like, experience when interacting with events & schedules.","pro":true}
+
+export const props = [{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarMonthDay","methods":[],"props":{"day":{"defaultValue":null,"description":"","name":"day","declarations":[{"fileName":"pro/src/calendar/calendar-month-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"date":{"defaultValue":null,"description":"","name":"date","declarations":[{"fileName":"pro/src/calendar/calendar-month-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"pro/src/calendar/calendar-month-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"width":{"defaultValue":null,"description":"","name":"width","declarations":[{"fileName":"pro/src/calendar/calendar-month-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"noClamp":{"defaultValue":null,"description":"","name":"noClamp","declarations":[{"fileName":"pro/src/calendar/calendar-month-day.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"weekIndex":{"defaultValue":null,"description":"","name":"weekIndex","declarations":[{"fileName":"pro/src/calendar/calendar-month-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"weekEvents":{"defaultValue":null,"description":"","name":"weekEvents","declarations":[{"fileName":"pro/src/calendar/calendar-month-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Event[]"},"tags":{}},"onMouseEnter":{"defaultValue":null,"description":"","name":"onMouseEnter","declarations":[{"fileName":"pro/src/calendar/calendar-month-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}}}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarMonthEventComponent","methods":[],"props":{}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarMonthEvent","methods":[],"props":{"event":{"defaultValue":null,"description":"","name":"event","declarations":[{"fileName":"pro/src/calendar/calendar-month-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Event & { isEnd: boolean; isFirst: boolean; size: number; }"},"tags":{}},"day":{"defaultValue":null,"description":"","name":"day","declarations":[{"fileName":"pro/src/calendar/calendar-month-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"pro/src/calendar/calendar-month-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"expanded":{"defaultValue":null,"description":"","name":"expanded","declarations":[{"fileName":"pro/src/calendar/calendar-month-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}},"displayLabel":{"defaultValue":null,"description":"","name":"displayLabel","declarations":[{"fileName":"pro/src/calendar/calendar-month-event.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarMonth","methods":[],"props":{"date":{"defaultValue":null,"description":"","name":"date","declarations":[{"fileName":"pro/src/calendar/calendar-month.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"custom":{"defaultValue":null,"description":"","name":"custom","declarations":[{"fileName":"pro/src/calendar/calendar-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Date[][]"},"tags":{}},"events":{"defaultValue":null,"description":"","name":"events","declarations":[{"fileName":"pro/src/calendar/calendar-month.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Event[]"},"tags":{}},"noClamp":{"defaultValue":null,"description":"","name":"noClamp","declarations":[{"fileName":"pro/src/calendar/calendar-month.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarScheduleDay","methods":[],"props":{"day":{"defaultValue":null,"description":"","name":"day","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"workingHours":{"defaultValue":null,"description":"","name":"workingHours","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"WorkingHours"},"tags":{}},"start":{"defaultValue":null,"description":"","name":"start","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"end":{"defaultValue":null,"description":"","name":"end","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"events":{"defaultValue":null,"description":"","name":"events","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-day.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Event[]"},"tags":{}}}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarScheduleEventComponent","methods":[],"props":{}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarScheduleEvent","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"title":{"defaultValue":null,"description":"","name":"title","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"start":{"defaultValue":null,"description":"","name":"start","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"end":{"defaultValue":null,"description":"","name":"end","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"allDay":{"defaultValue":null,"description":"","name":"allDay","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"zIndex":{"defaultValue":null,"description":"","name":"zIndex","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"top":{"defaultValue":null,"description":"","name":"top","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"height":{"defaultValue":null,"description":"","name":"height","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"width":{"defaultValue":null,"description":"","name":"width","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"left":{"defaultValue":null,"description":"","name":"left","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"onMouseDownSchedule":{"defaultValue":null,"description":"","name":"onMouseDownSchedule","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-event.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(data: any) => void"},"tags":{}}}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarScheduleGutter","methods":[],"props":{}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarScheduleSegment","methods":[],"props":{}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarScheduleSegments","methods":[],"props":{"workingHours":{"defaultValue":null,"description":"","name":"workingHours","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-segments.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"WorkingHours"},"tags":{}},"start":{"defaultValue":null,"description":"","name":"start","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-segments.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}},"end":{"defaultValue":null,"description":"","name":"end","declarations":[{"fileName":"pro/src/calendar/calendar-schedule-segments.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Date"},"tags":{}}}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarSchedule","methods":[],"props":{"days":{"defaultValue":null,"description":"","name":"days","declarations":[{"fileName":"pro/src/calendar/calendar-schedule.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Schedule[]"},"tags":{}},"events":{"defaultValue":null,"description":"","name":"events","declarations":[{"fileName":"pro/src/calendar/calendar-schedule.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Event[]"},"tags":{}}}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"CalendarProvider","methods":[],"props":{"canUpdate":{"defaultValue":null,"description":"","name":"canUpdate","declarations":[{"fileName":"pro/src/calendar/calendar.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"canAdd":{"defaultValue":null,"description":"","name":"canAdd","declarations":[{"fileName":"pro/src/calendar/calendar.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"hideDateLabels":{"defaultValue":null,"description":"","name":"hideDateLabels","declarations":[{"fileName":"pro/src/calendar/calendar.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"dimPastEvents":{"defaultValue":null,"description":"","name":"dimPastEvents","declarations":[{"fileName":"pro/src/calendar/calendar.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"scheduleOverlapThreshold":{"defaultValue":null,"description":"","name":"scheduleOverlapThreshold","declarations":[{"fileName":"pro/src/calendar/calendar.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"scheduleEvent":{"defaultValue":null,"description":"","name":"scheduleEvent","declarations":[{"fileName":"pro/src/calendar/calendar.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(props: any) => ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"monthEvent":{"defaultValue":null,"description":"","name":"monthEvent","declarations":[{"fileName":"pro/src/calendar/calendar.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(props: any) => ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"onEventOpen":{"defaultValue":null,"description":"","name":"onEventOpen","declarations":[{"fileName":"pro/src/calendar/calendar.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(data: any) => void"},"tags":{}},"onEventUpdate":{"defaultValue":null,"description":"","name":"onEventUpdate","declarations":[{"fileName":"pro/src/calendar/calendar.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(data: any) => void"},"tags":{}},"onEventAdd":{"defaultValue":null,"description":"","name":"onEventAdd","declarations":[{"fileName":"pro/src/calendar/calendar.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(data: any) => ReactNode"},"tags":{}}}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"timeToDecimal","methods":[],"props":{}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"getHeight","methods":[],"props":{}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"setMidnight","methods":[],"props":{}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"getColumnName","methods":[],"props":{}},{"tags":{},"filePath":"src/calendar/index.ts","description":"","displayName":"dateString","methods":[],"props":{}}]
+
+export const css = [[["--f-calendar-schedule-background","var(--f-color-surface)"],["--f-calendar-schedule-border-color","var(--f-color-border)"],["--f-calendar-schedule-caret-color","var(--f-color-accent)"],["--f-calendar-schedule-width","100%"],["--f-calendar-schedule-height","800px"]],[["--f-calendar-schedule-event-background","var(--f-color-surface-strong)"],["--f-calendar-schedule-event-color","var(--f-color-text)"],["--f-calendar-schedule-event-border","1px solid var(--f-color-surface-stronger)"]],[["--f-calendar-past-background","var(--f-color-surface-strong)"],["--f-calendar-past-color","var(--f-color-text-weaker)"],["--f-calendar-past-opacity","0.5"]],[["--f-calendar-schedule-gutter-width","80px"],["--f-calendar-schedule-gutter-highlight","var(--f-color-surface-stronger)"],["--f-calendar-schedule-gutter-highlight-width","25px"],["--f-calendar-schedule-gutter-background","var(--f-color-surface)"]],[["--f-calendar-segment-background-highlighted","var(--f-color-surface-stronger)"],["--f-calendar-segment-background","var(--f-color-surface-strong)"],["--f-calendar-segment-dimmed","var(--f-color-surface-strong)"],["--f-calendar-segment-hover","var(--f-color-surface-strong)"],["--f-calendar-segment-dimmer-hover","var(--f-color-surface-stronger)"],["--f-calendar-segment-dimmed-opacity","0.5"]],[["--f-calendar-month-background","var(--f-color-surface-strong)"],["--f-calendar-month-grid-columns","repeat(7, calc(100%/7))"],["--f-calendar-month-width","100%"],["--f-calendar-month-height","800px"]],[["--f-calendar-event-height","22px"],["--f-calendar-event-border-color","var(--f-color-surface-stronger)"],["--f-calendar-event-background","var(--f-color-surface)"],["--f-calendar-event-background-hover","var(--f-color-surface)"],["--f-calendar-event-day-color","var(--f-color-text-weakest)"]],[],[["--f-month-event-background","var(--f-color-surface-strongest)"],["--f-month-event-color","var(--f-color-surface-strongest)"]],[["--f-calendar-dragging-opacity","0.5"]]]
+
+
+
+<CodeComponent filename="calendar.tsx" code="aW1wb3J0IHsKICBDYWxlbmRhck1vbnRoRGF5LAogIENhbGVuZGFyTW9udGhFdmVudENvbXBvbmVudCwKICBDYWxlbmRhck1vbnRoRXZlbnQsCiAgQ2FsZW5kYXJNb250aCwKICBDYWxlbmRhclNjaGVkdWxlRGF5LAogIENhbGVuZGFyU2NoZWR1bGVFdmVudENvbXBvbmVudCwKICBDYWxlbmRhclNjaGVkdWxlRXZlbnQsCiAgQ2FsZW5kYXJTY2hlZHVsZUd1dHRlciwKICBDYWxlbmRhclNjaGVkdWxlU2VnbWVudCwKICBDYWxlbmRhclNjaGVkdWxlU2VnbWVudHMsCiAgQ2FsZW5kYXJTY2hlZHVsZSwKICBDYWxlbmRhclByb3ZpZGVyLAogIHRpbWVUb0RlY2ltYWwsCiAgZ2V0SGVpZ2h0LAogIHNldE1pZG5pZ2h0LAogIGdldENvbHVtbk5hbWUsCiAgZGF0ZVN0cmluZywKfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import {
+  CalendarMonthDay,
+  CalendarMonthEventComponent,
+  CalendarMonthEvent,
+  CalendarMonth,
+  CalendarScheduleDay,
+  CalendarScheduleEventComponent,
+  CalendarScheduleEvent,
+  CalendarScheduleGutter,
+  CalendarScheduleSegment,
+  CalendarScheduleSegments,
+  CalendarSchedule,
+  CalendarProvider,
+  timeToDecimal,
+  getHeight,
+  setMidnight,
+  getColumnName,
+  dateString,
+} from "@fold-dev/core";
+```
+
+### Month
+
+export const Month = () => {
+    const date = useMemo(() => data.date, []);
+    const [events, setEvents] = useState(data.events);
+    const [event, setEvent] = useState({});
+    const [title, setTitle] = useState('');
+    const handleEventUpdate = (ev) => {
+        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)));
+    };
+    const handleEventDelete = (ev) => {
+        setEvents(events.filter((event) => event.id != ev.id));
+    };
+    const handleEventOpen = (event) => {
+        setEvent(event);
+    };
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        return (<Popup colorPalette={data.colorPalette} item={{ ...payload }} onCancel={dismiss} onSave={(event) => {
+                dismiss();
+                handleEventUpdate({ ...payload, ...event });
+            }} onView={() => {
+                dismiss();
+                setEvent(payload);
+            }} onDelete={() => {
+                dismiss();
+                handleEventDelete(payload);
+            }}/>);
+    };
+    return (<>
+            {!!event.id && (<Detail colorPalette={data.colorPalette} availableLabels={data.availableLabels} availableUsers={data.availableUsers} item={event} onCancel={() => setEvent({})} onSave={(event) => {
+                handleEventUpdate(event);
+                setEvent({});
+            }} onDelete={(event) => {
+                handleEventDelete(event);
+                setEvent({});
+            }}/>)}
+
+            <MenuProvider menu={getMenu}>
+                <CalendarProvider onEventOpen={handleEventOpen} onEventUpdate={handleEventUpdate} onEventAdd={({ done, event }) => {
+            return (<Modal portal={Portal} isVisible={true} onDismiss={done} header={<Heading as="h3">Create New Event</Heading>} footer={<View row width="100%">
+                                        <Button onClick={done}>Cancel</Button>
+                                        <Flexer />
+                                        <Button onClick={() => {
+                        setEvents([...events, { ...event, title, id: generateUEID() }]);
+                        done();
+                    }} variant="accent" outline>
+                                            Save
+                                        </Button>
+                                    </View>}>
+                                <Form column gap="1rem" onSubmit={() => {
+                    setEvents([...events, { ...event, title, id: generateUEID() }]);
+                    done();
+                }} width="100%">
+                                    <Input autoFocus size="lg" placeholder="Enter event name" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                                </Form>
+                            </Modal>);
+        }}>
+                    <CalendarMonth date={date} events={events}/>
+                </CalendarProvider>
+            </MenuProvider>
+        </>);
+};
+
+<div className="story-block">
+<Month />
+</div>
+
+<CodeComponent filename="Month.tsx" code="ZXhwb3J0IGNvbnN0IE1vbnRoID0gKCkgPT4gewogICAgY29uc3QgZGF0ZSA9IHVzZU1lbW8oKCkgPT4gZGF0YS5kYXRlLCBbXSkKICAgIGNvbnN0IFtldmVudHMsIHNldEV2ZW50c10gPSB1c2VTdGF0ZShkYXRhLmV2ZW50cykKICAgIGNvbnN0IFtldmVudCwgc2V0RXZlbnRdID0gdXNlU3RhdGU8YW55Pih7fSkKICAgIGNvbnN0IFt0aXRsZSwgc2V0VGl0bGVdID0gdXNlU3RhdGUoJycpCgogICAgY29uc3QgaGFuZGxlRXZlbnRVcGRhdGUgPSAoZXYpID0+IHsKICAgICAgICBzZXRFdmVudHMoZXZlbnRzLm1hcCgoZXZlbnQpID0+IChldmVudC5pZCA9PSBldi5pZCA/IHsgLi4uZXZlbnQsIC4uLmV2IH0gOiBldmVudCkpKQogICAgfQoKICAgIGNvbnN0IGhhbmRsZUV2ZW50RGVsZXRlID0gKGV2KSA9PiB7CiAgICAgICAgc2V0RXZlbnRzKGV2ZW50cy5maWx0ZXIoKGV2ZW50KSA9PiBldmVudC5pZCAhPSBldi5pZCkpCiAgICB9CgogICAgY29uc3QgaGFuZGxlRXZlbnRPcGVuID0gKGV2ZW50KSA9PiB7CiAgICAgICAgc2V0RXZlbnQoZXZlbnQpCiAgICB9CgogICAgY29uc3QgZ2V0TWVudSA9ICh7IGRhdGE6IHsgdGFyZ2V0LCBwYXlsb2FkIH0sIGRpc21pc3MgfSkgPT4gewogICAgICAgIHJldHVybiAoCiAgICAgICAgICAgIDxQb3B1cAogICAgICAgICAgICAgICAgY29sb3JQYWxldHRlPXtkYXRhLmNvbG9yUGFsZXR0ZX0KICAgICAgICAgICAgICAgIGl0ZW09e3sgLi4ucGF5bG9hZCB9fQogICAgICAgICAgICAgICAgb25DYW5jZWw9e2Rpc21pc3N9CiAgICAgICAgICAgICAgICBvblNhdmU9eyhldmVudCkgPT4gewogICAgICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgICAgIGhhbmRsZUV2ZW50VXBkYXRlKHsgLi4ucGF5bG9hZCwgLi4uZXZlbnQgfSkKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICBvblZpZXc9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICBzZXRFdmVudChwYXlsb2FkKQogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgIG9uRGVsZXRlPXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgaGFuZGxlRXZlbnREZWxldGUocGF5bG9hZCkKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgKQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPD4KICAgICAgICAgICAgeyEhZXZlbnQuaWQgJiYgKAogICAgICAgICAgICAgICAgPERldGFpbAogICAgICAgICAgICAgICAgICAgIGNvbG9yUGFsZXR0ZT17ZGF0YS5jb2xvclBhbGV0dGV9CiAgICAgICAgICAgICAgICAgICAgYXZhaWxhYmxlTGFiZWxzPXtkYXRhLmF2YWlsYWJsZUxhYmVsc30KICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVVc2Vycz17ZGF0YS5hdmFpbGFibGVVc2Vyc30KICAgICAgICAgICAgICAgICAgICBpdGVtPXtldmVudH0KICAgICAgICAgICAgICAgICAgICBvbkNhbmNlbD17KCkgPT4gc2V0RXZlbnQoe30pfQogICAgICAgICAgICAgICAgICAgIG9uU2F2ZT17KGV2ZW50KSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZUV2ZW50VXBkYXRlKGV2ZW50KQogICAgICAgICAgICAgICAgICAgICAgICBzZXRFdmVudCh7fSkKICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgIG9uRGVsZXRlPXsoZXZlbnQpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlRXZlbnREZWxldGUoZXZlbnQpCiAgICAgICAgICAgICAgICAgICAgICAgIHNldEV2ZW50KHt9KQogICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICApfQoKICAgICAgICAgICAgPE1lbnVQcm92aWRlciBtZW51PXtnZXRNZW51fT4KICAgICAgICAgICAgICAgIDxDYWxlbmRhclByb3ZpZGVyCiAgICAgICAgICAgICAgICAgICAgb25FdmVudE9wZW49e2hhbmRsZUV2ZW50T3Blbn0KICAgICAgICAgICAgICAgICAgICBvbkV2ZW50VXBkYXRlPXtoYW5kbGVFdmVudFVwZGF0ZX0KICAgICAgICAgICAgICAgICAgICBvbkV2ZW50QWRkPXsoeyBkb25lLCBldmVudCB9KSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8TW9kYWwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3J0YWw9e1BvcnRhbH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3RydWV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25EaXNtaXNzPXtkb25lfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhlYWRlcj17PEhlYWRpbmcgYXM9ImgzIj5DcmVhdGUgTmV3IEV2ZW50PC9IZWFkaW5nPn0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb290ZXI9ewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8QnV0dG9uIG9uQ2xpY2s9e2RvbmV9PkNhbmNlbDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEZsZXhlciAvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0RXZlbnRzKFsuLi5ldmVudHMsIHsgLi4uZXZlbnQsIHRpdGxlLCBpZDogZ2VuZXJhdGVVRUlEKCkgfV0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRvbmUoKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0iYWNjZW50IgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgU2F2ZQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxGb3JtCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYXA9IjFyZW0iCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uU3VibWl0PXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZXRFdmVudHMoWy4uLmV2ZW50cywgeyAuLi5ldmVudCwgdGl0bGUsIGlkOiBnZW5lcmF0ZVVFSUQoKSB9XSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRvbmUoKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYXV0b0ZvY3VzCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJFbnRlciBldmVudCBuYW1lIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU9e3RpdGxlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUaXRsZShlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9Gb3JtPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9Nb2RhbD4KICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgIH19PgogICAgICAgICAgICAgICAgICAgIDxDYWxlbmRhck1vbnRoCiAgICAgICAgICAgICAgICAgICAgICAgIGRhdGU9e2RhdGV9CiAgICAgICAgICAgICAgICAgICAgICAgIGV2ZW50cz17ZXZlbnRzfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L0NhbGVuZGFyUHJvdmlkZXI+CiAgICAgICAgICAgIDwvTWVudVByb3ZpZGVyPgogICAgICAgIDwvPgogICAgKQp9" />
+
+```tsx
+export const Month = () => {
+    const date = useMemo(() => data.date, [])
+    const [events, setEvents] = useState(data.events)
+    const [event, setEvent] = useState<any>({})
+    const [title, setTitle] = useState('')
+
+    const handleEventUpdate = (ev) => {
+        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)))
+    }
+
+    const handleEventDelete = (ev) => {
+        setEvents(events.filter((event) => event.id != ev.id))
+    }
+
+    const handleEventOpen = (event) => {
+        setEvent(event)
+    }
+
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        return (
+            <Popup
+                colorPalette={data.colorPalette}
+                item={{ ...payload }}
+                onCancel={dismiss}
+                onSave={(event) => {
+                    dismiss()
+                    handleEventUpdate({ ...payload, ...event })
+                }}
+                onView={() => {
+                    dismiss()
+                    setEvent(payload)
+                }}
+                onDelete={() => {
+                    dismiss()
+                    handleEventDelete(payload)
+                }}
+            />
+        )
+    }
+
+    return (
+        <>
+            {!!event.id && (
+                <Detail
+                    colorPalette={data.colorPalette}
+                    availableLabels={data.availableLabels}
+                    availableUsers={data.availableUsers}
+                    item={event}
+                    onCancel={() => setEvent({})}
+                    onSave={(event) => {
+                        handleEventUpdate(event)
+                        setEvent({})
+                    }}
+                    onDelete={(event) => {
+                        handleEventDelete(event)
+                        setEvent({})
+                    }}
+                />
+            )}
+
+            <MenuProvider menu={getMenu}>
+                <CalendarProvider
+                    onEventOpen={handleEventOpen}
+                    onEventUpdate={handleEventUpdate}
+                    onEventAdd={({ done, event }) => {
+                        return (
+                            <Modal
+                                portal={Portal}
+                                isVisible={true}
+                                onDismiss={done}
+                                header={<Heading as="h3">Create New Event</Heading>}
+                                footer={
+                                    <View
+                                        row
+                                        width="100%">
+                                        <Button onClick={done}>Cancel</Button>
+                                        <Flexer />
+                                        <Button
+                                            onClick={() => {
+                                                setEvents([...events, { ...event, title, id: generateUEID() }])
+                                                done()
+                                            }}
+                                            variant="accent"
+                                            outline>
+                                            Save
+                                        </Button>
+                                    </View>
+                                }>
+                                <Form
+                                    column
+                                    gap="1rem"
+                                    onSubmit={() => {
+                                        setEvents([...events, { ...event, title, id: generateUEID() }])
+                                        done()
+                                    }}
+                                    width="100%">
+                                    <Input
+                                        autoFocus
+                                        size="lg"
+                                        placeholder="Enter event name"
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)}
+                                    />
+                                </Form>
+                            </Modal>
+                        )
+                    }}>
+                    <CalendarMonth
+                        date={date}
+                        events={events}
+                    />
+                </CalendarProvider>
+            </MenuProvider>
+        </>
+    )
+}
+```
+### Custom Days
+
+export const CustomDays = () => {
+    const date = useMemo(() => data.date, []);
+    const [events, setEvents] = useState(data.events);
+    const [event, setEvent] = useState({});
+    const [custom, setCustom] = useState(data.custom);
+    const [title, setTitle] = useState('');
+    const handleEventUpdate = (ev) => {
+        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)));
+    };
+    const handleEventDelete = (ev) => {
+        setEvents(events.filter((event) => event.id != ev.id));
+    };
+    const handleEventOpen = (event) => {
+        setEvent(event);
+    };
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        return (<Popup colorPalette={data.colorPalette} item={{ ...payload }} onCancel={dismiss} onSave={(event) => {
+                dismiss();
+                handleEventUpdate({ ...payload, ...event });
+            }} onView={() => {
+                dismiss();
+                setEvent(payload);
+            }} onDelete={() => {
+                dismiss();
+                handleEventDelete(payload);
+            }}/>);
+    };
+    return (<>
+            {!!event.id && (<Detail colorPalette={data.colorPalette} availableLabels={data.availableLabels} availableUsers={data.availableUsers} item={event} onCancel={() => setEvent({})} onSave={(event) => {
+                handleEventUpdate(event);
+                setEvent({});
+            }} onDelete={(event) => {
+                handleEventDelete(event);
+                setEvent({});
+            }}/>)}
+
+            <MenuProvider menu={getMenu}>
+                <CalendarProvider onEventOpen={handleEventOpen} onEventUpdate={handleEventUpdate} onEventAdd={({ done, event }) => {
+            return (<Modal portal={Portal} isVisible={true} onDismiss={done} header={<Heading as="h3">Create New Event</Heading>} footer={<View row width="100%">
+                                        <Button onClick={done}>Cancel</Button>
+                                        <Flexer />
+                                        <Button onClick={() => {
+                        setEvents([...events, { ...event, title, id: generateUEID() }]);
+                        done();
+                    }} variant="accent" outline>
+                                            Save
+                                        </Button>
+                                    </View>}>
+                                <Form column gap="1rem" onSubmit={() => {
+                    setEvents([...events, { ...event, title, id: generateUEID() }]);
+                    done();
+                }} width="100%">
+                                    <Input autoFocus size="lg" placeholder="Enter event name" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                                </Form>
+                            </Modal>);
+        }}>
+                    <CalendarMonth noClamp date={date} events={events} custom={custom} height={300}/>
+                </CalendarProvider>
+            </MenuProvider>
+        </>);
+};
+
+<div className="story-block">
+<CustomDays />
+</div>
+
+<CodeComponent filename="CustomDays.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbURheXMgPSAoKSA9PiB7CiAgICBjb25zdCBkYXRlID0gdXNlTWVtbygoKSA9PiBkYXRhLmRhdGUsIFtdKQogICAgY29uc3QgW2V2ZW50cywgc2V0RXZlbnRzXSA9IHVzZVN0YXRlKGRhdGEuZXZlbnRzKQogICAgY29uc3QgW2V2ZW50LCBzZXRFdmVudF0gPSB1c2VTdGF0ZTxhbnk+KHt9KQogICAgY29uc3QgW2N1c3RvbSwgc2V0Q3VzdG9tXSA9IHVzZVN0YXRlKGRhdGEuY3VzdG9tKQogICAgY29uc3QgW3RpdGxlLCBzZXRUaXRsZV0gPSB1c2VTdGF0ZSgnJykKCiAgICBjb25zdCBoYW5kbGVFdmVudFVwZGF0ZSA9IChldikgPT4gewogICAgICAgIHNldEV2ZW50cyhldmVudHMubWFwKChldmVudCkgPT4gKGV2ZW50LmlkID09IGV2LmlkID8geyAuLi5ldmVudCwgLi4uZXYgfSA6IGV2ZW50KSkpCiAgICB9CgogICAgY29uc3QgaGFuZGxlRXZlbnREZWxldGUgPSAoZXYpID0+IHsKICAgICAgICBzZXRFdmVudHMoZXZlbnRzLmZpbHRlcigoZXZlbnQpID0+IGV2ZW50LmlkICE9IGV2LmlkKSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVFdmVudE9wZW4gPSAoZXZlbnQpID0+IHsKICAgICAgICBzZXRFdmVudChldmVudCkKICAgIH0KCiAgICBjb25zdCBnZXRNZW51ID0gKHsgZGF0YTogeyB0YXJnZXQsIHBheWxvYWQgfSwgZGlzbWlzcyB9KSA9PiB7CiAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgPFBvcHVwCiAgICAgICAgICAgICAgICBjb2xvclBhbGV0dGU9e2RhdGEuY29sb3JQYWxldHRlfQogICAgICAgICAgICAgICAgaXRlbT17eyAuLi5wYXlsb2FkIH19CiAgICAgICAgICAgICAgICBvbkNhbmNlbD17ZGlzbWlzc30KICAgICAgICAgICAgICAgIG9uU2F2ZT17KGV2ZW50KSA9PiB7CiAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgaGFuZGxlRXZlbnRVcGRhdGUoeyAuLi5wYXlsb2FkLCAuLi5ldmVudCB9KQogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgIG9uVmlldz17KCkgPT4gewogICAgICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgICAgIHNldEV2ZW50KHBheWxvYWQpCiAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgb25EZWxldGU9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICBoYW5kbGVFdmVudERlbGV0ZShwYXlsb2FkKQogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgLz4KICAgICAgICApCiAgICB9CgogICAgcmV0dXJuICgKICAgICAgICA8PgogICAgICAgICAgICB7ISFldmVudC5pZCAmJiAoCiAgICAgICAgICAgICAgICA8RGV0YWlsCiAgICAgICAgICAgICAgICAgICAgY29sb3JQYWxldHRlPXtkYXRhLmNvbG9yUGFsZXR0ZX0KICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVMYWJlbHM9e2RhdGEuYXZhaWxhYmxlTGFiZWxzfQogICAgICAgICAgICAgICAgICAgIGF2YWlsYWJsZVVzZXJzPXtkYXRhLmF2YWlsYWJsZVVzZXJzfQogICAgICAgICAgICAgICAgICAgIGl0ZW09e2V2ZW50fQogICAgICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXsoKSA9PiBzZXRFdmVudCh7fSl9CiAgICAgICAgICAgICAgICAgICAgb25TYXZlPXsoZXZlbnQpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlRXZlbnRVcGRhdGUoZXZlbnQpCiAgICAgICAgICAgICAgICAgICAgICAgIHNldEV2ZW50KHt9KQogICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgb25EZWxldGU9eyhldmVudCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVFdmVudERlbGV0ZShldmVudCkKICAgICAgICAgICAgICAgICAgICAgICAgc2V0RXZlbnQoe30pCiAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICl9CgogICAgICAgICAgICA8TWVudVByb3ZpZGVyIG1lbnU9e2dldE1lbnV9PgogICAgICAgICAgICAgICAgPENhbGVuZGFyUHJvdmlkZXIKICAgICAgICAgICAgICAgICAgICBvbkV2ZW50T3Blbj17aGFuZGxlRXZlbnRPcGVufQogICAgICAgICAgICAgICAgICAgIG9uRXZlbnRVcGRhdGU9e2hhbmRsZUV2ZW50VXBkYXRlfQogICAgICAgICAgICAgICAgICAgIG9uRXZlbnRBZGQ9eyh7IGRvbmUsIGV2ZW50IH0pID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxNb2RhbAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBvcnRhbD17UG9ydGFsfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dHJ1ZX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkRpc21pc3M9e2RvbmV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVhZGVyPXs8SGVhZGluZyBhcz0iaDMiPkNyZWF0ZSBOZXcgRXZlbnQ8L0hlYWRpbmc+fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvb3Rlcj17CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17ZG9uZX0+Q2FuY2VsPC9CdXR0b24+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8QnV0dG9uCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZXRFdmVudHMoWy4uLmV2ZW50cywgeyAuLi5ldmVudCwgdGl0bGUsIGlkOiBnZW5lcmF0ZVVFSUQoKSB9XSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZG9uZSgpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJhY2NlbnQiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTYXZlCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEZvcm0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdhcD0iMXJlbSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25TdWJtaXQ9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldEV2ZW50cyhbLi4uZXZlbnRzLCB7IC4uLmV2ZW50LCB0aXRsZSwgaWQ6IGdlbmVyYXRlVUVJRCgpIH1dKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZG9uZSgpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhdXRvRm9jdXMKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNpemU9ImxnIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IkVudGVyIGV2ZW50IG5hbWUiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YWx1ZT17dGl0bGV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRpdGxlKGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L0Zvcm0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L01vZGFsPgogICAgICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgfX0+CiAgICAgICAgICAgICAgICAgICAgPENhbGVuZGFyTW9udGgKICAgICAgICAgICAgICAgICAgICAgICAgbm9DbGFtcAogICAgICAgICAgICAgICAgICAgICAgICBkYXRlPXtkYXRlfQogICAgICAgICAgICAgICAgICAgICAgICBldmVudHM9e2V2ZW50c30KICAgICAgICAgICAgICAgICAgICAgICAgY3VzdG9tPXtjdXN0b219CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MzAwfQogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L0NhbGVuZGFyUHJvdmlkZXI+CiAgICAgICAgICAgIDwvTWVudVByb3ZpZGVyPgogICAgICAgIDwvPgogICAgKQp9" />
+
+```tsx
+export const CustomDays = () => {
+    const date = useMemo(() => data.date, [])
+    const [events, setEvents] = useState(data.events)
+    const [event, setEvent] = useState<any>({})
+    const [custom, setCustom] = useState(data.custom)
+    const [title, setTitle] = useState('')
+
+    const handleEventUpdate = (ev) => {
+        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)))
+    }
+
+    const handleEventDelete = (ev) => {
+        setEvents(events.filter((event) => event.id != ev.id))
+    }
+
+    const handleEventOpen = (event) => {
+        setEvent(event)
+    }
+
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        return (
+            <Popup
+                colorPalette={data.colorPalette}
+                item={{ ...payload }}
+                onCancel={dismiss}
+                onSave={(event) => {
+                    dismiss()
+                    handleEventUpdate({ ...payload, ...event })
+                }}
+                onView={() => {
+                    dismiss()
+                    setEvent(payload)
+                }}
+                onDelete={() => {
+                    dismiss()
+                    handleEventDelete(payload)
+                }}
+            />
+        )
+    }
+
+    return (
+        <>
+            {!!event.id && (
+                <Detail
+                    colorPalette={data.colorPalette}
+                    availableLabels={data.availableLabels}
+                    availableUsers={data.availableUsers}
+                    item={event}
+                    onCancel={() => setEvent({})}
+                    onSave={(event) => {
+                        handleEventUpdate(event)
+                        setEvent({})
+                    }}
+                    onDelete={(event) => {
+                        handleEventDelete(event)
+                        setEvent({})
+                    }}
+                />
+            )}
+
+            <MenuProvider menu={getMenu}>
+                <CalendarProvider
+                    onEventOpen={handleEventOpen}
+                    onEventUpdate={handleEventUpdate}
+                    onEventAdd={({ done, event }) => {
+                        return (
+                            <Modal
+                                portal={Portal}
+                                isVisible={true}
+                                onDismiss={done}
+                                header={<Heading as="h3">Create New Event</Heading>}
+                                footer={
+                                    <View
+                                        row
+                                        width="100%">
+                                        <Button onClick={done}>Cancel</Button>
+                                        <Flexer />
+                                        <Button
+                                            onClick={() => {
+                                                setEvents([...events, { ...event, title, id: generateUEID() }])
+                                                done()
+                                            }}
+                                            variant="accent"
+                                            outline>
+                                            Save
+                                        </Button>
+                                    </View>
+                                }>
+                                <Form
+                                    column
+                                    gap="1rem"
+                                    onSubmit={() => {
+                                        setEvents([...events, { ...event, title, id: generateUEID() }])
+                                        done()
+                                    }}
+                                    width="100%">
+                                    <Input
+                                        autoFocus
+                                        size="lg"
+                                        placeholder="Enter event name"
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)}
+                                    />
+                                </Form>
+                            </Modal>
+                        )
+                    }}>
+                    <CalendarMonth
+                        noClamp
+                        date={date}
+                        events={events}
+                        custom={custom}
+                        height={300}
+                    />
+                </CalendarProvider>
+            </MenuProvider>
+        </>
+    )
+}
+```
+### Schedule
+
+export const Schedule = () => {
+    const [days, setDays] = useState(data.days);
+    const [events, setEvents] = useState(data.events);
+    const [event, setEvent] = useState({});
+    const [title, setTitle] = useState('');
+    const handleEventUpdate = (ev) => {
+        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)));
+    };
+    const handleEventDelete = (ev) => {
+        setEvents(events.filter((event) => event.id != ev.id));
+    };
+    const handleEventOpen = (event) => {
+        setEvent(event);
+    };
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        return (<Popup colorPalette={data.colorPalette} item={{ ...payload }} onCancel={dismiss} onSave={(event) => {
+                dismiss();
+                handleEventUpdate({ ...payload, ...event });
+            }} onView={() => {
+                dismiss();
+                setEvent(payload);
+            }} onDelete={() => {
+                dismiss();
+                handleEventDelete(payload);
+            }}/>);
+    };
+    return (<>
+            {!!event.id && (<Detail colorPalette={data.colorPalette} availableLabels={data.availableLabels} availableUsers={data.availableUsers} item={event} onCancel={() => setEvent({})} onSave={(event) => {
+                handleEventUpdate(event);
+                setEvent({});
+            }} onDelete={(event) => {
+                handleEventDelete(event);
+                setEvent({});
+            }}/>)}
+
+            <MenuProvider menu={getMenu}>
+                <CalendarProvider dimPastEvents={false} hideDateLabels={true} scheduleEvent={undefined} monthEvent={undefined} onEventOpen={handleEventOpen} onEventUpdate={handleEventUpdate} onEventAdd={({ done, event }) => {
+            return (<Modal portal={Portal} isVisible={true} onDismiss={done} header={<Heading as="h3">Create New Event</Heading>} footer={<View row width="100%">
+                                        <Button onClick={done}>Cancel</Button>
+                                        <Flexer />
+                                        <Button onClick={() => {
+                        setEvents([...events, { ...event, title, id: generateUEID() }]);
+                        done();
+                    }} variant="accent" outline>
+                                            Save
+                                        </Button>
+                                    </View>}>
+                                <Form column gap="1rem" onSubmit={() => {
+                    setEvents([...events, { ...event, title, id: generateUEID() }]);
+                    done();
+                }} width="100%">
+                                    <Input autoFocus size="lg" placeholder="Enter event name" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                                </Form>
+                            </Modal>);
+        }}>
+                    <CalendarSchedule days={days} events={events.filter((e) => !e.allDay)}/>
+                </CalendarProvider>
+            </MenuProvider>
+        </>);
+};
+
+<div className="story-block">
+<Schedule />
+</div>
+
+<CodeComponent filename="Schedule.tsx" code="ZXhwb3J0IGNvbnN0IFNjaGVkdWxlID0gKCkgPT4gewogICAgY29uc3QgW2RheXMsIHNldERheXNdID0gdXNlU3RhdGUoZGF0YS5kYXlzKQogICAgY29uc3QgW2V2ZW50cywgc2V0RXZlbnRzXSA9IHVzZVN0YXRlKGRhdGEuZXZlbnRzKQogICAgY29uc3QgW2V2ZW50LCBzZXRFdmVudF0gPSB1c2VTdGF0ZTxhbnk+KHt9KQogICAgY29uc3QgW3RpdGxlLCBzZXRUaXRsZV0gPSB1c2VTdGF0ZSgnJykKCiAgICBjb25zdCBoYW5kbGVFdmVudFVwZGF0ZSA9IChldikgPT4gewogICAgICAgIHNldEV2ZW50cyhldmVudHMubWFwKChldmVudCkgPT4gKGV2ZW50LmlkID09IGV2LmlkID8geyAuLi5ldmVudCwgLi4uZXYgfSA6IGV2ZW50KSkpCiAgICB9CgogICAgY29uc3QgaGFuZGxlRXZlbnREZWxldGUgPSAoZXYpID0+IHsKICAgICAgICBzZXRFdmVudHMoZXZlbnRzLmZpbHRlcigoZXZlbnQpID0+IGV2ZW50LmlkICE9IGV2LmlkKSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVFdmVudE9wZW4gPSAoZXZlbnQpID0+IHsKICAgICAgICBzZXRFdmVudChldmVudCkKICAgIH0KCiAgICBjb25zdCBnZXRNZW51ID0gKHsgZGF0YTogeyB0YXJnZXQsIHBheWxvYWQgfSwgZGlzbWlzcyB9KSA9PiB7CiAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgPFBvcHVwCiAgICAgICAgICAgICAgICBjb2xvclBhbGV0dGU9e2RhdGEuY29sb3JQYWxldHRlfQogICAgICAgICAgICAgICAgaXRlbT17eyAuLi5wYXlsb2FkIH19CiAgICAgICAgICAgICAgICBvbkNhbmNlbD17ZGlzbWlzc30KICAgICAgICAgICAgICAgIG9uU2F2ZT17KGV2ZW50KSA9PiB7CiAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgaGFuZGxlRXZlbnRVcGRhdGUoeyAuLi5wYXlsb2FkLCAuLi5ldmVudCB9KQogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgIG9uVmlldz17KCkgPT4gewogICAgICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgICAgIHNldEV2ZW50KHBheWxvYWQpCiAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgb25EZWxldGU9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICBoYW5kbGVFdmVudERlbGV0ZShwYXlsb2FkKQogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgLz4KICAgICAgICApCiAgICB9CgogICAgcmV0dXJuICgKICAgICAgICA8PgogICAgICAgICAgICB7ISFldmVudC5pZCAmJiAoCiAgICAgICAgICAgICAgICA8RGV0YWlsCiAgICAgICAgICAgICAgICAgICAgY29sb3JQYWxldHRlPXtkYXRhLmNvbG9yUGFsZXR0ZX0KICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVMYWJlbHM9e2RhdGEuYXZhaWxhYmxlTGFiZWxzfQogICAgICAgICAgICAgICAgICAgIGF2YWlsYWJsZVVzZXJzPXtkYXRhLmF2YWlsYWJsZVVzZXJzfQogICAgICAgICAgICAgICAgICAgIGl0ZW09e2V2ZW50fQogICAgICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXsoKSA9PiBzZXRFdmVudCh7fSl9CiAgICAgICAgICAgICAgICAgICAgb25TYXZlPXsoZXZlbnQpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlRXZlbnRVcGRhdGUoZXZlbnQpCiAgICAgICAgICAgICAgICAgICAgICAgIHNldEV2ZW50KHt9KQogICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgb25EZWxldGU9eyhldmVudCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVFdmVudERlbGV0ZShldmVudCkKICAgICAgICAgICAgICAgICAgICAgICAgc2V0RXZlbnQoe30pCiAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICl9CgogICAgICAgICAgICA8TWVudVByb3ZpZGVyIG1lbnU9e2dldE1lbnV9PgogICAgICAgICAgICAgICAgPENhbGVuZGFyUHJvdmlkZXIKICAgICAgICAgICAgICAgICAgICBkaW1QYXN0RXZlbnRzPXtmYWxzZX0KICAgICAgICAgICAgICAgICAgICBoaWRlRGF0ZUxhYmVscz17dHJ1ZX0KICAgICAgICAgICAgICAgICAgICBzY2hlZHVsZUV2ZW50PXt1bmRlZmluZWR9CiAgICAgICAgICAgICAgICAgICAgbW9udGhFdmVudD17dW5kZWZpbmVkfQogICAgICAgICAgICAgICAgICAgIG9uRXZlbnRPcGVuPXtoYW5kbGVFdmVudE9wZW59CiAgICAgICAgICAgICAgICAgICAgb25FdmVudFVwZGF0ZT17aGFuZGxlRXZlbnRVcGRhdGV9CiAgICAgICAgICAgICAgICAgICAgb25FdmVudEFkZD17KHsgZG9uZSwgZXZlbnQgfSkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgPE1vZGFsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9ydGFsPXtQb3J0YWx9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt0cnVlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17ZG9uZX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBoZWFkZXI9ezxIZWFkaW5nIGFzPSJoMyI+Q3JlYXRlIE5ldyBFdmVudDwvSGVhZGluZz59CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9vdGVyPXsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXtkb25lfT5DYW5jZWw8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxGbGV4ZXIgLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldEV2ZW50cyhbLi4uZXZlbnRzLCB7IC4uLmV2ZW50LCB0aXRsZSwgaWQ6IGdlbmVyYXRlVUVJRCgpIH1dKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkb25lKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNhdmUKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8Rm9ybQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2FwPSIxcmVtIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvblN1Ym1pdD17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0RXZlbnRzKFsuLi5ldmVudHMsIHsgLi4uZXZlbnQsIHRpdGxlLCBpZDogZ2VuZXJhdGVVRUlEKCkgfV0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkb25lKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGF1dG9Gb2N1cwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZT0ibGciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iRW50ZXIgZXZlbnQgbmFtZSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlPXt0aXRsZX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGl0bGUoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvRm9ybT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvTW9kYWw+CiAgICAgICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgICAgICB9fT4KICAgICAgICAgICAgICAgICAgICA8Q2FsZW5kYXJTY2hlZHVsZQogICAgICAgICAgICAgICAgICAgICAgICBkYXlzPXtkYXlzfQogICAgICAgICAgICAgICAgICAgICAgICBldmVudHM9e2V2ZW50cy5maWx0ZXIoKGUpID0+ICFlLmFsbERheSl9CiAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDwvQ2FsZW5kYXJQcm92aWRlcj4KICAgICAgICAgICAgPC9NZW51UHJvdmlkZXI+CiAgICAgICAgPC8+CiAgICApCn0=" />
+
+```tsx
+export const Schedule = () => {
+    const [days, setDays] = useState(data.days)
+    const [events, setEvents] = useState(data.events)
+    const [event, setEvent] = useState<any>({})
+    const [title, setTitle] = useState('')
+
+    const handleEventUpdate = (ev) => {
+        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)))
+    }
+
+    const handleEventDelete = (ev) => {
+        setEvents(events.filter((event) => event.id != ev.id))
+    }
+
+    const handleEventOpen = (event) => {
+        setEvent(event)
+    }
+
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        return (
+            <Popup
+                colorPalette={data.colorPalette}
+                item={{ ...payload }}
+                onCancel={dismiss}
+                onSave={(event) => {
+                    dismiss()
+                    handleEventUpdate({ ...payload, ...event })
+                }}
+                onView={() => {
+                    dismiss()
+                    setEvent(payload)
+                }}
+                onDelete={() => {
+                    dismiss()
+                    handleEventDelete(payload)
+                }}
+            />
+        )
+    }
+
+    return (
+        <>
+            {!!event.id && (
+                <Detail
+                    colorPalette={data.colorPalette}
+                    availableLabels={data.availableLabels}
+                    availableUsers={data.availableUsers}
+                    item={event}
+                    onCancel={() => setEvent({})}
+                    onSave={(event) => {
+                        handleEventUpdate(event)
+                        setEvent({})
+                    }}
+                    onDelete={(event) => {
+                        handleEventDelete(event)
+                        setEvent({})
+                    }}
+                />
+            )}
+
+            <MenuProvider menu={getMenu}>
+                <CalendarProvider
+                    dimPastEvents={false}
+                    hideDateLabels={true}
+                    scheduleEvent={undefined}
+                    monthEvent={undefined}
+                    onEventOpen={handleEventOpen}
+                    onEventUpdate={handleEventUpdate}
+                    onEventAdd={({ done, event }) => {
+                        return (
+                            <Modal
+                                portal={Portal}
+                                isVisible={true}
+                                onDismiss={done}
+                                header={<Heading as="h3">Create New Event</Heading>}
+                                footer={
+                                    <View
+                                        row
+                                        width="100%">
+                                        <Button onClick={done}>Cancel</Button>
+                                        <Flexer />
+                                        <Button
+                                            onClick={() => {
+                                                setEvents([...events, { ...event, title, id: generateUEID() }])
+                                                done()
+                                            }}
+                                            variant="accent"
+                                            outline>
+                                            Save
+                                        </Button>
+                                    </View>
+                                }>
+                                <Form
+                                    column
+                                    gap="1rem"
+                                    onSubmit={() => {
+                                        setEvents([...events, { ...event, title, id: generateUEID() }])
+                                        done()
+                                    }}
+                                    width="100%">
+                                    <Input
+                                        autoFocus
+                                        size="lg"
+                                        placeholder="Enter event name"
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)}
+                                    />
+                                </Form>
+                            </Modal>
+                        )
+                    }}>
+                    <CalendarSchedule
+                        days={days}
+                        events={events.filter((e) => !e.allDay)}
+                    />
+                </CalendarProvider>
+            </MenuProvider>
+        </>
+    )
+}
+```
+### Schedule Day
+
+export const ScheduleDay = () => {
+    const [days, setDays] = useState([data.days[2]]);
+    const [events, setEvents] = useState(data.events);
+    const [event, setEvent] = useState({});
+    const [title, setTitle] = useState('');
+    const handleEventUpdate = (ev) => {
+        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)));
+    };
+    const handleEventDelete = (ev) => {
+        setEvents(events.filter((event) => event.id != ev.id));
+    };
+    const handleEventOpen = (event) => {
+        setEvent(event);
+    };
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        return (<Popup colorPalette={data.colorPalette} item={{ ...payload }} onCancel={dismiss} onSave={(event) => {
+                dismiss();
+                handleEventUpdate({ ...payload, ...event });
+            }} onView={() => {
+                dismiss();
+                setEvent(payload);
+            }} onDelete={() => {
+                dismiss();
+                handleEventDelete(payload);
+            }}/>);
+    };
+    return (<>
+            {!!event.id && (<Detail colorPalette={data.colorPalette} availableLabels={data.availableLabels} availableUsers={data.availableUsers} item={event} onCancel={() => setEvent({})} onSave={(event) => {
+                handleEventUpdate(event);
+                setEvent({});
+            }} onDelete={(event) => {
+                handleEventDelete(event);
+                setEvent({});
+            }}/>)}
+
+            <MenuProvider menu={getMenu}>
+                <CalendarProvider dimPastEvents={false} hideDateLabels={true} scheduleEvent={undefined} monthEvent={undefined} onEventOpen={handleEventOpen} onEventUpdate={handleEventUpdate} onEventAdd={({ done, event }) => {
+            return (<Modal portal={Portal} isVisible={true} onDismiss={done} header={<Heading as="h3">Create New Event</Heading>} footer={<View row width="100%">
+                                        <Button onClick={done}>Cancel</Button>
+                                        <Flexer />
+                                        <Button onClick={() => {
+                        setEvents([...events, { ...event, title, id: generateUEID() }]);
+                        done();
+                    }} variant="accent" outline>
+                                            Save
+                                        </Button>
+                                    </View>}>
+                                <Form column gap="1rem" onSubmit={() => {
+                    setEvents([...events, { ...event, title, id: generateUEID() }]);
+                    done();
+                }} width="100%">
+                                    <Input autoFocus size="lg" placeholder="Enter event name" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                                </Form>
+                            </Modal>);
+        }}>
+                    <CalendarSchedule days={days} events={events.filter((e) => !e.allDay)} width="80%"/>
+                </CalendarProvider>
+            </MenuProvider>
+        </>);
+};
+
+<div className="story-block">
+<ScheduleDay />
+</div>
+
+<CodeComponent filename="ScheduleDay.tsx" code="ZXhwb3J0IGNvbnN0IFNjaGVkdWxlRGF5ID0gKCkgPT4gewogICAgY29uc3QgW2RheXMsIHNldERheXNdID0gdXNlU3RhdGUoW2RhdGEuZGF5c1syXV0pCiAgICBjb25zdCBbZXZlbnRzLCBzZXRFdmVudHNdID0gdXNlU3RhdGUoZGF0YS5ldmVudHMpCiAgICBjb25zdCBbZXZlbnQsIHNldEV2ZW50XSA9IHVzZVN0YXRlPGFueT4oe30pCiAgICBjb25zdCBbdGl0bGUsIHNldFRpdGxlXSA9IHVzZVN0YXRlKCcnKQoKICAgIGNvbnN0IGhhbmRsZUV2ZW50VXBkYXRlID0gKGV2KSA9PiB7CiAgICAgICAgc2V0RXZlbnRzKGV2ZW50cy5tYXAoKGV2ZW50KSA9PiAoZXZlbnQuaWQgPT0gZXYuaWQgPyB7IC4uLmV2ZW50LCAuLi5ldiB9IDogZXZlbnQpKSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVFdmVudERlbGV0ZSA9IChldikgPT4gewogICAgICAgIHNldEV2ZW50cyhldmVudHMuZmlsdGVyKChldmVudCkgPT4gZXZlbnQuaWQgIT0gZXYuaWQpKQogICAgfQoKICAgIGNvbnN0IGhhbmRsZUV2ZW50T3BlbiA9IChldmVudCkgPT4gewogICAgICAgIHNldEV2ZW50KGV2ZW50KQogICAgfQoKICAgIGNvbnN0IGdldE1lbnUgPSAoeyBkYXRhOiB7IHRhcmdldCwgcGF5bG9hZCB9LCBkaXNtaXNzIH0pID0+IHsKICAgICAgICByZXR1cm4gKAogICAgICAgICAgICA8UG9wdXAKICAgICAgICAgICAgICAgIGNvbG9yUGFsZXR0ZT17ZGF0YS5jb2xvclBhbGV0dGV9CiAgICAgICAgICAgICAgICBpdGVtPXt7IC4uLnBheWxvYWQgfX0KICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXtkaXNtaXNzfQogICAgICAgICAgICAgICAgb25TYXZlPXsoZXZlbnQpID0+IHsKICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICBoYW5kbGVFdmVudFVwZGF0ZSh7IC4uLnBheWxvYWQsIC4uLmV2ZW50IH0pCiAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgb25WaWV3PXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgc2V0RXZlbnQocGF5bG9hZCkKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICBvbkRlbGV0ZT17KCkgPT4gewogICAgICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgICAgIGhhbmRsZUV2ZW50RGVsZXRlKHBheWxvYWQpCiAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAvPgogICAgICAgICkKICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDw+CiAgICAgICAgICAgIHshIWV2ZW50LmlkICYmICgKICAgICAgICAgICAgICAgIDxEZXRhaWwKICAgICAgICAgICAgICAgICAgICBjb2xvclBhbGV0dGU9e2RhdGEuY29sb3JQYWxldHRlfQogICAgICAgICAgICAgICAgICAgIGF2YWlsYWJsZUxhYmVscz17ZGF0YS5hdmFpbGFibGVMYWJlbHN9CiAgICAgICAgICAgICAgICAgICAgYXZhaWxhYmxlVXNlcnM9e2RhdGEuYXZhaWxhYmxlVXNlcnN9CiAgICAgICAgICAgICAgICAgICAgaXRlbT17ZXZlbnR9CiAgICAgICAgICAgICAgICAgICAgb25DYW5jZWw9eygpID0+IHNldEV2ZW50KHt9KX0KICAgICAgICAgICAgICAgICAgICBvblNhdmU9eyhldmVudCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVFdmVudFVwZGF0ZShldmVudCkKICAgICAgICAgICAgICAgICAgICAgICAgc2V0RXZlbnQoe30pCiAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICBvbkRlbGV0ZT17KGV2ZW50KSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgIGhhbmRsZUV2ZW50RGVsZXRlKGV2ZW50KQogICAgICAgICAgICAgICAgICAgICAgICBzZXRFdmVudCh7fSkKICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgKX0KCiAgICAgICAgICAgIDxNZW51UHJvdmlkZXIgbWVudT17Z2V0TWVudX0+CiAgICAgICAgICAgICAgICA8Q2FsZW5kYXJQcm92aWRlcgogICAgICAgICAgICAgICAgICAgIGRpbVBhc3RFdmVudHM9e2ZhbHNlfQogICAgICAgICAgICAgICAgICAgIGhpZGVEYXRlTGFiZWxzPXt0cnVlfQogICAgICAgICAgICAgICAgICAgIHNjaGVkdWxlRXZlbnQ9e3VuZGVmaW5lZH0KICAgICAgICAgICAgICAgICAgICBtb250aEV2ZW50PXt1bmRlZmluZWR9CiAgICAgICAgICAgICAgICAgICAgb25FdmVudE9wZW49e2hhbmRsZUV2ZW50T3Blbn0KICAgICAgICAgICAgICAgICAgICBvbkV2ZW50VXBkYXRlPXtoYW5kbGVFdmVudFVwZGF0ZX0KICAgICAgICAgICAgICAgICAgICBvbkV2ZW50QWRkPXsoeyBkb25lLCBldmVudCB9KSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8TW9kYWwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwb3J0YWw9e1BvcnRhbH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpc1Zpc2libGU9e3RydWV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25EaXNtaXNzPXtkb25lfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhlYWRlcj17PEhlYWRpbmcgYXM9ImgzIj5DcmVhdGUgTmV3IEV2ZW50PC9IZWFkaW5nPn0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb290ZXI9ewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8QnV0dG9uIG9uQ2xpY2s9e2RvbmV9PkNhbmNlbDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEZsZXhlciAvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0RXZlbnRzKFsuLi5ldmVudHMsIHsgLi4uZXZlbnQsIHRpdGxlLCBpZDogZ2VuZXJhdGVVRUlEKCkgfV0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRvbmUoKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0iYWNjZW50IgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgU2F2ZQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxGb3JtCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBnYXA9IjFyZW0iCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uU3VibWl0PXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzZXRFdmVudHMoWy4uLmV2ZW50cywgeyAuLi5ldmVudCwgdGl0bGUsIGlkOiBnZW5lcmF0ZVVFSUQoKSB9XSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRvbmUoKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYXV0b0ZvY3VzCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzaXplPSJsZyIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJFbnRlciBldmVudCBuYW1lIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU9e3RpdGxlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUaXRsZShlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9Gb3JtPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPC9Nb2RhbD4KICAgICAgICAgICAgICAgICAgICAgICAgKQogICAgICAgICAgICAgICAgICAgIH19PgogICAgICAgICAgICAgICAgICAgIDxDYWxlbmRhclNjaGVkdWxlCiAgICAgICAgICAgICAgICAgICAgICAgIGRheXM9e2RheXN9CiAgICAgICAgICAgICAgICAgICAgICAgIGV2ZW50cz17ZXZlbnRzLmZpbHRlcigoZSkgPT4gIWUuYWxsRGF5KX0KICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjgwJSIKICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9DYWxlbmRhclByb3ZpZGVyPgogICAgICAgICAgICA8L01lbnVQcm92aWRlcj4KICAgICAgICA8Lz4KICAgICkKfQ==" />
+
+```tsx
+export const ScheduleDay = () => {
+    const [days, setDays] = useState([data.days[2]])
+    const [events, setEvents] = useState(data.events)
+    const [event, setEvent] = useState<any>({})
+    const [title, setTitle] = useState('')
+
+    const handleEventUpdate = (ev) => {
+        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)))
+    }
+
+    const handleEventDelete = (ev) => {
+        setEvents(events.filter((event) => event.id != ev.id))
+    }
+
+    const handleEventOpen = (event) => {
+        setEvent(event)
+    }
+
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        return (
+            <Popup
+                colorPalette={data.colorPalette}
+                item={{ ...payload }}
+                onCancel={dismiss}
+                onSave={(event) => {
+                    dismiss()
+                    handleEventUpdate({ ...payload, ...event })
+                }}
+                onView={() => {
+                    dismiss()
+                    setEvent(payload)
+                }}
+                onDelete={() => {
+                    dismiss()
+                    handleEventDelete(payload)
+                }}
+            />
+        )
+    }
+
+    return (
+        <>
+            {!!event.id && (
+                <Detail
+                    colorPalette={data.colorPalette}
+                    availableLabels={data.availableLabels}
+                    availableUsers={data.availableUsers}
+                    item={event}
+                    onCancel={() => setEvent({})}
+                    onSave={(event) => {
+                        handleEventUpdate(event)
+                        setEvent({})
+                    }}
+                    onDelete={(event) => {
+                        handleEventDelete(event)
+                        setEvent({})
+                    }}
+                />
+            )}
+
+            <MenuProvider menu={getMenu}>
+                <CalendarProvider
+                    dimPastEvents={false}
+                    hideDateLabels={true}
+                    scheduleEvent={undefined}
+                    monthEvent={undefined}
+                    onEventOpen={handleEventOpen}
+                    onEventUpdate={handleEventUpdate}
+                    onEventAdd={({ done, event }) => {
+                        return (
+                            <Modal
+                                portal={Portal}
+                                isVisible={true}
+                                onDismiss={done}
+                                header={<Heading as="h3">Create New Event</Heading>}
+                                footer={
+                                    <View
+                                        row
+                                        width="100%">
+                                        <Button onClick={done}>Cancel</Button>
+                                        <Flexer />
+                                        <Button
+                                            onClick={() => {
+                                                setEvents([...events, { ...event, title, id: generateUEID() }])
+                                                done()
+                                            }}
+                                            variant="accent"
+                                            outline>
+                                            Save
+                                        </Button>
+                                    </View>
+                                }>
+                                <Form
+                                    column
+                                    gap="1rem"
+                                    onSubmit={() => {
+                                        setEvents([...events, { ...event, title, id: generateUEID() }])
+                                        done()
+                                    }}
+                                    width="100%">
+                                    <Input
+                                        autoFocus
+                                        size="lg"
+                                        placeholder="Enter event name"
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)}
+                                    />
+                                </Form>
+                            </Modal>
+                        )
+                    }}>
+                    <CalendarSchedule
+                        days={days}
+                        events={events.filter((e) => !e.allDay)}
+                        width="80%"
+                    />
+                </CalendarProvider>
+            </MenuProvider>
+        </>
+    )
+}
+```
+### Week View
+
+export const WeekView = () => {
+    const [days, setDays] = useState(data.days);
+    const [custom, setCustom] = useState(data.custom);
+    const [date, setDate] = useState(data.date);
+    const [events, setEvents] = useState(data.events);
+    const [event, setEvent] = useState({});
+    const [title, setTitle] = useState('');
+    const handleEventUpdate = (ev) => {
+        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)));
+    };
+    const handleEventDelete = (ev) => {
+        setEvents(events.filter((event) => event.id != ev.id));
+    };
+    const handleEventOpen = (event) => {
+        setEvent(event);
+    };
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        return (<Popup colorPalette={data.colorPalette} item={{ ...payload }} onCancel={dismiss} onSave={(event) => {
+                dismiss();
+                handleEventUpdate({ ...payload, ...event });
+            }} onView={() => {
+                dismiss();
+                setEvent(payload);
+            }} onDelete={() => {
+                dismiss();
+                handleEventDelete(payload);
+            }}/>);
+    };
+    return (<>
+            {!!event.id && (<Detail colorPalette={data.colorPalette} availableLabels={data.availableLabels} availableUsers={data.availableUsers} item={event} onCancel={() => setEvent({})} onSave={(event) => {
+                handleEventUpdate(event);
+                setEvent({});
+            }} onDelete={(event) => {
+                handleEventDelete(event);
+                setEvent({});
+            }}/>)}
+
+            <MenuProvider menu={getMenu}>
+                <CalendarProvider dimPastEvents={false} hideDateLabels={true} scheduleEvent={undefined} monthEvent={undefined} onEventOpen={handleEventOpen} onEventUpdate={handleEventUpdate} onEventAdd={({ done, event }) => {
+            return (<Modal portal={Portal} isVisible={true} onDismiss={done} header={<Heading as="h3">Create New Event</Heading>} footer={<View row width="100%">
+                                        <Button onClick={done}>Cancel</Button>
+                                        <Flexer />
+                                        <Button onClick={() => {
+                        setEvents([...events, { ...event, title, id: generateUEID() }]);
+                        done();
+                    }} variant="accent" outline>
+                                            Save
+                                        </Button>
+                                    </View>}>
+                                <Form column gap="1rem" onSubmit={() => {
+                    setEvents([...events, { ...event, title, id: generateUEID() }]);
+                    done();
+                }} width="100%">
+                                    <Input autoFocus size="lg" placeholder="Enter event name" value={title} onChange={(e) => setTitle(e.target.value)}/>
+                                </Form>
+                            </Modal>);
+        }}>
+                    <View row p="0 0 0 var(--f-calendar-schedule-gutter-width)" width="100%">
+                        {days.map(({ date }, index) => {
+            return (<Text flex={1} p="1rem" fontWeight="bold" textAlign="center" key={index}>
+                                    {getShortDateFormat(date)}
+                                </Text>);
+        })}
+                    </View>
+                    <View p="0 0 0 var(--f-calendar-schedule-gutter-width)" width="100%">
+                        <CalendarMonth noClamp date={date} events={events.filter((e) => e.allDay)} custom={custom} height="fit-content"/>
+                    </View>
+                    <View width="100%" flex={1}>
+                        <CalendarSchedule days={days} events={events.filter((e) => !e.allDay)}/>
+                    </View>
+                </CalendarProvider>
+            </MenuProvider>
+        </>);
+};
+
+<div className="story-block">
+<WeekView />
+</div>
+
+<CodeComponent filename="WeekView.tsx" code="ZXhwb3J0IGNvbnN0IFdlZWtWaWV3ID0gKCkgPT4gewogICAgY29uc3QgW2RheXMsIHNldERheXNdID0gdXNlU3RhdGUoZGF0YS5kYXlzKQogICAgY29uc3QgW2N1c3RvbSwgc2V0Q3VzdG9tXSA9IHVzZVN0YXRlKGRhdGEuY3VzdG9tKQogICAgY29uc3QgW2RhdGUsIHNldERhdGVdID0gdXNlU3RhdGUoZGF0YS5kYXRlKQogICAgY29uc3QgW2V2ZW50cywgc2V0RXZlbnRzXSA9IHVzZVN0YXRlKGRhdGEuZXZlbnRzKQogICAgY29uc3QgW2V2ZW50LCBzZXRFdmVudF0gPSB1c2VTdGF0ZTxhbnk+KHt9KQogICAgY29uc3QgW3RpdGxlLCBzZXRUaXRsZV0gPSB1c2VTdGF0ZSgnJykKCiAgICBjb25zdCBoYW5kbGVFdmVudFVwZGF0ZSA9IChldikgPT4gewogICAgICAgIHNldEV2ZW50cyhldmVudHMubWFwKChldmVudCkgPT4gKGV2ZW50LmlkID09IGV2LmlkID8geyAuLi5ldmVudCwgLi4uZXYgfSA6IGV2ZW50KSkpCiAgICB9CgogICAgY29uc3QgaGFuZGxlRXZlbnREZWxldGUgPSAoZXYpID0+IHsKICAgICAgICBzZXRFdmVudHMoZXZlbnRzLmZpbHRlcigoZXZlbnQpID0+IGV2ZW50LmlkICE9IGV2LmlkKSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVFdmVudE9wZW4gPSAoZXZlbnQpID0+IHsKICAgICAgICBzZXRFdmVudChldmVudCkKICAgIH0KCiAgICBjb25zdCBnZXRNZW51ID0gKHsgZGF0YTogeyB0YXJnZXQsIHBheWxvYWQgfSwgZGlzbWlzcyB9KSA9PiB7CiAgICAgICAgcmV0dXJuICgKICAgICAgICAgICAgPFBvcHVwCiAgICAgICAgICAgICAgICBjb2xvclBhbGV0dGU9e2RhdGEuY29sb3JQYWxldHRlfQogICAgICAgICAgICAgICAgaXRlbT17eyAuLi5wYXlsb2FkIH19CiAgICAgICAgICAgICAgICBvbkNhbmNlbD17ZGlzbWlzc30KICAgICAgICAgICAgICAgIG9uU2F2ZT17KGV2ZW50KSA9PiB7CiAgICAgICAgICAgICAgICAgICAgZGlzbWlzcygpCiAgICAgICAgICAgICAgICAgICAgaGFuZGxlRXZlbnRVcGRhdGUoeyAuLi5wYXlsb2FkLCAuLi5ldmVudCB9KQogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgIG9uVmlldz17KCkgPT4gewogICAgICAgICAgICAgICAgICAgIGRpc21pc3MoKQogICAgICAgICAgICAgICAgICAgIHNldEV2ZW50KHBheWxvYWQpCiAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgb25EZWxldGU9eygpID0+IHsKICAgICAgICAgICAgICAgICAgICBkaXNtaXNzKCkKICAgICAgICAgICAgICAgICAgICBoYW5kbGVFdmVudERlbGV0ZShwYXlsb2FkKQogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgLz4KICAgICAgICApCiAgICB9CgogICAgcmV0dXJuICgKICAgICAgICA8PgogICAgICAgICAgICB7ISFldmVudC5pZCAmJiAoCiAgICAgICAgICAgICAgICA8RGV0YWlsCiAgICAgICAgICAgICAgICAgICAgY29sb3JQYWxldHRlPXtkYXRhLmNvbG9yUGFsZXR0ZX0KICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVMYWJlbHM9e2RhdGEuYXZhaWxhYmxlTGFiZWxzfQogICAgICAgICAgICAgICAgICAgIGF2YWlsYWJsZVVzZXJzPXtkYXRhLmF2YWlsYWJsZVVzZXJzfQogICAgICAgICAgICAgICAgICAgIGl0ZW09e2V2ZW50fQogICAgICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXsoKSA9PiBzZXRFdmVudCh7fSl9CiAgICAgICAgICAgICAgICAgICAgb25TYXZlPXsoZXZlbnQpID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgaGFuZGxlRXZlbnRVcGRhdGUoZXZlbnQpCiAgICAgICAgICAgICAgICAgICAgICAgIHNldEV2ZW50KHt9KQogICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgb25EZWxldGU9eyhldmVudCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICBoYW5kbGVFdmVudERlbGV0ZShldmVudCkKICAgICAgICAgICAgICAgICAgICAgICAgc2V0RXZlbnQoe30pCiAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICl9CgogICAgICAgICAgICA8TWVudVByb3ZpZGVyIG1lbnU9e2dldE1lbnV9PgogICAgICAgICAgICAgICAgPENhbGVuZGFyUHJvdmlkZXIKICAgICAgICAgICAgICAgICAgICBkaW1QYXN0RXZlbnRzPXtmYWxzZX0KICAgICAgICAgICAgICAgICAgICBoaWRlRGF0ZUxhYmVscz17dHJ1ZX0KICAgICAgICAgICAgICAgICAgICBzY2hlZHVsZUV2ZW50PXt1bmRlZmluZWR9CiAgICAgICAgICAgICAgICAgICAgbW9udGhFdmVudD17dW5kZWZpbmVkfQogICAgICAgICAgICAgICAgICAgIG9uRXZlbnRPcGVuPXtoYW5kbGVFdmVudE9wZW59CiAgICAgICAgICAgICAgICAgICAgb25FdmVudFVwZGF0ZT17aGFuZGxlRXZlbnRVcGRhdGV9CiAgICAgICAgICAgICAgICAgICAgb25FdmVudEFkZD17KHsgZG9uZSwgZXZlbnQgfSkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgPE1vZGFsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcG9ydGFsPXtQb3J0YWx9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt0cnVlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17ZG9uZX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBoZWFkZXI9ezxIZWFkaW5nIGFzPSJoMyI+Q3JlYXRlIE5ldyBFdmVudDwvSGVhZGluZz59CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZm9vdGVyPXsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXtkb25lfT5DYW5jZWw8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxGbGV4ZXIgLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldEV2ZW50cyhbLi4uZXZlbnRzLCB7IC4uLmV2ZW50LCB0aXRsZSwgaWQ6IGdlbmVyYXRlVUVJRCgpIH1dKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkb25lKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNhdmUKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8Rm9ybQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2FwPSIxcmVtIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvblN1Ym1pdD17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0RXZlbnRzKFsuLi5ldmVudHMsIHsgLi4uZXZlbnQsIHRpdGxlLCBpZDogZ2VuZXJhdGVVRUlEKCkgfV0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkb25lKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGF1dG9Gb2N1cwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2l6ZT0ibGciCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iRW50ZXIgZXZlbnQgbmFtZSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhbHVlPXt0aXRsZX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGl0bGUoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvRm9ybT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvTW9kYWw+CiAgICAgICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgICAgICB9fT4KICAgICAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICAgICAgcD0iMCAwIDAgdmFyKC0tZi1jYWxlbmRhci1zY2hlZHVsZS1ndXR0ZXItd2lkdGgpIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgICAgICAgICAgICAgIHtkYXlzLm1hcCgoeyBkYXRlIH0sIGluZGV4KSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZsZXg9ezF9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHA9IjFyZW0iCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvbnRXZWlnaHQ9ImJvbGQiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHRleHRBbGlnbj0iY2VudGVyIgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBrZXk9e2luZGV4fT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge2dldFNob3J0RGF0ZUZvcm1hdChkYXRlKX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgICAgIH0pfQogICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgICAgICBwPSIwIDAgMCB2YXIoLS1mLWNhbGVuZGFyLXNjaGVkdWxlLWd1dHRlci13aWR0aCkiCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgICAgICAgICAgPENhbGVuZGFyTW9udGgKICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5vQ2xhbXAKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRhdGU9e2RhdGV9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBldmVudHM9e2V2ZW50cy5maWx0ZXIoKGUpID0+IGUuYWxsRGF5KX0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGN1c3RvbT17Y3VzdG9tfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PSJmaXQtY29udGVudCIKICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgIGZsZXg9ezF9PgogICAgICAgICAgICAgICAgICAgICAgICA8Q2FsZW5kYXJTY2hlZHVsZQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZGF5cz17ZGF5c30KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGV2ZW50cz17ZXZlbnRzLmZpbHRlcigoZSkgPT4gIWUuYWxsRGF5KX0KICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICAgICA8L0NhbGVuZGFyUHJvdmlkZXI+CiAgICAgICAgICAgIDwvTWVudVByb3ZpZGVyPgogICAgICAgIDwvPgogICAgKQp9" />
+
+```tsx
+export const WeekView = () => {
+    const [days, setDays] = useState(data.days)
+    const [custom, setCustom] = useState(data.custom)
+    const [date, setDate] = useState(data.date)
+    const [events, setEvents] = useState(data.events)
+    const [event, setEvent] = useState<any>({})
+    const [title, setTitle] = useState('')
+
+    const handleEventUpdate = (ev) => {
+        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)))
+    }
+
+    const handleEventDelete = (ev) => {
+        setEvents(events.filter((event) => event.id != ev.id))
+    }
+
+    const handleEventOpen = (event) => {
+        setEvent(event)
+    }
+
+    const getMenu = ({ data: { target, payload }, dismiss }) => {
+        return (
+            <Popup
+                colorPalette={data.colorPalette}
+                item={{ ...payload }}
+                onCancel={dismiss}
+                onSave={(event) => {
+                    dismiss()
+                    handleEventUpdate({ ...payload, ...event })
+                }}
+                onView={() => {
+                    dismiss()
+                    setEvent(payload)
+                }}
+                onDelete={() => {
+                    dismiss()
+                    handleEventDelete(payload)
+                }}
+            />
+        )
+    }
+
+    return (
+        <>
+            {!!event.id && (
+                <Detail
+                    colorPalette={data.colorPalette}
+                    availableLabels={data.availableLabels}
+                    availableUsers={data.availableUsers}
+                    item={event}
+                    onCancel={() => setEvent({})}
+                    onSave={(event) => {
+                        handleEventUpdate(event)
+                        setEvent({})
+                    }}
+                    onDelete={(event) => {
+                        handleEventDelete(event)
+                        setEvent({})
+                    }}
+                />
+            )}
+
+            <MenuProvider menu={getMenu}>
+                <CalendarProvider
+                    dimPastEvents={false}
+                    hideDateLabels={true}
+                    scheduleEvent={undefined}
+                    monthEvent={undefined}
+                    onEventOpen={handleEventOpen}
+                    onEventUpdate={handleEventUpdate}
+                    onEventAdd={({ done, event }) => {
+                        return (
+                            <Modal
+                                portal={Portal}
+                                isVisible={true}
+                                onDismiss={done}
+                                header={<Heading as="h3">Create New Event</Heading>}
+                                footer={
+                                    <View
+                                        row
+                                        width="100%">
+                                        <Button onClick={done}>Cancel</Button>
+                                        <Flexer />
+                                        <Button
+                                            onClick={() => {
+                                                setEvents([...events, { ...event, title, id: generateUEID() }])
+                                                done()
+                                            }}
+                                            variant="accent"
+                                            outline>
+                                            Save
+                                        </Button>
+                                    </View>
+                                }>
+                                <Form
+                                    column
+                                    gap="1rem"
+                                    onSubmit={() => {
+                                        setEvents([...events, { ...event, title, id: generateUEID() }])
+                                        done()
+                                    }}
+                                    width="100%">
+                                    <Input
+                                        autoFocus
+                                        size="lg"
+                                        placeholder="Enter event name"
+                                        value={title}
+                                        onChange={(e) => setTitle(e.target.value)}
+                                    />
+                                </Form>
+                            </Modal>
+                        )
+                    }}>
+                    <View
+                        row
+                        p="0 0 0 var(--f-calendar-schedule-gutter-width)"
+                        width="100%">
+                        {days.map(({ date }, index) => {
+                            return (
+                                <Text
+                                    flex={1}
+                                    p="1rem"
+                                    fontWeight="bold"
+                                    textAlign="center"
+                                    key={index}>
+                                    {getShortDateFormat(date)}
+                                </Text>
+                            )
+                        })}
+                    </View>
+                    <View
+                        p="0 0 0 var(--f-calendar-schedule-gutter-width)"
+                        width="100%">
+                        <CalendarMonth
+                            noClamp
+                            date={date}
+                            events={events.filter((e) => e.allDay)}
+                            custom={custom}
+                            height="fit-content"
+                        />
+                    </View>
+                    <View
+                        width="100%"
+                        flex={1}>
+                        <CalendarSchedule
+                            days={days}
+                            events={events.filter((e) => !e.allDay)}
+                        />
+                    </View>
+                </CalendarProvider>
+            </MenuProvider>
+        </>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

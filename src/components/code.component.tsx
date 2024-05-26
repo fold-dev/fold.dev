@@ -8,7 +8,7 @@ import rehypePrettyCode from 'rehype-pretty-code'
 import { Copy, Icon, View } from '@fold-dev/core'
 import { DocumentIcon } from '@heroicons/react/24/outline'
 
-const highlightCode = async (code: string, lang = 'javascript') => {
+export const highlightCode = async (code: string, lang = 'javascript') => {
     const file = await unified()
         .use(remarkParse)
         .use(remarkRehype)
@@ -24,12 +24,14 @@ const highlightCode = async (code: string, lang = 'javascript') => {
 }
 
 export const CodeComponent = ({
+    showCopy = true,
     code,
     filename = '',
     lang = 'javascript',
     showSnippet = false,
     dontConvert = false,
     minHeight = 'fit-content',
+    sectionStyles = {},
 }) => {
     const [html, setHtml] = useState('')
     const [snippet, setSnippet] = useState('')
@@ -47,22 +49,24 @@ export const CodeComponent = ({
                 row
                 zIndex={0}
                 m="1rem 0 -1rem 0">
-                <Copy
-                    prefix={<Icon icon={DocumentIcon} />}
-                    label={filename}
-                    value={snippet}
-                    bgToken="base-600"
-                    border="0"
-                    style={{
-                        '--f-copy-color': 'var(--f-color-base-100)',
-                        'borderBottomLeftRadius': 0,
-                        'borderBottomRightRadius': 0,
-                    }}
-                />
+                {showCopy && (
+                    <Copy
+                        prefix={<Icon icon={DocumentIcon} />}
+                        label={filename}
+                        value={snippet}
+                        bgToken="base-600"
+                        border="0"
+                        style={{
+                            '--f-copy-color': 'var(--f-color-base-100)',
+                            'borderBottomLeftRadius': 0,
+                            'borderBottomRightRadius': 0,
+                        }}
+                    />
+                )}
             </View>
             {showSnippet && (
                 <section
-                    style={{ width: '100%', minHeight }}
+                    style={{ width: '100%', minHeight, ...sectionStyles }}
                     dangerouslySetInnerHTML={{
                         __html: html,
                     }}

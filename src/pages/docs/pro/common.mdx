@@ -1,0 +1,379 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import { Button, View } from '@fold-dev/core'
+import * as Token from '@fold-dev/design/tokens'
+import React, { useState } from 'react'
+import { Badges, Detail, LabelSelect, Labels, RichInput, UserSelect, Users, processHTML } from '@fold-pro/react'
+import * as data from '@/dummy_data'
+import { sections } from '@/dummy_data'
+
+export const docs = {"title":"Common","subtitle":"Common components are shared components used by the Kanban Board, Todo List & Calendar components.","description":"These components offer a unified experience when interacting with the rest of the Pro components. They are meant as examples, that can be easily extended.","pro":true}
+
+export const props = [{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"Badge","methods":[],"props":{"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"pro/src/common/badges.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(e: any) => void"},"tags":{}},"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"pro/src/common/badges.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"pro/src/common/badges.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"progress":{"defaultValue":null,"description":"","name":"progress","declarations":[{"fileName":"pro/src/common/badges.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"label":{"defaultValue":null,"description":"","name":"label","declarations":[{"fileName":"pro/src/common/badges.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"hide":{"defaultValue":null,"description":"","name":"hide","declarations":[{"fileName":"pro/src/common/badges.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"pro/src/common/badges.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"Badges","methods":[],"props":{"badges":{"defaultValue":null,"description":"","name":"badges","declarations":[{"fileName":"pro/src/common/badges.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"BadgesBadge[]"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"pro/src/common/badges.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"Check","methods":[],"props":{"onCheck":{"defaultValue":null,"description":"","name":"onCheck","declarations":[{"fileName":"pro/src/common/check.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}},"checked":{"defaultValue":null,"description":"","name":"checked","declarations":[{"fileName":"pro/src/common/check.tsx","name":"TypeLiteral"},{"fileName":"packages/core/dist/checkbox/checkbox.d.ts","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"InputHTMLAttributes"}],"required":false,"type":{"name":"boolean"},"tags":{}},"iconProps":{"defaultValue":null,"description":"","name":"iconProps","declarations":[{"fileName":"pro/src/common/check.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"Description","methods":[],"props":{"text":{"defaultValue":null,"description":"","name":"text","declarations":[{"fileName":"pro/src/common/description.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"complete":{"defaultValue":null,"description":"","name":"complete","declarations":[{"fileName":"pro/src/common/description.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"Detail","methods":[],"props":{"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onDelete":{"defaultValue":null,"description":"","name":"onDelete","declarations":[{"fileName":"pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onUserFilter":{"defaultValue":null,"description":"","name":"onUserFilter","declarations":[{"fileName":"pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: string) => void"},"tags":{}},"onLabelFilter":{"defaultValue":null,"description":"","name":"onLabelFilter","declarations":[{"fileName":"pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: string) => void"},"tags":{}},"availableUsers":{"defaultValue":null,"description":"","name":"availableUsers","declarations":[{"fileName":"pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"UserSelectUser[]"},"tags":{}},"availableLabels":{"defaultValue":null,"description":"","name":"availableLabels","declarations":[{"fileName":"pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"item":{"defaultValue":null,"description":"","name":"item","declarations":[{"fileName":"pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"monthNames":{"defaultValue":null,"description":"","name":"monthNames","declarations":[{"fileName":"pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string[]"},"tags":{}},"colorPalette":{"defaultValue":null,"description":"","name":"colorPalette","declarations":[{"fileName":"pro/src/common/detail.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string[]"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"LabelMenu","methods":[],"props":{"saveOnUpdate":{"defaultValue":null,"description":"","name":"saveOnUpdate","declarations":[{"fileName":"pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"autoFocus":{"defaultValue":null,"description":"","name":"autoFocus","declarations":[{"fileName":"pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"static\" | \"default\""},"tags":{}},"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"availableLabels":{"defaultValue":null,"description":"","name":"availableLabels","declarations":[{"fileName":"pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(labels: LabelSelectLabel[]) => void"},"tags":{}},"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onFilter":{"defaultValue":null,"description":"","name":"onFilter","declarations":[{"fileName":"pro/src/common/label-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(text: string) => void"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"LabelSelect","methods":[],"props":{"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"},{"fileName":"packages/core/dist/select/select.d.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"enableNotFound":{"defaultValue":null,"description":"","name":"enableNotFound","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"},{"fileName":"packages/core/dist/select/select.d.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"\"static\" | \"default\""},"tags":{}},"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"inputPlaceholder":{"defaultValue":null,"description":"","name":"inputPlaceholder","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"actionPrefix":{"defaultValue":null,"description":"","name":"actionPrefix","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"availableLabels":{"defaultValue":null,"description":"","name":"availableLabels","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"onLabelAdd":{"defaultValue":null,"description":"","name":"onLabelAdd","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onLabelDelete":{"defaultValue":null,"description":"","name":"onLabelDelete","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onFilter":{"defaultValue":null,"description":"","name":"onFilter","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"},{"fileName":"packages/core/dist/select/select.d.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"pillProps":{"defaultValue":null,"description":"","name":"pillProps","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"PillProps"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"Label","methods":[],"props":{"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"pro/src/common/labels.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}},"id":{"defaultValue":{"value":"null"},"description":"","name":"id","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"icon":{"defaultValue":{"value":"null"},"description":"","name":"icon","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"text":{"defaultValue":null,"description":"","name":"text","declarations":[{"fileName":"pro/src/common/label-select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"Labels","methods":[],"props":{"labels":{"defaultValue":null,"description":"","name":"labels","declarations":[{"fileName":"pro/src/common/labels.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"LabelSelectLabel[]"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"pro/src/common/labels.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"Popup","methods":[],"props":{}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"OptionsMenu","methods":[],"props":{}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"RichInput","methods":[],"props":{"dontClearOnSubmit":{"defaultValue":null,"description":"","name":"dontClearOnSubmit","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"autoFocus":{"defaultValue":null,"description":"","name":"autoFocus","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"placeholder":{"defaultValue":null,"description":"","name":"placeholder","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"defaultValue":{"defaultValue":null,"description":"","name":"defaultValue","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"triggers":{"defaultValue":null,"description":"","name":"triggers","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string[]"},"tags":{}},"options":{"defaultValue":null,"description":"","name":"options","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any[]"},"tags":{}},"className":{"defaultValue":null,"description":"","name":"className","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"},{"fileName":"packages/core/dist/types/index.d.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"onTrigger":{"defaultValue":null,"description":"","name":"onTrigger","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}},"onWord":{"defaultValue":null,"description":"","name":"onWord","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any, cb: any, always?: any) => void"},"tags":{}},"onEnter":{"defaultValue":null,"description":"","name":"onEnter","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}},"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"onBlur":{"defaultValue":null,"description":"","name":"onBlur","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}},"onIndent":{"defaultValue":null,"description":"","name":"onIndent","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"onOutdent":{"defaultValue":null,"description":"","name":"onOutdent","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"onUp":{"defaultValue":null,"description":"","name":"onUp","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}},"onDown":{"defaultValue":null,"description":"","name":"onDown","declarations":[{"fileName":"pro/src/common/rich-input.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"() => void"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"Title","methods":[],"props":{"text":{"defaultValue":null,"description":"","name":"text","declarations":[{"fileName":"pro/src/common/title.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"complete":{"defaultValue":null,"description":"","name":"complete","declarations":[{"fileName":"pro/src/common/title.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"TitleEditable","methods":[],"props":{"text":{"defaultValue":null,"description":"","name":"text","declarations":[{"fileName":"pro/src/common/title.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"complete":{"defaultValue":null,"description":"","name":"complete","declarations":[{"fileName":"pro/src/common/title.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"UserMenu","methods":[],"props":{"saveOnUpdate":{"defaultValue":null,"description":"","name":"saveOnUpdate","declarations":[{"fileName":"pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"autoFocus":{"defaultValue":null,"description":"","name":"autoFocus","declarations":[{"fileName":"pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"static\" | \"default\""},"tags":{}},"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"UserSelectUser[]"},"tags":{}},"availableUsers":{"defaultValue":null,"description":"","name":"availableUsers","declarations":[{"fileName":"pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"UserSelectUser[]"},"tags":{}},"onSave":{"defaultValue":null,"description":"","name":"onSave","declarations":[{"fileName":"pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(users: UserSelectUser[]) => void"},"tags":{}},"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}},"onFilter":{"defaultValue":null,"description":"","name":"onFilter","declarations":[{"fileName":"pro/src/common/user-menu.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(text: string) => void"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"UserSelect","methods":[],"props":{"enableNotFound":{"defaultValue":null,"description":"","name":"enableNotFound","declarations":[{"fileName":"pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"UserSelectUser[]"},"tags":{}},"inputPlaceholder":{"defaultValue":null,"description":"","name":"inputPlaceholder","declarations":[{"fileName":"pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"actionPrefix":{"defaultValue":null,"description":"","name":"actionPrefix","declarations":[{"fileName":"pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"availableUsers":{"defaultValue":null,"description":"","name":"availableUsers","declarations":[{"fileName":"pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"UserSelectUser[]"},"tags":{}},"onUserAdd":{"defaultValue":null,"description":"","name":"onUserAdd","declarations":[{"fileName":"pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onUserDelete":{"defaultValue":null,"description":"","name":"onUserDelete","declarations":[{"fileName":"pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"onFilter":{"defaultValue":null,"description":"","name":"onFilter","declarations":[{"fileName":"pro/src/common/user-select.tsx","name":"TypeLiteral"},{"fileName":"packages/core/dist/select/select.d.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"pillProps":{"defaultValue":null,"description":"","name":"pillProps","declarations":[{"fileName":"pro/src/common/user-select.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"PillProps"},"tags":{}}}},{"tags":{},"filePath":"src/common/index.ts","description":"","displayName":"Users","methods":[],"props":{"users":{"defaultValue":null,"description":"","name":"users","declarations":[{"fileName":"pro/src/common/users.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"UserSelectUser[]"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"pro/src/common/users.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(e: any) => void"},"tags":{}}}}]
+
+export const css = [[["--f-title-description-completed-color","var(--f-color-text-weakest)"],["--f-title-color","var(--f-color-text)"],["--f-description-color","var(--f-color-text-weaker)"],["--f-title-size","var(--f-font-size-md)"],["--f-description-size","var(--f-font-size-md)"]],[["--f-check-padding","0"],["--f-check-margin-card","0"]],[["--f-badges-color","var(--f-color-text-weaker)"]],[["--f-rich-input-padding","0rem"],["--f-rich-input-color","var(--f-color-text)"],["--f-rich-input-color-placeholder","var(--f-color-text-weakest)"]]]
+
+
+
+<CodeComponent filename="common.tsx" code="aW1wb3J0IHsKICBCYWRnZSwKICBCYWRnZXMsCiAgQ2hlY2ssCiAgRGVzY3JpcHRpb24sCiAgRGV0YWlsLAogIExhYmVsTWVudSwKICBMYWJlbFNlbGVjdCwKICBMYWJlbCwKICBMYWJlbHMsCiAgUG9wdXAsCiAgT3B0aW9uc01lbnUsCiAgUmljaElucHV0LAogIFRpdGxlLAogIFRpdGxlRWRpdGFibGUsCiAgVXNlck1lbnUsCiAgVXNlclNlbGVjdCwKICBVc2VycywKfSBmcm9tICJAZm9sZC1kZXYvY29yZSI7Cg==" />
+```tsx
+import {
+  Badge,
+  Badges,
+  Check,
+  Description,
+  Detail,
+  LabelMenu,
+  LabelSelect,
+  Label,
+  Labels,
+  Popup,
+  OptionsMenu,
+  RichInput,
+  Title,
+  TitleEditable,
+  UserMenu,
+  UserSelect,
+  Users,
+} from "@fold-dev/core";
+```
+
+### User And Label Select
+
+> The user & label Select component are prepackaged select formats specifically for
+use in-product, they are 100% reproducable simply using a normal Select component
+Please note these examples are a work-in-progress.
+
+export const UserAndLabelSelect = () => {
+    return (<View row gap={10} alignItems="flex-start" justifyContent="flex-start">
+            <View width={300}>
+                <LabelSelect width={300} labels={data.selectedLabels} availableLabels={data.labels} inputPlaceholder="Add label..." onLabelAdd={(label) => console.log('label add', label)} onLabelDelete={(label) => console.log('label delete', label)} onFilter={(value) => console.log('search ', value)}/>
+            </View>
+            <View width={300}>
+                <UserSelect width={300} users={data.selectedUsers} availableUsers={data.users} inputPlaceholder="Add user..." onUserAdd={(user) => console.log('user add', user)} onUserDelete={(user) => console.log('user delete', user)} onFilter={(value) => console.log('search ', value)}/>
+            </View>
+        </View>);
+};
+
+<div className="story-block">
+<UserAndLabelSelect />
+</div>
+
+<CodeComponent filename="UserAndLabelSelect.tsx" code="ZXhwb3J0IGNvbnN0IFVzZXJBbmRMYWJlbFNlbGVjdCA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcKICAgICAgICAgICAgcm93CiAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiCiAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgPFZpZXcgd2lkdGg9ezMwMH0+CiAgICAgICAgICAgICAgICA8TGFiZWxTZWxlY3QKICAgICAgICAgICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICAgICAgICAgIGxhYmVscz17ZGF0YS5zZWxlY3RlZExhYmVsc30KICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVMYWJlbHM9e2RhdGEubGFiZWxzfQogICAgICAgICAgICAgICAgICAgIGlucHV0UGxhY2Vob2xkZXI9IkFkZCBsYWJlbC4uLiIKICAgICAgICAgICAgICAgICAgICBvbkxhYmVsQWRkPXsobGFiZWwpID0+IGNvbnNvbGUubG9nKCdsYWJlbCBhZGQnLCBsYWJlbCl9CiAgICAgICAgICAgICAgICAgICAgb25MYWJlbERlbGV0ZT17KGxhYmVsKSA9PiBjb25zb2xlLmxvZygnbGFiZWwgZGVsZXRlJywgbGFiZWwpfQogICAgICAgICAgICAgICAgICAgIG9uRmlsdGVyPXsodmFsdWUpID0+IGNvbnNvbGUubG9nKCdzZWFyY2ggJywgdmFsdWUpfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8VmlldyB3aWR0aD17MzAwfT4KICAgICAgICAgICAgICAgIDxVc2VyU2VsZWN0CiAgICAgICAgICAgICAgICAgICAgd2lkdGg9ezMwMH0KICAgICAgICAgICAgICAgICAgICB1c2Vycz17ZGF0YS5zZWxlY3RlZFVzZXJzfQogICAgICAgICAgICAgICAgICAgIGF2YWlsYWJsZVVzZXJzPXtkYXRhLnVzZXJzfQogICAgICAgICAgICAgICAgICAgIGlucHV0UGxhY2Vob2xkZXI9IkFkZCB1c2VyLi4uIgogICAgICAgICAgICAgICAgICAgIG9uVXNlckFkZD17KHVzZXIpID0+IGNvbnNvbGUubG9nKCd1c2VyIGFkZCcsIHVzZXIpfQogICAgICAgICAgICAgICAgICAgIG9uVXNlckRlbGV0ZT17KHVzZXIpID0+IGNvbnNvbGUubG9nKCd1c2VyIGRlbGV0ZScsIHVzZXIpfQogICAgICAgICAgICAgICAgICAgIG9uRmlsdGVyPXsodmFsdWUpID0+IGNvbnNvbGUubG9nKCdzZWFyY2ggJywgdmFsdWUpfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const UserAndLabelSelect = () => {
+    return (
+        <View
+            row
+            gap={10}
+            alignItems="flex-start"
+            justifyContent="flex-start">
+            <View width={300}>
+                <LabelSelect
+                    width={300}
+                    labels={data.selectedLabels}
+                    availableLabels={data.labels}
+                    inputPlaceholder="Add label..."
+                    onLabelAdd={(label) => console.log('label add', label)}
+                    onLabelDelete={(label) => console.log('label delete', label)}
+                    onFilter={(value) => console.log('search ', value)}
+                />
+            </View>
+            <View width={300}>
+                <UserSelect
+                    width={300}
+                    users={data.selectedUsers}
+                    availableUsers={data.users}
+                    inputPlaceholder="Add user..."
+                    onUserAdd={(user) => console.log('user add', user)}
+                    onUserDelete={(user) => console.log('user delete', user)}
+                    onFilter={(value) => console.log('search ', value)}
+                />
+            </View>
+        </View>
+    )
+}
+```
+### User Indicator
+
+export const UserIndicator = () => {
+    return (<View row gap="1rem">
+            <Users onClick={() => console.log('badge clicked!')} users={[
+            { id: 'u1', name: 'John', image: '/men/01.jpg' },
+            { id: 'u2', name: 'Ben', image: '/men/02.jpg' },
+            { id: 'u8', name: 'Peter' },
+        ]}/>
+        </View>);
+};
+
+<div className="story-block">
+<UserIndicator />
+</div>
+
+<CodeComponent filename="UserIndicator.tsx" code="ZXhwb3J0IGNvbnN0IFVzZXJJbmRpY2F0b3IgPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3CiAgICAgICAgICAgIHJvdwogICAgICAgICAgICBnYXA9IjFyZW0iPgogICAgICAgICAgICA8VXNlcnMKICAgICAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IGNvbnNvbGUubG9nKCdiYWRnZSBjbGlja2VkIScpfQogICAgICAgICAgICAgICAgdXNlcnM9e1sKICAgICAgICAgICAgICAgICAgICB7IGlkOiAndTEnLCBuYW1lOiAnSm9obicsIGltYWdlOiAnL21lbi8wMS5qcGcnIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3UyJywgbmFtZTogJ0JlbicsIGltYWdlOiAnL21lbi8wMi5qcGcnIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3U4JywgbmFtZTogJ1BldGVyJyB9LAogICAgICAgICAgICAgICAgXX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+
+```tsx
+export const UserIndicator = () => {
+    return (
+        <View
+            row
+            gap="1rem">
+            <Users
+                onClick={() => console.log('badge clicked!')}
+                users={[
+                    { id: 'u1', name: 'John', image: '/men/01.jpg' },
+                    { id: 'u2', name: 'Ben', image: '/men/02.jpg' },
+                    { id: 'u8', name: 'Peter' },
+                ]}
+            />
+        </View>
+    )
+}
+```
+### Badge Indicator
+
+export const BadgeIndicator = () => {
+    return (<View row gap="1rem">
+            <Badges onClick={() => console.log('badge clicked!')} badges={[
+            { icon: 'check-circle', label: '3 / 5' },
+            { icon: 'warning', label: 'Warning', color: Token.ColorNeonpink400 },
+            { progress: 73, color: Token.ColorTeal400 },
+        ]}/>
+        </View>);
+};
+
+<div className="story-block">
+<BadgeIndicator />
+</div>
+
+<CodeComponent filename="BadgeIndicator.tsx" code="ZXhwb3J0IGNvbnN0IEJhZGdlSW5kaWNhdG9yID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICByb3cKICAgICAgICAgICAgZ2FwPSIxcmVtIj4KICAgICAgICAgICAgPEJhZGdlcwogICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gY29uc29sZS5sb2coJ2JhZGdlIGNsaWNrZWQhJyl9CiAgICAgICAgICAgICAgICBiYWRnZXM9e1sKICAgICAgICAgICAgICAgICAgICB7IGljb246ICdjaGVjay1jaXJjbGUnLCBsYWJlbDogJzMgLyA1JyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWNvbjogJ3dhcm5pbmcnLCBsYWJlbDogJ1dhcm5pbmcnLCBjb2xvcjogVG9rZW4uQ29sb3JOZW9ucGluazQwMCB9LAogICAgICAgICAgICAgICAgICAgIHsgcHJvZ3Jlc3M6IDczLCBjb2xvcjogVG9rZW4uQ29sb3JUZWFsNDAwIH0sCiAgICAgICAgICAgICAgICBdfQogICAgICAgICAgICAvPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const BadgeIndicator = () => {
+    return (
+        <View
+            row
+            gap="1rem">
+            <Badges
+                onClick={() => console.log('badge clicked!')}
+                badges={[
+                    { icon: 'check-circle', label: '3 / 5' },
+                    { icon: 'warning', label: 'Warning', color: Token.ColorNeonpink400 },
+                    { progress: 73, color: Token.ColorTeal400 },
+                ]}
+            />
+        </View>
+    )
+}
+```
+### Label Indicator
+
+export const LabelIndicator = () => {
+    return (<View row gap="1rem">
+            <Labels onClick={() => console.log('badge clicked!')} labels={[
+            { id: 1, icon: 'check-circle', text: 'Task' },
+            { id: 1, icon: 'warning', text: 'Warning', color: Token.ColorNeonpink400 },
+        ]}/>
+        </View>);
+};
+
+<div className="story-block">
+<LabelIndicator />
+</div>
+
+<CodeComponent filename="LabelIndicator.tsx" code="ZXhwb3J0IGNvbnN0IExhYmVsSW5kaWNhdG9yID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICByb3cKICAgICAgICAgICAgZ2FwPSIxcmVtIj4KICAgICAgICAgICAgPExhYmVscwogICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gY29uc29sZS5sb2coJ2JhZGdlIGNsaWNrZWQhJyl9CiAgICAgICAgICAgICAgICBsYWJlbHM9e1sKICAgICAgICAgICAgICAgICAgICB7IGlkOiAxLCBpY29uOiAnY2hlY2stY2lyY2xlJywgdGV4dDogJ1Rhc2snIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogMSwgaWNvbjogJ3dhcm5pbmcnLCB0ZXh0OiAnV2FybmluZycsIGNvbG9yOiBUb2tlbi5Db2xvck5lb25waW5rNDAwIH0sCiAgICAgICAgICAgICAgICBdfQogICAgICAgICAgICAvPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const LabelIndicator = () => {
+    return (
+        <View
+            row
+            gap="1rem">
+            <Labels
+                onClick={() => console.log('badge clicked!')}
+                labels={[
+                    { id: 1, icon: 'check-circle', text: 'Task' },
+                    { id: 1, icon: 'warning', text: 'Warning', color: Token.ColorNeonpink400 },
+                ]}
+            />
+        </View>
+    )
+}
+```
+### Item Detail
+
+export const ItemDetail = () => {
+    const [task, setTask] = useState({});
+    const isVisible = !!task.id;
+    return (<View>
+            <Button onClick={() => setTask(sections[0].tasks[0])}>Open Detail Modal</Button>
+
+            {isVisible && (<Detail colorPalette={data.colorPalette} availableLabels={data.availableLabels} availableUsers={data.availableUsers} item={{ ...task }} onCancel={() => setTask({})} onSave={(task) => console.log('Save', task)} onDelete={(task) => console.log('Delete', task)}/>)}
+        </View>);
+};
+
+<div className="story-block">
+<ItemDetail />
+</div>
+
+<CodeComponent filename="ItemDetail.tsx" code="ZXhwb3J0IGNvbnN0IEl0ZW1EZXRhaWwgPSAoKSA9PiB7CiAgICBjb25zdCBbdGFzaywgc2V0VGFza10gPSB1c2VTdGF0ZTxhbnk+KHt9KQogICAgY29uc3QgaXNWaXNpYmxlID0gISF0YXNrLmlkCgogICAgCgogICAgcmV0dXJuICgKICAgICAgICA8Vmlldz4KICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXsoKSA9PiBzZXRUYXNrKHNlY3Rpb25zWzBdLnRhc2tzWzBdKX0+T3BlbiBEZXRhaWwgTW9kYWw8L0J1dHRvbj4KCiAgICAgICAgICAgIHtpc1Zpc2libGUgJiYgKAogICAgICAgICAgICAgICAgPERldGFpbAogICAgICAgICAgICAgICAgICAgIGNvbG9yUGFsZXR0ZT17ZGF0YS5jb2xvclBhbGV0dGV9CiAgICAgICAgICAgICAgICAgICAgYXZhaWxhYmxlTGFiZWxzPXtkYXRhLmF2YWlsYWJsZUxhYmVsc30KICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVVc2Vycz17ZGF0YS5hdmFpbGFibGVVc2Vyc30KICAgICAgICAgICAgICAgICAgICBpdGVtPXt7IC4uLnRhc2sgfX0KICAgICAgICAgICAgICAgICAgICBvbkNhbmNlbD17KCkgPT4gc2V0VGFzayh7fSl9CiAgICAgICAgICAgICAgICAgICAgb25TYXZlPXsodGFzaykgPT4gY29uc29sZS5sb2coJ1NhdmUnLCB0YXNrKX0KICAgICAgICAgICAgICAgICAgICBvbkRlbGV0ZT17KHRhc2spID0+IGNvbnNvbGUubG9nKCdEZWxldGUnLCB0YXNrKX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICl9CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const ItemDetail = () => {
+    const [task, setTask] = useState<any>({})
+    const isVisible = !!task.id
+
+    
+
+    return (
+        <View>
+            <Button onClick={() => setTask(sections[0].tasks[0])}>Open Detail Modal</Button>
+
+            {isVisible && (
+                <Detail
+                    colorPalette={data.colorPalette}
+                    availableLabels={data.availableLabels}
+                    availableUsers={data.availableUsers}
+                    item={{ ...task }}
+                    onCancel={() => setTask({})}
+                    onSave={(task) => console.log('Save', task)}
+                    onDelete={(task) => console.log('Delete', task)}
+                />
+            )}
+        </View>
+    )
+}
+```
+### Rich Input Field
+
+export const RichInputField = () => {
+    const [options, setOptions] = useState([]);
+    const handleSave = (html) => {
+        if (html.trim() != '') {
+            const { labels, users, title, date } = processHTML(html);
+        }
+    };
+    const handleTrigger = (word) => {
+        switch (word.trim()) {
+            case '@':
+                setOptions([
+                    { id: 'uuid1', name: '@John', type: 'user' },
+                    { id: 'uuid2', name: '@Ben', type: 'user' },
+                    { id: 'uuid3', name: '@Derek', type: 'user' },
+                    { id: 'uuid4', name: '@Craig', type: 'user' },
+                    { id: 'uuid5', name: '@Timothy', type: 'user' },
+                    { id: 'uuid6', name: '@Byron', type: 'user' },
+                    { id: 'uuid7', name: '@Andrew', type: 'user' },
+                    { id: 'uuid8', name: '@Peter', type: 'user' },
+                ]);
+                break;
+            case '#':
+                setOptions([
+                    { id: 'uuid1', name: '#Sales', type: 'label' },
+                    { id: 'uuid2', name: '#Marketing', type: 'label' },
+                    { id: 'uuid3', name: '#DevOps', type: 'label' },
+                    { id: 'uuid4', name: '#Engineering', type: 'label' },
+                    { id: 'uuid5', name: '#Product', type: 'label' },
+                ]);
+                break;
+        }
+    };
+    const handleWord = (word, cb, always = false) => {
+        if (word.includes('date:')) {
+            cb({
+                phrase: word.trim(),
+                type: 'date',
+                value: word.split(':')[1].trim(),
+            });
+        }
+        else {
+            if (always)
+                cb(null);
+        }
+    };
+    return (<View width={400}>
+            <RichInput dontClearOnSubmit autoFocus defaultValue='Research target audience <span class="f-rich-input-entity" contenteditable="false" tabindex="1" data-value="uuid1" data-type="user">@John</span>' placeholder="Task title" triggers={['@']} options={options} onTrigger={handleTrigger} onWord={handleWord} onEnter={handleSave} onCancel={() => null} onBlur={handleSave} onIndent={() => null} onOutdent={() => null} onUp={() => null} onDown={() => null}/>
+        </View>);
+};
+
+<div className="story-block">
+<RichInputField />
+</div>
+
+<CodeComponent filename="RichInputField.tsx" code="ZXhwb3J0IGNvbnN0IFJpY2hJbnB1dEZpZWxkID0gKCkgPT4gewogICAgY29uc3QgW29wdGlvbnMsIHNldE9wdGlvbnNdID0gdXNlU3RhdGU8YW55PihbXSkKCiAgICBjb25zdCBoYW5kbGVTYXZlID0gKGh0bWwpID0+IHsKICAgICAgICBpZiAoaHRtbC50cmltKCkgIT0gJycpIHsKICAgICAgICAgICAgY29uc3QgeyBsYWJlbHMsIHVzZXJzLCB0aXRsZSwgZGF0ZSB9ID0gcHJvY2Vzc0hUTUwoaHRtbCkKICAgICAgICB9CiAgICB9CgogICAgY29uc3QgaGFuZGxlVHJpZ2dlciA9ICh3b3JkKSA9PiB7CiAgICAgICAgc3dpdGNoICh3b3JkLnRyaW0oKSkgewogICAgICAgICAgICBjYXNlICdAJzoKICAgICAgICAgICAgICAgIHNldE9wdGlvbnMoWwogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkMScsIG5hbWU6ICdASm9obicsIHR5cGU6ICd1c2VyJyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkMicsIG5hbWU6ICdAQmVuJywgdHlwZTogJ3VzZXInIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQzJywgbmFtZTogJ0BEZXJlaycsIHR5cGU6ICd1c2VyJyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkNCcsIG5hbWU6ICdAQ3JhaWcnLCB0eXBlOiAndXNlcicgfSwKICAgICAgICAgICAgICAgICAgICB7IGlkOiAndXVpZDUnLCBuYW1lOiAnQFRpbW90aHknLCB0eXBlOiAndXNlcicgfSwKICAgICAgICAgICAgICAgICAgICB7IGlkOiAndXVpZDYnLCBuYW1lOiAnQEJ5cm9uJywgdHlwZTogJ3VzZXInIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQ3JywgbmFtZTogJ0BBbmRyZXcnLCB0eXBlOiAndXNlcicgfSwKICAgICAgICAgICAgICAgICAgICB7IGlkOiAndXVpZDgnLCBuYW1lOiAnQFBldGVyJywgdHlwZTogJ3VzZXInIH0sCiAgICAgICAgICAgICAgICBdKQogICAgICAgICAgICAgICAgYnJlYWsKICAgICAgICAgICAgY2FzZSAnIyc6CiAgICAgICAgICAgICAgICBzZXRPcHRpb25zKFsKICAgICAgICAgICAgICAgICAgICB7IGlkOiAndXVpZDEnLCBuYW1lOiAnI1NhbGVzJywgdHlwZTogJ2xhYmVsJyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkMicsIG5hbWU6ICcjTWFya2V0aW5nJywgdHlwZTogJ2xhYmVsJyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkMycsIG5hbWU6ICcjRGV2T3BzJywgdHlwZTogJ2xhYmVsJyB9LAogICAgICAgICAgICAgICAgICAgIHsgaWQ6ICd1dWlkNCcsIG5hbWU6ICcjRW5naW5lZXJpbmcnLCB0eXBlOiAnbGFiZWwnIH0sCiAgICAgICAgICAgICAgICAgICAgeyBpZDogJ3V1aWQ1JywgbmFtZTogJyNQcm9kdWN0JywgdHlwZTogJ2xhYmVsJyB9LAogICAgICAgICAgICAgICAgXSkKICAgICAgICAgICAgICAgIGJyZWFrCiAgICAgICAgfQogICAgfQoKICAgIGNvbnN0IGhhbmRsZVdvcmQgPSAod29yZCwgY2IsIGFsd2F5cyA9IGZhbHNlKSA9PiB7CiAgICAgICAgaWYgKHdvcmQuaW5jbHVkZXMoJ2RhdGU6JykpIHsKICAgICAgICAgICAgY2IoewogICAgICAgICAgICAgICAgcGhyYXNlOiB3b3JkLnRyaW0oKSwKICAgICAgICAgICAgICAgIHR5cGU6ICdkYXRlJywKICAgICAgICAgICAgICAgIHZhbHVlOiB3b3JkLnNwbGl0KCc6JylbMV0udHJpbSgpLAogICAgICAgICAgICB9KQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIGlmIChhbHdheXMpIGNiKG51bGwpCiAgICAgICAgfQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXcgd2lkdGg9ezQwMH0+CiAgICAgICAgICAgIDxSaWNoSW5wdXQKICAgICAgICAgICAgICAgIGRvbnRDbGVhck9uU3VibWl0CiAgICAgICAgICAgICAgICBhdXRvRm9jdXMKICAgICAgICAgICAgICAgIGRlZmF1bHRWYWx1ZT0nUmVzZWFyY2ggdGFyZ2V0IGF1ZGllbmNlIDxzcGFuIGNsYXNzPSJmLXJpY2gtaW5wdXQtZW50aXR5IiBjb250ZW50ZWRpdGFibGU9ImZhbHNlIiB0YWJpbmRleD0iMSIgZGF0YS12YWx1ZT0idXVpZDEiIGRhdGEtdHlwZT0idXNlciI+QEpvaG48L3NwYW4+JwogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlRhc2sgdGl0bGUiCiAgICAgICAgICAgICAgICB0cmlnZ2Vycz17WydAJ119CiAgICAgICAgICAgICAgICBvcHRpb25zPXtvcHRpb25zfQogICAgICAgICAgICAgICAgb25UcmlnZ2VyPXtoYW5kbGVUcmlnZ2VyfQogICAgICAgICAgICAgICAgb25Xb3JkPXtoYW5kbGVXb3JkfQogICAgICAgICAgICAgICAgb25FbnRlcj17aGFuZGxlU2F2ZX0KICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXsoKSA9PiBudWxsfQogICAgICAgICAgICAgICAgb25CbHVyPXtoYW5kbGVTYXZlfQogICAgICAgICAgICAgICAgb25JbmRlbnQ9eygpID0+IG51bGx9CiAgICAgICAgICAgICAgICBvbk91dGRlbnQ9eygpID0+IG51bGx9CiAgICAgICAgICAgICAgICBvblVwPXsoKSA9PiBudWxsfQogICAgICAgICAgICAgICAgb25Eb3duPXsoKSA9PiBudWxsfQogICAgICAgICAgICAvPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+
+```tsx
+export const RichInputField = () => {
+    const [options, setOptions] = useState<any>([])
+
+    const handleSave = (html) => {
+        if (html.trim() != '') {
+            const { labels, users, title, date } = processHTML(html)
+        }
+    }
+
+    const handleTrigger = (word) => {
+        switch (word.trim()) {
+            case '@':
+                setOptions([
+                    { id: 'uuid1', name: '@John', type: 'user' },
+                    { id: 'uuid2', name: '@Ben', type: 'user' },
+                    { id: 'uuid3', name: '@Derek', type: 'user' },
+                    { id: 'uuid4', name: '@Craig', type: 'user' },
+                    { id: 'uuid5', name: '@Timothy', type: 'user' },
+                    { id: 'uuid6', name: '@Byron', type: 'user' },
+                    { id: 'uuid7', name: '@Andrew', type: 'user' },
+                    { id: 'uuid8', name: '@Peter', type: 'user' },
+                ])
+                break
+            case '#':
+                setOptions([
+                    { id: 'uuid1', name: '#Sales', type: 'label' },
+                    { id: 'uuid2', name: '#Marketing', type: 'label' },
+                    { id: 'uuid3', name: '#DevOps', type: 'label' },
+                    { id: 'uuid4', name: '#Engineering', type: 'label' },
+                    { id: 'uuid5', name: '#Product', type: 'label' },
+                ])
+                break
+        }
+    }
+
+    const handleWord = (word, cb, always = false) => {
+        if (word.includes('date:')) {
+            cb({
+                phrase: word.trim(),
+                type: 'date',
+                value: word.split(':')[1].trim(),
+            })
+        } else {
+            if (always) cb(null)
+        }
+    }
+
+    return (
+        <View width={400}>
+            <RichInput
+                dontClearOnSubmit
+                autoFocus
+                defaultValue='Research target audience <span class="f-rich-input-entity" contenteditable="false" tabindex="1" data-value="uuid1" data-type="user">@John</span>'
+                placeholder="Task title"
+                triggers={['@']}
+                options={options}
+                onTrigger={handleTrigger}
+                onWord={handleWord}
+                onEnter={handleSave}
+                onCancel={() => null}
+                onBlur={handleSave}
+                onIndent={() => null}
+                onOutdent={() => null}
+                onUp={() => null}
+                onDown={() => null}
+            />
+        </View>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

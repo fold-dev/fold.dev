@@ -13,7 +13,7 @@ import {
     Text,
     View,
 } from '@fold-dev/core'
-import { CodeComponent } from '../components/code.component'
+import { CodeComponent } from '../../components/code.component'
 import React from 'react'
 
 export default function Theming(props) {

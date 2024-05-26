@@ -1,38 +1,28 @@
 import DocsLayout from '@/layouts/docs.layout'
 import {
-    Text,
-    Progress,
-    Heading,
-    View,
-    Card,
-    Icon,
-    Link,
-    Grid,
-    IconLib,
-    Notification,
-    NotificationIcon,
-    NotificationContent,
     Breadcrumb,
     BreadcrumbItem,
+    Card,
+    Grid,
+    Heading,
+    Icon,
+    Link,
+    Notification,
+    NotificationContent,
+    NotificationIcon,
+    Text,
+    View,
+    addAlpha
 } from '@fold-dev/core'
-import {
-    CubeIcon,
-    FingerPrintIcon,
-    FireIcon,
-    LifebuoyIcon,
-    PaintBrushIcon,
-    QuestionMarkCircleIcon,
-    RectangleGroupIcon,
-    SwatchIcon,
-} from '@heroicons/react/24/outline'
+import * as Token from '@fold-dev/design/tokens'
 import { useRouter } from 'next/router'
 import React from 'react'
 import {
-    PiFingerprintSimpleDuotone,
-    PiFlagDuotone,
-    PiLightbulbDuotone,
-    PiMarkerCircleDuotone,
-    PiPlanetDuotone,
+    PiFingerprintSimple,
+    PiFlag,
+    PiLightbulb,
+    PiMarkerCircle,
+    PiPlanet
 } from 'react-icons/pi'
 
 export default function Introduction(props) {
@@ -50,7 +40,7 @@ export default function Introduction(props) {
             <Heading fontWeight="bold">Introduction</Heading>
             <Notification variant="highlight">
                 <NotificationIcon>
-                    <Icon icon={PiLightbulbDuotone} />
+                    <Icon icon={PiLightbulb} />
                 </NotificationIcon>
                 <NotificationContent>
                     <Text>
@@ -96,29 +86,29 @@ export default function Introduction(props) {
                     {
                         title: 'Getting Started',
                         description: 'Quick guide on getting up and running with Fold.',
-                        color: 'purple-400',
-                        icon: PiFlagDuotone,
+                        color: Token.ColorPurple400,
+                        icon: PiFlag,
                         slug: 'getting-started',
                     },
                     {
                         title: 'Design System',
                         description: 'Overview of the Design System architecture of Fold.',
-                        color: 'neonpink-400',
-                        icon: PiPlanetDuotone,
+                        color: Token.ColorNeonpink400,
+                        icon: PiPlanet,
                         slug: 'design-system',
                     },
                     {
                         title: 'Theming',
                         description: 'Customize the current themes, or build your own.',
-                        color: 'orange-400',
-                        icon: PiMarkerCircleDuotone,
+                        color: Token.ColorOrange400,
+                        icon: PiMarkerCircle,
                         slug: 'theming',
                     },
                     {
                         title: 'Tokens',
                         description: 'Reference of the Design Tokens used throughout Fold.',
-                        color: 'blue-400',
-                        icon: PiFingerprintSimpleDuotone,
+                        color: Token.ColorBlue300,
+                        icon: PiFingerprintSimple,
                         slug: 'tokens',
                     },
                 ].map((section, index) => (
@@ -132,13 +122,21 @@ export default function Introduction(props) {
                         gap={5}
                         className="f-buttonize-outline"
                         onClick={() => router.push('/docs/' + section.slug)}>
-                        <Icon
-                            icon={section.icon}
-                            style={{ '--f-icon-sizing-md': '50px' }}
-                        />
+                        <View
+                            row
+                            width={50}
+                            height={50}
+                            radius={50}
+                            bg={addAlpha(section.color, 0.1)}>
+                            <Icon
+                                color={section.color}
+                                icon={section.icon}
+                                size="xl"
+                                //style={{ '--f-icon-sizing-md': '50px' }}
+                            />
+                        </View>
                         <Heading
                             as="h3"
-                            fontWeight={600}
                             colorToken={section.color}>
                             {section.title}
                         </Heading>
