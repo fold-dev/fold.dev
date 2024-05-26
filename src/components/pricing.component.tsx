@@ -415,7 +415,7 @@ export const PricingComponent = () => {
                                     <IconLib icon="check" color="var(--f-color-accent)" /> 2 years of updates&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
-                            <Tooltip text="Subject to Early Access only, renews at regular 1 year duration.">
+                            <Tooltip text="Subject to Early Access only, renews at regular 1 year duration." contentProps={{ style: { width: 200, whiteSpace: 'break-spaces', textAlign: 'center' }}}>
                                 <Li
                                     row
                                     width="fit-content">
