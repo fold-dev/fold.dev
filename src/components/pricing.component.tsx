@@ -366,11 +366,11 @@ export const PricingComponent = () => {
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start"
-                        bgToken="base-200">
+                        bgToken="surface-strongest">
                         <Heading as="h2">
                             Early Access
                         </Heading>
-                        <Text colorToken="base-600" size="lg">
+                        <Text size="lg">
                             Fold Pro provides developers and teams the tools they need to scale their projects to the next level. Take advantage of Fold Pro Early Access to get started today.
                         </Text>
                         {/* 
@@ -447,8 +447,8 @@ export const PricingComponent = () => {
                                 </Li>
                             </Tooltip>
                         </List>
-                        <Divider style={{ '--f-divider-color': 'var(--f-color-border-strong)' }} />
-                        <Text colorToken="base-600" textAlign="center">
+                        <Divider style={{ '--f-divider-color': 'var(--f-color-text-weakest)' }} />
+                        <Text colorToken="text-weak" textAlign="center">
                             <Link href="licensing@fold.dev" target="_blank">Contact us</Link> for distributable OEM license options.
                         </Text>
 
