@@ -585,8 +585,6 @@ export const Kanban1 = () => {
                     onSwimlaneMove={handleSwimlaneMove}
                     onColumnUpdate={handleColumnUpdate}
                     onSwimlaneUpdate={handleSwimlaneUpdate}
-                    editableColumnName={true}
-                    showColumnCount={true}
                     hideCheckbox={false}
                     collapsibleColumn={true}
                     targetVariant={{ cards: 'animated', nav: 'focus' }}
