@@ -41,7 +41,7 @@ export const FAQAccordion = (props) => (
                 What is Early Access?
             </AccordionHeading>
             <AccordionPanel>
-                Fold Pro Early Access is the very first release of Fold Pro, offering developers early access to Fold Pro's premium UI components.
+                Early Access is the first release of Fold Pro, offering developers early access to Fold Pro's premium UI components.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -49,7 +49,7 @@ export const FAQAccordion = (props) => (
                 Is it production ready?
             </AccordionHeading>
             <AccordionPanel>
-                Consider Early Access to be alpha/pre-release software & still relatively unstable. However, every effort is being made to fix bugs & other issues.
+                Consider Early Access as alpha or pre-release software, which is still unstable. The team is diligently working to fix bugs and resolve other issues.
                 If you have a Fold Pro Early Access license & want to report a bug, please post it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> or 
                 on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
@@ -67,8 +67,8 @@ export const FAQAccordion = (props) => (
                 How long will Early Access last?
             </AccordionHeading>
             <AccordionPanel>
-                Until it is stable & mobile (touch) support has landed. 
-                You can view progress via the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
+                Until it becomes stable and all planned roadmap items are completed.
+                You can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -76,8 +76,7 @@ export const FAQAccordion = (props) => (
                 What comes after Early Access?
             </AccordionHeading>
             <AccordionPanel>
-                After Early Access a public beta will be launched, which will bring a price change.
-                If you have purchased a Fold Pro Early Access license, you will automatically get access without having to pay extra. 
+                After Early Access, a public beta will be launched, accompanied by a price change. 
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -85,8 +84,7 @@ export const FAQAccordion = (props) => (
                 Will the beta affect the Early Access license?
             </AccordionHeading>
             <AccordionPanel>
-                If you've purchased a Fold Pro Early Access license, you won't be affected by the new license terms or price increase.
-                And if you choose to renew your license after the initial 2 year period, you will be charged for the Early Access pricing and not the new pricing.
+                If you have purchased a Fold Pro Early Access license, you will automatically get access to the public beta at no additional cost, you won't be affected by the new license terms or price increase. When you renew your license after the initial two-year period, you'll be charged the Early Access pricing, not the new pricing.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -107,11 +105,10 @@ export const FAQAccordion = (props) => (
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>
-                Does Early Access include the planned roadmap?
+                Where can I view the public roadmap?
             </AccordionHeading>
             <AccordionPanel>
-                The roadmap includes planned features, enhancements, and new components.
-                If you purchase any Fold Pro licence, you will automatically get access to the <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">roadmap items</Link> as they become available.
+                You can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -365,7 +362,7 @@ export const PricingComponent = () => {
                             Early Access
                         </Heading>
                         <Text size="lg">
-                            Fold Pro provides developers and teams the tools they need to scale their projects to the next level. Take advantage of Fold Pro Early Access to get started today.
+                            Fold Pro provide developers and teams the tools they need to scale their projects to the next level. 
                         </Text>
                         {/* 
                         <View
@@ -387,7 +384,7 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> All Pro components
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Fold Pro components
                             </Li>
                             <Li
                                 row
@@ -402,6 +399,11 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Prioritized support
+                            </Li>
+                            <Li
+                                row
+                                width="fit-content">
                                 <IconLib icon="check" color="var(--f-color-accent)" /> NPM access
                             </Li>
                             <Li
@@ -412,13 +414,20 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Non commercial/internal use only
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Non commercial/internal use
                             </Li>
                             <Li
                                 row
                                 width="fit-content">
                                 <IconLib icon="check" color="var(--f-color-accent)" /> Single active project
                             </Li>
+                            <Tooltip text="As they become available.">
+                                <Li
+                                    row
+                                    width="fit-content">
+                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Access to planned roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                </Li>
+                            </Tooltip>
                             <Tooltip text="Renews at regular 1 year duration.">
                                 <Li
                                     row

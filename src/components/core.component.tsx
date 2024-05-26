@@ -1422,8 +1422,7 @@ export const CoreComponent = () => {
                             Scale ideas, not effort. Introducing Fold Pro, premium UI components to power your next idea, no matter how big.
                         </Text>
                         <Link
-                            href="/pro"
-                            target="_blank"
+                            href="#pro"
                             color="var(--f-color-accent-50)"
                             className="f-underline"
                             textDecoration="none">
