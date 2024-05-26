@@ -538,7 +538,6 @@ export default function DocsLayout(props: any) {
                                             <NavigationItem
                                                 active={url == component.slug}
                                                 key={index}
-                                                style={{ textTransform: 'capitalize' }}
                                                 onClick={() =>
                                                     router.push('/docs/pro/' + component.slug, {
                                                         scroll: false,
@@ -557,7 +556,7 @@ export default function DocsLayout(props: any) {
                                                         )}
                                                     </View>
                                                 }>
-                                                {component.slug.replace('-', ' ')}
+                                                {component.title}
                                             </NavigationItem>
                                         ))}
                                         <NavigationDivider />
