@@ -360,7 +360,7 @@ export const PricingComponent = () => {
                     <Card
                         column
                         flex={1}
-                        height={450}
+                        height={535}
                         p="2rem"
                         gap="1rem"
                         alignItems="flex-start"
@@ -371,7 +371,7 @@ export const PricingComponent = () => {
                             Early Access
                         </Heading>
                         <Text colorToken="base-600" size="lg">
-                            Fold Pro gives you tools you need to scale their project to the next nevel with Fold Pro Early Access.
+                            Fold Pro provides developers and teams the tools they need to scale their projects to the next level. Take advantage of Fold Pro Early Access to get started today.
                         </Text>
                         {/* 
                         <View
@@ -429,7 +429,14 @@ export const PricingComponent = () => {
                                 <Li
                                     row
                                     width="fit-content">
-                                    <IconLib icon="check" color="var(--f-color-accent)" /> 2 years of updates&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> 2 years of updates&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                </Li>
+                            </Tooltip>
+                            <Tooltip text="Subject to finalizing.">
+                                <Li
+                                    row
+                                    width="fit-content">
+                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> 50% discount off planned pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
                             <Tooltip text="Subject to Early Access only, renews at regular 1 year duration." contentProps={{ style: { width: 200, whiteSpace: 'break-spaces', textAlign: 'center' }}}>
@@ -450,7 +457,7 @@ export const PricingComponent = () => {
                     <Card
                         width={325}
                         column
-                        height={450}
+                        height={535}
                         p="2rem"
                         gap="1rem"
                         alignItems="flex-start"
@@ -499,7 +506,7 @@ export const PricingComponent = () => {
                     <Card
                         width={325}
                         column
-                        height={450}
+                        height={535}
                         p="2rem"
                         gap="1rem"
                         alignItems="flex-start"
