@@ -134,8 +134,7 @@ export default function Releases(props) {
                     <Tr>
                         <Th>Version</Th>
                         <Th>Release Date</Th>
-                        <Th></Th>
-                        {/* <Th></Th> */}
+                        <Th align="right"></Th>
                     </Tr>
                 </THead>
                 <TBody>
@@ -162,19 +161,13 @@ export default function Releases(props) {
                                     day: 'numeric',
                                 })}
                             </Td>
-                            <Td>
+                            <Td align="right">
                                 <Link
                                     target="_blank"
                                     href={html_url}>
-                                    GitHub ↗
+                                    View release on GitHub ↗
                                 </Link>
                             </Td>
-                          {/*   <Td align="right">
-                                <Link
-                                    href={"/docs/release/" + id}>
-                                    View Release
-                                </Link>
-                            </Td> */}
                         </Tr>
                     ))}
                 </TBody>
