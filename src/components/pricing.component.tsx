@@ -476,9 +476,11 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
-                        <Text size="sm" colorToken="text-weakest">
-                            Subject to change *
-                        </Text>
+                        <Tooltip text="Pricing reflects Early Access pricing.">
+                            <Text size="sm" colorToken="text-weakest">
+                                Subject to change *
+                            </Text>
+                        </Tooltip>
                         <Flexer />
                         <Button
                             onClick={() => {
@@ -522,9 +524,11 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
-                        <Text size="sm" colorToken="text-weakest">
-                            Subject to change *
-                        </Text>
+                        <Tooltip text="Pricing reflects Early Access pricing.">
+                            <Text size="sm" colorToken="text-weakest">
+                                Subject to change *
+                            </Text>
+                        </Tooltip>
                         <View
                             row
                             gap="1rem"
