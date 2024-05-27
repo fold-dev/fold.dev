@@ -7,13 +7,15 @@ type Data = {
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+    const { repo } = req.query
+
     const octokit = new Octokit({
         auth: process.env.GH_TOKEN,
     })
 
     const results = await octokit.request('GET /repos/{owner}/{repo}/releases', {
         owner: 'fold-dev',
-        repo: 'fold',
+        repo: String(repo),
         headers: {
             'X-GitHub-Api-Version': '2022-11-28',
         },

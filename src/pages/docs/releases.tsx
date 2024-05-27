@@ -46,7 +46,7 @@ export default function Releases(props) {
         setError(false)
 
         try {
-            const response = await fetch('/api/pro-releases')
+            const response = await fetch('/api/releases?repo=pro')
             const { results: { data } } = await response.json()
 
             setReleases(data)
@@ -62,7 +62,7 @@ export default function Releases(props) {
         setError(false)
 
         try {
-            const response = await fetch('/api/core-releases')
+            const response = await fetch('/api/releases?repo=fold')
             const { results: { data } } = await response.json()
 
             setReleases(data)
