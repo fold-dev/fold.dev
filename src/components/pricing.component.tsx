@@ -358,11 +358,8 @@ export const PricingComponent = () => {
                         alignContent="flex-start"
                         justifyContent="flex-start"
                         bgToken="surface">
-                        <Heading as="h2">
-                            Early Access
-                        </Heading>
                         <Text size="lg">
-                            Fold Pro provide developers and teams the tools they need to scale their projects to the next level. 
+                            Fold Pro offers developers and teams the tools they need to scale their ideas to the next level.
                         </Text>
                         {/* 
                         <View
@@ -411,6 +408,16 @@ export const PricingComponent = () => {
                                 width="fit-content">
                                 <IconLib icon="check" color="var(--f-color-accent)" /> Source code
                             </Li>
+                            <Li
+                                row
+                                width="fit-content">
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Non commercial/internal use
+                            </Li>
+                            <Li
+                                row
+                                width="fit-content">
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Single active project
+                            </Li>
                             <Tooltip text="Renews at regular 1 year duration.">
                                 <Li
                                     row
@@ -432,19 +439,9 @@ export const PricingComponent = () => {
                                     <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Renews at Early Access pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="arrow-right" color="var(--f-color-accent)" /> Non commercial/internal use only
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="arrow-right" color="var(--f-color-accent)" /> Single active project per license
-                            </Li>
                         </List>
                         <Divider style={{ '--f-divider-color': 'var(--f-color-text-weakest)' }} />
-                        <Text colorToken="text-weak" textAlign="center">
+                        <Text colorToken="text-weak">
                             <Link href="licensing@fold.dev" target="_blank">Contact us</Link> for distributable OEM license options.
                         </Text>
 
@@ -479,6 +476,11 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
+                        <Tooltip text="Pricing reflects Early Access pricing.">
+                            <Text size="sm" colorToken="text-weakest">
+                                Subject to change *
+                            </Text>
+                        </Tooltip>
                         <Flexer />
                         <Button
                             onClick={() => {
@@ -522,6 +524,11 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
+                        <Tooltip text="Pricing reflects Early Access pricing.">
+                            <Text size="sm" colorToken="text-weakest">
+                                Subject to change *
+                            </Text>
+                        </Tooltip>
                         <View
                             row
                             gap="1rem"
