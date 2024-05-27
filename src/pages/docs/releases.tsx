@@ -5,7 +5,13 @@ import {
     Divider,
     Heading,
     Icon,
+    If,
     Link,
+    Notification,
+    NotificationContent,
+    Option,
+    Options,
+    Progress,
     Stack,
     TBody,
     THead,
@@ -18,8 +24,8 @@ import {
 } from '@fold-dev/core'
 import { NextPageContext } from 'next'
 import { Octokit } from 'octokit'
-import React from 'react'
-import { PiTagDuotone } from 'react-icons/pi'
+import React, { useEffect, useState } from 'react'
+import { PiTag, PiTagDuotone } from 'react-icons/pi'
 import { remark } from 'remark'
 import html from 'remark-html'
 
@@ -30,6 +36,50 @@ async function markdownToHtml(markdown: string) {
 
 export default function Releases(props) {
     const { data, content } = props
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
+    const [releases, setReleases] = useState([])
+    const [option, setOption] = useState(0)
+
+    const getProReleases = async () => {
+        setLoading(true)
+        setError(false)
+
+        try {
+            const response = await fetch('/api/releases?repo=pro')
+            const { results: { data } } = await response.json()
+
+            setReleases(data)
+            setLoading(false)
+        } catch (e) {
+            setLoading(false)
+            setError(true)
+        }
+    }
+
+    const getCoreReleases = async () => {
+        setLoading(true)
+        setError(false)
+
+        try {
+            const response = await fetch('/api/releases?repo=fold')
+            const { results: { data } } = await response.json()
+
+            setReleases(data)
+            setLoading(false)
+        } catch (e) {
+            setLoading(false)
+            setError(true)
+        }
+    }
+
+    useEffect(() => {
+        if (option == 0) {
+            getCoreReleases()
+        } else {
+            getProReleases()
+        }
+    }, [option])
 
     return (
         <View
@@ -42,33 +92,61 @@ export default function Releases(props) {
             <Heading fontWeight="bold">Releases</Heading>
             <Heading as="h2">Below is a list of all Fold releases.</Heading>
             <Divider />
-            <br />
-            {!data.length && <Text as="blockquote">There are no releases yet.</Text>}
+
+            <If if={error}>
+                <Notification
+                    variant="danger"
+                    leftAccent>
+                    <NotificationContent>
+                        <Text fontWeight="bold">Whoops, something has gone wrong.</Text>
+                    </NotificationContent>
+                </Notification>
+            </If>
+
+            <If if={loading}>
+                <Progress
+                    variant="accent"
+                    value={50}
+                    thickness={3}
+                    indeterminate
+                    bgToken="transparent"
+                    position="absolute"
+                    width="100%"
+                    zIndex={1000}
+                    style={{
+                        inset: 0,
+                    }}
+                />
+            </If>
+
+            <Options
+                m="1rem 0"
+                selected={option}
+                onOptionChange={setOption}>
+                <Option>Core</Option>
+                <Option>Pro</Option>
+            </Options>
 
             {/* https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#list-releases-for-a-repository */}
 
             <Table>
                 <THead>
                     <Tr>
-                        <Th>Version</Th>
-                        <Th>Tag</Th>
-                        <Th>Release Date</Th>
-                        <Th align="right">Link</Th>
+                        <Th width="30%">Version</Th>
+                        <Th width="30%">Release Date</Th>
+                        <Th width="40%" align="right"></Th>
                     </Tr>
                 </THead>
                 <TBody>
-                    {data.map(({ html_url, name, tag_name, published_at }, index) => (
-                        <Tr>
-                            <Td>
-                                <Text fontWeight="bold">{name}</Text>
-                            </Td>
+                    {releases.map(({ html_url, name, id, tag_name, published_at }, index) => (
+                        <Tr key={index}>
                             <Td>
                                 <View
                                     row
                                     gap={5}
                                     justifyContent="flex-start">
                                     <Icon
-                                        icon={PiTagDuotone}
+                                        icon={PiTag}
                                         size="sm"
                                         color="var(--f-color-accent)"
                                     />
@@ -76,43 +154,28 @@ export default function Releases(props) {
                                 </View>
                             </Td>
                             <Td>
-                                {new Date(published_at).toLocaleDateString()}
+                                {new Date(published_at).toLocaleDateString('en-US', {
+                                    weekday: 'short',
+                                    year: 'numeric',
+                                    month: 'short',
+                                    day: 'numeric',
+                                })}
                             </Td>
                             <Td align="right">
                                 <Link
                                     target="_blank"
                                     href={html_url}>
-                                    View release on GitHub
+                                    View release on GitHub ↗
                                 </Link>
                             </Td>
                         </Tr>
                     ))}
                 </TBody>
             </Table>
+
+            {!releases.length && <Text as="blockquote">There are no releases here (yet).</Text>}
         </View>
     )
-}
-
-Releases.getInitialProps = async (ctx: NextPageContext) => {
-    try {
-        const octokit = new Octokit({
-            auth: process.env.GH_TOKEN,
-        })
-
-        const result = await octokit.request('GET /repos/fold-dev/fold/releases', {
-            owner: 'OWNER',
-            repo: 'REPO',
-            headers: {
-                'X-GitHub-Api-Version': '2022-11-28',
-            },
-        })
-
-        //const content = await markdownToHtml(result.data.body)
-
-        return { data: result.data }
-    } catch (e) {
-        return { data: [] }
-    }
 }
 
 Releases.getLayout = function getLayout(page: React.ReactElement) {
