@@ -249,7 +249,7 @@ export const PricingComponent = () => {
     return (
         <>
             <Modal
-                //noDocumentScrolling
+                noDocumentScrolling
                 portal={Portal}
                 width={600}
                 height="fit-content"
@@ -479,12 +479,6 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
-                        <Heading
-                            as="h4"
-                            colorToken="text-weakest"
-                            textDecoration="line-through">
-                            {formatCurrency(pricingFull(1))} USD
-                        </Heading>
                         <Flexer />
                         <Button
                             onClick={() => {
@@ -528,12 +522,6 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
-                        <Heading
-                            as="h4"
-                            colorToken="text-weakest"
-                            textDecoration="line-through">
-                            {formatCurrency(pricingFull(seats))} USD
-                        </Heading>
                         <View
                             row
                             gap="1rem"
