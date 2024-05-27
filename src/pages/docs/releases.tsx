@@ -18,7 +18,7 @@ import {
 } from '@fold-dev/core'
 import { NextPageContext } from 'next'
 import { Octokit } from 'octokit'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { PiTagDuotone } from 'react-icons/pi'
 import { remark } from 'remark'
 import html from 'remark-html'
@@ -30,6 +30,46 @@ async function markdownToHtml(markdown: string) {
 
 export default function Releases(props) {
     const { data, content } = props
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
+    const [releases, setReleases] = useState([])
+
+    const getProReleases = async () => {
+        setLoading(true)
+        setError(false)
+
+        try {
+            const response = await fetch('/api/pro-releases')
+            const { results } = await response.json()
+
+            setReleases(results)
+            setLoading(false)
+        } catch (e) {
+            setLoading(false)
+            setError(true)
+        }
+    }
+
+    const getCoreReleases = async () => {
+        setLoading(true)
+        setError(false)
+
+        try {
+            const response = await fetch('/api/core-releases')
+            const { results } = await response.json()
+
+            setReleases(results)
+            setLoading(false)
+        } catch (e) {
+            setLoading(false)
+            setError(true)
+        }
+    }
+
+    useEffect(() => {
+        //getCoreReleases()
+        //getProReleases()
+    }, [])
 
     return (
         <View
@@ -58,7 +98,7 @@ export default function Releases(props) {
                 </THead>
                 <TBody>
                     {data.map(({ html_url, name, tag_name, published_at }, index) => (
-                        <Tr>
+                        <Tr key={index}>
                             <Td>
                                 <Text fontWeight="bold">{name}</Text>
                             </Td>
@@ -95,21 +135,9 @@ export default function Releases(props) {
 
 Releases.getInitialProps = async (ctx: NextPageContext) => {
     try {
-        const octokit = new Octokit({
-            auth: process.env.GH_TOKEN,
-        })
 
-        const result = await octokit.request('GET /repos/fold-dev/fold/releases', {
-            owner: 'OWNER',
-            repo: 'REPO',
-            headers: {
-                'X-GitHub-Api-Version': '2022-11-28',
-            },
-        })
-
-        //const content = await markdownToHtml(result.data.body)
-
-        return { data: result.data }
+        //return { data: result.data }
+        return { data: [] }
     } catch (e) {
         return { data: [] }
     }
