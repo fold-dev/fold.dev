@@ -411,28 +411,18 @@ export const PricingComponent = () => {
                                 width="fit-content">
                                 <IconLib icon="check" color="var(--f-color-accent)" /> Source code
                             </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Non commercial/internal use
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Single active project
-                            </Li>
-                            <Tooltip text="As they become available.">
-                                <Li
-                                    row
-                                    width="fit-content">
-                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Access to planned roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
-                                </Li>
-                            </Tooltip>
                             <Tooltip text="Renews at regular 1 year duration.">
                                 <Li
                                     row
                                     width="fit-content">
                                     <Icon icon={PiSparkle} color="var(--f-color-accent)" /> 2 years of updates&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                </Li>
+                            </Tooltip>
+                            <Tooltip text="As they become available.">
+                                <Li
+                                    row
+                                    width="fit-content">
+                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Access to planned roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
                             <Tooltip text="Subject to Early Access only, renews at regular 1 year duration." contentProps={{ style: { width: 200, whiteSpace: 'break-spaces', textAlign: 'center' }}}>
@@ -442,6 +432,16 @@ export const PricingComponent = () => {
                                     <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Renews at Early Access pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
+                            <Li
+                                row
+                                width="fit-content">
+                                <IconLib icon="arrow-right" color="var(--f-color-accent)" /> Non commercial/internal use only
+                            </Li>
+                            <Li
+                                row
+                                width="fit-content">
+                                <IconLib icon="arrow-right" color="var(--f-color-accent)" /> Single active project per license
+                            </Li>
                         </List>
                         <Divider style={{ '--f-divider-color': 'var(--f-color-text-weakest)' }} />
                         <Text colorToken="text-weak" textAlign="center">
