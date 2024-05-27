@@ -132,13 +132,14 @@ export default function Releases(props) {
             <Table>
                 <THead>
                     <Tr>
-                        <Th width="40%">Version</Th>
+                        <Th>Version</Th>
                         <Th>Release Date</Th>
-                        <Th align="right">Link</Th>
+                        <Th></Th>
+                        {/* <Th></Th> */}
                     </Tr>
                 </THead>
                 <TBody>
-                    {releases.map(({ html_url, name, tag_name, published_at }, index) => (
+                    {releases.map(({ html_url, name, id, tag_name, published_at }, index) => (
                         <Tr key={index}>
                             <Td>
                                 <View
@@ -161,13 +162,19 @@ export default function Releases(props) {
                                     day: 'numeric',
                                 })}
                             </Td>
-                            <Td align="right">
+                            <Td>
                                 <Link
                                     target="_blank"
                                     href={html_url}>
-                                    View release on GitHub
+                                    GitHub ↗
                                 </Link>
                             </Td>
+                          {/*   <Td align="right">
+                                <Link
+                                    href={"/docs/release/" + id}>
+                                    View Release
+                                </Link>
+                            </Td> */}
                         </Tr>
                     ))}
                 </TBody>
@@ -176,16 +183,6 @@ export default function Releases(props) {
             {!releases.length && <Text as="blockquote">There are no releases here (yet).</Text>}
         </View>
     )
-}
-
-Releases.getInitialProps = async (ctx: NextPageContext) => {
-    try {
-
-        //return { data: result.data }
-        return { data: [] }
-    } catch (e) {
-        return { data: [] }
-    }
 }
 
 Releases.getLayout = function getLayout(page: React.ReactElement) {
