@@ -132,9 +132,9 @@ export default function Releases(props) {
             <Table>
                 <THead>
                     <Tr>
-                        <Th>Version</Th>
-                        <Th>Release Date</Th>
-                        <Th align="right"></Th>
+                        <Th width="30%">Version</Th>
+                        <Th width="30%">Release Date</Th>
+                        <Th width="40%" align="right"></Th>
                     </Tr>
                 </THead>
                 <TBody>
