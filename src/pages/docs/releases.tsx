@@ -5,7 +5,13 @@ import {
     Divider,
     Heading,
     Icon,
+    If,
     Link,
+    Notification,
+    NotificationContent,
+    Option,
+    Options,
+    Progress,
     Stack,
     TBody,
     THead,
@@ -19,7 +25,7 @@ import {
 import { NextPageContext } from 'next'
 import { Octokit } from 'octokit'
 import React, { useEffect, useState } from 'react'
-import { PiTagDuotone } from 'react-icons/pi'
+import { PiTag, PiTagDuotone } from 'react-icons/pi'
 import { remark } from 'remark'
 import html from 'remark-html'
 
@@ -33,6 +39,7 @@ export default function Releases(props) {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [releases, setReleases] = useState([])
+    const [option, setOption] = useState(0)
 
     const getProReleases = async () => {
         setLoading(true)
@@ -40,9 +47,9 @@ export default function Releases(props) {
 
         try {
             const response = await fetch('/api/pro-releases')
-            const { results } = await response.json()
+            const { results: { data } } = await response.json()
 
-            setReleases(results)
+            setReleases(data)
             setLoading(false)
         } catch (e) {
             setLoading(false)
@@ -56,9 +63,9 @@ export default function Releases(props) {
 
         try {
             const response = await fetch('/api/core-releases')
-            const { results } = await response.json()
+            const { results: { data } } = await response.json()
 
-            setReleases(results)
+            setReleases(data)
             setLoading(false)
         } catch (e) {
             setLoading(false)
@@ -67,9 +74,12 @@ export default function Releases(props) {
     }
 
     useEffect(() => {
-        //getCoreReleases()
-        //getProReleases()
-    }, [])
+        if (option == 0) {
+            getCoreReleases()
+        } else {
+            getProReleases()
+        }
+    }, [option])
 
     return (
         <View
@@ -82,33 +92,61 @@ export default function Releases(props) {
             <Heading fontWeight="bold">Releases</Heading>
             <Heading as="h2">Below is a list of all Fold releases.</Heading>
             <Divider />
-            <br />
-            {!data.length && <Text as="blockquote">There are no releases yet.</Text>}
+
+            <If if={error}>
+                <Notification
+                    variant="danger"
+                    leftAccent>
+                    <NotificationContent>
+                        <Text fontWeight="bold">Whoops, something has gone wrong.</Text>
+                    </NotificationContent>
+                </Notification>
+            </If>
+
+            <If if={loading}>
+                <Progress
+                    variant="accent"
+                    value={50}
+                    thickness={3}
+                    indeterminate
+                    bgToken="transparent"
+                    position="absolute"
+                    width="100%"
+                    zIndex={1000}
+                    style={{
+                        inset: 0,
+                    }}
+                />
+            </If>
+
+            <Options
+                m="1rem 0"
+                selected={option}
+                onOptionChange={setOption}>
+                <Option>Core</Option>
+                <Option>Pro</Option>
+            </Options>
 
             {/* https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#list-releases-for-a-repository */}
 
             <Table>
                 <THead>
                     <Tr>
-                        <Th>Version</Th>
-                        <Th>Tag</Th>
+                        <Th width="40%">Version</Th>
                         <Th>Release Date</Th>
                         <Th align="right">Link</Th>
                     </Tr>
                 </THead>
                 <TBody>
-                    {data.map(({ html_url, name, tag_name, published_at }, index) => (
+                    {releases.map(({ html_url, name, tag_name, published_at }, index) => (
                         <Tr key={index}>
-                            <Td>
-                                <Text fontWeight="bold">{name}</Text>
-                            </Td>
                             <Td>
                                 <View
                                     row
                                     gap={5}
                                     justifyContent="flex-start">
                                     <Icon
-                                        icon={PiTagDuotone}
+                                        icon={PiTag}
                                         size="sm"
                                         color="var(--f-color-accent)"
                                     />
@@ -116,7 +154,12 @@ export default function Releases(props) {
                                 </View>
                             </Td>
                             <Td>
-                                {new Date(published_at).toLocaleDateString()}
+                                {new Date(published_at).toLocaleDateString('en-US', {
+                                    weekday: 'short',
+                                    year: 'numeric',
+                                    month: 'short',
+                                    day: 'numeric',
+                                })}
                             </Td>
                             <Td align="right">
                                 <Link
@@ -129,6 +172,8 @@ export default function Releases(props) {
                     ))}
                 </TBody>
             </Table>
+
+            {!releases.length && <Text as="blockquote">There are no releases here (yet).</Text>}
         </View>
     )
 }
