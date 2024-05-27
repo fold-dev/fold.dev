@@ -173,7 +173,7 @@ export default function Releases(props) {
                 </TBody>
             </Table>
 
-            {!releases.length && <Text as="blockquote">There are no releases here (yet).</Text>}
+            {(!releases.length && !loading) && <Text as="blockquote">There are no releases here (yet).</Text>}
         </View>
     )
 }
