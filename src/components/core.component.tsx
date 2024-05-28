@@ -1290,15 +1290,15 @@ const snippet1 = `
         <Pill>TypeScript</Pill>
         <Pill>Prettier</Pill>
         <Pill>Design Tokens</Pill>
-        <Pill>StyleGuidist</Pill>
+        <Pill>StyleDictionary</Pill>
         <Pill>Storybook</Pill>
         <Pill>React</Pill>
         <Pill>CSS3</Pill>
-        <Pill>Typedocs</Pill>
+        <Pill>TypeDoc</Pill>
         <Pill>TypeScript</Pill>
         <Pill>Prettier</Pill>
         <Pill>Design Tokens</Pill>
-        <Pill>StyleGuidist</Pill>
+        <Pill>StyleDictionary</Pill>
         <Pill>Storybook</Pill>
         <Pill>Hooks</Pill>
         <Pill>CSS3</Pill>
@@ -1670,13 +1670,12 @@ export const CoreComponent = () => {
                             wrap="wrap"
                             justifyContent="flex-start">
                             <Pill subtle color={Token.ColorAccent400}>TypeScript</Pill>
-                            <Pill subtle color={Token.ColorPurple400}>Prettier</Pill>
+                            <Pill subtle color={Token.ColorPurple400}>React</Pill>
                             <Pill subtle color={Token.ColorNeonpink400}>Design Tokens</Pill>
-                            <Pill subtle color={Token.ColorRed400}>StyleGuidist</Pill>
+                            <Pill subtle color={Token.ColorRed400}>StyleDictionary</Pill>
                             <Pill subtle color={Token.ColorOrange400}>Storybook</Pill>
-                            <Pill subtle color={Token.ColorYellow400}>React</Pill>
-                            <Pill subtle color={Token.ColorTeal400}>CSS3</Pill>
-                            <Pill subtle color={Token.ColorBluegreen300}>Typedocs</Pill>
+                            <Pill subtle color={Token.ColorYellow400}>CSS3</Pill>
+                            <Pill subtle color={Token.ColorTeal400}>TypeDoc</Pill>
                         </View>
                         <Link
                             href="/docs"

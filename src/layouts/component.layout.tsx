@@ -126,20 +126,40 @@ export default function ComponentLayout({ children, docs, props, css }) {
                                 column
                                 alignItems="flex-start"
                                 width="100%">
-                                <Notification
-                                    leftAccent
-                                    width="100%">
-                                    <NotificationContent>
-                                        We are currently improving the documentation. For more information on prop
-                                        types,{' '}
-                                        <Link
-                                            href="https://fold-dev.github.io/fold/"
-                                            target="_blank">
-                                            see our TypeDocs
-                                        </Link>
-                                        .
-                                    </NotificationContent>
-                                </Notification>
+                                {!docs.pro && (
+                                    <Notification
+                                        leftAccent
+                                        width="100%">
+                                        <NotificationContent>
+                                            We are actively improving the documentation. For more information on prop
+                                            types,{' '}
+                                            <Link
+                                                href="https://fold-dev.github.io/fold/"
+                                                target="_blank">
+                                                see our TypeDocs
+                                            </Link>
+                                            .
+                                        </NotificationContent>
+                                    </Notification>
+                                )}
+
+                                {docs.pro && (
+                                    <Notification
+                                        leftAccent
+                                        variant="danger"
+                                        width="100%">
+                                        <NotificationContent>
+                                            More prop information coming soon! We are currently improving the Pro documentation. For more information on prop
+                                            types,{' '}
+                                            <Link
+                                                href="https://fold-dev.github.io/pro/"
+                                                target="_blank">
+                                                see our TypeDocs for Pro
+                                            </Link>
+                                            .
+                                        </NotificationContent>
+                                    </Notification>
+                                )}
                                 <Stack
                                     m="10px 0 0 0"
                                     direction="vertical"
