@@ -357,13 +357,64 @@ body {
         letter-spacing: 1px !important;
     }
 
+    .docs-site .f-main .f-header > * {
+        display: none;
+    }
+
+    .docs-site .f-main .docs-site__mobile-header {
+        display: flex !important;
+    }
+
+    .docs-site .docs-site__toc {
+        display: none !important;
+    }
+
+    .docs-site .docs-site__nav {
+        z-index: 1000;
+        box-shadow: var(--f-shadow-card);
+        width: 80% !important;
+        position: fixed;
+        left: -80%;
+        top: 0px;
+        transition: left 0.5s;
+    }
+
+    .docs-site .docs-site__nav > * {
+        width: 100% !important;
+    }
+
+    .docs-site__intro-blocks {
+        display: none;
+    }
+
+    .docs-site .docs-site__nav.is-open {
+        left: 0px;
+    }
+
+    .docs-site__ds-card {
+        justify-content: center !important;
+    }
+
+    .docs-site__ds-card h4 {
+        display: none;
+    }
+
+    .docs-pro__faq {
+        padding: 2rem !important;
+    }
+
     /* fold UI specific styles */
+
     .f-modal__inner {
         width: 90% !important;
         right: 5% !important;
         margin-left: 0px !important;
         margin-right: 0px !important;
     }
+}
+
+.docs-site .f-main .docs-site__mobile-header {
+    display: none;
 }
 
 *:focus {

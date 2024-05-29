@@ -46,6 +46,7 @@ import {
     PiFlag,
     PiGithubLogo,
     PiLifebuoy,
+    PiLineSegment,
     PiLinkedinLogo,
     PiMarkerCircle,
     PiPackage,
@@ -59,6 +60,7 @@ import {
 } from 'react-icons/pi'
 import { navigation } from '../navigation'
 import { navigationPro } from '../navigation-pro'
+import { Bars3Icon } from '@heroicons/react/24/outline'
 
 export const CircleIcon = ({
     children,
@@ -136,7 +138,7 @@ export default function DocsLayout(props: any) {
     const [option, setOption] = useState(1)
     const [toc, setToc] = useState([])
     const [showChild, setShowChild] = useState(false)
-    const [text, setText] = useState('')
+    const [open, setOpen] = useState(false)
     const pathname = usePathname()
     const searchParams = useSearchParams()
     const url = useMemo(() => {
@@ -295,7 +297,7 @@ export default function DocsLayout(props: any) {
                     </Text>
                 </View> 
                 */}
-                <App>
+                <App className="docs-site">
                     <Content
                         row
                         width="100%"
@@ -303,7 +305,8 @@ export default function DocsLayout(props: any) {
                         <Sidebar
                             left
                             width="fit-content"
-                            height="100%">
+                            height="100%"
+                            className={open ? "docs-site__nav is-open" : "docs-site__nav"}>
                             <Resizable
                                 column
                                 justifyContent="stretch"
@@ -764,6 +767,29 @@ export default function DocsLayout(props: any) {
                                     </Button>
                                     <DarkModeToggle />
                                 </Stack>
+                                <View 
+                                    row 
+                                    gap={20}
+                                    width="100%"
+                                    p="0 0 0 1rem"
+                                    className="docs-site__mobile-header">
+                                    <Link
+                                        href="/"
+                                        row>
+                                        <LogoSolid size="sm" />
+                                    </Link>
+                                    <Heading
+                                        as="h4"
+                                        colorToken="base-200"
+                                        fontWeight="semibold">
+                                        Documentation
+                                    </Heading>
+                                    <Flexer />
+                                    <DarkModeToggle />
+                                    <Button onClick={() => setOpen(!open)}>
+                                        <Icon icon={Bars3Icon} />
+                                    </Button>
+                                </View>
                             </Header>
 
                             <View
@@ -800,6 +826,7 @@ export default function DocsLayout(props: any) {
                                         display="block"
                                         bgToken="surface"
                                         style={{ top: 0 }}
+                                        className="docs-site__toc"
                                         position="sticky"
                                         alignContent="flex-start">
                                         <Heading as="h4">On this page</Heading>
