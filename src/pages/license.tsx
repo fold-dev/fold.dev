@@ -74,7 +74,7 @@ export const LicenseContent = (props) => (
 
 function License(props){
     return (
-        <View>
+        <View className="legal">
             <View
                 width="100%"
                 p="111px 0 0 0"
@@ -122,7 +122,7 @@ function License(props){
                 </View>
             </View>
 
-            <View p={100}>
+            <View p={100} className="legal-content">
                 <LicenseContent />
             </View>
         </View>

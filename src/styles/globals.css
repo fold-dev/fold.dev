@@ -340,5 +340,17 @@ body {
         display: none;
     }
 
+    .legal-content {
+        padding: 2rem !important;
+    }
+
+    .legal h1 {
+        font-size: 4rem !important;
+        letter-spacing: 1px !important;
+    }
+
     /* fold UI specific styles */
+    .f-modal__inner {
+        max-width: 90%;
+    }
 }
