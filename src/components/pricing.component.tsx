@@ -306,7 +306,8 @@ export const PricingComponent = () => {
                 width="100%"
                 position="relative"
                 style={{ overflow: 'hidden' }}
-                p="10rem 0">
+                p="10rem 0"
+                className="pricing">
                 <GraphicRight
                     color={Token.ColorAccent200}
                     style={{ position: 'absolute', top: -100, right: -100, opacity: 0.1 }}
@@ -347,7 +348,8 @@ export const PricingComponent = () => {
                     style={{ minWidth: '50%', maxWidth: '90%' }}
                     m="0 auto"
                     gap={20}
-                    position="relative">
+                    position="relative"
+                    className="pricing__cards">
 
                     <Card
                         column
@@ -609,7 +611,8 @@ export const PricingComponent = () => {
                         bgToken="base-800"
                         position="relative"
                         style={{ overflow: 'hidden' }}
-                        alignItems="flex-start">
+                        alignItems="flex-start"
+                        className="pricing__faq">
                         <View
                             column
                             flex={0.5}

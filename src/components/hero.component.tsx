@@ -23,12 +23,14 @@ export const HeroComponent = () => {
                 flex={1}
                 width="100%"
                 p="4rem 0 600px 0"
-                justifyContent="stretch">
+                justifyContent="stretch"
+                className="hero">
                 <View
                     column
                     flex={1}
                     gap={40}
                     width="80%"
+                    m="0 auto"
                     position="relative">
                     <Text
                         textAlign="center"
@@ -45,7 +47,8 @@ export const HeroComponent = () => {
                         fontSize="6rem"
                         letterSpacing={-5}
                         lineHeight={0.9}
-                        p="0 3rem">
+                        p="0 3rem"
+                        className="hero__heading">
                         The UI component library for product teams.
                     </Heading>
 

@@ -21,7 +21,8 @@ export const SupportComponent = (props) => {
                 radius="var(--f-radius)"
                 position="relative"
                 style={{ overflow: 'hidden' }}
-                alignItems="flex-start">
+                alignItems="flex-start"
+                className="support">
                 <View
                     column
                     flex={1}
@@ -82,7 +83,9 @@ export const SupportComponent = (props) => {
                                         {title} ↗
                                     </Heading>
                                 </Link>
-                                <Text colorToken="text-weaker">{text}</Text>
+                                <Text colorToken="text-weaker">
+                                    {text}
+                                </Text>
                             </View>
                         ))}
                     </View>
