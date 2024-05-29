@@ -23,7 +23,6 @@ import {
 import * as Token from '@fold-dev/design/tokens'
 import { useEffect, useState } from 'react'
 import { SocialIcon } from 'react-social-icons'
-import MobileComponent from '../components/mobile.component'
 
 export default function SiteLayout({ children }) {
     const [showChild, setShowChild] = useState(false)
@@ -64,7 +63,6 @@ export default function SiteLayout({ children }) {
             <style id="custom-styles" />
 
             <SkipNavMain />
-            <MobileComponent />
 
             <Cookie
                 style={{

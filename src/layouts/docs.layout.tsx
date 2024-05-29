@@ -1,4 +1,4 @@
-import MobileComponent from '@/components/mobile.component'
+import { colors } from '@/components/core.component'
 import { SearchComponent } from '@/components/search.component'
 import {
     App,
@@ -46,7 +46,6 @@ import {
     PiFlag,
     PiGithubLogo,
     PiLifebuoy,
-    PiLightning,
     PiLinkedinLogo,
     PiMarkerCircle,
     PiPackage,
@@ -60,7 +59,6 @@ import {
 } from 'react-icons/pi'
 import { navigation } from '../navigation'
 import { navigationPro } from '../navigation-pro'
-import { colors } from '@/components/core.component'
 
 export const CircleIcon = ({
     children,
@@ -281,7 +279,6 @@ export default function DocsLayout(props: any) {
             <style id="custom-styles" />
 
             <SkipNav>Skip To Content</SkipNav>
-            <MobileComponent />
 
             <FoldProvider license="fake-license-code">
                 {/* 
