@@ -347,7 +347,8 @@ export default function DocsLayout(props: any) {
                                         }}
                                         width="100%"
                                         height="100%"
-                                        alignItems="flex-start">
+                                        alignItems="flex-start"
+                                        onClick={() => setOpen(false)}>
                                         <NavigationHeading>Overview</NavigationHeading>
                                         <NavigationItem
                                             active={url == 'introduction'}
