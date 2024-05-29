@@ -232,7 +232,7 @@ export default function DesignSystem(props) {
                         justifyContent="flex-start"
                         p={15}
                         key={index}
-                        className="f-buttonize-outline"
+                        className="f-buttonize-outline docs-site__ds-card"
                         width="none"
                         onClick={() => router.push('/docs/tokens#' + path, { scroll: false })}>
                         <Pill
@@ -240,7 +240,7 @@ export default function DesignSystem(props) {
                             color={color}
                             subtle
                             size="xl">
-                            <Icon icon={icon} size="lg" />
+                            <Icon icon={icon} size="lg"/>
                         </Pill>
                         <Heading
                             as="h4"

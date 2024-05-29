@@ -6,6 +6,7 @@ export const GraphicRight = (props: any) => {
             height="100%"
             {...rest}
             viewBox="0 0 1456 882"
+            className="graphic-right"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -130,6 +131,7 @@ export const GraphicLeft = (props: any) => {
             {...rest}
             viewBox="0 0 1107 559"
             version="1.1"
+            className="graphic-left"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             xmlSpace="preserve"

@@ -81,6 +81,7 @@ export default function Introduction(props) {
                 m="2.5rem 0 0rem 0"
                 gap="1rem"
                 columns={4}
+                className="docs-site__intro-blocks"
                 minChildWidth={150}>
                 {[
                     {

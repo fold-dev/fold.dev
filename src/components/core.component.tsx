@@ -810,6 +810,7 @@ const Code = ({ snippet }) => {
     return (
         <View
             width={500}
+            className="code"
             position="relative">
             <Button
                 onClick={() => copyToClipboard(snippet)}
@@ -940,7 +941,8 @@ const All = () => {
             width="85%"
             m="0 auto 6rem auto"
             style={{ overflow: 'hidden' }}
-            bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)">
+            bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)"
+            className="core__components-container">
             <View
                 column
                 height="100%"
@@ -955,7 +957,8 @@ const All = () => {
                     row
                     gap="2rem"
                     height="fit-content"
-                    alignItems="flex-start">
+                    alignItems="flex-start"
+                    className="core__components">
                     <View
                         column
                         gap="1rem"
@@ -1336,7 +1339,8 @@ export const CoreComponent = () => {
                     justifyContent="flex-start"
                     alignContent="flex-start"
                     position="relative"
-                    p="0 0rem 0 4rem">
+                    p="0 0rem 0 4rem"
+                    className="core__hero">
                     <Text
                         textAlign="center"
                         style={{ textTransform: 'uppercase' }}
@@ -1392,7 +1396,8 @@ export const CoreComponent = () => {
                     border="1px solid var(--f-color-border)"
                     position="relative"
                     style={{ overflow: 'hidden' }}
-                    alignItems="flex-start">
+                    alignItems="flex-start"
+                    className="overview-calendar">
                     <GraphicLeft
                         color={Token.ColorAccent200}
                         style={{ position: 'absolute', bottom: -100, left: -200, opacity: 0.1 }}
@@ -1455,6 +1460,7 @@ export const CoreComponent = () => {
                 m="6rem auto 3rem auto"
                 radius="var(--f-radius)"
                 position="relative"
+                className="features"
                 style={{ overflow: 'hidden' }}
                 alignItems="stretch">
 
@@ -1509,6 +1515,7 @@ export const CoreComponent = () => {
                                 src="lines.svg" 
                                 width="413" 
                                 height="434" 
+                                className="lines"
                             />
                         </View>
                     </View>
@@ -1570,6 +1577,7 @@ export const CoreComponent = () => {
                 m="3rem auto 6rem auto"
                 radius="var(--f-radius)"
                 position="relative"
+                className="features"
                 style={{ overflow: 'hidden' }}
                 alignItems="stretch">
 
@@ -1692,7 +1700,7 @@ export const CoreComponent = () => {
                             position="absolute"
                             className="dx-code">
                             <section
-                                style={{ width: '100%',  height: '100%' }}
+                                style={{ width: '100%',  height: '100%', overflow: 'hidden' }}
                                 dangerouslySetInnerHTML={{ __html: html }}
                             />
                         </View>

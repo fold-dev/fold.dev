@@ -881,7 +881,8 @@ export const ProComponent = () => {
             height="fit-content"
             zIndex={10}
             position="relative"
-            m="-500px 0 0 0">
+            m="-500px 0 0 0"
+            className="pro">
             <View
                 bgToken="surface"
                 width="95%"

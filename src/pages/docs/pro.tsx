@@ -63,7 +63,8 @@ export default function GettingStarted(props) {
                     flex={1}
                     gap="1rem"
                     alignItems="flex-start"
-                    p="5rem 5rem 0rem 5rem">
+                    p="5rem 5rem 0rem 5rem"
+                    className="docs-pro__faq">
                     <Text
                         style={{ textTransform: 'uppercase' }}
                         letterSpacing={5}
@@ -81,6 +82,7 @@ export default function GettingStarted(props) {
                 <View
                     p="0 5rem 5rem 5rem"
                     position="relative"
+                    className="docs-pro__faq"
                     style={{
                         '--f-link-color': 'var(--f-color-accent-100)',
                         '--f-accordion-border-color': 'var(--f-color-accent-400)',

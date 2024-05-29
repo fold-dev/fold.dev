@@ -23,7 +23,6 @@ import {
 import * as Token from '@fold-dev/design/tokens'
 import { useEffect, useState } from 'react'
 import { SocialIcon } from 'react-social-icons'
-import MobileComponent from '../components/mobile.component'
 
 export default function SiteLayout({ children }) {
     const [showChild, setShowChild] = useState(false)
@@ -64,7 +63,6 @@ export default function SiteLayout({ children }) {
             <style id="custom-styles" />
 
             <SkipNavMain />
-            <MobileComponent />
 
             <Cookie
                 style={{
@@ -114,6 +112,7 @@ export default function SiteLayout({ children }) {
             <Affix zIndex={100}>
                 {(stuck) => (
                     <View 
+                        className="navigation"
                         position="sticky"
                         height={100}
                         zIndex={10}
@@ -247,12 +246,14 @@ export default function SiteLayout({ children }) {
             <View
                 row
                 p={100}
-                alignItems="flex-start">
+                alignItems="flex-start"
+                className="footer">
                 <View
                     flex={1}
                     column
                     gap={20}
-                    alignItems="flex-start">
+                    alignItems="flex-start"
+                    className="footer_block">
                     <LogoSolid color="var(--f-color-accent-400)" />
                     <Text colorToken="accent-400">fold.dev &copy; 2024</Text>
                     <View
@@ -286,6 +287,7 @@ export default function SiteLayout({ children }) {
                     column
                     flex={1}
                     gap={20}
+                    className="footer_block"
                     alignItems="flex-start">
                     <Text
                         style={{ textTransform: 'uppercase' }}
@@ -344,6 +346,7 @@ export default function SiteLayout({ children }) {
                     column
                     flex={1}
                     gap={20}
+                    className="footer_block"
                     alignItems="flex-start">
                     <Text
                         style={{ textTransform: 'uppercase' }}
@@ -406,6 +409,7 @@ export default function SiteLayout({ children }) {
                     column
                     flex={1}
                     gap={20}
+                    className="footer_block"
                     alignItems="flex-start">
                     <Text
                         style={{ textTransform: 'uppercase' }}
@@ -456,7 +460,8 @@ export default function SiteLayout({ children }) {
                     column
                     flex={0.5}
                     gap={20}
-                    alignItems="flex-end">
+                    alignItems="flex-end"
+                    className="footer_buttons">
                     <Button
                         variant="accent"
                         as="a"

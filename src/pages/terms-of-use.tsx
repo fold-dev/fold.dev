@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 function TermsOfUse(props){
     return (
-        <View>
+        <View className="legal">
             <View
                 width="100%"
                 p="111px 0 0 0"
