@@ -403,6 +403,17 @@ body {
         padding: 2rem !important;
     }
 
+    .docs-site__warning {
+        display: block !important;
+        padding: 1rem;
+        font-weight: bold;
+        color: var(--f-color-highlight);
+        font-size: 1.05rem;
+        font-family: var(--f-font-body);
+        border-bottom: 1px solid var(--f-color-border);
+        background: var(--f-color-surface-strong);
+    }
+
     /* fold UI specific styles */
 
     .f-modal__inner {
@@ -411,6 +422,10 @@ body {
         margin-left: 0px !important;
         margin-right: 0px !important;
     }
+}
+
+.docs-site__warning {
+    display: none;
 }
 
 .docs-site .f-main .docs-site__mobile-header {

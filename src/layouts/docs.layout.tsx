@@ -814,6 +814,10 @@ export default function DocsLayout(props: any) {
                                         } as any
                                     }>
                                     <SkipNavMain />
+                                    <div className="docs-site__warning">
+                                        We are working on improving mobile support.
+                                        For the best experience, please use a desktop or tablet for now.
+                                    </div>
                                     {children}
                                 </View>
 
