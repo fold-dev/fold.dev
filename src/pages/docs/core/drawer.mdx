@@ -29,7 +29,7 @@ export const Usage = () => {
     return (<View>
             <Button onClick={show}>Show Drawer</Button>
 
-            <Drawer anchor="right" width={400} onDismiss={hide} isVisible={visible}>
+            <Drawer anchor="right" width="80%" style={{ maxWidth: 500 }} onDismiss={hide} isVisible={visible}>
                 <View p={30} column gap={10} width="100%" alignItems="flex-start">
                     <Heading>Context is key...</Heading>
                     <Text>
@@ -46,7 +46,7 @@ export const Usage = () => {
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXc+CiAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17c2hvd30+U2hvdyBEcmF3ZXI8L0J1dHRvbj4KCiAgICAgICAgICAgIDxEcmF3ZXIKICAgICAgICAgICAgICAgIGFuY2hvcj0icmlnaHQiCiAgICAgICAgICAgICAgICB3aWR0aD17NDAwfQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfT4KICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcD17MzB9CiAgICAgICAgICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgICAgICAgICA8SGVhZGluZz5Db250ZXh0IGlzIGtleS4uLjwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdCwgc2VkIGRvIGVpdXNtb2QgdGVtcG9yIGluY2lkaWR1bnQgdXQKICAgICAgICAgICAgICAgICAgICAgICAgbGFib3JlIGV0IGRvbG9yZSBtYWduYSBhbGlxdWEuIFV0IGVuaW0gYWQgbWluaW0gdmVuaWFtLCBxdWlzIG5vc3RydWQgZXhlcmNpdGF0aW9uIHVsbGFtY28KICAgICAgICAgICAgICAgICAgICAgICAgbGFib3JpcyBuaXNpIHV0IGFsaXF1aXAgZXggZWEgY29tbW9kbyBjb25zZXF1YXQuCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L0RyYXdlcj4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KGZhbHNlKQoKICAgIHJldHVybiAoCiAgICAgICAgPFZpZXc+CiAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17c2hvd30+U2hvdyBEcmF3ZXI8L0J1dHRvbj4KCiAgICAgICAgICAgIDxEcmF3ZXIKICAgICAgICAgICAgICAgIGFuY2hvcj0icmlnaHQiCiAgICAgICAgICAgICAgICB3aWR0aD0iODAlIgogICAgICAgICAgICAgICAgc3R5bGU9e3sgbWF4V2lkdGg6IDUwMCB9fQogICAgICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfQogICAgICAgICAgICAgICAgaXNWaXNpYmxlPXt2aXNpYmxlfT4KICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcD17MzB9CiAgICAgICAgICAgICAgICAgICAgY29sdW1uCiAgICAgICAgICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgICAgICAgICA8SGVhZGluZz5Db250ZXh0IGlzIGtleS4uLjwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgTG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNlY3RldHVyIGFkaXBpc2NpbmcgZWxpdCwgc2VkIGRvIGVpdXNtb2QgdGVtcG9yIGluY2lkaWR1bnQgdXQKICAgICAgICAgICAgICAgICAgICAgICAgbGFib3JlIGV0IGRvbG9yZSBtYWduYSBhbGlxdWEuIFV0IGVuaW0gYWQgbWluaW0gdmVuaWFtLCBxdWlzIG5vc3RydWQgZXhlcmNpdGF0aW9uIHVsbGFtY28KICAgICAgICAgICAgICAgICAgICAgICAgbGFib3JpcyBuaXNpIHV0IGFsaXF1aXAgZXggZWEgY29tbW9kbyBjb25zZXF1YXQuCiAgICAgICAgICAgICAgICAgICAgPC9UZXh0PgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L0RyYXdlcj4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
 
 ```tsx
 export const Usage = () => {
@@ -58,7 +58,8 @@ export const Usage = () => {
 
             <Drawer
                 anchor="right"
-                width={400}
+                width="80%"
+                style={{ maxWidth: 500 }}
                 onDismiss={hide}
                 isVisible={visible}>
                 <View

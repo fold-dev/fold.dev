@@ -4,6 +4,7 @@ import ComponentLayout from '@/layouts/component.layout'
 import {
     Button,
     Input,
+    Stack,
     Text,
     View,
     dispatchPubsub,
@@ -183,22 +184,24 @@ export const Focus = () => {
     const [text, setText] = useState('');
     const ref = useRef(null);
     const { trapFocus } = useFocus();
-    useEffect(() => {
-        trapFocus(ref.current);
-    }, []);
-    return (<View ref={ref} column gap={5} width="100%">
-            <Input placeholder="Line 1" value={text} onChange={(e) => setText(e.target.value)}/>
-            <Input placeholder="Line 2" value={text} onChange={(e) => setText(e.target.value)}/>
-            <Input placeholder="Line 3" value={text} onChange={(e) => setText(e.target.value)}/>
-            <Input placeholder="Line 4" value={text} onChange={(e) => setText(e.target.value)}/>
-        </View>);
+    return (<Stack direction="vertical" spacing={5}>  
+            <Button onClick={() => trapFocus(ref.current)}>
+                Trap Focus
+            </Button>
+            <View ref={ref} column gap={5} width="100%">
+                <Input placeholder="Line 1" value={text} onChange={(e) => setText(e.target.value)}/>
+                <Input placeholder="Line 2" value={text} onChange={(e) => setText(e.target.value)}/>
+                <Input placeholder="Line 3" value={text} onChange={(e) => setText(e.target.value)}/>
+                <Input placeholder="Line 4" value={text} onChange={(e) => setText(e.target.value)}/>
+            </View>
+        </Stack>);
 };
 
 <div className="story-block">
 <Focus />
 </div>
 
-<CodeComponent filename="Focus.tsx" code="ZXhwb3J0IGNvbnN0IEZvY3VzID0gKCkgPT4gewogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGUoJycpCiAgICBjb25zdCByZWYgPSB1c2VSZWYobnVsbCkKICAgIGNvbnN0IHsgdHJhcEZvY3VzIH0gPSB1c2VGb2N1cygpCgogICAgdXNlRWZmZWN0KCgpID0+IHsKICAgICAgICB0cmFwRm9jdXMocmVmLmN1cnJlbnQpCiAgICB9LCBbXSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3CiAgICAgICAgICAgIHJlZj17cmVmfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgZ2FwPXs1fQogICAgICAgICAgICB3aWR0aD0iMTAwJSI+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IkxpbmUgMSIKICAgICAgICAgICAgICAgIHZhbHVlPXt0ZXh0fQogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iTGluZSAyIgogICAgICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJMaW5lIDMiCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IkxpbmUgNCIKICAgICAgICAgICAgICAgIHZhbHVlPXt0ZXh0fQogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+<CodeComponent filename="Focus.tsx" code="ZXhwb3J0IGNvbnN0IEZvY3VzID0gKCkgPT4gewogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGUoJycpCiAgICBjb25zdCByZWYgPSB1c2VSZWYobnVsbCkKICAgIGNvbnN0IHsgdHJhcEZvY3VzIH0gPSB1c2VGb2N1cygpCgogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIgc3BhY2luZz17NX0+ICAKICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXsoKSA9PiB0cmFwRm9jdXMocmVmLmN1cnJlbnQpfT4KICAgICAgICAgICAgICAgIFRyYXAgRm9jdXMKICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICByZWY9e3JlZn0KICAgICAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICAgICAgZ2FwPXs1fQogICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IkxpbmUgMSIKICAgICAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJMaW5lIDIiCiAgICAgICAgICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iTGluZSAzIgogICAgICAgICAgICAgICAgICAgIHZhbHVlPXt0ZXh0fQogICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IkxpbmUgNCIKICAgICAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
 
 ```tsx
 export const Focus = () => {
@@ -206,37 +209,38 @@ export const Focus = () => {
     const ref = useRef(null)
     const { trapFocus } = useFocus()
 
-    useEffect(() => {
-        trapFocus(ref.current)
-    }, [])
-
     return (
-        <View
-            ref={ref}
-            column
-            gap={5}
-            width="100%">
-            <Input
-                placeholder="Line 1"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-            />
-            <Input
-                placeholder="Line 2"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-            />
-            <Input
-                placeholder="Line 3"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-            />
-            <Input
-                placeholder="Line 4"
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-            />
-        </View>
+        <Stack direction="vertical" spacing={5}>  
+            <Button onClick={() => trapFocus(ref.current)}>
+                Trap Focus
+            </Button>
+            <View
+                ref={ref}
+                column
+                gap={5}
+                width="100%">
+                <Input
+                    placeholder="Line 1"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                />
+                <Input
+                    placeholder="Line 2"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                />
+                <Input
+                    placeholder="Line 3"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                />
+                <Input
+                    placeholder="Line 4"
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                />
+            </View>
+        </Stack>
     )
 }
 ```

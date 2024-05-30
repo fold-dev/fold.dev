@@ -25,7 +25,7 @@ import { Attachment, AttachmentThumb } from "@fold-dev/core";
 ### Usage
 
 export const Usage = () => {
-    return (<Attachment as="a" width={500} heroPoster="/photos/10.jpg" mime="image/png" filesize={24325} label="filename.png" poster="" href="https://fold.dev" tools={<View row gap={10} p="0 0.5rem" color="var(--f-color-base-300)">
+    return (<Attachment as="a" width="100%" style={{ maxWidth: 400 }} heroPoster="/photos/10.jpg" mime="image/png" filesize={24325} label="filename.png" poster="" href="https://fold.dev" tools={<View row gap={10} p="0 0.5rem" color="var(--f-color-base-300)">
                     <IconLib icon="eye"/>
                     <IconLib icon="bin"/>
                 </View>}/>);
@@ -35,14 +35,15 @@ export const Usage = () => {
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICBhcz0iYSIKICAgICAgICAgICAgd2lkdGg9ezUwMH0KICAgICAgICAgICAgaGVyb1Bvc3Rlcj0iL3Bob3Rvcy8xMC5qcGciCiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBwb3N0ZXI9IiIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAgICAgdG9vbHM9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgIHA9IjAgMC41cmVtIgogICAgICAgICAgICAgICAgICAgIGNvbG9yPSJ2YXIoLS1mLWNvbG9yLWJhc2UtMzAwKSI+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iZXllIiAvPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImJpbiIgLz4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgfQogICAgICAgIC8+CiAgICApCn0=" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICBhcz0iYSIKICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgIHN0eWxlPXt7IG1heFdpZHRoOiA0MDAgfX0KICAgICAgICAgICAgaGVyb1Bvc3Rlcj0iL3Bob3Rvcy8xMC5qcGciCiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBwb3N0ZXI9IiIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAgICAgdG9vbHM9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgIHA9IjAgMC41cmVtIgogICAgICAgICAgICAgICAgICAgIGNvbG9yPSJ2YXIoLS1mLWNvbG9yLWJhc2UtMzAwKSI+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iZXllIiAvPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImJpbiIgLz4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgfQogICAgICAgIC8+CiAgICApCn0=" />
 
 ```tsx
 export const Usage = () => {
     return (
         <Attachment
             as="a"
-            width={500}
+            width="100%"
+            style={{ maxWidth: 400 }}
             heroPoster="/photos/10.jpg"
             mime="image/png"
             filesize={24325}
@@ -68,7 +69,7 @@ export const Usage = () => {
 > The hero poster provides a useful method to overlay interactive content related to the attachment. This can include (but not limited to) videos & embeddable maps.
 
 export const HeroPosterOverlay = () => {
-    return (<Attachment width={500} heroPoster="/photos/04.jpg" heroPosterContent={<View row position="absolute" width="100%" height="100%" bgToken="surface-inverse" zIndex={1} radius="var(--f-radius)" style={{ top: 0, left: 0 }}>
+    return (<Attachment width="100%" style={{ maxWidth: 400 }} heroPoster="/photos/04.jpg" heroPosterContent={<View row position="absolute" width="100%" height="100%" bgToken="surface-inverse" zIndex={1} radius="var(--f-radius)" style={{ top: 0, left: 0 }}>
                     <Text colorToken="text-on-color">Not available in your region.</Text>
                 </View>} mime="image/png" filesize={24325} label="filename.png" poster="" href="https://fold.dev" tools={<View row gap={10} p="0 0.5rem" color="var(--f-color-base-300)">
                     <IconLib icon="eye"/>
@@ -80,13 +81,14 @@ export const HeroPosterOverlay = () => {
 <HeroPosterOverlay />
 </div>
 
-<CodeComponent filename="HeroPosterOverlay.tsx" code="ZXhwb3J0IGNvbnN0IEhlcm9Qb3N0ZXJPdmVybGF5ID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICBoZXJvUG9zdGVyPSIvcGhvdG9zLzA0LmpwZyIKICAgICAgICAgICAgaGVyb1Bvc3RlckNvbnRlbnQ9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbj0iYWJzb2x1dGUiCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PSIxMDAlIgogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2UtaW52ZXJzZSIKICAgICAgICAgICAgICAgICAgICB6SW5kZXg9ezF9CiAgICAgICAgICAgICAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cykiCiAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3sgdG9wOiAwLCBsZWZ0OiAwIH19PgogICAgICAgICAgICAgICAgICAgIDxUZXh0IGNvbG9yVG9rZW49InRleHQtb24tY29sb3IiPk5vdCBhdmFpbGFibGUgaW4geW91ciByZWdpb24uPC9UZXh0PgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICB9CiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBwb3N0ZXI9IiIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAgICAgdG9vbHM9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgIHA9IjAgMC41cmVtIgogICAgICAgICAgICAgICAgICAgIGNvbG9yPSJ2YXIoLS1mLWNvbG9yLWJhc2UtMzAwKSI+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iZXllIiAvPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImJpbiIgLz4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgfQogICAgICAgIC8+CiAgICApCn0=" />
+<CodeComponent filename="HeroPosterOverlay.tsx" code="ZXhwb3J0IGNvbnN0IEhlcm9Qb3N0ZXJPdmVybGF5ID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgc3R5bGU9e3sgbWF4V2lkdGg6IDQwMCB9fQogICAgICAgICAgICBoZXJvUG9zdGVyPSIvcGhvdG9zLzA0LmpwZyIKICAgICAgICAgICAgaGVyb1Bvc3RlckNvbnRlbnQ9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbj0iYWJzb2x1dGUiCiAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PSIxMDAlIgogICAgICAgICAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2UtaW52ZXJzZSIKICAgICAgICAgICAgICAgICAgICB6SW5kZXg9ezF9CiAgICAgICAgICAgICAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cykiCiAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3sgdG9wOiAwLCBsZWZ0OiAwIH19PgogICAgICAgICAgICAgICAgICAgIDxUZXh0IGNvbG9yVG9rZW49InRleHQtb24tY29sb3IiPk5vdCBhdmFpbGFibGUgaW4geW91ciByZWdpb24uPC9UZXh0PgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICB9CiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBwb3N0ZXI9IiIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAgICAgdG9vbHM9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgIHA9IjAgMC41cmVtIgogICAgICAgICAgICAgICAgICAgIGNvbG9yPSJ2YXIoLS1mLWNvbG9yLWJhc2UtMzAwKSI+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iZXllIiAvPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImJpbiIgLz4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgfQogICAgICAgIC8+CiAgICApCn0=" />
 
 ```tsx
 export const HeroPosterOverlay = () => {
     return (
         <Attachment
-            width={500}
+            width="100%"
+            style={{ maxWidth: 400 }}
             heroPoster="/photos/04.jpg"
             heroPosterContent={
                 <View
@@ -124,34 +126,35 @@ export const HeroPosterOverlay = () => {
 
 > Incomplete information & error states.
 
-export const States = () => (<View column gap={10} width={500}>
-        <Attachment width={500} mime="video/mpeg" filesize={24325} label="filename.mpg" href="https://fold.dev"/>
-        <Attachment width={500} poster="/photos/01.jpg" mime="image/png" filesize={24325} label="filename.png" loading loadingProgress={56} href="https://fold.dev"/>
-        <Attachment error mime="image/png" width={500} filesize={24325} label="filename.png" href="https://fold.dev"/>
-        <Attachment width={500} poster="/photos/01.jpg" mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
+export const States = () => (<View column gap={10} style={{ maxWidth: 400 }} width="100%">
+        <Attachment width="100%" mime="video/mpeg" filesize={24325} label="filename.mpg" href="https://fold.dev"/>
+        <Attachment width="100%" poster="/photos/01.jpg" mime="image/png" filesize={24325} label="filename.png" loading loadingProgress={56} href="https://fold.dev"/>
+        <Attachment error mime="image/png" width="100%" filesize={24325} label="filename.png" href="https://fold.dev"/>
+        <Attachment width="100%" poster="/photos/01.jpg" mime="image/png" filesize={24325} label="filename.png" href="https://fold.dev"/>
     </View>);
 
 <div className="story-block">
 <States />
 </div>
 
-<CodeComponent filename="States.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXRlcyA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgY29sdW1uCiAgICAgICAgZ2FwPXsxMH0KICAgICAgICB3aWR0aD17NTAwfT4KICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICBtaW1lPSJ2aWRlby9tcGVnIgogICAgICAgICAgICBmaWxlc2l6ZT17MjQzMjV9CiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5tcGciCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgLz4KICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICBwb3N0ZXI9Ii9waG90b3MvMDEuanBnIgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGZpbGVzaXplPXsyNDMyNX0KICAgICAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICAgICAgbG9hZGluZwogICAgICAgICAgICBsb2FkaW5nUHJvZ3Jlc3M9ezU2fQogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgIC8+CiAgICAgICAgPEF0dGFjaG1lbnQKICAgICAgICAgICAgZXJyb3IKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICBmaWxlc2l6ZT17MjQzMjV9CiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgLz4KICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICBwb3N0ZXI9Ii9waG90b3MvMDEuanBnIgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGZpbGVzaXplPXsyNDMyNX0KICAgICAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgPC9WaWV3Pgop" />
+<CodeComponent filename="States.tsx" code="ZXhwb3J0IGNvbnN0IFN0YXRlcyA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgY29sdW1uCiAgICAgICAgZ2FwPXsxMH0KICAgICAgICBzdHlsZT17eyBtYXhXaWR0aDogNDAwIH19CiAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgIDxBdHRhY2htZW50CiAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICBtaW1lPSJ2aWRlby9tcGVnIgogICAgICAgICAgICBmaWxlc2l6ZT17MjQzMjV9CiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5tcGciCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgLz4KICAgICAgICA8QXR0YWNobWVudAogICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgcG9zdGVyPSIvcGhvdG9zLzAxLmpwZyIKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBmaWxlc2l6ZT17MjQzMjV9CiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGxvYWRpbmcKICAgICAgICAgICAgbG9hZGluZ1Byb2dyZXNzPXs1Nn0KICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50CiAgICAgICAgICAgIGVycm9yCiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgIGZpbGVzaXplPXsyNDMyNX0KICAgICAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50CiAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICBwb3N0ZXI9Ii9waG90b3MvMDEuanBnIgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGZpbGVzaXplPXsyNDMyNX0KICAgICAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgPC9WaWV3Pgop" />
 
 ```tsx
 export const States = () => (
     <View
         column
         gap={10}
-        width={500}>
+        style={{ maxWidth: 400 }}
+        width="100%">
         <Attachment
-            width={500}
+            width="100%"
             mime="video/mpeg"
             filesize={24325}
             label="filename.mpg"
             href="https://fold.dev"
         />
         <Attachment
-            width={500}
+            width="100%"
             poster="/photos/01.jpg"
             mime="image/png"
             filesize={24325}
@@ -163,13 +166,13 @@ export const States = () => (
         <Attachment
             error
             mime="image/png"
-            width={500}
+            width="100%"
             filesize={24325}
             label="filename.png"
             href="https://fold.dev"
         />
         <Attachment
-            width={500}
+            width="100%"
             poster="/photos/01.jpg"
             mime="image/png"
             filesize={24325}
@@ -227,7 +230,7 @@ export const Size = () => (
 
 > The thumbnail variant of the Attachment component provides a small, more compact version. This can be useful in environment where space is limited, such as inline messages.
 
-export const Thumbnail = () => (<View row gap={10} justifyContent="flex-start">
+export const Thumbnail = () => (<View row gap={10} wrap="wrap" justifyContent="flex-start">
         <AttachmentThumb poster="/photos/09.jpg" mime="image/png" label="filename.png" loading href="https://fold.dev"/>
         <AttachmentThumb poster="/photos/10.jpg" mime="image/png" label="filename.png" loading loadingProgress={56} href="https://fold.dev"/>
         <AttachmentThumb error filesize={24325} loadingProgress={45} mime="image/png" label="filename.png" href="https://fold.dev"/>
@@ -245,13 +248,14 @@ export const Thumbnail = () => (<View row gap={10} justifyContent="flex-start">
 <Thumbnail />
 </div>
 
-<CodeComponent filename="Thumbnail.tsx" code="ZXhwb3J0IGNvbnN0IFRodW1ibmFpbCA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgcm93CiAgICAgICAgZ2FwPXsxMH0KICAgICAgICBqdXN0aWZ5Q29udGVudD0iZmxleC1zdGFydCI+CiAgICAgICAgPEF0dGFjaG1lbnRUaHVtYgogICAgICAgICAgICBwb3N0ZXI9Ii9waG90b3MvMDkuanBnIgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGxvYWRpbmcKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50VGh1bWIKICAgICAgICAgICAgcG9zdGVyPSIvcGhvdG9zLzEwLmpwZyIKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBsb2FkaW5nCiAgICAgICAgICAgIGxvYWRpbmdQcm9ncmVzcz17NTZ9CiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgLz4KICAgICAgICA8QXR0YWNobWVudFRodW1iCiAgICAgICAgICAgIGVycm9yCiAgICAgICAgICAgIGZpbGVzaXplPXsyNDMyNX0KICAgICAgICAgICAgbG9hZGluZ1Byb2dyZXNzPXs0NX0KICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgIC8+CiAgICAgICAgPEF0dGFjaG1lbnRUaHVtYgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgICAgIHRvb2xzPXsKICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgICAgICAgICBwPSIwIDAuNXJlbSIKICAgICAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJhY2NlbnQtMjAwIgogICAgICAgICAgICAgICAgICAgIHpJbmRleD17MTB9PgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImV5ZSIgLz4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJiaW4iIC8+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIH0KICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50VGh1bWIKICAgICAgICAgICAgcG9zdGVyPSIvcGhvdG9zLzAxLmpwZyIKICAgICAgICAgICAgbWltZT0iaW1hZ2UvcG5nIgogICAgICAgICAgICBsYWJlbD0iZmlsZW5hbWUucG5nIgogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgICAgICB0b29scz17CiAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgICAgICAgICAgcD0iMCAwLjVyZW0iCiAgICAgICAgICAgICAgICAgICAgY29sb3JUb2tlbj0iYWNjZW50LTIwMCIKICAgICAgICAgICAgICAgICAgICB6SW5kZXg9ezEwfT4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJleWUiIC8+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iYmluIiAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICB9CiAgICAgICAgLz4KICAgIDwvVmlldz4KKQ==" />
+<CodeComponent filename="Thumbnail.tsx" code="ZXhwb3J0IGNvbnN0IFRodW1ibmFpbCA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgcm93CiAgICAgICAgZ2FwPXsxMH0KICAgICAgICB3cmFwPSJ3cmFwIgogICAgICAgIGp1c3RpZnlDb250ZW50PSJmbGV4LXN0YXJ0Ij4KICAgICAgICA8QXR0YWNobWVudFRodW1iCiAgICAgICAgICAgIHBvc3Rlcj0iL3Bob3Rvcy8wOS5qcGciCiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICAgICAgbG9hZGluZwogICAgICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgIC8+CiAgICAgICAgPEF0dGFjaG1lbnRUaHVtYgogICAgICAgICAgICBwb3N0ZXI9Ii9waG90b3MvMTAuanBnIgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGxvYWRpbmcKICAgICAgICAgICAgbG9hZGluZ1Byb2dyZXNzPXs1Nn0KICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAvPgogICAgICAgIDxBdHRhY2htZW50VGh1bWIKICAgICAgICAgICAgZXJyb3IKICAgICAgICAgICAgZmlsZXNpemU9ezI0MzI1fQogICAgICAgICAgICBsb2FkaW5nUHJvZ3Jlc3M9ezQ1fQogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgLz4KICAgICAgICA8QXR0YWNobWVudFRodW1iCiAgICAgICAgICAgIG1pbWU9ImltYWdlL3BuZyIKICAgICAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICAgICAgaHJlZj0iaHR0cHM6Ly9mb2xkLmRldiIKICAgICAgICAgICAgdG9vbHM9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgIHA9IjAgMC41cmVtIgogICAgICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49ImFjY2VudC0yMDAiCiAgICAgICAgICAgICAgICAgICAgekluZGV4PXsxMH0+CiAgICAgICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0iZXllIiAvPgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImJpbiIgLz4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgfQogICAgICAgIC8+CiAgICAgICAgPEF0dGFjaG1lbnRUaHVtYgogICAgICAgICAgICBwb3N0ZXI9Ii9waG90b3MvMDEuanBnIgogICAgICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgICAgIGxhYmVsPSJmaWxlbmFtZS5wbmciCiAgICAgICAgICAgIGhyZWY9Imh0dHBzOi8vZm9sZC5kZXYiCiAgICAgICAgICAgIHRvb2xzPXsKICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgZ2FwPXsxMH0KICAgICAgICAgICAgICAgICAgICBwPSIwIDAuNXJlbSIKICAgICAgICAgICAgICAgICAgICBjb2xvclRva2VuPSJhY2NlbnQtMjAwIgogICAgICAgICAgICAgICAgICAgIHpJbmRleD17MTB9PgogICAgICAgICAgICAgICAgICAgIDxJY29uTGliIGljb249ImV5ZSIgLz4KICAgICAgICAgICAgICAgICAgICA8SWNvbkxpYiBpY29uPSJiaW4iIC8+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIH0KICAgICAgICAvPgogICAgPC9WaWV3Pgop" />
 
 ```tsx
 export const Thumbnail = () => (
     <View
         row
         gap={10}
+        wrap="wrap"
         justifyContent="flex-start">
         <AttachmentThumb
             poster="/photos/09.jpg"

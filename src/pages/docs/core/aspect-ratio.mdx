@@ -26,8 +26,8 @@ import { AspectRatio } from "@fold-dev/core";
 ### Width Based
 
 export const WidthBased = () => {
-    return (<AspectRatio width={500} ratio={3 / 4} bgToken="surface-strong">
-            500px x 375px
+    return (<AspectRatio width={200} ratio={3 / 4} bgToken="surface-strong">
+            200px x 150px
         </AspectRatio>);
 };
 
@@ -35,16 +35,16 @@ export const WidthBased = () => {
 <WidthBased />
 </div>
 
-<CodeComponent filename="WidthBased.tsx" code="ZXhwb3J0IGNvbnN0IFdpZHRoQmFzZWQgPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxBc3BlY3RSYXRpbwogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICByYXRpbz17MyAvIDR9CiAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIj4KICAgICAgICAgICAgNTAwcHggeCAzNzVweAogICAgICAgIDwvQXNwZWN0UmF0aW8+CiAgICApCn0=" />
+<CodeComponent filename="WidthBased.tsx" code="ZXhwb3J0IGNvbnN0IFdpZHRoQmFzZWQgPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxBc3BlY3RSYXRpbwogICAgICAgICAgICB3aWR0aD17MjAwfQogICAgICAgICAgICByYXRpbz17MyAvIDR9CiAgICAgICAgICAgIGJnVG9rZW49InN1cmZhY2Utc3Ryb25nIj4KICAgICAgICAgICAgMjAwcHggeCAxNTBweAogICAgICAgIDwvQXNwZWN0UmF0aW8+CiAgICApCn0=" />
 
 ```tsx
 export const WidthBased = () => {
     return (
         <AspectRatio
-            width={500}
+            width={200}
             ratio={3 / 4}
             bgToken="surface-strong">
-            500px x 375px
+            200px x 150px
         </AspectRatio>
     )
 }

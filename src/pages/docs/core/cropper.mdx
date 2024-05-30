@@ -24,7 +24,7 @@ import { Cropper } from "@fold-dev/core";
 
 ### Usage
 
-export const Usage = () => (<View width={500} height={400}>
+export const Usage = () => (<View width="100%" style={{ maxWidth: 500 }} height={400}>
         <Cropper src="/photos/01.jpg" onSave={(png) => console.log('Saved!')}/>
     </View>);
 
@@ -32,12 +32,13 @@ export const Usage = () => (<View width={500} height={400}>
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICB3aWR0aD17NTAwfQogICAgICAgIGhlaWdodD17NDAwfT4KICAgICAgICA8Q3JvcHBlcgogICAgICAgICAgICBzcmM9Ii9waG90b3MvMDEuanBnIgogICAgICAgICAgICBvblNhdmU9eyhwbmcpID0+IGNvbnNvbGUubG9nKCdTYXZlZCEnKX0KICAgICAgICAvPgogICAgPC9WaWV3Pgop" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgIHdpZHRoPSIxMDAlIgogICAgc3R5bGU9e3sgbWF4V2lkdGg6IDUwMCB9fQogICAgICAgIGhlaWdodD17NDAwfT4KICAgICAgICA8Q3JvcHBlcgogICAgICAgICAgICBzcmM9Ii9waG90b3MvMDEuanBnIgogICAgICAgICAgICBvblNhdmU9eyhwbmcpID0+IGNvbnNvbGUubG9nKCdTYXZlZCEnKX0KICAgICAgICAvPgogICAgPC9WaWV3Pgop" />
 
 ```tsx
 export const Usage = () => (
     <View
-        width={500}
+    width="100%"
+    style={{ maxWidth: 500 }}
         height={400}>
         <Cropper
             src="/photos/01.jpg"
@@ -50,7 +51,7 @@ export const Usage = () => (
 
 export const CustomToolbar = () => {
     const [value, setValue] = useState(1);
-    return (<View width={500} height={400}>
+    return (<View width="100%" style={{ maxWidth: 500 }} height={400}>
             <Cropper defaultZoom={1} src="/photos/01.jpg" onSave={(pngDataUrl) => console.log('Here is the dataUrl!')} customToolbar={({ rotate, zoom, save }) => (<View width="100%">
                         <Range step={1} min={0} max={10} value={value} onChange={(e) => {
                 setValue(e.target.value);
@@ -64,7 +65,7 @@ export const CustomToolbar = () => {
 <CustomToolbar />
 </div>
 
-<CodeComponent filename="CustomToolbar.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVRvb2xiYXIgPSAoKSA9PiB7CiAgICBjb25zdCBbdmFsdWUsIHNldFZhbHVlXSA9IHVzZVN0YXRlKDEpCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICBoZWlnaHQ9ezQwMH0+CiAgICAgICAgICAgIDxDcm9wcGVyCiAgICAgICAgICAgICAgICBkZWZhdWx0Wm9vbT17MX0KICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wMS5qcGciCiAgICAgICAgICAgICAgICBvblNhdmU9eyhwbmdEYXRhVXJsKSA9PiBjb25zb2xlLmxvZygnSGVyZSBpcyB0aGUgZGF0YVVybCEnKX0KICAgICAgICAgICAgICAgIGN1c3RvbVRvb2xiYXI9eyh7IHJvdGF0ZSwgem9vbSwgc2F2ZSB9KSA9PiAoCiAgICAgICAgICAgICAgICAgICAgPFZpZXcgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICA8UmFuZ2UKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0ZXA9ezF9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtaW49ezB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtYXg9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU9e3ZhbHVlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0VmFsdWUoZS50YXJnZXQudmFsdWUpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgem9vbShlLnRhcmdldC52YWx1ZSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+<CodeComponent filename="CustomToolbar.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVRvb2xiYXIgPSAoKSA9PiB7CiAgICBjb25zdCBbdmFsdWUsIHNldFZhbHVlXSA9IHVzZVN0YXRlKDEpCgogICAgcmV0dXJuICgKICAgICAgICA8VmlldwogICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgc3R5bGU9e3sgbWF4V2lkdGg6IDUwMCB9fQogICAgICAgICAgICBoZWlnaHQ9ezQwMH0+CiAgICAgICAgICAgIDxDcm9wcGVyCiAgICAgICAgICAgICAgICBkZWZhdWx0Wm9vbT17MX0KICAgICAgICAgICAgICAgIHNyYz0iL3Bob3Rvcy8wMS5qcGciCiAgICAgICAgICAgICAgICBvblNhdmU9eyhwbmdEYXRhVXJsKSA9PiBjb25zb2xlLmxvZygnSGVyZSBpcyB0aGUgZGF0YVVybCEnKX0KICAgICAgICAgICAgICAgIGN1c3RvbVRvb2xiYXI9eyh7IHJvdGF0ZSwgem9vbSwgc2F2ZSB9KSA9PiAoCiAgICAgICAgICAgICAgICAgICAgPFZpZXcgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgICAgICAgICA8UmFuZ2UKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0ZXA9ezF9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtaW49ezB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBtYXg9ezEwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFsdWU9e3ZhbHVlfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0VmFsdWUoZS50YXJnZXQudmFsdWUpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgem9vbShlLnRhcmdldC52YWx1ZSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICAgICAgKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
 
 ```tsx
 export const CustomToolbar = () => {
@@ -72,7 +73,8 @@ export const CustomToolbar = () => {
 
     return (
         <View
-            width={500}
+            width="100%"
+            style={{ maxWidth: 500 }}
             height={400}>
             <Cropper
                 defaultZoom={1}
