@@ -25,7 +25,7 @@ import { AudioWaveform } from "@fold-dev/core";
 ### Usage
 
 export const Usage = () => {
-    return (<Audio width={500} loader muted controls srcs={[
+    return (<Audio style={{ maxWidth: 400 }} width="100%" loader muted controls srcs={[
             {
                 src: 'https://upload.wikimedia.org/wikipedia/commons/4/42/Bird_singing.ogg',
                 type: 'audio/ogg',
@@ -37,13 +37,14 @@ export const Usage = () => {
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXVkaW8KICAgICAgICAgICAgd2lkdGg9ezUwMH0KICAgICAgICAgICAgbG9hZGVyCiAgICAgICAgICAgIG11dGVkCiAgICAgICAgICAgIGNvbnRyb2xzCiAgICAgICAgICAgIHNyY3M9e1sKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBzcmM6ICdodHRwczovL3VwbG9hZC53aWtpbWVkaWEub3JnL3dpa2lwZWRpYS9jb21tb25zLzQvNDIvQmlyZF9zaW5naW5nLm9nZycsCiAgICAgICAgICAgICAgICAgICAgdHlwZTogJ2F1ZGlvL29nZycsCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICBdfQogICAgICAgIC8+CiAgICApCn0=" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8QXVkaW8KICAgICAgICAgICAgc3R5bGU9e3sgbWF4V2lkdGg6IDQwMCB9fQogICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgbG9hZGVyCiAgICAgICAgICAgIG11dGVkCiAgICAgICAgICAgIGNvbnRyb2xzCiAgICAgICAgICAgIHNyY3M9e1sKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBzcmM6ICdodHRwczovL3VwbG9hZC53aWtpbWVkaWEub3JnL3dpa2lwZWRpYS9jb21tb25zLzQvNDIvQmlyZF9zaW5naW5nLm9nZycsCiAgICAgICAgICAgICAgICAgICAgdHlwZTogJ2F1ZGlvL29nZycsCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICBdfQogICAgICAgIC8+CiAgICApCn0=" />
 
 ```tsx
 export const Usage = () => {
     return (
         <Audio
-            width={500}
+            style={{ maxWidth: 400 }}
+            width="100%"
             loader
             muted
             controls
@@ -62,7 +63,7 @@ export const Usage = () => {
 > The Waveform Audio component enables a richer, more platform agnostic interface to the audio component.
 
 export const Waveform = () => {
-    return (<Card width={300} p={20} column>
+    return (<Card style={{ maxWidth: 400 }} width="100%" p={20} column>
             <AudioWaveform defaultProgress={0.5} width="100%" height={30} samples={100} strokeWidth={2} src={{
             src: '/song.ogg',
             type: 'audio/ogg',
@@ -74,13 +75,14 @@ export const Waveform = () => {
 <Waveform />
 </div>
 
-<CodeComponent filename="Waveform.tsx" code="ZXhwb3J0IGNvbnN0IFdhdmVmb3JtID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8Q2FyZAogICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICBwPXsyMH0KICAgICAgICAgICAgY29sdW1uPgogICAgICAgICAgICA8QXVkaW9XYXZlZm9ybQogICAgICAgICAgICAgICAgZGVmYXVsdFByb2dyZXNzPXswLjV9CiAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgIGhlaWdodD17MzB9CiAgICAgICAgICAgICAgICBzYW1wbGVzPXsxMDB9CiAgICAgICAgICAgICAgICBzdHJva2VXaWR0aD17Mn0KICAgICAgICAgICAgICAgIHNyYz17ewogICAgICAgICAgICAgICAgICAgIHNyYzogJy9zb25nLm9nZycsCiAgICAgICAgICAgICAgICAgICAgdHlwZTogJ2F1ZGlvL29nZycsCiAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAvPgogICAgICAgIDwvQ2FyZD4KICAgICkKfQ==" />
+<CodeComponent filename="Waveform.tsx" code="ZXhwb3J0IGNvbnN0IFdhdmVmb3JtID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8Q2FyZAogICAgICAgICAgICBzdHlsZT17eyBtYXhXaWR0aDogNDAwIH19CiAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICBwPXsyMH0KICAgICAgICAgICAgY29sdW1uPgogICAgICAgICAgICA8QXVkaW9XYXZlZm9ybQogICAgICAgICAgICAgICAgZGVmYXVsdFByb2dyZXNzPXswLjV9CiAgICAgICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgICAgIGhlaWdodD17MzB9CiAgICAgICAgICAgICAgICBzYW1wbGVzPXsxMDB9CiAgICAgICAgICAgICAgICBzdHJva2VXaWR0aD17Mn0KICAgICAgICAgICAgICAgIHNyYz17ewogICAgICAgICAgICAgICAgICAgIHNyYzogJy9zb25nLm9nZycsCiAgICAgICAgICAgICAgICAgICAgdHlwZTogJ2F1ZGlvL29nZycsCiAgICAgICAgICAgICAgICB9fQogICAgICAgICAgICAvPgogICAgICAgIDwvQ2FyZD4KICAgICkKfQ==" />
 
 ```tsx
 export const Waveform = () => {
     return (
         <Card
-            width={300}
+            style={{ maxWidth: 400 }}
+            width="100%"
             p={20}
             column>
             <AudioWaveform
@@ -101,7 +103,7 @@ export const Waveform = () => {
 ### Flatten
 
 export const Flatten = () => {
-    return (<Card width={300} p={20} column>
+    return (<Card style={{ maxWidth: 400 }} width="100%" p={20} column>
             <AudioWaveform flatten defaultProgress={0.5} width="100%" height={30} samples={100} strokeWidth={3} src={{
             src: '/song.ogg',
             type: 'audio/ogg',
@@ -113,13 +115,14 @@ export const Flatten = () => {
 <Flatten />
 </div>
 
-<CodeComponent filename="Flatten.tsx" code="ZXhwb3J0IGNvbnN0IEZsYXR0ZW4gPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHdpZHRoPXszMDB9CiAgICAgICAgICAgIHA9ezIwfQogICAgICAgICAgICBjb2x1bW4+CiAgICAgICAgICAgIDxBdWRpb1dhdmVmb3JtCiAgICAgICAgICAgICAgICBmbGF0dGVuCiAgICAgICAgICAgICAgICBkZWZhdWx0UHJvZ3Jlc3M9ezAuNX0KICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgaGVpZ2h0PXszMH0KICAgICAgICAgICAgICAgIHNhbXBsZXM9ezEwMH0KICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoPXszfQogICAgICAgICAgICAgICAgc3JjPXt7CiAgICAgICAgICAgICAgICAgICAgc3JjOiAnL3Nvbmcub2dnJywKICAgICAgICAgICAgICAgICAgICB0eXBlOiAnYXVkaW8vb2dnJywKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9DYXJkPgogICAgKQp9" />
+<CodeComponent filename="Flatten.tsx" code="ZXhwb3J0IGNvbnN0IEZsYXR0ZW4gPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHN0eWxlPXt7IG1heFdpZHRoOiA0MDAgfX0KICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgIHA9ezIwfQogICAgICAgICAgICBjb2x1bW4+CiAgICAgICAgICAgIDxBdWRpb1dhdmVmb3JtCiAgICAgICAgICAgICAgICBmbGF0dGVuCiAgICAgICAgICAgICAgICBkZWZhdWx0UHJvZ3Jlc3M9ezAuNX0KICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgaGVpZ2h0PXszMH0KICAgICAgICAgICAgICAgIHNhbXBsZXM9ezEwMH0KICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoPXszfQogICAgICAgICAgICAgICAgc3JjPXt7CiAgICAgICAgICAgICAgICAgICAgc3JjOiAnL3Nvbmcub2dnJywKICAgICAgICAgICAgICAgICAgICB0eXBlOiAnYXVkaW8vb2dnJywKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9DYXJkPgogICAgKQp9" />
 
 ```tsx
 export const Flatten = () => {
     return (
         <Card
-            width={300}
+            style={{ maxWidth: 400 }}
+            width="100%"
             p={20}
             column>
             <AudioWaveform
@@ -141,8 +144,8 @@ export const Flatten = () => {
 ### Custom Pin Height
 
 export const CustomPinHeight = () => {
-    return (<Card width="fit-content" p={20} column>
-            <AudioWaveform style={{ '--f-audio-waveform-pin-height': '5rem' }} width={500} height={70} samples={100} strokeWidth={3} src={{
+    return (<Card style={{ maxWidth: 400 }} width="100%" p={20} column>
+            <AudioWaveform style={{ '--f-audio-waveform-pin-height': '5rem' }} width="100%" height={70} samples={100} strokeWidth={3} src={{
             src: '/song.ogg',
             type: 'audio/ogg',
         }}/>
@@ -153,18 +156,19 @@ export const CustomPinHeight = () => {
 <CustomPinHeight />
 </div>
 
-<CodeComponent filename="CustomPinHeight.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVBpbkhlaWdodCA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPENhcmQKICAgICAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50IgogICAgICAgICAgICBwPXsyMH0KICAgICAgICAgICAgY29sdW1uPgogICAgICAgICAgICA8QXVkaW9XYXZlZm9ybQogICAgICAgICAgICAgICAgc3R5bGU9e3sgJy0tZi1hdWRpby13YXZlZm9ybS1waW4taGVpZ2h0JzogJzVyZW0nIH19CiAgICAgICAgICAgICAgICB3aWR0aD17NTAwfQogICAgICAgICAgICAgICAgaGVpZ2h0PXs3MH0KICAgICAgICAgICAgICAgIHNhbXBsZXM9ezEwMH0KICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoPXszfQogICAgICAgICAgICAgICAgc3JjPXt7CiAgICAgICAgICAgICAgICAgICAgc3JjOiAnL3Nvbmcub2dnJywKICAgICAgICAgICAgICAgICAgICB0eXBlOiAnYXVkaW8vb2dnJywKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9DYXJkPgogICAgKQp9" />
+<CodeComponent filename="CustomPinHeight.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVBpbkhlaWdodCA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPENhcmQKICAgICAgICAgICAgc3R5bGU9e3sgbWF4V2lkdGg6IDQwMCB9fQogICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgcD17MjB9CiAgICAgICAgICAgIGNvbHVtbj4KICAgICAgICAgICAgPEF1ZGlvV2F2ZWZvcm0KICAgICAgICAgICAgICAgIHN0eWxlPXt7ICctLWYtYXVkaW8td2F2ZWZvcm0tcGluLWhlaWdodCc6ICc1cmVtJyB9fQogICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezcwfQogICAgICAgICAgICAgICAgc2FtcGxlcz17MTAwfQogICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGg9ezN9CiAgICAgICAgICAgICAgICBzcmM9e3sKICAgICAgICAgICAgICAgICAgICBzcmM6ICcvc29uZy5vZ2cnLAogICAgICAgICAgICAgICAgICAgIHR5cGU6ICdhdWRpby9vZ2cnLAogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgLz4KICAgICAgICA8L0NhcmQ+CiAgICApCn0=" />
 
 ```tsx
 export const CustomPinHeight = () => {
     return (
         <Card
-            width="fit-content"
+            style={{ maxWidth: 400 }}
+            width="100%"
             p={20}
             column>
             <AudioWaveform
                 style={{ '--f-audio-waveform-pin-height': '5rem' }}
-                width={500}
+                width="100%"
                 height={70}
                 samples={100}
                 strokeWidth={3}

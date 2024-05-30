@@ -24,7 +24,7 @@ import { Badge } from "@fold-dev/core";
 
 ### Usage
 
-export const Usage = () => (<View row gap={5} width="fit-content">
+export const Usage = () => (<View row wrap="wrap" gap={5} width="fit-content">
         <Badge>+34 notifications</Badge>
         <Badge outline>+12 outline notifications</Badge>
     </View>);
@@ -33,12 +33,13 @@ export const Usage = () => (<View row gap={5} width="fit-content">
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QmFkZ2U+KzM0IG5vdGlmaWNhdGlvbnM8L0JhZGdlPgogICAgICAgIDxCYWRnZSBvdXRsaW5lPisxMiBvdXRsaW5lIG5vdGlmaWNhdGlvbnM8L0JhZGdlPgogICAgPC9WaWV3Pgop" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICB3cmFwPSJ3cmFwIgogICAgICAgIGdhcD17NX0KICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiPgogICAgICAgIDxCYWRnZT4rMzQgbm90aWZpY2F0aW9uczwvQmFkZ2U+CiAgICAgICAgPEJhZGdlIG91dGxpbmU+KzEyIG91dGxpbmUgbm90aWZpY2F0aW9uczwvQmFkZ2U+CiAgICA8L1ZpZXc+Cik=" />
 
 ```tsx
 export const Usage = () => (
     <View
         row
+        wrap="wrap"
         gap={5}
         width="fit-content">
         <Badge>+34 notifications</Badge>
@@ -48,7 +49,7 @@ export const Usage = () => (
 ```
 ### Variants
 
-export const Variants = () => (<View row gap={5} width="fit-content">
+export const Variants = () => (<View row wrap="wrap" gap={5} width="fit-content">
         <Badge>Default</Badge>
         <Badge variant="accent">Accent</Badge>
         <Badge variant="success">Success</Badge>
@@ -62,12 +63,13 @@ export const Variants = () => (<View row gap={5} width="fit-content">
 <Variants />
 </div>
 
-<CodeComponent filename="Variants.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QmFkZ2U+RGVmYXVsdDwvQmFkZ2U+CiAgICAgICAgPEJhZGdlIHZhcmlhbnQ9ImFjY2VudCI+QWNjZW50PC9CYWRnZT4KICAgICAgICA8QmFkZ2UgdmFyaWFudD0ic3VjY2VzcyI+U3VjY2VzczwvQmFkZ2U+CiAgICAgICAgPEJhZGdlIHZhcmlhbnQ9Im5ldXRyYWwiPk5ldXRyYWw8L0JhZGdlPgogICAgICAgIDxCYWRnZSB2YXJpYW50PSJjYXV0aW9uIj5DYXV0aW9uPC9CYWRnZT4KICAgICAgICA8QmFkZ2UgdmFyaWFudD0id2FybmluZyI+V2FybmluZzwvQmFkZ2U+CiAgICAgICAgPEJhZGdlIHZhcmlhbnQ9ImRhbmdlciI+RGFuZ2VyPC9CYWRnZT4KICAgIDwvVmlldz4KKQ==" />
+<CodeComponent filename="Variants.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICB3cmFwPSJ3cmFwIgogICAgICAgIGdhcD17NX0KICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiPgogICAgICAgIDxCYWRnZT5EZWZhdWx0PC9CYWRnZT4KICAgICAgICA8QmFkZ2UgdmFyaWFudD0iYWNjZW50Ij5BY2NlbnQ8L0JhZGdlPgogICAgICAgIDxCYWRnZSB2YXJpYW50PSJzdWNjZXNzIj5TdWNjZXNzPC9CYWRnZT4KICAgICAgICA8QmFkZ2UgdmFyaWFudD0ibmV1dHJhbCI+TmV1dHJhbDwvQmFkZ2U+CiAgICAgICAgPEJhZGdlIHZhcmlhbnQ9ImNhdXRpb24iPkNhdXRpb248L0JhZGdlPgogICAgICAgIDxCYWRnZSB2YXJpYW50PSJ3YXJuaW5nIj5XYXJuaW5nPC9CYWRnZT4KICAgICAgICA8QmFkZ2UgdmFyaWFudD0iZGFuZ2VyIj5EYW5nZXI8L0JhZGdlPgogICAgPC9WaWV3Pgop" />
 
 ```tsx
 export const Variants = () => (
     <View
         row
+        wrap="wrap"
         gap={5}
         width="fit-content">
         <Badge>Default</Badge>
@@ -82,7 +84,7 @@ export const Variants = () => (
 ```
 ### Variants Outline
 
-export const VariantsOutline = () => (<View row gap={5} width="fit-content">
+export const VariantsOutline = () => (<View row wrap="wrap" gap={5} width="fit-content">
         <Badge outline>Default</Badge>
         <Badge variant="accent" outline>
             Accent
@@ -108,12 +110,13 @@ export const VariantsOutline = () => (<View row gap={5} width="fit-content">
 <VariantsOutline />
 </div>
 
-<CodeComponent filename="VariantsOutline.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzT3V0bGluZSA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgcm93CiAgICAgICAgZ2FwPXs1fQogICAgICAgIHdpZHRoPSJmaXQtY29udGVudCI+CiAgICAgICAgPEJhZGdlIG91dGxpbmU+RGVmYXVsdDwvQmFkZ2U+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9ImFjY2VudCIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgQWNjZW50CiAgICAgICAgPC9CYWRnZT4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgU3VjY2VzcwogICAgICAgIDwvQmFkZ2U+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9Im5ldXRyYWwiCiAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgIE5ldXRyYWwKICAgICAgICA8L0JhZGdlPgogICAgICAgIDxCYWRnZQogICAgICAgICAgICB2YXJpYW50PSJjYXV0aW9uIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBDYXV0aW9uCiAgICAgICAgPC9CYWRnZT4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0id2FybmluZyIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgV2FybmluZwogICAgICAgIDwvQmFkZ2U+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgRGFuZ2VyCiAgICAgICAgPC9CYWRnZT4KICAgIDwvVmlldz4KKQ==" />
+<CodeComponent filename="VariantsOutline.tsx" code="ZXhwb3J0IGNvbnN0IFZhcmlhbnRzT3V0bGluZSA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgcm93CiAgICAgICAgd3JhcD0id3JhcCIKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QmFkZ2Ugb3V0bGluZT5EZWZhdWx0PC9CYWRnZT4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0iYWNjZW50IgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBBY2NlbnQKICAgICAgICA8L0JhZGdlPgogICAgICAgIDxCYWRnZQogICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBTdWNjZXNzCiAgICAgICAgPC9CYWRnZT4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0ibmV1dHJhbCIKICAgICAgICAgICAgb3V0bGluZT4KICAgICAgICAgICAgTmV1dHJhbAogICAgICAgIDwvQmFkZ2U+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9ImNhdXRpb24iCiAgICAgICAgICAgIG91dGxpbmU+CiAgICAgICAgICAgIENhdXRpb24KICAgICAgICA8L0JhZGdlPgogICAgICAgIDxCYWRnZQogICAgICAgICAgICB2YXJpYW50PSJ3YXJuaW5nIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBXYXJuaW5nCiAgICAgICAgPC9CYWRnZT4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgICAgICBvdXRsaW5lPgogICAgICAgICAgICBEYW5nZXIKICAgICAgICA8L0JhZGdlPgogICAgPC9WaWV3Pgop" />
 
 ```tsx
 export const VariantsOutline = () => (
     <View
         row
+        wrap="wrap"
         gap={5}
         width="fit-content">
         <Badge outline>Default</Badge>
@@ -152,7 +155,7 @@ export const VariantsOutline = () => (
 ```
 ### Sizes
 
-export const Sizes = () => (<View row gap={5} width="fit-content">
+export const Sizes = () => (<View row wrap="wrap" gap={5} width="fit-content">
         <Badge size="xs">Extra small</Badge>
         <Badge size="sm">Small</Badge>
         <Badge size="md">Medium</Badge>
@@ -164,12 +167,13 @@ export const Sizes = () => (<View row gap={5} width="fit-content">
 <Sizes />
 </div>
 
-<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QmFkZ2Ugc2l6ZT0ieHMiPkV4dHJhIHNtYWxsPC9CYWRnZT4KICAgICAgICA8QmFkZ2Ugc2l6ZT0ic20iPlNtYWxsPC9CYWRnZT4KICAgICAgICA8QmFkZ2Ugc2l6ZT0ibWQiPk1lZGl1bTwvQmFkZ2U+CiAgICAgICAgPEJhZGdlIHNpemU9ImxnIj5MYXJnZTwvQmFkZ2U+CiAgICAgICAgPEJhZGdlIHNpemU9InhsIj5FeHRyYSBsYXJnZTwvQmFkZ2U+CiAgICA8L1ZpZXc+Cik=" />
+<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICB3cmFwPSJ3cmFwIgogICAgICAgIGdhcD17NX0KICAgICAgICB3aWR0aD0iZml0LWNvbnRlbnQiPgogICAgICAgIDxCYWRnZSBzaXplPSJ4cyI+RXh0cmEgc21hbGw8L0JhZGdlPgogICAgICAgIDxCYWRnZSBzaXplPSJzbSI+U21hbGw8L0JhZGdlPgogICAgICAgIDxCYWRnZSBzaXplPSJtZCI+TWVkaXVtPC9CYWRnZT4KICAgICAgICA8QmFkZ2Ugc2l6ZT0ibGciPkxhcmdlPC9CYWRnZT4KICAgICAgICA8QmFkZ2Ugc2l6ZT0ieGwiPkV4dHJhIGxhcmdlPC9CYWRnZT4KICAgIDwvVmlldz4KKQ==" />
 
 ```tsx
 export const Sizes = () => (
     <View
         row
+        wrap="wrap"
         gap={5}
         width="fit-content">
         <Badge size="xs">Extra small</Badge>
@@ -184,7 +188,7 @@ export const Sizes = () => (
 
 > When the Badge component has no children, it reverts to becoming an indicator.
 
-export const Indicator = () => (<View row gap={5} width="fit-content">
+export const Indicator = () => (<View row wrap="wrap" gap={5} width="fit-content">
         <Badge variant="success" size="xs"/>
         <Badge variant="success" size="sm"/>
         <Badge variant="success" size="md"/>
@@ -196,12 +200,13 @@ export const Indicator = () => (<View row gap={5} width="fit-content">
 <Indicator />
 </div>
 
-<CodeComponent filename="Indicator.tsx" code="ZXhwb3J0IGNvbnN0IEluZGljYXRvciA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgcm93CiAgICAgICAgZ2FwPXs1fQogICAgICAgIHdpZHRoPSJmaXQtY29udGVudCI+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgIHNpemU9InhzIgogICAgICAgIC8+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgIC8+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgIHNpemU9Im1kIgogICAgICAgIC8+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgIHNpemU9ImxnIgogICAgICAgIC8+CiAgICAgICAgPEJhZGdlCiAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgIHNpemU9InhsIgogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
+<CodeComponent filename="Indicator.tsx" code="ZXhwb3J0IGNvbnN0IEluZGljYXRvciA9ICgpID0+ICgKICAgIDxWaWV3CiAgICAgICAgcm93CiAgICAgICAgd3JhcD0id3JhcCIKICAgICAgICBnYXA9ezV9CiAgICAgICAgd2lkdGg9ImZpdC1jb250ZW50Ij4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgc2l6ZT0ieHMiCiAgICAgICAgLz4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgLz4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgc2l6ZT0ibWQiCiAgICAgICAgLz4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgc2l6ZT0ibGciCiAgICAgICAgLz4KICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgdmFyaWFudD0ic3VjY2VzcyIKICAgICAgICAgICAgc2l6ZT0ieGwiCiAgICAgICAgLz4KICAgIDwvVmlldz4KKQ==" />
 
 ```tsx
 export const Indicator = () => (
     <View
         row
+        wrap="wrap"
         gap={5}
         width="fit-content">
         <Badge

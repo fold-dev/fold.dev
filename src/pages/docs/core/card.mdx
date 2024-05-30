@@ -284,8 +284,8 @@ export const CardLists = () => (
 
 > The CardGrid component, like the CardList, provides a convenience pattern for creating grid layouts using the Card component.
 
-export const CardGrid = () => (<View row justifyContent="space-between">
-        <Card width="24%" height={200} column alignItems="flex-start" p={30}>
+export const CardGrid = () => (<View row wrap="wrap" gap="1rem" justifyContent="flex-start">
+        <Card width={165} height={200} column alignItems="flex-start" p={30}>
             <View height={20}/>
             <Flexer />
             <View>
@@ -296,7 +296,7 @@ export const CardGrid = () => (<View row justifyContent="space-between">
                 </View>
             </View>
         </Card>
-        <Card width="24%" height={200} column alignItems="flex-start" p={30}>
+        <Card width={165} height={200} column alignItems="flex-start" p={30}>
             <View height={20}/>
             <Flexer />
             <View>
@@ -307,7 +307,7 @@ export const CardGrid = () => (<View row justifyContent="space-between">
                 </View>
             </View>
         </Card>
-        <Card width="24%" height={200} column alignItems="flex-start" p={30}>
+        <Card width={165} height={200} column alignItems="flex-start" p={30}>
             <View height={20}/>
             <Flexer />
             <View>
@@ -318,7 +318,7 @@ export const CardGrid = () => (<View row justifyContent="space-between">
                 </View>
             </View>
         </Card>
-        <Card width="24%" height={200} column alignItems="flex-start" p={30}>
+        <Card width={165} height={200} column alignItems="flex-start" p={30}>
             <View height={20}/>
             <Flexer />
             <View>
@@ -335,15 +335,17 @@ export const CardGrid = () => (<View row justifyContent="space-between">
 <CardGrid />
 </div>
 
-<CodeComponent filename="CardGrid.tsx" code="ZXhwb3J0IGNvbnN0IENhcmRHcmlkID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICBqdXN0aWZ5Q29udGVudD0ic3BhY2UtYmV0d2VlbiI+CiAgICAgICAgPENhcmQKICAgICAgICAgICAgd2lkdGg9IjI0JSIKICAgICAgICAgICAgaGVpZ2h0PXsyMDB9CiAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0IgogICAgICAgICAgICBwPXszMH0+CiAgICAgICAgICAgIDxWaWV3IGhlaWdodD17MjB9IC8+CiAgICAgICAgICAgIDxGbGV4ZXIgLz4KICAgICAgICAgICAgPFZpZXc+CiAgICAgICAgICAgICAgICA8SGVhZGluZyBhcz0iaDMiPldvcms8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICA8VmlldyByb3c+CiAgICAgICAgICAgICAgICAgICAgPFRleHQ+MyBwcm9qZWN0czwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIG09IjAuMnJlbSAwIDAgMXJlbSIKICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9DYXJkPgogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHdpZHRoPSIyNCUiCiAgICAgICAgICAgIGhlaWdodD17MjAwfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgcD17MzB9PgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezIwfSAvPgogICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgIDxWaWV3PgogICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5Qcm9qZWN0czwvSGVhZGluZz4KICAgICAgICAgICAgICAgIDxWaWV3IHJvdz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD4yIHByb2plY3RzPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDxCYWRnZQogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIG09IjAuMnJlbSAwIDAgMXJlbSIKICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9DYXJkPgogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHdpZHRoPSIyNCUiCiAgICAgICAgICAgIGhlaWdodD17MjAwfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgcD17MzB9PgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezIwfSAvPgogICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgIDxWaWV3PgogICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5QZXJzb25hbDwvSGVhZGluZz4KICAgICAgICAgICAgICAgIDxWaWV3IHJvdz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD41IHByb2plY3RzPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDxCYWRnZQogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIG09IjAuMnJlbSAwIDAgMXJlbSIKICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9DYXJkPgogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHdpZHRoPSIyNCUiCiAgICAgICAgICAgIGhlaWdodD17MjAwfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgcD17MzB9PgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezIwfSAvPgogICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgIDxWaWV3PgogICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5Ib2JiaWVzPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgPFZpZXcgcm93PgogICAgICAgICAgICAgICAgICAgIDxUZXh0PjkgcHJvamVjdHM8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPEJhZGdlCiAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgbT0iMC4ycmVtIDAgMCAxcmVtIgogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICA8L0NhcmQ+CiAgICA8L1ZpZXc+Cik=" />
+<CodeComponent filename="CardGrid.tsx" code="ZXhwb3J0IGNvbnN0IENhcmRHcmlkID0gKCkgPT4gKAogICAgPFZpZXcKICAgICAgICByb3cKICAgICAgICB3cmFwPSJ3cmFwIgogICAgICAgIGdhcD0iMXJlbSIKICAgICAgICBqdXN0aWZ5Q29udGVudD0iZmxleC1zdGFydCI+CiAgICAgICAgPENhcmQKICAgICAgICAgICAgd2lkdGg9ezE2NX0KICAgICAgICAgICAgaGVpZ2h0PXsyMDB9CiAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICBhbGlnbkl0ZW1zPSJmbGV4LXN0YXJ0IgogICAgICAgICAgICBwPXszMH0+CiAgICAgICAgICAgIDxWaWV3IGhlaWdodD17MjB9IC8+CiAgICAgICAgICAgIDxGbGV4ZXIgLz4KICAgICAgICAgICAgPFZpZXc+CiAgICAgICAgICAgICAgICA8SGVhZGluZyBhcz0iaDMiPldvcms8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICA8VmlldyByb3c+CiAgICAgICAgICAgICAgICAgICAgPFRleHQ+MyBwcm9qZWN0czwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8QmFkZ2UKICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFudD0iZGFuZ2VyIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIG09IjAuMnJlbSAwIDAgMXJlbSIKICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9DYXJkPgogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHdpZHRoPXsxNjV9CiAgICAgICAgICAgIGhlaWdodD17MjAwfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgcD17MzB9PgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezIwfSAvPgogICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgIDxWaWV3PgogICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5Qcm9qZWN0czwvSGVhZGluZz4KICAgICAgICAgICAgICAgIDxWaWV3IHJvdz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD4yIHByb2plY3RzPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDxCYWRnZQogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIG09IjAuMnJlbSAwIDAgMXJlbSIKICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9DYXJkPgogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHdpZHRoPXsxNjV9CiAgICAgICAgICAgIGhlaWdodD17MjAwfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgcD17MzB9PgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezIwfSAvPgogICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgIDxWaWV3PgogICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5QZXJzb25hbDwvSGVhZGluZz4KICAgICAgICAgICAgICAgIDxWaWV3IHJvdz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD41IHByb2plY3RzPC9UZXh0PgogICAgICAgICAgICAgICAgICAgIDxCYWRnZQogICAgICAgICAgICAgICAgICAgICAgICB2YXJpYW50PSJzdWNjZXNzIgogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgIG09IjAuMnJlbSAwIDAgMXJlbSIKICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgPC9DYXJkPgogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHdpZHRoPXsxNjV9CiAgICAgICAgICAgIGhlaWdodD17MjAwfQogICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCIKICAgICAgICAgICAgcD17MzB9PgogICAgICAgICAgICA8VmlldyBoZWlnaHQ9ezIwfSAvPgogICAgICAgICAgICA8RmxleGVyIC8+CiAgICAgICAgICAgIDxWaWV3PgogICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9ImgzIj5Ib2JiaWVzPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgPFZpZXcgcm93PgogICAgICAgICAgICAgICAgICAgIDxUZXh0PjkgcHJvamVjdHM8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPEJhZGdlCiAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9InN1Y2Nlc3MiCiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoPXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0PXsxMH0KICAgICAgICAgICAgICAgICAgICAgICAgbT0iMC4ycmVtIDAgMCAxcmVtIgogICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICA8L0NhcmQ+CiAgICA8L1ZpZXc+Cik=" />
 
 ```tsx
 export const CardGrid = () => (
     <View
         row
-        justifyContent="space-between">
+        wrap="wrap"
+        gap="1rem"
+        justifyContent="flex-start">
         <Card
-            width="24%"
+            width={165}
             height={200}
             column
             alignItems="flex-start"
@@ -364,7 +366,7 @@ export const CardGrid = () => (
             </View>
         </Card>
         <Card
-            width="24%"
+            width={165}
             height={200}
             column
             alignItems="flex-start"
@@ -385,7 +387,7 @@ export const CardGrid = () => (
             </View>
         </Card>
         <Card
-            width="24%"
+            width={165}
             height={200}
             column
             alignItems="flex-start"
@@ -406,7 +408,7 @@ export const CardGrid = () => (
             </View>
         </Card>
         <Card
-            width="24%"
+            width={165}
             height={200}
             column
             alignItems="flex-start"

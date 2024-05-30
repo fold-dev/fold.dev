@@ -25,7 +25,7 @@ import { Splitter, SplitterContent } from "@fold-dev/core";
 
 ### Usage
 
-export const Usage = () => (<Splitter snap width={700} height={300} start={0.5} direction="horizontal">
+export const Usage = () => (<Splitter snap width="100%" height={300} start={0.5} direction="horizontal">
         <SplitterContent style={{
         backgroundSize: '700px auto',
         background: 'url(/photos/01.jpg) no-repeat center left',
@@ -40,13 +40,13 @@ export const Usage = () => (<Splitter snap width={700} height={300} start={0.5} 
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFNwbGl0dGVyCiAgICAgICAgc25hcAogICAgICAgIHdpZHRoPXs3MDB9CiAgICAgICAgaGVpZ2h0PXszMDB9CiAgICAgICAgc3RhcnQ9ezAuNX0KICAgICAgICBkaXJlY3Rpb249Imhvcml6b250YWwiPgogICAgICAgIDxTcGxpdHRlckNvbnRlbnQKICAgICAgICAgICAgc3R5bGU9e3sKICAgICAgICAgICAgICAgIGJhY2tncm91bmRTaXplOiAnNzAwcHggYXV0bycsCiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiAndXJsKC9waG90b3MvMDEuanBnKSBuby1yZXBlYXQgY2VudGVyIGxlZnQnLAogICAgICAgICAgICB9fQogICAgICAgIC8+CiAgICAgICAgPFNwbGl0dGVyQ29udGVudAogICAgICAgICAgICBzdHlsZT17ewogICAgICAgICAgICAgICAgYmFja2dyb3VuZFNpemU6ICc3MDBweCBhdXRvJywKICAgICAgICAgICAgICAgIGJhY2tncm91bmQ6ICd1cmwoL3Bob3Rvcy8wMi5qcGcpIG5vLXJlcGVhdCBjZW50ZXIgcmlnaHQnLAogICAgICAgICAgICB9fQogICAgICAgIC8+CiAgICA8L1NwbGl0dGVyPgop" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPFNwbGl0dGVyCiAgICAgICAgc25hcAogICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgIGhlaWdodD17MzAwfQogICAgICAgIHN0YXJ0PXswLjV9CiAgICAgICAgZGlyZWN0aW9uPSJob3Jpem9udGFsIj4KICAgICAgICA8U3BsaXR0ZXJDb250ZW50CiAgICAgICAgICAgIHN0eWxlPXt7CiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kU2l6ZTogJzcwMHB4IGF1dG8nLAogICAgICAgICAgICAgICAgYmFja2dyb3VuZDogJ3VybCgvcGhvdG9zLzAxLmpwZykgbm8tcmVwZWF0IGNlbnRlciBsZWZ0JywKICAgICAgICAgICAgfX0KICAgICAgICAvPgogICAgICAgIDxTcGxpdHRlckNvbnRlbnQKICAgICAgICAgICAgc3R5bGU9e3sKICAgICAgICAgICAgICAgIGJhY2tncm91bmRTaXplOiAnNzAwcHggYXV0bycsCiAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiAndXJsKC9waG90b3MvMDIuanBnKSBuby1yZXBlYXQgY2VudGVyIHJpZ2h0JywKICAgICAgICAgICAgfX0KICAgICAgICAvPgogICAgPC9TcGxpdHRlcj4KKQ==" />
 
 ```tsx
 export const Usage = () => (
     <Splitter
         snap
-        width={700}
+        width="100%"
         height={300}
         start={0.5}
         direction="horizontal">

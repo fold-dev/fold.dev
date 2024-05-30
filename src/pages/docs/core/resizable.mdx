@@ -96,7 +96,7 @@ export const Vertical = () => (
 
 > The `ResizableRail` component can be used as a standalone component to enable a greater degree of flexibility & customisation.
 
-export const Rail = () => (<View width={500} height={500} bgToken="surface-strong" position="relative">
+export const Rail = () => (<View width="100%" height={500} style={{ maxWidth: 500 }} bgToken="surface-strong" position="relative">
         <ResizableRail transparent position="end" direction="horizontal" onChange={({ x, y }) => console.log(x, y)}/>
     </View>);
 
@@ -104,13 +104,14 @@ export const Rail = () => (<View width={500} height={500} bgToken="surface-stron
 <Rail />
 </div>
 
-<CodeComponent filename="Rail.tsx" code="ZXhwb3J0IGNvbnN0IFJhaWwgPSAoKSA9PiAoCiAgICA8VmlldwogICAgICAgIHdpZHRoPXs1MDB9CiAgICAgICAgaGVpZ2h0PXs1MDB9CiAgICAgICAgYmdUb2tlbj0ic3VyZmFjZS1zdHJvbmciCiAgICAgICAgcG9zaXRpb249InJlbGF0aXZlIj4KICAgICAgICA8UmVzaXphYmxlUmFpbAogICAgICAgICAgICB0cmFuc3BhcmVudAogICAgICAgICAgICBwb3NpdGlvbj0iZW5kIgogICAgICAgICAgICBkaXJlY3Rpb249Imhvcml6b250YWwiCiAgICAgICAgICAgIG9uQ2hhbmdlPXsoeyB4LCB5IH0pID0+IGNvbnNvbGUubG9nKHgsIHkpfQogICAgICAgIC8+CiAgICA8L1ZpZXc+Cik=" />
+<CodeComponent filename="Rail.tsx" code="ZXhwb3J0IGNvbnN0IFJhaWwgPSAoKSA9PiAoCiAgICA8VmlldwogICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgIGhlaWdodD17NTAwfQogICAgICAgIHN0eWxlPXt7IG1heFdpZHRoOiA1MDAgfX0KICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLXN0cm9uZyIKICAgICAgICBwb3NpdGlvbj0icmVsYXRpdmUiPgogICAgICAgIDxSZXNpemFibGVSYWlsCiAgICAgICAgICAgIHRyYW5zcGFyZW50CiAgICAgICAgICAgIHBvc2l0aW9uPSJlbmQiCiAgICAgICAgICAgIGRpcmVjdGlvbj0iaG9yaXpvbnRhbCIKICAgICAgICAgICAgb25DaGFuZ2U9eyh7IHgsIHkgfSkgPT4gY29uc29sZS5sb2coeCwgeSl9CiAgICAgICAgLz4KICAgIDwvVmlldz4KKQ==" />
 
 ```tsx
 export const Rail = () => (
     <View
-        width={500}
+        width="100%"
         height={500}
+        style={{ maxWidth: 500 }}
         bgToken="surface-strong"
         position="relative">
         <ResizableRail
