@@ -885,10 +885,6 @@ const All = () => {
         d.style.setProperty('--f-font-body', family)
         documentObject.body.style.cssText = `--f-font-heading: ${family}`
         documentObject.body.style.cssText = `--f-font-body: ${family}`
-        setTimeout(() => {
-            console.log(d)
-
-        }, 1000)
     }
 
     useEffect(() => {
