@@ -50,34 +50,26 @@ export default function Document() {
                 <meta property="og:image:height" content="630" />
                 <meta property="og:description" content="Powerful, fully customizable React components for scaling your product to the next level. Supercharge your dev workflow by using our zero-dependency UI components." />
 
-                {showChild && (
-                    <>
-                        {getSafeCache().trim() != 'no' && (
-                            <>
-                                <link
-                                    rel="preconnect"
-                                    href="https://fonts.googleapis.com"
-                                    data-google="yes"
-                                />
-                                <link
-                                    rel="preconnect"
-                                    href="https://fonts.gstatic.com"
-                                    data-google="yes"
-                                />
-                                <link
-                                    data-google="yes"
-                                    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-                                    rel="stylesheet"
-                                />
-                                <link
-                                    data-google="yes"
-                                    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-                                    rel="stylesheet"
-                                />
-                            </>
-                        )}
-                    </>
-                )}
+                <link
+                    rel="preconnect"
+                    href="https://fonts.googleapis.com"
+                    data-google="yes"
+                />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    data-google="yes"
+                />
+                <link
+                    data-google="yes"
+                    href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+                    rel="stylesheet"
+                />
+                <link
+                    data-google="yes"
+                    href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100;9..40,200;9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&display=swap"
+                    rel="stylesheet"
+                />
             </Head>
             <body>
                 <Main />
