@@ -33,6 +33,7 @@ import {
     Timeline,
     TimelineItem,
     View,
+    documentObject,
     timezones,
     useCopy
 } from '@fold-dev/core'
@@ -880,24 +881,29 @@ const All = () => {
 
     const setFont = (family) => {
         const d: any = document.querySelector(':root')
-
         d.style.setProperty('--f-font-heading', family)
         d.style.setProperty('--f-font-body', family)
+        documentObject.body.style.cssText = `--f-font-heading: ${family}`
+        documentObject.body.style.cssText = `--f-font-body: ${family}`
+        setTimeout(() => {
+            console.log(d)
+
+        }, 1000)
     }
 
     useEffect(() => {
         switch (option) {
             case 0:
                 return setFont(
-                    '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                    '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important'
                 )
             case 1:
                 return setFont(
-                    'Inter, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                    'Inter, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important'
                 )
             case 2:
                 return setFont(
-                    'DM Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                    'DM Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important'
                 )
         }
     }, [option])
