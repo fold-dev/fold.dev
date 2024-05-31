@@ -785,11 +785,6 @@ export const Todo1 = () => {
                     richInputHighlight={handleHighlight}
                     richInputTrigger={handleTrigger}
                     richInputOptions={options}
-                    editableSectionName={true}
-                    showSectionCount={true}
-                    hideCheckbox={false}
-                    collapsibleSection={true}
-                    collapsibleTask={true}
                     targetVariant={{ cards: 'animated', nav: 'focus' }}
                     task={undefined}
                     sectionHeader={undefined}
