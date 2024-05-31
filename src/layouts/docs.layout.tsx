@@ -531,7 +531,7 @@ export default function DocsLayout(props: any) {
                                                     color={Token.ColorAccent400}
                                                     size="xs"
                                                     subtle>
-                                                    v0.0.10
+                                                    v0.0.11
                                                 </Pill>)}>
                                                 Pro Components
                                         </NavigationHeading>
