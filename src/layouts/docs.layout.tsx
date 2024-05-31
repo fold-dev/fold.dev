@@ -339,7 +339,8 @@ export default function DocsLayout(props: any) {
                                 <View
                                     flex={1}
                                     width="100%"
-                                    style={{ overflow: 'scroll' }}>
+                                    className="f-scrollbar"
+                                    style={{ overflowY: 'scroll' }}>
                                     <Navigation
                                         style={{ 
                                             '--f-navigation-item-color-active': 'var(--f-color-text)',
@@ -800,13 +801,12 @@ export default function DocsLayout(props: any) {
                                 width="100%"
                                 justifyContent="flex-start"
                                 alignItems="flex-start"
-                                className="scroll-content">
+                                className="scroll-content f-scrollbar">
                                 <View
                                     p={0}
                                     flex={1}
                                     width="100%"
-                                    position="relative"
-                                    className="f-overflow-y-auto"
+                                    position="relative"                                    
                                     style={
                                         {
                                             'overflow': 'hidden',

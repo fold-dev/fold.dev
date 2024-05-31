@@ -887,6 +887,7 @@ export const ProComponent = () => {
                     minHeight: 600,
                     overflow: 'scroll' 
                 }}
+                className="f-scrollbar"
                 radius="var(--f-radius)"
                 justifyContent="flex-start"
                 alignContent="flex-start"
