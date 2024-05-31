@@ -552,7 +552,7 @@ export const Kanban1 = () => {
 
     return (
         <View
-            width="100%"
+            width="fit-content"
             height={1000}>
             {!!card.id && (
                 <Detail
@@ -574,7 +574,6 @@ export const Kanban1 = () => {
 
             <MenuProvider menu={getMenu}>
                 <Kanban
-                    
                     style={{ '--f-kanban-swimlane-minheight': '100%' }}
                     swimlanes={swimlanes}
                     onCardOpen={handleCardOpen}
@@ -850,7 +849,7 @@ export const DatePicker1 = () => {
     return (
         <DateRangeProvider>
             <Card
-                m="2rem 0 0 0"
+                m="2rem 0 4rem 0"
                 p="1rem"
                 width="fit-content">
                 <DatePicker
@@ -881,17 +880,8 @@ export const ProComponent = () => {
             <View
                 bgToken="surface"
                 width="95%"
-                p="1rem"
-                style={{ 
-                    maxHeight: 1200, 
-                    minHeight: 600,
-                    overflow: 'scroll' 
-                }}
-                className="f-scrollbar"
+                p="0.5rem"
                 radius="var(--f-radius)"
-                justifyContent="flex-start"
-                alignContent="flex-start"
-                alignItems="flex-start"
                 position="relative">
                 <Options
                     m="1rem auto 2rem auto"
@@ -910,16 +900,28 @@ export const ProComponent = () => {
                     <Option>Date Picker</Option>
                 </Options>
                 <View
-                    width="100%"
-                    height="fit-content"
-                    position="relative"
-                    zIndex={0}>
-                    {option == 0 && (<Kanban1 />)}
-                    {option == 1 && (<Todo1 />)}
-                    {option == 2 && (<Calendar1 />)}
-                    {option == 3 && (<CSVImporter1 />)}
-                    {option == 4 && (<DataGrid1 />)}
-                    {option == 5 && (<View row><DatePicker1 /></View>)}
+                    p="0.5rem"
+                    style={{ 
+                        overflow: 'auto',
+                        maxHeight: 1200, 
+                    }}
+                    className="f-scrollbar"
+                    justifyContent="flex-start"
+                    alignContent="flex-start"
+                    alignItems="flex-start"
+                    >
+                    <View
+                        width="100%"
+                        height="fit-content"
+                        position="relative"
+                        zIndex={0}>
+                        {option == 0 && (<Kanban1 />)}
+                        {option == 1 && (<Todo1 />)}
+                        {option == 2 && (<Calendar1 />)}
+                        {option == 3 && (<CSVImporter1 />)}
+                        {option == 4 && (<DataGrid1 />)}
+                        {option == 5 && (<View row><DatePicker1 /></View>)}
+                    </View>
                 </View>
             </View>
         </View>
