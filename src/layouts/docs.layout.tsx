@@ -226,6 +226,7 @@ export default function DocsLayout(props: any) {
 
     useEffect(() => {
         if (!showChild) return
+        return
 
         switch (color) {
             case Token.ColorPurple400:
@@ -720,6 +721,7 @@ export default function DocsLayout(props: any) {
                                                 </Options>
                                                 <Heading as="h5">Color:</Heading>
                                                 <Palette
+                                                    display="none"
                                                     justifyContent="center"
                                                     gap={1}
                                                     color={color}
