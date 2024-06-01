@@ -6,6 +6,14 @@ body {
     scroll-behavior: smooth;
 }
 
+[data-theme='light'] {
+    color-scheme: light;
+}
+
+[data-theme='dark'] {
+    color-scheme: dark;
+}
+
 /* shinji */
 
 [data-rehype-pretty-code-figure] {
