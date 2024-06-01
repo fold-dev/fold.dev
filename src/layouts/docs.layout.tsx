@@ -339,7 +339,6 @@ export default function DocsLayout(props: any) {
                                 <View
                                     flex={1}
                                     width="100%"
-                                    className="f-scrollbar"
                                     style={{ overflowY: 'scroll' }}>
                                     <Navigation
                                         style={{ 
@@ -568,7 +567,7 @@ export default function DocsLayout(props: any) {
                                                     size="xs"
                                                     subtle
                                                     color={Token.ColorAccent400}>
-                                                    v0.11.2
+                                                    v0.11.3
                                                 </Pill>                                               
                                             }>
                                             Core Components
@@ -801,7 +800,7 @@ export default function DocsLayout(props: any) {
                                 width="100%"
                                 justifyContent="flex-start"
                                 alignItems="flex-start"
-                                className="scroll-content f-scrollbar">
+                                className="scroll-content">
                                 <View
                                     p={0}
                                     flex={1}

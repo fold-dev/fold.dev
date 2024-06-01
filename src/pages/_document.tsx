@@ -71,7 +71,7 @@ export default function Document() {
                     rel="stylesheet"
                 />
             </Head>
-            <body className="f-scrollbar">
+            <body>
                 <Main />
                 <NextScript />
             </body>
