@@ -11,8 +11,8 @@
     "prettier": "prettier --write 'src/**/*.{ts,tsx}' --print-width 120"
   },
   "dependencies": {
-    "@fold-dev/core": "^0.11.3",
-    "@fold-dev/design": "^0.11.3",
+    "@fold-dev/core": "^0.11.4",
+    "@fold-dev/design": "^0.11.4",
     "@fold-pro/react": "^0.0.14",
     "@heroicons/react": "^2.0.18",
     "@mdx-js/loader": "^2.3.0",
