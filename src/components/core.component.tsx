@@ -1109,20 +1109,22 @@ const All = () => {
                             p="0rem 1rem"
                             width="100%"
                             row>
-                            <Tabs
-                                selected={selected}
-                                onSelect={setSelected}
-                                animated>
-                                <TabList
-                                    height={60}
-                                    border="none"
-                                    stretch
-                                    disableScroll>
-                                    <Tab>Members</Tab>
-                                    <Tab>Security</Tab>
-                                    <Tab>Account</Tab>
-                                </TabList>
-                            </Tabs>
+                            <View>
+                                <Tabs
+                                    selected={selected}
+                                    onSelect={setSelected}
+                                    animated>
+                                    <TabList
+                                        height={60}
+                                        border="none"
+                                        stretch
+                                        disableScroll>
+                                        <Tab>Members</Tab>
+                                        <Tab>Security</Tab>
+                                        <Tab>Account</Tab>
+                                    </TabList>
+                                </Tabs>
+                            </View>
                         </Card>
 
                         <Card
