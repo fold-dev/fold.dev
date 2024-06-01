@@ -880,6 +880,7 @@ export const ProComponent = () => {
             <View
                 bgToken="surface"
                 width="95%"
+                border="1px solid var(--f-color-border)"
                 p="0.5rem"
                 radius="var(--f-radius)"
                 position="relative">
