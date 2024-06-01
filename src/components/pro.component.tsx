@@ -144,7 +144,8 @@ export const Calendar1 = () => {
                     </View>
                     <View
                         p="0 0 0 var(--f-calendar-schedule-gutter-width)"
-                        width="100%">
+                        width="100%"
+                        m="0 0 -1px 0">
                         <CalendarMonth
                             noClamp
                             date={date}
