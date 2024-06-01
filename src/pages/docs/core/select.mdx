@@ -249,7 +249,7 @@ export const AlwaysOpen = () => {
             setSelected([...selected, option.key]);
         }
     };
-    return (<Select prefix={<IconLib icon="time"/>} suffix={<IconLib icon="chevron-down"/>} width={350} variant="static" placeholder="Select a timezone" selected={selected} onSelect={handleSelect} options={timezones.map((tz) => ({
+    return (<Select noListFocus prefix={<IconLib icon="time"/>} suffix={<IconLib icon="chevron-down"/>} width={350} variant="static" placeholder="Select a timezone" selected={selected} onSelect={handleSelect} options={timezones.map((tz) => ({
             key: tz,
             label: tz,
         }))}/>);
@@ -259,7 +259,7 @@ export const AlwaysOpen = () => {
 <AlwaysOpen />
 </div>
 
-<CodeComponent filename="AlwaysOpen.tsx" code="ZXhwb3J0IGNvbnN0IEFsd2F5c09wZW4gPSAoKSA9PiB7CiAgICBjb25zdCBbc2VsZWN0ZWQsIHNldFNlbGVjdGVkXSA9IHVzZVN0YXRlPGFueT4oW3RpbWV6b25lc1swXSwgdGltZXpvbmVzWzRdLCB0aW1lem9uZXNbOF1dKQoKICAgIGNvbnN0IGhhbmRsZVNlbGVjdCA9IChvcHRpb24sIGRpc21pc3MpID0+IHsKICAgICAgICBpZiAoc2VsZWN0ZWQuaW5jbHVkZXMob3B0aW9uLmtleSkpIHsKICAgICAgICAgICAgc2V0U2VsZWN0ZWQoWy4uLnNlbGVjdGVkLmZpbHRlcigob3B0aW9uS2V5KSA9PiBvcHRpb24ua2V5ICE9IG9wdGlvbktleSldKQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZCwgb3B0aW9uLmtleV0pCiAgICAgICAgfQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPFNlbGVjdAogICAgICAgICAgICBwcmVmaXg9ezxJY29uTGliIGljb249InRpbWUiIC8+fQogICAgICAgICAgICBzdWZmaXg9ezxJY29uTGliIGljb249ImNoZXZyb24tZG93biIgLz59CiAgICAgICAgICAgIHdpZHRoPXszNTB9CiAgICAgICAgICAgIHZhcmlhbnQ9InN0YXRpYyIKICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlNlbGVjdCBhIHRpbWV6b25lIgogICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgIG9uU2VsZWN0PXtoYW5kbGVTZWxlY3R9CiAgICAgICAgICAgIG9wdGlvbnM9e3RpbWV6b25lcy5tYXAoKHR6KSA9PiAoewogICAgICAgICAgICAgICAga2V5OiB0eiwKICAgICAgICAgICAgICAgIGxhYmVsOiB0eiwKICAgICAgICAgICAgfSkpfQogICAgICAgIC8+CiAgICApCn0=" />
+<CodeComponent filename="AlwaysOpen.tsx" code="ZXhwb3J0IGNvbnN0IEFsd2F5c09wZW4gPSAoKSA9PiB7CiAgICBjb25zdCBbc2VsZWN0ZWQsIHNldFNlbGVjdGVkXSA9IHVzZVN0YXRlPGFueT4oW3RpbWV6b25lc1swXSwgdGltZXpvbmVzWzRdLCB0aW1lem9uZXNbOF1dKQoKICAgIGNvbnN0IGhhbmRsZVNlbGVjdCA9IChvcHRpb24sIGRpc21pc3MpID0+IHsKICAgICAgICBpZiAoc2VsZWN0ZWQuaW5jbHVkZXMob3B0aW9uLmtleSkpIHsKICAgICAgICAgICAgc2V0U2VsZWN0ZWQoWy4uLnNlbGVjdGVkLmZpbHRlcigob3B0aW9uS2V5KSA9PiBvcHRpb24ua2V5ICE9IG9wdGlvbktleSldKQogICAgICAgIH0gZWxzZSB7CiAgICAgICAgICAgIHNldFNlbGVjdGVkKFsuLi5zZWxlY3RlZCwgb3B0aW9uLmtleV0pCiAgICAgICAgfQogICAgfQoKICAgIHJldHVybiAoCiAgICAgICAgPFNlbGVjdAogICAgICAgICAgICBub0xpc3RGb2N1cwogICAgICAgICAgICBwcmVmaXg9ezxJY29uTGliIGljb249InRpbWUiIC8+fQogICAgICAgICAgICBzdWZmaXg9ezxJY29uTGliIGljb249ImNoZXZyb24tZG93biIgLz59CiAgICAgICAgICAgIHdpZHRoPXszNTB9CiAgICAgICAgICAgIHZhcmlhbnQ9InN0YXRpYyIKICAgICAgICAgICAgcGxhY2Vob2xkZXI9IlNlbGVjdCBhIHRpbWV6b25lIgogICAgICAgICAgICBzZWxlY3RlZD17c2VsZWN0ZWR9CiAgICAgICAgICAgIG9uU2VsZWN0PXtoYW5kbGVTZWxlY3R9CiAgICAgICAgICAgIG9wdGlvbnM9e3RpbWV6b25lcy5tYXAoKHR6KSA9PiAoewogICAgICAgICAgICAgICAga2V5OiB0eiwKICAgICAgICAgICAgICAgIGxhYmVsOiB0eiwKICAgICAgICAgICAgfSkpfQogICAgICAgIC8+CiAgICApCn0=" />
 
 ```tsx
 export const AlwaysOpen = () => {
@@ -275,6 +275,7 @@ export const AlwaysOpen = () => {
 
     return (
         <Select
+            noListFocus
             prefix={<IconLib icon="time" />}
             suffix={<IconLib icon="chevron-down" />}
             width={350}

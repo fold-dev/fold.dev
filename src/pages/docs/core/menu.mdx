@@ -48,7 +48,9 @@ import {
 
 ### Usage
 
-export const Usage = () => (<Menu>
+> Whilst not recommended, the automatic focus on the first item can be disabled. It's disabled here so the page doesn't jump down (to focus on the first item).
+
+export const Usage = () => (<Menu disableAutoFocus>
         <MenuItem>Edit</MenuItem>
         <MenuItem>Copy</MenuItem>
         <MenuItem>Cut</MenuItem>
@@ -66,51 +68,10 @@ export const Usage = () => (<Menu>
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPE1lbnU+CiAgICAgICAgPE1lbnVJdGVtPkVkaXQ8L01lbnVJdGVtPgogICAgICAgIDxNZW51SXRlbT5Db3B5PC9NZW51SXRlbT4KICAgICAgICA8TWVudUl0ZW0+Q3V0PC9NZW51SXRlbT4KICAgICAgICA8TWVudUl0ZW0+UGFzdGU8L01lbnVJdGVtPgogICAgICAgIDxNZW51SXRlbT5TZWxlY3Q8L01lbnVJdGVtPgogICAgICAgIDxNZW51RGl2aWRlciAvPgogICAgICAgIDxNZW51SGVhZGluZz5Sb3RhdGlvbjwvTWVudUhlYWRpbmc+CiAgICAgICAgPE1lbnVJdGVtPlJvdGF0ZSBMZWZ0PC9NZW51SXRlbT4KICAgICAgICA8TWVudUl0ZW0+Um90YXRlIFJpZ2h0PC9NZW51SXRlbT4KICAgICAgICA8TWVudUl0ZW0+RmxpcCBIb3Jpem9udGFsPC9NZW51SXRlbT4KICAgICAgICA8TWVudUl0ZW0+RmxpcCBWZXJ0aWNhbDwvTWVudUl0ZW0+CiAgICA8L01lbnU+Cik=" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gKAogICAgPE1lbnUgZGlzYWJsZUF1dG9Gb2N1cz4KICAgICAgICA8TWVudUl0ZW0+RWRpdDwvTWVudUl0ZW0+CiAgICAgICAgPE1lbnVJdGVtPkNvcHk8L01lbnVJdGVtPgogICAgICAgIDxNZW51SXRlbT5DdXQ8L01lbnVJdGVtPgogICAgICAgIDxNZW51SXRlbT5QYXN0ZTwvTWVudUl0ZW0+CiAgICAgICAgPE1lbnVJdGVtPlNlbGVjdDwvTWVudUl0ZW0+CiAgICAgICAgPE1lbnVEaXZpZGVyIC8+CiAgICAgICAgPE1lbnVIZWFkaW5nPlJvdGF0aW9uPC9NZW51SGVhZGluZz4KICAgICAgICA8TWVudUl0ZW0+Um90YXRlIExlZnQ8L01lbnVJdGVtPgogICAgICAgIDxNZW51SXRlbT5Sb3RhdGUgUmlnaHQ8L01lbnVJdGVtPgogICAgICAgIDxNZW51SXRlbT5GbGlwIEhvcml6b250YWw8L01lbnVJdGVtPgogICAgICAgIDxNZW51SXRlbT5GbGlwIFZlcnRpY2FsPC9NZW51SXRlbT4KICAgIDwvTWVudT4KKQ==" />
 
 ```tsx
 export const Usage = () => (
-    <Menu>
-        <MenuItem>Edit</MenuItem>
-        <MenuItem>Copy</MenuItem>
-        <MenuItem>Cut</MenuItem>
-        <MenuItem>Paste</MenuItem>
-        <MenuItem>Select</MenuItem>
-        <MenuDivider />
-        <MenuHeading>Rotation</MenuHeading>
-        <MenuItem>Rotate Left</MenuItem>
-        <MenuItem>Rotate Right</MenuItem>
-        <MenuItem>Flip Horizontal</MenuItem>
-        <MenuItem>Flip Vertical</MenuItem>
-    </Menu>
-)
-```
-### Disable Auto Focus
-
-> Whilst not recommended, the automatic focus on the first item can be disabled
-
-export const DisableAutoFocus = () => (<Menu disableAutoFocus>
-        <MenuItem>Edit</MenuItem>
-        <MenuItem>Copy</MenuItem>
-        <MenuItem>Cut</MenuItem>
-        <MenuItem>Paste</MenuItem>
-        <MenuItem>Select</MenuItem>
-        <MenuDivider />
-        <MenuHeading>Rotation</MenuHeading>
-        <MenuItem>Rotate Left</MenuItem>
-        <MenuItem>Rotate Right</MenuItem>
-        <MenuItem>Flip Horizontal</MenuItem>
-        <MenuItem>Flip Vertical</MenuItem>
-    </Menu>);
-
-<div className="story-block">
-<DisableAutoFocus />
-</div>
-
-<CodeComponent filename="DisableAutoFocus.tsx" code="ZXhwb3J0IGNvbnN0IERpc2FibGVBdXRvRm9jdXMgPSAoKSA9PiAoCiAgICA8TWVudSBkaXNhYmxlQXV0b0ZvY3VzPgogICAgICAgIDxNZW51SXRlbT5FZGl0PC9NZW51SXRlbT4KICAgICAgICA8TWVudUl0ZW0+Q29weTwvTWVudUl0ZW0+CiAgICAgICAgPE1lbnVJdGVtPkN1dDwvTWVudUl0ZW0+CiAgICAgICAgPE1lbnVJdGVtPlBhc3RlPC9NZW51SXRlbT4KICAgICAgICA8TWVudUl0ZW0+U2VsZWN0PC9NZW51SXRlbT4KICAgICAgICA8TWVudURpdmlkZXIgLz4KICAgICAgICA8TWVudUhlYWRpbmc+Um90YXRpb248L01lbnVIZWFkaW5nPgogICAgICAgIDxNZW51SXRlbT5Sb3RhdGUgTGVmdDwvTWVudUl0ZW0+CiAgICAgICAgPE1lbnVJdGVtPlJvdGF0ZSBSaWdodDwvTWVudUl0ZW0+CiAgICAgICAgPE1lbnVJdGVtPkZsaXAgSG9yaXpvbnRhbDwvTWVudUl0ZW0+CiAgICAgICAgPE1lbnVJdGVtPkZsaXAgVmVydGljYWw8L01lbnVJdGVtPgogICAgPC9NZW51Pgop" />
-
-```tsx
-export const DisableAutoFocus = () => (
     <Menu disableAutoFocus>
         <MenuItem>Edit</MenuItem>
         <MenuItem>Copy</MenuItem>
