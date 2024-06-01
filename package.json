@@ -13,7 +13,7 @@
   "dependencies": {
     "@fold-dev/core": "^0.11.3",
     "@fold-dev/design": "^0.11.3",
-    "@fold-pro/react": "^0.0.13",
+    "@fold-pro/react": "^0.0.14",
     "@heroicons/react": "^2.0.18",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
