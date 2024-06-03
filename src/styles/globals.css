@@ -199,17 +199,17 @@ body {
     left: 40px;
 }
 
- .legal-content h1 {
+ .text-content h1 {
     line-height: 4rem;
     margin: 0.5rem 0 0.5rem 0;
 }
 
-.legal-content h2 {
+.text-content h2 {
     line-height: 2rem;
     margin: 1rem 0 1rem 0;
 }
 
-.legal-content p {
+.text-content p {
     line-height: 1.5rem;
     margin: 1rem 0;
 }
@@ -352,17 +352,12 @@ body {
         display: none;
     }
 
-    .legal-content {
+    .text-content {
         padding: 2rem !important;
     }
 
-    .f-modal__inner .legal-content {
+    .f-modal__inner .text-content {
         padding: 0rem !important;
-    }
-
-    .legal h1 {
-        font-size: 4rem !important;
-        letter-spacing: 1px !important;
     }
 
     .docs-site .f-main .f-header > * {
