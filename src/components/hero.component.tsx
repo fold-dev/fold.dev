@@ -10,7 +10,7 @@ export const HeroComponent = () => {
             m="-111px 0 0 0"
             position="relative"
             style={{ overflow: 'hidden' }}
-            bg={`linear-gradient(175deg, var(--f-color-accent-700), var(--f-color-accent-400))`}>
+            bg={`linear-gradient(175deg, var(--f-color-accent-500), var(--f-color-accent-600))`}>
             <GraphicRight
                 style={{ position: 'absolute', top: -100, right: -100, opacity: 0.2 }}
                 height={882 / 2}
