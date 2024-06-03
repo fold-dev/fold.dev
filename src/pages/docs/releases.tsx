@@ -165,53 +165,57 @@ export default function Releases(props) {
                 <Option>Pro</Option>
             </Options>
 
-            {releases.map(({ html_url, tag_name, published_at, body }, index) => (
-                <div key={index}>
-                    <View 
-                        column
-                        gap="0.5rem"
-                        m="1rem 0"
-                        p="0.5rem 0"
-                        alignItems="flex-start">
-                        <Heading>
-                            {tag_name}
-                        </Heading>
-                        <Text 
-                            size="sm" 
-                            colorToken="text-weaker"
-                            fontWeight={600}>
-                            {new Date(published_at).toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'short',
-                                day: 'numeric',
-                            })}
-                        </Text>
-                        <div style={{ lineHeight: '3rem' }}>
-                            <ReleaseNote 
-                                markdown={body} 
-                                core={option == 0}
-                                pro={option == 1}
-                            />
+            {!loading && (
+                <>
+                    {releases.map(({ html_url, tag_name, published_at, body }, index) => (
+                        <div key={index}>
+                            <View 
+                                column
+                                gap="0.5rem"
+                                m="1rem 0"
+                                p="0.5rem 0"
+                                alignItems="flex-start">
+                                <Heading>
+                                    {tag_name}
+                                </Heading>
+                                <Text 
+                                    size="sm" 
+                                    colorToken="text-weaker"
+                                    fontWeight={600}>
+                                    {new Date(published_at).toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'short',
+                                        day: 'numeric',
+                                    })}
+                                </Text>
+                                <div style={{ lineHeight: '3rem' }}>
+                                    <ReleaseNote 
+                                        markdown={body} 
+                                        core={option == 0}
+                                        pro={option == 1}
+                                    />
+                                </div>
+                                {option == 0 && (
+                                    <Link 
+                                        href={html_url}
+                                        target="_blank">
+                                        <Pill
+                                            p="0"
+                                            subtle
+                                            height={30}
+                                            width={30}
+                                            className="f-buttonize-outline"
+                                            color={Token.ColorAccent400}>
+                                            <Icon icon={PiGithubLogo} />
+                                        </Pill>
+                                    </Link>
+                                )}
+                            </View>
+                            <Divider />
                         </div>
-                        {option == 0 && (
-                            <Link 
-                                href={html_url}
-                                target="_blank">
-                                <Pill
-                                    p="0"
-                                    subtle
-                                    height={30}
-                                    width={30}
-                                    className="f-buttonize-outline"
-                                    color={Token.ColorAccent400}>
-                                    <Icon icon={PiGithubLogo} />
-                                </Pill>
-                            </Link>
-                        )}
-                    </View>
-                    <Divider />
-                </div>
-            ))}
+                    ))}
+                </>
+            )}
 
             {(!releases.length && !loading) && <Text as="blockquote">There are no releases here (yet).</Text>}
         </View>
