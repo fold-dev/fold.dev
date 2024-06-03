@@ -95,6 +95,10 @@ body {
 
 /* page */
 
+.releases-content h2 {
+    font-size: 1.5rem;
+}
+
 .scroll-content {
     overflow-y: scroll;
     background: var(--f-color-surface-strong);
