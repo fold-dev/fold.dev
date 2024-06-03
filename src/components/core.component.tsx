@@ -861,7 +861,7 @@ const sparkline = [
     Math.random(),
 ]
 
-const Code = ({ snippet }) => {
+export const Code = ({ snippet }) => {
     const { copyToClipboard } = useCopy()
 
     return (
