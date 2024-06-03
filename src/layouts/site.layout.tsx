@@ -91,7 +91,7 @@ export default function SiteLayout({ children }) {
                 zIndex={10000}
                 width="100%"
                 position="relative"
-                bg="linear-gradient(15deg, var(--f-color-purple-500), var(--f-color-purple-600))">
+                bg="linear-gradient(15deg, var(--f-color-neonpink-600), var(--f-color-neonpink-400))">
                 <Text
                     color="inherit"
                     colorToken="purple-50">
@@ -153,7 +153,7 @@ export default function SiteLayout({ children }) {
                                         suffix={(
                                             <View
                                                 p="0.25rem 0.75rem"
-                                                bg="linear-gradient(15deg, var(--f-color-purple-400), var(--f-color-neonpink-400))"
+                                                bg="linear-gradient(15deg, var(--f-color-purple-500), var(--f-color-neonpink-400))"
                                                 radius="var(--f-radius)">
                                                 <Text
                                                     m={0} 

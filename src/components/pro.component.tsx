@@ -939,7 +939,7 @@ export const ProComponent = () => {
                             zIndex: 2,
                             inset: 0, 
                             width: '100%',
-                            opacity: 1,
+                            opacity: 0.5,
                             height: '100%',
                             position: 'absolute',
                             background: 'radial-gradient(var(--f-color-surface) 0%, transparent 100%)',
@@ -949,7 +949,7 @@ export const ProComponent = () => {
                         style={{ 
                             zIndex: 1,
                             inset: 0, 
-                            opacity: 0.1,
+                            opacity: 0,
                             width: '100%',
                             height: '100%',
                             position: 'absolute',
