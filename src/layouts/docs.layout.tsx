@@ -762,6 +762,14 @@ export default function DocsLayout(props: any) {
                                         </View>
                                     </Popover>
                                     <Button
+                                        outline
+                                        as="a"
+                                        href="https://app-sandbox.fold.dev"
+                                        target="_blank"
+                                        variant="accent">
+                                        App Sandbox ↗
+                                    </Button>
+                                    <Button
                                         as="a"
                                         href="/#pro"
                                         target="_blank"
