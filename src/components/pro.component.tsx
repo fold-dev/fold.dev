@@ -2,7 +2,7 @@ import * as data from '@/dummy_data'
 import {
     Button, Card, FIX, Flexer,
     Form,
-    Heading, Icon, Input, Link, Menu, MenuProvider, MenuSection, Modal, Option, Options, Portal,
+    Heading, Icon, Input, Link, Menu, MenuProvider, MenuSection, Modal, Option, Options, Pill, Portal,
     Text, View, generateUEID
 } from '@fold-dev/core'
 import {
@@ -11,7 +11,10 @@ import {
     DataGridTypes, DatePicker, DateRangeProvider, Detail, KanbanColumnMenu, KanbanSelection, KanbanSwimlaneMenu, KanbanTypes, LabelMenu, Popup, Todo, TodoSectionMenu, UserMenu, dataGridState,
     dispatchDataGridEvent, dispatchTodoEvent, getShortDateFormat, kanbanState, setExperimentalGlobalRowCellComponents, todoState
 } from '@fold-pro/react'
+import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 import { useLayoutEffect, useMemo, useState } from 'react'
+import { PiArrowSquareOutDuotone, PiPlayCircleDuotone } from 'react-icons/pi'
+import * as Token from '@fold-dev/design/tokens-es6'
 
 export const Calendar1 = () => {
     const [days, setDays] = useState(data.days)
@@ -880,12 +883,97 @@ export const ProComponent = () => {
             className="pro">
             <View
                 bgToken="surface"
-                width="95%"
+                width="86%"
+                shadow="var(--f-shadow-menu)"
                 border="1px solid var(--f-color-border)"
-                p="0.5rem"
+                p="0rem"
+                style={{ overflow: 'hidden' }}
                 radius="var(--f-radius)"
                 position="relative">
-                <Options
+                    <a
+                        href="https://app-sandbox.fold.dev" 
+                        target="_blank"
+                        className="f-buttonize"
+                        style={{ 
+                            border: 'none',
+                            display: 'flex',
+                            gap: '1rem',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignContent: 'center',
+                            alignItems: 'center',
+                            zIndex: 3,
+                            inset: 0, 
+                            width: '100%',
+                            height: '100%',
+                            position: 'absolute',
+                            color: 'var(--f-color-accent)',
+                            paddingBottom: '5rem',
+                            textDecoration: 'none',
+                        }}>
+                        {/* <Icon 
+                            icon={ArrowTopRightOnSquareIcon} 
+                            style={{
+                                boxShadow: 'var(--f-shadow-menu)',
+                                '--f-icon-sizing-md': '4rem',
+                                '--f-icon-stroke-width-md': 1,
+                            }}
+                        /> */}
+                        <View
+                            radius="var(--f-radius)"
+                            p="0.5rem 1rem"
+                            bgToken="accent-weak">
+                            <Text colorToken="accent-strong" size="lg">
+                                app-sandbox.fold.dev ↗
+                            </Text>
+                        </View>
+                        {/* <Text 
+                            size="sm" 
+                            fontWeight="bold" 
+                            colorToken="text-weaker">
+                            Test out Fold Pro here:
+                        </Text> */}
+                    </a>
+                    <div 
+                        style={{ 
+                            zIndex: 2,
+                            inset: 0, 
+                            width: '100%',
+                            opacity: 1,
+                            height: '100%',
+                            position: 'absolute',
+                            background: 'radial-gradient(var(--f-color-surface) 0%, transparent 100%)',
+                        }}
+                    />
+                    <div 
+                        style={{ 
+                            zIndex: 1,
+                            inset: 0, 
+                            opacity: 0.1,
+                            width: '100%',
+                            height: '100%',
+                            position: 'absolute',
+                            background: 'var(--f-color-surface)',
+                        }}
+                    />
+                    <img 
+                        style={{ position: 'relative', zIndex: 0 }}
+                        src="app-sandbox-light.png" 
+                        width="100%"
+                        className="pro-image"
+                    />
+                    {/* <div
+                        style={{
+                            background: 'url(/app-sandbox-light.png)',
+                            backgroundSize: 'contain',
+                            backgroundRepeat: 'no-repeat',
+                            backgroundPosition: 'center center',
+                            width: '100%',
+                            height: 800,
+                        }}
+                    /> */}
+                
+                {/* <Options
                     m="1rem auto 2rem auto"
                     position="sticky"
                     style={{ top: '1rem' }}
@@ -924,7 +1012,7 @@ export const ProComponent = () => {
                         {option == 4 && (<DataGrid1 />)}
                         {option == 5 && (<View row><DatePicker1 /></View>)}
                     </View>
-                </View>
+                </View> */}
             </View>
         </View>
     )

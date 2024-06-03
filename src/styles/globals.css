@@ -214,6 +214,14 @@ body {
     margin: 1rem 0;
 }
 
+[data-theme="dark"] .pro-image {
+    content: url("../../public/app-sandbox-dark.png");
+}
+
+[data-theme="light"] .pro-image {
+    content: url("../../public/app-sandbox-light.png");
+}
+
 /* mobile */
 
 @media only screen and (max-device-width: 640px),
