@@ -49,15 +49,15 @@ export const GoComponent = () => {
                         colorToken="accent-50"
                         fontWeight={400}>
                         Every business is unique, with its own set of challenges, goals, and aspirations. 
-                        That's why we offer tailored design and development services to businesses in need of that expert touch working with Fold Core, and Fold Pro.
+                        We offer tailored design and development services to businesses in need of that expert touch working with Fold Core, and Fold Pro.
                     </Heading>
                     <Link
-                        href="/docs/pro"
+                        href="mailto:studio@fold.dev"
                         textDecoration="none"
                         className="f-underline"
                         m="0 -1rem 0 0"
                         colorToken="white">
-                        Get Started ↗
+                        Contact us for more information ↗
                     </Link>
                 </View>
             </View>

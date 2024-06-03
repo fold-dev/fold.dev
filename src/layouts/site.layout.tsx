@@ -85,27 +85,18 @@ export default function SiteLayout({ children }) {
             />
 
             <View
-                display="none"
                 row
-                p={10}
+                p="0.6rem"
                 gap={10}
                 zIndex={10000}
                 width="100%"
-                height={40}
                 position="relative"
-                bg="rgba(0, 44, 91, 0.4)"
-                style={{ 
-                    backdropFilter: 'blur(5px)',
-                    transition: 'background 0.1s',
-                }}>
+                bg="linear-gradient(15deg, var(--f-color-neonpink-600), var(--f-color-neonpink-400))">
                 <Text
                     color="inherit"
-                    colorToken="accent-100">
-                    We've just launched Fold Pro Early Access! 🚀 There are limited seats available <a
-                        href="#pro"
-                        style={{ color: 'var(--f-color-accent-100)' }}>
-                        read more below.
-                    </a>
+                    colorToken="purple-50">
+                        We've just launched Fold Pro Early Access! 
+                        Get your Early Access license now - <a href="/#pro" style={{ color: 'var(--f-color-purple-50)' }}>click here</a> to learn more. 🎉
                 </Text>
             </View>
 
@@ -134,7 +125,7 @@ export default function SiteLayout({ children }) {
                                 width="100%"
                                 p="0 4rem">
                                 <Link href="/">
-                                    <LogoSolid color="var(--f-color-accent-200)" />
+                                    <LogoSolid color="var(--f-color-accent-50)" />
                                 </Link>
                                 <Flexer />
                                 <Navigation
@@ -142,8 +133,8 @@ export default function SiteLayout({ children }) {
                                     variant="navbar"
                                     style={{
                                         '--f-navigation-item-color-system-active': 'var(--f-color-accent-600)',
-                                        '--f-navigation-item-background-color-hover': stuck ? 'var(--f-color-accent-400)' : 'var(--f-color-accent-600)',
-                                        '--f-navigation-item-background-color-active':  stuck ? 'var(--f-color-accent-500)' : 'var(--f-color-accent-700)',
+                                        '--f-navigation-item-background-color-hover': 'var(--f-color-accent-400)',
+                                        '--f-navigation-item-background-color-active':  'var(--f-color-accent-500)',
                                         '--f-navigation-item-color': 'var(--f-color-accent-50)',
                                         '--f-navigation-item-color-hover': 'var(--f-color-accent-50)',
                                         '--f-navigation-item-color-active': 'white',
@@ -158,9 +149,9 @@ export default function SiteLayout({ children }) {
                                         }}
                                         suffix={(
                                             <View
-                                                p="0.5rem 1rem"
-                                                radius="var(--f-radius-2xl)"
-                                                bg="linear-gradient(162deg, #C15AF1 -64.21%, #2087FF 21.76%, #00E1B9 100%)">
+                                                p="0.25rem 0.75rem"
+                                                bg="linear-gradient(15deg, var(--f-color-purple-500), var(--f-color-neonpink-400))"
+                                                radius="var(--f-radius)">
                                                 <Text
                                                     m={0} 
                                                     p={0}
@@ -194,7 +185,7 @@ export default function SiteLayout({ children }) {
                                 <Button
                                     href="/#pro"
                                     as="a"
-                                    target="_blank"
+                                    //target="_blank"
                                     outline
                                     border="0.15rem solid white"
                                     style={{
