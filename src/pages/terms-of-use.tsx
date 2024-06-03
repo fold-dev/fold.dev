@@ -16,7 +16,9 @@ function TermsOfUse(props){
 
             <View 
                 p={100} 
-                className="text-content">
+                className="text-content"
+                m="0 auto"
+                style={{ maxWidth: 1200 }}>
                 <h2>Use of Website</h2>
                 <p>You may use this website for lawful purposes only. You agree not to use this website in any way that violates any applicable laws or regulations.</p>
 

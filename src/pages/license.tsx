@@ -83,7 +83,9 @@ function License(props){
 
             <View 
                 p={100} 
-                className="text-content">
+                className="text-content"
+                m="0 auto"
+                style={{ maxWidth: 1200 }}>
                 <LicenseContent />
             </View>
         </View>

@@ -7,11 +7,11 @@ export const HeaderComponent = ({ title, subtitle = null, description = null }) 
     return  (
         <View
             width="100%"
-            p="111px 0 0 0"
-            m="-111px 0 0 0"
+            p="50px 0 0 0"
+            m="-100px 0 0 0"
             position="relative"
             style={{ overflow: 'hidden' }}
-            bg={`linear-gradient(175deg, ${Token.ColorElectric700}, ${Token.ColorElectric400})`}>
+            bg="linear-gradient(175deg, var(--f-color-accent-500), var(--f-color-accent-600))">
             <GraphicRight
                 style={{ position: 'absolute', top: -100, right: -100, opacity: 0.2 }}
                 height={882 / 2}
@@ -21,18 +21,25 @@ export const HeaderComponent = ({ title, subtitle = null, description = null }) 
             <View
                 column
                 id="home"
-                gap="1rem"
+                gap="2rem"
                 flex={1}
                 width="100%"
                 p="5rem 0"
                 justifyContent="stretch">
+
+                {!!subtitle && (
+                    <Text
+                        textAlign="center"
+                        style={{ textTransform: 'uppercase' }}
+                        letterSpacing={5}
+                        colorToken="accent-300">
+                        {subtitle}
+                    </Text>
+                )}
                 <Heading
+                    huge
                     textAlign="center"
-                    colorToken="white"
-                    fontWeight={700}
-                    fontSize="6rem"
-                    letterSpacing={-5}
-                    lineHeight={0.9}>
+                    colorToken="white">
                     {title}
                 </Heading>
 
@@ -46,7 +53,7 @@ export const HeaderComponent = ({ title, subtitle = null, description = null }) 
                     </Heading>
                 )}
 
-                {!!subtitle && (
+           {/*      {!!subtitle && (
                     <Heading
                         as="h5"
                         textAlign="center"
@@ -54,7 +61,7 @@ export const HeaderComponent = ({ title, subtitle = null, description = null }) 
                         width="80%">
                         {subtitle}
                     </Heading>
-                )}
+                )} */}
             
                 <GraphicLeft
                     style={{ position: 'absolute', top: 400, left: -200, opacity: 0.2 }}

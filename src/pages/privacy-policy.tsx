@@ -13,7 +13,9 @@ function PrivacyPolicy(props) {
 
             <View 
                 p={100} 
-                className="text-content">
+                className="text-content"
+                m="0 auto"
+                style={{ maxWidth: 1200 }}>
                 <h2>Information Collection</h2>
                 <p>We do not collect or track any personal information about our visitors. You can browse this website without revealing any personal data.</p>
 

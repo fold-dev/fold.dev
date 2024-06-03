@@ -9,7 +9,23 @@ export default function BlogLayout(props: any) {
     const { title, date, author, tags } = useMemo(() => {
         const parts = window.location.pathname.split('/')
         const lastPart = parts[parts.length - 1]
-        return articles.find((article) => article.slug == lastPart)
+        const { slug, title, summary, date, author, image, tags } = articles.find(
+            (article) => article.slug == lastPart
+        )
+
+        return { 
+            slug, 
+            title, 
+            summary, 
+            date: new Date(date).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+            }), 
+            author, 
+            image, 
+            tags,
+        }
     }, [])
 
     useEffect(() => {
@@ -22,7 +38,8 @@ export default function BlogLayout(props: any) {
         <View>
             <HeaderComponent
                 title={title}
-                subtitle={`${date} by ${author}`}
+                subtitle="Blog"
+                description={`${author} on ${date}`}
             />
             
             <View 
