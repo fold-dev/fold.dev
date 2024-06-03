@@ -478,9 +478,9 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
-                        <Tooltip text="Pricing reflects Early Access pricing.">
+                        <Tooltip text="Changes when Early Access ends.">
                             <Text size="sm" colorToken="text-weakest">
-                                Subject to change *
+                                Early Access pricing *
                             </Text>
                         </Tooltip>
                         <Flexer />
@@ -526,9 +526,9 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
-                        <Tooltip text="Pricing reflects Early Access pricing.">
+                        <Tooltip text="Changes when Early Access ends.">
                             <Text size="sm" colorToken="text-weakest">
-                                Subject to change *
+                                Early Access pricing *
                             </Text>
                         </Tooltip>
                         <View

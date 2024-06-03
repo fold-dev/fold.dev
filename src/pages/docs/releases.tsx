@@ -11,6 +11,7 @@ import {
     NotificationContent,
     Option,
     Options,
+    Pill,
     Progress,
     Stack,
     TBody,
@@ -23,19 +24,54 @@ import {
     View,
 } from '@fold-dev/core'
 import { NextPageContext } from 'next'
+import * as Token from '@fold-dev/design/tokens'
 import { Octokit } from 'octokit'
 import React, { useEffect, useState } from 'react'
-import { PiTag, PiTagDuotone } from 'react-icons/pi'
+import { PiGithubLogo, PiTag, PiTagDuotone } from 'react-icons/pi'
 import { remark } from 'remark'
 import html from 'remark-html'
+
+function convertUrlsToLinks(text) {
+    const urlPattern = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    return text.replace(urlPattern, '<a href="$1" target="_blank">$1</a>');
+}
 
 async function markdownToHtml(markdown: string) {
     const result = await remark().use(html).process(markdown)
     return result.toString()
 }
 
+export const ReleaseNote = ({ markdown, core, pro }) => {
+    const [html, setHtml] = useState('')
+
+    const generateHtml = async () => {
+        const md = markdown
+            .split('\n')
+            .map((line) => {
+                return line.split(' by @')[0]
+            })
+            .filter((line) => {
+                if (pro && line.includes('Full Changelog')) {
+                    return false 
+                } else {
+                    return true
+                }
+            })
+            .join('\n')
+        const html = await markdownToHtml(md)
+        setHtml(convertUrlsToLinks(html))
+    }
+
+    useEffect(() => {
+        generateHtml()
+    }, [])
+    
+    return (
+        <div className="f-text" dangerouslySetInnerHTML={{ __html: html }} />
+    )
+} 
+
 export default function Releases(props) {
-    const { data, content } = props
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState(false)
     const [releases, setReleases] = useState([])
@@ -47,9 +83,10 @@ export default function Releases(props) {
 
         try {
             const response = await fetch('/api/releases?repo=pro')
-            const { results: { data } } = await response.json()
+            const res = await response.json()
+            const { results } = res
 
-            setReleases(data)
+            setReleases(results)
             setLoading(false)
         } catch (e) {
             setLoading(false)
@@ -63,9 +100,10 @@ export default function Releases(props) {
 
         try {
             const response = await fetch('/api/releases?repo=fold')
-            const { results: { data } } = await response.json()
+            const res = await response.json()
+            const { results } = res
 
-            setReleases(data)
+            setReleases(results)
             setLoading(false)
         } catch (e) {
             setLoading(false)
@@ -84,7 +122,7 @@ export default function Releases(props) {
     return (
         <View
             p={30}
-            className="docs-content">
+            className="docs-content releases-content">
             <Breadcrumb>
                 <BreadcrumbItem>Documentation</BreadcrumbItem>
                 <BreadcrumbItem active>Releases</BreadcrumbItem>
@@ -120,58 +158,64 @@ export default function Releases(props) {
             </If>
 
             <Options
-                m="1rem 0"
+                m="2rem 0"
                 selected={option}
                 onOptionChange={setOption}>
                 <Option>Core</Option>
                 <Option>Pro</Option>
             </Options>
 
-            {/* https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#list-releases-for-a-repository */}
-
-            <Table>
-                <THead>
-                    <Tr>
-                        <Th width="30%">Version</Th>
-                        <Th width="30%">Release Date</Th>
-                        <Th width="40%" align="right"></Th>
-                    </Tr>
-                </THead>
-                <TBody>
-                    {releases.map(({ html_url, name, id, tag_name, published_at }, index) => (
-                        <Tr key={index}>
-                            <Td>
-                                <View
-                                    row
-                                    gap={5}
-                                    justifyContent="flex-start">
-                                    <Icon
-                                        icon={PiTag}
-                                        size="sm"
-                                        color="var(--f-color-accent)"
+            {!loading && (
+                <>
+                    {releases.map(({ html_url, tag_name, published_at, body }, index) => (
+                        <div key={index}>
+                            <View 
+                                column
+                                gap="0.5rem"
+                                m="1rem 0"
+                                p="0.5rem 0"
+                                alignItems="flex-start">
+                                <Heading>
+                                    {tag_name}
+                                </Heading>
+                                <Text 
+                                    size="sm" 
+                                    colorToken="text-weaker"
+                                    fontWeight={600}>
+                                    {new Date(published_at).toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'short',
+                                        day: 'numeric',
+                                    })}
+                                </Text>
+                                <div style={{ lineHeight: '3rem' }}>
+                                    <ReleaseNote 
+                                        markdown={body} 
+                                        core={option == 0}
+                                        pro={option == 1}
                                     />
-                                    <Text>{tag_name}</Text>
-                                </View>
-                            </Td>
-                            <Td>
-                                {new Date(published_at).toLocaleDateString('en-US', {
-                                    weekday: 'short',
-                                    year: 'numeric',
-                                    month: 'short',
-                                    day: 'numeric',
-                                })}
-                            </Td>
-                            <Td align="right">
-                                <Link
-                                    target="_blank"
-                                    href={html_url}>
-                                    View release on GitHub ↗
-                                </Link>
-                            </Td>
-                        </Tr>
+                                </div>
+                                {option == 0 && (
+                                    <Link 
+                                        href={html_url}
+                                        target="_blank">
+                                        <Pill
+                                            p="0"
+                                            subtle
+                                            height={30}
+                                            width={30}
+                                            className="f-buttonize-outline"
+                                            color={Token.ColorAccent400}>
+                                            <Icon icon={PiGithubLogo} />
+                                        </Pill>
+                                    </Link>
+                                )}
+                            </View>
+                            <Divider />
+                        </div>
                     ))}
-                </TBody>
-            </Table>
+                </>
+            )}
 
             {(!releases.length && !loading) && <Text as="blockquote">There are no releases here (yet).</Text>}
         </View>
