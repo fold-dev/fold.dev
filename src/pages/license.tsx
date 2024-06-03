@@ -2,9 +2,10 @@ import React from 'react'
 import { Heading, Li, Link, List, Notification, NotificationContent, Text, View } from '@fold-dev/core'
 import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
+import { HeaderComponent } from '@/components/header.component'
 
 export const LicenseContent = (props) => (
-    <View className="legal-content">
+    <View className="text-content">
         <Text>This license is a legal agreement between you (either an individual or a single entity, also referred to as "LICENSEE", "YOU") and Johannes du Plessis ("Fold") for the use of Fold Pro (the "SOFTWARE").</Text>
         <Text>By purchasing, installing, or using the SOFTWARE, you agree to be bound by the terms and conditions of this License Agreement. Johannes du Plessis ("Fold") reserves the right to alter this agreement at any time, for any reason, without notice.</Text>
 
@@ -74,55 +75,17 @@ export const LicenseContent = (props) => (
 
 function License(props){
     return (
-        <View className="legal">
-            <View
-                width="100%"
-                p="111px 0 0 0"
-                m="-111px 0 0 0"
-                position="relative"
-                style={{ overflow: 'hidden' }}
-                bg={`linear-gradient(175deg, ${Token.ColorElectric700}, ${Token.ColorElectric400})`}>
-                <GraphicRight
-                    style={{ position: 'absolute', top: -100, right: -100, opacity: 0.2 }}
-                    height={882 / 2}
-                    width={1456 / 2}
-                />
+        <View>
+            <HeaderComponent 
+                title="License Agreement"
+                subtitle="Last updated on 26 May 2024"
+            />
 
-                <View
-                    column
-                    id="home"
-                    gap="1rem"
-                    flex={1}
-                    width="100%"
-                    p="5rem 0"
-                    justifyContent="stretch">
-                    <Heading
-                        textAlign="center"
-                        colorToken="white"
-                        fontWeight={700}
-                        fontSize="6rem"
-                        letterSpacing={-5}
-                        lineHeight={0.9}>
-                        License Agreement
-                    </Heading>
-
-                    <Heading
-                        as="h5"
-                        textAlign="center"
-                        colorToken="white"
-                        width="80%">
-                        Last updated on 26 May 2024
-                    </Heading>
-                
-                    <GraphicLeft
-                        style={{ position: 'absolute', top: 400, left: -200, opacity: 0.2 }}
-                        width={1107 / 2}
-                        height={559 / 2}
-                    />
-                </View>
-            </View>
-
-            <View p={100} className="legal-content">
+            <View 
+                p={100} 
+                className="text-content"
+                m="0 auto"
+                style={{ maxWidth: 1200 }}>
                 <LicenseContent />
             </View>
         </View>

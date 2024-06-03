@@ -881,6 +881,58 @@ export const ProComponent = () => {
             position="relative"
             m="-500px 0 0 0"
             className="pro">
+            {/*                 
+            <View
+                bgToken="surface"
+                width="86%"
+                shadow="var(--f-shadow-menu)"
+                border="1px solid var(--f-color-border)"
+                p="0rem"
+                style={{ overflow: 'hidden' }}
+                radius="var(--f-radius)"
+                position="relative">
+                <Options
+                    m="1rem auto 2rem auto"
+                    position="sticky"
+                    style={{ top: '1rem' }}
+                    animated
+                    shadow="var(--f-shadow-card)"
+                    zIndex={1000}
+                    selected={option}
+                    onOptionChange={setOption}>
+                    <Option>Kanban Board</Option>
+                    <Option>Todo List</Option>
+                    <Option>Calendar</Option>
+                    <Option>CSV Importer</Option>
+                    <Option>Data Grid</Option>
+                    <Option>Date Picker</Option>
+                </Options>
+                <View
+                    p="0.5rem"
+                    style={{ 
+                        overflow: 'auto',
+                        maxHeight: 1200, 
+                    }}
+                    className="f-scrollbar"
+                    justifyContent="flex-start"
+                    alignContent="flex-start"
+                    alignItems="flex-start"
+                    >
+                    <View
+                        width="100%"
+                        height="fit-content"
+                        position="relative"
+                        zIndex={0}>
+                        {option == 0 && (<Kanban1 />)}
+                        {option == 1 && (<Todo1 />)}
+                        {option == 2 && (<Calendar1 />)}
+                        {option == 3 && (<CSVImporter1 />)}
+                        {option == 4 && (<DataGrid1 />)}
+                        {option == 5 && (<View row><DatePicker1 /></View>)}
+                    </View>
+                </View>
+            </View>
+            */}
             <View
                 bgToken="surface"
                 width="86%"
@@ -962,57 +1014,6 @@ export const ProComponent = () => {
                         width="100%"
                         className="pro-image"
                     />
-                    {/* <div
-                        style={{
-                            background: 'url(/app-sandbox-light.png)',
-                            backgroundSize: 'contain',
-                            backgroundRepeat: 'no-repeat',
-                            backgroundPosition: 'center center',
-                            width: '100%',
-                            height: 800,
-                        }}
-                    /> */}
-                
-                {/* <Options
-                    m="1rem auto 2rem auto"
-                    position="sticky"
-                    style={{ top: '1rem' }}
-                    animated
-                    shadow="var(--f-shadow-card)"
-                    zIndex={1000}
-                    selected={option}
-                    onOptionChange={setOption}>
-                    <Option>Kanban Board</Option>
-                    <Option>Todo List</Option>
-                    <Option>Calendar</Option>
-                    <Option>CSV Importer</Option>
-                    <Option>Data Grid</Option>
-                    <Option>Date Picker</Option>
-                </Options>
-                <View
-                    p="0.5rem"
-                    style={{ 
-                        overflow: 'auto',
-                        maxHeight: 1200, 
-                    }}
-                    className="f-scrollbar"
-                    justifyContent="flex-start"
-                    alignContent="flex-start"
-                    alignItems="flex-start"
-                    >
-                    <View
-                        width="100%"
-                        height="fit-content"
-                        position="relative"
-                        zIndex={0}>
-                        {option == 0 && (<Kanban1 />)}
-                        {option == 1 && (<Todo1 />)}
-                        {option == 2 && (<Calendar1 />)}
-                        {option == 3 && (<CSVImporter1 />)}
-                        {option == 4 && (<DataGrid1 />)}
-                        {option == 5 && (<View row><DatePicker1 /></View>)}
-                    </View>
-                </View> */}
             </View>
         </View>
     )

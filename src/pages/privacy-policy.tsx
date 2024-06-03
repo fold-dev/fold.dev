@@ -1,69 +1,21 @@
-import React from 'react'
-import { Heading, Text, View } from '@fold-dev/core'
-import { GraphicLeft, GraphicRight } from '../components/graphic.component'
-import * as Token from '@fold-dev/design/tokens'
+import { HeaderComponent } from '@/components/header.component'
+import { View } from '@fold-dev/core'
 import Link from 'next/link'
 
 function PrivacyPolicy(props) {
     return (
-        <View className="legal">
-            <View
-                width="100%"
-                p="111px 0 0 0"
-                m="-111px 0 0 0"
-                position="relative"
-                style={{ overflow: 'hidden' }}
-                bg={`linear-gradient(175deg, ${Token.ColorElectric700}, ${Token.ColorElectric400})`}>
-                <GraphicRight
-                    style={{ position: 'absolute', top: -100, right: -100, opacity: 0.2 }}
-                    height={882 / 2}
-                    width={1456 / 2}
-                />
+        <View>
+            <HeaderComponent 
+                title="Privacy Policy"
+                subtitle="Last updated on 23 May 2024"
+                description="We value your privacy and are committed to protecting your personal information. This Privacy Policy outlines our practices regarding the collection, use, and protection of your information when you visit this website."
+            />
 
-                <View
-                    column
-                    id="home"
-                    gap="1rem"
-                    flex={1}
-                    width="100%"
-                    p="5rem 0"
-                    justifyContent="stretch">
-                    <Heading
-                        textAlign="center"
-                        colorToken="white"
-                        fontWeight={700}
-                        fontSize="6rem"
-                        letterSpacing={-5}
-                        lineHeight={0.9}>
-                        Privacy Policy
-                    </Heading>
-
-                    <Heading
-                        as="h3"
-                        textAlign="center"
-                        colorToken="white"
-                        width="80%">
-                        We value your privacy and are committed to protecting your personal information. 
-                        This Privacy Policy outlines our practices regarding the collection, use, and protection of your information when you visit this website.
-                    </Heading>
-
-                    <Heading
-                        as="h5"
-                        textAlign="center"
-                        colorToken="white"
-                        width="80%">
-                        Last updated on 23 May 2024
-                    </Heading>
-                
-                    <GraphicLeft
-                        style={{ position: 'absolute', top: 400, left: -200, opacity: 0.2 }}
-                        width={1107 / 2}
-                        height={559 / 2}
-                    />
-                </View>
-            </View>
-
-            <View p={100} className="legal-content">
+            <View 
+                p={100} 
+                className="text-content"
+                m="0 auto"
+                style={{ maxWidth: 1200 }}>
                 <h2>Information Collection</h2>
                 <p>We do not collect or track any personal information about our visitors. You can browse this website without revealing any personal data.</p>
 

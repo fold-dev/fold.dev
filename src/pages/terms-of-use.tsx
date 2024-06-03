@@ -3,66 +3,22 @@ import { Heading, Text, View } from '@fold-dev/core'
 import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
 import Link from 'next/link'
+import { HeaderComponent } from '@/components/header.component'
 
 function TermsOfUse(props){
     return (
-        <View className="legal">
-            <View
-                width="100%"
-                p="111px 0 0 0"
-                m="-111px 0 0 0"
-                position="relative"
-                style={{ overflow: 'hidden' }}
-                bg={`linear-gradient(175deg, ${Token.ColorElectric700}, ${Token.ColorElectric400})`}>
-                <GraphicRight
-                    style={{ position: 'absolute', top: -100, right: -100, opacity: 0.2 }}
-                    height={882 / 2}
-                    width={1456 / 2}
-                />
+        <View>
+            <HeaderComponent 
+                title="Terms of Use"
+                subtitle="Last updated on 23 May 2024"
+                description="These Terms of Use govern your use of this website. By accessing or using this website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not use this website."
+            />
 
-                <View
-                    column
-                    id="home"
-                    gap="1rem"
-                    flex={1}
-                    width="100%"
-                    p="5rem 0"
-                    justifyContent="stretch">
-                    <Heading
-                        textAlign="center"
-                        colorToken="white"
-                        fontWeight={700}
-                        fontSize="6rem"
-                        letterSpacing={-5}
-                        lineHeight={0.9}>
-                        Terms of Use
-                    </Heading>
-
-                    <Heading
-                        as="h3"
-                        textAlign="center"
-                        colorToken="white"
-                        width="80%">
-                        These Terms of Use govern your use of this website. By accessing or using this website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not use this website.
-                    </Heading>
-
-                    <Heading
-                        as="h5"
-                        textAlign="center"
-                        colorToken="white"
-                        width="80%">
-                        Last updated on 23 May 2024
-                    </Heading>
-                
-                    <GraphicLeft
-                        style={{ position: 'absolute', top: 400, left: -200, opacity: 0.2 }}
-                        width={1107 / 2}
-                        height={559 / 2}
-                    />
-                </View>
-            </View>
-
-            <View p={100} className="legal-content">
+            <View 
+                p={100} 
+                className="text-content"
+                m="0 auto"
+                style={{ maxWidth: 1200 }}>
                 <h2>Use of Website</h2>
                 <p>You may use this website for lawful purposes only. You agree not to use this website in any way that violates any applicable laws or regulations.</p>
 
