@@ -41,13 +41,23 @@ async function markdownToHtml(markdown: string) {
     return result.toString()
 }
 
-export const ReleaseNote = ({ markdown }) => {
+export const ReleaseNote = ({ markdown, core, pro }) => {
     const [html, setHtml] = useState('')
 
     const generateHtml = async () => {
-        const md = markdown.split('\n').map((line) => {
-            return line.split(' by @')[0]
-        }).join('\n')
+        const md = markdown
+            .split('\n')
+            .map((line) => {
+                return line.split(' by @')[0]
+            })
+            .filter((line) => {
+                if (pro && line.includes('Full Changelog')) {
+                    return false 
+                } else {
+                    return true
+                }
+            })
+            .join('\n')
         const html = await markdownToHtml(md)
         setHtml(convertUrlsToLinks(html))
     }
@@ -179,21 +189,25 @@ export default function Releases(props) {
                         <div style={{ lineHeight: '3rem' }}>
                             <ReleaseNote 
                                 markdown={body} 
+                                core={option == 0}
+                                pro={option == 1}
                             />
                         </div>
-                        <Link 
-                            href={html_url}
-                            target="_blank">
-                            <Pill
-                                p="0"
-                                subtle
-                                height={30}
-                                width={30}
-                                className="f-buttonize-outline"
-                                color={Token.ColorAccent400}>
-                                <Icon icon={PiGithubLogo} />
-                            </Pill>
-                        </Link>
+                        {option == 0 && (
+                            <Link 
+                                href={html_url}
+                                target="_blank">
+                                <Pill
+                                    p="0"
+                                    subtle
+                                    height={30}
+                                    width={30}
+                                    className="f-buttonize-outline"
+                                    color={Token.ColorAccent400}>
+                                    <Icon icon={PiGithubLogo} />
+                                </Pill>
+                            </Link>
+                        )}
                     </View>
                     <Divider />
                 </div>
