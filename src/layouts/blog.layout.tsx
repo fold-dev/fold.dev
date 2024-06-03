@@ -1,12 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import React from 'react'
 import { Avatar, Heading, Li, Link, List, Notification, NotificationContent, Text, View } from '@fold-dev/core'
 import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
+import { articles } from '../blog'
 
 export default function BlogLayout(props: any) {
-    const { children, title, date, author, tags } = props
+    const { children } = props
     const [showChild, setShowChild] = useState(false)
+    const { title, date, author, tags } = useMemo(() => {
+        const parts = window.location.pathname.split('/')
+        const lastPart = parts[parts.length - 1]
+        return articles.find((article) => article.slug == lastPart)
+    }, [])
 
     useEffect(() => {
         setShowChild(true)

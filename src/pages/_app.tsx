@@ -12,9 +12,7 @@ export default function App(props: any) {
         router: { route },
     } = props
 
-    console.log(Component)
-
-    const getLayout = Component.noLayout || route.includes('/blog/')
+    const getLayout = Component.noLayout || route.includes('/blog')
         ? (page) => <SiteLayout>{page}</SiteLayout>
         : (page) => <DocsLayout>{page}</DocsLayout>
 

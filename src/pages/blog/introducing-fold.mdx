@@ -1,10 +1,3 @@
-export const meta = {
-    title: 'Introducing Fold',
-    date: '2024-06-03',
-    author: 'Jo du Plessis',
-    tags: [],
-}
-
 import BlogLayout from '@/layouts/blog.layout'
 import { Code }from '@/components/core.component'
 
@@ -26,4 +19,4 @@ To start using MDX, you'll need to install the necessary packages:
 
 <Code snippet="npm i --save @fold-dev/core @fold-dev/design" />
 
-export default ({ children }) => <BlogLayout {...meta}>{children}</BlogLayout>
+export default ({ children }) => <BlogLayout>{children}</BlogLayout>
