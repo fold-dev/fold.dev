@@ -95,11 +95,8 @@ export default function SiteLayout({ children }) {
                 <Text
                     color="inherit"
                     colorToken="purple-50">
-                    We've just launched Fold Pro Early Access! 🚀 There are a limited amount of licenses available, <a
-                        href="/#pro"
-                        style={{ color: 'var(--f-color-purple-50)' }}>
-                        grab yours below. ↓
-                    </a>
+                        We've just launched Fold Pro Early Access! 
+                        Get your Early Access license now - <a href="/#pro" style={{ color: 'var(--f-color-purple-50)' }}>click here</a> to learn more. 🎉
                 </Text>
             </View>
 
