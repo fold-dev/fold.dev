@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "npm run update:fold": "npm i --save @fold-dev/core@latest @fold-dev/design@latest @fold-pro/react@latest",
     "prettier": "prettier --write 'src/**/*.{ts,tsx}' --print-width 120"
   },
   "dependencies": {
