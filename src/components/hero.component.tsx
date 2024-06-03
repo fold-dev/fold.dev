@@ -22,7 +22,7 @@ export const HeroComponent = () => {
                 gap={70}
                 flex={1}
                 width="100%"
-                p="4rem 0 600px 0"
+                p="2rem 0 550px 0"
                 justifyContent="stretch"
                 className="hero">
                 <View

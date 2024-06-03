@@ -37,7 +37,7 @@ export default function GettingStarted(props) {
                     <IconLib icon="star" />
                 </NotificationIcon>
                 <NotificationContent>                    
-                    You can try out Fold Pro on <Link href="https://codesandbox.io/p/devbox/zen-banach-wdgzlr?file=%2Fsrc%2Fmain.tsx%3A13%2C1" target="_blank">CodeSandbox</Link>.
+                    You can try out an editable version of Fold Pro on <Link href="https://codesandbox.io/p/devbox/zen-banach-wdgzlr?file=%2Fsrc%2Fmain.tsx%3A13%2C1" target="_blank">CodeSandbox</Link>.
                 </NotificationContent>
             </Notification>            
 
