@@ -532,7 +532,7 @@ export default function DocsLayout(props: any) {
                                                     color={Token.ColorAccent400}
                                                     size="xs"
                                                     subtle>
-                                                    v0.0.13
+                                                    v0.0.15
                                                 </Pill>)}>
                                                 Pro Components
                                         </NavigationHeading>
@@ -568,7 +568,7 @@ export default function DocsLayout(props: any) {
                                                     size="xs"
                                                     subtle
                                                     color={Token.ColorAccent400}>
-                                                    v0.11.3
+                                                    v0.11.6
                                                 </Pill>                                               
                                             }>
                                             Core Components

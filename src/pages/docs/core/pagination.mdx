@@ -26,8 +26,8 @@ import { usePagination, Pagination } from "@fold-dev/core";
 
 export const Usage = () => {
     const [page, setPage] = useState(1);
-    return (<View p="1rem 0" width="100%" className="f-overflow-x-auto" row justifyContent="flex-start">
-            <Pagination width={500} pageSize={5} totalCount={1023} currentPage={page} siblingCount={4} separator="..." onPageChange={(page) => setPage(page)}/>
+    return (<View p="1rem 0" width="100%" style={{ maxWidth: 600, overflow: 'scroll' }}>
+            <Pagination width="100%" pageSize={5} totalCount={100} currentPage={page} siblingCount={4} separator="..." onPageChange={(page) => setPage(page)}/>
         </View>);
 };
 
@@ -35,7 +35,7 @@ export const Usage = () => {
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3BhZ2UsIHNldFBhZ2VdID0gdXNlU3RhdGUoMSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3IAogICAgICAgICAgICBwPSIxcmVtIDAiIAogICAgICAgICAgICB3aWR0aD0iMTAwJSIgCiAgICAgICAgICAgIGNsYXNzTmFtZT0iZi1vdmVyZmxvdy14LWF1dG8iIAogICAgICAgICAgICByb3cKICAgICAgICAgICAganVzdGlmeUNvbnRlbnQ9ImZsZXgtc3RhcnQiPgogICAgICAgICAgICA8UGFnaW5hdGlvbgogICAgICAgICAgICAgICAgd2lkdGg9ezUwMH0KICAgICAgICAgICAgICAgIHBhZ2VTaXplPXs1fQogICAgICAgICAgICAgICAgdG90YWxDb3VudD17MTAyM30KICAgICAgICAgICAgICAgIGN1cnJlbnRQYWdlPXtwYWdlfQogICAgICAgICAgICAgICAgc2libGluZ0NvdW50PXs0fQogICAgICAgICAgICAgICAgc2VwYXJhdG9yPSIuLi4iCiAgICAgICAgICAgICAgICBvblBhZ2VDaGFuZ2U9eyhwYWdlKSA9PiBzZXRQYWdlKHBhZ2UpfQogICAgICAgICAgICAvPgogICAgICAgIDwvVmlldz4KICAgICkKfQ==" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3BhZ2UsIHNldFBhZ2VdID0gdXNlU3RhdGUoMSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3IAogICAgICAgICAgICBwPSIxcmVtIDAiIAogICAgICAgICAgICB3aWR0aD0iMTAwJSIgCiAgICAgICAgICAgIHN0eWxlPXt7IG1heFdpZHRoOiA2MDAsIG92ZXJmbG93OiAnc2Nyb2xsJyB9fT4KICAgICAgICAgICAgPFBhZ2luYXRpb24KICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgcGFnZVNpemU9ezV9CiAgICAgICAgICAgICAgICB0b3RhbENvdW50PXsxMDB9CiAgICAgICAgICAgICAgICBjdXJyZW50UGFnZT17cGFnZX0KICAgICAgICAgICAgICAgIHNpYmxpbmdDb3VudD17NH0KICAgICAgICAgICAgICAgIHNlcGFyYXRvcj0iLi4uIgogICAgICAgICAgICAgICAgb25QYWdlQ2hhbmdlPXsocGFnZSkgPT4gc2V0UGFnZShwYWdlKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
 
 ```tsx
 export const Usage = () => {
@@ -45,13 +45,11 @@ export const Usage = () => {
         <View 
             p="1rem 0" 
             width="100%" 
-            className="f-overflow-x-auto" 
-            row
-            justifyContent="flex-start">
+            style={{ maxWidth: 600, overflow: 'scroll' }}>
             <Pagination
-                width={500}
+                width="100%"
                 pageSize={5}
-                totalCount={1023}
+                totalCount={100}
                 currentPage={page}
                 siblingCount={4}
                 separator="..."
