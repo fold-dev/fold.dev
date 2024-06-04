@@ -1501,11 +1501,17 @@ export const CoreComponent = () => {
                         height={500}
                         position="relative">
                         <View 
-                            height={1000}
-                            width={1000}
-                            style={{ left: 0, top: -100, transform: 'rotateZ(8deg)' }}
+                            height={1250}
+                            width={1250}
+                            style={{ left: 0, top: -35, transform: 'rotateZ(8deg)' }}
                             position="absolute">
-                            <OverviewCalendar />
+                            <img 
+                                style={{ position: 'relative', zIndex: 0 }}
+                                src="app-sandbox-light.png" 
+                                height="100%"
+                                width="auto"
+                                className="pro-image"
+                            />
                         </View>
                     </View>
                 </View>

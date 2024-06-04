@@ -881,7 +881,7 @@ export const ProComponent = () => {
             position="relative"
             m="-500px 0 0 0"
             className="pro">
-            {/*                 
+                            
             <View
                 bgToken="surface"
                 width="86%"
@@ -932,7 +932,8 @@ export const ProComponent = () => {
                     </View>
                 </View>
             </View>
-            */}
+           
+            {/*             
             <View
                 bgToken="surface"
                 width="86%"
@@ -963,14 +964,6 @@ export const ProComponent = () => {
                             paddingBottom: '5rem',
                             textDecoration: 'none',
                         }}>
-                        {/* <Icon 
-                            icon={ArrowTopRightOnSquareIcon} 
-                            style={{
-                                boxShadow: 'var(--f-shadow-menu)',
-                                '--f-icon-sizing-md': '4rem',
-                                '--f-icon-stroke-width-md': 1,
-                            }}
-                        /> */}
                         <View
                             radius="var(--f-radius)"
                             p="0.5rem 1rem"
@@ -979,12 +972,6 @@ export const ProComponent = () => {
                                 app-sandbox.fold.dev ↗
                             </Text>
                         </View>
-                        {/* <Text 
-                            size="sm" 
-                            fontWeight="bold" 
-                            colorToken="text-weaker">
-                            Test out Fold Pro here:
-                        </Text> */}
                     </a>
                     <div 
                         style={{ 
@@ -1014,7 +1001,8 @@ export const ProComponent = () => {
                         width="100%"
                         className="pro-image"
                     />
-            </View>
+            </View> 
+            */}
         </View>
     )
 }
