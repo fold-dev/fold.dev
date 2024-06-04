@@ -14,7 +14,7 @@ import {
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 import { useLayoutEffect, useMemo, useState } from 'react'
 import { PiArrowSquareOutDuotone, PiPlayCircleDuotone } from 'react-icons/pi'
-import * as Token from '@fold-dev/design/tokens-es6'
+import * as Token from '@fold-dev/design/tokens'
 
 export const Calendar1 = () => {
     const [days, setDays] = useState(data.days)
