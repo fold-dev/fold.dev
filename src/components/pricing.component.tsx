@@ -164,105 +164,70 @@ export const PricingComponent = () => {
         // Paddle.Environment.set('sandbox')
         // Paddle.Initialize({ token: 'test_341b6905e3ca3a3b2a7b42ffdcc' })
 
-        // Paddle.Initialize({ token: 'live_d2beed0f09a4785cc33eadab587' })
+        const Paddle: any = window['Paddle']
+        Paddle.Initialize({ token: 'live_d2beed0f09a4785cc33eadab587' })
 
         const seats = selectSeat.current
         hide()
 
         
-        let url = ''
+        // let url = ''
+
+        // switch (seats) {
+        //     case 1: 
+        //         url = 'https://store.fold.dev/checkout/buy/e5520e31-4851-4aa8-be18-b79f9f509bb0'
+        //         break
+        //     case 2: 
+        //         url = 'https://store.fold.dev/checkout/buy/503cb195-7f56-4608-b32d-1124e545aa24'
+        //         break
+        //     case 3: 
+        //         url = 'https://store.fold.dev/checkout/buy/60e2704b-f358-4b30-bdac-a0aac1f981ef'
+        //         break
+        //     case 4: 
+        //         url = 'https://store.fold.dev/checkout/buy/66d427b3-7df1-4aed-b943-ac8d9171b9ff'
+        //         break
+        // }
+
+        // window.open(url)
+
+        let items = []
 
         switch (seats) {
-            case 1: 
-                url = 'https://store.fold.dev/checkout/buy/e5520e31-4851-4aa8-be18-b79f9f509bb0'
+            case 1:
+                items = [
+                    {
+                        priceId: 'pri_01hyayzp0x0tmg4sh0g9t62nq6',
+                        quantity: 1,
+                    },
+                ]
                 break
-            case 2: 
-                url = 'https://store.fold.dev/checkout/buy/503cb195-7f56-4608-b32d-1124e545aa24'
+            case 2:
+                items = [
+                    {
+                        priceId: 'pri_01hq62nmznrvy201f7refbh4gp',
+                        quantity: 1,
+                    },
+                ]
                 break
-            case 3: 
-                url = 'https://store.fold.dev/checkout/buy/60e2704b-f358-4b30-bdac-a0aac1f981ef'
+            case 3:
+                items = [
+                    {
+                        priceId: 'pri_01hzgvcm6kkccadzgyyfpvvskr',
+                        quantity: 1,
+                    },
+                ]
                 break
-            case 4: 
-                url = 'https://store.fold.dev/checkout/buy/66d427b3-7df1-4aed-b943-ac8d9171b9ff'
+            case 4:
+                items = [
+                    {
+                        priceId: 'pri_01hzgvd71e0mxvdr4nxdybpmet',
+                        quantity: 1,
+                    },
+                ]
                 break
         }
 
-        window.open(url)
-
-        // let items = []
-
-        // switch (seats) {
-        //     case 1:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hyazedstjg85vqm34pj8pfry',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        //     case 2:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hq64m3jpm5y1vf3rx6a5g8cx',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        //     case 3:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hzfv9ykmss43a2q1qb49km0f',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        //     case 4:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hzfvae3jfhen00vvk1852npt',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        // }
-
-
-        // switch (seats) {
-        //     case 1:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hyayzp0x0tmg4sh0g9t62nq6',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        //     case 2:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hq62nmznrvy201f7refbh4gp',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        //     case 3:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hzgvcm6kkccadzgyyfpvvskr',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        //     case 4:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hzgvd71e0mxvdr4nxdybpmet',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        // }
-
-        // Paddle.Checkout.open({ items })
+        Paddle.Checkout.open({ items })
     }
 
     const formatCurrency = (amount) => {
