@@ -894,7 +894,7 @@ export const ProComponent = () => {
                 <View 
                     row
                     gap="0.75rem"
-                    p="1rem 2rem">
+                    p="1rem 2rem 1rem 1rem">
                     <Options
                         position="sticky"
                         style={{ top: '1rem' }}
