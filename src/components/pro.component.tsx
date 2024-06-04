@@ -14,7 +14,7 @@ import {
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 import { useLayoutEffect, useMemo, useState } from 'react'
 import { PiArrowSquareOutDuotone, PiPlayCircleDuotone } from 'react-icons/pi'
-import * as Token from '@fold-dev/design/tokens-es6'
+import * as Token from '@fold-dev/design/tokens'
 
 export const Calendar1 = () => {
     const [days, setDays] = useState(data.days)
@@ -879,9 +879,9 @@ export const ProComponent = () => {
             height="fit-content"
             zIndex={10}
             position="relative"
-            m="-500px 0 0 0"
+            m="-475px 0 0 0"
             className="pro">
-            {/*                 
+                            
             <View
                 bgToken="surface"
                 width="86%"
@@ -891,22 +891,41 @@ export const ProComponent = () => {
                 style={{ overflow: 'hidden' }}
                 radius="var(--f-radius)"
                 position="relative">
-                <Options
-                    m="1rem auto 2rem auto"
-                    position="sticky"
-                    style={{ top: '1rem' }}
-                    animated
-                    shadow="var(--f-shadow-card)"
-                    zIndex={1000}
-                    selected={option}
-                    onOptionChange={setOption}>
-                    <Option>Kanban Board</Option>
-                    <Option>Todo List</Option>
-                    <Option>Calendar</Option>
-                    <Option>CSV Importer</Option>
-                    <Option>Data Grid</Option>
-                    <Option>Date Picker</Option>
-                </Options>
+                <View 
+                    row
+                    gap="0.75rem"
+                    p="1rem 2rem 1rem 1rem">
+                    <Options
+                        position="sticky"
+                        style={{ top: '1rem' }}
+                        animated
+                        shadow="var(--f-shadow-card)"
+                        zIndex={1000}
+                        selected={option}
+                        onOptionChange={setOption}>
+                        <Option>Kanban Board</Option>
+                        <Option>Todo List</Option>
+                        <Option>Calendar</Option>
+                        <Option>CSV Importer</Option>
+                        <Option>Data Grid</Option>
+                        <Option>Date Picker</Option>
+                    </Options>
+                    <Flexer />
+                    <Pill
+                        subtle
+                        size="sm"
+                        color={Token.ColorAccent400}>
+                        New
+                    </Pill>
+                    <Link
+                        target="_blank"
+                        href="https://app-sandbox.fold.dev"
+                        color="var(--f-color-accent)"
+                        className="f-underline"
+                        textDecoration="none">
+                        App Sandbox ↗
+                    </Link>
+                </View>
                 <View
                     p="0.5rem"
                     style={{ 
@@ -932,7 +951,8 @@ export const ProComponent = () => {
                     </View>
                 </View>
             </View>
-            */}
+           
+            {/*             
             <View
                 bgToken="surface"
                 width="86%"
@@ -963,14 +983,6 @@ export const ProComponent = () => {
                             paddingBottom: '5rem',
                             textDecoration: 'none',
                         }}>
-                        {/* <Icon 
-                            icon={ArrowTopRightOnSquareIcon} 
-                            style={{
-                                boxShadow: 'var(--f-shadow-menu)',
-                                '--f-icon-sizing-md': '4rem',
-                                '--f-icon-stroke-width-md': 1,
-                            }}
-                        /> */}
                         <View
                             radius="var(--f-radius)"
                             p="0.5rem 1rem"
@@ -979,12 +991,6 @@ export const ProComponent = () => {
                                 app-sandbox.fold.dev ↗
                             </Text>
                         </View>
-                        {/* <Text 
-                            size="sm" 
-                            fontWeight="bold" 
-                            colorToken="text-weaker">
-                            Test out Fold Pro here:
-                        </Text> */}
                     </a>
                     <div 
                         style={{ 
@@ -1014,7 +1020,8 @@ export const ProComponent = () => {
                         width="100%"
                         className="pro-image"
                     />
-            </View>
+            </View> 
+            */}
         </View>
     )
 }
