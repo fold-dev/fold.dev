@@ -879,7 +879,7 @@ export const ProComponent = () => {
             height="fit-content"
             zIndex={10}
             position="relative"
-            m="-500px 0 0 0"
+            m="-475px 0 0 0"
             className="pro">
                             
             <View
@@ -891,22 +891,41 @@ export const ProComponent = () => {
                 style={{ overflow: 'hidden' }}
                 radius="var(--f-radius)"
                 position="relative">
-                <Options
-                    m="1rem auto 2rem auto"
-                    position="sticky"
-                    style={{ top: '1rem' }}
-                    animated
-                    shadow="var(--f-shadow-card)"
-                    zIndex={1000}
-                    selected={option}
-                    onOptionChange={setOption}>
-                    <Option>Kanban Board</Option>
-                    <Option>Todo List</Option>
-                    <Option>Calendar</Option>
-                    <Option>CSV Importer</Option>
-                    <Option>Data Grid</Option>
-                    <Option>Date Picker</Option>
-                </Options>
+                <View 
+                    row
+                    gap="0.75rem"
+                    p="1rem 2rem">
+                    <Options
+                        position="sticky"
+                        style={{ top: '1rem' }}
+                        animated
+                        shadow="var(--f-shadow-card)"
+                        zIndex={1000}
+                        selected={option}
+                        onOptionChange={setOption}>
+                        <Option>Kanban Board</Option>
+                        <Option>Todo List</Option>
+                        <Option>Calendar</Option>
+                        <Option>CSV Importer</Option>
+                        <Option>Data Grid</Option>
+                        <Option>Date Picker</Option>
+                    </Options>
+                    <Flexer />
+                    <Pill
+                        subtle
+                        size="sm"
+                        color={Token.ColorAccent400}>
+                        New
+                    </Pill>
+                    <Link
+                        target="_blank"
+                        href="https://app-sandbox.fold.dev"
+                        color="var(--f-color-accent)"
+                        className="f-underline"
+                        textDecoration="none">
+                        App Sandbox ↗
+                    </Link>
+                </View>
                 <View
                     p="0.5rem"
                     style={{ 
