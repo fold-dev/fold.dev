@@ -1477,7 +1477,7 @@ export const CoreComponent = () => {
                             letterSpacing={5}
                             colorToken="accent-300"
                             id="features">
-                            Fold Pro 
+                            App Sandbox
                         </Text>
                         <Heading
                             colorToken="accent-50"
@@ -1485,14 +1485,15 @@ export const CoreComponent = () => {
                             Made for product teams that need to scale quickly.
                         </Heading>
                         <Text colorToken="accent-100">
-                            Scale ideas, not effort. Introducing Fold Pro, premium UI components to power your next idea, no matter how big.
+                            Introducing the Fold App Sandbox, a showcase for creating next-level product experiences with Fold.
                         </Text>
                         <Link
-                            href="#pro"
+                            target="_blank"
+                            href="https://app-sandbox.fold.dev"
                             color="var(--f-color-accent-50)"
                             className="f-underline"
                             textDecoration="none">
-                            Ready more about Fold Pro ✨
+                            Launch App Sandbox ↗
                         </Link>
                     </View>
 
