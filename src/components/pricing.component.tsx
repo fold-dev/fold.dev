@@ -159,17 +159,17 @@ export const PricingComponent = () => {
     const { show, hide, visible } = useVisibility()
 
     const openPayment = () => {
-        const Paddle: any = window['Paddle']
+        // const Paddle: any = window['Paddle']
 
-        Paddle.Environment.set('sandbox')
-        Paddle.Initialize({ token: 'test_341b6905e3ca3a3b2a7b42ffdcc' })
+        // Paddle.Environment.set('sandbox')
+        // Paddle.Initialize({ token: 'test_341b6905e3ca3a3b2a7b42ffdcc' })
 
         // Paddle.Initialize({ token: 'live_d2beed0f09a4785cc33eadab587' })
 
         const seats = selectSeat.current
         hide()
 
-        /* 
+        
         let url = ''
 
         switch (seats) {
@@ -187,44 +187,44 @@ export const PricingComponent = () => {
                 break
         }
 
-        window.open(url) */
+        window.open(url)
 
-        let items = []
+        // let items = []
 
-        switch (seats) {
-            case 1:
-                items = [
-                    {
-                        priceId: 'pri_01hyazedstjg85vqm34pj8pfry',
-                        quantity: 1,
-                    },
-                ]
-                break
-            case 2:
-                items = [
-                    {
-                        priceId: 'pri_01hq64m3jpm5y1vf3rx6a5g8cx',
-                        quantity: 1,
-                    },
-                ]
-                break
-            case 3:
-                items = [
-                    {
-                        priceId: 'pri_01hzfv9ykmss43a2q1qb49km0f',
-                        quantity: 1,
-                    },
-                ]
-                break
-            case 4:
-                items = [
-                    {
-                        priceId: 'pri_01hzfvae3jfhen00vvk1852npt',
-                        quantity: 1,
-                    },
-                ]
-                break
-        }
+        // switch (seats) {
+        //     case 1:
+        //         items = [
+        //             {
+        //                 priceId: 'pri_01hyazedstjg85vqm34pj8pfry',
+        //                 quantity: 1,
+        //             },
+        //         ]
+        //         break
+        //     case 2:
+        //         items = [
+        //             {
+        //                 priceId: 'pri_01hq64m3jpm5y1vf3rx6a5g8cx',
+        //                 quantity: 1,
+        //             },
+        //         ]
+        //         break
+        //     case 3:
+        //         items = [
+        //             {
+        //                 priceId: 'pri_01hzfv9ykmss43a2q1qb49km0f',
+        //                 quantity: 1,
+        //             },
+        //         ]
+        //         break
+        //     case 4:
+        //         items = [
+        //             {
+        //                 priceId: 'pri_01hzfvae3jfhen00vvk1852npt',
+        //                 quantity: 1,
+        //             },
+        //         ]
+        //         break
+        // }
 
 
         // switch (seats) {
@@ -262,7 +262,7 @@ export const PricingComponent = () => {
         //         break
         // }
 
-        Paddle.Checkout.open({ items })
+        // Paddle.Checkout.open({ items })
     }
 
     const formatCurrency = (amount) => {
