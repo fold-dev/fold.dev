@@ -633,7 +633,7 @@ export const PricingComponent = () => {
                         Please email <Link href="mailto:licensing@fold.dev" colorToken="accent-400">licensing@fold.dev</Link> if you are unsure which license applies to you.
                     </Text>
                     <Text colorToken="base-600" textAlign="center">
-                        Purchasing a license is subject to the <Link href="/license" target="_blank">licence agreement</Link>.
+                        Purchasing a license is subject to the <Link href="/license" target="_blank">license agreement</Link>.
                     </Text>
                     <Text colorToken="base-600" textAlign="center">
                         VAT may apply based on your location.
