@@ -12,7 +12,7 @@ export const LicenseContent = (props) => (
         <Heading as="h2">Permitted Use</Heading>
         
         <Heading as="h3">Indie & Team License</Heading>
-        <Text>The LICENSEE is granted a license to use the SOFTWARE as the basis of a single active non commercial/internal application, so long as that application is owned and operated by you, the LICENSEE.</Text>
+        <Text>The LICENSEE is granted a license to use the SOFTWARE as the basis of any non commercial/internal application, so long as that application is owned and operated by you, the LICENSEE.</Text>
 
         <Heading as="h3">OEM License</Heading>
         <Text>Please enquire about OEM license options by emailing <Link href="mailto:licensing@fold.dev">licensing@fold.dev</Link>.</Text>

@@ -440,7 +440,7 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Single active project
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Unlimited projects
                             </Li>
                             <Tooltip text="Renews at regular 1 year duration.">
                                 <Li
