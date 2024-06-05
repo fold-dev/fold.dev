@@ -237,7 +237,6 @@ export const PricingComponent = () => {
     return (
         <>
             <Modal
-                noDocumentScrolling
                 portal={Portal}
                 width={600}
                 height="fit-content"
