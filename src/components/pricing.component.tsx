@@ -440,23 +440,23 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Unlimited non commercial/internal projects
+                                <IconLib icon="check" color="var(--f-color-accent)" /> 1 year of updates
                             </Li>
-                            <Tooltip text="Renews at regular 1 year duration.">
+                            <Tooltip text="Non commercial/internal use.">
                                 <Li
                                     row
                                     width="fit-content">
-                                    <IconLib icon="check" color="var(--f-color-accent)" /> 2 years of updates&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <IconLib icon="check" color="var(--f-color-accent)" /> Unlimited projects&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
-                            <Tooltip text="As they become available.">
+                            <Tooltip text="Includes items beyond Early Access.">
                                 <Li
                                     row
                                     width="fit-content">
-                                    <IconLib icon="check" color="var(--f-color-accent)" /> Access to planned roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <IconLib icon="check" color="var(--f-color-accent)" /> Access to roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
-                            <Tooltip text="Subject to Early Access only, renews at regular 1 year duration." contentProps={{ style: { width: 200, whiteSpace: 'break-spaces', textAlign: 'center' }}}>
+                            <Tooltip text="Only for Early Access customers." contentProps={{ style: { width: 200, whiteSpace: 'break-spaces', textAlign: 'center' }}}>
                                 <Li
                                     row
                                     width="fit-content">
@@ -484,7 +484,7 @@ export const PricingComponent = () => {
                             Indie <small style={{ position: 'relative', top: -10, color: 'var(--f-color-text-weakest', fontWeight: 'bold' }}>EARLY ACCESS</small>
                         </Heading>
                         <Text colorToken="base-300">
-                            For single developers who need to level up their next big idea.
+                            For teams of up to 2 developers, who need to level up their next big idea.
                         </Text>
                         <View
                             row
@@ -492,7 +492,8 @@ export const PricingComponent = () => {
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>
-                                {formatCurrency(pricingEA(1))}
+                                {/* {formatCurrency(pricingEA(1))} */}
+                                379
                             </Heading>
                             <Heading
                                 as="h5"
@@ -500,11 +501,6 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
-                        <Tooltip text="Changes when Early Access ends.">
-                            <Text size="sm" colorToken="text-weakest">
-                                Early Access pricing *
-                            </Text>
-                        </Tooltip>
                         <Flexer />
                         <Button
                             onClick={() => {
@@ -532,7 +528,7 @@ export const PricingComponent = () => {
                             Team <small style={{ position: 'relative', top: -10, color: 'var(--f-color-text-weakest', fontWeight: 'bold' }}>EARLY ACCESS</small>
                         </Heading>
                         <Text colorToken="base-300">
-                            For teams of developers, building internal or non commercial projects.
+                            For teams of up to 10 developers, who need to supercharge their project.
                         </Text>
                         <View
                             row
@@ -540,7 +536,8 @@ export const PricingComponent = () => {
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>
-                                {formatCurrency(pricingEA(seats))}
+                                {/* {formatCurrency(pricingEA(seats))} */}
+                                999
                             </Heading>
                             <Heading
                                 as="h5"
@@ -548,13 +545,9 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
-                        <Tooltip text="Changes when Early Access ends.">
-                            <Text size="sm" colorToken="text-weakest">
-                                Early Access pricing *
-                            </Text>
-                        </Tooltip>
                         <View
                             row
+                            display="none"
                             gap="1rem"
                             width="100%">
                             <Range
@@ -571,13 +564,13 @@ export const PricingComponent = () => {
                                 {developers()}
                             </Text>
                         </View>
-                        {seats == 4 && (
+                        
                             <Text
                                 size="sm"
                                 m="1rem 0 0 0">
                                 Need more than 10 developers? <Link href="mailto:licensing@fold.dev" size="sm">Contact us</Link>.
                             </Text>
-                        )}
+                        
                         <Flexer />
                         <Button
                             onClick={() => {
