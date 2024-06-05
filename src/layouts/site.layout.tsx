@@ -7,6 +7,7 @@ import {
     FoldProvider,
     Header,
     Heading,
+    Icon,
     Li,
     Link,
     List,
@@ -22,6 +23,7 @@ import {
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
 import { useEffect, useState } from 'react'
+import { PiRocket } from 'react-icons/pi'
 import { SocialIcon } from 'react-social-icons'
 
 export default function SiteLayout({ children }) {
@@ -96,8 +98,9 @@ export default function SiteLayout({ children }) {
                     color="inherit"
                     colorToken="purple-50">
                         We've just launched Fold Pro Early Access! 
-                        Get your Early Access license now - <a href="/#pro" style={{ color: 'var(--f-color-purple-50)' }}>click here</a> to learn more. 🎉
+                        Get your Early Access license now - <a href="/#pro" style={{ color: 'var(--f-color-purple-50)' }}>click here</a> to learn more.
                 </Text>
+                <Icon icon={PiRocket} style={{ transform: 'rotate(45deg)', color: 'var(--f-color-purple-50)' }} />
             </View>
 
             <Affix zIndex={100}>

@@ -1,4 +1,4 @@
-import * as data from '@/dummy_data'
+import * as data from '@/dummy-data'
 import {
     Attachment,
     Avatar,
@@ -1375,6 +1375,13 @@ export const CoreComponent = () => {
 
     useEffect(() => {
         highlightCode(snippet1, 'javascript').then((html) => setHtml(html))
+    }, [])
+
+    useEffect(() => {
+        ['app-sandbox-light.png', 'app-sandbox-dark.png'].map((imageUrl) => {
+            const img = new window.Image()
+            img.src = imageUrl
+        })
     }, [])
 
     return (

@@ -84,7 +84,7 @@ export const FAQAccordion = (props) => (
                 Will the beta affect the Early Access license?
             </AccordionHeading>
             <AccordionPanel>
-                If you have purchased a Fold Pro Early Access license, you will automatically get access to the public beta at no additional cost, you won't be affected by the new license terms or price increase. When you renew your license after the initial two-year period, you'll be charged the Early Access pricing, not the new pricing.
+                If you have purchased a Fold Pro Early Access license, you will automatically get access to the public beta at no additional cost, you won't be affected by the new license terms or price increase. When you renew your license, you'll be charged the Early Access pricing, not the new pricing.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -153,7 +153,6 @@ export const FAQ = (props) => (
 )
 
 export const PricingComponent = () => {
-    const [seats, setSeats] = useState(2)
     const [down, setDown] = useState(false)
     const selectSeat = useRef(null)
     const { show, hide, visible } = useVisibility()
@@ -164,139 +163,71 @@ export const PricingComponent = () => {
         // Paddle.Environment.set('sandbox')
         // Paddle.Initialize({ token: 'test_341b6905e3ca3a3b2a7b42ffdcc' })
 
-        // Paddle.Initialize({ token: 'live_d2beed0f09a4785cc33eadab587' })
+        const Paddle: any = window['Paddle']
+        Paddle.Initialize({ token: 'live_d2beed0f09a4785cc33eadab587' })
 
         const seats = selectSeat.current
         hide()
 
         
-        let url = ''
-
-        switch (seats) {
-            case 1: 
-                url = 'https://store.fold.dev/checkout/buy/e5520e31-4851-4aa8-be18-b79f9f509bb0'
-                break
-            case 2: 
-                url = 'https://store.fold.dev/checkout/buy/503cb195-7f56-4608-b32d-1124e545aa24'
-                break
-            case 3: 
-                url = 'https://store.fold.dev/checkout/buy/60e2704b-f358-4b30-bdac-a0aac1f981ef'
-                break
-            case 4: 
-                url = 'https://store.fold.dev/checkout/buy/66d427b3-7df1-4aed-b943-ac8d9171b9ff'
-                break
-        }
-
-        window.open(url)
-
-        // let items = []
+        // let url = ''
 
         // switch (seats) {
-        //     case 1:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hyazedstjg85vqm34pj8pfry',
-        //                 quantity: 1,
-        //             },
-        //         ]
+        //     case 1: 
+        //         url = 'https://store.fold.dev/checkout/buy/e5520e31-4851-4aa8-be18-b79f9f509bb0'
         //         break
-        //     case 2:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hq64m3jpm5y1vf3rx6a5g8cx',
-        //                 quantity: 1,
-        //             },
-        //         ]
+        //     case 2: 
+        //         url = 'https://store.fold.dev/checkout/buy/503cb195-7f56-4608-b32d-1124e545aa24'
         //         break
-        //     case 3:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hzfv9ykmss43a2q1qb49km0f',
-        //                 quantity: 1,
-        //             },
-        //         ]
+        //     case 3: 
+        //         url = 'https://store.fold.dev/checkout/buy/60e2704b-f358-4b30-bdac-a0aac1f981ef'
         //         break
-        //     case 4:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hzfvae3jfhen00vvk1852npt',
-        //                 quantity: 1,
-        //             },
-        //         ]
+        //     case 4: 
+        //         url = 'https://store.fold.dev/checkout/buy/66d427b3-7df1-4aed-b943-ac8d9171b9ff'
         //         break
         // }
 
+        // window.open(url)
 
-        // switch (seats) {
-        //     case 1:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hyayzp0x0tmg4sh0g9t62nq6',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        //     case 2:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hq62nmznrvy201f7refbh4gp',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        //     case 3:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hzgvcm6kkccadzgyyfpvvskr',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        //     case 4:
-        //         items = [
-        //             {
-        //                 priceId: 'pri_01hzgvd71e0mxvdr4nxdybpmet',
-        //                 quantity: 1,
-        //             },
-        //         ]
-        //         break
-        // }
+        let items = []
 
-        // Paddle.Checkout.open({ items })
-    }
-
-    const formatCurrency = (amount) => {
-        return Intl.NumberFormat('en-US', {
-            notation: 'standard',
-            maximumFractionDigits: 2,
-        }).format(amount)
-    }
-
-    const developers = () => {
         switch (seats) {
-            case 1: return '1 Developer'
-            case 2: return '3 Developers'
-            case 3: return '5 Developers'
-            case 4: return '10 Developers'
+            case 1:
+                items = [
+                    {
+                        priceId: 'pri_01hyayzp0x0tmg4sh0g9t62nq6',
+                        quantity: 1,
+                    },
+                ]
+                break
+            case 2:
+                items = [
+                    {
+                        priceId: 'pri_01hq62nmznrvy201f7refbh4gp',
+                        quantity: 1,
+                    },
+                ]
+                break
+            // unused:
+            // case 3:
+            //     items = [
+            //         {
+            //             priceId: 'pri_01hzgvcm6kkccadzgyyfpvvskr',
+            //             quantity: 1,
+            //         },
+            //     ]
+            //     break
+            // case 4:
+            //     items = [
+            //         {
+            //             priceId: 'pri_01hzgvd71e0mxvdr4nxdybpmet',
+            //             quantity: 1,
+            //         },
+            //     ]
+            //     break
         }
-    }
 
-    const pricingEA = (seats) => {
-        switch (seats) {
-            case 1: return 399
-            case 2: return 749
-            case 3: return 1299
-            case 4: return 1999
-        }
-    }
-
-    const pricingFull = (seats) => {
-        switch (seats) {
-            case 1: return 799
-            case 2: return 1499
-            case 3: return 2599
-            case 4: return 3999
-        }
+        Paddle.Checkout.open({ items })
     }
 
     useEffect(() => {
@@ -393,7 +324,7 @@ export const PricingComponent = () => {
                     subtle
                     color={Token.ColorPurple500}
                     m="2rem 0">
-                    Early Access has launched. 🎉 Keep reading below to find out more.
+                    Early Access has launched.<Icon icon={PiSparkle} color="var(--f-purple-500)" style={{ margin: '0 7px' }} />Keep reading below to find out more.
                 </Pill>
 
                 <View
@@ -470,32 +401,32 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Non commercial/internal use
+                                <IconLib icon="check" color="var(--f-color-accent)" /> App Sandbox source code
                             </Li>
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Single active project
+                                <IconLib icon="check" color="var(--f-color-accent)" /> 1 year of updates
                             </Li>
-                            <Tooltip text="Renews at regular 1 year duration.">
+                            <Tooltip text="Non commercial/internal use.">
                                 <Li
                                     row
                                     width="fit-content">
-                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> 2 years of updates&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <IconLib icon="check" color="var(--f-color-accent)" /> Unlimited projects&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
-                            <Tooltip text="As they become available.">
+                            <Tooltip text="Includes items beyond Early Access.">
                                 <Li
                                     row
                                     width="fit-content">
-                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Access to planned roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <IconLib icon="check" color="var(--f-color-accent)" /> Access to roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
-                            <Tooltip text="Subject to Early Access only, renews at regular 1 year duration." contentProps={{ style: { width: 200, whiteSpace: 'break-spaces', textAlign: 'center' }}}>
+                            <Tooltip text="Only for Early Access customers." contentProps={{ style: { width: 200, whiteSpace: 'break-spaces', textAlign: 'center' }}}>
                                 <Li
                                     row
                                     width="fit-content">
-                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Renews at Early Access pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <IconLib icon="check" color="var(--f-color-accent)" /> Renews at Early Access pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
                         </List>
@@ -519,7 +450,7 @@ export const PricingComponent = () => {
                             Indie <small style={{ position: 'relative', top: -10, color: 'var(--f-color-text-weakest', fontWeight: 'bold' }}>EARLY ACCESS</small>
                         </Heading>
                         <Text colorToken="base-300">
-                            For single developers who need to level up their next big idea.
+                            For teams of up to 2 developers, who need to level up their next big idea.
                         </Text>
                         <View
                             row
@@ -527,7 +458,7 @@ export const PricingComponent = () => {
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>
-                                {formatCurrency(pricingEA(1))}
+                                379
                             </Heading>
                             <Heading
                                 as="h5"
@@ -535,11 +466,6 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
-                        <Tooltip text="Changes when Early Access ends.">
-                            <Text size="sm" colorToken="text-weakest">
-                                Early Access pricing *
-                            </Text>
-                        </Tooltip>
                         <Flexer />
                         <Button
                             onClick={() => {
@@ -567,7 +493,7 @@ export const PricingComponent = () => {
                             Team <small style={{ position: 'relative', top: -10, color: 'var(--f-color-text-weakest', fontWeight: 'bold' }}>EARLY ACCESS</small>
                         </Heading>
                         <Text colorToken="base-300">
-                            For teams of developers, building internal or non commercial projects.
+                            For teams of up to 10 developers, who need to supercharge their project.
                         </Text>
                         <View
                             row
@@ -575,7 +501,7 @@ export const PricingComponent = () => {
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>
-                                {formatCurrency(pricingEA(seats))}
+                                999
                             </Heading>
                             <Heading
                                 as="h5"
@@ -583,40 +509,15 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
-                        <Tooltip text="Changes when Early Access ends.">
-                            <Text size="sm" colorToken="text-weakest">
-                                Early Access pricing *
-                            </Text>
-                        </Tooltip>
-                        <View
-                            row
-                            gap="1rem"
-                            width="100%">
-                            <Range
-                                min={2}
-                                max={4}
-                                step={1}
-                                value={seats}
-                                onChange={(e) => setSeats(+e.target.value)}
-                            />
-                            <Text
-                                colorToken="base-400"
-                                display="inline-block"
-                                width={160}>
-                                {developers()}
-                            </Text>
-                        </View>
-                        {seats == 4 && (
-                            <Text
-                                size="sm"
-                                m="1rem 0 0 0">
-                                Need more than 10 developers? <Link href="mailto:licensing@fold.dev" size="sm">Contact us</Link>.
-                            </Text>
-                        )}
+                        <Text
+                            size="sm"
+                            m="1rem 0 0 0">
+                            Need more than 10 developers? <Link href="mailto:licensing@fold.dev" size="sm">Contact us</Link>.
+                        </Text>                        
                         <Flexer />
                         <Button
                             onClick={() => {
-                                selectSeat.current = seats
+                                selectSeat.current = 2
                                 show()
                             }}
                             m="1rem 0 0 0"
