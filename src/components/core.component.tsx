@@ -1377,6 +1377,13 @@ export const CoreComponent = () => {
         highlightCode(snippet1, 'javascript').then((html) => setHtml(html))
     }, [])
 
+    useEffect(() => {
+        ['app-sandbox-light.png', 'app-sandbox-dark.png'].map((imageUrl) => {
+            const img = new window.Image()
+            img.src = imageUrl
+        })
+    }, [])
+
     return (
         <>
             <View
