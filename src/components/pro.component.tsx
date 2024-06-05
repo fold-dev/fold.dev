@@ -557,7 +557,7 @@ export const Kanban1 = () => {
     return (
         <View
             width="fit-content"
-            height={1000}>
+            height={700}>
             {!!card.id && (
                 <Detail
                     colorPalette={data.colorPalette}
@@ -930,7 +930,7 @@ export const ProComponent = () => {
                     p="0.5rem"
                     style={{ 
                         overflow: 'auto',
-                        maxHeight: 1200, 
+                        maxHeight: 1000, 
                     }}
                     className="f-scrollbar"
                     justifyContent="flex-start"
