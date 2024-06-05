@@ -122,7 +122,7 @@ export default function GettingStarted(props) {
             </Text>
 
             <Text>
-                After purchasing a license, you will receive an automated email containing a list of license keys, license quantity, when the license keys are valid until & a OTP to use for support (more on this below).
+                After purchasing a license, you will receive an automated email containing your license key, license type, when the license key is valid until & a OTP to use for support (more on this below).
                 You will also receive an invoice from <a href="https://www.paddle.com" target="_blank">Paddle</a>, who we use as our Merchant of Record.
             </Text>
 
