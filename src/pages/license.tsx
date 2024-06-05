@@ -13,11 +13,11 @@ export const LicenseContent = (props) => (
         
         <Heading as="h3">Indie License</Heading>
         <Text>The LICENSEE is granted a license to use the SOFTWARE as the basis of any non commercial/internal application, so long as that application is owned and operated by you, the LICENSEE.</Text>
-        <Text>The LICENSEE is permitted to have a maximum of two (2) developers utilizing the license keys. This limitation includes any Continuous Integration/Continuous Deployment (CI/CD) platforms, which shall be considered as one of the developers.</Text>
+        <Text>The LICENSEE is permitted to have a maximum of two (2) developers utilizing the license key. This limitation includes any Continuous Integration/Continuous Deployment (CI/CD) platforms, which shall be considered as one of the developers.</Text>
 
         <Heading as="h3">Team License</Heading>
         <Text>The LICENSEE is granted a license to use the SOFTWARE as the basis of any non commercial/internal application, so long as that application is owned and operated by you, the LICENSEE.</Text>
-        <Text>The LICENSEE is permitted to have a maximum of ten (10) developers utilizing the license keys. This limitation includes any Continuous Integration/Continuous Deployment (CI/CD) platforms, which shall be considered as one of the developers.</Text>
+        <Text>The LICENSEE is permitted to have a maximum of ten (10) developers utilizing the license key. This limitation includes any Continuous Integration/Continuous Deployment (CI/CD) platforms, which shall be considered as one of the developers.</Text>
         <Text>Email <Link href="mailto:licensing@fold.dev">licensing@fold.dev</Link> for upgrading your Indie license to a Team license, or obtaining additional seats.</Text>
 
         <Heading as="h3">OEM License</Heading>
