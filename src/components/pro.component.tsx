@@ -1,4 +1,4 @@
-import * as data from '@/dummy_data'
+import * as data from '@/dummy-data'
 import {
     Button, Card, FIX, Flexer,
     Form,
@@ -6,7 +6,7 @@ import {
     Text, View, generateUEID
 } from '@fold-dev/core'
 import {
-    CalendarMonth, CalendarProvider, CalendarSchedule, CsvImporter, DataGrid, Kanban,
+    CalendarDays, CalendarProvider, CalendarSchedule, CsvImporter, DataGrid, Kanban,
     DataGridHeader,
     DataGridTypes, DatePicker, DateRangeProvider, Detail, KanbanColumnMenu, KanbanSelection, KanbanSwimlaneMenu, KanbanTypes, LabelMenu, Popup, Todo, TodoSectionMenu, UserMenu, dataGridState,
     dispatchDataGridEvent, dispatchTodoEvent, getShortDateFormat, kanbanState, setExperimentalGlobalRowCellComponents, todoState
@@ -149,7 +149,7 @@ export const Calendar1 = () => {
                         p="0 0 0 var(--f-calendar-schedule-gutter-width)"
                         width="100%"
                         m="0 0 -1px 0">
-                        <CalendarMonth
+                        <CalendarDays
                             noClamp
                             date={date}
                             events={events.filter((e) => e.allDay)}
