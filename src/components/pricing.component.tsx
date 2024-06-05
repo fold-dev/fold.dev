@@ -153,7 +153,6 @@ export const FAQ = (props) => (
 )
 
 export const PricingComponent = () => {
-    const [seats, setSeats] = useState(2)
     const [down, setDown] = useState(false)
     const selectSeat = useRef(null)
     const { show, hide, visible } = useVisibility()
@@ -209,59 +208,26 @@ export const PricingComponent = () => {
                     },
                 ]
                 break
-            case 3:
-                items = [
-                    {
-                        priceId: 'pri_01hzgvcm6kkccadzgyyfpvvskr',
-                        quantity: 1,
-                    },
-                ]
-                break
-            case 4:
-                items = [
-                    {
-                        priceId: 'pri_01hzgvd71e0mxvdr4nxdybpmet',
-                        quantity: 1,
-                    },
-                ]
-                break
+            // unused:
+            // case 3:
+            //     items = [
+            //         {
+            //             priceId: 'pri_01hzgvcm6kkccadzgyyfpvvskr',
+            //             quantity: 1,
+            //         },
+            //     ]
+            //     break
+            // case 4:
+            //     items = [
+            //         {
+            //             priceId: 'pri_01hzgvd71e0mxvdr4nxdybpmet',
+            //             quantity: 1,
+            //         },
+            //     ]
+            //     break
         }
 
         Paddle.Checkout.open({ items })
-    }
-
-    const formatCurrency = (amount) => {
-        return Intl.NumberFormat('en-US', {
-            notation: 'standard',
-            maximumFractionDigits: 2,
-        }).format(amount)
-    }
-
-    const developers = () => {
-        switch (seats) {
-            case 1: return '1 Developer'
-            case 2: return '3 Developers'
-            case 3: return '5 Developers'
-            case 4: return '10 Developers'
-        }
-    }
-
-    const pricingEA = (seats) => {
-        switch (seats) {
-            case 1: return 399
-            case 2: return 749
-            case 3: return 1299
-            case 4: return 1999
-        }
-    }
-
-    const pricingFull = (seats) => {
-        switch (seats) {
-            case 1: return 799
-            case 2: return 1499
-            case 3: return 2599
-            case 4: return 3999
-        }
     }
 
     useEffect(() => {
@@ -492,7 +458,6 @@ export const PricingComponent = () => {
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>
-                                {/* {formatCurrency(pricingEA(1))} */}
                                 379
                             </Heading>
                             <Heading
@@ -536,7 +501,6 @@ export const PricingComponent = () => {
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>
-                                {/* {formatCurrency(pricingEA(seats))} */}
                                 999
                             </Heading>
                             <Heading
@@ -545,36 +509,15 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
-                        <View
-                            row
-                            display="none"
-                            gap="1rem"
-                            width="100%">
-                            <Range
-                                min={2}
-                                max={4}
-                                step={1}
-                                value={seats}
-                                onChange={(e) => setSeats(+e.target.value)}
-                            />
-                            <Text
-                                colorToken="base-400"
-                                display="inline-block"
-                                width={160}>
-                                {developers()}
-                            </Text>
-                        </View>
-                        
-                            <Text
-                                size="sm"
-                                m="1rem 0 0 0">
-                                Need more than 10 developers? <Link href="mailto:licensing@fold.dev" size="sm">Contact us</Link>.
-                            </Text>
-                        
+                        <Text
+                            size="sm"
+                            m="1rem 0 0 0">
+                            Need more than 10 developers? <Link href="mailto:licensing@fold.dev" size="sm">Contact us</Link>.
+                        </Text>                        
                         <Flexer />
                         <Button
                             onClick={() => {
-                                selectSeat.current = seats
+                                selectSeat.current = 2
                                 show()
                             }}
                             m="1rem 0 0 0"

@@ -96,12 +96,12 @@ function PaddleTest() {
 
     return (
         <>
-        <HeaderComponent title="Paddle" />
+        <HeaderComponent title="Buy Now" subtitle="Paddle" />
             <View row gap="1rem" p="1rem">
-                <Button onClick={() => openPayment(1)}>1 seat</Button>
-                <Button onClick={() => openPayment(2)}>3 seats</Button>
-                <Button onClick={() => openPayment(3)}>5 seats</Button>
-                <Button onClick={() => openPayment(4)}>10 seats</Button>
+                <Button onClick={() => openPayment(1)}>p1</Button>
+                <Button onClick={() => openPayment(2)}>p2</Button>
+                <Button onClick={() => openPayment(3)}>p3</Button>
+                <Button onClick={() => openPayment(4)}>p4</Button>
             </View>
         </>
     )
