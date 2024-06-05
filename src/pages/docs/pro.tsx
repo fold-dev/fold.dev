@@ -123,7 +123,7 @@ export default function GettingStarted(props) {
 
             <Text>
                 After purchasing a license, you will receive an automated email containing a list of license keys, license quantity, when the license keys are valid until & a OTP to use for support (more on this below).
-                You will also receive an invoice from <a href="https://www.lemonsqueezy.com/" target="_blank">Lemon Squeezy</a>, who we use as our Merchant of Record.
+                You will also receive an invoice from <a href="https://www.paddle.com" target="_blank">Paddle</a>, who we use as our Merchant of Record.
             </Text>
 
             <Text>
