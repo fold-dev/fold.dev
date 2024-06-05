@@ -358,7 +358,7 @@ export const PricingComponent = () => {
                     subtle
                     color={Token.ColorPurple500}
                     m="2rem 0">
-                    Early Access has launched. 🎉 Keep reading below to find out more.
+                    Early Access has launched.<Icon icon={PiSparkle} color="var(--f-purple-500)" style={{ margin: '0 7px' }} />Keep reading below to find out more.
                 </Pill>
 
                 <View
@@ -435,12 +435,7 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Non commercial/internal use
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Unlimited projects
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Unlimited non commercial/internal projects
                             </Li>
                             <Tooltip text="Renews at regular 1 year duration.">
                                 <Li

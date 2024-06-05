@@ -138,6 +138,8 @@ export default function Introduction(props) {
                         </View>
                         <Heading
                             as="h3"
+                            textAlign="center"
+                            width="100%"
                             colorToken={section.color}>
                             {section.title}
                         </Heading>
