@@ -435,27 +435,32 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
+                                <IconLib icon="check" color="var(--f-color-accent)" /> App Sandbox source code
+                            </Li>
+                            <Li
+                                row
+                                width="fit-content">
                                 <IconLib icon="check" color="var(--f-color-accent)" /> Unlimited non commercial/internal projects
                             </Li>
                             <Tooltip text="Renews at regular 1 year duration.">
                                 <Li
                                     row
                                     width="fit-content">
-                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> 2 years of updates&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <IconLib icon="check" color="var(--f-color-accent)" /> 2 years of updates&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
                             <Tooltip text="As they become available.">
                                 <Li
                                     row
                                     width="fit-content">
-                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Access to planned roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <IconLib icon="check" color="var(--f-color-accent)" /> Access to planned roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
                             <Tooltip text="Subject to Early Access only, renews at regular 1 year duration." contentProps={{ style: { width: 200, whiteSpace: 'break-spaces', textAlign: 'center' }}}>
                                 <Li
                                     row
                                     width="fit-content">
-                                    <Icon icon={PiSparkle} color="var(--f-color-accent)" /> Renews at Early Access pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <IconLib icon="check" color="var(--f-color-accent)" /> Renews at Early Access pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
                         </List>
