@@ -84,7 +84,7 @@ export const FAQAccordion = (props) => (
                 Will the beta affect the Early Access license?
             </AccordionHeading>
             <AccordionPanel>
-                If you have purchased a Fold Pro Early Access license, you will automatically get access to the public beta at no additional cost, you won't be affected by the new license terms or price increase. When you renew your license after the initial two-year period, you'll be charged the Early Access pricing, not the new pricing.
+                If you have purchased a Fold Pro Early Access license, you will automatically get access to the public beta at no additional cost, you won't be affected by the new license terms or price increase. When you renew your license, you'll be charged the Early Access pricing, not the new pricing.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
