@@ -1377,13 +1377,6 @@ export const CoreComponent = () => {
         highlightCode(snippet1, 'javascript').then((html) => setHtml(html))
     }, [])
 
-    useEffect(() => {
-        ['app-sandbox-light.png', 'app-sandbox-dark.png'].map((imageUrl) => {
-            const img = new window.Image()
-            img.src = imageUrl
-        })
-    }, [])
-
     return (
         <>
             <View
@@ -1513,6 +1506,30 @@ export const CoreComponent = () => {
                             width={1250}
                             style={{ left: 0, top: -35, transform: 'rotateZ(8deg)' }}
                             position="absolute">
+                            <img
+                                className="lazy-load-dark"
+                                style={{ 
+                                    visibility: 'hidden', 
+                                    position: 'absolute', 
+                                    zIndex: -1, 
+                                    top: 0, 
+                                    left: 0,
+                                    width: 0,
+                                    height: 0,
+                                }}
+                            />
+                            <img
+                                className="lazy-load-light"
+                                style={{ 
+                                    visibility: 'hidden', 
+                                    position: 'absolute', 
+                                    zIndex: -1, 
+                                    top: 0, 
+                                    left: 0,
+                                    width: 0,
+                                    height: 0,
+                                }}
+                            />
                             <img 
                                 style={{ position: 'relative', zIndex: 0 }}
                                 src="app-sandbox-light.png" 
