@@ -26,6 +26,8 @@ body {
     max-height: inherit;
     max-height: 500px;
     width: 100%;
+    border: 1px solid var(--f-color-base-700);
+    border-top: 0;
 }
 
 [data-rehype-pretty-code-figure] pre [data-line] {
