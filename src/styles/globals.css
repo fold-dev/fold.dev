@@ -218,6 +218,14 @@ body {
     margin: 1rem 0;
 }
 
+.lazy-load-dark {
+    content: url("../../public/app-sandbox-dark.png");
+}
+
+.lazy-load-light {
+    content: url("../../public/app-sandbox-light.png");
+}
+
 [data-theme="dark"] .pro-image {
     content: url("../../public/app-sandbox-dark.png");
 }
