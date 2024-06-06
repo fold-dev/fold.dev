@@ -1514,6 +1514,7 @@ export const CoreComponent = () => {
                             style={{ left: 0, top: -35, transform: 'rotateZ(8deg)' }}
                             position="absolute">
                             <img 
+                                loading="lazy"
                                 style={{ position: 'relative', zIndex: 0, display: 'none' }}
                                 src="app-sandbox-dark.png" 
                                 height="0"
