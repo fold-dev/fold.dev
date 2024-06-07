@@ -449,7 +449,7 @@ export const PricingComponent = () => {
                             Indie <small style={{ position: 'relative', top: -10, color: 'var(--f-color-text-weakest', fontWeight: 'bold' }}>EARLY ACCESS</small>
                         </Heading>
                         <Text colorToken="base-300">
-                            For teams of up to 2 developers, who need to level up their next big idea.
+                            For teams of up to 3 developers, who need to level up their next big idea.
                         </Text>
                         <View
                             row
@@ -457,7 +457,7 @@ export const PricingComponent = () => {
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>
-                                379
+                                399
                             </Heading>
                             <Heading
                                 as="h5"
