@@ -190,7 +190,7 @@ export default function Pro(props) {
             </Text>
             
             <Text>
-                After every release, we post the Pro source code & AppSandbox source code to the Google Group. 
+                After every release, we post the Fold Pro source code to the Google Group. 
             </Text>
 
             <Button

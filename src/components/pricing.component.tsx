@@ -407,11 +407,6 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> AppSandbox source code
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
                                 <IconLib icon="check" color="var(--f-color-accent)" /> 1 year of updates
                             </Li>
                             <Tooltip text="Non commercial/internal use.">
