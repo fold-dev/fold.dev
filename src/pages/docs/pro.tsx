@@ -102,7 +102,7 @@ export default function GettingStarted(props) {
 
             <Text as="blockquote">Fold Pro has been developed using React v18.2</Text>
 
-            <Heading as="h3">Before you get started</Heading>
+            <Heading as="h3" id="before-you-get-started">Before you get started</Heading>
 
             <Text>
                 Fold Pro relies on the latest version of Fold Core. 
@@ -113,7 +113,7 @@ export default function GettingStarted(props) {
                 Once you have Fold Core installed, you're ready to proceed.
             </Text>
         
-            <Heading as="h3">
+            <Heading as="h3" id="license-key">
                 License Key
             </Heading>
 
@@ -122,20 +122,16 @@ export default function GettingStarted(props) {
             </Text>
 
             <Text>
-                After purchasing a license, you will receive an automated email containing your license key, license type, when the license key is valid until & a OTP to use for support (more on this below).
+                After purchasing a license, you will receive an automated email containing your license key, license type, when the license key is valid until & a secret code to use to get the source code (more on this below).
                 You will also receive an invoice from <a href="https://www.paddle.com" target="_blank">Paddle</a>, who we use as our Merchant of Record.
             </Text>
 
-            <Text>
-                Once you have a valid license key, you're ready to proceed. 
-            </Text>
-
-            <Heading as="h3">
+            <Heading as="h3" id="npm-registry">
                 NPM registry
             </Heading>
 
             <Text>
-                Add a license key to your <code>.npmrc</code> file. <code>NPM_TOKEN</code> must be available as an environment variable.
+                Add the license key to your <code>.npmrc</code> file. <code>NPM_TOKEN</code> must be available as an environment variable.
             </Text>
 
             <CodeComponent
@@ -149,7 +145,7 @@ export default function GettingStarted(props) {
                 `}
             />
 
-            <Heading as="h3">Installation</Heading>
+            <Heading as="h3" id="installation">Installation</Heading>
 
             <CodeComponent
                 showSnippet
@@ -164,11 +160,11 @@ export default function GettingStarted(props) {
     yarn add @fold-pro/react
                 `}
             />
-            <Heading as="h3">Setup</Heading>
+            <Heading as="h3" id="setup">Setup</Heading>
             <Text>
                 Once Pro is installed, you'll need to include the Fold Pro CSS stylesheet.
             </Text>
-            <Heading as="h4">CSS</Heading>
+            <Heading as="h4" id="css">CSS</Heading>
             <Text>
                 Add the stylesheet to the root level of your project. If you're utilizing SASS, Less, or another CSS
                 preprocessor, you can also import it directly.
@@ -181,20 +177,20 @@ export default function GettingStarted(props) {
                 dontConvert
                 filename="App.tsx"
             />
-            <Heading as="h3">Done</Heading>
+            <Heading as="h3" id="done">Done</Heading>
 
             <Text>
                 You're now ready to start building with Fold Pro. 
             </Text>
 
-            <Heading as="h3">Support</Heading>
+            <Heading as="h3" id="source-code">Source Code</Heading>
 
             <Text>
                 Request access to join the private <a href="https://groups.google.com/a/fold.dev/g/pro" target="_blank">Fold Pro Google Group</a>.
-                This private community is dedicated to providing you with premium support, access to the source code, and a platform to connect with fellow Fold Pro users.
             </Text>
             
             <Text>
+                After every release, we post the Pro source code & App Sandbox source code to the Google Group. 
                 To get access, simply click the button below & request access using your secret code that was emailed (see above).
             </Text>
 
@@ -207,13 +203,7 @@ export default function GettingStarted(props) {
                 Join Now
             </Button>
 
-            <Heading as="h3">Source Code</Heading>
-
-            <Text>
-                After every release, we post the source code to the Fold Pro Google Group.
-            </Text>
-
-            <Heading as="h3">License</Heading>
+            <Heading as="h3" id="license">License</Heading>
 
             <Text>
                 Using Fold Pro is subject to our <a href="/license" target="_blank">License</a> agreement.
