@@ -65,8 +65,8 @@ export const SupportComponent = (props) => {
                             },
                             {
                                 url: 'mailto:support@fold.dev',
-                                title: 'Email',
-                                text: 'For any other support needs or inquiries, please feel free to reach out to us directly via email. ',
+                                title: 'Pro',
+                                text: 'For any other support needs, if you are a Pro customer, please feel free to reach out to us directly via email.',
                             },
                         ].map(({ title, text, url }, index) => (
                             <View
