@@ -190,7 +190,7 @@ export default function Pro(props) {
             </Text>
 
             <Text>
-                You are able to request access from another email address using your secret code that was emailed (see above).
+                You are able to request access from a different email address using your secret code that was emailed (see above).
             </Text>
             
             <Text>
