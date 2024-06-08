@@ -923,7 +923,7 @@ export const ProComponent = () => {
                         color="var(--f-color-accent)"
                         className="f-underline"
                         textDecoration="none">
-                        App Sandbox ↗
+                        AppSandbox ↗
                     </Link>
                 </View>
                 <View

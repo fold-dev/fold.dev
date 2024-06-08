@@ -190,7 +190,7 @@ export default function GettingStarted(props) {
             </Text>
             
             <Text>
-                After every release, we post the Pro source code & App Sandbox source code to the Google Group. 
+                After every release, we post the Pro source code & AppSandbox source code to the Google Group. 
                 To get access, simply click the button below & request access using your secret code that was emailed (see above).
             </Text>
 

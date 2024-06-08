@@ -767,7 +767,7 @@ export default function DocsLayout(props: any) {
                                         href="https://app-sandbox.fold.dev"
                                         target="_blank"
                                         variant="accent">
-                                        App Sandbox ↗
+                                        AppSandbox ↗
                                     </Button>
                                     <Button
                                         as="a"

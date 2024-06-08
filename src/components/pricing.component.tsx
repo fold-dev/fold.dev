@@ -406,7 +406,7 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> App Sandbox source code
+                                <IconLib icon="check" color="var(--f-color-accent)" /> AppSandbox source code
                             </Li>
                             <Li
                                 row
