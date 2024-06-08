@@ -1486,7 +1486,7 @@ export const CoreComponent = () => {
                             Made for product teams that need to scale quickly.
                         </Heading>
                         <Text colorToken="accent-100">
-                            Introducing the Fold AppSandbox <sup style={{ color: 'inherit', fontWeight: 600, fontSize: 8 }}>BETA</sup>, a showcase for creating next-level product experiences with Fold.
+                            Introducing Fold AppSandbox <sup style={{ color: 'inherit', fontWeight: 600, fontSize: 8 }}>BETA</sup>, a showcase for creating next-level product experiences with Fold.
                         </Text>
                         <Link
                             target="_blank"
