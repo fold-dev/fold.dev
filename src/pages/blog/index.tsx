@@ -24,7 +24,8 @@ export default function Blog({ children }) {
             />
 
             <ContentContainerComponent>
-                {articles.map((article: any, index: number) => (
+                <Text>coming soon</Text>
+                {/* {articles.map((article: any, index: number) => (
                     <Stack
                         direction="vertical"
                         spacing="0.5rem">
@@ -57,7 +58,7 @@ export default function Blog({ children }) {
                             Continue reading ↗
                         </Link>
                     </Stack>
-                ))}
+                ))} */}
             </ContentContainerComponent>
         </>
     )
