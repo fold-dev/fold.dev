@@ -1021,7 +1021,7 @@ const All = () => {
                     <View
                         column
                         gap="1rem"
-                        flex={1.25}>
+                        flex={1}>
                         <Menu
                             width="100%"
                             zIndex="0"
@@ -1084,7 +1084,7 @@ const All = () => {
                     <View
                         column
                         gap="1rem"
-                        flex={1}>
+                        width={250}>
                         <Dropdown />
                         <Picker />
                     </View>
@@ -1105,6 +1105,7 @@ const All = () => {
                             <Option>Inter</Option>
                             <Option>DM Sans</Option>
                         </Options>
+
                         <Card
                             p="0rem 1rem"
                             width="100%"
