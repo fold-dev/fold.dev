@@ -1,21 +1,18 @@
+import { ContentContainerComponent } from '@/components/container-container.component'
 import { HeaderComponent } from '@/components/header.component'
 import { View } from '@fold-dev/core'
 import Link from 'next/link'
 
-function PrivacyPolicy(props) {
+export default function PrivacyPolicy(props) {
     return (
-        <View>
+        <>
             <HeaderComponent 
                 title="Privacy Policy"
                 subtitle="Last updated on 23 May 2024"
                 description="We value your privacy and are committed to protecting your personal information. This Privacy Policy outlines our practices regarding the collection, use, and protection of your information when you visit this website."
             />
 
-            <View 
-                p={100} 
-                className="text-content"
-                m="0 auto"
-                style={{ maxWidth: 1200 }}>
+            <ContentContainerComponent>
                 <h2>Information Collection</h2>
                 <p>We do not collect or track any personal information about our visitors. You can browse this website without revealing any personal data.</p>
 
@@ -40,11 +37,7 @@ function PrivacyPolicy(props) {
                 <h2>Contact Information</h2>
                 <p>Address: Marine Drive, Umhlanga, KZN, ZA</p>
                 <p>Email: <Link href="mailto:support@fold.dev">support@fold.dev</Link></p>
-            </View>
-        </View>
+            </ContentContainerComponent>
+        </>
     )
 }
-
-PrivacyPolicy.noLayout = true
-
-export default PrivacyPolicy

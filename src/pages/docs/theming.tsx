@@ -203,7 +203,3 @@ export default function Theming(props) {
         </View>
     )
 }
-
-Theming.getLayout = function getLayout(page: React.ReactElement) {
-    return <DocsLayout style={{ padding: 30 }}>{page}</DocsLayout>
-}

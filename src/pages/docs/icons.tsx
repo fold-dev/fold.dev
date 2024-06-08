@@ -112,7 +112,3 @@ export default function Icons(props) {
         </View>
     )
 }
-
-Icons.getLayout = function getLayout(page: React.ReactElement) {
-    return <DocsLayout style={{ padding: 30 }}>{page}</DocsLayout>
-}

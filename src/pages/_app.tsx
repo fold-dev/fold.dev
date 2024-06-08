@@ -4,6 +4,8 @@ import '@fold-pro/react/dist/styles.css'
 import '@/styles/globals.css'
 import DocsLayout from '@/layouts/docs.layout'
 import SiteLayout from '@/layouts/site.layout'
+import BlogLayout from '@/layouts/blog.layout'
+import Head from 'next/head'
 
 export default function App(props: any) {
     const { 
@@ -12,9 +14,35 @@ export default function App(props: any) {
         router: { route },
     } = props
 
-    const getLayout = Component.noLayout || route.includes('/blog')
-        ? (page) => <SiteLayout>{page}</SiteLayout>
-        : (page) => <DocsLayout>{page}</DocsLayout>
+    if (route.includes('/docs')) {
+        return (
+            <>
+                <Head>
+                    <meta
+                        name="viewport"
+                        content="width=device-width, initial-scale=1.0"
+                    />
+                    <title>Fold Documentation</title>
+                </Head>
+                <DocsLayout>
+                    <Component {...pageProps} />
+                </DocsLayout>
+            </>
+        )
+    } 
 
-    return getLayout(<Component {...pageProps} />)
+    return (
+        <>
+            <Head>
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1.0"
+                />
+                <title>Fold</title>
+            </Head>
+            <SiteLayout>
+                <Component {...pageProps} />
+            </SiteLayout>
+        </>
+    )
 }

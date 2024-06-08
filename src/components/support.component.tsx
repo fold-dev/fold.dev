@@ -54,19 +54,19 @@ export const SupportComponent = (props) => {
                         position="relative">
                         {[
                             {
-                                url: 'https://github.com/fold-dev/fold/discussions',
-                                title: 'Discussions',
-                                text: 'If you have a question or a suggestion, feel free to engage with the community on GitHub Discussions. Discussions allow you to ask for help, share ideas, and participate in conversations with other contributors.',
-                            },
-                            {
                                 url: 'https://github.com/fold-dev/fold/issues',
-                                title: 'Issues',
+                                title: 'Reporting Bugs',
                                 text: 'If you want to contribute to the project or report a bug, you can open an issue or submit a pull request on the GitHub repository.',
                             },
                             {
-                                url: 'https://groups.google.com/a/fold.dev/g/pro',
-                                title: 'Fold Pro',
-                                text: 'If you\'ve purchased a license, you will gain access to the Fold Pro Google Group. This exclusive group provides additional support, resources, and discussions specifically for licensed users.',
+                                url: 'https://github.com/fold-dev/fold/discussions',
+                                title: 'Technical Support',
+                                text: 'If you have a question or a suggestion, feel free to engage with the community on GitHub Discussions. Discussions allow you to ask for help, share ideas, and participate in conversations with other users.',
+                            },
+                            {
+                                url: 'mailto:support@fold.dev',
+                                title: 'Email',
+                                text: 'For any other support needs or inquiries, please feel free to reach out to us directly via email. ',
                             },
                         ].map(({ title, text, url }, index) => (
                             <View

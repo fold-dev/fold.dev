@@ -46,20 +46,20 @@ export const FAQAccordion = (props) => (
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>
-                Is it production ready?
+                What components are included?
             </AccordionHeading>
             <AccordionPanel>
-                Consider Early Access as alpha or pre-release software, which is still unstable. The team is diligently working to fix bugs and resolve other issues.
-                If you have a Fold Pro Early Access license & want to report a bug, please post it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> or 
-                on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
+                Kanban Board, Todo List, Calendar, Data Grid, CSV Importer & Date Picker.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>
-                Is the source code available?
+                Is it production ready?
             </AccordionHeading>
             <AccordionPanel>
-                The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>.
+                Consider Early Access as alpha or pre-release software, which is still unstable. 
+                The team is diligently working to fix bugs and resolve other issues.
+                To report a bug, open a new issue on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -67,7 +67,8 @@ export const FAQAccordion = (props) => (
                 How long will Early Access last?
             </AccordionHeading>
             <AccordionPanel>
-                Until it becomes stable and all planned roadmap items are completed.
+                Not long!
+                Until it becomes stable enough and all planned roadmap items are completed.
                 You can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
             </AccordionPanel>
         </AccordionItem>
@@ -76,15 +77,18 @@ export const FAQAccordion = (props) => (
                 What comes after Early Access?
             </AccordionHeading>
             <AccordionPanel>
-                After Early Access, a public beta will be launched, accompanied by a price change. 
+                After Early Access we will go into a stable release schedule, incrementally rolling out further updates.
+                This will also be accompanied by a price change. 
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>
-                Will the beta affect the Early Access license?
+                What will the new pricing be after Early Access?
             </AccordionHeading>
             <AccordionPanel>
-                If you have purchased a Fold Pro Early Access license, you will automatically get access to the public beta at no additional cost, you won't be affected by the new license terms or price increase. When you renew your license, you'll be charged the Early Access pricing, not the new pricing.
+                We are still finalizing this.
+                If you have purchased a Fold Pro Early Access license, you won't be affected by the new license terms or price increase. 
+                When you renew your license, you'll be charged the Early Access pricing, not the new pricing.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -92,23 +96,23 @@ export const FAQAccordion = (props) => (
                 What support channels are available?
             </AccordionHeading>
             <AccordionPanel>
-                A private <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link> and email at <Link target="_blank" href="mailto:support@fold.dev">support@fold.dev</Link>.
+                Email us at <Link target="_blank" href="mailto:support@fold.dev">support@fold.dev</Link>, or post a message to the private <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>, or start a <Link target="_blank" href="https://github.com/fold-dev/fold/discussions">GitHub Discussion</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>
-                Where can I file bugs or feature requests?
+                Where can I report bugs or submit feature requests?
             </AccordionHeading>
             <AccordionPanel>
-                On the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>, <Link target="_blank" href="https://github.com/fold-dev/fold/discussions">GitHub Discussions</Link> or on <Link href="https://github.com/fold-dev/fold/issues" target="_blank" fontSize="inherit">GitHub Issues</Link> (label it as Pro).
+                <Link target="_blank" href="https://github.com/fold-dev/fold/discussions">GitHub Discussions</Link> or on <Link href="https://github.com/fold-dev/fold/issues" target="_blank" fontSize="inherit">GitHub Issues</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>
-                Where can I view the public roadmap?
+                Is there a roadmap?
             </AccordionHeading>
             <AccordionPanel>
-                You can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
+                Yes, you can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -117,7 +121,15 @@ export const FAQAccordion = (props) => (
             </AccordionHeading>
             <AccordionPanel>
                 You will retain access to the last version you downloaded and remain bound by the same license agreement as when you purchased the license.
-                However, your access to NPM and the Google Group will be revoked, and you will not receive any future roadmap functionalities.
+                However, your access to NPM and the Google Group will be revoked, and you will not receive any further updates.
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>
+                Is the source code available?
+            </AccordionHeading>
+            <AccordionPanel>
+                The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -370,7 +382,7 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Fold Pro components
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Kanban Board, Todo List, Calendar, Data Grid, CSV Importer & Date Picker components
                             </Li>
                             <Li
                                 row
@@ -380,17 +392,12 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Private Google Group access
-                            </Li>
-                            <Li
-                                row
-                                width="fit-content">
                                 <IconLib icon="check" color="var(--f-color-accent)" /> Prioritized support
                             </Li>
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> NPM access
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Private NPM access
                             </Li>
                             <Li
                                 row
@@ -400,7 +407,7 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> App Sandbox source code
+                                <IconLib icon="check" color="var(--f-color-accent)" /> AppSandbox source code
                             </Li>
                             <Li
                                 row
@@ -418,16 +425,14 @@ export const PricingComponent = () => {
                                 <Li
                                     row
                                     width="fit-content">
-                                    <IconLib icon="check" color="var(--f-color-accent)" /> Access to roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <IconLib icon="check" color="var(--f-color-accent)" /> Access to future roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
-                            <Tooltip text="Only for Early Access customers." contentProps={{ style: { width: 200, whiteSpace: 'break-spaces', textAlign: 'center' }}}>
-                                <Li
-                                    row
-                                    width="fit-content">
-                                    <IconLib icon="check" color="var(--f-color-accent)" /> Renews at Early Access pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
-                                </Li>
-                            </Tooltip>
+                            <Li
+                                row
+                                width="fit-content">
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Renews at Early Access pricing
+                            </Li>
                         </List>
                         <Divider style={{ '--f-divider-color': 'var(--f-color-text-weakest)' }} />
                         <Text colorToken="text-weak">

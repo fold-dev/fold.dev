@@ -1,92 +1,65 @@
-import { useEffect, useState } from 'react'
-import React from 'react'
-import { Avatar, Card, Heading, Image, Li, Link, List, Notification, NotificationContent, Pill, Stack, Text, View } from '@fold-dev/core'
-import { GraphicLeft, GraphicRight } from '../../components/graphic.component'
-import * as Token from '@fold-dev/design/tokens'
+import React, { useMemo } from 'react'
+import BlogLayout from '@/layouts/blog.layout'
+import { useRouter } from 'next/navigation'
 import { articles } from '../../blog'
+import * as Token from '@fold-dev/design/tokens'
+import { Card, Heading, Image, Link, Pill, Stack, Text, View } from '@fold-dev/core'
 import { HeaderComponent } from '@/components/header.component'
+import { ContentContainerComponent } from '@/components/container-container.component'
 
-export default function BlogLayout(props: any) {
-    const { children } = props
-    const [showChild, setShowChild] = useState(false)
-
-    useEffect(() => {
-        setShowChild(true)
-    }, [])
-
-    if (!showChild) return null
+export default function Blog({ children }) {
+    const formatDate = (date) => {
+        return new Date(date).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+        })
+    }
 
     return (
-        <View>
-            <HeaderComponent
-                title="Blog"
+        <>
+            <HeaderComponent 
+                title="Articles"
+                subtitle="Blog"
             />
 
-            <View 
-                p="5rem" 
-                m="0 auto"
-                className="text-content"
-                style={{ maxWidth: 1200 }}>
-                {articles.map((article: any, index: number) => (
-                    <Card
-                        key={index}
-                        width={300}
-                        header={
-                            <Image
-                                width="100%"
-                                height={250}
-                                src={article.image}
-                            />
-                        }>
-                        <View p={20}>
-                            <Stack
-                                direction="vertical"
-                                spacing={10}>
-                                <View
-                                    display="none"
-                                    row
-                                    gap={5}
-                                    justifyContent="flex-start">
-                                    {article.tags.map((tag, index) => {
-                                        <Pill
-                                            key={index}
-                                            color={Token.ColorElectric400}
-                                            subtle
-                                            size="sm">
-                                            {tag}
-                                        </Pill>
-                                    })}
-                                </View>
-                                <Heading 
-                                    as="h2"
-                                    p={0}
-                                    m={0}>
-                                    {article.title}
-                                </Heading>
-                                <Text 
-                                    fontWeight="bold"
-                                    colorToken="text-weaker"
-                                    size="sm"
-                                    p={0}
-                                    m={0}>
-                                    {article.date}
-                                </Text>
-                                <Text
-                                    p={0}
-                                    m={0}>
-                                    {article.summary}
-                                </Text>
-                                <Link
-                                    p={0}
-                                    m={0} 
-                                    href={'/blog/' + article.slug}>
-                                    Read more
-                                </Link>
-                            </Stack>
+            <ContentContainerComponent>
+                <Text>coming soon</Text>
+                {/* {articles.map((article: any, index: number) => (
+                    <Stack
+                        direction="vertical"
+                        spacing="0.5rem">
+                        <Heading
+                            as="h2"
+                            p={0}
+                            m={0}>
+                            {article.title}
+                        </Heading>
+                        <View 
+                            row
+                            justifyContent="flex-start">
+                            <Text
+                                colorToken="text-weaker"
+                                p={0}
+                                m={0}>
+                                {article.author} on {formatDate(article.date)}
+                            </Text>
                         </View>
-                    </Card>
-                ))}
-            </View>
-        </View>
+                        <Text
+                            p={0}
+                            m={0}>
+                            {article.summary}
+                        </Text>
+                        <Link
+                            p={0}
+                            m={0} 
+                            textDecoration="none"
+                            href={'/blog/' + article.slug}>
+                            Continue reading ↗
+                        </Link>
+                    </Stack>
+                ))} */}
+            </ContentContainerComponent>
+        </>
     )
 }

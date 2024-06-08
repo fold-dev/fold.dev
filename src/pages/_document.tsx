@@ -14,10 +14,7 @@ export default function Document() {
         <Html lang="en">
             <Head>
                 <meta charSet="UTF-8" />
-                <meta
-                    name="viewport"
-                    content="width=device-width, initial-scale=1.0"
-                />
+
                 <meta
                     httpEquiv="X-UA-Compatible"
                     content="IE=edge, IE=11, IE=10"
@@ -28,11 +25,9 @@ export default function Document() {
                 />
                 <meta
                     name="description"
-                    content="Powerful, fully customizable React components for scaling your product to the next level. Supercharge your dev workflow by using our zero-dependency UI components."
+                    content="Powerful, fully customizable React components for scaling your project to the next level. Supercharge your dev workflow by using our zero-dependency UI components."
                 />
 
-                <title>Fold</title>
-                
                 <script src="https://assets.lemonsqueezy.com/lemon.js" defer></script>
                 <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
 
@@ -48,7 +43,7 @@ export default function Document() {
                 <meta property="og:image:type" content="image/png" />
                 <meta property="og:image:width" content="1280" />
                 <meta property="og:image:height" content="630" />
-                <meta property="og:description" content="Powerful, fully customizable React components for scaling your product to the next level. Supercharge your dev workflow by using our zero-dependency UI components." />
+                <meta property="og:description" content="Powerful, fully customizable React components for scaling your project to the next level. Supercharge your dev workflow by using our zero-dependency UI components." />
 
                 <link
                     rel="preconnect"

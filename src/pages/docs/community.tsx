@@ -35,13 +35,3 @@ export default function Community(props) {
         </View>
     )
 }
-
-Community.getLayout = function getLayout(page: React.ReactElement) {
-    return (
-        <DocsLayout
-            noToc
-            style={{ padding: 30 }}>
-            {page}
-        </DocsLayout>
-    )
-}

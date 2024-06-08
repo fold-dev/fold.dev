@@ -127,13 +127,3 @@ export default function Faq(props) {
         </View>
     )
 }
-
-Faq.getLayout = function getLayout(page: React.ReactElement) {
-    return (
-        <DocsLayout
-            noToc
-            style={{ padding: 30 }}>
-            {page}
-        </DocsLayout>
-    )
-}

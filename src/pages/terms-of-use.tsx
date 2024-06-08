@@ -4,21 +4,18 @@ import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
 import Link from 'next/link'
 import { HeaderComponent } from '@/components/header.component'
+import { ContentContainerComponent } from '@/components/container-container.component'
 
-function TermsOfUse(props){
+export default function TermsOfUse(props){
     return (
-        <View>
+        <>
             <HeaderComponent 
                 title="Terms of Use"
                 subtitle="Last updated on 23 May 2024"
                 description="These Terms of Use govern your use of this website. By accessing or using this website, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you may not use this website."
             />
 
-            <View 
-                p={100} 
-                className="text-content"
-                m="0 auto"
-                style={{ maxWidth: 1200 }}>
+            <ContentContainerComponent>
                 <h2>Use of Website</h2>
                 <p>You may use this website for lawful purposes only. You agree not to use this website in any way that violates any applicable laws or regulations.</p>
 
@@ -43,11 +40,7 @@ function TermsOfUse(props){
                 <h2>Contact Information</h2>
                 <p>Address: Marine Drive, Umhlanga, KZN, ZA</p>
                 <p>Email: <Link href="mailto:support@fold.dev">support@fold.dev</Link></p>
-            </View>
-        </View>
+            </ContentContainerComponent>
+        </>
     )
 }
-
-TermsOfUse.noLayout = true
-
-export default TermsOfUse
