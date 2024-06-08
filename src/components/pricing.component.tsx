@@ -101,7 +101,7 @@ export const FAQAccordion = (props) => (
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>
-                Where can I file bugs or feature requests?
+                Where can I report bugs or submit feature requests?
             </AccordionHeading>
             <AccordionPanel>
                 <Link target="_blank" href="https://github.com/fold-dev/fold/discussions">GitHub Discussions</Link> or on <Link href="https://github.com/fold-dev/fold/issues" target="_blank" fontSize="inherit">GitHub Issues</Link> (label it as Pro).
