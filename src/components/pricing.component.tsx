@@ -64,14 +64,6 @@ export const FAQAccordion = (props) => (
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>
-                Is the source code available?
-            </AccordionHeading>
-            <AccordionPanel>
-                The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>.
-            </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-            <AccordionHeading>
                 How long will Early Access last?
             </AccordionHeading>
             <AccordionPanel>
@@ -129,6 +121,14 @@ export const FAQAccordion = (props) => (
             <AccordionPanel>
                 You will retain access to the last version you downloaded and remain bound by the same license agreement as when you purchased the license.
                 However, your access to NPM and the Google Group will be revoked, and you will not receive any future roadmap functionalities.
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>
+                Is the source code available?
+            </AccordionHeading>
+            <AccordionPanel>
+                The source code of every release will be posted to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro">Fold Pro Google Group</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
