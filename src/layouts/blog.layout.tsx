@@ -1,16 +1,16 @@
 import { HeaderComponent } from '@/components/header.component'
-import { Heading, View } from '@fold-dev/core'
+import { Heading, Notification, NotificationContent, View } from '@fold-dev/core'
 import { useEffect, useMemo, useState } from 'react'
 import { articles } from '../blog'
+import { ContentContainerComponent } from '@/components/container-container.component'
 
 export default function BlogLayout(props: any) {
     const { children } = props
     const [showChild, setShowChild] = useState(false)
-    /* 
-    const { title, date, author, tags } = useMemo(() => {
+    const { slug, title, summary, date, author } = useMemo(() => {
         const parts = window.location.pathname.split('/')
         const lastPart = parts[parts.length - 1]
-        const { slug, title, summary, date, author, image, tags } = articles.find(
+        const { slug, title, summary, date, author } = articles.find(
             (article) => article.slug == lastPart
         )
 
@@ -18,17 +18,15 @@ export default function BlogLayout(props: any) {
             slug, 
             title, 
             summary, 
+            author, 
             date: new Date(date).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'short',
                 day: 'numeric',
-            }), 
-            author, 
-            image, 
-            tags,
+            }),             
         }
     }, [])
-    */
+   
     useEffect(() => {
         setShowChild(true)
     }, [])
@@ -36,21 +34,19 @@ export default function BlogLayout(props: any) {
     if (!showChild) return null
 
     return (
-        <View>
-{/*             <HeaderComponent
+        <>
+            <HeaderComponent 
                 title={title}
                 subtitle="Blog"
-                description={`${author} on ${date}`}
+                description={author}
             />
-             */}
-            <View 
-                p="5rem" 
-                className="text-content"
-                m="0 auto"
-                style={{ maxWidth: 1200 }}>
-                <Heading>Blog</Heading>
+
+            <ContentContainerComponent>
+                <Notification variant="highlight">
+                    <NotificationContent>Whoa, this is placeholder content.</NotificationContent>
+                </Notification>
                 {children}
-            </View>
-        </View>
+            </ContentContainerComponent>
+        </>
     )
 }

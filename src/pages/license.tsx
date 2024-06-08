@@ -3,6 +3,7 @@ import { Heading, Li, Link, List, Notification, NotificationContent, Text, View 
 import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
 import { HeaderComponent } from '@/components/header.component'
+import { ContentContainerComponent } from '@/components/container-container.component'
 
 export const LicenseContent = (props) => (
     <View className="text-content">
@@ -79,25 +80,17 @@ export const LicenseContent = (props) => (
     </View>
 )
 
-function License(props){
+export default function License(props){
     return (
-        <View>
+        <>
             <HeaderComponent 
                 title="License Agreement"
                 subtitle="Last updated on 26 May 2024"
             />
 
-            <View 
-                p={100} 
-                className="text-content"
-                m="0 auto"
-                style={{ maxWidth: 1200 }}>
+            <ContentContainerComponent>
                 <LicenseContent />
-            </View>
-        </View>
+            </ContentContainerComponent>
+        </>
     )
 }
-
-License.noLayout = true
-
-export default License
