@@ -115,7 +115,3 @@ export default function GettingStarted(props) {
         </View>
     )
 }
-
-GettingStarted.getLayout = function getLayout(page: React.ReactElement) {
-    return <DocsLayout style={{ padding: 30 }}>{page}</DocsLayout>
-}

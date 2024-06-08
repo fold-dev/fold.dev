@@ -221,13 +221,3 @@ export default function Releases(props) {
         </View>
     )
 }
-
-Releases.getLayout = function getLayout(page: React.ReactElement) {
-    return (
-        <DocsLayout
-            style={{ padding: 30 }}
-            noToc>
-            {page}
-        </DocsLayout>
-    )
-}

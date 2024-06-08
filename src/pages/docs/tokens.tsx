@@ -327,7 +327,3 @@ export default function Tokens(props) {
         </View>
     )
 }
-
-Tokens.getLayout = function getLayout(page: React.ReactElement) {
-    return <DocsLayout style={{ padding: 30 }}>{page}</DocsLayout>
-}

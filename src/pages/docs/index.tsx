@@ -7,7 +7,3 @@ export default function Home({ children }) {
     router.push('/docs/introduction')
     return <div style={{ padding: 10, color: 'var(--f-color-text)' }}>Loading...</div>
 }
-
-Home.getLayout = function getLayout(page: React.ReactElement) {
-    return <DocsLayout>{page}</DocsLayout>
-}

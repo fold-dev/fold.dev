@@ -13,7 +13,7 @@ import { GraphicLeft } from '../../components/graphic.component'
 import { FAQAccordion } from '@/components/pricing.component'
 import { PiComputerTower } from 'react-icons/pi'
 
-export default function GettingStarted(props) {
+export default function Pro(props) {
     return (
         <View
             p={30}
@@ -209,8 +209,4 @@ export default function GettingStarted(props) {
             </Text>
         </View>
     )
-}
-
-GettingStarted.getLayout = function getLayout(page: React.ReactElement) {
-    return <DocsLayout style={{ padding: 30 }}>{page}</DocsLayout>
 }
