@@ -186,11 +186,15 @@ export default function Pro(props) {
             <Heading as="h3" id="source-code">Source Code</Heading>
 
             <Text>
-                Request access to join the private <a href="https://groups.google.com/a/fold.dev/g/pro" target="_blank">Fold Pro Google Group</a> using your secret code that was emailed (see above).
+                After purchasing a license, the email you used for the purchase will be added to the <a href="https://groups.google.com/a/fold.dev/g/pro" target="_blank">Fold Pro Google Group</a>.
+            </Text>
+
+            <Text>
+                You are able to request access from a different email address using your secret code that was emailed (see above).
             </Text>
             
             <Text>
-                After every release, we post the Pro source code & AppSandbox source code to the Google Group. 
+                After every release, we post the Fold Pro source code to the Google Group. 
             </Text>
 
             <Button
