@@ -59,7 +59,7 @@ export const HeroComponent = () => {
                         fontWeight={400}
                         width="90%">
                         Powerful, fully customizable React components for scaling your project to the next level. 
-                        Supercharge your next project by using Fold's zero-dependency UI components.
+                        Supercharge your dev workflow by using Fold's zero-dependency UI components.
                     </Heading>
 
                     <View
