@@ -59,7 +59,7 @@ export const FAQAccordion = (props) => (
             <AccordionPanel>
                 Consider Early Access as alpha or pre-release software, which is still unstable. 
                 The team is diligently working to fix bugs and resolve other issues.
-                To report a bug, open a new issue <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
+                To report a bug, open a new issue on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -68,7 +68,7 @@ export const FAQAccordion = (props) => (
             </AccordionHeading>
             <AccordionPanel>
                 Not long!
-                Until it becomes stable and all planned roadmap items are completed.
+                Until it becomes stable enough and all planned roadmap items are completed.
                 You can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
             </AccordionPanel>
         </AccordionItem>
@@ -77,7 +77,8 @@ export const FAQAccordion = (props) => (
                 What comes after Early Access?
             </AccordionHeading>
             <AccordionPanel>
-                After Early Access we will go into a more stable release schedule, accompanied by a price change. 
+                After Early Access we will go into a stable release schedule, incrementally rolling out further updates.
+                This will also be accompanied by a price change. 
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -111,7 +112,7 @@ export const FAQAccordion = (props) => (
                 Is there a roadmap?
             </AccordionHeading>
             <AccordionPanel>
-                You can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
+                Yes, you can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -120,7 +121,7 @@ export const FAQAccordion = (props) => (
             </AccordionHeading>
             <AccordionPanel>
                 You will retain access to the last version you downloaded and remain bound by the same license agreement as when you purchased the license.
-                However, your access to NPM and the Google Group will be revoked, and you will not receive any future roadmap functionalities.
+                However, your access to NPM and the Google Group will be revoked, and you will not receive any further updates.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
