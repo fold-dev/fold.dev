@@ -46,6 +46,14 @@ export const FAQAccordion = (props) => (
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>
+                What components are included?
+            </AccordionHeading>
+            <AccordionPanel>
+                Kanban Board, Todo List, Calendar, Data Grid, CSV Importer & Date Picker.
+            </AccordionPanel>
+        </AccordionItem>
+        <AccordionItem>
+            <AccordionHeading>
                 Is it production ready?
             </AccordionHeading>
             <AccordionPanel>
