@@ -381,7 +381,7 @@ export const PricingComponent = () => {
                             <Li
                                 row
                                 width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Fold Pro components
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Kanban Board, Todo List, Calendar, Data Grid, CSV Importer & Date Picker components
                             </Li>
                             <Li
                                 row
@@ -424,16 +424,14 @@ export const PricingComponent = () => {
                                 <Li
                                     row
                                     width="fit-content">
-                                    <IconLib icon="check" color="var(--f-color-accent)" /> Access to roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
+                                    <IconLib icon="check" color="var(--f-color-accent)" /> Access to future roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
-                            <Tooltip text="Only for Early Access customers." contentProps={{ style: { width: 200, whiteSpace: 'break-spaces', textAlign: 'center' }}}>
-                                <Li
-                                    row
-                                    width="fit-content">
-                                    <IconLib icon="check" color="var(--f-color-accent)" /> Renews at Early Access pricing&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
-                                </Li>
-                            </Tooltip>
+                            <Li
+                                row
+                                width="fit-content">
+                                <IconLib icon="check" color="var(--f-color-accent)" /> Renews at Early Access pricing
+                            </Li>
                         </List>
                         <Divider style={{ '--f-divider-color': 'var(--f-color-text-weakest)' }} />
                         <Text colorToken="text-weak">
