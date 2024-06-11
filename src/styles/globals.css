@@ -455,3 +455,7 @@ body {
     -ms-touch-action: manipulation;
     touch-action: manipulation;
 }
+
+.footer_block > p {
+    padding-left: 2px;
+}

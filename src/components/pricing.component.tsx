@@ -69,7 +69,7 @@ export const FAQAccordion = (props) => (
             <AccordionPanel>
                 Not long!
                 Until it becomes stable enough and all planned roadmap items are completed.
-                You can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
+                You can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -112,7 +112,7 @@ export const FAQAccordion = (props) => (
                 Is there a roadmap?
             </AccordionHeading>
             <AccordionPanel>
-                Yes, you can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>
+                Yes, you can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
