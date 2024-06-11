@@ -316,5 +316,45 @@ export const Thumbnail = () => (
     </View>
 )
 ```
+### Thumbnail Red X
+
+> The `tools` prop is useful for creating various user interaction patterns. Here is a typical red X delete button.
+
+export const ThumbnailRedX = () => (<AttachmentThumb poster="/photos/01.jpg" mime="image/png" label="filename.png" href="https://fold.dev" style={{ '--f-attachment-thumb-overlay': 'transparent' }} tools={<View row width={20} height={20} bgToken="danger" colorToken="white" zIndex={10} position="absolute" radius="var(--f-radius-3xl)" className="f-buttonize-outline" style={{ top: -5, right: -5, outlineColor: 'var(--f-color-danger-weak)' }}>
+                <IconLib icon="x"/>
+            </View>}/>);
+
+<div className="story-block">
+<ThumbnailRedX />
+</div>
+
+<CodeComponent filename="ThumbnailRedX.tsx" code="ZXhwb3J0IGNvbnN0IFRodW1ibmFpbFJlZFggPSAoKSA9PiAoCiAgICA8QXR0YWNobWVudFRodW1iCiAgICAgICAgcG9zdGVyPSIvcGhvdG9zLzAxLmpwZyIKICAgICAgICBtaW1lPSJpbWFnZS9wbmciCiAgICAgICAgbGFiZWw9ImZpbGVuYW1lLnBuZyIKICAgICAgICBocmVmPSJodHRwczovL2ZvbGQuZGV2IgogICAgICAgIHN0eWxlPXt7ICctLWYtYXR0YWNobWVudC10aHVtYi1vdmVybGF5JzogJ3RyYW5zcGFyZW50JyB9fQogICAgICAgIHRvb2xzPXsKICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgd2lkdGg9ezIwfQogICAgICAgICAgICAgICAgaGVpZ2h0PXsyMH0KICAgICAgICAgICAgICAgIGJnVG9rZW49ImRhbmdlciIKICAgICAgICAgICAgICAgIGNvbG9yVG9rZW49IndoaXRlIgogICAgICAgICAgICAgICAgekluZGV4PXsxMH0KICAgICAgICAgICAgICAgIHBvc2l0aW9uPSJhYnNvbHV0ZSIKICAgICAgICAgICAgICAgIHJhZGl1cz0idmFyKC0tZi1yYWRpdXMtM3hsKSIKICAgICAgICAgICAgICAgIGNsYXNzTmFtZT0iZi1idXR0b25pemUtb3V0bGluZSIKICAgICAgICAgICAgICAgIHN0eWxlPXt7IHRvcDogLTUsIHJpZ2h0OiAtNSwgb3V0bGluZUNvbG9yOiAndmFyKC0tZi1jb2xvci1kYW5nZXItd2VhayknIH19PgogICAgICAgICAgICAgICAgPEljb25MaWIgaWNvbj0ieCIgLz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgIH0KICAgIC8+Cik=" />
+
+```tsx
+export const ThumbnailRedX = () => (
+    <AttachmentThumb
+        poster="/photos/01.jpg"
+        mime="image/png"
+        label="filename.png"
+        href="https://fold.dev"
+        style={{ '--f-attachment-thumb-overlay': 'transparent' }}
+        tools={
+            <View
+                row
+                width={20}
+                height={20}
+                bgToken="danger"
+                colorToken="white"
+                zIndex={10}
+                position="absolute"
+                radius="var(--f-radius-3xl)"
+                className="f-buttonize-outline"
+                style={{ top: -5, right: -5, outlineColor: 'var(--f-color-danger-weak)' }}>
+                <IconLib icon="x" />
+            </View>
+        }
+    />
+)
+```
 
 export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

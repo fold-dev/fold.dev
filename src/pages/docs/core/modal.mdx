@@ -85,6 +85,69 @@ export const Usage = () => {
     )
 }
 ```
+### Prevent Document Scroll
+
+export const PreventDocumentScroll = () => {
+    const { visible, show, hide } = useVisibility(false);
+    return (<View>
+            <Button onClick={show}>Show Modal</Button>
+
+            <Modal noDocumentScrolling portal={Portal} width="80%" style={{ maxWidth: 500 }} height="fit-content" anchor="middle-center" onDismiss={hide} isVisible={visible}>
+                <ModalClose onClick={hide}/>
+                <View p={30} column gap={10} width="100%" alignItems="flex-start">
+                    <Heading>Not this again...</Heading>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </Text>
+                </View>
+            </Modal>
+        </View>);
+};
+
+<div className="story-block">
+<PreventDocumentScroll />
+</div>
+
+<CodeComponent filename="PreventDocumentScroll.tsx" code="ZXhwb3J0IGNvbnN0IFByZXZlbnREb2N1bWVudFNjcm9sbCA9ICgpID0+IHsKICAgIGNvbnN0IHsgdmlzaWJsZSwgc2hvdywgaGlkZSB9ID0gdXNlVmlzaWJpbGl0eShmYWxzZSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3PgogICAgICAgICAgICA8QnV0dG9uIG9uQ2xpY2s9e3Nob3d9PlNob3cgTW9kYWw8L0J1dHRvbj4KCiAgICAgICAgICAgIDxNb2RhbAogICAgICAgICAgICAgICAgbm9Eb2N1bWVudFNjcm9sbGluZwogICAgICAgICAgICAgICAgcG9ydGFsPXtQb3J0YWx9CiAgICAgICAgICAgICAgICB3aWR0aD0iODAlIgogICAgICAgICAgICAgICAgc3R5bGU9e3sgbWF4V2lkdGg6IDUwMCB9fQogICAgICAgICAgICAgICAgaGVpZ2h0PSJmaXQtY29udGVudCIKICAgICAgICAgICAgICAgIGFuY2hvcj0ibWlkZGxlLWNlbnRlciIKICAgICAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0KICAgICAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0+CiAgICAgICAgICAgICAgICA8TW9kYWxDbG9zZSBvbkNsaWNrPXtoaWRlfSAvPgogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICBwPXszMH0KICAgICAgICAgICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiPgogICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nPk5vdCB0aGlzIGFnYWluLi4uPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgIDxUZXh0PgogICAgICAgICAgICAgICAgICAgICAgICBMb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCwgY29uc2VjdGV0dXIgYWRpcGlzY2luZyBlbGl0LCBzZWQgZG8gZWl1c21vZCB0ZW1wb3IgaW5jaWRpZHVudCB1dAogICAgICAgICAgICAgICAgICAgICAgICBsYWJvcmUgZXQgZG9sb3JlIG1hZ25hIGFsaXF1YS4gVXQgZW5pbSBhZCBtaW5pbSB2ZW5pYW0sIHF1aXMgbm9zdHJ1ZCBleGVyY2l0YXRpb24gdWxsYW1jbwogICAgICAgICAgICAgICAgICAgICAgICBsYWJvcmlzIG5pc2kgdXQgYWxpcXVpcCBleCBlYSBjb21tb2RvIGNvbnNlcXVhdC4KICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIDwvTW9kYWw+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+
+```tsx
+export const PreventDocumentScroll = () => {
+    const { visible, show, hide } = useVisibility(false)
+
+    return (
+        <View>
+            <Button onClick={show}>Show Modal</Button>
+
+            <Modal
+                noDocumentScrolling
+                portal={Portal}
+                width="80%"
+                style={{ maxWidth: 500 }}
+                height="fit-content"
+                anchor="middle-center"
+                onDismiss={hide}
+                isVisible={visible}>
+                <ModalClose onClick={hide} />
+                <View
+                    p={30}
+                    column
+                    gap={10}
+                    width="100%"
+                    alignItems="flex-start">
+                    <Heading>Not this again...</Heading>
+                    <Text>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                    </Text>
+                </View>
+            </Modal>
+        </View>
+    )
+}
+```
 ### No Overlay
 
 export const NoOverlay = () => {

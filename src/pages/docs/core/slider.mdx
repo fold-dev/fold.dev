@@ -86,14 +86,14 @@ export const Disabled = () => {
 
 export const Markers = () => {
     const { value, setValue } = useSlider([0.6]);
-    return (<Slider markers={20} onChange={setValue} values={value} min={0} max={1} step={0.05} anchor={0}/>);
+    return (<Slider markers={21} onChange={setValue} values={value} min={0} max={1} step={0.05} anchor={0}/>);
 };
 
 <div className="story-block">
 <Markers />
 </div>
 
-<CodeComponent filename="Markers.tsx" code="ZXhwb3J0IGNvbnN0IE1hcmtlcnMgPSAoKSA9PiB7CiAgICBjb25zdCB7IHZhbHVlLCBzZXRWYWx1ZSB9ID0gdXNlU2xpZGVyKFswLjZdKQoKICAgIHJldHVybiAoCiAgICAgICAgPFNsaWRlcgogICAgICAgICAgICBtYXJrZXJzPXsyMH0KICAgICAgICAgICAgb25DaGFuZ2U9e3NldFZhbHVlfQogICAgICAgICAgICB2YWx1ZXM9e3ZhbHVlfQogICAgICAgICAgICBtaW49ezB9CiAgICAgICAgICAgIG1heD17MX0KICAgICAgICAgICAgc3RlcD17MC4wNX0KICAgICAgICAgICAgYW5jaG9yPXswfQogICAgICAgIC8+CiAgICApCn0=" />
+<CodeComponent filename="Markers.tsx" code="ZXhwb3J0IGNvbnN0IE1hcmtlcnMgPSAoKSA9PiB7CiAgICBjb25zdCB7IHZhbHVlLCBzZXRWYWx1ZSB9ID0gdXNlU2xpZGVyKFswLjZdKQoKICAgIHJldHVybiAoCiAgICAgICAgPFNsaWRlcgogICAgICAgICAgICBtYXJrZXJzPXsyMX0KICAgICAgICAgICAgb25DaGFuZ2U9e3NldFZhbHVlfQogICAgICAgICAgICB2YWx1ZXM9e3ZhbHVlfQogICAgICAgICAgICBtaW49ezB9CiAgICAgICAgICAgIG1heD17MX0KICAgICAgICAgICAgc3RlcD17MC4wNX0KICAgICAgICAgICAgYW5jaG9yPXswfQogICAgICAgIC8+CiAgICApCn0=" />
 
 ```tsx
 export const Markers = () => {
@@ -101,7 +101,7 @@ export const Markers = () => {
 
     return (
         <Slider
-            markers={20}
+            markers={21}
             onChange={setValue}
             values={value}
             min={0}
@@ -116,14 +116,14 @@ export const Markers = () => {
 
 export const DoubleHandles = () => {
     const { value, setValue } = useSlider([0.6, 0.8]);
-    return (<Slider markers={20} onChange={setValue} values={value} min={0} max={1} step={0.05} anchor={0}/>);
+    return (<Slider markers={21} onChange={setValue} values={value} min={0} max={1} step={0.05} anchor={0}/>);
 };
 
 <div className="story-block">
 <DoubleHandles />
 </div>
 
-<CodeComponent filename="DoubleHandles.tsx" code="ZXhwb3J0IGNvbnN0IERvdWJsZUhhbmRsZXMgPSAoKSA9PiB7CiAgICBjb25zdCB7IHZhbHVlLCBzZXRWYWx1ZSB9ID0gdXNlU2xpZGVyKFswLjYsIDAuOF0pCgogICAgcmV0dXJuICgKICAgICAgICA8U2xpZGVyCiAgICAgICAgICAgIG1hcmtlcnM9ezIwfQogICAgICAgICAgICBvbkNoYW5nZT17c2V0VmFsdWV9CiAgICAgICAgICAgIHZhbHVlcz17dmFsdWV9CiAgICAgICAgICAgIG1pbj17MH0KICAgICAgICAgICAgbWF4PXsxfQogICAgICAgICAgICBzdGVwPXswLjA1fQogICAgICAgICAgICBhbmNob3I9ezB9CiAgICAgICAgLz4KICAgICkKfQ==" />
+<CodeComponent filename="DoubleHandles.tsx" code="ZXhwb3J0IGNvbnN0IERvdWJsZUhhbmRsZXMgPSAoKSA9PiB7CiAgICBjb25zdCB7IHZhbHVlLCBzZXRWYWx1ZSB9ID0gdXNlU2xpZGVyKFswLjYsIDAuOF0pCgogICAgcmV0dXJuICgKICAgICAgICA8U2xpZGVyCiAgICAgICAgICAgIG1hcmtlcnM9ezIxfQogICAgICAgICAgICBvbkNoYW5nZT17c2V0VmFsdWV9CiAgICAgICAgICAgIHZhbHVlcz17dmFsdWV9CiAgICAgICAgICAgIG1pbj17MH0KICAgICAgICAgICAgbWF4PXsxfQogICAgICAgICAgICBzdGVwPXswLjA1fQogICAgICAgICAgICBhbmNob3I9ezB9CiAgICAgICAgLz4KICAgICkKfQ==" />
 
 ```tsx
 export const DoubleHandles = () => {
@@ -131,7 +131,7 @@ export const DoubleHandles = () => {
 
     return (
         <Slider
-            markers={20}
+            markers={21}
             onChange={setValue}
             values={value}
             min={0}
@@ -146,14 +146,14 @@ export const DoubleHandles = () => {
 
 export const Tooltips = () => {
     const { value, setValue } = useSlider([0.6, 0.9]);
-    return (<Slider showTooltip markers={10} onChange={setValue} values={value} min={0.5} max={1.5} step={0.05} anchor={0} tooltipValue={(value) => Math.round(value * 100) + ' %'}/>);
+    return (<Slider showTooltip markers={21} onChange={setValue} values={value} min={0.5} max={1.5} step={0.05} anchor={0} tooltipValue={(value) => Math.round(value * 100) + ' %'}/>);
 };
 
 <div className="story-block">
 <Tooltips />
 </div>
 
-<CodeComponent filename="Tooltips.tsx" code="ZXhwb3J0IGNvbnN0IFRvb2x0aXBzID0gKCkgPT4gewogICAgY29uc3QgeyB2YWx1ZSwgc2V0VmFsdWUgfSA9IHVzZVNsaWRlcihbMC42LCAwLjldKQoKICAgIHJldHVybiAoCiAgICAgICAgPFNsaWRlcgogICAgICAgICAgICBzaG93VG9vbHRpcAogICAgICAgICAgICBtYXJrZXJzPXsxMH0KICAgICAgICAgICAgb25DaGFuZ2U9e3NldFZhbHVlfQogICAgICAgICAgICB2YWx1ZXM9e3ZhbHVlfQogICAgICAgICAgICBtaW49ezAuNX0KICAgICAgICAgICAgbWF4PXsxLjV9CiAgICAgICAgICAgIHN0ZXA9ezAuMDV9CiAgICAgICAgICAgIGFuY2hvcj17MH0KICAgICAgICAgICAgdG9vbHRpcFZhbHVlPXsodmFsdWUpID0+IE1hdGgucm91bmQodmFsdWUgKiAxMDApICsgJyAlJ30KICAgICAgICAvPgogICAgKQp9" />
+<CodeComponent filename="Tooltips.tsx" code="ZXhwb3J0IGNvbnN0IFRvb2x0aXBzID0gKCkgPT4gewogICAgY29uc3QgeyB2YWx1ZSwgc2V0VmFsdWUgfSA9IHVzZVNsaWRlcihbMC42LCAwLjldKQoKICAgIHJldHVybiAoCiAgICAgICAgPFNsaWRlcgogICAgICAgICAgICBzaG93VG9vbHRpcAogICAgICAgICAgICBtYXJrZXJzPXsyMX0KICAgICAgICAgICAgb25DaGFuZ2U9e3NldFZhbHVlfQogICAgICAgICAgICB2YWx1ZXM9e3ZhbHVlfQogICAgICAgICAgICBtaW49ezAuNX0KICAgICAgICAgICAgbWF4PXsxLjV9CiAgICAgICAgICAgIHN0ZXA9ezAuMDV9CiAgICAgICAgICAgIGFuY2hvcj17MH0KICAgICAgICAgICAgdG9vbHRpcFZhbHVlPXsodmFsdWUpID0+IE1hdGgucm91bmQodmFsdWUgKiAxMDApICsgJyAlJ30KICAgICAgICAvPgogICAgKQp9" />
 
 ```tsx
 export const Tooltips = () => {
@@ -162,7 +162,7 @@ export const Tooltips = () => {
     return (
         <Slider
             showTooltip
-            markers={10}
+            markers={21}
             onChange={setValue}
             values={value}
             min={0.5}
@@ -178,14 +178,14 @@ export const Tooltips = () => {
 
 export const TooltipsAlwaysOn = () => {
     const { value, setValue } = useSlider([0.6, 0.9]);
-    return (<Slider markers={10} showTooltipAlways onChange={setValue} values={value} min={0.5} max={1.5} step={0.05} anchor={0} tooltipValue={(value) => Math.round(value * 100) + ' %'}/>);
+    return (<Slider markers={21} showTooltipAlways onChange={setValue} values={value} min={0.5} max={1.5} step={0.05} anchor={0} tooltipValue={(value) => Math.round(value * 100) + ' %'}/>);
 };
 
 <div className="story-block">
 <TooltipsAlwaysOn />
 </div>
 
-<CodeComponent filename="TooltipsAlwaysOn.tsx" code="ZXhwb3J0IGNvbnN0IFRvb2x0aXBzQWx3YXlzT24gPSAoKSA9PiB7CiAgICBjb25zdCB7IHZhbHVlLCBzZXRWYWx1ZSB9ID0gdXNlU2xpZGVyKFswLjYsIDAuOV0pCgogICAgcmV0dXJuICgKICAgICAgICA8U2xpZGVyCiAgICAgICAgICAgIG1hcmtlcnM9ezEwfQogICAgICAgICAgICBzaG93VG9vbHRpcEFsd2F5cwogICAgICAgICAgICBvbkNoYW5nZT17c2V0VmFsdWV9CiAgICAgICAgICAgIHZhbHVlcz17dmFsdWV9CiAgICAgICAgICAgIG1pbj17MC41fQogICAgICAgICAgICBtYXg9ezEuNX0KICAgICAgICAgICAgc3RlcD17MC4wNX0KICAgICAgICAgICAgYW5jaG9yPXswfQogICAgICAgICAgICB0b29sdGlwVmFsdWU9eyh2YWx1ZSkgPT4gTWF0aC5yb3VuZCh2YWx1ZSAqIDEwMCkgKyAnICUnfQogICAgICAgIC8+CiAgICApCn0=" />
+<CodeComponent filename="TooltipsAlwaysOn.tsx" code="ZXhwb3J0IGNvbnN0IFRvb2x0aXBzQWx3YXlzT24gPSAoKSA9PiB7CiAgICBjb25zdCB7IHZhbHVlLCBzZXRWYWx1ZSB9ID0gdXNlU2xpZGVyKFswLjYsIDAuOV0pCgogICAgcmV0dXJuICgKICAgICAgICA8U2xpZGVyCiAgICAgICAgICAgIG1hcmtlcnM9ezIxfQogICAgICAgICAgICBzaG93VG9vbHRpcEFsd2F5cwogICAgICAgICAgICBvbkNoYW5nZT17c2V0VmFsdWV9CiAgICAgICAgICAgIHZhbHVlcz17dmFsdWV9CiAgICAgICAgICAgIG1pbj17MC41fQogICAgICAgICAgICBtYXg9ezEuNX0KICAgICAgICAgICAgc3RlcD17MC4wNX0KICAgICAgICAgICAgYW5jaG9yPXswfQogICAgICAgICAgICB0b29sdGlwVmFsdWU9eyh2YWx1ZSkgPT4gTWF0aC5yb3VuZCh2YWx1ZSAqIDEwMCkgKyAnICUnfQogICAgICAgIC8+CiAgICApCn0=" />
 
 ```tsx
 export const TooltipsAlwaysOn = () => {
@@ -193,7 +193,7 @@ export const TooltipsAlwaysOn = () => {
 
     return (
         <Slider
-            markers={10}
+            markers={21}
             showTooltipAlways
             onChange={setValue}
             values={value}
@@ -210,14 +210,14 @@ export const TooltipsAlwaysOn = () => {
 
 export const WithIcon = () => {
     const { value, setValue } = useSlider([0.6, 0.9]);
-    return (<Slider thumbIcons={['sun', 'moon']} markers={20} onChange={setValue} values={value} min={0.5} max={1.5} step={0.05} anchor={0} style={{ '--f-slider-handle-size': 'var(--f-size-7)' }}/>);
+    return (<Slider thumbIcons={['sun', 'moon']} markers={21} onChange={setValue} values={value} min={0.5} max={1.5} step={0.05} anchor={0} style={{ '--f-slider-handle-size': 'var(--f-size-7)' }}/>);
 };
 
 <div className="story-block">
 <WithIcon />
 </div>
 
-<CodeComponent filename="WithIcon.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhJY29uID0gKCkgPT4gewogICAgY29uc3QgeyB2YWx1ZSwgc2V0VmFsdWUgfSA9IHVzZVNsaWRlcihbMC42LCAwLjldKQoKICAgIHJldHVybiAoCiAgICAgICAgPFNsaWRlcgogICAgICAgICAgICB0aHVtYkljb25zPXtbJ3N1bicsICdtb29uJ119CiAgICAgICAgICAgIG1hcmtlcnM9ezIwfQogICAgICAgICAgICBvbkNoYW5nZT17c2V0VmFsdWV9CiAgICAgICAgICAgIHZhbHVlcz17dmFsdWV9CiAgICAgICAgICAgIG1pbj17MC41fQogICAgICAgICAgICBtYXg9ezEuNX0KICAgICAgICAgICAgc3RlcD17MC4wNX0KICAgICAgICAgICAgYW5jaG9yPXswfQogICAgICAgICAgICBzdHlsZT17eyAnLS1mLXNsaWRlci1oYW5kbGUtc2l6ZSc6ICd2YXIoLS1mLXNpemUtNyknIH19CiAgICAgICAgLz4KICAgICkKfQ==" />
+<CodeComponent filename="WithIcon.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhJY29uID0gKCkgPT4gewogICAgY29uc3QgeyB2YWx1ZSwgc2V0VmFsdWUgfSA9IHVzZVNsaWRlcihbMC42LCAwLjldKQoKICAgIHJldHVybiAoCiAgICAgICAgPFNsaWRlcgogICAgICAgICAgICB0aHVtYkljb25zPXtbJ3N1bicsICdtb29uJ119CiAgICAgICAgICAgIG1hcmtlcnM9ezIxfQogICAgICAgICAgICBvbkNoYW5nZT17c2V0VmFsdWV9CiAgICAgICAgICAgIHZhbHVlcz17dmFsdWV9CiAgICAgICAgICAgIG1pbj17MC41fQogICAgICAgICAgICBtYXg9ezEuNX0KICAgICAgICAgICAgc3RlcD17MC4wNX0KICAgICAgICAgICAgYW5jaG9yPXswfQogICAgICAgICAgICBzdHlsZT17eyAnLS1mLXNsaWRlci1oYW5kbGUtc2l6ZSc6ICd2YXIoLS1mLXNpemUtNyknIH19CiAgICAgICAgLz4KICAgICkKfQ==" />
 
 ```tsx
 export const WithIcon = () => {
@@ -226,7 +226,7 @@ export const WithIcon = () => {
     return (
         <Slider
             thumbIcons={['sun', 'moon']}
-            markers={20}
+            markers={21}
             onChange={setValue}
             values={value}
             min={0.5}
