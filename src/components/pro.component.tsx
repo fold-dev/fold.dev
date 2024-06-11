@@ -588,8 +588,6 @@ export const Kanban1 = () => {
                     onSwimlaneMove={handleSwimlaneMove}
                     onColumnUpdate={handleColumnUpdate}
                     onSwimlaneUpdate={handleSwimlaneUpdate}
-                    hideCheckbox={false}
-                    collapsibleColumn={true}
                     targetVariant={{ cards: 'animated', nav: 'focus' }}
                     card={undefined}
                     columnHeader={undefined}
@@ -862,7 +860,7 @@ export const DatePicker1 = () => {
                     onChange={handleSelection}
                     disabled={[[disabled1, disabled2]]}
                     width={900}
-                    height={400}
+                    height={350}
                     panels={3}
                 />
             </Card>

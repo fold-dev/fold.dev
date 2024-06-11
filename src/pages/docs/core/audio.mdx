@@ -103,8 +103,8 @@ export const Waveform = () => {
 ### Flatten
 
 export const Flatten = () => {
-    return (<Card style={{ maxWidth: 400 }} width="100%" p={20} column>
-            <AudioWaveform flatten defaultProgress={0.5} width="100%" height={30} samples={100} strokeWidth={3} src={{
+    return (<Card style={{ maxWidth: 500 }} width="100%" p={20} column>
+            <AudioWaveform flatten defaultProgress={0.5} width="100%" height={30} samples={100} strokeWidth={2} src={{
             src: '/song.ogg',
             type: 'audio/ogg',
         }}/>
@@ -115,13 +115,13 @@ export const Flatten = () => {
 <Flatten />
 </div>
 
-<CodeComponent filename="Flatten.tsx" code="ZXhwb3J0IGNvbnN0IEZsYXR0ZW4gPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHN0eWxlPXt7IG1heFdpZHRoOiA0MDAgfX0KICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgIHA9ezIwfQogICAgICAgICAgICBjb2x1bW4+CiAgICAgICAgICAgIDxBdWRpb1dhdmVmb3JtCiAgICAgICAgICAgICAgICBmbGF0dGVuCiAgICAgICAgICAgICAgICBkZWZhdWx0UHJvZ3Jlc3M9ezAuNX0KICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgaGVpZ2h0PXszMH0KICAgICAgICAgICAgICAgIHNhbXBsZXM9ezEwMH0KICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoPXszfQogICAgICAgICAgICAgICAgc3JjPXt7CiAgICAgICAgICAgICAgICAgICAgc3JjOiAnL3Nvbmcub2dnJywKICAgICAgICAgICAgICAgICAgICB0eXBlOiAnYXVkaW8vb2dnJywKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9DYXJkPgogICAgKQp9" />
+<CodeComponent filename="Flatten.tsx" code="ZXhwb3J0IGNvbnN0IEZsYXR0ZW4gPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxDYXJkCiAgICAgICAgICAgIHN0eWxlPXt7IG1heFdpZHRoOiA1MDAgfX0KICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgIHA9ezIwfQogICAgICAgICAgICBjb2x1bW4+CiAgICAgICAgICAgIDxBdWRpb1dhdmVmb3JtCiAgICAgICAgICAgICAgICBmbGF0dGVuCiAgICAgICAgICAgICAgICBkZWZhdWx0UHJvZ3Jlc3M9ezAuNX0KICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgaGVpZ2h0PXszMH0KICAgICAgICAgICAgICAgIHNhbXBsZXM9ezEwMH0KICAgICAgICAgICAgICAgIHN0cm9rZVdpZHRoPXsyfQogICAgICAgICAgICAgICAgc3JjPXt7CiAgICAgICAgICAgICAgICAgICAgc3JjOiAnL3Nvbmcub2dnJywKICAgICAgICAgICAgICAgICAgICB0eXBlOiAnYXVkaW8vb2dnJywKICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9DYXJkPgogICAgKQp9" />
 
 ```tsx
 export const Flatten = () => {
     return (
         <Card
-            style={{ maxWidth: 400 }}
+            style={{ maxWidth: 500 }}
             width="100%"
             p={20}
             column>
@@ -131,7 +131,7 @@ export const Flatten = () => {
                 width="100%"
                 height={30}
                 samples={100}
-                strokeWidth={3}
+                strokeWidth={2}
                 src={{
                     src: '/song.ogg',
                     type: 'audio/ogg',
@@ -144,8 +144,8 @@ export const Flatten = () => {
 ### Custom Pin Height
 
 export const CustomPinHeight = () => {
-    return (<Card style={{ maxWidth: 400 }} width="100%" p={20} column>
-            <AudioWaveform style={{ '--f-audio-waveform-pin-height': '5rem' }} width="100%" height={70} samples={100} strokeWidth={3} src={{
+    return (<Card style={{ maxWidth: 500 }} width="100%" p={20} column>
+            <AudioWaveform style={{ '--f-audio-waveform-pin-height': '5rem' }} width="100%" height={70} samples={100} strokeWidth={2} src={{
             src: '/song.ogg',
             type: 'audio/ogg',
         }}/>
@@ -156,13 +156,13 @@ export const CustomPinHeight = () => {
 <CustomPinHeight />
 </div>
 
-<CodeComponent filename="CustomPinHeight.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVBpbkhlaWdodCA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPENhcmQKICAgICAgICAgICAgc3R5bGU9e3sgbWF4V2lkdGg6IDQwMCB9fQogICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgcD17MjB9CiAgICAgICAgICAgIGNvbHVtbj4KICAgICAgICAgICAgPEF1ZGlvV2F2ZWZvcm0KICAgICAgICAgICAgICAgIHN0eWxlPXt7ICctLWYtYXVkaW8td2F2ZWZvcm0tcGluLWhlaWdodCc6ICc1cmVtJyB9fQogICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezcwfQogICAgICAgICAgICAgICAgc2FtcGxlcz17MTAwfQogICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGg9ezN9CiAgICAgICAgICAgICAgICBzcmM9e3sKICAgICAgICAgICAgICAgICAgICBzcmM6ICcvc29uZy5vZ2cnLAogICAgICAgICAgICAgICAgICAgIHR5cGU6ICdhdWRpby9vZ2cnLAogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgLz4KICAgICAgICA8L0NhcmQ+CiAgICApCn0=" />
+<CodeComponent filename="CustomPinHeight.tsx" code="ZXhwb3J0IGNvbnN0IEN1c3RvbVBpbkhlaWdodCA9ICgpID0+IHsKICAgIHJldHVybiAoCiAgICAgICAgPENhcmQKICAgICAgICAgICAgc3R5bGU9e3sgbWF4V2lkdGg6IDUwMCB9fQogICAgICAgICAgICB3aWR0aD0iMTAwJSIKICAgICAgICAgICAgcD17MjB9CiAgICAgICAgICAgIGNvbHVtbj4KICAgICAgICAgICAgPEF1ZGlvV2F2ZWZvcm0KICAgICAgICAgICAgICAgIHN0eWxlPXt7ICctLWYtYXVkaW8td2F2ZWZvcm0tcGluLWhlaWdodCc6ICc1cmVtJyB9fQogICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICBoZWlnaHQ9ezcwfQogICAgICAgICAgICAgICAgc2FtcGxlcz17MTAwfQogICAgICAgICAgICAgICAgc3Ryb2tlV2lkdGg9ezJ9CiAgICAgICAgICAgICAgICBzcmM9e3sKICAgICAgICAgICAgICAgICAgICBzcmM6ICcvc29uZy5vZ2cnLAogICAgICAgICAgICAgICAgICAgIHR5cGU6ICdhdWRpby9vZ2cnLAogICAgICAgICAgICAgICAgfX0KICAgICAgICAgICAgLz4KICAgICAgICA8L0NhcmQ+CiAgICApCn0=" />
 
 ```tsx
 export const CustomPinHeight = () => {
     return (
         <Card
-            style={{ maxWidth: 400 }}
+            style={{ maxWidth: 500 }}
             width="100%"
             p={20}
             column>
@@ -171,7 +171,7 @@ export const CustomPinHeight = () => {
                 width="100%"
                 height={70}
                 samples={100}
-                strokeWidth={3}
+                strokeWidth={2}
                 src={{
                     src: '/song.ogg',
                     type: 'audio/ogg',
