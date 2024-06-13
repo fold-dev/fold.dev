@@ -19,10 +19,10 @@ export default function Document() {
                     httpEquiv="X-UA-Compatible"
                     content="IE=edge, IE=11, IE=10"
                 />
-                <meta
+                {/* <meta
                     name="robots"
                     content="noindex,follow"
-                />
+                /> */}
                 <meta
                     name="description"
                     content="Powerful, fully customizable React components for scaling your project to the next level. Supercharge your dev workflow by using Fold's zero-dependency UI components."
