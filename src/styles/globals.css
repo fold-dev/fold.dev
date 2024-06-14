@@ -205,6 +205,10 @@ body {
     left: 40px;
 }
 
+.go {
+    padding: 5rem;
+}
+
  .text-content h1 {
     line-height: 4rem;
     margin: 0.5rem 0 0.5rem 0;
@@ -241,6 +245,10 @@ body {
 @media only screen and (max-device-width: 640px),
     only screen and (max-device-width: 667px),
     only screen and (max-width: 480px) {
+
+    .go {
+        padding: 2rem;
+    }
 
     .hero {
         padding-bottom: 5rem !important;

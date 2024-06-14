@@ -29,7 +29,7 @@ export const GoComponent = () => {
                     flex={1}
                     gap={30}
                     alignItems="flex-start"
-                    p="5rem">
+                    className="go">
                     {/* 
                     <View
                         bgToken="accent-400"
