@@ -87,8 +87,6 @@ export const FAQAccordion = (props) => (
             </AccordionHeading>
             <AccordionPanel>
                 We are still finalizing this.
-                If you have purchased a Fold Pro Early Access license, you won't be affected by the new license terms or price increase. 
-                When you renew your license, you'll be charged the Early Access pricing, not the new pricing.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -423,11 +421,6 @@ export const PricingComponent = () => {
                                     <IconLib icon="check" color="var(--f-color-accent)" /> Access to future roadmap items&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
-                            <Li
-                                row
-                                width="fit-content">
-                                <IconLib icon="check" color="var(--f-color-accent)" /> Renews at Early Access pricing
-                            </Li>
                         </List>
                         <Divider style={{ '--f-divider-color': 'var(--f-color-text-weakest)' }} />
                         <Text colorToken="text-weak">
