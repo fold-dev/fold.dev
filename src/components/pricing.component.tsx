@@ -407,7 +407,7 @@ export const PricingComponent = () => {
                                     <IconLib icon="check" color="var(--f-color-accent)" /> Unlimited projects&nbsp;<span style={{ color: 'var(--f-color-accent)' }}>*</span>
                                 </Li>
                             </Tooltip>
-                            <Tooltip text="Includes items beyond Early Access.">
+                            <Tooltip text="As they become available.">
                                 <Li
                                     row
                                     width="fit-content">
