@@ -100,7 +100,7 @@ export default function SiteLayout(props: any) {
                         color="inherit"
                         colorToken="purple-50">
                             We've just launched Fold Pro Early Access! 
-                            Get your Early Access license now - <a href="/#pro" style={{ color: 'var(--f-color-purple-50)' }}>click here</a> to learn more.
+                            Get your license now - <a href="/#pro" style={{ color: 'var(--f-color-purple-50)' }}>click here</a> to learn more.
                     </Text>
                     <Icon icon={PiRocket} style={{ transform: 'rotate(45deg)', color: 'var(--f-color-purple-50)' }} />
                 </View>
