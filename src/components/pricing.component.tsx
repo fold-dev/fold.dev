@@ -77,8 +77,8 @@ export const FAQAccordion = (props) => (
                 What comes after Early Access?
             </AccordionHeading>
             <AccordionPanel>
-                After Early Access we will go into a stable release schedule, incrementally rolling out further updates.
-                This will also be accompanied by a price change. 
+                After Early Access Fold Pro will go into a stable release schedule, incrementally rolling out further updates.
+                This will also be accompanied by the price change. 
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
