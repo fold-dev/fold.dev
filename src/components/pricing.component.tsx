@@ -83,14 +83,6 @@ export const FAQAccordion = (props) => (
         </AccordionItem>
         <AccordionItem>
             <AccordionHeading>
-                What will the new pricing be after Early Access?
-            </AccordionHeading>
-            <AccordionPanel>
-                We are still finalizing this.
-            </AccordionPanel>
-        </AccordionItem>
-        <AccordionItem>
-            <AccordionHeading>
                 What support channels are available?
             </AccordionHeading>
             <AccordionPanel>
@@ -351,6 +343,7 @@ export const PricingComponent = () => {
                     <Card
                         column
                         flex={1}
+                        height="auto"
                         p="2rem"
                         gap="1rem"
                         alignItems="flex-start"
@@ -439,7 +432,7 @@ export const PricingComponent = () => {
                         alignContent="flex-start"
                         justifyContent="flex-start">
                         <Heading as="h2">
-                            Indie <small style={{ position: 'relative', top: -10, color: 'var(--f-color-text-weakest', fontWeight: 'bold' }}>EARLY ACCESS</small>
+                            Indie
                         </Heading>
                         <Text colorToken="base-300">
                             For teams of up to 3 developers, who need to level up their next big idea.
@@ -450,7 +443,7 @@ export const PricingComponent = () => {
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>
-                                399
+                                329
                             </Heading>
                             <Heading
                                 as="h5"
@@ -458,6 +451,12 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
+                        <Text 
+                            size="lg"
+                            colorToken="text-weakest"
+                            textDecoration="line-through">
+                            449 USD
+                        </Text>
                         <Flexer />
                         <Button
                             onClick={() => {
@@ -482,7 +481,7 @@ export const PricingComponent = () => {
                         alignContent="flex-start"
                         justifyContent="flex-start">
                         <Heading as="h2">
-                            Team <small style={{ position: 'relative', top: -10, color: 'var(--f-color-text-weakest', fontWeight: 'bold' }}>EARLY ACCESS</small>
+                            Team
                         </Heading>
                         <Text colorToken="base-300">
                             For teams of up to 10 developers, who need to supercharge their project.
@@ -493,7 +492,7 @@ export const PricingComponent = () => {
                             gap={5}
                             alignItems="flex-start">
                             <Heading huge>
-                                999
+                                749
                             </Heading>
                             <Heading
                                 as="h5"
@@ -501,6 +500,12 @@ export const PricingComponent = () => {
                                 USD
                             </Heading>
                         </View>
+                        <Text 
+                            size="lg"
+                            colorToken="text-weakest"
+                            textDecoration="line-through">
+                            999 USD
+                        </Text>
                         <Text
                             size="sm"
                             m="1rem 0 0 0">
