@@ -13,8 +13,7 @@ export const swimlanes: KanbanTypes.Swimlane[] = [
         columns: [
             {
                 id: 'column-2463',
-                prefix: <IconLib icon="sun" />,
-                name: 'Doing',
+                name: 'Todo',
                 description: 'Everything in this column needs to be done.',
                 color: Token.ColorElectric400,
                 collapsed: false,
@@ -57,7 +56,22 @@ export const swimlanes: KanbanTypes.Swimlane[] = [
             },
             {
                 id: 'column-46868',
+                name: 'Doing',
+                prefix: <IconLib icon="check" />,
+                color: Token.ColorTeal400,
+                cards: [
+                    {
+                        id: 'c461',
+                        title: 'Monitor campaign performance metrics',
+                        complete: false,
+                        labels: [{ id: 'uuid5', text: 'Product' }],
+                    },
+                ],
+            },
+            {
+                id: 'column-468688',
                 name: 'Done',
+                color: Token.ColorPurple400,
                 cards: [
                     {
                         id: 'c312',
@@ -96,20 +110,9 @@ export const swimlanes: KanbanTypes.Swimlane[] = [
                 ],
             },
             {
-                id: 'column-468688',
-                name: 'Backlog',
-                cards: [
-                    {
-                        id: 'c461',
-                        title: 'Monitor campaign performance metrics',
-                        complete: false,
-                        labels: [{ id: 'uuid5', text: 'Product' }],
-                    },
-                ],
-            },
-            {
                 id: 'column-4686881',
-                name: 'Sandbox',
+                name: 'Backlog',
+                color: Token.ColorNeonpink400,
                 cards: [
                     {
                         id: 'c1444',
