@@ -133,7 +133,7 @@ export const SearchComponent = (props: any) => {
     }
 
     const handleKeyDown = (e) => {
-        const { isDown, isUp, isEscape } = getKey(e)
+        const { isDown, isUp, isEscape, isEnter } = getKey(e)
 
         if (isUp) {
             e.preventDefault()
@@ -148,18 +148,12 @@ export const SearchComponent = (props: any) => {
         if (isEscape) {
             setResults([])
         }
-    }
-
-    const handleGlobalKeyDown = (e) => {
-        const { isEnter } = getKey(e)
 
         if (isEnter) {
             e.preventDefault()
             handleResultSelect(results[index])
         }
     }
-
-    useEvent('keydown', handleGlobalKeyDown)
 
     useEffect(() => {
         setIndex(0)

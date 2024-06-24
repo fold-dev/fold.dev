@@ -190,6 +190,19 @@ body {
     overflow-y: auto;
 }
 
+[data-theme="dark"] .hero-background {
+    background: radial-gradient(circle, var(--f-color-base-800) 0%, var(--f-color-surface) 80%);
+} 
+
+[data-theme="dark"] .hero-background .graphic-right,
+[data-theme="dark"] .hero-background .graphic-left {
+    opacity: 0.3 !important;
+}
+
+[data-theme="light"] .hero-background {
+    background: radial-gradient(circle, var(--f-color-accent-weak) 0%, var(--f-color-surface-strong) 100%);
+} 
+
 .mobile-component {
     display: none;
     position: fixed;

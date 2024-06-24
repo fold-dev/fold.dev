@@ -532,7 +532,7 @@ export default function DocsLayout(props: any) {
                                                     color={Token.ColorAccent400}
                                                     size="xs"
                                                     subtle>
-                                                    v0.1.1
+                                                    v0.1.2
                                                 </Pill>)}>
                                                 Pro Components
                                         </NavigationHeading>
@@ -568,7 +568,7 @@ export default function DocsLayout(props: any) {
                                                     size="xs"
                                                     subtle
                                                     color={Token.ColorAccent400}>
-                                                    v0.11.8
+                                                    v0.12.0
                                                 </Pill>                                               
                                             }>
                                             Core Components
@@ -761,6 +761,7 @@ export default function DocsLayout(props: any) {
                                             />
                                         </View>
                                     </Popover>
+                                    {/* 
                                     <Button
                                         outline
                                         as="a"
@@ -768,7 +769,8 @@ export default function DocsLayout(props: any) {
                                         target="_blank"
                                         variant="accent">
                                         AppSandbox ↗
-                                    </Button>
+                                    </Button> 
+                                    */}
                                     <Button
                                         as="a"
                                         href="/#pro"

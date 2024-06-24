@@ -48,10 +48,9 @@ export const LicenseContent = (props) => (
         <Text>Technical support is limited to bug reports and feature requests. No support will be provided to diagnose or advise application-level code issues. If you require more specialised support or consultancy email support@fold.dev.</Text>
 
         <Heading as="h2">Refunds</Heading>
-        <Text>Johannes du Plessis ("Fold") does not provide refunds, whether full or partial, for the SOFTWARE during Early Access.</Text>
+        <Text>Johannes du Plessis ("Fold") does not provide refunds, whether full or partial, for the SOFTWARE.</Text>
         <Text>Exceptions to this policy may be made solely at the discretion of Johannes du Plessis ("Fold") on a case-by-case basis. Refund requests may be sent to <Link href="mailto:licensing@fold.dev">licensing@fold.dev</Link>.</Text>
         <Text>If a refund is issued, the LICENSEE agrees to delete all files within 24 hours and is not permitted to use SOFTWARE in projects (including personal/non-commercial projects).</Text>
-
 
         <Notification variant="highlight">
             <NotificationContent>

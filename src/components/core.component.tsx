@@ -1133,7 +1133,7 @@ const All = () => {
                             p="0.5rem 0.5rem">
                             <Palette
                                 justifyContent="center"
-                                gap={0}
+                                gap={8}
                                 color={color}
                                 colors={[
                                     Token.ColorPurple400,
@@ -1172,7 +1172,6 @@ const All = () => {
 
                         <View
                             row
-                            justifyContent="flex-start"
                             gap={5}
                             width="100%">
                             <Pill
@@ -1416,7 +1415,7 @@ export const CoreComponent = () => {
                         fontWeight={400}
                         width="80%">
                         Leverage Fold Core's 85+ components to power your next project. 
-                        Fold Core is completely Open Source (MIT), and will always remain that way.
+                        Fold Core is completely free (MIT), and will always remain that way.
                     </Heading>
                     <Code snippet="npm i --save @fold-dev/core @fold-dev/design" />
                     {/* 

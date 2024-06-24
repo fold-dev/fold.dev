@@ -57,7 +57,7 @@ export const FAQAccordion = (props) => (
                 Is it production ready?
             </AccordionHeading>
             <AccordionPanel>
-                Consider Early Access as alpha or pre-release software, which is still unstable. 
+                Consider Early Access as alpha software, which can be relatively unstable. 
                 The team is diligently working to fix bugs and resolve other issues.
                 To report a bug, open a new issue on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
@@ -69,7 +69,6 @@ export const FAQAccordion = (props) => (
             <AccordionPanel>
                 Not long!
                 Until it becomes stable enough and all planned roadmap items are completed.
-                You can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -78,7 +77,6 @@ export const FAQAccordion = (props) => (
             </AccordionHeading>
             <AccordionPanel>
                 After Early Access Fold Pro will go into a stable release schedule, incrementally rolling out further updates.
-                This will also be accompanied by the price change. 
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -423,7 +421,7 @@ export const PricingComponent = () => {
                     </Card>
 
                     <Card
-                        width={320}
+                        flex={1}
                         column
                         height="auto"
                         p="2rem"
@@ -472,7 +470,7 @@ export const PricingComponent = () => {
                     </Card>
 
                     <Card
-                        width={320}
+                        flex={1}
                         column
                         p="2rem"
                         height="auto"
@@ -578,19 +576,20 @@ export const PricingComponent = () => {
                                 subtle
                                 style={{ textTransform: 'uppercase' }}
                                 color={Token.ColorPurple400}>
-                                Fold Pro Early Access
+                                Fold Pro
                             </Pill>
                             <Text
                                 style={{ textTransform: 'uppercase' }}
                                 letterSpacing={5}
                                 colorToken="base-500"
                                 id="features">
-                                Fineprint
+                                The Fineprint
                             </Text>
                             <Heading
+                                fontSize="3rem"
                                 colorToken="base-100"
                                 fontWeight={400}>
-                                Fold Pro Early Access has launched, but what does that mean?
+                                What is Early Access?
                             </Heading>
                         </View>
 
