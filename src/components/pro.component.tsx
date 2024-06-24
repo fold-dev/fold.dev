@@ -13,7 +13,7 @@ import {
     DataGridTypes, DatePicker, DateRangeProvider, Detail,
     Kanban,
     KanbanColumnMenu, KanbanSelection, KanbanSwimlaneMenu, KanbanTypes, LabelMenu, Popup, Todo, TodoSectionMenu, UserMenu, dataGridState,
-    dispatchDataGridEvent, dispatchTodoEvent, getShortDateFormat, kanbanState,
+    dispatchDataGridEvent, dispatchKanbanEvent, dispatchTodoEvent, getShortDateFormat, kanbanState,
     todoState
 } from '@fold-pro/react'
 import { useMemo, useState } from 'react'
@@ -25,13 +25,33 @@ export const Calendar1 = () => {
     const [events, setEvents] = useState(data.events)
     const [event, setEvent] = useState<any>({})
     const [title, setTitle] = useState('')
+    const { setDialog, closeDialog } = useDialog()
 
     const handleEventUpdate = (ev) => {
         setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)))
     }
 
     const handleEventDelete = (ev) => {
-        setEvents(events.filter((event) => event.id != ev.id))
+        setDialog({
+            title: 'Are you sure?',
+            description: 'This action cannot be undone.',
+            footer: (
+                <View
+                    row
+                    width="100%"
+                    justifyContent="space-between">
+                    <Button onClick={closeDialog}>Cancel</Button>
+                    <Button
+                        onClick={() => {
+                            setEvents(events.filter((event) => event.id != ev.id))
+                            closeDialog()
+                        }}
+                        variant="danger">
+                        Delete
+                    </Button>
+                </View>
+            ),
+        })
     }
 
     const handleEventOpen = (event) => {
@@ -41,6 +61,7 @@ export const Calendar1 = () => {
     const getMenu = ({ data: { target, payload }, dismiss }) => {
         return (
             <Popup
+                colorPalette={data.colorPalette}
                 item={{ ...payload }}
                 onCancel={dismiss}
                 onSave={(event) => {
@@ -436,6 +457,7 @@ export const DataGrid1 = () => {
 export const Kanban1 = () => {
     const [swimlanes, setSwimlanes] = useState<KanbanTypes.Swimlane[]>([data.swimlanes[0]])
     const [card, setCard] = useState<any>({})
+    const { setDialog, closeDialog } = useDialog()
 
     const handleCardMove = ({ origin, target }, selection: KanbanSelection[]) => {
         kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardMove({ origin, target }, selection)
@@ -462,7 +484,26 @@ export const Kanban1 = () => {
     }
 
     const handleCardDelete = (ca) => {
-        kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardDelete(ca)
+        setDialog({
+            title: 'Are you sure?',
+            description: 'This action cannot be undone.',
+            footer: (
+                <View
+                    row
+                    width="100%"
+                    justifyContent="space-between">
+                    <Button onClick={closeDialog}>Cancel</Button>
+                    <Button
+                        onClick={() => {
+                            kanbanState({ swimlanes, setSwimlanes, card, setCard }).handleCardDelete(ca)
+                            closeDialog()
+                        }}
+                        variant="danger">
+                        Delete
+                    </Button>
+                </View>
+            ),
+        })
     }
 
     const handleColumnAdd = ({ value, swimlaneIndex }) => {
@@ -570,7 +611,7 @@ export const Kanban1 = () => {
 
     return (
         <View
-            width="fit-content"
+            width="100%"
             height={700}>
             {!!card.id && (
                 <Detail
@@ -592,20 +633,86 @@ export const Kanban1 = () => {
 
             <MenuProvider menu={getMenu}>
                 <Kanban
+                    id="kanban-instance-1"
+                    //style={{ '--f-kanban-swimlane-minheight': '600px' }}
                     style={{ '--f-kanban-swimlane-minheight': '100%' }}
                     swimlanes={swimlanes}
                     onCardOpen={handleCardOpen}
                     onCardAdd={handleCardAdd}
+                    onCardUpdate={handleCardUpdate}
                     onCardMove={handleCardMove}
                     onColumnAdd={handleColumnAdd}
                     onColumnMove={handleColumnMove}
                     onSwimlaneMove={handleSwimlaneMove}
                     onColumnUpdate={handleColumnUpdate}
                     onSwimlaneUpdate={handleSwimlaneUpdate}
-                    targetVariant={{ cards: 'animated', nav: 'focus' }}
+                    defaultInteraction="animated"
+                    targetVariant={{ 'projects': 'focus' }}
                     card={undefined}
                     columnHeader={undefined}
                     swimlaneHeader={undefined}
+                    toolbar={({ selection }) => {
+                        return (
+                            <View
+                                row
+                                position="fixed"
+                                bgToken="surface-inverse"
+                                colorToken="text-on-color"
+                                p="1rem 2rem"
+                                radius="var(--f-radius)"
+                                shadow="var(--f-shadow-xl)"
+                                zIndex={1000}
+                                gap={10}
+                                className="f-fadein"
+                                display={!Object.keys(selection).length ? 'none' : 'flex'}
+                                style={{ bottom: 10, left: '50%', transform: 'translateX(-50%)' }}>
+                                <Text color="inherit">{Object.keys(selection).length} selected</Text>
+                                <Icon
+                                    icon={FIBin}
+                                    className="f-buttonize"
+                                    onClick={() => {
+                                        setDialog({
+                                            title: 'Are you sure?',
+                                            description: 'This action cannot be undone.',
+                                            portal: Portal,
+                                            footer: (
+                                                <View
+                                                    width="100%"
+                                                    row
+                                                    justifyContent="space-between">
+                                                    <Button
+                                                        onClick={() => {
+                                                            closeDialog()
+                                                            dispatchKanbanEvent('select', {
+                                                                instanceId: 'kanban-instance-1',
+                                                            })
+                                                        }}>
+                                                        Cancel
+                                                    </Button>
+                                                    <Button
+                                                        variant="danger"
+                                                        onClick={() => {
+                                                            kanbanState({
+                                                                swimlanes,
+                                                                setSwimlanes,
+                                                                card,
+                                                                setCard,
+                                                            }).handleSelectionDelete(selection)
+                                                            dispatchKanbanEvent('select', {
+                                                                instanceId: 'kanban-instance-1',
+                                                            })
+                                                            closeDialog()
+                                                        }}>
+                                                        Delete
+                                                    </Button>
+                                                </View>
+                                            ),
+                                        })
+                                    }}
+                                />
+                            </View>
+                        )
+                    }}
                 />
             </MenuProvider>
         </View>
@@ -616,6 +723,7 @@ export const Todo1 = () => {
     const [sections, setSections] = useState<any>(data.sections)
     const [task, setTask] = useState<any>({})
     const [options, setOptions] = useState<any>([])
+    const { setDialog, closeDialog } = useDialog()
 
     const handleTaskOpen = (task) => {
         todoState({ task, setTask, sections, setSections }).handleTaskOpen(task)
@@ -626,7 +734,26 @@ export const Todo1 = () => {
     }
 
     const handleTaskDelete = (task) => {
-        todoState({ task, setTask, sections, setSections }).handleTaskDelete(task)
+        setDialog({
+            title: 'Are you sure?',
+            description: 'This action cannot be undone.',
+            footer: (
+                <View
+                    row
+                    width="100%"
+                    justifyContent="space-between">
+                    <Button onClick={closeDialog}>Cancel</Button>
+                    <Button
+                        onClick={() => {
+                            todoState({ task, setTask, sections, setSections }).handleTaskDelete(task)
+                            closeDialog()
+                        }}
+                        variant="danger">
+                        Delete
+                    </Button>
+                </View>
+            ),
+        })
     }
 
     const handleTaskAddBelow = ({ id, shouldIndent, task: { title, users, badges, labels } }) => {
@@ -764,9 +891,13 @@ export const Todo1 = () => {
         <>
             {!!task.id && (
                 <Detail
+                    useRichTitle
                     colorPalette={data.colorPalette}
                     availableLabels={data.availableLabels}
                     availableUsers={data.availableUsers}
+                    richInputHighlight={handleHighlight}
+                    richInputTrigger={handleTrigger}
+                    richInputOptions={options}
                     item={{ ...task }}
                     onCancel={() => {
                         setTask({})
@@ -784,6 +915,7 @@ export const Todo1 = () => {
 
             <MenuProvider menu={getMenu}>
                 <Todo
+                    id="todo-instance-1"
                     sections={sections}
                     onTaskOpen={handleTaskOpen}
                     onTaskUpdate={handleTaskUpdate}
@@ -800,7 +932,7 @@ export const Todo1 = () => {
                     richInputHighlight={handleHighlight}
                     richInputTrigger={handleTrigger}
                     richInputOptions={options}
-                    targetVariant={{ cards: 'animated', nav: 'focus' }}
+                    targetVariant={{ 'projects': 'focus' }}
                     task={undefined}
                     sectionHeader={undefined}
                     defaultSelection={{}}
@@ -808,7 +940,7 @@ export const Todo1 = () => {
                         return (
                             <View
                                 row
-                                position="absolute"
+                                position="fixed"
                                 bgToken="surface-inverse"
                                 colorToken="text-on-color"
                                 p="1rem 2rem"
@@ -821,9 +953,47 @@ export const Todo1 = () => {
                                 style={{ bottom: 10, left: '50%', transform: 'translateX(-50%)' }}>
                                 <Text color="inherit">{Object.keys(selection).length} selected</Text>
                                 <Icon
-                                    icon={FIX}
+                                    icon={FIBin}
                                     className="f-buttonize"
-                                    onClick={() => dispatchTodoEvent('select', {})}
+                                    onClick={() => {
+                                        setDialog({
+                                            title: 'Are you sure?',
+                                            description: 'This action cannot be undone.',
+                                            portal: Portal,
+                                            footer: (
+                                                <View
+                                                    width="100%"
+                                                    row
+                                                    justifyContent="space-between">
+                                                    <Button
+                                                        onClick={() => {
+                                                            closeDialog()
+                                                            dispatchTodoEvent('select', {
+                                                                instanceId: 'todo-instance-1',
+                                                            })
+                                                        }}>
+                                                        Cancel
+                                                    </Button>
+                                                    <Button
+                                                        variant="danger"
+                                                        onClick={() => {
+                                                            todoState({
+                                                                task,
+                                                                setTask,
+                                                                sections,
+                                                                setSections,
+                                                            }).handleSelectionDelete(selection)
+                                                            dispatchTodoEvent('select', {
+                                                                instanceId: 'todo-instance-1',
+                                                            })
+                                                            closeDialog()
+                                                        }}>
+                                                        Delete
+                                                    </Button>
+                                                </View>
+                                            ),
+                                        })
+                                    }}
                                 />
                             </View>
                         )
@@ -883,7 +1053,7 @@ export const DatePicker1 = () => {
 }
 
 export const ProComponent = () => {
-    const [option, setOption] = useState(4)
+    const [option, setOption] = useState(2)
 
     return (
         <View
@@ -905,6 +1075,8 @@ export const ProComponent = () => {
                 position="relative">
                 <View 
                     row
+                    position="relative"
+                    zIndex={0}
                     gap="0.75rem"
                     p="1rem 2rem 1rem 1rem">
                     <Options
