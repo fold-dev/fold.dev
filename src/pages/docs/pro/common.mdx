@@ -202,7 +202,7 @@ export const LabelIndicator = () => {
 ### Item Detail
 
 export const ItemDetail = () => {
-    const [task, setTask] = useState(swimlanes[0].columns[0].cards[0]);
+    const [task, setTask] = useState({});
     const isVisible = !!task.id;
     return (<View>
             <Button onClick={() => setTask(swimlanes[0].columns[0].cards[0])}>Open Detail Modal</Button>
@@ -215,11 +215,11 @@ export const ItemDetail = () => {
 <ItemDetail />
 </div>
 
-<CodeComponent filename="ItemDetail.tsx" code="ZXhwb3J0IGNvbnN0IEl0ZW1EZXRhaWwgPSAoKSA9PiB7CiAgICBjb25zdCBbdGFzaywgc2V0VGFza10gPSB1c2VTdGF0ZTxhbnk+KHN3aW1sYW5lc1swXS5jb2x1bW5zWzBdLmNhcmRzWzBdKQogICAgY29uc3QgaXNWaXNpYmxlID0gISF0YXNrLmlkCgogICAgcmV0dXJuICgKICAgICAgICA8Vmlldz4KICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXsoKSA9PiBzZXRUYXNrKHN3aW1sYW5lc1swXS5jb2x1bW5zWzBdLmNhcmRzWzBdKX0+T3BlbiBEZXRhaWwgTW9kYWw8L0J1dHRvbj4KCiAgICAgICAgICAgIHtpc1Zpc2libGUgJiYgKAogICAgICAgICAgICAgICAgPERldGFpbAogICAgICAgICAgICAgICAgICAgIHVzZVJpY2hUaXRsZT17ZmFsc2V9CiAgICAgICAgICAgICAgICAgICAgY29sb3JQYWxldHRlPXtkYXRhLmNvbG9yUGFsZXR0ZX0KICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVMYWJlbHM9e2RhdGEuYXZhaWxhYmxlTGFiZWxzfQogICAgICAgICAgICAgICAgICAgIGF2YWlsYWJsZVVzZXJzPXtkYXRhLmF2YWlsYWJsZVVzZXJzfQogICAgICAgICAgICAgICAgICAgIGl0ZW09e3sgLi4udGFzayB9fQogICAgICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXsoKSA9PiBzZXRUYXNrKHt9KX0KICAgICAgICAgICAgICAgICAgICBvblNhdmU9eyh0YXNrKSA9PiBjb25zb2xlLmxvZygnU2F2ZScsIHRhc2spfQogICAgICAgICAgICAgICAgICAgIG9uRGVsZXRlPXsodGFzaykgPT4gY29uc29sZS5sb2coJ0RlbGV0ZScsIHRhc2spfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgKX0KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+<CodeComponent filename="ItemDetail.tsx" code="ZXhwb3J0IGNvbnN0IEl0ZW1EZXRhaWwgPSAoKSA9PiB7CiAgICBjb25zdCBbdGFzaywgc2V0VGFza10gPSB1c2VTdGF0ZTxhbnk+KHt9KQogICAgY29uc3QgaXNWaXNpYmxlID0gISF0YXNrLmlkCgogICAgcmV0dXJuICgKICAgICAgICA8Vmlldz4KICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXsoKSA9PiBzZXRUYXNrKHN3aW1sYW5lc1swXS5jb2x1bW5zWzBdLmNhcmRzWzBdKX0+T3BlbiBEZXRhaWwgTW9kYWw8L0J1dHRvbj4KCiAgICAgICAgICAgIHtpc1Zpc2libGUgJiYgKAogICAgICAgICAgICAgICAgPERldGFpbAogICAgICAgICAgICAgICAgICAgIHVzZVJpY2hUaXRsZT17ZmFsc2V9CiAgICAgICAgICAgICAgICAgICAgY29sb3JQYWxldHRlPXtkYXRhLmNvbG9yUGFsZXR0ZX0KICAgICAgICAgICAgICAgICAgICBhdmFpbGFibGVMYWJlbHM9e2RhdGEuYXZhaWxhYmxlTGFiZWxzfQogICAgICAgICAgICAgICAgICAgIGF2YWlsYWJsZVVzZXJzPXtkYXRhLmF2YWlsYWJsZVVzZXJzfQogICAgICAgICAgICAgICAgICAgIGl0ZW09e3sgLi4udGFzayB9fQogICAgICAgICAgICAgICAgICAgIG9uQ2FuY2VsPXsoKSA9PiBzZXRUYXNrKHt9KX0KICAgICAgICAgICAgICAgICAgICBvblNhdmU9eyh0YXNrKSA9PiBjb25zb2xlLmxvZygnU2F2ZScsIHRhc2spfQogICAgICAgICAgICAgICAgICAgIG9uRGVsZXRlPXsodGFzaykgPT4gY29uc29sZS5sb2coJ0RlbGV0ZScsIHRhc2spfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgKX0KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
 
 ```tsx
 export const ItemDetail = () => {
-    const [task, setTask] = useState<any>(swimlanes[0].columns[0].cards[0])
+    const [task, setTask] = useState<any>({})
     const isVisible = !!task.id
 
     return (
