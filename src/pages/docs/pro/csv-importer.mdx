@@ -34,41 +34,9 @@ import {
 ### Usage
 
 export const Usage = () => {
-    return (<CsvImporter step={1} separator="," onComplete={(data) => console.log('data', data)} csvData={data.csv} defaultRecords={data.records} defaultHeader={data.headers} defaultMapping={data.mapping} schema={[
-            { key: 'customer-id', label: 'Customer ID', type: 'string' },
-            { key: 'first-name', label: 'First Name', type: 'string' },
-            { key: 'last-name', label: 'Last Name', type: 'string' },
-            { key: 'company', label: 'Company', type: 'string' },
-            { key: 'website', label: 'Website', type: 'string' },
-            {
-                key: 'email',
-                label: 'Email',
-                type: 'string',
-                validate: ({ value }) => {
-                    const valid = String(value)
-                        .toLowerCase()
-                        .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
-                    if (valid) {
-                        return [];
-                    }
-                    else {
-                        return ['Not a valid email address'];
-                    }
-                },
-            },
-            {
-                key: 'subscription-date',
-                label: 'Subscription Date',
-                type: 'date',
-                transform: ({ value }) => {
-                    return new Date(value).toLocaleDateString('en-US', {
-                        weekday: 'short',
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                    });
-                },
-            },
+    return (<CsvImporter step={0} separator="," onComplete={(data) => console.log('data', data)} schema={[
+            { key: 'year', label: 'Year', type: 'string' },
+            { key: 'variable', label: 'Variable', type: 'string' },
         ]} toolbar={<View row gap={5} justifyContent="flex-start">
                     <Link href="https://drive.google.com/uc?id=1x2IdSNcHGLmot9i1h90gwMJr5lULC2QV&export=download" target="_blank">
                         Download CSV file ↗
@@ -80,56 +48,23 @@ export const Usage = () => {
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8Q3N2SW1wb3J0ZXIKICAgICAgICAgICAgc3RlcD17MX0KICAgICAgICAgICAgc2VwYXJhdG9yPSIsIgogICAgICAgICAgICBvbkNvbXBsZXRlPXsoZGF0YSkgPT4gY29uc29sZS5sb2coJ2RhdGEnLCBkYXRhKX0KICAgICAgICAgICAgY3N2RGF0YT17ZGF0YS5jc3Z9CiAgICAgICAgICAgIGRlZmF1bHRSZWNvcmRzPXtkYXRhLnJlY29yZHN9CiAgICAgICAgICAgIGRlZmF1bHRIZWFkZXI9e2RhdGEuaGVhZGVyc30KICAgICAgICAgICAgZGVmYXVsdE1hcHBpbmc9e2RhdGEubWFwcGluZ30KICAgICAgICAgICAgc2NoZW1hPXtbCiAgICAgICAgICAgICAgICB7IGtleTogJ2N1c3RvbWVyLWlkJywgbGFiZWw6ICdDdXN0b21lciBJRCcsIHR5cGU6ICdzdHJpbmcnIH0sCiAgICAgICAgICAgICAgICB7IGtleTogJ2ZpcnN0LW5hbWUnLCBsYWJlbDogJ0ZpcnN0IE5hbWUnLCB0eXBlOiAnc3RyaW5nJyB9LAogICAgICAgICAgICAgICAgeyBrZXk6ICdsYXN0LW5hbWUnLCBsYWJlbDogJ0xhc3QgTmFtZScsIHR5cGU6ICdzdHJpbmcnIH0sCiAgICAgICAgICAgICAgICB7IGtleTogJ2NvbXBhbnknLCBsYWJlbDogJ0NvbXBhbnknLCB0eXBlOiAnc3RyaW5nJyB9LAogICAgICAgICAgICAgICAgeyBrZXk6ICd3ZWJzaXRlJywgbGFiZWw6ICdXZWJzaXRlJywgdHlwZTogJ3N0cmluZycgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBrZXk6ICdlbWFpbCcsCiAgICAgICAgICAgICAgICAgICAgbGFiZWw6ICdFbWFpbCcsCiAgICAgICAgICAgICAgICAgICAgdHlwZTogJ3N0cmluZycsCiAgICAgICAgICAgICAgICAgICAgdmFsaWRhdGU6ICh7IHZhbHVlIH0pID0+IHsKICAgICAgICAgICAgICAgICAgICAgICAgY29uc3QgdmFsaWQgPSBTdHJpbmcodmFsdWUpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAudG9Mb3dlckNhc2UoKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgLm1hdGNoKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC9eKChbXjw+KClbXF1cXC4sOzpcc0AiXSsoXC5bXjw+KClbXF1cXC4sOzpcc0AiXSspKil8LigiLisiKSlAKChcW1swLTldezEsM31cLlswLTldezEsM31cLlswLTldezEsM31cLlswLTldezEsM31cXSl8KChbYS16QS1aXC0wLTldK1wuKStbYS16QS1aXXsyLH0pKSQvCiAgICAgICAgICAgICAgICAgICAgICAgICAgICApCgogICAgICAgICAgICAgICAgICAgICAgICBpZiAodmFsaWQpIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiBbXQogICAgICAgICAgICAgICAgICAgICAgICB9IGVsc2UgewogICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIFsnTm90IGEgdmFsaWQgZW1haWwgYWRkcmVzcyddCiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBrZXk6ICdzdWJzY3JpcHRpb24tZGF0ZScsCiAgICAgICAgICAgICAgICAgICAgbGFiZWw6ICdTdWJzY3JpcHRpb24gRGF0ZScsCiAgICAgICAgICAgICAgICAgICAgdHlwZTogJ2RhdGUnLAogICAgICAgICAgICAgICAgICAgIHRyYW5zZm9ybTogKHsgdmFsdWUgfSkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gbmV3IERhdGUodmFsdWUpLnRvTG9jYWxlRGF0ZVN0cmluZygnZW4tVVMnLCB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICB3ZWVrZGF5OiAnc2hvcnQnLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgeWVhcjogJ251bWVyaWMnLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgbW9udGg6ICdsb25nJywKICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRheTogJ251bWVyaWMnLAogICAgICAgICAgICAgICAgICAgICAgICB9KQogICAgICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICBdfQogICAgICAgICAgICB0b29sYmFyPXsKICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgZ2FwPXs1fQogICAgICAgICAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgICAgICAgICA8TGluawogICAgICAgICAgICAgICAgICAgICAgICBocmVmPSJodHRwczovL2RyaXZlLmdvb2dsZS5jb20vdWM/aWQ9MXgySWRTTmNIR0xtb3Q5aTFoOTBnd01KcjVsVUxDMlFWJmV4cG9ydD1kb3dubG9hZCIKICAgICAgICAgICAgICAgICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiPgogICAgICAgICAgICAgICAgICAgICAgICBEb3dubG9hZCBDU1YgZmlsZSDihpcKICAgICAgICAgICAgICAgICAgICA8L0xpbms+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIH0KICAgICAgICAvPgogICAgKQp9" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8Q3N2SW1wb3J0ZXIKICAgICAgICAgICAgc3RlcD17MH0KICAgICAgICAgICAgc2VwYXJhdG9yPSIsIgogICAgICAgICAgICBvbkNvbXBsZXRlPXsoZGF0YSkgPT4gY29uc29sZS5sb2coJ2RhdGEnLCBkYXRhKX0KICAgICAgICAgICAgCiAgICAgICAgICAgIAogICAgICAgICAgICAKICAgICAgICAgICAgCiAgICAgICAgICAgIHNjaGVtYT17WwogICAgICAgICAgICAgICAgeyBrZXk6ICd5ZWFyJywgbGFiZWw6ICdZZWFyJywgdHlwZTogJ3N0cmluZycgfSwKICAgICAgICAgICAgICAgIHsga2V5OiAndmFyaWFibGUnLCBsYWJlbDogJ1ZhcmlhYmxlJywgdHlwZTogJ3N0cmluZycgfSwKICAgICAgICAgICAgICAgIAogICAgICAgICAgICBdfQogICAgICAgICAgICB0b29sYmFyPXsKICAgICAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICAgICAgcm93CiAgICAgICAgICAgICAgICAgICAgZ2FwPXs1fQogICAgICAgICAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PSJmbGV4LXN0YXJ0Ij4KICAgICAgICAgICAgICAgICAgICA8TGluawogICAgICAgICAgICAgICAgICAgICAgICBocmVmPSJodHRwczovL2RyaXZlLmdvb2dsZS5jb20vdWM/aWQ9MXgySWRTTmNIR0xtb3Q5aTFoOTBnd01KcjVsVUxDMlFWJmV4cG9ydD1kb3dubG9hZCIKICAgICAgICAgICAgICAgICAgICAgICAgdGFyZ2V0PSJfYmxhbmsiPgogICAgICAgICAgICAgICAgICAgICAgICBEb3dubG9hZCBDU1YgZmlsZSDihpcKICAgICAgICAgICAgICAgICAgICA8L0xpbms+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIH0KICAgICAgICAvPgogICAgKQp9" />
 
 ```tsx
 export const Usage = () => {
     return (
         <CsvImporter
-            step={1}
+            step={0}
             separator=","
             onComplete={(data) => console.log('data', data)}
-            csvData={data.csv}
-            defaultRecords={data.records}
-            defaultHeader={data.headers}
-            defaultMapping={data.mapping}
+            
+            
+            
+            
             schema={[
-                { key: 'customer-id', label: 'Customer ID', type: 'string' },
-                { key: 'first-name', label: 'First Name', type: 'string' },
-                { key: 'last-name', label: 'Last Name', type: 'string' },
-                { key: 'company', label: 'Company', type: 'string' },
-                { key: 'website', label: 'Website', type: 'string' },
-                {
-                    key: 'email',
-                    label: 'Email',
-                    type: 'string',
-                    validate: ({ value }) => {
-                        const valid = String(value)
-                            .toLowerCase()
-                            .match(
-                                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                            )
-
-                        if (valid) {
-                            return []
-                        } else {
-                            return ['Not a valid email address']
-                        }
-                    },
-                },
-                {
-                    key: 'subscription-date',
-                    label: 'Subscription Date',
-                    type: 'date',
-                    transform: ({ value }) => {
-                        return new Date(value).toLocaleDateString('en-US', {
-                            weekday: 'short',
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric',
-                        })
-                    },
-                },
+                { key: 'year', label: 'Year', type: 'string' },
+                { key: 'variable', label: 'Variable', type: 'string' },
+                
             ]}
             toolbar={
                 <View
