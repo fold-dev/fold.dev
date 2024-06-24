@@ -422,7 +422,7 @@ export const PricingComponent = () => {
                     </Card>
 
                     <Card
-                        width={320}
+                        flex={1}
                         column
                         height="auto"
                         p="2rem"
@@ -471,7 +471,7 @@ export const PricingComponent = () => {
                     </Card>
 
                     <Card
-                        width={320}
+                        flex={1}
                         column
                         p="2rem"
                         height="auto"
