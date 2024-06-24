@@ -100,7 +100,6 @@ export const sections: TodoTypes.Section[] = [
         name: 'Done',
         description: 'Create content strategy and outline website sections ',
         collapsible: true,
-        prefix: <IconLib icon="sun" />,
         color: Token.ColorNeonpink400,
         tasks: [
             {
