@@ -1053,7 +1053,7 @@ export const DatePicker1 = () => {
 }
 
 export const ProComponent = () => {
-    const [option, setOption] = useState(2)
+    const [option, setOption] = useState(0)
 
     return (
         <View

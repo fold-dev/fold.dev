@@ -1,6 +1,6 @@
 {
   "name": "@fold-dev/docs",
-  "version": "24.6.24.0",
+  "version": "24.6.24.1",
   "description": "UI components for product teams.",
   "scripts": {
     "prepare": "husky install",
