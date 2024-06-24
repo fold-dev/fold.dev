@@ -1133,7 +1133,7 @@ const All = () => {
                             p="0.5rem 0.5rem">
                             <Palette
                                 justifyContent="center"
-                                gap={0}
+                                gap={8}
                                 color={color}
                                 colors={[
                                     Token.ColorPurple400,
@@ -1172,7 +1172,6 @@ const All = () => {
 
                         <View
                             row
-                            justifyContent="flex-start"
                             gap={5}
                             width="100%">
                             <Pill

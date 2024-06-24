@@ -1,5 +1,5 @@
 export const GraphicRight = (props: any) => {
-    const { style = {}, color = 'white', ...rest } = props
+    const { style = {}, color = 'var(--f-color-accent-weak)', ...rest } = props
     return (
         <svg
             width="100%"
@@ -123,7 +123,7 @@ export const GraphicRight = (props: any) => {
 }
 
 export const GraphicLeft = (props: any) => {
-    const { style = {}, color = 'white', ...rest } = props
+    const { style = {}, color = 'var(--f-color-accent-weak', ...rest } = props
     return (
         <svg
             width="100%"

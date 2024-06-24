@@ -9,10 +9,10 @@ export const HeroComponent = () => {
             p="111px 0 0 0"
             m="-111px 0 0 0"
             position="relative"
-            style={{ overflow: 'hidden' }}
-            bg="linear-gradient(175deg, var(--f-color-accent-500), var(--f-color-accent-600))">
+            style={{  overflow: 'hidden' }}
+            className="hero-background">
             <GraphicRight
-                style={{ position: 'absolute', top: -100, right: -100, opacity: 0.2 }}
+                style={{ position: 'absolute', top: -100, right: -100, opacity: 0.5 }}
                 height={882 / 2}
                 width={1456 / 2}
             />
@@ -34,15 +34,15 @@ export const HeroComponent = () => {
                     position="relative">
                     <Text
                         textAlign="center"
-                        style={{ textTransform: 'uppercase' }}
+                        style={{ textTransform: 'uppercase', opacity: 0.5 }}
                         letterSpacing={5}
-                        colorToken="accent-300">
+                        colorToken="accent">
                         Introducing
                     </Text>
 
                     <Heading
                         textAlign="center"
-                        colorToken="white"
+                        colorToken="accent"
                         fontWeight={700}
                         fontSize="6rem"
                         letterSpacing={-5}
@@ -55,7 +55,7 @@ export const HeroComponent = () => {
                     <Heading
                         as="h3"
                         textAlign="center"
-                        colorToken="accent-50"
+                        colorToken="accent"
                         fontWeight={400}
                         width="90%">
                         Powerful, fully customizable React components for scaling your project to the next level. 
@@ -70,10 +70,9 @@ export const HeroComponent = () => {
                             outline
                             as="a"
                             href="#pro"
-                            border="0.15rem solid var(--f-color-white)"
+                            border="0.15rem solid var(--f-color-accent)"
                             style={{
-                                '--f-button-color': 'var(--f-color-white)',
-                                '--f-color-text-on-color': 'var(--f-color-accent-400)',
+                                '--f-button-color': 'var(--f-color-accent)',
                             }}>
                             Buy Now
                         </Button>
@@ -83,28 +82,28 @@ export const HeroComponent = () => {
                             textDecoration="none"
                             className="f-underline"
                             m="0 -1rem 0 0"
-                            colorToken="white">
+                            colorToken="accent">
                             Read Documentation ↗
                         </Link>
                     </View>
 
                     <Text
                         size="sm"
-                        colorToken="accent-200">
+                        colorToken="accent">
                         <Link
                             style={{ '--f-underline-size': '1.5px' }}
                             size="sm"
                             target="_blank"
                             textDecoration="none"
                             className="f-underline"
-                            colorToken="accent-100"
+                            colorToken="accent"
                             href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW">
                             Subscribe to the newsletter
                         </Link> & get notified of any updates.
                     </Text>
 
                     <GraphicLeft
-                        style={{ position: 'absolute', top: 400, left: -200, opacity: 0.2 }}
+                        style={{ position: 'absolute', top: 400, left: -200, opacity: 0.5 }}
                         width={1107 / 2}
                         height={559 / 2}
                     />

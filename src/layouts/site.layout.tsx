@@ -95,7 +95,7 @@ export default function SiteLayout(props: any) {
                     zIndex={10000}
                     width="100%"
                     position="relative"
-                    bg="linear-gradient(15deg, var(--f-color-neonpink-600), var(--f-color-neonpink-400))">
+                    bg="linear-gradient(15deg, var(--f-color-purple-500), var(--f-color-neonpink-400))">
                     <Text
                         color="inherit"
                         colorToken="purple-50">
@@ -119,7 +119,7 @@ export default function SiteLayout(props: any) {
                                 height={100}
                                 position="relative"
                                 border="none"
-                                bg={stuck ? 'var(--f-color-accent-500)' : 'transparent'}
+                                bg={stuck ? 'rgb(from var(--f-color-surface) r g b / 0.9)' : 'transparent'}
                                 style={{
                                     backdropFilter: 'blur(5px)',
                                     transition: 'background 0.1s',
@@ -130,47 +130,23 @@ export default function SiteLayout(props: any) {
                                     width="100%"
                                     p="0 4rem">
                                     <Link href="/">
-                                        <LogoSolid color="var(--f-color-accent-50)" />
+                                        <LogoSolid />
                                     </Link>
                                     <Flexer />
                                     <Navigation
                                         bg="transparent"
                                         variant="navbar"
                                         style={{
-                                            '--f-navigation-item-color-system-active': 'var(--f-color-accent-600)',
-                                            '--f-navigation-item-background-color-hover': 'var(--f-color-accent-400)',
-                                            '--f-navigation-item-background-color-active':  'var(--f-color-accent-500)',
-                                            '--f-navigation-item-color': 'var(--f-color-accent-50)',
-                                            '--f-navigation-item-color-hover': 'var(--f-color-accent-50)',
-                                            '--f-navigation-item-color-active': 'white',
+                                            '--f-navigation-item-color-system-active': 'var(--f-color-accent-weak)',
+                                            '--f-navigation-item-background-color-hover': 'var(--f-color-accent-weak)',
+                                            '--f-navigation-item-background-color-active':  'var(--f-color-accent)',
+                                            '--f-navigation-item-color': 'var(--f-color-accent)',
+                                            '--f-navigation-item-color-hover': 'var(--f-color-accent-strong)',
+                                            '--f-navigation-item-color-active': 'var(--f-color-accent)',
                                         }}>
                                         <NavigationItem href="/#home">Home</NavigationItem>
                                         <NavigationItem href="/#core">Core</NavigationItem>
-                                        <NavigationItem 
-                                            style={{
-                                                '--f-pill-color': 'var(--f-color-accent-3200)',
-                                                '--f-pill-background-color': stuck ? 'var(--f-color-accent-600)' : 'var(--f-color-accent-800)',
-                                                '--f-pill-border-color': 'var(--f-color-accent-100)',
-                                            }}
-                                            suffix={(
-                                                <View
-                                                    p="0.25rem 0.75rem"
-                                                    bg="linear-gradient(15deg, var(--f-color-purple-500), var(--f-color-neonpink-400))"
-                                                    radius="var(--f-radius)">
-                                                    <Text
-                                                        m={0} 
-                                                        p={0}
-                                                        size="xs" 
-                                                        lineHeight="normal"
-                                                        fontWeight="bold" 
-                                                        colorToken="white">
-                                                        EARLY ACCESS
-                                                    </Text>
-                                                </View>
-                                            )}
-                                            href="/#pro">
-                                            Pro
-                                        </NavigationItem>
+                                        <NavigationItem href="/#pro">Pro</NavigationItem>
                                         <NavigationItem href="/#support">Support</NavigationItem>
                                     </Navigation>
                                     <Button
@@ -178,31 +154,23 @@ export default function SiteLayout(props: any) {
                                         as="a"
                                         target="_blank"
                                         outline
-                                        border="0.15rem solid white"
+                                        border="0.15rem solid var(--f-color-accent)"
                                         style={{
-                                            '--f-button-color': 'var(--f-color-white)',
-                                            '--f-color-text-on-color': 'var(--f-color-accent-400)',
-                                            '--f-button-color-hover': 'var(--f-color-accent-400)',
-                                            '--f-button-background-color-hover': 'var(--f-color-white)',
+                                            '--f-button-color': 'var(--f-color-accent)',
+                                            '--f-button-color-hover': 'var(--f-color-accent-weak)',
+                                            '--f-button-background-color-hover': 'var(--f-color-accent)',
                                         }}>
                                         Documentation
                                     </Button>
                                     <Button
                                         href="/#pro"
                                         as="a"
-                                        //target="_blank"
                                         outline
-                                        border="0.15rem solid white"
+                                        border="0.15rem solid var(--f-color-accent)"
                                         style={{
-                                            // '--f-button-background-color': 'var(--f-color-white)',
-                                            // '--f-button-background-color-hover': 'var(--f-color-base-100)',
-                                            // '--f-button-color': 'var(--f-color-accent)',
-                                            // '--f-button-color-hover': 'var(--f-color-accent-600)',
-
-                                            '--f-button-color': 'var(--f-color-white)',
-                                            '--f-color-text-on-color': 'var(--f-color-accent-400)',
-                                            '--f-button-color-hover': 'var(--f-color-accent-400)',
-                                            '--f-button-background-color-hover': 'var(--f-color-white)',
+                                            '--f-button-color': 'var(--f-color-accent)',
+                                            '--f-button-color-hover': 'var(--f-color-accent-weak)',
+                                            '--f-button-background-color-hover': 'var(--f-color-accent)',
                                         }}>
                                         Buy
                                     </Button>
@@ -211,21 +179,21 @@ export default function SiteLayout(props: any) {
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-accent)"
-                                        bgColor="var(--f-color-white)"
+                                        bgColor="var(--f-color-accent-weak)"
                                     />
                                     <SocialIcon
                                         url="https://twitter.com/fold_dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-accent)"
-                                        bgColor="var(--f-color-white)"
+                                        bgColor="var(--f-color-accent-weak)"
                                     />
                                     <SocialIcon
                                         url="https://www.linkedin.com/company/fold-dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-accent)"
-                                        bgColor="var(--f-color-white)"
+                                        bgColor="var(--f-color-accent-weak)"
                                     />
                                 </View>
                             </Header>
