@@ -939,8 +939,16 @@ const All = () => {
         const d: any = document.querySelector(':root')
         d.style.setProperty('--f-font-heading', family)
         d.style.setProperty('--f-font-body', family)
+
         documentObject.body.style.cssText = `--f-font-heading: ${family}`
         documentObject.body.style.cssText = `--f-font-body: ${family}`
+
+        document.getElementById('custom-styles').innerHTML = `
+            :root {
+                --f-font-heading: ${family};
+                --f-font-body: ${family};
+            }
+        `
     }
 
     useEffect(() => {

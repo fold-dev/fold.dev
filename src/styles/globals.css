@@ -222,6 +222,10 @@ body {
     padding: 5rem;
 }
 
+.f-heading.hero__heading {
+    letter-spacing: -2px;
+}
+
  .text-content h1 {
     line-height: 4rem;
     margin: 0.5rem 0 0.5rem 0;

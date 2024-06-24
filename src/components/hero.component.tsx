@@ -45,7 +45,6 @@ export const HeroComponent = () => {
                         colorToken="accent"
                         fontWeight={700}
                         fontSize="6rem"
-                        letterSpacing={-5}
                         lineHeight={0.9}
                         p="0 3rem"
                         className="hero__heading">
