@@ -10,6 +10,7 @@ export const sections: TodoTypes.Section[] = [
         description: '',
         collapsible: true,
         color: undefined,
+        prefix: <IconLib icon="circle" />,
         tasks: [
             {
                 id: 'section1-1',
@@ -98,9 +99,10 @@ export const sections: TodoTypes.Section[] = [
     {
         id: 'section2',
         name: 'Done',
-        description: 'Create content strategy and outline website sections ',
+        description: '',
         collapsible: true,
         color: Token.ColorNeonpink400,
+        prefix: <IconLib icon="circle" />,
         tasks: [
             {
                 id: 'section2-1',
@@ -143,9 +145,10 @@ export const sections: TodoTypes.Section[] = [
     {
         id: 'section3',
         name: 'Backlog',
-        description: 'Everything that has no home should go here.',
+        description: 'Everything that has no status should go here.',
         collapsible: true,
         color: Token.ColorTeal400,
+        prefix: <IconLib icon="circle" />,
         tasks: [
             {
                 id: 'section3-1',

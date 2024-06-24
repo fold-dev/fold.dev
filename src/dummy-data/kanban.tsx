@@ -14,7 +14,8 @@ export const swimlanes: KanbanTypes.Swimlane[] = [
             {
                 id: 'column-2463',
                 name: 'Todo',
-                description: 'Everything in this column needs to be done.',
+                prefix: <IconLib icon="circle" />,
+                description: 'Everything in this column needs to be done this sprint.',
                 color: Token.ColorElectric400,
                 collapsed: false,
                 cards: [
@@ -57,7 +58,7 @@ export const swimlanes: KanbanTypes.Swimlane[] = [
             {
                 id: 'column-46868',
                 name: 'Doing',
-                prefix: <IconLib icon="check" />,
+                prefix: <IconLib icon="circle" />,
                 color: Token.ColorTeal400,
                 cards: [
                     {
@@ -71,6 +72,7 @@ export const swimlanes: KanbanTypes.Swimlane[] = [
             {
                 id: 'column-468688',
                 name: 'Done',
+                prefix: <IconLib icon="circle" />,
                 color: Token.ColorPurple400,
                 cards: [
                     {
@@ -112,6 +114,7 @@ export const swimlanes: KanbanTypes.Swimlane[] = [
             {
                 id: 'column-4686881',
                 name: 'Backlog',
+                prefix: <IconLib icon="circle" />,
                 color: Token.ColorNeonpink400,
                 cards: [
                     {
