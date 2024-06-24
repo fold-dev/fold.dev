@@ -8,6 +8,9 @@ import {
     Flexer,
     Heading,
     Input,
+    InputPopover,
+    Li,
+    List,
     Menu,
     MenuButton,
     MenuItem,
@@ -16,7 +19,7 @@ import {
     useVisibility,
     View,
 } from '@fold-dev/core'
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 export const docs = {
     title: 'Popover',
@@ -25,7 +28,7 @@ export const docs = {
         'A Popover component serves as a valuable tool for presenting in-depth information within a pop-up box that is positioned in proximity to the element being clicked or hovered. Popover components have many uses, but are particularly useful for adding context to particular pieces of content, such use quick-view information, form input & warning or failure details.',
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/popover/index.ts","description":"","displayName":"PopoverContent","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/popover/index.ts","description":"","displayName":"Popover","methods":[],"props":{"targetId":{"defaultValue":null,"description":"","name":"targetId","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"fixPosition":{"defaultValue":null,"description":"","name":"fixPosition","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ top: number; left: number; }"},"tags":{}},"arrow":{"defaultValue":null,"description":"","name":"arrow","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"PopoutPosition"},"tags":{}},"anchorProps":{"defaultValue":null,"description":"","name":"anchorProps","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"content":{"defaultValue":null,"description":"","name":"content","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"isVisible":{"defaultValue":null,"description":"","name":"isVisible","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/popover/index.ts","description":"","displayName":"PopoverContent","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/popover/index.ts","description":"","displayName":"Popover","methods":[],"props":{"hardEscape":{"defaultValue":null,"description":"","name":"hardEscape","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{"description":"Be careful as this can have unintended consequences with other elements"}},"__focusTrapTimeoutDelay":{"defaultValue":null,"description":"","name":"__focusTrapTimeoutDelay","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"__blockDismissEvent":{"defaultValue":null,"description":"","name":"__blockDismissEvent","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"focusTrap":{"defaultValue":null,"description":"","name":"focusTrap","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"targetId":{"defaultValue":null,"description":"","name":"targetId","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"fixPosition":{"defaultValue":null,"description":"","name":"fixPosition","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ top: number; left: number; }"},"tags":{}},"arrow":{"defaultValue":null,"description":"","name":"arrow","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"anchor":{"defaultValue":null,"description":"","name":"anchor","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"PopoutPosition"},"tags":{}},"anchorProps":{"defaultValue":null,"description":"","name":"anchorProps","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"content":{"defaultValue":null,"description":"","name":"content","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"isVisible":{"defaultValue":null,"description":"","name":"isVisible","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onDismiss":{"defaultValue":null,"description":"","name":"onDismiss","declarations":[{"fileName":"fold/packages/core/src/popover/popover.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}}}}]
 
 export const css = [[["--f-popover-border-color","var(--f-color-border)"],["--f-popover-border-radius","var(--f-radius)"],["--f-popover-background","var(--f-color-surface)"],["--f-popover-box-shadow","var(--f-shadow-lg)"]]]
 
@@ -40,7 +43,7 @@ import { PopoverContent, Popover } from "@fold-dev/core";
 
 export const Usage = () => {
     const { visible, show, hide } = useVisibility(true);
-    return (<Popover arrow width={300} anchor="middle-right" content={<View p={20} column gap={10} alignItems="flex-start">
+    return (<Popover arrow focusTrap width={300} anchor="middle-right" content={<View p={20} column gap={10} alignItems="flex-start">
                     <Heading as="h4">Craig Pather</Heading>
                     <Heading as="h5">CTO Acme Corp</Heading>
                     <Text>
@@ -59,7 +62,7 @@ export const Usage = () => {
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KHRydWUpCgogICAgcmV0dXJuICgKICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICBhcnJvdwogICAgICAgICAgICB3aWR0aD17MzAwfQogICAgICAgICAgICBhbmNob3I9Im1pZGRsZS1yaWdodCIKICAgICAgICAgICAgY29udGVudD17CiAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgIHA9ezIwfQogICAgICAgICAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgICAgICAgICAgYWxpZ25JdGVtcz0iZmxleC1zdGFydCI+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9Img0Ij5DcmFpZyBQYXRoZXI8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9Img1Ij5DVE8gQWNtZSBDb3JwPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgIDxUZXh0PgogICAgICAgICAgICAgICAgICAgICAgICBMZWFkaW5nIHRoZSBlbmdpbmVlcmluZyBkaXZpc2lvbiBhdCBBY21lIGNvcnAsIENyYWlnIGhhcyBkZWxpdmVyZWQgb24gbnVtZXJvdXMgZGVhZGxpbmVzLgogICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICA8QnV0dG9uR3JvdXA+CiAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24+U2VuZCBNYWlsPC9CdXR0b24+CiAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24+QWRkIENvbnRhY3Q8L0J1dHRvbj4KICAgICAgICAgICAgICAgICAgICA8L0J1dHRvbkdyb3VwPgogICAgICAgICAgICAgICAgPC9WaWV3PgogICAgICAgICAgICB9CiAgICAgICAgICAgIGlzVmlzaWJsZT17dmlzaWJsZX0KICAgICAgICAgICAgb25EaXNtaXNzPXtoaWRlfT4KICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgb25DbGljaz17c2hvd30KICAgICAgICAgICAgICAgIG5hbWU9IkNyYWlnIFBhdGhlciIKICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wMS5qcGciCiAgICAgICAgICAgIC8+CiAgICAgICAgPC9Qb3BvdmVyPgogICAgKQp9" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KHRydWUpCgogICAgcmV0dXJuICgKICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICBhcnJvdwogICAgICAgICAgICBmb2N1c1RyYXAKICAgICAgICAgICAgd2lkdGg9ezMwMH0KICAgICAgICAgICAgYW5jaG9yPSJtaWRkbGUtcmlnaHQiCiAgICAgICAgICAgIGNvbnRlbnQ9ewogICAgICAgICAgICAgICAgPFZpZXcKICAgICAgICAgICAgICAgICAgICBwPXsyMH0KICAgICAgICAgICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgICAgICAgICBnYXA9ezEwfQogICAgICAgICAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiPgogICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoNCI+Q3JhaWcgUGF0aGVyPC9IZWFkaW5nPgogICAgICAgICAgICAgICAgICAgIDxIZWFkaW5nIGFzPSJoNSI+Q1RPIEFjbWUgQ29ycDwvSGVhZGluZz4KICAgICAgICAgICAgICAgICAgICA8VGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgTGVhZGluZyB0aGUgZW5naW5lZXJpbmcgZGl2aXNpb24gYXQgQWNtZSBjb3JwLCBDcmFpZyBoYXMgZGVsaXZlcmVkIG9uIG51bWVyb3VzIGRlYWRsaW5lcy4KICAgICAgICAgICAgICAgICAgICA8L1RleHQ+CiAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbkdyb3VwPgogICAgICAgICAgICAgICAgICAgICAgICA8QnV0dG9uPlNlbmQgTWFpbDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICA8QnV0dG9uPkFkZCBDb250YWN0PC9CdXR0b24+CiAgICAgICAgICAgICAgICAgICAgPC9CdXR0b25Hcm91cD4KICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgfQogICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgIG9uRGlzbWlzcz17aGlkZX0+CiAgICAgICAgICAgIDxBdmF0YXIKICAgICAgICAgICAgICAgIG9uQ2xpY2s9e3Nob3d9CiAgICAgICAgICAgICAgICBuYW1lPSJDcmFpZyBQYXRoZXIiCiAgICAgICAgICAgICAgICBzcmM9Ii9tZW4vMDEuanBnIgogICAgICAgICAgICAvPgogICAgICAgIDwvUG9wb3Zlcj4KICAgICkKfQ==" />
 
 ```tsx
 export const Usage = () => {
@@ -68,6 +71,7 @@ export const Usage = () => {
     return (
         <Popover
             arrow
+            focusTrap
             width={300}
             anchor="middle-right"
             content={
@@ -457,57 +461,54 @@ export const PositionsWithArrows = () => {
 ### Focus Trap With Child Width
 
 export const FocusTrapWithChildWidth = () => {
-    const { visible, show, hide } = useVisibility(true);
-    const ref1 = useRef(null);
-    const ref2 = useRef(null);
-    return (<Popover anchor="bottom-right" content={<Text p={20}>Fixed to the width of the container & only blurring will dismiss this.</Text>} isVisible={visible} onDismiss={(e) => {
-            switch (e.target) {
-                case ref1.current:
-                    return console.log('main input');
-                case ref2.current:
-                    return console.log('popup content input');
-                default:
-                    hide();
-            }
-        }}>
-            <Input onFocus={show} value={visible ? 'Popover is visible' : 'Popover is not visible'} ref={ref1} onChange={(e) => null}/>
-        </Popover>);
+    const [text, setText] = useState('');
+    return (<InputPopover content={<View p={20} column alignItems="flex-start" gap={10}>
+                    <Heading as="h4">Plese make sure your password:</Heading>
+                    <List as="ul">
+                        <Li>Is more than 8 characters long</Li>
+                        <Li>Does not container easily identifiable words</Li>
+                        <Li>Contains alpha-numeric characters</Li>
+                        <Li>Contains special characters</Li>
+                    </List>
+                </View>}>
+            <Input placeholder="Enter your password" value={text} type="password" onChange={(e) => setText(e.target.value)}/>
+        </InputPopover>);
 };
 
 <div className="story-block">
 <FocusTrapWithChildWidth />
 </div>
 
-<CodeComponent filename="FocusTrapWithChildWidth.tsx" code="ZXhwb3J0IGNvbnN0IEZvY3VzVHJhcFdpdGhDaGlsZFdpZHRoID0gKCkgPT4gewogICAgY29uc3QgeyB2aXNpYmxlLCBzaG93LCBoaWRlIH0gPSB1c2VWaXNpYmlsaXR5KHRydWUpCiAgICBjb25zdCByZWYxID0gdXNlUmVmKG51bGwpCiAgICBjb25zdCByZWYyID0gdXNlUmVmKG51bGwpCgogICAgcmV0dXJuICgKICAgICAgICA8UG9wb3ZlcgogICAgICAgICAgICBhbmNob3I9ImJvdHRvbS1yaWdodCIKICAgICAgICAgICAgY29udGVudD17PFRleHQgcD17MjB9PkZpeGVkIHRvIHRoZSB3aWR0aCBvZiB0aGUgY29udGFpbmVyICYgb25seSBibHVycmluZyB3aWxsIGRpc21pc3MgdGhpcy48L1RleHQ+fQogICAgICAgICAgICBpc1Zpc2libGU9e3Zpc2libGV9CiAgICAgICAgICAgIG9uRGlzbWlzcz17KGUpID0+IHsKICAgICAgICAgICAgICAgIHN3aXRjaCAoZS50YXJnZXQpIHsKICAgICAgICAgICAgICAgICAgICBjYXNlIHJlZjEuY3VycmVudDoKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGNvbnNvbGUubG9nKCdtYWluIGlucHV0JykKICAgICAgICAgICAgICAgICAgICBjYXNlIHJlZjIuY3VycmVudDoKICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuIGNvbnNvbGUubG9nKCdwb3B1cCBjb250ZW50IGlucHV0JykKICAgICAgICAgICAgICAgICAgICBkZWZhdWx0OgogICAgICAgICAgICAgICAgICAgICAgICBoaWRlKCkKICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfX0+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgb25Gb2N1cz17c2hvd30KICAgICAgICAgICAgICAgIHZhbHVlPXt2aXNpYmxlID8gJ1BvcG92ZXIgaXMgdmlzaWJsZScgOiAnUG9wb3ZlciBpcyBub3QgdmlzaWJsZSd9CiAgICAgICAgICAgICAgICByZWY9e3JlZjF9CiAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IG51bGx9CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9Qb3BvdmVyPgogICAgKQp9" />
+<CodeComponent filename="FocusTrapWithChildWidth.tsx" code="ZXhwb3J0IGNvbnN0IEZvY3VzVHJhcFdpdGhDaGlsZFdpZHRoID0gKCkgPT4gewogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGU8YW55PignJykKCiAgICByZXR1cm4gKAogICAgICAgIDxJbnB1dFBvcG92ZXIKICAgICAgICAgICAgY29udGVudD17CiAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgIHA9ezIwfQogICAgICAgICAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICAgICAgICAgIGFsaWduSXRlbXM9ImZsZXgtc3RhcnQiCiAgICAgICAgICAgICAgICAgICAgZ2FwPXsxMH0+CiAgICAgICAgICAgICAgICAgICAgPEhlYWRpbmcgYXM9Img0Ij5QbGVzZSBtYWtlIHN1cmUgeW91ciBwYXNzd29yZDo8L0hlYWRpbmc+CiAgICAgICAgICAgICAgICAgICAgPExpc3QgYXM9InVsIj4KICAgICAgICAgICAgICAgICAgICAgICAgPExpPklzIG1vcmUgdGhhbiA4IGNoYXJhY3RlcnMgbG9uZzwvTGk+CiAgICAgICAgICAgICAgICAgICAgICAgIDxMaT5Eb2VzIG5vdCBjb250YWluZXIgZWFzaWx5IGlkZW50aWZpYWJsZSB3b3JkczwvTGk+CiAgICAgICAgICAgICAgICAgICAgICAgIDxMaT5Db250YWlucyBhbHBoYS1udW1lcmljIGNoYXJhY3RlcnM8L0xpPgogICAgICAgICAgICAgICAgICAgICAgICA8TGk+Q29udGFpbnMgc3BlY2lhbCBjaGFyYWN0ZXJzPC9MaT4KICAgICAgICAgICAgICAgICAgICA8L0xpc3Q+CiAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgIH0+CiAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IkVudGVyIHlvdXIgcGFzc3dvcmQiCiAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgIHR5cGU9InBhc3N3b3JkIgogICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L0lucHV0UG9wb3Zlcj4KICAgICkKfQ==" />
 
 ```tsx
 export const FocusTrapWithChildWidth = () => {
-    const { visible, show, hide } = useVisibility(true)
-    const ref1 = useRef(null)
-    const ref2 = useRef(null)
+    const [text, setText] = useState<any>('')
 
     return (
-        <Popover
-            anchor="bottom-right"
-            content={<Text p={20}>Fixed to the width of the container & only blurring will dismiss this.</Text>}
-            isVisible={visible}
-            onDismiss={(e) => {
-                switch (e.target) {
-                    case ref1.current:
-                        return console.log('main input')
-                    case ref2.current:
-                        return console.log('popup content input')
-                    default:
-                        hide()
-                }
-            }}>
+        <InputPopover
+            content={
+                <View
+                    p={20}
+                    column
+                    alignItems="flex-start"
+                    gap={10}>
+                    <Heading as="h4">Plese make sure your password:</Heading>
+                    <List as="ul">
+                        <Li>Is more than 8 characters long</Li>
+                        <Li>Does not container easily identifiable words</Li>
+                        <Li>Contains alpha-numeric characters</Li>
+                        <Li>Contains special characters</Li>
+                    </List>
+                </View>
+            }>
             <Input
-                onFocus={show}
-                value={visible ? 'Popover is visible' : 'Popover is not visible'}
-                ref={ref1}
-                onChange={(e) => null}
+                placeholder="Enter your password"
+                value={text}
+                type="password"
+                onChange={(e) => setText(e.target.value)}
             />
-        </Popover>
+        </InputPopover>
     )
 }
 ```

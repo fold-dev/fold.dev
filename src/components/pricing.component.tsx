@@ -78,7 +78,6 @@ export const FAQAccordion = (props) => (
             </AccordionHeading>
             <AccordionPanel>
                 After Early Access Fold Pro will go into a stable release schedule, incrementally rolling out further updates.
-                This will also be accompanied by the price change. 
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
@@ -578,19 +577,20 @@ export const PricingComponent = () => {
                                 subtle
                                 style={{ textTransform: 'uppercase' }}
                                 color={Token.ColorPurple400}>
-                                Fold Pro Early Access
+                                Fold Pro
                             </Pill>
                             <Text
                                 style={{ textTransform: 'uppercase' }}
                                 letterSpacing={5}
                                 colorToken="base-500"
                                 id="features">
-                                Fineprint
+                                The Fineprint
                             </Text>
                             <Heading
+                                fontSize="3rem"
                                 colorToken="base-100"
                                 fontWeight={400}>
-                                Fold Pro Early Access has launched, but what does that mean?
+                                What is Early Access?
                             </Heading>
                         </View>
 

@@ -761,6 +761,7 @@ export default function DocsLayout(props: any) {
                                             />
                                         </View>
                                     </Popover>
+                                    {/* 
                                     <Button
                                         outline
                                         as="a"
@@ -768,7 +769,8 @@ export default function DocsLayout(props: any) {
                                         target="_blank"
                                         variant="accent">
                                         AppSandbox ↗
-                                    </Button>
+                                    </Button> 
+                                    */}
                                     <Button
                                         as="a"
                                         href="/#pro"
