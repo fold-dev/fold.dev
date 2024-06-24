@@ -14,9 +14,6 @@ export const LicenseContent = (props) => (
         
         <Text>The LICENSEE is granted a license to use the SOFTWARE as the basis of any non commercial/internal application, so long as that application is owned and operated by you, the LICENSEE.</Text>
 
-        <Heading as="h3">Free License</Heading>
-        <Text>Unlimited internal & external use of Fold Core.</Text>
-
         <Heading as="h3">Indie License</Heading>
         <Text>The LICENSEE is permitted to have a maximum of three (3) developers utilizing the license key. This limitation includes any Continuous Integration/Continuous Deployment (CI/CD) platforms, which shall be considered as one of the developers.</Text>
 

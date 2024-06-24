@@ -57,7 +57,7 @@ export const FAQAccordion = (props) => (
                 Is it production ready?
             </AccordionHeading>
             <AccordionPanel>
-                Consider Early Access as alpha or pre-release software, which is still unstable. 
+                Consider Early Access as alpha software, which can be relatively unstable. 
                 The team is diligently working to fix bugs and resolve other issues.
                 To report a bug, open a new issue on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit">GitHub</Link> (label it as Pro).
             </AccordionPanel>
@@ -69,7 +69,6 @@ export const FAQAccordion = (props) => (
             <AccordionPanel>
                 Not long!
                 Until it becomes stable enough and all planned roadmap items are completed.
-                You can view the public roadmap <Link target="_blank" href="https://github.com/orgs/fold-dev/projects/8/views/2">here</Link>.
             </AccordionPanel>
         </AccordionItem>
         <AccordionItem>
