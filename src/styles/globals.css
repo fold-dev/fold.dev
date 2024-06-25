@@ -484,3 +484,9 @@ body {
 .footer_block > p {
     padding-left: 2px;
 }
+
+/* temp fix */ 
+
+.f-drag-ghost .f-kanban-card {
+    border-radius: var(--f-kanban-card-radius);
+}
