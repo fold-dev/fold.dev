@@ -9,6 +9,7 @@ import {
     Copy,
     DarkModeButton,
     DarkModeToggle,
+    DatePickerProvider,
     Divider,
     Heading,
     Icon,
@@ -23,6 +24,7 @@ import {
     Palette,
     Pill,
     Range,
+    ScrollingDatePicker,
     Select,
     Sparkline,
     Stack,
@@ -35,14 +37,71 @@ import {
     View,
     documentObject,
     timezones,
-    useCopy
+    useCopy,
+    useScrollingDatePicker
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
-import { CalendarProvider, CalendarSchedule } from '@fold-pro/react'
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { PiCompassTool } from 'react-icons/pi'
 import CodeComponent, { highlightCode } from './code.component'
 import { GraphicLeft } from './graphic.component'
+
+const ScrollingPicker = () => {
+    const { goToToday } = useScrollingDatePicker()
+    const ref = useRef(null)
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const { today, tomorrow, start, end } = useMemo(() => {
+        const today = new Date()
+        const tomorrow = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000)
+        const start = new Date(today.getTime() + 1 * 24 * 60 * 60 * 1000)
+        const end = new Date(today.getTime() + 6 * 24 * 60 * 60 * 1000)
+        return {
+            today,
+            tomorrow,
+            start,
+            end,
+        }
+    }, [])
+    const [selection, setSelection] = useState<any[]>([[start, end]])
+
+    const handleSelection = (date: Date) => {
+        if (selection.length == 0) {
+            setSelection([[date, null]])
+        } else {
+            const selected = selection[0]
+            if (!selected[0]) return setSelection([date, null])
+            if (!!selected[0] && !!selected[1]) return setSelection([[date, null]])
+            if (!!selected[0] && !selected[1])
+                return setSelection(selected[0] > date ? [[date, selected[0]]] : [[selected[0], date]])
+        }
+    }
+
+    const handleTodayClick = (e) => {
+        goToToday(ref.current)
+    }
+
+    return (
+        <View width={300}>
+            <DatePickerProvider>
+                <ScrollingDatePicker
+                    height={300}
+                    ref={ref}
+                    defaultDate={today}
+                    selection={selection}
+                    onChange={handleSelection}
+                    monthTitle={(date: Date) => (
+                        <Text
+                            p="1rem"
+                            as="span"
+                            width="100%">
+                            {monthNames[date.getMonth()]} / {date.getFullYear()}
+                        </Text>
+                    )}
+                />
+            </DatePickerProvider>
+        </View>
+    )
+}
 
 export const colors = {
     purple: `
@@ -1045,20 +1104,6 @@ const All = () => {
                         </Menu>
 
                         <Card
-                            p="0.75rem 1rem"
-                            width="100%">
-                            <Sparkline
-                                style={{ 
-                                    maskImage: 'linear-gradient(to bottom, var(--f-color-surface) 10%, transparent)',
-                                }}
-                                data={sparkline}
-                                variant="square"
-                                width="100%"
-                                height={30}
-                            />
-                        </Card>
-
-                        <Card
                             p={20}
                             width="100%">
                             <Heading
@@ -1102,7 +1147,7 @@ const All = () => {
                     <View
                         column
                         gap="1rem"
-                        width={275}>
+                        width={300}>
                         <Options
                             animated
                             shadow="none"
@@ -1135,7 +1180,7 @@ const All = () => {
                                 </Tabs>
                             </View>
                         </Card>
-
+{/* 
                         <Card
                             width="100%"
                             p="0.5rem 0.5rem">
@@ -1157,7 +1202,7 @@ const All = () => {
                                 onChange={setColor}
                             />
                         </Card>
-
+ */}
                         <Attachment
                             width="100%"
                             mime="image/png"
@@ -1223,9 +1268,29 @@ const All = () => {
                     <View
                         column
                         gap="1rem"
-                        flex={1}
+                        width={320}
                         alignItems="flex-end">
                         <Card
+                            p={10}
+                            width={320}>
+                            <ScrollingPicker />
+                        </Card>
+
+                        <Card
+                            p="0.75rem 1rem"
+                            width="100%">
+                            <Sparkline
+                                style={{ 
+                                    maskImage: 'linear-gradient(to bottom, var(--f-color-surface) 10%, transparent)',
+                                }}
+                                data={sparkline}
+                                variant="line"
+                                width="100%"
+                                height={30}
+                            />
+                        </Card>
+                        <Card
+                            display="none"
                             width="100%"
                             footer={
                                 <>
@@ -1326,32 +1391,6 @@ export const Dropdown = () => {
     )
 }
 
-export const OverviewCalendar = () => {
-    const [days, setDays] = useState(data.days)
-    const [events, setEvents] = useState(data.events)
-
-    const handleEventUpdate = (ev) => {
-        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)))
-    }
-
-    return (
-        <CalendarProvider
-            canAdd={false}
-            dimPastEvents={false}
-            hideDateLabels={true}
-            scheduleEvent={undefined}
-            monthEvent={undefined}
-            onEventOpen={(e) => null}
-            onEventUpdate={handleEventUpdate}
-            onEventAdd={(e) => null}>
-            <CalendarSchedule
-                days={days}
-                events={events.filter((e) => !e.allDay)}
-            />
-        </CalendarProvider>
-    )
-}
-
 const snippet1 = `
 \`\`\`
     <View 
@@ -1415,15 +1454,15 @@ export const CoreComponent = () => {
                         style={{ textTransform: 'uppercase' }}
                         letterSpacing={5}
                         colorToken="accent">
-                        Open Source Core
+                        Open Source
                     </Text>
                     <Heading
                         textAlign="center"
                         colorToken="accent"
                         fontWeight={400}
                         width="80%">
-                        Leverage Fold Core's 85+ components to power your next project. 
-                        Fold Core is completely free (MIT), and will always remain that way.
+                        Leverage Fold's 85+ components to power your next project. 
+                        Fold is completely free (MIT), and will always remain that way.
                     </Heading>
                     <Code snippet="npm i --save @fold-dev/core @fold-dev/design" />
                     {/* 
@@ -1485,7 +1524,7 @@ export const CoreComponent = () => {
                             letterSpacing={5}
                             colorToken="accent-300"
                             id="features">
-                            AppSandbox
+                            Vision
                         </Text>
                         <Heading
                             colorToken="accent-50"
@@ -1493,15 +1532,15 @@ export const CoreComponent = () => {
                             Made for product teams that need to scale quickly.
                         </Heading>
                         <Text colorToken="accent-100">
-                            Introducing Fold AppSandbox <sup style={{ color: 'inherit', fontWeight: 600, fontSize: 8 }}>BETA</sup>, a showcase for creating next-level product experiences with Fold.
+                            Fold provides everything you need to create next-level products, including a thoughtfully designed Design System with sensible defaults.
                         </Text>
                         <Link
                             target="_blank"
-                            href="https://app-sandbox.fold.dev"
+                            href="https://fold.dev/docs"
                             color="var(--f-color-accent-50)"
                             className="f-underline"
                             textDecoration="none">
-                            Launch AppSandbox ↗
+                            Documentation ↗
                         </Link>
                     </View>
 

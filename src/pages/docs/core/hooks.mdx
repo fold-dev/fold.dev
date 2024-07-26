@@ -184,10 +184,8 @@ export const Focus = () => {
     const [text, setText] = useState('');
     const ref = useRef(null);
     const { trapFocus } = useFocus();
-    return (<Stack direction="vertical" spacing={5}>  
-            <Button onClick={() => trapFocus(ref.current)}>
-                Trap Focus
-            </Button>
+    return (<Stack direction="vertical" spacing={5}>
+            <Button onClick={() => trapFocus(ref.current)}>Trap Focus</Button>
             <View ref={ref} column gap={5} width="100%">
                 <Input placeholder="Line 1" value={text} onChange={(e) => setText(e.target.value)}/>
                 <Input placeholder="Line 2" value={text} onChange={(e) => setText(e.target.value)}/>
@@ -201,7 +199,7 @@ export const Focus = () => {
 <Focus />
 </div>
 
-<CodeComponent filename="Focus.tsx" code="ZXhwb3J0IGNvbnN0IEZvY3VzID0gKCkgPT4gewogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGUoJycpCiAgICBjb25zdCByZWYgPSB1c2VSZWYobnVsbCkKICAgIGNvbnN0IHsgdHJhcEZvY3VzIH0gPSB1c2VGb2N1cygpCgogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIgc3BhY2luZz17NX0+ICAKICAgICAgICAgICAgPEJ1dHRvbiBvbkNsaWNrPXsoKSA9PiB0cmFwRm9jdXMocmVmLmN1cnJlbnQpfT4KICAgICAgICAgICAgICAgIFRyYXAgRm9jdXMKICAgICAgICAgICAgPC9CdXR0b24+CiAgICAgICAgICAgIDxWaWV3CiAgICAgICAgICAgICAgICByZWY9e3JlZn0KICAgICAgICAgICAgICAgIGNvbHVtbgogICAgICAgICAgICAgICAgZ2FwPXs1fQogICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiPgogICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IkxpbmUgMSIKICAgICAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJMaW5lIDIiCiAgICAgICAgICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iTGluZSAzIgogICAgICAgICAgICAgICAgICAgIHZhbHVlPXt0ZXh0fQogICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IkxpbmUgNCIKICAgICAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgPC9WaWV3PgogICAgICAgIDwvU3RhY2s+CiAgICApCn0=" />
+<CodeComponent filename="Focus.tsx" code="ZXhwb3J0IGNvbnN0IEZvY3VzID0gKCkgPT4gewogICAgY29uc3QgW3RleHQsIHNldFRleHRdID0gdXNlU3RhdGUoJycpCiAgICBjb25zdCByZWYgPSB1c2VSZWYobnVsbCkKICAgIGNvbnN0IHsgdHJhcEZvY3VzIH0gPSB1c2VGb2N1cygpCgogICAgcmV0dXJuICgKICAgICAgICA8U3RhY2sKICAgICAgICAgICAgZGlyZWN0aW9uPSJ2ZXJ0aWNhbCIKICAgICAgICAgICAgc3BhY2luZz17NX0+CiAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17KCkgPT4gdHJhcEZvY3VzKHJlZi5jdXJyZW50KX0+VHJhcCBGb2N1czwvQnV0dG9uPgogICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgcmVmPXtyZWZ9CiAgICAgICAgICAgICAgICBjb2x1bW4KICAgICAgICAgICAgICAgIGdhcD17NX0KICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIj4KICAgICAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJMaW5lIDEiCiAgICAgICAgICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICA8SW5wdXQKICAgICAgICAgICAgICAgICAgICBwbGFjZWhvbGRlcj0iTGluZSAyIgogICAgICAgICAgICAgICAgICAgIHZhbHVlPXt0ZXh0fQogICAgICAgICAgICAgICAgICAgIG9uQ2hhbmdlPXsoZSkgPT4gc2V0VGV4dChlLnRhcmdldC52YWx1ZSl9CiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPElucHV0CiAgICAgICAgICAgICAgICAgICAgcGxhY2Vob2xkZXI9IkxpbmUgMyIKICAgICAgICAgICAgICAgICAgICB2YWx1ZT17dGV4dH0KICAgICAgICAgICAgICAgICAgICBvbkNoYW5nZT17KGUpID0+IHNldFRleHQoZS50YXJnZXQudmFsdWUpfQogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgIDxJbnB1dAogICAgICAgICAgICAgICAgICAgIHBsYWNlaG9sZGVyPSJMaW5lIDQiCiAgICAgICAgICAgICAgICAgICAgdmFsdWU9e3RleHR9CiAgICAgICAgICAgICAgICAgICAgb25DaGFuZ2U9eyhlKSA9PiBzZXRUZXh0KGUudGFyZ2V0LnZhbHVlKX0KICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDwvVmlldz4KICAgICAgICA8L1N0YWNrPgogICAgKQp9" />
 
 ```tsx
 export const Focus = () => {
@@ -210,10 +208,10 @@ export const Focus = () => {
     const { trapFocus } = useFocus()
 
     return (
-        <Stack direction="vertical" spacing={5}>  
-            <Button onClick={() => trapFocus(ref.current)}>
-                Trap Focus
-            </Button>
+        <Stack
+            direction="vertical"
+            spacing={5}>
+            <Button onClick={() => trapFocus(ref.current)}>Trap Focus</Button>
             <View
                 ref={ref}
                 column

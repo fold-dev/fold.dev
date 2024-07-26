@@ -8,7 +8,7 @@ export const ContentContainerComponent = (props) => {
             p="5rem 0" 
             className="text-content"
             m="0 auto"
-            style={{ maxWidth: 1000 }}>
+            style={{ maxWidth: 'var(--f-max-width)' }}>
             {props.children}
         </View>
     )

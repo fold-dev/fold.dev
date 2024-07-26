@@ -23,15 +23,17 @@ function Home() {
             <ProComponent />
             <CoreComponent />
             <Divider />
+            {/* 
             <PricingComponent />
             <Divider />
-            {/* 
             <FAQComponent />
             <Divider />      
             */} 
             <SupportComponent />
             <Divider />
-            <GoComponent />  
+            {/* 
+            <GoComponent />   
+            */}
         </>
     )
 }

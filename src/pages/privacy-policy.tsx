@@ -1,4 +1,4 @@
-import { ContentContainerComponent } from '@/components/container-container.component'
+import { ContentContainerComponent } from '@/components/content-container.component'
 import { HeaderComponent } from '@/components/header.component'
 import { View } from '@fold-dev/core'
 import Link from 'next/link'

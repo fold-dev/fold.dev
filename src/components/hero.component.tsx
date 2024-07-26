@@ -68,12 +68,12 @@ export const HeroComponent = () => {
                         <Button
                             outline
                             as="a"
-                            href="#pro"
+                            href="#core"
                             border="0.15rem solid var(--f-color-accent)"
                             style={{
                                 '--f-button-color': 'var(--f-color-accent)',
                             }}>
-                            Buy Now
+                            Read More
                         </Button>
                         <Link
                             href="/docs"
@@ -82,7 +82,7 @@ export const HeroComponent = () => {
                             className="f-underline"
                             m="0 -1rem 0 0"
                             colorToken="accent">
-                            Read Documentation ↗
+                            Documentation ↗
                         </Link>
                     </View>
 

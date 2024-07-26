@@ -3,7 +3,7 @@ import { Heading, Li, Link, List, Notification, NotificationContent, Text, View 
 import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
 import { HeaderComponent } from '@/components/header.component'
-import { ContentContainerComponent } from '@/components/container-container.component'
+import { ContentContainerComponent } from '@/components/content-container.component'
 
 export const LicenseContent = (props) => (
     <View className="text-content">

@@ -1,0 +1,469 @@
+import { CodeComponent } from '@/components/code.component'
+import DocsLayout from '@/layouts/docs.layout'
+import ComponentLayout from '@/layouts/component.layout'
+import {
+    Button,
+    DataGrid, DataGridHeader, DataGridProvider, DataGridTypes,
+    FIBin,
+    Icon,
+    Menu,
+    MenuProvider,
+    MenuSection,
+    Portal,
+    Text,
+    View,
+    dataGridState, dispatchDataGridEvent,
+    useDialog
+} from '@fold-dev/core'
+import React, { useState } from 'react'
+import * as data from '@/dummy-data'
+
+export const docs = {
+    title: 'Data Grid',
+    subtitle: 'A robust & flexible Data Grid component engineered to handle diverse datasets with ease.',
+    description:
+        'The Data Grid component enables you to customize & extend virtually every part of it, enabling you to accommodate a wide variety of data types.',
+    experimental: true,
+}
+
+export const props = [{"tags":{},"filePath":"packages/core/src/data-grid/index.ts","description":"","displayName":"DataGridCellComponent","methods":[],"props":{"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell-component.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string | number"},"tags":{}},"options":{"defaultValue":null,"description":"","name":"options","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell-component.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell-component.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell-component.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"edit":{"defaultValue":null,"description":"","name":"edit","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell-component.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onEdit":{"defaultValue":null,"description":"","name":"onEdit","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell-component.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}},"onCancel":{"defaultValue":null,"description":"","name":"onCancel","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell-component.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"() => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/data-grid/index.ts","description":"","displayName":"DataGridCell","methods":[],"props":{"value":{"defaultValue":null,"description":"","name":"value","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string | number"},"tags":{}},"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"edit":{"defaultValue":null,"description":"","name":"edit","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"icon":{"defaultValue":null,"description":"","name":"icon","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"options":{"defaultValue":null,"description":"","name":"options","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"disableSelect":{"defaultValue":null,"description":"","name":"disableSelect","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disableEdit":{"defaultValue":null,"description":"","name":"disableEdit","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"component":{"defaultValue":null,"description":"","name":"component","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"FunctionComponent<{}>"},"tags":{}},"selected":{"defaultValue":null,"description":"","name":"selected","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onSelect":{"defaultValue":null,"description":"","name":"onSelect","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-cell.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/data-grid/index.ts","description":"","displayName":"DataGridDefaultCellComponent","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/data-grid/index.ts","description":"","displayName":"DataGridHeaderCellComponent","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell-component.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"label":{"defaultValue":null,"description":"","name":"label","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell-component.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"string"},"tags":{}},"sortOrder":{"defaultValue":null,"description":"","name":"sortOrder","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell-component.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"ASC\" | \"DESC\""},"tags":{}},"menu":{"defaultValue":null,"description":"","name":"menu","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell-component.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell-component.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell-component.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"align":{"defaultValue":null,"description":"","name":"align","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell-component.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"left\" | \"right\" | \"center\""},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell-component.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"(value: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/data-grid/index.ts","description":"","displayName":"DataGridHeaderCell","methods":[],"props":{"index":{"defaultValue":null,"description":"","name":"index","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"label":{"defaultValue":null,"description":"","name":"label","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"disabled":{"defaultValue":null,"description":"","name":"disabled","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"menu":{"defaultValue":null,"description":"","name":"menu","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"align":{"defaultValue":null,"description":"","name":"align","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"left\" | \"right\" | \"center\""},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"sortOrder":{"defaultValue":null,"description":"","name":"sortOrder","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"ASC\" | \"DESC\""},"tags":{}},"component":{"defaultValue":null,"description":"","name":"component","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"FunctionComponent<{}>"},"tags":{}},"onClick":{"defaultValue":null,"description":"","name":"onClick","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}},"onWidthChange":{"defaultValue":null,"description":"","name":"onWidthChange","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}},"disableWidthChange":{"defaultValue":null,"description":"","name":"disableWidthChange","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"disableDrag":{"defaultValue":null,"description":"","name":"disableDrag","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header-cell.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/data-grid/index.ts","description":"","displayName":"DataGridHeader","methods":[],"props":{"sticky":{"defaultValue":null,"description":"","name":"sticky","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"columns":{"defaultValue":null,"description":"","name":"columns","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Column[]"},"tags":{}},"hideCheckbox":{"defaultValue":null,"description":"","name":"hideCheckbox","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"component":{"defaultValue":null,"description":"","name":"component","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"FunctionComponent<{}>"},"tags":{}},"resizableColumns":{"defaultValue":null,"description":"","name":"resizableColumns","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onWidthChange":{"defaultValue":null,"description":"","name":"onWidthChange","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(index: any, value: any) => void"},"tags":{}},"onColumnClick":{"defaultValue":null,"description":"","name":"onColumnClick","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid-header.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(index: any, value: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/data-grid/index.ts","description":"","displayName":"DataGridRow","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/data-grid/index.ts","description":"","displayName":"DataGridProvider","methods":[],"props":{"id":{"defaultValue":null,"description":"","name":"id","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"columnWidths":{"defaultValue":null,"description":"","name":"columnWidths","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.provider.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any[]"},"tags":{}},"columnTypes":{"defaultValue":null,"description":"","name":"columnTypes","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"FunctionComponent<{}>[]"},"tags":{}},"defaultCellSelection":{"defaultValue":null,"description":"","name":"defaultCellSelection","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"defaultRowSelection":{"defaultValue":null,"description":"","name":"defaultRowSelection","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"draggableColumns":{"defaultValue":null,"description":"","name":"draggableColumns","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"draggableRows":{"defaultValue":null,"description":"","name":"draggableRows","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"maxRowsSelectable":{"defaultValue":null,"description":"","name":"maxRowsSelectable","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"singleRowSelect":{"defaultValue":null,"description":"","name":"singleRowSelect","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onSelect":{"defaultValue":null,"description":"","name":"onSelect","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.provider.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/data-grid/index.ts","description":"","displayName":"DataGrid","methods":[],"props":{"variant":{"defaultValue":null,"description":"","name":"variant","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"virtual\" | \"default\""},"tags":{}},"virtual":{"defaultValue":null,"description":"","name":"virtual","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"{ rows: number; rowHeight: number; paddingTop: number; paddingBottom: number; }"},"tags":{}},"hideCheckbox":{"defaultValue":null,"description":"","name":"hideCheckbox","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"useFoldScroll":{"defaultValue":null,"description":"","name":"useFoldScroll","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"rows":{"defaultValue":null,"description":"","name":"rows","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"Cell[][]"},"tags":{}},"footer":{"defaultValue":null,"description":"","name":"footer","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"header":{"defaultValue":null,"description":"","name":"header","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactNode"},"tags":{}},"pinFirst":{"defaultValue":null,"description":"","name":"pinFirst","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"pinLast":{"defaultValue":null,"description":"","name":"pinLast","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"onCellUpdate":{"defaultValue":null,"description":"","name":"onCellUpdate","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}},"onCellDelete":{"defaultValue":null,"description":"","name":"onCellDelete","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}},"onColumnMove":{"defaultValue":null,"description":"","name":"onColumnMove","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}},"onRowMove":{"defaultValue":null,"description":"","name":"onRowMove","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(value: any) => void"},"tags":{}},"onScroll":{"defaultValue":null,"description":"","name":"onScroll","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"},{"fileName":"fold/node_modules/@types/react/ts5.0/index.d.ts","name":"DOMAttributes"}],"required":false,"type":{"name":"((value: any) => void) & UIEventHandler<any>"},"tags":{}},"toolbar":{"defaultValue":null,"description":"","name":"toolbar","declarations":[{"fileName":"fold/packages/core/src/data-grid/data-grid.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"(selection: any) => ReactNode"},"tags":{}}}}]
+
+export const css = [[["--f-data-grid-gutter-width","100px"]],[["--f-data-grid-selected-width","0.2rem"],["--f-data-grid-border","none"],["--f-data-grid-background","var(--f-color-surface)"],["--f-data-grid-columns","var(--f-data-grid-gutter-width) 300px 200px 200px 200px 200px 200px 200px 150px 150px 150px 150px 150px"],["--f-data-grid-cell-height","40px"],["--f-data-grid-border-bottom","1px solid var(--f-color-surface-stronger)"],["--f-data-grid-border-right","1px solid var(--f-color-surface-stronger)"],["--f-data-grid-background-selected","var(--f-color-surface-stronger)"],["--f-data-grid-background-hover","var(--f-color-surface-strong)"],["--f-data-grid-background-header","var(--f-color-surface-strong)"],["--f-data-grid-background-header-hover","var(--f-color-surface-stronger)"]],[["--f-data-grid-row-padding-left","1rem"],["--f-data-grid-row-padding-right","5rem"]],[["--f-data-grid-gutter-number-display","block"],["--f-data-grid-gutter-number-left","0px"],["--f-data-grid-gutter-number-size","var(--f-font-size-md)"]]]
+
+
+
+<CodeComponent filename="data-grid.tsx" code="aW1wb3J0IHsKICBEYXRhR3JpZENlbGxDb21wb25lbnQsCiAgRGF0YUdyaWRDZWxsLAogIERhdGFHcmlkRGVmYXVsdENlbGxDb21wb25lbnQsCiAgRGF0YUdyaWRIZWFkZXJDZWxsQ29tcG9uZW50LAogIERhdGFHcmlkSGVhZGVyQ2VsbCwKICBEYXRhR3JpZEhlYWRlciwKICBEYXRhR3JpZFJvdywKICBEYXRhR3JpZFByb3ZpZGVyLAogIERhdGFHcmlkLAp9IGZyb20gIkBmb2xkLWRldi9jb3JlIjsK" />
+```tsx
+import {
+  DataGridCellComponent,
+  DataGridCell,
+  DataGridDefaultCellComponent,
+  DataGridHeaderCellComponent,
+  DataGridHeaderCell,
+  DataGridHeader,
+  DataGridRow,
+  DataGridProvider,
+  DataGrid,
+} from "@fold-dev/core";
+```
+
+### Usage
+
+export const Usage = () => {
+    const [columnWidths, setColumnWidths] = useState(data.widths);
+    const [columns, setColumns] = useState(data.columns);
+    const [footerColumns, setFooterColumns] = useState(data.footer);
+    const [columnTypes, setColumnTypes] = useState(data.columnTypes);
+    const [rows, setRows] = useState(data.lessRows);
+    const { setDialog, closeDialog } = useDialog();
+    const handleColumnMove = ({ origin, target }) => {
+        dataGridState({
+            columnWidths,
+            setColumnWidths,
+            columnTypes,
+            setColumnTypes,
+            columns,
+            setColumns,
+            footerColumns,
+            setFooterColumns,
+            rows,
+            setRows,
+        }).handleColumnMove({ origin, target });
+    };
+    const handleRowMove = ({ origin, target }) => {
+        dataGridState({
+            columnWidths,
+            setColumnWidths,
+            columnTypes,
+            setColumnTypes,
+            columns,
+            setColumns,
+            footerColumns,
+            setFooterColumns,
+            rows,
+            setRows,
+        }).handleRowMove({ origin, target });
+    };
+    const handleColumnClick = (index, column) => {
+        dataGridState({
+            columnWidths,
+            setColumnWidths,
+            columnTypes,
+            setColumnTypes,
+            columns,
+            setColumns,
+            footerColumns,
+            setFooterColumns,
+            rows,
+            setRows,
+        }).handleColumnClick(index, column);
+    };
+    const handleCellUpdate = ({ value, row, col }) => {
+        dataGridState({
+            columnWidths,
+            setColumnWidths,
+            columnTypes,
+            setColumnTypes,
+            columns,
+            setColumns,
+            footerColumns,
+            setFooterColumns,
+            rows,
+            setRows,
+        }).handleCellUpdate({ value, row, col });
+    };
+    const handleCellDelete = ({ row, col }) => {
+        dataGridState({
+            columnWidths,
+            setColumnWidths,
+            columnTypes,
+            setColumnTypes,
+            columns,
+            setColumns,
+            footerColumns,
+            setFooterColumns,
+            rows,
+            setRows,
+        }).handleCellDelete({ row, col });
+    };
+    return (<>
+            <style>
+                {`
+                    input[type="range"].f-dummy-gradient-range {
+                        padding: 0;
+                        margin: 0;
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        width: 100%;
+                        height: 100%;   
+                        z-index: 5;
+                        -webkit-appearance: none;
+                        background: linear-gradient(to right,rgb(98, 0, 255) 0%, rgb(255, 0, 255) 100%);
+                    }
+
+                    input[type="range"].f-dummy-gradient-range::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        height: 28px;
+                        width: 5px;
+                        border: none;
+                        background-color: var(--f-color-surface);
+                        box-shadow: none;
+                    }
+
+                    input[type="range"].f-dummy-gradient-range:focus::-webkit-slider-thumb {
+                        outline: none;
+                    }
+
+                    input[type="range"].f-dummy-gradient-range:hover::-webkit-slider-thumb {
+                        cursor: pointer;
+                        background-color: var(--f-color-surface);
+                        border: none;
+                    }
+
+                    input[type="range"].f-dummy-gradient-range::-webkit-slider-runnable-track  {
+                        -webkit-appearance: none;
+                        box-shadow: none;
+                        border: none;
+                        background: transparent;
+                    }
+                `}
+            </style>
+            <MenuProvider menu={({ data: { target, payload }, dismiss }) => (<Menu>
+                        <MenuSection>Menu for: {target}</MenuSection>
+                    </Menu>)}>
+                <DataGridProvider id="instance-1" columnWidths={columnWidths} columnTypes={columnTypes} defaultCellSelection={{}} defaultRowSelection={{}} draggableColumns draggableRows maxRowsSelectable={undefined} singleRowSelect={false} onSelect={({ rows, cols }) => null}>
+                    <DataGrid variant="virtual" virtual={{
+            rows: 10,
+            rowHeight: 40,
+            paddingTop: 40,
+            paddingBottom: 30,
+        }} rows={rows} hideCheckbox={false} useFoldScroll header={<DataGridHeader resizableColumns columns={columns} onColumnClick={handleColumnClick} onWidthChange={(index, width) => setColumnWidths(columnWidths.map((w, i) => (i == index ? width : w)))}/>} footer={<DataGridHeader hideCheckbox component={data.FooterCell} columns={footerColumns} style={{
+                '--f-data-grid-cell-height': '30px',
+                'bottom': 0,
+            }}/>} pinFirst pinLast onCellUpdate={handleCellUpdate} onCellDelete={handleCellDelete} onColumnMove={handleColumnMove} onRowMove={handleRowMove} onScroll={(e) => null} toolbar={({ rowSelection, cellSelection }) => (<View row position="absolute" bgToken="surface-inverse" colorToken="text-on-color" p="1rem 2rem" radius="var(--f-radius)" shadow="var(--f-shadow-xl)" zIndex={1000} gap={10} display={!Object.values(rowSelection).length ? 'none' : 'flex'} style={{ bottom: 10, left: '50%', transform: 'translateX(-50%)' }}>
+                                <Text color="inherit">
+                                    {Object.values(rowSelection).length}{' '}
+                                    {Object.values(rowSelection).length == 1 ? 'row' : 'rows'} selected
+                                </Text>
+                                <Icon icon={FIBin} className="f-buttonize" onClick={() => {
+                setDialog({
+                    title: 'Are you sure?',
+                    description: 'This action cannot be undone.',
+                    portal: Portal,
+                    footer: (<View width="100%" row justifyContent="space-between">
+                                                    <Button onClick={closeDialog}>Cancel</Button>
+                                                    <Button variant="danger" onClick={() => {
+                            const rowIndexes = Object.keys(rowSelection).map((key) => +key.split('-')[1]);
+                            setRows(rows.filter((_, index) => !rowIndexes.includes(index)));
+                            closeDialog();
+                            dispatchDataGridEvent('select-rows', {
+                                instanceId: 'instance-1',
+                            });
+                        }}>
+                                                        Delete
+                                                    </Button>
+                                                </View>),
+                });
+            }}/>
+                            </View>)}/>
+                </DataGridProvider>
+            </MenuProvider>
+        </>);
+};
+
+<div className="story-block">
+<Usage />
+</div>
+
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW2NvbHVtbldpZHRocywgc2V0Q29sdW1uV2lkdGhzXSA9IHVzZVN0YXRlKGRhdGEud2lkdGhzKQogICAgY29uc3QgW2NvbHVtbnMsIHNldENvbHVtbnNdID0gdXNlU3RhdGU8RGF0YUdyaWRUeXBlcy5Db2x1bW5bXT4oZGF0YS5jb2x1bW5zKQogICAgY29uc3QgW2Zvb3RlckNvbHVtbnMsIHNldEZvb3RlckNvbHVtbnNdID0gdXNlU3RhdGU8RGF0YUdyaWRUeXBlcy5Db2x1bW5bXT4oZGF0YS5mb290ZXIpCiAgICBjb25zdCBbY29sdW1uVHlwZXMsIHNldENvbHVtblR5cGVzXSA9IHVzZVN0YXRlKGRhdGEuY29sdW1uVHlwZXMpCiAgICAKICAgIGNvbnN0IFtyb3dzLCBzZXRSb3dzXSA9IHVzZVN0YXRlPERhdGFHcmlkVHlwZXMuQ2VsbFtdW10+KGRhdGEubGVzc1Jvd3MpCiAgICBjb25zdCB7IHNldERpYWxvZywgY2xvc2VEaWFsb2cgfSA9IHVzZURpYWxvZygpCgogICAgY29uc3QgaGFuZGxlQ29sdW1uTW92ZSA9ICh7IG9yaWdpbiwgdGFyZ2V0IH0pID0+IHsKICAgICAgICBkYXRhR3JpZFN0YXRlKHsKICAgICAgICAgICAgY29sdW1uV2lkdGhzLAogICAgICAgICAgICBzZXRDb2x1bW5XaWR0aHMsCiAgICAgICAgICAgIGNvbHVtblR5cGVzLAogICAgICAgICAgICBzZXRDb2x1bW5UeXBlcywKICAgICAgICAgICAgY29sdW1ucywKICAgICAgICAgICAgc2V0Q29sdW1ucywKICAgICAgICAgICAgZm9vdGVyQ29sdW1ucywKICAgICAgICAgICAgc2V0Rm9vdGVyQ29sdW1ucywKICAgICAgICAgICAgcm93cywKICAgICAgICAgICAgc2V0Um93cywKICAgICAgICB9KS5oYW5kbGVDb2x1bW5Nb3ZlKHsgb3JpZ2luLCB0YXJnZXQgfSkKICAgIH0KCiAgICBjb25zdCBoYW5kbGVSb3dNb3ZlID0gKHsgb3JpZ2luLCB0YXJnZXQgfSkgPT4gewogICAgICAgIGRhdGFHcmlkU3RhdGUoewogICAgICAgICAgICBjb2x1bW5XaWR0aHMsCiAgICAgICAgICAgIHNldENvbHVtbldpZHRocywKICAgICAgICAgICAgY29sdW1uVHlwZXMsCiAgICAgICAgICAgIHNldENvbHVtblR5cGVzLAogICAgICAgICAgICBjb2x1bW5zLAogICAgICAgICAgICBzZXRDb2x1bW5zLAogICAgICAgICAgICBmb290ZXJDb2x1bW5zLAogICAgICAgICAgICBzZXRGb290ZXJDb2x1bW5zLAogICAgICAgICAgICByb3dzLAogICAgICAgICAgICBzZXRSb3dzLAogICAgICAgIH0pLmhhbmRsZVJvd01vdmUoeyBvcmlnaW4sIHRhcmdldCB9KQogICAgfQoKICAgIGNvbnN0IGhhbmRsZUNvbHVtbkNsaWNrID0gKGluZGV4LCBjb2x1bW46IERhdGFHcmlkVHlwZXMuQ29sdW1uKSA9PiB7CiAgICAgICAgZGF0YUdyaWRTdGF0ZSh7CiAgICAgICAgICAgIGNvbHVtbldpZHRocywKICAgICAgICAgICAgc2V0Q29sdW1uV2lkdGhzLAogICAgICAgICAgICBjb2x1bW5UeXBlcywKICAgICAgICAgICAgc2V0Q29sdW1uVHlwZXMsCiAgICAgICAgICAgIGNvbHVtbnMsCiAgICAgICAgICAgIHNldENvbHVtbnMsCiAgICAgICAgICAgIGZvb3RlckNvbHVtbnMsCiAgICAgICAgICAgIHNldEZvb3RlckNvbHVtbnMsCiAgICAgICAgICAgIHJvd3MsCiAgICAgICAgICAgIHNldFJvd3MsCiAgICAgICAgfSkuaGFuZGxlQ29sdW1uQ2xpY2soaW5kZXgsIGNvbHVtbikKICAgIH0KCiAgICBjb25zdCBoYW5kbGVDZWxsVXBkYXRlID0gKHsgdmFsdWUsIHJvdywgY29sIH0pID0+IHsKICAgICAgICBkYXRhR3JpZFN0YXRlKHsKICAgICAgICAgICAgY29sdW1uV2lkdGhzLAogICAgICAgICAgICBzZXRDb2x1bW5XaWR0aHMsCiAgICAgICAgICAgIGNvbHVtblR5cGVzLAogICAgICAgICAgICBzZXRDb2x1bW5UeXBlcywKICAgICAgICAgICAgY29sdW1ucywKICAgICAgICAgICAgc2V0Q29sdW1ucywKICAgICAgICAgICAgZm9vdGVyQ29sdW1ucywKICAgICAgICAgICAgc2V0Rm9vdGVyQ29sdW1ucywKICAgICAgICAgICAgcm93cywKICAgICAgICAgICAgc2V0Um93cywKICAgICAgICB9KS5oYW5kbGVDZWxsVXBkYXRlKHsgdmFsdWUsIHJvdywgY29sIH0pCiAgICB9CgogICAgY29uc3QgaGFuZGxlQ2VsbERlbGV0ZSA9ICh7IHJvdywgY29sIH0pID0+IHsKICAgICAgICBkYXRhR3JpZFN0YXRlKHsKICAgICAgICAgICAgY29sdW1uV2lkdGhzLAogICAgICAgICAgICBzZXRDb2x1bW5XaWR0aHMsCiAgICAgICAgICAgIGNvbHVtblR5cGVzLAogICAgICAgICAgICBzZXRDb2x1bW5UeXBlcywKICAgICAgICAgICAgY29sdW1ucywKICAgICAgICAgICAgc2V0Q29sdW1ucywKICAgICAgICAgICAgZm9vdGVyQ29sdW1ucywKICAgICAgICAgICAgc2V0Rm9vdGVyQ29sdW1ucywKICAgICAgICAgICAgcm93cywKICAgICAgICAgICAgc2V0Um93cywKICAgICAgICB9KS5oYW5kbGVDZWxsRGVsZXRlKHsgcm93LCBjb2wgfSkKICAgIH0KCiAgICByZXR1cm4gKAogICAgICAgIDw+CiAgICAgICAgICAgIDxzdHlsZT4KICAgICAgICAgICAgICAgIHtgCiAgICAgICAgICAgICAgICAgICAgaW5wdXRbdHlwZT0icmFuZ2UiXS5mLWR1bW15LWdyYWRpZW50LXJhbmdlIHsKICAgICAgICAgICAgICAgICAgICAgICAgcGFkZGluZzogMDsKICAgICAgICAgICAgICAgICAgICAgICAgbWFyZ2luOiAwOwogICAgICAgICAgICAgICAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICAgICAgICAgICAgICAgICAgICAgIHRvcDogMHB4OwogICAgICAgICAgICAgICAgICAgICAgICBsZWZ0OiAwcHg7CiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoOiAxMDAlOwogICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ6IDEwMCU7ICAgCiAgICAgICAgICAgICAgICAgICAgICAgIHotaW5kZXg6IDU7CiAgICAgICAgICAgICAgICAgICAgICAgIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTsKICAgICAgICAgICAgICAgICAgICAgICAgYmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LHJnYig5OCwgMCwgMjU1KSAwJSwgcmdiKDI1NSwgMCwgMjU1KSAxMDAlKTsKICAgICAgICAgICAgICAgICAgICB9CgogICAgICAgICAgICAgICAgICAgIGlucHV0W3R5cGU9InJhbmdlIl0uZi1kdW1teS1ncmFkaWVudC1yYW5nZTo6LXdlYmtpdC1zbGlkZXItdGh1bWIgewogICAgICAgICAgICAgICAgICAgICAgICAtd2Via2l0LWFwcGVhcmFuY2U6IG5vbmU7CiAgICAgICAgICAgICAgICAgICAgICAgIGhlaWdodDogMjhweDsKICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDVweDsKICAgICAgICAgICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1mLWNvbG9yLXN1cmZhY2UpOwogICAgICAgICAgICAgICAgICAgICAgICBib3gtc2hhZG93OiBub25lOwogICAgICAgICAgICAgICAgICAgIH0KCiAgICAgICAgICAgICAgICAgICAgaW5wdXRbdHlwZT0icmFuZ2UiXS5mLWR1bW15LWdyYWRpZW50LXJhbmdlOmZvY3VzOjotd2Via2l0LXNsaWRlci10aHVtYiB7CiAgICAgICAgICAgICAgICAgICAgICAgIG91dGxpbmU6IG5vbmU7CiAgICAgICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgICAgICBpbnB1dFt0eXBlPSJyYW5nZSJdLmYtZHVtbXktZ3JhZGllbnQtcmFuZ2U6aG92ZXI6Oi13ZWJraXQtc2xpZGVyLXRodW1iIHsKICAgICAgICAgICAgICAgICAgICAgICAgY3Vyc29yOiBwb2ludGVyOwogICAgICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kLWNvbG9yOiB2YXIoLS1mLWNvbG9yLXN1cmZhY2UpOwogICAgICAgICAgICAgICAgICAgICAgICBib3JkZXI6IG5vbmU7CiAgICAgICAgICAgICAgICAgICAgfQoKICAgICAgICAgICAgICAgICAgICBpbnB1dFt0eXBlPSJyYW5nZSJdLmYtZHVtbXktZ3JhZGllbnQtcmFuZ2U6Oi13ZWJraXQtc2xpZGVyLXJ1bm5hYmxlLXRyYWNrICB7CiAgICAgICAgICAgICAgICAgICAgICAgIC13ZWJraXQtYXBwZWFyYW5jZTogbm9uZTsKICAgICAgICAgICAgICAgICAgICAgICAgYm94LXNoYWRvdzogbm9uZTsKICAgICAgICAgICAgICAgICAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgICAgICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudDsKICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICBgfQogICAgICAgICAgICA8L3N0eWxlPgogICAgICAgICAgICA8TWVudVByb3ZpZGVyCiAgICAgICAgICAgICAgICBtZW51PXsoeyBkYXRhOiB7IHRhcmdldCwgcGF5bG9hZCB9LCBkaXNtaXNzIH0pID0+ICgKICAgICAgICAgICAgICAgICAgICA8TWVudT4KICAgICAgICAgICAgICAgICAgICAgICAgPE1lbnVTZWN0aW9uPk1lbnUgZm9yOiB7dGFyZ2V0fTwvTWVudVNlY3Rpb24+CiAgICAgICAgICAgICAgICAgICAgPC9NZW51PgogICAgICAgICAgICAgICAgKX0+CiAgICAgICAgICAgICAgICA8RGF0YUdyaWRQcm92aWRlcgogICAgICAgICAgICAgICAgICAgIGlkPSJpbnN0YW5jZS0xIgogICAgICAgICAgICAgICAgICAgIGNvbHVtbldpZHRocz17Y29sdW1uV2lkdGhzfQogICAgICAgICAgICAgICAgICAgIGNvbHVtblR5cGVzPXtjb2x1bW5UeXBlc30KICAgICAgICAgICAgICAgICAgICBkZWZhdWx0Q2VsbFNlbGVjdGlvbj17e319CiAgICAgICAgICAgICAgICAgICAgZGVmYXVsdFJvd1NlbGVjdGlvbj17e319CiAgICAgICAgICAgICAgICAgICAgZHJhZ2dhYmxlQ29sdW1ucwogICAgICAgICAgICAgICAgICAgIGRyYWdnYWJsZVJvd3MKICAgICAgICAgICAgICAgICAgICBtYXhSb3dzU2VsZWN0YWJsZT17dW5kZWZpbmVkfQogICAgICAgICAgICAgICAgICAgIHNpbmdsZVJvd1NlbGVjdD17ZmFsc2V9CiAgICAgICAgICAgICAgICAgICAgb25TZWxlY3Q9eyh7IHJvd3MsIGNvbHMgfTogYW55KSA9PiBudWxsfT4KICAgICAgICAgICAgICAgICAgICA8RGF0YUdyaWQKICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9InZpcnR1YWwiCiAgICAgICAgICAgICAgICAgICAgICAgIHZpcnR1YWw9e3sKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJvd3M6IDEwLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgcm93SGVpZ2h0OiA0MCwKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBhZGRpbmdUb3A6IDQwLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgcGFkZGluZ0JvdHRvbTogMzAsCiAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgIHJvd3M9e3Jvd3N9CiAgICAgICAgICAgICAgICAgICAgICAgIGhpZGVDaGVja2JveD17ZmFsc2V9CiAgICAgICAgICAgICAgICAgICAgICAgIHVzZUZvbGRTY3JvbGwKICAgICAgICAgICAgICAgICAgICAgICAgaGVhZGVyPXsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxEYXRhR3JpZEhlYWRlcgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJlc2l6YWJsZUNvbHVtbnMKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb2x1bW5zPXtjb2x1bW5zfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uQ29sdW1uQ2xpY2s9e2hhbmRsZUNvbHVtbkNsaWNrfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG9uV2lkdGhDaGFuZ2U9eyhpbmRleCwgd2lkdGgpID0+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHNldENvbHVtbldpZHRocyhjb2x1bW5XaWR0aHMubWFwKCh3LCBpKSA9PiAoaSA9PSBpbmRleCA/IHdpZHRoIDogdykpKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAgICAgZm9vdGVyPXsKICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxEYXRhR3JpZEhlYWRlcgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGhpZGVDaGVja2JveAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbXBvbmVudD17ZGF0YS5Gb290ZXJDZWxsfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbHVtbnM9e2Zvb3RlckNvbHVtbnN9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3sKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJy0tZi1kYXRhLWdyaWQtY2VsbC1oZWlnaHQnOiAnMzBweCcsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICdib3R0b20nOiAwLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAgICAgICAgICAgICAgICAgICAgIHBpbkZpcnN0CiAgICAgICAgICAgICAgICAgICAgICAgIHBpbkxhc3QKICAgICAgICAgICAgICAgICAgICAgICAgb25DZWxsVXBkYXRlPXtoYW5kbGVDZWxsVXBkYXRlfQogICAgICAgICAgICAgICAgICAgICAgICBvbkNlbGxEZWxldGU9e2hhbmRsZUNlbGxEZWxldGV9CiAgICAgICAgICAgICAgICAgICAgICAgIG9uQ29sdW1uTW92ZT17aGFuZGxlQ29sdW1uTW92ZX0KICAgICAgICAgICAgICAgICAgICAgICAgb25Sb3dNb3ZlPXtoYW5kbGVSb3dNb3ZlfQogICAgICAgICAgICAgICAgICAgICAgICBvblNjcm9sbD17KGUpID0+IG51bGx9CiAgICAgICAgICAgICAgICAgICAgICAgIHRvb2xiYXI9eyh7IHJvd1NlbGVjdGlvbiwgY2VsbFNlbGVjdGlvbiB9KSA9PiAoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJvdwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBvc2l0aW9uPSJhYnNvbHV0ZSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBiZ1Rva2VuPSJzdXJmYWNlLWludmVyc2UiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29sb3JUb2tlbj0idGV4dC1vbi1jb2xvciIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwPSIxcmVtIDJyZW0iCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmFkaXVzPSJ2YXIoLS1mLXJhZGl1cykiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2hhZG93PSJ2YXIoLS1mLXNoYWRvdy14bCkiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgekluZGV4PXsxMDAwfQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdhcD17MTB9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzcGxheT17IU9iamVjdC52YWx1ZXMocm93U2VsZWN0aW9uKS5sZW5ndGggPyAnbm9uZScgOiAnZmxleCd9CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3R5bGU9e3sgYm90dG9tOiAxMCwgbGVmdDogJzUwJScsIHRyYW5zZm9ybTogJ3RyYW5zbGF0ZVgoLTUwJSknIH19PgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxUZXh0IGNvbG9yPSJpbmhlcml0Ij4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge09iamVjdC52YWx1ZXMocm93U2VsZWN0aW9uKS5sZW5ndGh9eycgJ30KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAge09iamVjdC52YWx1ZXMocm93U2VsZWN0aW9uKS5sZW5ndGggPT0gMSA/ICdyb3cnIDogJ3Jvd3MnfSBzZWxlY3RlZAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVGV4dD4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8SWNvbgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpY29uPXtGSUJpbn0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xhc3NOYW1lPSJmLWJ1dHRvbml6ZSIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb25DbGljaz17KCkgPT4gewogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0RGlhbG9nKHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0aXRsZTogJ0FyZSB5b3Ugc3VyZT8nLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiAnVGhpcyBhY3Rpb24gY2Fubm90IGJlIHVuZG9uZS4nLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBvcnRhbDogUG9ydGFsLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZvb3RlcjogKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8VmlldwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICByb3cKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGp1c3RpZnlDb250ZW50PSJzcGFjZS1iZXR3ZWVuIj4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxCdXR0b24gb25DbGljaz17Y2xvc2VEaWFsb2d9PkNhbmNlbDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEJ1dHRvbgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhbnQ9ImRhbmdlciIKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvbkNsaWNrPXsoKSA9PiB7CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnN0IHJvd0luZGV4ZXMgPSBPYmplY3Qua2V5cyhyb3dTZWxlY3Rpb24pLm1hcCgKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIChrZXk6IGFueSkgPT4gK2tleS5zcGxpdCgnLScpWzFdCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2V0Um93cygKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHJvd3MuZmlsdGVyKChfLCBpbmRleCkgPT4gIXJvd0luZGV4ZXMuaW5jbHVkZXMoaW5kZXgpKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICApCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNsb3NlRGlhbG9nKCkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGlzcGF0Y2hEYXRhR3JpZEV2ZW50KCdzZWxlY3Qtcm93cycsIHsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGluc3RhbmNlSWQ6ICdpbnN0YW5jZS0xJywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfSkKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9fT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBEZWxldGUKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvQnV0dG9uPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA8L1ZpZXc+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH0pCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIH19CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvVmlldz4KICAgICAgICAgICAgICAgICAgICAgICAgKX0KICAgICAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICAgICAgPC9EYXRhR3JpZFByb3ZpZGVyPgogICAgICAgICAgICA8L01lbnVQcm92aWRlcj4KICAgICAgICA8Lz4KICAgICkKfQ==" />
+
+```tsx
+export const Usage = () => {
+    const [columnWidths, setColumnWidths] = useState(data.widths)
+    const [columns, setColumns] = useState<DataGridTypes.Column[]>(data.columns)
+    const [footerColumns, setFooterColumns] = useState<DataGridTypes.Column[]>(data.footer)
+    const [columnTypes, setColumnTypes] = useState(data.columnTypes)
+    
+    const [rows, setRows] = useState<DataGridTypes.Cell[][]>(data.lessRows)
+    const { setDialog, closeDialog } = useDialog()
+
+    const handleColumnMove = ({ origin, target }) => {
+        dataGridState({
+            columnWidths,
+            setColumnWidths,
+            columnTypes,
+            setColumnTypes,
+            columns,
+            setColumns,
+            footerColumns,
+            setFooterColumns,
+            rows,
+            setRows,
+        }).handleColumnMove({ origin, target })
+    }
+
+    const handleRowMove = ({ origin, target }) => {
+        dataGridState({
+            columnWidths,
+            setColumnWidths,
+            columnTypes,
+            setColumnTypes,
+            columns,
+            setColumns,
+            footerColumns,
+            setFooterColumns,
+            rows,
+            setRows,
+        }).handleRowMove({ origin, target })
+    }
+
+    const handleColumnClick = (index, column: DataGridTypes.Column) => {
+        dataGridState({
+            columnWidths,
+            setColumnWidths,
+            columnTypes,
+            setColumnTypes,
+            columns,
+            setColumns,
+            footerColumns,
+            setFooterColumns,
+            rows,
+            setRows,
+        }).handleColumnClick(index, column)
+    }
+
+    const handleCellUpdate = ({ value, row, col }) => {
+        dataGridState({
+            columnWidths,
+            setColumnWidths,
+            columnTypes,
+            setColumnTypes,
+            columns,
+            setColumns,
+            footerColumns,
+            setFooterColumns,
+            rows,
+            setRows,
+        }).handleCellUpdate({ value, row, col })
+    }
+
+    const handleCellDelete = ({ row, col }) => {
+        dataGridState({
+            columnWidths,
+            setColumnWidths,
+            columnTypes,
+            setColumnTypes,
+            columns,
+            setColumns,
+            footerColumns,
+            setFooterColumns,
+            rows,
+            setRows,
+        }).handleCellDelete({ row, col })
+    }
+
+    return (
+        <>
+            <style>
+                {`
+                    input[type="range"].f-dummy-gradient-range {
+                        padding: 0;
+                        margin: 0;
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        width: 100%;
+                        height: 100%;   
+                        z-index: 5;
+                        -webkit-appearance: none;
+                        background: linear-gradient(to right,rgb(98, 0, 255) 0%, rgb(255, 0, 255) 100%);
+                    }
+
+                    input[type="range"].f-dummy-gradient-range::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        height: 28px;
+                        width: 5px;
+                        border: none;
+                        background-color: var(--f-color-surface);
+                        box-shadow: none;
+                    }
+
+                    input[type="range"].f-dummy-gradient-range:focus::-webkit-slider-thumb {
+                        outline: none;
+                    }
+
+                    input[type="range"].f-dummy-gradient-range:hover::-webkit-slider-thumb {
+                        cursor: pointer;
+                        background-color: var(--f-color-surface);
+                        border: none;
+                    }
+
+                    input[type="range"].f-dummy-gradient-range::-webkit-slider-runnable-track  {
+                        -webkit-appearance: none;
+                        box-shadow: none;
+                        border: none;
+                        background: transparent;
+                    }
+                `}
+            </style>
+            <MenuProvider
+                menu={({ data: { target, payload }, dismiss }) => (
+                    <Menu>
+                        <MenuSection>Menu for: {target}</MenuSection>
+                    </Menu>
+                )}>
+                <DataGridProvider
+                    id="instance-1"
+                    columnWidths={columnWidths}
+                    columnTypes={columnTypes}
+                    defaultCellSelection={{}}
+                    defaultRowSelection={{}}
+                    draggableColumns
+                    draggableRows
+                    maxRowsSelectable={undefined}
+                    singleRowSelect={false}
+                    onSelect={({ rows, cols }: any) => null}>
+                    <DataGrid
+                        
+                        variant="virtual"
+                        virtual={{
+                            rows: 10,
+                            rowHeight: 40,
+                            paddingTop: 40,
+                            paddingBottom: 30,
+                        }}
+                        rows={rows}
+                        hideCheckbox={false}
+                        useFoldScroll
+                        header={
+                            <DataGridHeader
+                                resizableColumns
+                                columns={columns}
+                                onColumnClick={handleColumnClick}
+                                onWidthChange={(index, width) =>
+                                    setColumnWidths(columnWidths.map((w, i) => (i == index ? width : w)))
+                                }
+                            />
+                        }
+                        footer={
+                            <DataGridHeader
+                                hideCheckbox
+                                component={data.FooterCell}
+                                columns={footerColumns}
+                                style={{
+                                    '--f-data-grid-cell-height': '30px',
+                                    'bottom': 0,
+                                }}
+                            />
+                        }
+                        pinFirst
+                        pinLast
+                        onCellUpdate={handleCellUpdate}
+                        onCellDelete={handleCellDelete}
+                        onColumnMove={handleColumnMove}
+                        onRowMove={handleRowMove}
+                        onScroll={(e) => null}
+                        toolbar={({ rowSelection, cellSelection }) => (
+                            <View
+                                row
+                                position="absolute"
+                                bgToken="surface-inverse"
+                                colorToken="text-on-color"
+                                p="1rem 2rem"
+                                radius="var(--f-radius)"
+                                shadow="var(--f-shadow-xl)"
+                                zIndex={1000}
+                                gap={10}
+                                display={!Object.values(rowSelection).length ? 'none' : 'flex'}
+                                style={{ bottom: 10, left: '50%', transform: 'translateX(-50%)' }}>
+                                <Text color="inherit">
+                                    {Object.values(rowSelection).length}{' '}
+                                    {Object.values(rowSelection).length == 1 ? 'row' : 'rows'} selected
+                                </Text>
+                                <Icon
+                                    icon={FIBin}
+                                    className="f-buttonize"
+                                    onClick={() => {
+                                        setDialog({
+                                            title: 'Are you sure?',
+                                            description: 'This action cannot be undone.',
+                                            portal: Portal,
+                                            footer: (
+                                                <View
+                                                    width="100%"
+                                                    row
+                                                    justifyContent="space-between">
+                                                    <Button onClick={closeDialog}>Cancel</Button>
+                                                    <Button
+                                                        variant="danger"
+                                                        onClick={() => {
+                                                            const rowIndexes = Object.keys(rowSelection).map(
+                                                                (key: any) => +key.split('-')[1]
+                                                            )
+                                                            setRows(
+                                                                rows.filter((_, index) => !rowIndexes.includes(index))
+                                                            )
+                                                            closeDialog()
+                                                            dispatchDataGridEvent('select-rows', {
+                                                                instanceId: 'instance-1',
+                                                            })
+                                                        }}>
+                                                        Delete
+                                                    </Button>
+                                                </View>
+                                            ),
+                                        })
+                                    }}
+                                />
+                            </View>
+                        )}
+                    />
+                </DataGridProvider>
+            </MenuProvider>
+        </>
+    )
+}
+```
+
+export default ({ children }) => <ComponentLayout docs={docs} props={props} css={css}>{children}</ComponentLayout>

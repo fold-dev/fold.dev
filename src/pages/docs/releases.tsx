@@ -156,7 +156,7 @@ export default function Releases(props) {
                     }}
                 />
             </If>
-
+            {/* 
             <Options
                 m="2rem 0"
                 selected={option}
@@ -164,7 +164,7 @@ export default function Releases(props) {
                 <Option>Core</Option>
                 <Option>Pro</Option>
             </Options>
-
+            */}
             {!loading && (
                 <>
                     {releases.map(({ html_url, tag_name, published_at, body }, index) => (

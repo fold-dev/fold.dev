@@ -5,7 +5,7 @@ import { articles } from '../../blog'
 import * as Token from '@fold-dev/design/tokens'
 import { Card, Heading, Image, Link, Pill, Stack, Text, View } from '@fold-dev/core'
 import { HeaderComponent } from '@/components/header.component'
-import { ContentContainerComponent } from '@/components/container-container.component'
+import { ContentContainerComponent } from '@/components/content-container.component'
 
 export default function Blog({ children }) {
     const formatDate = (date) => {
