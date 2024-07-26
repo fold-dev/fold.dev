@@ -63,11 +63,11 @@ export const SupportComponent = (props) => {
                                 title: 'Technical Support',
                                 text: 'If you have a question or a suggestion, feel free to engage with the community on GitHub Discussions. Discussions allow you to ask for help, share ideas, and participate in conversations with other users.',
                             },
-                            {
-                                url: 'mailto:support@fold.dev',
-                                title: 'Pro',
-                                text: 'For any other support needs, if you are a Pro customer, please feel free to reach out to us directly via email.',
-                            },
+                            // {
+                            //     url: 'mailto:support@fold.dev',
+                            //     title: 'Pro',
+                            //     text: 'For any other support needs, if you are a Pro customer, please feel free to reach out to us directly via email.',
+                            // },
                         ].map(({ title, text, url }, index) => (
                             <View
                                 key={index}

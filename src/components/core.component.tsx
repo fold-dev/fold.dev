@@ -1415,7 +1415,7 @@ export const CoreComponent = () => {
                         style={{ textTransform: 'uppercase' }}
                         letterSpacing={5}
                         colorToken="accent">
-                        Open Source Core
+                        Open Source
                     </Text>
                     <Heading
                         textAlign="center"

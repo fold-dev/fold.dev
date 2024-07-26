@@ -490,3 +490,7 @@ body {
 .f-drag-ghost .f-kanban-card {
     border-radius: var(--f-kanban-card-radius);
 }
+
+:root {
+    --f-max-width: 900px;
+}
