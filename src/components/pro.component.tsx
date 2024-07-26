@@ -10,7 +10,7 @@ import * as Token from '@fold-dev/design/tokens'
 import {
     CalendarDays, CalendarProvider, CalendarSchedule, CsvImporter, DataGrid,
     DataGridHeader,
-    DataGridTypes, DatePicker, DateRangeProvider, Detail,
+    DataGridTypes, DatePicker, DatePickerProvider, Detail,
     Kanban,
     KanbanColumnMenu, KanbanSelection, KanbanSwimlaneMenu, KanbanTypes, LabelMenu, Popup, Todo, TodoSectionMenu, UserMenu, dataGridState,
     dispatchDataGridEvent, dispatchKanbanEvent, dispatchTodoEvent, getShortDateFormat, kanbanState,
@@ -1033,7 +1033,7 @@ export const DatePicker1 = () => {
     }
 
     return (
-        <DateRangeProvider>
+        <DatePickerProvider>
             <Card
                 m="2rem 0 4rem 0"
                 p="1rem"
@@ -1048,7 +1048,7 @@ export const DatePicker1 = () => {
                     panels={3}
                 />
             </Card>
-        </DateRangeProvider>
+        </DatePickerProvider>
     )
 }
 

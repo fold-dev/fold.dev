@@ -130,7 +130,7 @@ export const Usage = () => {
             case 'todo-menu':
                 return (<Popup isTodo item={payload} onCancel={dismiss} colorPalette={data.colorPalette} onTodoAddBelow={() => {
                         dismiss();
-                        dispatchTodoEvent('open-addbelow', { id: payload.id });
+                        dispatchTodoEvent('add-task-below', { id: payload.id });
                     }} onTodoEdit={() => {
                         dismiss();
                         dispatchTodoEvent('edit-task', { id: payload.id });
@@ -343,7 +343,7 @@ export const Usage = () => {
                         colorPalette={data.colorPalette}
                         onTodoAddBelow={() => {
                             dismiss()
-                            dispatchTodoEvent('open-addbelow', { id: payload.id })
+                            dispatchTodoEvent('add-task-below', { id: payload.id })
                         }}
                         onTodoEdit={() => {
                             dismiss()

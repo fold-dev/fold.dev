@@ -4,7 +4,7 @@ import { GraphicLeft, GraphicRight } from '../components/graphic.component'
 import * as Token from '@fold-dev/design/tokens'
 import Link from 'next/link'
 import { HeaderComponent } from '@/components/header.component'
-import { ContentContainerComponent } from '@/components/container-container.component'
+import { ContentContainerComponent } from '@/components/content-container.component'
 
 export default function TermsOfUse(props){
     return (
