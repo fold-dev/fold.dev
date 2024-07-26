@@ -38,7 +38,6 @@ import {
     useCopy
 } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
-import { CalendarProvider, CalendarSchedule } from '@fold-pro/react'
 import { useEffect, useState } from 'react'
 import { PiCompassTool } from 'react-icons/pi'
 import CodeComponent, { highlightCode } from './code.component'
@@ -1323,32 +1322,6 @@ export const Dropdown = () => {
                 label: tz,
             }))}
         />
-    )
-}
-
-export const OverviewCalendar = () => {
-    const [days, setDays] = useState(data.days)
-    const [events, setEvents] = useState(data.events)
-
-    const handleEventUpdate = (ev) => {
-        setEvents(events.map((event) => (event.id == ev.id ? { ...event, ...ev } : event)))
-    }
-
-    return (
-        <CalendarProvider
-            canAdd={false}
-            dimPastEvents={false}
-            hideDateLabels={true}
-            scheduleEvent={undefined}
-            monthEvent={undefined}
-            onEventOpen={(e) => null}
-            onEventUpdate={handleEventUpdate}
-            onEventAdd={(e) => null}>
-            <CalendarSchedule
-                days={days}
-                events={events.filter((e) => !e.allDay)}
-            />
-        </CalendarProvider>
     )
 }
 
