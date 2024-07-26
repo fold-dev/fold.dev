@@ -99,8 +99,8 @@ export default function SiteLayout(props: any) {
                     <Text
                         color="inherit"
                         colorToken="purple-50">
-                            We've just launched Fold Pro Early Access! 
-                            Get your license now - <a href="/#pro" style={{ color: 'var(--f-color-purple-50)' }}>click here</a> to learn more.
+                            New! DataGrid has just been added! 
+                            Check out the <a href="/docs" style={{ color: 'var(--f-color-purple-50)' }}>docs</a> for more information.
                     </Text>
                     <Icon icon={PiRocket} style={{ transform: 'rotate(45deg)', color: 'var(--f-color-purple-50)' }} />
                 </View>
@@ -119,7 +119,7 @@ export default function SiteLayout(props: any) {
                                 height={100}
                                 position="relative"
                                 border="none"
-                                bg={stuck ? 'rgb(from var(--f-color-surface) r g b / 0.9)' : 'transparent'}
+                                bg={stuck ? 'rgb(from var(--f-color-surface) r g b / 0.5)' : 'transparent'}
                                 style={{
                                     backdropFilter: 'blur(5px)',
                                     transition: 'background 0.1s',
@@ -134,6 +134,7 @@ export default function SiteLayout(props: any) {
                                     </Link>
                                     <Flexer />
                                     <Navigation
+                                        display="none"
                                         bg="transparent"
                                         variant="navbar"
                                         style={{
@@ -163,7 +164,8 @@ export default function SiteLayout(props: any) {
                                         Documentation
                                     </Button>
                                     <Button
-                                        href="/#pro"
+                                        target="_blank"
+                                        href="https://github.com/fold-dev/fold"
                                         as="a"
                                         outline
                                         border="0.15rem solid var(--f-color-accent)"
@@ -172,7 +174,7 @@ export default function SiteLayout(props: any) {
                                             '--f-button-color-hover': 'var(--f-color-accent-weak)',
                                             '--f-button-background-color-hover': 'var(--f-color-accent)',
                                         }}>
-                                        Buy
+                                        Download
                                     </Button>
                                     <SocialIcon
                                         url="https://github.com/fold-dev"
@@ -404,6 +406,7 @@ export default function SiteLayout(props: any) {
                                     Terms of Use
                                 </Text>
                             </Li>
+                            {/* 
                             <Li>
                                 <Text
                                     as="a"
@@ -416,6 +419,7 @@ export default function SiteLayout(props: any) {
                                     License
                                 </Text>
                             </Li>
+                            */}
                         </List>
                     </View>
                     <View

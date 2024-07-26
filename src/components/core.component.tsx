@@ -1485,7 +1485,7 @@ export const CoreComponent = () => {
                             letterSpacing={5}
                             colorToken="accent-300"
                             id="features">
-                            AppSandbox
+                            Vision
                         </Text>
                         <Heading
                             colorToken="accent-50"
@@ -1493,15 +1493,15 @@ export const CoreComponent = () => {
                             Made for product teams that need to scale quickly.
                         </Heading>
                         <Text colorToken="accent-100">
-                            Introducing Fold AppSandbox <sup style={{ color: 'inherit', fontWeight: 600, fontSize: 8 }}>BETA</sup>, a showcase for creating next-level product experiences with Fold.
+                            Fold provides everything you need to create next-level products, including a thoughtfully designed Design System with sensible defaults.
                         </Text>
                         <Link
                             target="_blank"
-                            href="https://app-sandbox.fold.dev"
+                            href="https://fold.dev/docs"
                             color="var(--f-color-accent-50)"
                             className="f-underline"
                             textDecoration="none">
-                            Launch AppSandbox ↗
+                            Documentation ↗
                         </Link>
                     </View>
 
