@@ -381,6 +381,7 @@ export default function DocsLayout(props: any) {
                                             }>
                                             Getting Started
                                         </NavigationItem>
+                                        {/* 
                                         <NavigationItem
                                             active={url == 'pro'}
                                             onClick={() =>
@@ -405,6 +406,7 @@ export default function DocsLayout(props: any) {
                                             }>
                                             Pro
                                         </NavigationItem>
+                                        */}
                                         <NavigationItem
                                             active={url == 'community'}
                                             onClick={() =>
@@ -526,6 +528,7 @@ export default function DocsLayout(props: any) {
                                             Tokens
                                         </NavigationItem>
                                         <NavigationDivider />
+                                        {/* 
                                         <NavigationHeading 
                                             suffix={(
                                                 <Pill
@@ -562,6 +565,7 @@ export default function DocsLayout(props: any) {
                                             </NavigationItem>
                                         ))}
                                         <NavigationDivider />
+                                        */}
                                         <NavigationHeading
                                             suffix={            
                                                 <Pill
@@ -770,14 +774,14 @@ export default function DocsLayout(props: any) {
                                         variant="accent">
                                         AppSandbox ↗
                                     </Button> 
-                                    */}
                                     <Button
                                         as="a"
                                         href="/#pro"
                                         target="_blank"
                                         variant="accent">
                                         Buy Now
-                                    </Button>
+                                    </Button> 
+                                    */}
                                     <DarkModeToggle />
                                 </Stack>
                                 <View 
