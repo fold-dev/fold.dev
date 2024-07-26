@@ -1422,8 +1422,8 @@ export const CoreComponent = () => {
                         colorToken="accent"
                         fontWeight={400}
                         width="80%">
-                        Leverage Fold Core's 85+ components to power your next project. 
-                        Fold Core is completely free (MIT), and will always remain that way.
+                        Leverage Fold's 85+ components to power your next project. 
+                        Fold is completely free (MIT), and will always remain that way.
                     </Heading>
                     <Code snippet="npm i --save @fold-dev/core @fold-dev/design" />
                     {/* 

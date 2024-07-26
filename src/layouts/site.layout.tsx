@@ -271,6 +271,7 @@ export default function SiteLayout(props: any) {
                                     Home
                                 </Text>
                             </Li>
+                            {/* 
                             <Li>
                                 <Text
                                     as="a"
@@ -282,7 +283,7 @@ export default function SiteLayout(props: any) {
                                     Core
                                 </Text>
                             </Li>
-                            {/* <Li>
+                            <Li>
                                 <Text
                                     as="a"
                                     href="/#pro"
@@ -292,7 +293,8 @@ export default function SiteLayout(props: any) {
                                     colorToken="accent-400">
                                     Pro
                                 </Text>
-                            </Li> */}
+                            </Li> 
+                            */}
                             <Li>
                                 <Text
                                     as="a"
