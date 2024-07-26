@@ -13,7 +13,7 @@ export const docs = {
 
 export const props = [{"tags":{},"filePath":"packages/core/src/pagination/index.ts","description":"","displayName":"usePagination","methods":[],"props":{}},{"tags":{},"filePath":"packages/core/src/pagination/index.ts","description":"","displayName":"Pagination","methods":[],"props":{"onPageChange":{"defaultValue":null,"description":"","name":"onPageChange","declarations":[{"fileName":"fold/packages/core/src/pagination/pagination.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"any"},"tags":{}},"siblingCount":{"defaultValue":{"value":"1"},"description":"","name":"siblingCount","declarations":[{"fileName":"fold/packages/core/src/pagination/pagination.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"pageSize":{"defaultValue":null,"description":"","name":"pageSize","declarations":[{"fileName":"fold/packages/core/src/pagination/pagination.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"currentPage":{"defaultValue":null,"description":"","name":"currentPage","declarations":[{"fileName":"fold/packages/core/src/pagination/pagination.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"totalCount":{"defaultValue":null,"description":"","name":"totalCount","declarations":[{"fileName":"fold/packages/core/src/pagination/pagination.tsx","name":"TypeLiteral"}],"required":true,"type":{"name":"number"},"tags":{}},"separator":{"defaultValue":null,"description":"","name":"separator","declarations":[{"fileName":"fold/packages/core/src/pagination/pagination.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}}}}]
 
-export const css = [[["--f-pagination-background","transparent"],["--f-pagination-background-active","var(--f-color-surface-strong)"],["--f-pagination-background-hover","var(--f-color-surface-stronger)"],["--f-pagination-border-radius","var(--f-radius)"],["--f-pagination-color","var(--f-color-text-weaker)"],["--f-pagination-color-active","var(--f-color-accent)"],["--f-pagination-color-disabled","var(--f-color-text-weakest)"],["--f-pagination-gap","0.2rem"],["--f-pagination-min-width","2.5rem"],["--f-pagination-height","2.5rem"],["--f-pagination-item-border","1px solid var(--f-color-border)"]]]
+export const css = [[["--f-pagination-background","transparent"],["--f-pagination-background-active","var(--f-color-surface-strong)"],["--f-pagination-background-hover","var(--f-color-surface-stronger)"],["--f-pagination-border-radius","var(--f-radius)"],["--f-pagination-color","var(--f-color-text-weak)"],["--f-pagination-color-active","var(--f-color-accent)"],["--f-pagination-color-disabled","var(--f-color-text-weakest)"],["--f-pagination-gap","0.2rem"],["--f-pagination-min-width","2.5rem"],["--f-pagination-height","2.5rem"],["--f-pagination-item-border","1px solid var(--f-color-border)"]]]
 
 
 
@@ -35,16 +35,16 @@ export const Usage = () => {
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3BhZ2UsIHNldFBhZ2VdID0gdXNlU3RhdGUoMSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3IAogICAgICAgICAgICBwPSIxcmVtIDAiIAogICAgICAgICAgICB3aWR0aD0iMTAwJSIgCiAgICAgICAgICAgIHN0eWxlPXt7IG1heFdpZHRoOiA2MDAsIG92ZXJmbG93OiAnc2Nyb2xsJyB9fT4KICAgICAgICAgICAgPFBhZ2luYXRpb24KICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgcGFnZVNpemU9ezV9CiAgICAgICAgICAgICAgICB0b3RhbENvdW50PXsxMDB9CiAgICAgICAgICAgICAgICBjdXJyZW50UGFnZT17cGFnZX0KICAgICAgICAgICAgICAgIHNpYmxpbmdDb3VudD17NH0KICAgICAgICAgICAgICAgIHNlcGFyYXRvcj0iLi4uIgogICAgICAgICAgICAgICAgb25QYWdlQ2hhbmdlPXsocGFnZSkgPT4gc2V0UGFnZShwYWdlKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgY29uc3QgW3BhZ2UsIHNldFBhZ2VdID0gdXNlU3RhdGUoMSkKCiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3CiAgICAgICAgICAgIHA9IjFyZW0gMCIKICAgICAgICAgICAgd2lkdGg9IjEwMCUiCiAgICAgICAgICAgIHN0eWxlPXt7IG1heFdpZHRoOiA2MDAsIG92ZXJmbG93OiAnc2Nyb2xsJyB9fT4KICAgICAgICAgICAgPFBhZ2luYXRpb24KICAgICAgICAgICAgICAgIHdpZHRoPSIxMDAlIgogICAgICAgICAgICAgICAgcGFnZVNpemU9ezV9CiAgICAgICAgICAgICAgICB0b3RhbENvdW50PXsxMDB9CiAgICAgICAgICAgICAgICBjdXJyZW50UGFnZT17cGFnZX0KICAgICAgICAgICAgICAgIHNpYmxpbmdDb3VudD17NH0KICAgICAgICAgICAgICAgIHNlcGFyYXRvcj0iLi4uIgogICAgICAgICAgICAgICAgb25QYWdlQ2hhbmdlPXsocGFnZSkgPT4gc2V0UGFnZShwYWdlKX0KICAgICAgICAgICAgLz4KICAgICAgICA8L1ZpZXc+CiAgICApCn0=" />
 
 ```tsx
 export const Usage = () => {
     const [page, setPage] = useState(1)
 
     return (
-        <View 
-            p="1rem 0" 
-            width="100%" 
+        <View
+            p="1rem 0"
+            width="100%"
             style={{ maxWidth: 600, overflow: 'scroll' }}>
             <Pagination
                 width="100%"

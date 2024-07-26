@@ -143,6 +143,23 @@ export const navigation = [
       "Image cropper components have become a common feature in modern web and mobile applications, enabling users to upload and fine-tune images. They are particularly useful for profile images & social media websites.",
   },
   {
+    slug: "data-grid",
+    title: "Data Grid",
+    subtitle:
+      "A robust & flexible Data Grid component engineered to handle diverse datasets with ease.",
+    description:
+      "The Data Grid component enables you to customize & extend virtually every part of it, enabling you accommodate a wide variety of data types.",
+    experimental: true,
+  },
+  {
+    slug: "date-picker",
+    title: "Date & Time Pickers",
+    subtitle:
+      "Date Time components offer highly versatile options for displaying and inputting dates.",
+    description:
+      "Date and Time components serve as fundamental elements for creating a wide range of date input controls, adapting to various requirements. While date elements can function on their own, their value is enhanced when incorporated within a DateRange context.",
+  },
+  {
     slug: "dialog",
     title: "Dialog",
     subtitle:
@@ -194,7 +211,7 @@ export const navigation = [
     slug: "grid",
     title: "Grid",
     subtitle:
-      "The Grid component wraps `display: grid`, arranging child elements within a grid structure comprised of rows and columns.",
+      'The Grid component wraps "display: grid", arranging child elements within a grid structure comprised of rows and columns.',
     description:
       "The Grid component provides a grid-centric layout system that simplifies website & app design by incorporating rows and columns, eliminating the need for floats and positioning.",
   },

@@ -15,7 +15,7 @@ export const docs = {
 
 export const props = [{"tags":{},"filePath":"packages/core/src/pill/index.ts","description":"","displayName":"Pill","methods":[],"props":{"as":{"defaultValue":null,"description":"","name":"as","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"\"button\" | \"span\""},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}},"outline":{"defaultValue":null,"description":"","name":"outline","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"subtle":{"defaultValue":null,"description":"","name":"subtle","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"solid":{"defaultValue":null,"description":"","name":"solid","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"boolean"},"tags":{}},"color":{"defaultValue":null,"description":"CSS hex color value","name":"color","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"},{"fileName":"fold/packages/core/src/types/index.ts","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"prefix":{"defaultValue":null,"description":"","name":"prefix","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}},"suffix":{"defaultValue":null,"description":"","name":"suffix","declarations":[{"fileName":"fold/packages/core/src/pill/pill.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"ReactElement<any, string | JSXElementConstructor<any>>"},"tags":{}}}}]
 
-export const css = [[["--f-pill-spacing","0rem"],["--f-pill-label-padding","0 var(--f-space-2)"],["--f-pill-buffer-icon","var(--f-space-1)"],["--f-pill-border-width","1px"],["--f-pill-border-radius","var(--f-radius-full)"],["--f-pill-border-color","var(--f-color-border)"],["--f-pill-color","var(--f-color-text-weaker)"],["--f-pill-color-subtle","var(--f-color-text-weaker)"],["--f-pill-color-color","var(--f-color-text-on-color)"],["--f-pill-background-color","var(--f-color-surface-strong)"],["--f-pill-background-color-subtle","var(--f-color-surface-strong)"],["--f-pill-background-color-solid","var(--f-color-surface-inverse)"]]]
+export const css = [[["--f-pill-spacing","0rem"],["--f-pill-label-padding","0 var(--f-space-2)"],["--f-pill-buffer-icon","var(--f-space-1)"],["--f-pill-border-width","1px"],["--f-pill-border-radius","var(--f-radius-full)"],["--f-pill-border-color","var(--f-color-border)"],["--f-pill-color","var(--f-color-text)"],["--f-pill-color-subtle","var(--f-color-text-weak)"],["--f-pill-color-color","var(--f-color-text-on-color)"],["--f-pill-background-color","var(--f-color-surface-strong)"],["--f-pill-background-color-subtle","var(--f-color-surface-strong)"],["--f-pill-background-color-solid","var(--f-color-surface-inverse)"]]]
 
 
 
@@ -64,11 +64,13 @@ export const Sizes = () => (<Stack spacing={5} wrap="wrap">
 <Sizes />
 </div>
 
-<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9IHdyYXA9IndyYXAiPgogICAgICAgIDxQaWxsIHNpemU9InhzIj5SZWFjdDwvUGlsbD4KICAgICAgICA8UGlsbCBzaXplPSJzbSI+VnVlSlM8L1BpbGw+CiAgICAgICAgPFBpbGwgc2l6ZT0ibWQiPlN2ZWx0ZTwvUGlsbD4KICAgICAgICA8UGlsbCBzaXplPSJsZyI+U29saWRKUzwvUGlsbD4KICAgICAgICA8UGlsbCBzaXplPSJ4bCI+QW5ndWxhcjwvUGlsbD4KICAgIDwvU3RhY2s+Cik=" />
+<CodeComponent filename="Sizes.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzID0gKCkgPT4gKAogICAgPFN0YWNrCiAgICAgICAgc3BhY2luZz17NX0KICAgICAgICB3cmFwPSJ3cmFwIj4KICAgICAgICA8UGlsbCBzaXplPSJ4cyI+UmVhY3Q8L1BpbGw+CiAgICAgICAgPFBpbGwgc2l6ZT0ic20iPlZ1ZUpTPC9QaWxsPgogICAgICAgIDxQaWxsIHNpemU9Im1kIj5TdmVsdGU8L1BpbGw+CiAgICAgICAgPFBpbGwgc2l6ZT0ibGciPlNvbGlkSlM8L1BpbGw+CiAgICAgICAgPFBpbGwgc2l6ZT0ieGwiPkFuZ3VsYXI8L1BpbGw+CiAgICA8L1N0YWNrPgop" />
 
 ```tsx
 export const Sizes = () => (
-    <Stack spacing={5} wrap="wrap">
+    <Stack
+        spacing={5}
+        wrap="wrap">
         <Pill size="xs">React</Pill>
         <Pill size="sm">VueJS</Pill>
         <Pill size="md">Svelte</Pill>
@@ -98,11 +100,13 @@ export const WithPrefixAndSuffix = () => (<Stack spacing={5} wrap="wrap">
 <WithPrefixAndSuffix />
 </div>
 
-<CodeComponent filename="WithPrefixAndSuffix.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhQcmVmaXhBbmRTdWZmaXggPSAoKSA9PiAoCiAgICA8U3RhY2sgc3BhY2luZz17NX0gd3JhcD0id3JhcCI+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgc3VmZml4PXsKICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgaWNvbj0iYmluIgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgfT4KICAgICAgICAgICAgQ3JhaWcgUGF0aGVyCiAgICAgICAgPC9QaWxsPgogICAgICAgIDxQaWxsCiAgICAgICAgICAgIHN1ZmZpeD17CiAgICAgICAgICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgICAgICAgICAgbmFtZT0iRXRpZW5uZSBEcmV5ZXIiCiAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAgICAgc3JjPSIvbWVuLzAxLmpwZyIKICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIH0+CiAgICAgICAgICAgIEV0aWVubmUgRHJleWVyCiAgICAgICAgPC9QaWxsPgogICAgICAgIDxQaWxsCiAgICAgICAgICAgIHByZWZpeD17CiAgICAgICAgICAgICAgICA8QXZhdGFyCiAgICAgICAgICAgICAgICAgICAgbmFtZT0iUGF0cmljayBBbnRob255IgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wOS5qcGciCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9CiAgICAgICAgICAgIHN1ZmZpeD17CiAgICAgICAgICAgICAgICA8SWNvbkxpYgogICAgICAgICAgICAgICAgICAgIGljb249ImJpbiIKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIH0+CiAgICAgICAgICAgIFBhdHJpY2sgQW50aG9ueQogICAgICAgIDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBwcmVmaXg9ewogICAgICAgICAgICAgICAgPEljb25MaWIKICAgICAgICAgICAgICAgICAgICBpY29uPSJ1c2VyIgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgfQogICAgICAgICAgICBzdWZmaXg9ewogICAgICAgICAgICAgICAgPEljb25MaWIKICAgICAgICAgICAgICAgICAgICBpY29uPSJiaW4iCiAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9PgogICAgICAgICAgICBKb2hhbm5lcyBkdSBQbGVzc2lzCiAgICAgICAgPC9QaWxsPgogICAgPC9TdGFjaz4KKQ==" />
+<CodeComponent filename="WithPrefixAndSuffix.tsx" code="ZXhwb3J0IGNvbnN0IFdpdGhQcmVmaXhBbmRTdWZmaXggPSAoKSA9PiAoCiAgICA8U3RhY2sKICAgICAgICBzcGFjaW5nPXs1fQogICAgICAgIHdyYXA9IndyYXAiPgogICAgICAgIDxQaWxsCiAgICAgICAgICAgIHN1ZmZpeD17CiAgICAgICAgICAgICAgICA8SWNvbkxpYgogICAgICAgICAgICAgICAgICAgIGljb249ImJpbiIKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIH0+CiAgICAgICAgICAgIENyYWlnIFBhdGhlcgogICAgICAgIDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBzdWZmaXg9ewogICAgICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgICAgIG5hbWU9IkV0aWVubmUgRHJleWVyIgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgICAgIHNyYz0iL21lbi8wMS5qcGciCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9PgogICAgICAgICAgICBFdGllbm5lIERyZXllcgogICAgICAgIDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBwcmVmaXg9ewogICAgICAgICAgICAgICAgPEF2YXRhcgogICAgICAgICAgICAgICAgICAgIG5hbWU9IlBhdHJpY2sgQW50aG9ueSIKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgICAgICBzcmM9Ii9tZW4vMDkuanBnIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgfQogICAgICAgICAgICBzdWZmaXg9ewogICAgICAgICAgICAgICAgPEljb25MaWIKICAgICAgICAgICAgICAgICAgICBpY29uPSJiaW4iCiAgICAgICAgICAgICAgICAgICAgc2l6ZT0ic20iCiAgICAgICAgICAgICAgICAvPgogICAgICAgICAgICB9PgogICAgICAgICAgICBQYXRyaWNrIEFudGhvbnkKICAgICAgICA8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgcHJlZml4PXsKICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgaWNvbj0idXNlciIKICAgICAgICAgICAgICAgICAgICBzaXplPSJzbSIKICAgICAgICAgICAgICAgIC8+CiAgICAgICAgICAgIH0KICAgICAgICAgICAgc3VmZml4PXsKICAgICAgICAgICAgICAgIDxJY29uTGliCiAgICAgICAgICAgICAgICAgICAgaWNvbj0iYmluIgogICAgICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgLz4KICAgICAgICAgICAgfT4KICAgICAgICAgICAgSm9oYW5uZXMgZHUgUGxlc3NpcwogICAgICAgIDwvUGlsbD4KICAgIDwvU3RhY2s+Cik=" />
 
 ```tsx
 export const WithPrefixAndSuffix = () => (
-    <Stack spacing={5} wrap="wrap">
+    <Stack
+        spacing={5}
+        wrap="wrap">
         <Pill
             suffix={
                 <IconLib
@@ -169,11 +173,13 @@ export const Styles = () => (<Stack spacing={5} wrap="wrap">
 <Styles />
 </div>
 
-<CodeComponent filename="Styles.tsx" code="ZXhwb3J0IGNvbnN0IFN0eWxlcyA9ICgpID0+ICgKICAgIDxTdGFjayBzcGFjaW5nPXs1fSB3cmFwPSJ3cmFwIj4KICAgICAgICA8UGlsbD5SZWFjdDwvUGlsbD4KICAgICAgICA8UGlsbCBzdWJ0bGU+VnVlSlM8L1BpbGw+CiAgICAgICAgPFBpbGwgb3V0bGluZT5TdmVsdGU8L1BpbGw+CiAgICAgICAgPFBpbGwgc29saWQ+U29saWRKUzwvUGlsbD4KICAgIDwvU3RhY2s+Cik=" />
+<CodeComponent filename="Styles.tsx" code="ZXhwb3J0IGNvbnN0IFN0eWxlcyA9ICgpID0+ICgKICAgIDxTdGFjawogICAgICAgIHNwYWNpbmc9ezV9CiAgICAgICAgd3JhcD0id3JhcCI+CiAgICAgICAgPFBpbGw+UmVhY3Q8L1BpbGw+CiAgICAgICAgPFBpbGwgc3VidGxlPlZ1ZUpTPC9QaWxsPgogICAgICAgIDxQaWxsIG91dGxpbmU+U3ZlbHRlPC9QaWxsPgogICAgICAgIDxQaWxsIHNvbGlkPlNvbGlkSlM8L1BpbGw+CiAgICA8L1N0YWNrPgop" />
 
 ```tsx
 export const Styles = () => (
-    <Stack spacing={5} wrap="wrap">
+    <Stack
+        spacing={5}
+        wrap="wrap">
         <Pill>React</Pill>
         <Pill subtle>VueJS</Pill>
         <Pill outline>Svelte</Pill>
@@ -202,11 +208,13 @@ export const Color = () => (<Stack spacing={5} wrap="wrap">
 <Color />
 </div>
 
-<CodeComponent filename="Color.tsx" code="ZXhwb3J0IGNvbnN0IENvbG9yID0gKCkgPT4gKAogICAgPFN0YWNrIHNwYWNpbmc9ezV9IHdyYXA9IndyYXAiPgogICAgICAgIDxQaWxsIGNvbG9yPXtUb2tlbi5Db2xvckVsZWN0cmljMjAwfT5SZWFjdDwvUGlsbD4KICAgICAgICA8UGlsbAogICAgICAgICAgICBvdXRsaW5lCiAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvclRlYWw1MDB9PgogICAgICAgICAgICBTdmVsdGUKICAgICAgICA8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgc3VidGxlCiAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvclZpb2xldDUwMH0+CiAgICAgICAgICAgIEFuZ3VsYXIKICAgICAgICA8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgc29saWQKICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yTmVvbnBpbms1MDB9PgogICAgICAgICAgICBWdWVKUwogICAgICAgIDwvUGlsbD4KICAgIDwvU3RhY2s+Cik=" />
+<CodeComponent filename="Color.tsx" code="ZXhwb3J0IGNvbnN0IENvbG9yID0gKCkgPT4gKAogICAgPFN0YWNrCiAgICAgICAgc3BhY2luZz17NX0KICAgICAgICB3cmFwPSJ3cmFwIj4KICAgICAgICA8UGlsbCBjb2xvcj17VG9rZW4uQ29sb3JFbGVjdHJpYzIwMH0+UmVhY3Q8L1BpbGw+CiAgICAgICAgPFBpbGwKICAgICAgICAgICAgb3V0bGluZQogICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JUZWFsNTAwfT4KICAgICAgICAgICAgU3ZlbHRlCiAgICAgICAgPC9QaWxsPgogICAgICAgIDxQaWxsCiAgICAgICAgICAgIHN1YnRsZQogICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JWaW9sZXQ1MDB9PgogICAgICAgICAgICBBbmd1bGFyCiAgICAgICAgPC9QaWxsPgogICAgICAgIDxQaWxsCiAgICAgICAgICAgIHNvbGlkCiAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvck5lb25waW5rNTAwfT4KICAgICAgICAgICAgVnVlSlMKICAgICAgICA8L1BpbGw+CiAgICA8L1N0YWNrPgop" />
 
 ```tsx
 export const Color = () => (
-    <Stack spacing={5} wrap="wrap">
+    <Stack
+        spacing={5}
+        wrap="wrap">
         <Pill color={Token.ColorElectric200}>React</Pill>
         <Pill
             outline
