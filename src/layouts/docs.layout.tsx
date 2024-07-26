@@ -59,7 +59,6 @@ import {
     PiTwitterLogo
 } from 'react-icons/pi'
 import { navigation } from '../navigation'
-import { navigationPro } from '../navigation-pro'
 import { Bars3Icon } from '@heroicons/react/24/outline'
 
 export const CircleIcon = ({
