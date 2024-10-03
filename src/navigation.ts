@@ -143,6 +143,13 @@ export const navigation = [
       "Image cropper components have become a common feature in modern web and mobile applications, enabling users to upload and fine-tune images. They are particularly useful for profile images & social media websites.",
   },
   {
+    slug: "csv-importer",
+    title: 'CSV Importer',
+    subtitle: 'Make sense of imported data by correctly mapping columns with the CSV Importer.',
+    description:
+        'The CSV Importer component offers a streamlined way of onboarding complex data - ideal for customer success, onboarding & data teams.',
+},
+  {
     slug: "data-grid",
     title: "Data Grid",
     subtitle:
