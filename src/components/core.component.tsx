@@ -1675,7 +1675,8 @@ export const CoreComponent = () => {
                         alignItems="flex-start"
                         alignContent="flex-start"
                         justifyContent="flex-start"
-                        p="3rem">
+                        p="3rem"
+                        height="100%">
                         <Text
                             style={{ textTransform: 'uppercase' }}
                             letterSpacing={5}

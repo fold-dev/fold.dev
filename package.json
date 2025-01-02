@@ -1,6 +1,6 @@
 {
   "name": "@fold-dev/docs",
-  "version": "24.10.3.0",
+  "version": "25.1.1.0",
   "description": "UI components for product teams.",
   "scripts": {
     "prepare": "husky install",
@@ -11,8 +11,8 @@
     "prettier": "prettier --write 'src/**/*.{ts,tsx}' --print-width 120"
   },
   "dependencies": {
-    "@fold-dev/core": "^0.14.0",
-    "@fold-dev/design": "^0.14.0",
+    "@fold-dev/core": "^0.15.0",
+    "@fold-dev/design": "^0.15.0",
     "@heroicons/react": "^2.0.18",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
