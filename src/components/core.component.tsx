@@ -1247,7 +1247,7 @@ const All = () => {
                             <Pill
                                 solid
                                 size="sm"
-                                color={Token.ColorSeagreen100}>
+                                color={Token.ColorTeal100}>
                                 TypeScript
                             </Pill>
                         </View>

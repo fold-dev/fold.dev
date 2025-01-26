@@ -358,7 +358,7 @@ export default function DocsLayout(props: any) {
                                             prefix={
                                                 <Icon
                                                     icon={PiPackage}
-                                                    color={Token.ColorSeagreen400}
+                                                    color={Token.ColorTeal400}
                                                     strokeWidth={2}
                                                 />
                                             }>
