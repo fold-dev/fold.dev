@@ -543,7 +543,7 @@ export const CustomRendering = () => {
                     🚀
                 </div>} filterDelay={500} render={() => {
             return (<>
-                        {selected.map((s1, i) => (<Pill key={i} outline color={Token.ColorElectric300} suffix={<Icon icon="x" onClick={(e) => {
+                        {selected.map((s1, i) => (<Pill key={i} outline color={Token.ColorBlue300} suffix={<Icon icon="x" onClick={(e) => {
                             setSelected(selected.filter((s2) => s1 != s2));
                         }}/>}>
                                 {s1}
@@ -610,7 +610,7 @@ export const CustomRendering = () => {
                             <Pill
                                 key={i}
                                 outline
-                                color={Token.ColorElectric300}
+                                color={Token.ColorBlue300}
                                 suffix={
                                     <Icon
                                         icon="x"
@@ -916,7 +916,7 @@ export const Tag = () => {
                 {
                     key: notFound,
                     label: 'Create <strong>' + notFound + '</strong>',
-                    suffix: (<Pill subtle prefix={<IconLib icon="plus" size="xs" strokeWidth={2}/>} color={Token.ColorElectric300} size="xs">
+                    suffix: (<Pill subtle prefix={<IconLib icon="plus" size="xs" strokeWidth={2}/>} color={Token.ColorBlue300} size="xs">
                             New
                         </Pill>),
                     sticky: true,
@@ -943,7 +943,7 @@ export const Tag = () => {
             setNotFound(filteredOptions.length == 0 ? text : null);
         }} render={() => {
             return (<>
-                        {selected.map((s1, i) => (<Pill key={i} outline color={Token.ColorElectric300} size="sm" suffix={<IconLib icon="x" onClick={(e) => {
+                        {selected.map((s1, i) => (<Pill key={i} outline color={Token.ColorBlue300} size="sm" suffix={<IconLib icon="x" onClick={(e) => {
                             setSelected(selected.filter((s2) => s1 != s2));
                         }}/>}>
                                 {s1}
@@ -1005,7 +1005,7 @@ export const Tag = () => {
                                     strokeWidth={2}
                                 />
                             }
-                            color={Token.ColorElectric300}
+                            color={Token.ColorBlue300}
                             size="xs">
                             New
                         </Pill>
@@ -1055,7 +1055,7 @@ export const Tag = () => {
                             <Pill
                                 key={i}
                                 outline
-                                color={Token.ColorElectric300}
+                                color={Token.ColorBlue300}
                                 size="sm"
                                 suffix={
                                     <IconLib

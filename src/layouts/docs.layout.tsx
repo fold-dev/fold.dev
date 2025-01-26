@@ -132,7 +132,7 @@ export default function DocsLayout(props: any) {
     const { children } = props
     const router = useRouter()
     const { visible, show, hide } = useVisibility(false)
-    const [color, setColor] = useState(Token.ColorElectric400)
+    const [color, setColor] = useState(Token.ColorBlue400)
     const [value, setValue] = useState(3)
     const [option, setOption] = useState(1)
     const [toc, setToc] = useState([])
@@ -230,7 +230,7 @@ export default function DocsLayout(props: any) {
         switch (color) {
             case Token.ColorPurple400:
                 return setAccent('purple')
-            case Token.ColorNeonpink400:
+            case Token.ColorPink400:
                 return setAccent('neonpink')
             case Token.ColorRed400:
                 return setAccent('red')
@@ -244,7 +244,7 @@ export default function DocsLayout(props: any) {
                 return setAccent('teal')
             case Token.ColorCyan400:
                 return setAccent('cyan')
-            case Token.ColorElectric400:
+            case Token.ColorBlue400:
                 return setAccent('electric')
         }
     }, [color])
@@ -373,7 +373,7 @@ export default function DocsLayout(props: any) {
                                             }
                                             prefix={
                                                 <Icon
-                                                    color={Token.ColorElectric400}
+                                                    color={Token.ColorBlue400}
                                                     icon={PiRocketLaunch}
                                                     strokeWidth={2}
                                                 />
@@ -414,7 +414,7 @@ export default function DocsLayout(props: any) {
                                             prefix={
                                                 <Icon
                                                     icon={PiPersonArmsSpread}
-                                                    color={Token.ColorNeonpink400}
+                                                    color={Token.ColorPink400}
                                                     strokeWidth={2}
                                                 />
                                             }>
@@ -478,7 +478,7 @@ export default function DocsLayout(props: any) {
                                             prefix={
                                                 <Icon
                                                     icon={PiPlanet}
-                                                    color={Token.ColorNeonpink400}
+                                                    color={Token.ColorPink400}
                                                     strokeWidth={2}
                                                 />
                                             }>
@@ -520,7 +520,7 @@ export default function DocsLayout(props: any) {
                                             prefix={
                                                 <Icon
                                                     icon={PiFingerprintSimple}
-                                                    color={Token.ColorElectric400}
+                                                    color={Token.ColorBlue400}
                                                     strokeWidth={2}
                                                 />
                                             }>
@@ -730,14 +730,14 @@ export default function DocsLayout(props: any) {
                                                     color={color}
                                                     colors={[
                                                         Token.ColorPurple400,
-                                                        Token.ColorNeonpink400,
+                                                        Token.ColorPink400,
                                                         Token.ColorRed400,
                                                         Token.ColorOrange400,
                                                         Token.ColorYellow400,
                                                         Token.ColorGreen400,
                                                         Token.ColorTeal400,
                                                         Token.ColorCyan400,
-                                                        Token.ColorElectric400,
+                                                        Token.ColorBlue400,
                                                     ]}
                                                     onChange={setColor}
                                                 />

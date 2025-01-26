@@ -113,7 +113,7 @@ export default function Tokens(props) {
     import * as Token from '@fold-dev/design/tokens'
 
     // ES6 modules
-    import { ColorElectric400 } from '@fold-dev/design/tokens-es6'    
+    import { ColorBlue400 } from '@fold-dev/design/tokens-es6'    
                 `}
             />
             <Text as="blockquote">

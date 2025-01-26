@@ -94,7 +94,7 @@ export default function Introduction(props) {
                     {
                         title: 'Design System',
                         description: 'Overview of the Design System architecture of Fold.',
-                        color: Token.ColorNeonpink400,
+                        color: Token.ColorPink400,
                         icon: PiPlanet,
                         slug: 'design-system',
                     },

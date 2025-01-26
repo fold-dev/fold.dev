@@ -986,7 +986,7 @@ export const Picker = () => {
 
 const All = () => {
     const [selected, setSelected] = useState<any>([])
-    const [color, setColor] = useState(Token.ColorElectric400)
+    const [color, setColor] = useState(Token.ColorBlue400)
     const [value, setValue] = useState(2)
     const [option, setOption] = useState(1)
 
@@ -1032,7 +1032,7 @@ const All = () => {
         switch (color) {
             case Token.ColorPurple400:
                 return setAccent('purple')
-            case Token.ColorNeonpink400:
+            case Token.ColorPink400:
                 return setAccent('neonpink')
             case Token.ColorRed400:
                 return setAccent('red')
@@ -1046,7 +1046,7 @@ const All = () => {
                 return setAccent('teal')
             case Token.ColorCyan400:
                 return setAccent('cyan')
-            case Token.ColorElectric400:
+            case Token.ColorBlue400:
                 return setAccent('electric')
         }
     }, [color])
@@ -1190,14 +1190,14 @@ const All = () => {
                                 color={color}
                                 colors={[
                                     Token.ColorPurple400,
-                                    Token.ColorNeonpink400,
+                                    Token.ColorPink400,
                                     Token.ColorRed400,
                                     Token.ColorOrange400,
                                     Token.ColorYellow400,
                                     Token.ColorGreen400,
                                     Token.ColorTeal400,
                                     Token.ColorCyan400,
-                                    Token.ColorElectric400,
+                                    Token.ColorBlue400,
                                 ]}
                                 onChange={setColor}
                             />
@@ -1229,7 +1229,7 @@ const All = () => {
                             width="100%">
                             <Pill
                                 size="sm"
-                                color={Token.ColorNeonpink500}>
+                                color={Token.ColorPink500}>
                                 React
                             </Pill>
                             <Pill
@@ -1320,7 +1320,7 @@ const All = () => {
                                         gap={5}
                                         justifyContent="flex-start">
                                         <Pill
-                                            color={Token.ColorElectric400}
+                                            color={Token.ColorBlue400}
                                             subtle
                                             size="sm">
                                             co-working
@@ -1819,7 +1819,7 @@ export const CoreComponent = () => {
                             justifyContent="flex-start">
                             <Pill subtle color={Token.ColorAccent400}>TypeScript</Pill>
                             <Pill subtle color={Token.ColorPurple400}>React</Pill>
-                            <Pill subtle color={Token.ColorNeonpink400}>Design Tokens</Pill>
+                            <Pill subtle color={Token.ColorPink400}>Design Tokens</Pill>
                             <Pill subtle color={Token.ColorRed400}>StyleDictionary</Pill>
                             <Pill subtle color={Token.ColorOrange400}>Storybook</Pill>
                             <Pill subtle color={Token.ColorYellow400}>CSS3</Pill>

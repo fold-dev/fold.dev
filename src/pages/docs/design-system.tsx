@@ -223,7 +223,7 @@ export default function DesignSystem(props) {
                     { color: Token.ColorBlue400, icon: PiPaintBucket, title: 'Color', path: 'color' },
                     { color: Token.ColorViolet400, icon: PiTextAa, title: 'Typography', path: 'typography' },
                     { color: Token.ColorPurple400, icon: PiSelectionAll, title: 'Space', path: 'space' },
-                    { color: Token.ColorNeonpink400, icon: PiFrameCorners, title: 'Size', path: 'size' },
+                    { color: Token.ColorPink400, icon: PiFrameCorners, title: 'Size', path: 'size' },
                     { color: Token.ColorRed400, icon: PiStop, title: 'Radius', path: 'radius' },
                     { color: Token.ColorOrange400, icon: PiSubtractSquare, title: 'Shadow', path: 'shadow' },
                 ].map(({ color, icon, title, path }, index) => (
