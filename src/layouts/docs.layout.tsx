@@ -194,12 +194,10 @@ export default function DocsLayout(props: any) {
     }
 
     useEffect(() => {
-        if (!showChild) return
-
         switch (option) {
             case 0:
                 return setFont(
-                    '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
+                    'ui-sans-serif,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif'
                 )
             case 1:
                 return setFont(
@@ -571,7 +569,7 @@ export default function DocsLayout(props: any) {
                                                     size="xs"
                                                     subtle
                                                     color={Token.ColorAccent400}>
-                                                    v0.15.0
+                                                    v0.16.0
                                                 </Pill>                                               
                                             }>
                                             Core Components
@@ -747,7 +745,7 @@ export default function DocsLayout(props: any) {
                                                     max={10}
                                                     step={1}
                                                     value={value}
-                                                    onChange={(e) => setValue(e.target.value)}
+                                                    onChange={(e: any) => setValue(e.target.value)}
                                                 />
                                             </View>
                                         }

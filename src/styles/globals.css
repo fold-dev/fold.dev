@@ -191,7 +191,7 @@ body {
 }
 
 [data-theme="dark"] .hero-background {
-    background: radial-gradient(circle, var(--f-color-base-800) 0%, var(--f-color-surface) 80%);
+    background: radial-gradient(circle, var(--f-color-base-900) 0%, var(--f-color-base-900) 80%);
 } 
 
 [data-theme="dark"] .hero-background .graphic-right,
@@ -200,7 +200,7 @@ body {
 }
 
 [data-theme="light"] .hero-background {
-    background: radial-gradient(circle, var(--f-color-accent-weak) 0%, var(--f-color-surface-strong) 100%);
+    background: radial-gradient(circle, var(--f-color-accent-200) 0%, var(--f-color-accent-100) 100%);
 } 
 
 .mobile-component {

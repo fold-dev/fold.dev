@@ -988,7 +988,7 @@ const All = () => {
     const [selected, setSelected] = useState<any>([])
     const [color, setColor] = useState(Token.ColorBlue400)
     const [value, setValue] = useState(2)
-    const [option, setOption] = useState(1)
+    const [option, setOption] = useState(0)
 
     const setAccent = (color) => {
         document.getElementById('custom-styles').innerHTML = colors[color]
@@ -1014,15 +1014,15 @@ const All = () => {
         switch (option) {
             case 0:
                 return setFont(
-                    '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important'
+                    'ui-sans-serif,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important'
                 )
             case 1:
                 return setFont(
-                    'Inter, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important'
+                    'Inter,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important'
                 )
             case 2:
                 return setFont(
-                    'DM Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important'
+                    'DM Sans,-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif !important'
                 )
         }
     }, [option])
@@ -1260,7 +1260,7 @@ const All = () => {
                                 max={10}
                                 step={1}
                                 value={value}
-                                onChange={(e) => setValue(e.target.value)}
+                                onChange={(e: any) => setValue(e.target.value)}
                             />
                         </Card>
                     </View>

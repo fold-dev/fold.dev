@@ -90,14 +90,14 @@ export const HeroComponent = () => {
                         size="sm"
                         colorToken="accent">
                         <Link
-                            style={{ '--f-underline-size': '1.5px' }}
+                            style={{ '--f-underline-size': '2px' }}
                             size="sm"
                             target="_blank"
                             textDecoration="none"
                             className="f-underline"
                             colorToken="accent"
-                            href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW">
-                            Subscribe to the newsletter
+                            href="https://twitter.com/fold_dev">
+                            Follow us on social media
                         </Link> & get notified of any updates.
                     </Text>
 

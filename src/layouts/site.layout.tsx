@@ -95,7 +95,7 @@ export default function SiteLayout(props: any) {
                     zIndex={10000}
                     width="100%"
                     position="relative"
-                    bg="linear-gradient(15deg, var(--f-color-purple-500), var(--f-color-neonpink-400))">
+                    bg="linear-gradient(15deg, var(--f-color-indigo-500), var(--f-color-purple-500))">
                     <Text
                         color="inherit"
                         colorToken="purple-50">
@@ -180,22 +180,22 @@ export default function SiteLayout(props: any) {
                                         url="https://github.com/fold-dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-accent)"
-                                        bgColor="var(--f-color-accent-weak)"
+                                        fgColor="var(--f-color-accent-weak)"
+                                        bgColor="var(--f-color-accent)"
                                     />
                                     <SocialIcon
                                         url="https://twitter.com/fold_dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-accent)"
-                                        bgColor="var(--f-color-accent-weak)"
+                                        fgColor="var(--f-color-accent-weak)"
+                                        bgColor="var(--f-color-accent)"
                                     />
                                     <SocialIcon
                                         url="https://www.linkedin.com/company/fold-dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-accent)"
-                                        bgColor="var(--f-color-accent-weak)"
+                                        fgColor="var(--f-color-accent-weak)"
+                                        bgColor="var(--f-color-accent)"
                                     />
                                 </View>
                             </Header>
@@ -228,22 +228,22 @@ export default function SiteLayout(props: any) {
                                 url="https://github.com/fold-dev/fold"
                                 target="_blank"
                                 style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent)"
-                                bgColor="var(--f-color-accent-100)"
+                                fgColor="var(--f-color-accent-weak)"
+                                bgColor="var(--f-color-accent-strong)"
                             />
                             <SocialIcon
                                 url="https://twitter.com/fold_dev"
                                 target="_blank"
                                 style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent)"
-                                bgColor="var(--f-color-accent-100)"
+                                fgColor="var(--f-color-accent-weak)"
+                                bgColor="var(--f-color-accent-strong)"
                             />
                             <SocialIcon
                                 url="https://www.linkedin.com/company/fold-dev"
                                 target="_blank"
                                 style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent)"
-                                bgColor="var(--f-color-accent-100)"
+                                fgColor="var(--f-color-accent-weak)"
+                                bgColor="var(--f-color-accent-strong)"
                             />
                         </View>
                     </View>
@@ -438,12 +438,12 @@ export default function SiteLayout(props: any) {
                             Get Started
                         </Button>
                         <Button
-                            width={200}
+                            width={125}
                             variant="accent"
                             as="a"
                             target="_blank"
-                            href="https://61fb81a2.sibforms.com/serve/MUIFAIdcVTZB8JLOGmoTu48YYshDwC7Uinyzu3h4sQKqJioZOki2cl7S5BCY9S_sw31Joe2i5fz6RGJfuKXy641YsGYsxkJLqlrTpZXa7H5tzVKRVbkDZvBCKpluQAp4hLkdoWVl7WsceXoIa6GPGRfxYe4tOM8IGmYO-1GfJ-DqScQ1p65akSfLMCl-fGu0sgUUYYnMUlZPn-CW">
-                            Subscribe to Newsletter
+                            href="https://fold.dev/docs">
+                            Documentation
                         </Button>
                     </View>
                 </View>
