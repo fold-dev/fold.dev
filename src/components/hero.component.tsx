@@ -42,7 +42,7 @@ export const HeroComponent = () => {
 
                     <Heading
                         textAlign="center"
-                        colorToken="accent"
+                        colorToken="accent-strong"
                         fontWeight={700}
                         fontSize="6rem"
                         lineHeight={0.9}

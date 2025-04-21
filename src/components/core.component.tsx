@@ -1524,7 +1524,7 @@ export const CoreComponent = () => {
                             letterSpacing={5}
                             colorToken="accent-300"
                             id="features">
-                            Vision
+                            Case Study
                         </Text>
                         <Heading
                             colorToken="accent-50"
@@ -1532,15 +1532,15 @@ export const CoreComponent = () => {
                             Made for product teams that need to scale quickly.
                         </Heading>
                         <Text colorToken="accent-100">
-                            Fold provides everything you need to create next-level products, including a thoughtfully designed Design System with sensible defaults.
+                            Fronteer leveraged Fold’s advanced design system and intuitive component library to accelerate development and enhance the quality of their product experience.
                         </Text>
                         <Link
                             target="_blank"
-                            href="https://fold.dev/docs"
+                            href="https://fronteer.app"
                             color="var(--f-color-accent-50)"
                             className="f-underline"
                             textDecoration="none">
-                            Documentation ↗
+                            Fronteer ↗
                         </Link>
                     </View>
 
@@ -1579,7 +1579,7 @@ export const CoreComponent = () => {
                             />
                             <img 
                                 style={{ position: 'relative', zIndex: 0 }}
-                                src="app-sandbox-light.png" 
+                                src="screenshot.png" 
                                 height="100%"
                                 width="auto"
                                 className="pro-image"
