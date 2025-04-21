@@ -219,7 +219,7 @@ export default function SiteLayout(props: any) {
                         alignItems="flex-start"
                         className="footer_block">
                         <LogoSolid color="var(--f-color-accent-400)" />
-                        <Text colorToken="accent-400">fold.dev &copy; 2024</Text>
+                        <Text colorToken="accent-400">fold.dev &copy; 2025</Text>
                         <View
                             row
                             gap={10}
