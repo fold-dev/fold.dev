@@ -95,14 +95,14 @@ export default function SiteLayout(props: any) {
                     zIndex={10000}
                     width="100%"
                     position="relative"
-                    bg="linear-gradient(15deg, var(--f-color-indigo-500), var(--f-color-purple-500))">
+                    bg="linear-gradient(15deg, var(--f-color-indigo-900), var(--f-color-indigo-800))">
                     <Text
                         color="inherit"
-                        colorToken="purple-50">
+                        colorToken="indigo-200">
                             New! DataGrid has just been added! 
-                            Check out the <a href="/docs" style={{ color: 'var(--f-color-purple-50)' }}>docs</a> for more information.
+                            Check out the <a href="/docs" style={{ color: 'var(--f-color-indigo-200)' }}>docs</a> for more information.
                     </Text>
-                    <Icon icon={PiRocket} style={{ transform: 'rotate(45deg)', color: 'var(--f-color-purple-50)' }} />
+                    <Icon icon={PiRocket} style={{ transform: 'rotate(45deg)', color: 'var(--f-color-indigo-100)' }} />
                 </View>
 
                 <Affix zIndex={100}>
@@ -119,7 +119,7 @@ export default function SiteLayout(props: any) {
                                 height={100}
                                 position="relative"
                                 border="none"
-                                bg={stuck ? 'rgb(from var(--f-color-surface) r g b / 0.5)' : 'transparent'}
+                                bg={stuck ? 'rgb(from var(--f-color-surface) r g b / 0.15)' : 'transparent'}
                                 style={{
                                     backdropFilter: 'blur(5px)',
                                     transition: 'background 0.1s',
@@ -130,7 +130,7 @@ export default function SiteLayout(props: any) {
                                     width="100%"
                                     p="0 4rem">
                                     <Link href="/">
-                                        <LogoSolid />
+                                        <LogoSolid color="var(--f-color-accent-600)" />
                                     </Link>
                                     <Flexer />
                                     <Navigation

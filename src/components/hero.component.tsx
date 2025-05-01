@@ -15,6 +15,7 @@ export const HeroComponent = () => {
                 style={{ position: 'absolute', top: -100, right: -100, opacity: 0.5 }}
                 height={882 / 2}
                 width={1456 / 2}
+                color="var(--f-color-base-500)"
             />
             <View
                 column
@@ -36,13 +37,13 @@ export const HeroComponent = () => {
                         textAlign="center"
                         style={{ textTransform: 'uppercase', opacity: 0.5 }}
                         letterSpacing={5}
-                        colorToken="accent">
+                        colorToken="accent-500">
                         Introducing
                     </Text>
 
                     <Heading
                         textAlign="center"
-                        colorToken="accent-strong"
+                        colorToken="accent-50"
                         fontWeight={700}
                         fontSize="6rem"
                         lineHeight={0.9}
@@ -54,7 +55,7 @@ export const HeroComponent = () => {
                     <Heading
                         as="h3"
                         textAlign="center"
-                        colorToken="accent"
+                        colorToken="base-500"
                         fontWeight={400}
                         width="90%">
                         Powerful, fully customizable React components for scaling your project to the next level. 
@@ -102,9 +103,10 @@ export const HeroComponent = () => {
                     </Text>
 
                     <GraphicLeft
-                        style={{ position: 'absolute', top: 400, left: -200, opacity: 0.5 }}
+                        style={{ position: 'absolute', top: 400, left: -250, opacity: 0.5 }}
                         width={1107 / 2}
                         height={559 / 2}
+                        color="var(--f-color-base-600)"
                     />
                 </View>
             </View>

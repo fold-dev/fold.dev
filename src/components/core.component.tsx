@@ -1500,7 +1500,7 @@ export const CoreComponent = () => {
                     gap="2rem"
                     width="85%"
                     radius="var(--f-radius)"
-                    bgToken="accent-500"
+                    bgToken="accent-600"
                     border="1px solid var(--f-color-border)"
                     position="relative"
                     style={{ overflow: 'hidden' }}
