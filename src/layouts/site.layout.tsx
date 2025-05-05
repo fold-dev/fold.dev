@@ -95,14 +95,14 @@ export default function SiteLayout(props: any) {
                     zIndex={10000}
                     width="100%"
                     position="relative"
-                    bg="linear-gradient(15deg, var(--f-color-indigo-900), var(--f-color-indigo-800))">
+                    bg="linear-gradient(15deg, var(--f-color-rose-500), var(--f-color-purple-600))">
                     <Text
                         color="inherit"
-                        colorToken="indigo-200">
+                        colorToken="white">
                             New! DataGrid has just been added! 
-                            Check out the <a href="/docs" style={{ color: 'var(--f-color-indigo-200)' }}>docs</a> for more information.
+                            Check out the <a href="/docs" style={{ color: 'var(--f-color-white)' }}>docs</a> for more information.
                     </Text>
-                    <Icon icon={PiRocket} style={{ transform: 'rotate(45deg)', color: 'var(--f-color-indigo-100)' }} />
+                    <Icon icon={PiRocket} style={{ transform: 'rotate(45deg)', color: 'var(--f-color-white)' }} />
                 </View>
 
                 <Affix zIndex={100}>
@@ -119,7 +119,7 @@ export default function SiteLayout(props: any) {
                                 height={100}
                                 position="relative"
                                 border="none"
-                                bg={stuck ? 'rgb(from var(--f-color-surface) r g b / 0.15)' : 'transparent'}
+                                bg={stuck ? 'rgb(from var(--f-color-nav-translucent) r g b / 0.9)' : 'transparent'}
                                 style={{
                                     backdropFilter: 'blur(5px)',
                                     transition: 'background 0.1s',
@@ -130,21 +130,13 @@ export default function SiteLayout(props: any) {
                                     width="100%"
                                     p="0 4rem">
                                     <Link href="/">
-                                        <LogoSolid color="var(--f-color-accent-600)" />
+                                        <LogoSolid color="var(--f-color-accent-50)" />
                                     </Link>
                                     <Flexer />
                                     <Navigation
                                         display="none"
                                         bg="transparent"
-                                        variant="navbar"
-                                        style={{
-                                            '--f-navigation-item-color-system-active': 'var(--f-color-accent-weak)',
-                                            '--f-navigation-item-background-color-hover': 'var(--f-color-accent-weak)',
-                                            '--f-navigation-item-background-color-active':  'var(--f-color-accent)',
-                                            '--f-navigation-item-color': 'var(--f-color-accent)',
-                                            '--f-navigation-item-color-hover': 'var(--f-color-accent-strong)',
-                                            '--f-navigation-item-color-active': 'var(--f-color-accent)',
-                                        }}>
+                                        variant="navbar">
                                         <NavigationItem href="/#home">Home</NavigationItem>
                                         <NavigationItem href="/#core">Core</NavigationItem>
                                         <NavigationItem href="/#pro">Pro</NavigationItem>
@@ -154,12 +146,12 @@ export default function SiteLayout(props: any) {
                                         href="/docs"
                                         as="a"
                                         target="_blank"
-                                        outline
-                                        border="0.15rem solid var(--f-color-accent)"
+                                        border="0.15rem solid var(--f-color-accent-100)"
                                         style={{
-                                            '--f-button-color': 'var(--f-color-accent)',
-                                            '--f-button-color-hover': 'var(--f-color-accent-weak)',
-                                            '--f-button-background-color-hover': 'var(--f-color-accent)',
+                                            '--f-button-color': 'var(--f-color-accent-50)',
+                                            '--f-button-color-hover': 'var(--f-color-accent-900)',
+                                            '--f-button-background-color': 'transparent',
+                                            '--f-button-background-color-hover': 'var(--f-color-accent-50)',
                                         }}>
                                         Documentation
                                     </Button>
@@ -167,12 +159,12 @@ export default function SiteLayout(props: any) {
                                         target="_blank"
                                         href="https://github.com/fold-dev/fold"
                                         as="a"
-                                        outline
-                                        border="0.15rem solid var(--f-color-accent)"
+                                        border="0.15rem solid var(--f-color-accent-100)"
                                         style={{
-                                            '--f-button-color': 'var(--f-color-accent)',
-                                            '--f-button-color-hover': 'var(--f-color-accent-weak)',
-                                            '--f-button-background-color-hover': 'var(--f-color-accent)',
+                                            '--f-button-color': 'var(--f-color-accent-50)',
+                                            '--f-button-color-hover': 'var(--f-color-accent-900)',
+                                            '--f-button-background-color': 'transparent',
+                                            '--f-button-background-color-hover': 'var(--f-color-accent-50)',
                                         }}>
                                         Download
                                     </Button>
@@ -180,22 +172,22 @@ export default function SiteLayout(props: any) {
                                         url="https://github.com/fold-dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-accent-weak)"
-                                        bgColor="var(--f-color-accent)"
+                                        fgColor="var(--f-color-accent)"
+                                        bgColor="var(--f-color-surface-strong)"
                                     />
                                     <SocialIcon
                                         url="https://twitter.com/fold_dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-accent-weak)"
-                                        bgColor="var(--f-color-accent)"
+                                        fgColor="var(--f-color-accent)"
+                                        bgColor="var(--f-color-surface-strong)"
                                     />
                                     <SocialIcon
                                         url="https://www.linkedin.com/company/fold-dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-accent-weak)"
-                                        bgColor="var(--f-color-accent)"
+                                        fgColor="var(--f-color-accent)"
+                                        bgColor="var(--f-color-surface-strong)"
                                     />
                                 </View>
                             </Header>
@@ -218,8 +210,8 @@ export default function SiteLayout(props: any) {
                         gap={20}
                         alignItems="flex-start"
                         className="footer_block">
-                        <LogoSolid color="var(--f-color-accent-400)" />
-                        <Text colorToken="accent-400">fold.dev &copy; 2025</Text>
+                        <LogoSolid color="var(--f-color-accent)" />
+                        <Text colorToken="accent">fold.dev &copy; 2025</Text>
                         <View
                             row
                             gap={10}

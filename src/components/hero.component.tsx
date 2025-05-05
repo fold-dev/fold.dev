@@ -1,4 +1,4 @@
-import { Button, Heading, Link, Text, View } from '@fold-dev/core'
+import { Button, Divider, Heading, Link, Text, View } from '@fold-dev/core'
 import * as Token from '@fold-dev/design/tokens'
 import { GraphicLeft, GraphicRight } from './graphic.component'
 
@@ -15,7 +15,7 @@ export const HeroComponent = () => {
                 style={{ position: 'absolute', top: -100, right: -100, opacity: 0.5 }}
                 height={882 / 2}
                 width={1456 / 2}
-                color="var(--f-color-base-500)"
+                color="var(--f-color-accent-300)"
             />
             <View
                 column
@@ -37,13 +37,13 @@ export const HeroComponent = () => {
                         textAlign="center"
                         style={{ textTransform: 'uppercase', opacity: 0.5 }}
                         letterSpacing={5}
-                        colorToken="accent-500">
+                        colorToken="accent-50">
                         Introducing
                     </Text>
 
                     <Heading
                         textAlign="center"
-                        colorToken="accent-50"
+                        colorToken="white"
                         fontWeight={700}
                         fontSize="6rem"
                         lineHeight={0.9}
@@ -55,7 +55,7 @@ export const HeroComponent = () => {
                     <Heading
                         as="h3"
                         textAlign="center"
-                        colorToken="base-500"
+                        colorToken="accent-100"
                         fontWeight={400}
                         width="90%">
                         Powerful, fully customizable React components for scaling your project to the next level. 
@@ -67,13 +67,8 @@ export const HeroComponent = () => {
                         gap={20}
                         colorToken="white">
                         <Button
-                            outline
                             as="a"
-                            href="#core"
-                            border="0.15rem solid var(--f-color-accent)"
-                            style={{
-                                '--f-button-color': 'var(--f-color-accent)',
-                            }}>
+                            href="#core">
                             Read More
                         </Button>
                         <Link
@@ -82,21 +77,21 @@ export const HeroComponent = () => {
                             textDecoration="none"
                             className="f-underline"
                             m="0 -1rem 0 0"
-                            colorToken="accent">
+                            colorToken="accent-50">
                             Documentation ↗
                         </Link>
                     </View>
 
                     <Text
                         size="sm"
-                        colorToken="accent">
+                        colorToken="accent-300">
                         <Link
                             style={{ '--f-underline-size': '2px' }}
                             size="sm"
                             target="_blank"
                             textDecoration="none"
                             className="f-underline"
-                            colorToken="accent"
+                            colorToken="accent-300"
                             href="https://twitter.com/fold_dev">
                             Follow us on social media
                         </Link> & get notified of any updates.
@@ -106,10 +101,11 @@ export const HeroComponent = () => {
                         style={{ position: 'absolute', top: 400, left: -250, opacity: 0.5 }}
                         width={1107 / 2}
                         height={559 / 2}
-                        color="var(--f-color-base-600)"
+                        color="var(--f-color-accent-300)"
                     />
                 </View>
             </View>
+            <Divider />
         </View>
     )
 }

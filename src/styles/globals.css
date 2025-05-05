@@ -206,13 +206,21 @@ body {
     opacity: 0.2 !important;
 }
 
-[data-theme="dark"] .hero-background {
-    background: radial-gradient(circle, var(--f-color-base-950) 0%, var(--f-color-base-900) 200%);
-    border-bottom: 1px solid var(--f-color-surface);
+[data-theme="dark"] {
+    --f-color-nav-translucent: var(--f-color-base-900);
 } 
 
 [data-theme="light"] .hero-background {
-    background: radial-gradient(circle, var(--f-color-base-900) 0%, var(--f-color-base-950) 200%);
+    background-color: var(--f-color-accent-600);
+}
+
+[data-theme="light"] {
+    --f-color-nav-translucent: var(--f-color-accent);
+    --f-button-color: var(--f-color-accent-100);
+    --f-button-color-hover: var(--f-color-accent-50);
+    --f-button-border-color: var(--f-color-accent-100);
+    --f-button-background-color: transparent;
+    --f-button-background-color-hover: var(--f-color-accent-600);
 } 
 
 .mobile-component {
