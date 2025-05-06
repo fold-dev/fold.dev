@@ -68,7 +68,14 @@ export const HeroComponent = () => {
                         colorToken="white">
                         <Button
                             as="a"
-                            href="#core">
+                            href="#core"
+                            border="0.15rem solid var(--f-color-accent-100)"
+                            style={{
+                                '--f-button-color': 'var(--f-color-accent-50)',
+                                '--f-button-color-hover': 'var(--f-color-accent-900)',
+                                '--f-button-background-color': 'transparent',
+                                '--f-button-background-color-hover': 'var(--f-color-accent-50)',
+                            }}>
                             Read More
                         </Button>
                         <Link

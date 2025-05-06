@@ -118,6 +118,7 @@ export default function SiteLayout(props: any) {
                             <Header
                                 height={100}
                                 position="relative"
+                                className="page-nav"
                                 border="none"
                                 bg={stuck ? 'rgb(from var(--f-color-nav-translucent) r g b / 0.9)' : 'transparent'}
                                 style={{
