@@ -138,12 +138,12 @@ export const FAQ = (props) => (
         style={{
             '--f-link-color': 'var(--f-color-accent-400)',
             '--f-accordion-border-color': 'var(--f-color-base-700)',
-            '--f-accordion-background': 'var(--f-color-base-800)',
+            '--f-accordion-background': 'var(--f-color-base-900)',
             '--f-accordion-color': 'var(--f-color-base-300)',
             '--f-accordion-color-heading': 'var(--f-color-base-300)',
             '--f-accordion-color-description': 'var(--f-color-base-300)',
             '--f-accordion-hover-border-color': 'var(--f-color-base-700)',
-            '--f-accordion-hover-background-color': 'var(--f-color-base-700)',
+            '--f-accordion-hover-background-color': 'var(--f-color-base-800)',
             '--f-accordion-active-background-color': 'var(--f-color-base-500)',
             '--f-accordion-active-background': 'var(--f-color-base-600)',
             '--f-accordion-active-color': 'var(--f-color-base-300)',
@@ -289,7 +289,7 @@ export const PricingComponent = () => {
                 column
                 gap="2rem"
                 flex={1}
-                bgToken="base-800"
+                bgToken="base-900"
                 width="100%"
                 position="relative"
                 style={{ overflow: 'hidden' }}
@@ -539,7 +539,7 @@ export const PricingComponent = () => {
 
             <View
                 row
-                bgToken="base-800"
+                bgToken="base-900"
                 position="relative"
                 p="0 0rem 11rem 0rem"
                 width="100%"
@@ -561,7 +561,7 @@ export const PricingComponent = () => {
                         gap={50}
                         width="100%"
                         radius="var(--f-radius)"
-                        bgToken="base-800"
+                        bgToken="base-900"
                         position="relative"
                         style={{ overflow: 'hidden' }}
                         alignItems="flex-start"

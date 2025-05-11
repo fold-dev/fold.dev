@@ -44,8 +44,8 @@ export const FAQComponent = () => {
                         <AccordionPanel>
                             Consider Early Access to be pre-release software & still relatively unstable. We have made every effort to minimize bugs & other issues,
                             but there is still work left to do. If you have a Pro license & have experienced a bug, please consider posting 
-                            it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro" colorToken="accent-100">Fold Pro Google Group</Link> or 
-                            on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent-100">GitHub.</Link> (label it as Pro)
+                            it to the <Link target="_blank" href="https://groups.google.com/a/fold.dev/g/pro" colorToken="accent">Fold Pro Google Group</Link> or 
+                            on <Link href="https://github.com/fold-dev/fold" target="_blank" fontSize="inherit" colorToken="accent">GitHub.</Link> (label it as Pro)
                         </AccordionPanel>
                     </AccordionItem>
                     <AccordionItem>
@@ -78,7 +78,7 @@ export const FAQComponent = () => {
                                 href="licensing@fold.dev"
                                 target="_blank"
                                 fontSize="inherit"
-                                colorToken="accent-100">
+                                colorToken="accent">
                                 email
                             </Link> us & we'll reply as soon as we can.
                         </AccordionPanel>
