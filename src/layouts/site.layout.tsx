@@ -173,22 +173,22 @@ export default function SiteLayout(props: any) {
                                         url="https://github.com/fold-dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-accent)"
-                                        bgColor="var(--f-color-surface-strong)"
+                                        fgColor="var(--f-color-base-900)"
+                                        bgColor="var(--f-color-base-100)"
                                     />
                                     <SocialIcon
                                         url="https://twitter.com/fold_dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-accent)"
-                                        bgColor="var(--f-color-surface-strong)"
+                                        fgColor="var(--f-color-base-900)"
+                                        bgColor="var(--f-color-base-100)"
                                     />
                                     <SocialIcon
                                         url="https://www.linkedin.com/company/fold-dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-accent)"
-                                        bgColor="var(--f-color-surface-strong)"
+                                        fgColor="var(--f-color-base-900)"
+                                        bgColor="var(--f-color-base-100)"
                                     />
                                 </View>
                             </Header>

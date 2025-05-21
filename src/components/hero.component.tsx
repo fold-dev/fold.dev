@@ -37,14 +37,14 @@ export const HeroComponent = () => {
                         textAlign="center"
                         style={{ textTransform: 'uppercase', opacity: 0.5 }}
                         letterSpacing={5}
-                        colorToken="accent-50">
+                        colorToken="base-400">
                         Introducing
                     </Text>
 
                     <Heading
                         textAlign="center"
                         colorToken="white"
-                        fontWeight={700}
+                        fontWeight={600}
                         fontSize="6rem"
                         lineHeight={0.9}
                         p="0 3rem"
@@ -55,7 +55,7 @@ export const HeroComponent = () => {
                     <Heading
                         as="h3"
                         textAlign="center"
-                        colorToken="accent-100"
+                        colorToken="base-400"
                         fontWeight={400}
                         width="90%">
                         Powerful, fully customizable React components for scaling your project to the next level. 
@@ -91,14 +91,14 @@ export const HeroComponent = () => {
 
                     <Text
                         size="sm"
-                        colorToken="accent-300">
+                        colorToken="base-500">
                         <Link
                             style={{ '--f-underline-size': '2px' }}
                             size="sm"
                             target="_blank"
                             textDecoration="none"
                             className="f-underline"
-                            colorToken="accent-300"
+                            colorToken="base-500"
                             href="https://twitter.com/fold_dev">
                             Follow us on social media
                         </Link> & get notified of any updates.

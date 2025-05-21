@@ -206,16 +206,16 @@ body {
     opacity: 0.2 !important;
 }
 
+[data-theme="light"],
 [data-theme="dark"] {
     --f-color-nav-translucent: var(--f-color-base-900);
 } 
 
 [data-theme="light"] .hero-background {
-    background-color: var(--f-color-accent-600);
+    background-color: var(--f-color-base-900);
 }
 
 [data-theme="light"] .page-nav {
-    --f-color-nav-translucent: var(--f-color-accent);
     --f-button-color: var(--f-color-accent-100);
     --f-button-color-hover: var(--f-color-accent-50);
     --f-button-border-color: var(--f-color-accent-100);
