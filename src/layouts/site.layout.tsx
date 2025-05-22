@@ -95,14 +95,17 @@ export default function SiteLayout(props: any) {
                     zIndex={10000}
                     width="100%"
                     position="relative"
-                    bg="linear-gradient(15deg, var(--f-color-rose-500), var(--f-color-purple-600))">
+                    //bg="linear-gradient(15deg, var(--f-color-rose-500), var(--f-color-purple-600))"
+                    bgToken="slate-900"
+                    style={{ borderBottom: '1px solid var(--f-color-slate-800)' }}
+                    colorToken="indigo-500"
+                    >
                     <Text
-                        color="inherit"
-                        colorToken="white">
+                        color="inherit">
                             New! DataGrid has just been added! 
-                            Check out the <a href="/docs" style={{ color: 'var(--f-color-white)' }}>docs</a> for more information.
+                            Check out the <a href="/docs" style={{ color: 'currentColor' }}>docs</a> for more information.
                     </Text>
-                    <Icon icon={PiRocket} style={{ transform: 'rotate(45deg)', color: 'var(--f-color-white)' }} />
+                    <Icon icon={PiRocket} style={{ transform: 'rotate(45deg)', color: 'currentColor' }} />
                 </View>
 
                 <Affix zIndex={100}>
@@ -119,9 +122,9 @@ export default function SiteLayout(props: any) {
                                 height={100}
                                 position="relative"
                                 className="page-nav"
-                                border="none"
                                 bg={stuck ? 'rgb(from var(--f-color-nav-translucent) r g b / 0.9)' : 'transparent'}
                                 style={{
+                                    borderColor: 'var(--f-color-slate-800)',
                                     backdropFilter: 'blur(5px)',
                                     transition: 'background 0.1s',
                                 }}>
@@ -147,7 +150,7 @@ export default function SiteLayout(props: any) {
                                         href="/docs"
                                         as="a"
                                         target="_blank"
-                                        border="0.15rem solid var(--f-color-accent-100)"
+                                        border="none"
                                         style={{
                                             '--f-button-color': 'var(--f-color-accent-50)',
                                             '--f-button-color-hover': 'var(--f-color-accent-900)',
@@ -160,7 +163,7 @@ export default function SiteLayout(props: any) {
                                         target="_blank"
                                         href="https://github.com/fold-dev/fold"
                                         as="a"
-                                        border="0.15rem solid var(--f-color-accent-100)"
+                                        border="none"
                                         style={{
                                             '--f-button-color': 'var(--f-color-accent-50)',
                                             '--f-button-color-hover': 'var(--f-color-accent-900)',
@@ -173,22 +176,22 @@ export default function SiteLayout(props: any) {
                                         url="https://github.com/fold-dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-base-900)"
-                                        bgColor="var(--f-color-base-100)"
+                                        fgColor="var(--f-color-base-100)"
+                                        bgColor="var(--f-color-base-700)"
                                     />
                                     <SocialIcon
                                         url="https://twitter.com/fold_dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-base-900)"
-                                        bgColor="var(--f-color-base-100)"
+                                        fgColor="var(--f-color-base-100)"
+                                        bgColor="var(--f-color-base-700)"
                                     />
                                     <SocialIcon
                                         url="https://www.linkedin.com/company/fold-dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
-                                        fgColor="var(--f-color-base-900)"
-                                        bgColor="var(--f-color-base-100)"
+                                        fgColor="var(--f-color-base-100)"
+                                        bgColor="var(--f-color-base-700)"
                                     />
                                 </View>
                             </Header>

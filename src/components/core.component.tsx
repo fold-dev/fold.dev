@@ -1453,12 +1453,12 @@ export const CoreComponent = () => {
                         textAlign="center"
                         style={{ textTransform: 'uppercase' }}
                         letterSpacing={5}
-                        colorToken="accent">
+                        colorToken="text-weakest">
                         Open Source
                     </Text>
                     <Heading
                         textAlign="center"
-                        colorToken="accent"
+                        colorToken="text-weak"
                         fontWeight={400}
                         width="80%">
                         Leverage Fold's 85+ components to power your next project. 
