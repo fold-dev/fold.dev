@@ -7,7 +7,7 @@ export const HeroComponent = () => {
         <View
             width="100%"
             p="111px 0 0 0"
-            m="-111px 0 0 0"
+            m="-140px 0 0 0"
             position="relative"
             style={{  overflow: 'hidden' }}
             className="hero-background">
@@ -32,7 +32,7 @@ export const HeroComponent = () => {
                     gap={40}
                     width="80%"
                     m="0 auto"
-                    p="3rem 0 0 0"
+                    p="5rem 0 0 0"
                     position="relative">
                     <Text
                         textAlign="center"

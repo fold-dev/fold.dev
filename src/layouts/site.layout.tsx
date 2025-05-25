@@ -96,8 +96,12 @@ export default function SiteLayout(props: any) {
                     width="100%"
                     position="relative"
                     //bg="linear-gradient(15deg, var(--f-color-rose-500), var(--f-color-purple-600))"
-                    bgToken="slate-900"
-                    style={{ borderBottom: '1px solid var(--f-color-slate-800)' }}
+                    //bgToken="slate-900"
+                    style={{ 
+                        borderBottom: '1px solid var(--f-color-slate-800)',
+                        background: 'rgb(from var(--f-color-nav-translucent) r g b / 0.4)',
+                        backdropFilter: 'blur(10px)',
+                    }}
                     colorToken="indigo-500"
                     >
                     <Text
@@ -125,7 +129,7 @@ export default function SiteLayout(props: any) {
                                 bg={stuck ? 'rgb(from var(--f-color-nav-translucent) r g b / 0.9)' : 'transparent'}
                                 style={{
                                     borderColor: 'var(--f-color-slate-800)',
-                                    backdropFilter: 'blur(5px)',
+                                    backdropFilter: 'blur(10px)',
                                     transition: 'background 0.1s',
                                 }}>
                                 <View
@@ -134,7 +138,7 @@ export default function SiteLayout(props: any) {
                                     width="100%"
                                     p="0 4rem">
                                     <Link href="/">
-                                        <LogoSolid color="var(--f-color-accent-50)" />
+                                        <LogoSolid color="var(--f-color-indigo-600)" />
                                     </Link>
                                     <Flexer />
                                     <Navigation

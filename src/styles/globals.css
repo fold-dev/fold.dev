@@ -2,7 +2,7 @@ html,
 body {
     height: 100%;
     font-size: 14px;
-    background-color: var(--f-color-background) !important;
+    background-color: var(--f-color-surface) !important;
     scroll-behavior: smooth;
 }
 
@@ -210,6 +210,10 @@ body {
 [data-theme="dark"] {
     --f-color-nav-translucent: var(--f-color-base-900);
 } 
+
+[data-theme="dark"] .hero-background {
+    background-color: var(--f-color-base-900);
+}
 
 [data-theme="light"] .hero-background {
     background-color: var(--f-color-base-900);

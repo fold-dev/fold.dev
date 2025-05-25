@@ -199,11 +199,11 @@ export const SearchComponent = (props: any) => {
                 flex={1}>
                 <InputControl 
                     border="1px solid var(--f-color-base-700)"
-                    bgToken="base-800">
+                    bgToken="base-900">
                     <Input
                         placeholder="Search"
                         border="none"
-                        bgToken="base-800"
+                        bgToken="base-900"
                         colorToken="base-300"
                         value={search}
                         onFocus={handleFocus}

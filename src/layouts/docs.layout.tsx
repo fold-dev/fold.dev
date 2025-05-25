@@ -320,11 +320,11 @@ export default function DocsLayout(props: any) {
                                     width="101%"
                                     gap={10}
                                     style={{ borderColor: Token.ColorBase700 }}
-                                    bgToken="base-800">
+                                    bgToken="base-900">
                                     <Link
                                         href="/"
                                         row>
-                                        <LogoSolid size="sm" />
+                                        <LogoSolid size="sm" color="var(--f-color-indigo-600)" />
                                     </Link>
                                     <Heading
                                         as="h4"
@@ -390,14 +390,14 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     border="0"
-                                                    color={Token.ColorAccent400}>
+                                                    color={Token.ColorSlate200}>
                                                     EARLY ACCESS
                                                 </Pill>
                                             }
                                             prefix={
                                                 <Logo
                                                     customSize={18} 
-                                                    color={Token.ColorAccent400}
+                                                    color={Token.ColorSlate200}
                                                     style={{ marginLeft: 2 }} 
                                                 />
                                             }>
@@ -529,7 +529,7 @@ export default function DocsLayout(props: any) {
                                         <NavigationHeading 
                                             suffix={(
                                                 <Pill
-                                                    color={Token.ColorAccent400}
+                                                    color={Token.ColorSlate200}
                                                     size="xs"
                                                     subtle>
                                                     v0.1.2
@@ -568,7 +568,7 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     subtle
-                                                    color={Token.ColorAccent400}>
+                                                    color={Token.ColorSlate200}>
                                                     v0.16.0
                                                 </Pill>                                               
                                             }>
@@ -640,7 +640,7 @@ export default function DocsLayout(props: any) {
                                 gap="0.5rem"
                                 height="4.5rem"
                                 p="0.5rem 1rem 0.5rem 0"
-                                bgToken="base-800"
+                                bgToken="base-900"
                                 style={{ borderColor: Token.ColorBase700, '--f-popout-buffer': '1rem' }}
                                 colorToken="text-weaker">
                                 <SearchComponent />
@@ -657,7 +657,7 @@ export default function DocsLayout(props: any) {
                                             height={30}
                                             width={30}
                                             className="f-buttonize-outline"
-                                            color={Token.ColorAccent400}>
+                                            color={Token.ColorSlate200}>
                                             <Icon icon={PiGithubLogo} />
                                         </Pill>
                                     </Link>
@@ -670,7 +670,7 @@ export default function DocsLayout(props: any) {
                                             height={30}
                                             width={30}
                                             className="f-buttonize-outline"
-                                            color={Token.ColorAccent400}>
+                                            color={Token.ColorSlate200}>
                                             <Icon icon={PiTwitterLogo} />
                                         </Pill>
                                     </Link>
@@ -683,7 +683,7 @@ export default function DocsLayout(props: any) {
                                             height={30}
                                             width={30}
                                             className="f-buttonize-outline"
-                                            color={Token.ColorAccent400}>
+                                            color={Token.ColorSlate200}>
                                             <Icon icon={PiLinkedinLogo} />
                                         </Pill>
                                     </Link>
@@ -696,7 +696,7 @@ export default function DocsLayout(props: any) {
                                             height={30}
                                             width={30}
                                             className="f-buttonize-outline"
-                                            color={Token.ColorAccent400}>
+                                            color={Token.ColorSlate200}>
                                             <Icon icon={PiLifebuoy} />
                                         </Pill>
                                     </Link>
