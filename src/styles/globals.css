@@ -71,7 +71,7 @@ body {
 }
 
 [data-theme="dark"] .dotted {
-    background-image: radial-gradient(var(--f-color-surface) 1px, transparent 0);    
+    background-image: radial-gradient(var(--f-color-surface-strong) 1px, transparent 0);    
     background-size: 9px 9px;
     background-position: -19px -19px;
 }

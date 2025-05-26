@@ -1532,7 +1532,7 @@ export const CoreComponent = () => {
                             Made for product teams that need to scale quickly.
                         </Heading>
                         <Text colorToken="accent-100">
-                            Fronteer leveraged Fold’s advanced design system and intuitive component library to accelerate development and enhance the quality of their product experience.
+                            Fronteer leverages Fold's design system and core component library to accelerate development and enhance the overall quality of their product DX.
                         </Text>
                         <Link
                             target="_blank"
@@ -1540,7 +1540,7 @@ export const CoreComponent = () => {
                             color="var(--f-color-accent-50)"
                             className="f-underline"
                             textDecoration="none">
-                            Fronteer ↗
+                            fronteer.app ↗
                         </Link>
                     </View>
 
