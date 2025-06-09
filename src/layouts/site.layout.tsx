@@ -102,7 +102,7 @@ export default function SiteLayout(props: any) {
                         background: 'rgb(from var(--f-color-nav-translucent) r g b / 0.4)',
                         backdropFilter: 'blur(10px)',
                     }}
-                    colorToken="indigo-500"
+                    colorToken="accent"
                     >
                     <Text
                         color="inherit">
@@ -138,7 +138,7 @@ export default function SiteLayout(props: any) {
                                     width="100%"
                                     p="0 4rem">
                                     <Link href="/">
-                                        <LogoSolid color="var(--f-color-indigo-600)" />
+                                        <LogoSolid color="var(--f-color-accent)" />
                                     </Link>
                                     <Flexer />
                                     <Navigation
@@ -157,9 +157,9 @@ export default function SiteLayout(props: any) {
                                         border="none"
                                         style={{
                                             '--f-button-color': 'var(--f-color-accent-50)',
-                                            '--f-button-color-hover': 'var(--f-color-accent-900)',
+                                            '--f-button-color-hover': 'var(--f-color-accent-50)',
                                             '--f-button-background-color': 'transparent',
-                                            '--f-button-background-color-hover': 'var(--f-color-accent-50)',
+                                            '--f-button-background-color-hover': 'var(--f-color-base-700)',
                                         }}>
                                         Documentation
                                     </Button>
@@ -170,9 +170,9 @@ export default function SiteLayout(props: any) {
                                         border="none"
                                         style={{
                                             '--f-button-color': 'var(--f-color-accent-50)',
-                                            '--f-button-color-hover': 'var(--f-color-accent-900)',
+                                            '--f-button-color-hover': 'var(--f-color-accent-50)',
                                             '--f-button-background-color': 'transparent',
-                                            '--f-button-background-color-hover': 'var(--f-color-accent-50)',
+                                            '--f-button-background-color-hover': 'var(--f-color-base-700)',
                                         }}>
                                         Download
                                     </Button>

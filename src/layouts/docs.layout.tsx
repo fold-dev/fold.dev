@@ -324,7 +324,7 @@ export default function DocsLayout(props: any) {
                                     <Link
                                         href="/"
                                         row>
-                                        <LogoSolid size="sm" color="var(--f-color-indigo-600)" />
+                                        <LogoSolid size="sm" color="var(--f-color-accent)" />
                                     </Link>
                                     <Heading
                                         as="h4"
@@ -567,9 +567,8 @@ export default function DocsLayout(props: any) {
                                             suffix={            
                                                 <Pill
                                                     size="xs"
-                                                    subtle
-                                                    color={Token.ColorSlate200}>
-                                                    v0.16.0
+                                                    subtle>
+                                                    v0.18.0
                                                 </Pill>                                               
                                             }>
                                             Core Components
