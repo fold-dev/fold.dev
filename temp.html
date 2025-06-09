@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0" />
+        <title>Multi-object Drag / Resize / Rotate</title>
+        <style>
+            /* --------  page  -------- */
+            html,
+            body {
+                margin: 0;
+                height: 100%;
+                background: #f5f5f5;
+                overflow: hidden;
+                font-family: sans-serif;
+            }
+            #toolbar {
+                position: fixed;
+                top: 10px;
+                left: 10px;
+                z-index: 1000;
+            }
+            #toolbar button {
+                padding: 0.4rem 0.8rem;
+                border: 0;
+                border-radius: 4px;
+                background: #1e88e5;
+                color: #fff;
+                cursor: pointer;
+            }
+            #toolbar button:hover {
+                background: #0d47a1;
+            }
+
+            /* --------  box & handles  -------- */
+            .box-wrapper {
+                position: absolute;
+                transform-origin: top left;
+                user-select: none;
+            }
+            .box {
+                outline: 2px solid #1e88e5;
+                outline-offset: -2px;
+                position: relative;
+                cursor: grab;
+                transform: translate(-50%, -50%);
+            }
+            .box:active {
+                cursor: grabbing;
+            }
+            .box img {
+                pointer-events: none;
+                user-select: none;
+                width: 100%;
+                height: 100%;
+            }
+
+            /* text inside box */
+            .text {
+                padding: 30px;
+                width: calc(100% - 60px);
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                font-size: 20px;
+                outline: none;
+            }
+            .text:focus {
+                outline: none;
+            }
+
+            /* handles */
+            .dot {
+                position: absolute;
+                height: 10px;
+                width: 10px;
+                background: #1e88e5;
+                border: 1px solid #fff;
+                border-radius: 50%;
+                z-index: 10;
+            }
+            .dot:hover {
+                background: #0d47a1;
+                cursor: grab;
+            }
+            .dot:active {
+                cursor: grabbing;
+            }
+            .left-top {
+                top: -5px;
+                left: -5px;
+            }
+            .right-top {
+                top: -5px;
+                right: -5px;
+            }
+            .right-bottom {
+                bottom: -5px;
+                right: -5px;
+            }
+            .left-bottom {
+                bottom: -5px;
+                left: -5px;
+            }
+            .top-mid {
+                top: -5px;
+                left: calc(50% - 5px);
+            }
+            .bottom-mid {
+                bottom: -5px;
+                left: calc(50% - 5px);
+            }
+            .left-mid {
+                left: -5px;
+                top: calc(50% - 5px);
+            }
+            .right-mid {
+                right: -5px;
+                top: calc(50% - 5px);
+            }
+            .rotate {
+                top: -30px;
+                left: calc(50% - 5px);
+                cursor: url('https://findicons.com/files/icons/1620/crystal_project/16/rotate_ccw.png'),
+                    auto;
+            }
+            .rotate-link {
+                position: absolute;
+                width: 1px;
+                height: 15px;
+                background: #1e88e5;
+                top: -20px;
+                left: calc(50% + 0.5px);
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="toolbar">
+            <button id="add-random">Add random object</button>
+        </div>
+
+        <script>
+            const MIN_W = 40,
+                MIN_H = 40
+
+            /* ---------- factory helpers ---------- */
+            function baseMarkup(innerHTML) {
+                return `
+    <div class="dot rotate"></div>
+    <div class="dot left-top"></div><div class="dot right-top"></div>
+    <div class="dot right-bottom"></div><div class="dot left-bottom"></div>
+    <div class="dot top-mid"></div><div class="dot bottom-mid"></div>
+    <div class="dot left-mid"></div><div class="dot right-mid"></div>
+    <div class="rotate-link"></div>
+    ${innerHTML}
+  `
+            }
+            function createBoxWrapper(x, y, w, h, innerHTML) {
+                const wrap = document.createElement('div')
+                wrap.className = 'box-wrapper'
+                wrap.style.left = x + 'px'
+                wrap.style.top = y + 'px'
+                const box = document.createElement('div')
+                box.className = 'box'
+                box.style.width = w + 'px'
+                box.style.height = h + 'px'
+                box.insertAdjacentHTML('beforeend', baseMarkup(innerHTML))
+                wrap.appendChild(box)
+                document.body.appendChild(wrap)
+                initInteractions(wrap)
+                return wrap
+            }
+            function createImageBox(src, x, y, w, h) {
+                return createBoxWrapper(x, y, w, h, `<img src="${src}">`)
+            }
+            function createTextBox(text, x, y, w, h) {
+                return createBoxWrapper(
+                    x,
+                    y,
+                    w,
+                    h,
+                    `<div class="text" contenteditable="true">${text}</div>`
+                )
+            }
+
+            /* ---------- interaction logic ---------- */
+            function initInteractions(wrapper) {
+                const box = wrapper.querySelector('.box')
+                const handles = {
+                    lt: wrapper.querySelector('.left-top'),
+                    rt: wrapper.querySelector('.right-top'),
+                    rb: wrapper.querySelector('.right-bottom'),
+                    lb: wrapper.querySelector('.left-bottom'),
+                    lm: wrapper.querySelector('.left-mid'),
+                    rm: wrapper.querySelector('.right-mid'),
+                    tm: wrapper.querySelector('.top-mid'),
+                    bm: wrapper.querySelector('.bottom-mid'),
+                    rot: wrapper.querySelector('.rotate'),
+                }
+                let initX, initY, startX, startY, initW, initH, initRot
+                const reposition = (x, y) => {
+                    wrapper.style.left = x + 'px'
+                    wrapper.style.top = y + 'px'
+                }
+                const resize = (w, h) => {
+                    box.style.width = w + 'px'
+                    box.style.height = h + 'px'
+                }
+                const getRot = (el) => {
+                    const t = getComputedStyle(el).transform
+                    if (t === 'none') return 0
+                    const [a, b] = t.match(/matrix.*\((.+)\)/)[1].split(',')
+                    return (Math.atan2(b, a) * 180) / Math.PI
+                }
+                const setRot = (deg) => (wrapper.style.transform = `rotate(${deg}deg)`)
+
+                /* drag */
+                wrapper.addEventListener('mousedown', (e) => {
+                    if (e.target.classList.contains('dot')) return
+                    initX = wrapper.offsetLeft
+                    initY = wrapper.offsetTop
+                    startX = e.clientX
+                    startY = e.clientY
+                    const move = (e2) =>
+                        reposition(initX + e2.clientX - startX, initY + e2.clientY - startY)
+                    window.addEventListener('mousemove', move)
+                    window.addEventListener(
+                        'mouseup',
+                        () => window.removeEventListener('mousemove', move),
+                        { once: true }
+                    )
+                })
+
+                /* resize helper */
+                function attachResize(dot, left, top, xR, yR) {
+                    dot.addEventListener('mousedown', (e) => {
+                        e.stopPropagation()
+                        initX = wrapper.offsetLeft
+                        initY = wrapper.offsetTop
+                        startX = e.clientX
+                        startY = e.clientY
+                        initW = box.offsetWidth
+                        initH = box.offsetHeight
+                        initRot = (getRot(wrapper) * Math.PI) / 180
+                        const cos = Math.cos(initRot),
+                            sin = Math.sin(initRot)
+                        const move = (e2) => {
+                            let wDiff = e2.clientX - startX,
+                                hDiff = e2.clientY - startY
+                            let rW = cos * wDiff + sin * hDiff,
+                                rH = cos * hDiff - sin * wDiff
+                            let newW = initW,
+                                newH = initH,
+                                newX = initX,
+                                newY = initY
+                            if (xR) {
+                                if (left) {
+                                    newW = initW - rW
+                                    rW = initW - newW
+                                } else {
+                                    newW = initW + rW
+                                }
+                                if (newW < MIN_W) {
+                                    newW = MIN_W
+                                    rW = left ? initW - MIN_W : MIN_W - initW
+                                }
+                                newX += 0.5 * rW * cos
+                                newY += 0.5 * rW * sin
+                            }
+                            if (yR) {
+                                if (top) {
+                                    newH = initH - rH
+                                    rH = initH - newH
+                                } else {
+                                    newH = initH + rH
+                                }
+                                if (newH < MIN_H) {
+                                    newH = MIN_H
+                                    rH = top ? initH - MIN_H : MIN_H - initH
+                                }
+                                newX -= 0.5 * rH * sin
+                                newY += 0.5 * rH * cos
+                            }
+                            resize(newW, newH)
+                            reposition(newX, newY)
+                        }
+                        window.addEventListener('mousemove', move)
+                        window.addEventListener(
+                            'mouseup',
+                            () => window.removeEventListener('mousemove', move),
+                            { once: true }
+                        )
+                    })
+                }
+                attachResize(handles.rm, false, false, true, false)
+                attachResize(handles.lm, true, false, true, false)
+                attachResize(handles.tm, false, true, false, true)
+                attachResize(handles.bm, false, false, false, true)
+                attachResize(handles.lt, true, true, true, true)
+                attachResize(handles.rt, false, true, true, true)
+                attachResize(handles.rb, false, false, true, true)
+                attachResize(handles.lb, true, false, true, true)
+
+                /* rotate */
+                handles.rot.addEventListener('mousedown', (e) => {
+                    e.stopPropagation()
+                    const r = box.getBoundingClientRect(),
+                        cx = r.left + r.width / 2,
+                        cy = r.top + r.height / 2
+                    const move = (e2) =>
+                        setRot((Math.atan2(e2.clientY - cy, e2.clientX - cx) * 180) / Math.PI + 90)
+                    window.addEventListener('mousemove', move)
+                    window.addEventListener(
+                        'mouseup',
+                        () => window.removeEventListener('mousemove', move),
+                        { once: true }
+                    )
+                })
+            }
+
+            /* ---------- demo objects ---------- */
+            createImageBox(
+                'https://www.thelessonspace.com/_nuxt/logo.BpPnDxxn.svg',
+                400,
+                200,
+                500,
+                200
+            )
+            createTextBox('Edit me!', 250, 400, 400, 200)
+
+            /* ---------- random add button ---------- */
+            document.getElementById('add-random').addEventListener('click', () => {
+                const w = 300 + Math.random() * 200,
+                    h = 150 + Math.random() * 150
+                const x = 100 + Math.random() * 600,
+                    y = 100 + Math.random() * 400
+                if (Math.random() < 0.5) {
+                    createImageBox(
+                        `https://picsum.photos/${Math.round(w)}/${Math.round(h)}?rand=${Math.random()}`,
+                        x,
+                        y,
+                        w,
+                        h
+                    )
+                } else {
+                    createTextBox('Click to edit', x, y, w, h)
+                }
+            })
+        </script>
+    </body>
+</html>

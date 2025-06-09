@@ -102,9 +102,10 @@ export default function SiteLayout(props: any) {
                         background: 'rgb(from var(--f-color-nav-translucent) r g b / 0.4)',
                         backdropFilter: 'blur(10px)',
                     }}
-                    colorToken="accent"
+                    colorToken="violet-500"
                     >
                     <Text
+                        textAlign="center"
                         color="inherit">
                             New! DataGrid has just been added! 
                             Check out the <a href="/docs" style={{ color: 'currentColor' }}>docs</a> for more information.
@@ -138,7 +139,7 @@ export default function SiteLayout(props: any) {
                                     width="100%"
                                     p="0 4rem">
                                     <Link href="/">
-                                        <LogoSolid color="var(--f-color-accent)" />
+                                        <LogoSolid color="var(--f-color-base-100)" />
                                     </Link>
                                     <Flexer />
                                     <Navigation
@@ -159,7 +160,7 @@ export default function SiteLayout(props: any) {
                                             '--f-button-color': 'var(--f-color-accent-50)',
                                             '--f-button-color-hover': 'var(--f-color-accent-50)',
                                             '--f-button-background-color': 'transparent',
-                                            '--f-button-background-color-hover': 'var(--f-color-base-700)',
+                                            '--f-button-background-color-hover': 'var(--f-color-base-800)',
                                         }}>
                                         Documentation
                                     </Button>
@@ -172,7 +173,7 @@ export default function SiteLayout(props: any) {
                                             '--f-button-color': 'var(--f-color-accent-50)',
                                             '--f-button-color-hover': 'var(--f-color-accent-50)',
                                             '--f-button-background-color': 'transparent',
-                                            '--f-button-background-color-hover': 'var(--f-color-base-700)',
+                                            '--f-button-background-color-hover': 'var(--f-color-base-800)',
                                         }}>
                                         Download
                                     </Button>
@@ -181,21 +182,21 @@ export default function SiteLayout(props: any) {
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-base-100)"
-                                        bgColor="var(--f-color-base-700)"
+                                        bgColor="var(--f-color-base-800)"
                                     />
                                     <SocialIcon
                                         url="https://twitter.com/fold_dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-base-100)"
-                                        bgColor="var(--f-color-base-700)"
+                                        bgColor="var(--f-color-base-800)"
                                     />
                                     <SocialIcon
                                         url="https://www.linkedin.com/company/fold-dev"
                                         target="_blank"
                                         style={{ width: 35, height: 35 }}
                                         fgColor="var(--f-color-base-100)"
-                                        bgColor="var(--f-color-base-700)"
+                                        bgColor="var(--f-color-base-800)"
                                     />
                                 </View>
                             </Header>
@@ -228,22 +229,22 @@ export default function SiteLayout(props: any) {
                                 url="https://github.com/fold-dev/fold"
                                 target="_blank"
                                 style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent-weak)"
-                                bgColor="var(--f-color-accent-strong)"
+                                fgColor="var(--f-color-accent)"
+                                bgColor="var(--f-color-surface-strong)"
                             />
                             <SocialIcon
                                 url="https://twitter.com/fold_dev"
                                 target="_blank"
                                 style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent-weak)"
-                                bgColor="var(--f-color-accent-strong)"
+                                fgColor="var(--f-color-accent)"
+                                bgColor="var(--f-color-surface-strong)"
                             />
                             <SocialIcon
                                 url="https://www.linkedin.com/company/fold-dev"
                                 target="_blank"
                                 style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent-weak)"
-                                bgColor="var(--f-color-accent-strong)"
+                                fgColor="var(--f-color-accent)"
+                                bgColor="var(--f-color-surface-strong)"
                             />
                         </View>
                     </View>
@@ -256,7 +257,7 @@ export default function SiteLayout(props: any) {
                         <Text
                             style={{ textTransform: 'uppercase' }}
                             letterSpacing={5}
-                            colorToken="accent-300">
+                            colorToken="accent">
                             Navigation
                         </Text>
                         <List flex={1}>
@@ -266,7 +267,7 @@ export default function SiteLayout(props: any) {
                                     href="/"
                                     size="xl"
                                     fontWeight={400}
-                                    colorToken="accent-400"
+                                    colorToken="text"
                                     textDecoration="none">
                                     Home
                                 </Text>
@@ -279,7 +280,7 @@ export default function SiteLayout(props: any) {
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="accent-400">
+                                    colorToken="text">
                                     Core
                                 </Text>
                             </Li>
@@ -290,7 +291,7 @@ export default function SiteLayout(props: any) {
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="accent-400">
+                                    colorToken="text">
                                     Pro
                                 </Text>
                             </Li> 
@@ -302,7 +303,7 @@ export default function SiteLayout(props: any) {
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="accent-400">
+                                    colorToken="text">
                                     Support
                                 </Text>
                             </Li>
@@ -317,7 +318,7 @@ export default function SiteLayout(props: any) {
                         <Text
                             style={{ textTransform: 'uppercase' }}
                             letterSpacing={5}
-                            colorToken="accent-300">
+                            colorToken="accent">
                             Helpful Links
                         </Text>
                         <List flex={1}>
@@ -329,7 +330,7 @@ export default function SiteLayout(props: any) {
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="accent-400">
+                                    colorToken="text">
                                     Documentation
                                 </Text>
                             </Li>
@@ -341,7 +342,7 @@ export default function SiteLayout(props: any) {
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="accent-400">
+                                    colorToken="text">
                                     GitHub
                                 </Text>
                             </Li>
@@ -353,7 +354,7 @@ export default function SiteLayout(props: any) {
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="accent-400">
+                                    colorToken="text">
                                     Releases
                                 </Text>
                             </Li>
@@ -365,7 +366,7 @@ export default function SiteLayout(props: any) {
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="accent-400">
+                                    colorToken="text">
                                     Roadmap
                                 </Text>
                             </Li>
@@ -380,7 +381,7 @@ export default function SiteLayout(props: any) {
                         <Text
                             style={{ textTransform: 'uppercase' }}
                             letterSpacing={5}
-                            colorToken="accent-300">
+                            colorToken="accent">
                             Legal
                         </Text>
                         <List flex={1}>
@@ -392,7 +393,7 @@ export default function SiteLayout(props: any) {
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="accent-400">
+                                    colorToken="text">
                                     Privacy Policy
                                 </Text>
                             </Li>
@@ -404,7 +405,7 @@ export default function SiteLayout(props: any) {
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="accent-400">
+                                    colorToken="text">
                                     Terms of Use
                                 </Text>
                             </Li>
@@ -417,7 +418,7 @@ export default function SiteLayout(props: any) {
                                     size="xl"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="accent-400">
+                                    colorToken="text">
                                     License
                                 </Text>
                             </Li>
@@ -431,7 +432,6 @@ export default function SiteLayout(props: any) {
                         alignItems="flex-end"
                         className="footer_buttons">
                         <Button
-                            variant="accent"
                             as="a"
                             target="_blank"
                             href="/docs">
@@ -439,7 +439,6 @@ export default function SiteLayout(props: any) {
                         </Button>
                         <Button
                             width={125}
-                            variant="accent"
                             as="a"
                             target="_blank"
                             href="https://fold.dev/docs">

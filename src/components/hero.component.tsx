@@ -62,7 +62,7 @@ export const HeroComponent = () => {
                     <Heading
                         as="h3"
                         textAlign="center"
-                        colorToken="base-400"
+                        colorToken="base-300"
                         fontWeight={400}
                         width="90%">
                         Powerful, fully customizable React components for scaling your project to the next level. 
@@ -76,12 +76,12 @@ export const HeroComponent = () => {
                         <Button
                             as="a"
                             href="#core"
-                            border="0.15rem solid var(--f-color-accent-100)"
+                            border="0.15rem solid var(--f-color-base-100)"
                             style={{
-                                '--f-button-color': 'var(--f-color-accent-50)',
-                                '--f-button-color-hover': 'var(--f-color-accent-900)',
+                                '--f-button-color': 'var(--f-color-base-50)',
+                                '--f-button-color-hover': 'var(--f-color-base-900)',
                                 '--f-button-background-color': 'transparent',
-                                '--f-button-background-color-hover': 'var(--f-color-accent-50)',
+                                '--f-button-background-color-hover': 'var(--f-color-base-50)',
                             }}>
                             Read More
                         </Button>
@@ -91,7 +91,7 @@ export const HeroComponent = () => {
                             textDecoration="none"
                             className="f-underline"
                             m="0 -1rem 0 0"
-                            colorToken="accent-50">
+                            colorToken="base-50">
                             Documentation ↗
                         </Link>
                     </View>

@@ -316,13 +316,13 @@ body {
 }
 
 .grid-squares {
-    --size: 8px;
+    --size: 5px;
     position: absolute;
     inset: 0;              
     pointer-events: none;  
     background-image:
-        repeating-linear-gradient(0deg , rgba(0,0,0,.2) 0 1px , transparent 1px var(--size)),
-        repeating-linear-gradient(90deg, rgba(0,0,0,.2) 0 1px , transparent 1px var(--size));
+        repeating-linear-gradient(0deg , rgba(0,0,0,.3) 0 1px , transparent 1px var(--size)),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.3) 0 1px , transparent 1px var(--size));
     background-size: var(--size) var(--size);   
     background-repeat: repeat;   
 }
@@ -393,6 +393,10 @@ body {
 
     .hero {
         padding-bottom: 5rem !important;
+    }
+
+    .hero-background {
+        background-image: none !important;
     }
 
     .hero .graphic-left {
