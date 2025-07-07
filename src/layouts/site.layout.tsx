@@ -102,7 +102,7 @@ export default function SiteLayout(props: any) {
                         background: 'rgb(from var(--f-color-nav-translucent) r g b / 0.4)',
                         backdropFilter: 'blur(10px)',
                     }}
-                    colorToken="violet-500"
+                    colorToken="accent"
                     >
                     <Text
                         textAlign="center"

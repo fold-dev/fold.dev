@@ -98,14 +98,14 @@ export const HeroComponent = () => {
 
                     <Text
                         size="sm"
-                        colorToken="violet-500">
+                        colorToken="base-300">
                         <Link
                             style={{ '--f-underline-size': '2px' }}
                             size="sm"
                             target="_blank"
                             textDecoration="none"
                             className="f-underline"
-                            colorToken="violet-500"
+                            colorToken="base-300"
                             href="https://twitter.com/fold_dev">
                             Follow us on social media
                         </Link> & get notified of any updates.

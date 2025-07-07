@@ -18,9 +18,9 @@
         </g>
     </g>
     <defs>
-        <radialGradient id="_Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-6.79762e-13,1775.5,-1243,-4.75891e-13,1677.6,1970.12)"><stop offset="0" style="stop-color:rgb(242,20,105);stop-opacity:0.8"/><stop offset="1" style="stop-color:rgb(93,14,192);stop-opacity:0"/></radialGradient>
-        <radialGradient id="_Radial2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-5.0384e-13,1316,-1076,-4.11954e-13,2523.14,1751.99)"><stop offset="0" style="stop-color:rgb(255,208,0);stop-opacity:0.8"/><stop offset="1" style="stop-color:rgb(93,14,192);stop-opacity:0"/></radialGradient>
-        <radialGradient id="_Radial3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-6.42242e-13,1677.5,-1271,-4.86611e-13,1022.63,2251.96)"><stop offset="0" style="stop-color:rgb(0,128,255);stop-opacity:0.8"/><stop offset="1" style="stop-color:rgb(93,14,192);stop-opacity:0"/></radialGradient>
-        <radialGradient id="_Radial4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-6.53537e-13,1707,-1352.5,-5.17814e-13,1507.1,2108.15)"><stop offset="0" style="stop-color:rgb(75,23,255);stop-opacity:0.8"/><stop offset="1" style="stop-color:rgb(93,14,192);stop-opacity:0"/></radialGradient>
+        <radialGradient id="_Radial1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-6.79762e-13,1775.5,-1243,-4.75891e-13,1677.6,1970.12)"><stop offset="0" style="stop-color:rgb(242,20,105);stop-opacity:0.8"/><stop offset="1" style="stop-color:rgba(130, 14, 192, 1);stop-opacity:0"/></radialGradient>
+        <radialGradient id="_Radial2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-5.0384e-13,1316,-1076,-4.11954e-13,2523.14,1751.99)"><stop offset="0" style="stop-color:rgba(153, 0, 255, 1);stop-opacity:0.8"/><stop offset="1" style="stop-color:rgba(14, 41, 192, 1);stop-opacity:0"/></radialGradient>
+        <radialGradient id="_Radial3" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-6.42242e-13,1677.5,-1271,-4.86611e-13,1022.63,2251.96)"><stop offset="0" style="stop-color:rgb(75,23,255);stop-opacity:0.8"/><stop offset="1" style="stop-color:rgba(14, 47, 192, 1);stop-opacity:0"/></radialGradient>
+        <radialGradient id="_Radial4" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(-6.53537e-13,1707,-1352.5,-5.17814e-13,1507.1,2108.15)"><stop offset="0" style="stop-color:rgb(0,128,255);stop-opacity:0.8"/><stop offset="1" style="stop-color:rgba(14, 44, 192, 1);stop-opacity:0"/></radialGradient>
     </defs>
 </svg>
