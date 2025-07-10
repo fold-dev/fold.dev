@@ -11,18 +11,12 @@ export const HeroComponent = () => {
             position="relative"
             style={{  overflow: 'hidden' }}
             className="hero-background">
-      {/*       <GraphicRight
+            <GraphicRight
                 style={{ position: 'absolute', top: -100, right: -100, opacity: 0.5 }}
                 height={882 / 2}
                 width={1456 / 2}
                 color="var(--f-color-accent-300)"
-            /> */}
-            <div className="grid-squares" style={{ zIndex: 3 }} />
-            <div className="stars" style={{ zIndex: 1 }}>
-                <div id='stars'></div>
-                <div id='stars2'></div>
-                <div id='stars3'></div>
-            </div>
+            />
             <View
                 column
                 id="home"
@@ -111,12 +105,12 @@ export const HeroComponent = () => {
                         </Link> & get notified of any updates.
                     </Text>
 
-               {/*      <GraphicLeft
+                    <GraphicLeft
                         style={{ position: 'absolute', top: 400, left: -250, opacity: 0.5 }}
                         width={1107 / 2}
                         height={559 / 2}
                         color="var(--f-color-accent-300)"
-                    /> */}
+                    />
                 </View>
             </View>
             <Divider />
