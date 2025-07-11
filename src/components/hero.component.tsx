@@ -38,14 +38,14 @@ export const HeroComponent = () => {
                         textAlign="center"
                         style={{ textTransform: 'uppercase', opacity: 0.5 }}
                         letterSpacing={5}
-                        colorToken="base-400">
+                        colorToken="accent">
                         Introducing
                     </Text>
 
                     <Heading
                         textAlign="center"
                         colorToken="white"
-                        fontWeight={600}
+                        fontWeight="var(--f-font-weight-bold)"
                         fontSize="6rem"
                         lineHeight={0.9}
                         p="0 3rem"
@@ -69,8 +69,10 @@ export const HeroComponent = () => {
                         colorToken="white">
                         <Button
                             as="a"
+                            variant="accent"
+                            colorToken="accent-100"
                             href="#core"
-                            border="0.15rem solid var(--f-color-base-100)"
+                            size="lg"
                             style={{
                                 '--f-button-color': 'var(--f-color-base-50)',
                                 '--f-button-color-hover': 'var(--f-color-base-900)',
@@ -92,14 +94,14 @@ export const HeroComponent = () => {
 
                     <Text
                         size="sm"
-                        colorToken="base-300">
+                        colorToken="accent">
                         <Link
                             style={{ '--f-underline-size': '2px' }}
                             size="sm"
                             target="_blank"
                             textDecoration="none"
                             className="f-underline"
-                            colorToken="base-300"
+                            color="currentColor"
                             href="https://twitter.com/fold_dev">
                             Follow us on social media
                         </Link> & get notified of any updates.

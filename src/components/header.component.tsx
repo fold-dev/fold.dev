@@ -11,20 +11,26 @@ export const HeaderComponent = ({ title, subtitle = null, description = null }) 
                 id="home"
                 gap="1.5rem"
                 flex={1}
+                p="211px 0 150px 0"
+                m="-140px 0 0 0"
+                position="relative"
+                style={{  overflow: 'hidden' }}
+                className="hero-background"
                 width="100%"
-                p="5rem 0"
+                
                 justifyContent="stretch">
                 {!!subtitle && (
                     <Text
                         textAlign="center"
                         style={{ textTransform: 'uppercase' }}
                         letterSpacing={5}
-                        colorToken="text-weakest">
+                        colorToken="accent">
                         {subtitle}
                     </Text>
                 )}
                 <Heading
                     huge
+                    colorToken="base-100"
                     textAlign="center">
                     {title}
                 </Heading>
@@ -33,7 +39,7 @@ export const HeaderComponent = ({ title, subtitle = null, description = null }) 
                     <Heading
                         as="h3"
                         textAlign="center"
-                        colorToken="text-weaker"
+                        colorToken="base-400"
                         width="80%">
                         {description}
                     </Heading>

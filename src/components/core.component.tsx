@@ -1500,7 +1500,7 @@ export const CoreComponent = () => {
                     gap="2rem"
                     width="85%"
                     radius="var(--f-radius)"
-                    bgToken="base-900"
+                    bgToken="accent"
                     border="1px solid var(--f-color-border)"
                     position="relative"
                     style={{ overflow: 'hidden' }}
@@ -1522,22 +1522,22 @@ export const CoreComponent = () => {
                         <Text
                             style={{ textTransform: 'uppercase' }}
                             letterSpacing={5}
-                            colorToken="base-500"
+                            colorToken="accent-300"
                             id="features">
                             Case Study
                         </Text>
                         <Heading
-                            colorToken="base-50"
+                            colorToken="accent-50"
                             fontWeight={400}>
                             Made for product teams that need to scale quickly.
                         </Heading>
-                        <Text colorToken="base-200">
+                        <Text colorToken="accent-200">
                             Fronteer leverages Fold's design system and core component library to accelerate development and enhance the overall quality of their product DX.
                         </Text>
                         <Link
                             target="_blank"
                             href="https://fronteer.app"
-                            color="var(--f-color-base-50)"
+                            color="var(--f-color-accent-50)"
                             className="f-underline"
                             textDecoration="none">
                             fronteer.app ↗

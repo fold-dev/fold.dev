@@ -752,7 +752,7 @@ export default function DocsLayout(props: any) {
                                         onDismiss={hide}>
                                         <View
                                             row
-                                            colorToken="accent"
+                                            colorToken="slate-300"
                                             className="f-buttonize"
                                             onClick={show}>
                                             <Icon

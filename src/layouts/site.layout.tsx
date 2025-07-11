@@ -95,14 +95,8 @@ export default function SiteLayout(props: any) {
                     zIndex={10000}
                     width="100%"
                     position="relative"
-                    //bg="linear-gradient(15deg, var(--f-color-rose-500), var(--f-color-purple-600))"
-                    //bgToken="slate-900"
-                    style={{ 
-                        borderBottom: '1px solid var(--f-color-slate-900)',
-                        background: 'rgb(from var(--f-color-nav-translucent) r g b / 0.1)',
-                        backdropFilter: 'blur(10px)',
-                    }}
-                    colorToken="accent"
+                    bg="linear-gradient(8deg, var(--f-color-blue-600), var(--f-color-indigo-600))"
+                    colorToken="white"
                     >
                     <Text
                         textAlign="center"
@@ -139,7 +133,7 @@ export default function SiteLayout(props: any) {
                                     width="100%"
                                     p="0 4rem">
                                     <Link href="/">
-                                        <LogoSolid color="var(--f-color-base-100)" />
+                                        <LogoSolid color="var(--f-color-accent)" />
                                     </Link>
                                     <Flexer />
                                     <Navigation
@@ -206,8 +200,6 @@ export default function SiteLayout(props: any) {
 
                 {children}
 
-                <Divider />
-
                 <View
                     row
                     p={100}
@@ -229,22 +221,22 @@ export default function SiteLayout(props: any) {
                                 url="https://github.com/fold-dev/fold"
                                 target="_blank"
                                 style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent)"
-                                bgColor="var(--f-color-surface-strong)"
+                                fgColor="var(--f-color-accent-50)"
+                                bgColor="var(--f-color-accent)"
                             />
                             <SocialIcon
                                 url="https://twitter.com/fold_dev"
                                 target="_blank"
                                 style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent)"
-                                bgColor="var(--f-color-surface-strong)"
+                                fgColor="var(--f-color-accent-50)"
+                                bgColor="var(--f-color-accent)"
                             />
                             <SocialIcon
                                 url="https://www.linkedin.com/company/fold-dev"
                                 target="_blank"
                                 style={{ width: 37, height: 37 }}
-                                fgColor="var(--f-color-accent)"
-                                bgColor="var(--f-color-surface-strong)"
+                                fgColor="var(--f-color-accent-50)"
+                                bgColor="var(--f-color-accent)"
                             />
                         </View>
                     </View>
@@ -433,6 +425,7 @@ export default function SiteLayout(props: any) {
                         className="footer_buttons">
                         <Button
                             as="a"
+                            variant="accent"
                             target="_blank"
                             href="/docs">
                             Get Started
@@ -440,6 +433,7 @@ export default function SiteLayout(props: any) {
                         <Button
                             width={125}
                             as="a"
+                            variant="accent"
                             target="_blank"
                             href="https://fold.dev/docs">
                             Documentation
