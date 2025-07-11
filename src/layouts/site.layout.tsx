@@ -426,7 +426,7 @@ export default function SiteLayout(props: any) {
                         <Button
                             as="a"
                             radius="var(--f-radius-full)"
-                            width={130}
+                            width={120}
                             variant="accent"
                             colorToken="white"
                             target="_blank"
