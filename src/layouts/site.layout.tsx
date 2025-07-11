@@ -425,15 +425,20 @@ export default function SiteLayout(props: any) {
                         className="footer_buttons">
                         <Button
                             as="a"
+                            radius="var(--f-radius-full)"
+                            width={130}
                             variant="accent"
+                            colorToken="white"
                             target="_blank"
                             href="/docs">
                             Get Started
                         </Button>
                         <Button
-                            width={125}
+                            width={150}
+                            radius="var(--f-radius-full)"
                             as="a"
                             variant="accent"
+                            colorToken="white"
                             target="_blank"
                             href="https://fold.dev/docs">
                             Documentation

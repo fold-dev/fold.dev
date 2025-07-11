@@ -70,6 +70,8 @@ export const HeroComponent = () => {
                         <Button
                             as="a"
                             variant="accent"
+                            radius="var(--f-radius-full)"
+                            p="0 2rem"
                             colorToken="accent-100"
                             href="#core"
                             size="lg"

@@ -45,8 +45,6 @@ export const HeaderComponent = ({ title, subtitle = null, description = null }) 
                     </Heading>
                 )}
             </View>
-
-            <Divider />
         </>
     )
 }

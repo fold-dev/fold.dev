@@ -134,7 +134,7 @@ export default function DocsLayout(props: any) {
     const { visible, show, hide } = useVisibility(false)
     const [color, setColor] = useState(Token.ColorBlue400)
     const [value, setValue] = useState(3)
-    const [option, setOption] = useState(1)
+    const [option, setOption] = useState(2)
     const [toc, setToc] = useState([])
     const [showChild, setShowChild] = useState(false)
     const [open, setOpen] = useState(false)
@@ -213,7 +213,7 @@ export default function DocsLayout(props: any) {
     useEffect(() => {
         if (!showChild) return
 
-        const of = 2
+        const of = 3
         const percent = value / 10
         const radius = of * percent + 'rem'
         const d: any = document.querySelector(':root')

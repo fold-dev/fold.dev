@@ -987,8 +987,8 @@ export const Picker = () => {
 const All = () => {
     const [selected, setSelected] = useState<any>([])
     const [color, setColor] = useState(Token.ColorBlue400)
-    const [value, setValue] = useState(2)
-    const [option, setOption] = useState(0)
+    const [value, setValue] = useState(3)
+    const [option, setOption] = useState(2)
 
     const setAccent = (color) => {
         document.getElementById('custom-styles').innerHTML = colors[color]
@@ -1052,7 +1052,7 @@ const All = () => {
     }, [color])
 
     useEffect(() => {
-        const of = 2
+        const of = 3
         const percent = value / 10
         const radius = of * percent + 'rem'
         const d: any = document.querySelector(':root')
