@@ -211,14 +211,6 @@ body {
     --f-color-nav-translucent: var(--f-color-base-900);
 } 
 
-[data-theme="dark"] .hero-background {
-    background-color: var(--f-color-base-900);
-}
-
-[data-theme="light"] .hero-background {
-    background-color: var(--f-color-base-900);
-}
-
 [data-theme="light"] .page-nav {
     --f-button-color: var(--f-color-accent-100);
     --f-button-color-hover: var(--f-color-accent-50);
@@ -232,11 +224,6 @@ body {
     background-size: 100% auto !important;
     background-position: center top !important;
     justify-content: flex-start;
-}
-
-.hero-background > *:not(.grid-squares, .stars) {
-    z-index: 10 !important; 
-    position: relative;
 }
 
 .mobile-component {

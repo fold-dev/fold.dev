@@ -98,8 +98,8 @@ export default function SiteLayout(props: any) {
                     //bg="linear-gradient(15deg, var(--f-color-rose-500), var(--f-color-purple-600))"
                     //bgToken="slate-900"
                     style={{ 
-                        borderBottom: '1px solid var(--f-color-slate-800)',
-                        background: 'rgb(from var(--f-color-nav-translucent) r g b / 0.4)',
+                        borderBottom: '1px solid var(--f-color-slate-900)',
+                        background: 'rgb(from var(--f-color-nav-translucent) r g b / 0.1)',
                         backdropFilter: 'blur(10px)',
                     }}
                     colorToken="accent"
@@ -129,7 +129,7 @@ export default function SiteLayout(props: any) {
                                 className="page-nav"
                                 bg={stuck ? 'rgb(from var(--f-color-nav-translucent) r g b / 0.9)' : 'transparent'}
                                 style={{
-                                    borderColor: 'var(--f-color-slate-800)',
+                                    borderColor: 'var(--f-color-slate-900)',
                                     backdropFilter: 'blur(10px)',
                                     transition: 'background 0.1s',
                                 }}>
