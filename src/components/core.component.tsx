@@ -1097,7 +1097,7 @@ const All = () => {
                                 title="State Management"
                                 defaultValue="redux"
                                 type="radio">
-                                <MenuItemOption value="redux">Redux1</MenuItemOption>
+                                <MenuItemOption value="redux">Redux</MenuItemOption>
                                 <MenuItemOption value="mobx">MobX</MenuItemOption>
                                 <MenuItemOption value="zustand">Zustand</MenuItemOption>
                             </MenuOptionGroup>
