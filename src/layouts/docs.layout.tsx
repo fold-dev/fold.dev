@@ -194,6 +194,12 @@ export default function DocsLayout(props: any) {
     }
 
     useEffect(() => {
+        setTimeout(() => {
+            setFont('DM Sans, -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif')
+        }, 10)
+    }, [])
+
+    useEffect(() => {
         switch (option) {
             case 0:
                 return setFont(
