@@ -45,7 +45,7 @@ export const HeroComponent = () => {
                     <Heading
                         textAlign="center"
                         colorToken="white"
-                        fontWeight="var(--f-font-weight-bold)"
+                        fontWeight="var(--f-font-weight-medium)"
                         fontSize="6rem"
                         lineHeight={0.9}
                         p="0 3rem"
