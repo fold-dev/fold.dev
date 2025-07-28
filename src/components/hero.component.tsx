@@ -47,7 +47,7 @@ export const HeroComponent = () => {
                         colorToken="white"
                         fontWeight="var(--f-font-weight-semibold)"
                         fontSize="6rem"
-                        lineHeight={0.9}
+                        lineHeight={1.1}
                         p="0 3rem"
                         className="hero__heading">
                         The UI component library for product teams.
