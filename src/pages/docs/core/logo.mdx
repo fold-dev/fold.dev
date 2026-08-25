@@ -3,7 +3,7 @@ import DocsLayout from '@/layouts/docs.layout'
 import ComponentLayout from '@/layouts/component.layout'
 import * as Token from '@fold-ui/design/tokens'
 import React from 'react'
-import { Logo, LogoSolid, View } from '@fold-ui/core'
+import { Logo, LogoOutline, View } from '@fold-ui/core'
 
 export const docs = {
     title: 'Logo',
@@ -11,47 +11,36 @@ export const docs = {
     description: 'There are no restrictions in coloring the logo, however the shape must not be altered.',
 }
 
-export const props = [{"tags":{},"filePath":"packages/core/src/logo/index.ts","description":"","displayName":"Logo","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"style":{"defaultValue":null,"description":"","name":"style","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"customSize":{"defaultValue":null,"description":"","name":"customSize","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/logo/index.ts","description":"","displayName":"LogoSolid","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"style":{"defaultValue":null,"description":"","name":"style","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"customSize":{"defaultValue":null,"description":"","name":"customSize","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}}}}]
+export const props = [{"tags":{},"filePath":"packages/core/src/logo/index.ts","description":"","displayName":"Logo","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"style":{"defaultValue":null,"description":"","name":"style","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"customSize":{"defaultValue":null,"description":"","name":"customSize","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}}}},{"tags":{},"filePath":"packages/core/src/logo/index.ts","description":"","displayName":"LogoOutline","methods":[],"props":{"color":{"defaultValue":null,"description":"","name":"color","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"string"},"tags":{}},"style":{"defaultValue":null,"description":"","name":"style","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"any"},"tags":{}},"customSize":{"defaultValue":null,"description":"","name":"customSize","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"number"},"tags":{}},"size":{"defaultValue":null,"description":"","name":"size","declarations":[{"fileName":"fold/packages/core/src/logo/logo.tsx","name":"TypeLiteral"}],"required":false,"type":{"name":"Size"},"tags":{}}}}]
 
 export const css = []
 
-<CodeComponent filename="logo.tsx" code="aW1wb3J0IHsgTG9nbywgTG9nb1NvbGlkIH0gZnJvbSAiQGZvbGQtdWkvY29yZSI7Cg==" />
+<CodeComponent filename="logo.tsx" code="aW1wb3J0IHsgTG9nbywgTG9nb091dGxpbmUgfSBmcm9tICJAZm9sZC11aS9jb3JlIjsK" />
 ```tsx
-import { Logo, LogoSolid } from "@fold-ui/core";
+import { Logo, LogoOutline } from "@fold-ui/core";
 ```
 
 ### Usage
 
 export const Usage = () => {
-    return <Logo />;
+    return (<View row>
+            <Logo />
+        </View>);
 };
 
 <div className="story-block">
 <Usage />
 </div>
 
-<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuIDxMb2dvIC8+Cn0=" />
+<CodeComponent filename="BasicUsage.tsx" code="ZXhwb3J0IGNvbnN0IFVzYWdlID0gKCkgPT4gewogICAgcmV0dXJuICgKICAgICAgICA8VmlldyByb3c+CiAgICAgICAgICAgIDxMb2dvIC8+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
 
 ```tsx
 export const Usage = () => {
-    return <Logo />
-}
-```
-### Solid
-
-export const Solid = () => {
-    return <LogoSolid />;
-};
-
-<div className="story-block">
-<Solid />
-</div>
-
-<CodeComponent filename="Solid.tsx" code="ZXhwb3J0IGNvbnN0IFNvbGlkID0gKCkgPT4gewogICAgcmV0dXJuIDxMb2dvU29saWQgLz4KfQ==" />
-
-```tsx
-export const Solid = () => {
-    return <LogoSolid />
+    return (
+        <View row>
+            <Logo />
+        </View>
+    )
 }
 ```
 ### Sizes
@@ -107,55 +96,27 @@ export const Sizes = () => {
     )
 }
 ```
-### Sizes Solid
+### Outline
 
-export const SizesSolid = () => {
+export const Outline = () => {
     return (<View row gap={20}>
-            <LogoSolid size="xs" color={Token.ColorAccent300}/>
-            <LogoSolid size="sm" color={Token.ColorAccent400}/>
-            <LogoSolid size="md" color={Token.ColorAccent500}/>
-            <LogoSolid size="lg" color={Token.ColorAccent600}/>
-            <LogoSolid size="xl" color={Token.ColorAccent700}/>
-            <LogoSolid customSize={120} color={Token.ColorAccent800}/>
+            <LogoOutline />
         </View>);
 };
 
 <div className="story-block">
-<SizesSolid />
+<Outline />
 </div>
 
-<CodeComponent filename="SizesSolid.tsx" code="ZXhwb3J0IGNvbnN0IFNpemVzU29saWQgPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3CiAgICAgICAgICAgIHJvdwogICAgICAgICAgICBnYXA9ezIwfT4KICAgICAgICAgICAgPExvZ29Tb2xpZAogICAgICAgICAgICAgICAgc2l6ZT0ieHMiCiAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JBY2NlbnQzMDB9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMb2dvU29saWQKICAgICAgICAgICAgICAgIHNpemU9InNtIgogICAgICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yQWNjZW50NDAwfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8TG9nb1NvbGlkCiAgICAgICAgICAgICAgICBzaXplPSJtZCIKICAgICAgICAgICAgICAgIGNvbG9yPXtUb2tlbi5Db2xvckFjY2VudDUwMH0KICAgICAgICAgICAgLz4KICAgICAgICAgICAgPExvZ29Tb2xpZAogICAgICAgICAgICAgICAgc2l6ZT0ibGciCiAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JBY2NlbnQ2MDB9CiAgICAgICAgICAgIC8+CiAgICAgICAgICAgIDxMb2dvU29saWQKICAgICAgICAgICAgICAgIHNpemU9InhsIgogICAgICAgICAgICAgICAgY29sb3I9e1Rva2VuLkNvbG9yQWNjZW50NzAwfQogICAgICAgICAgICAvPgogICAgICAgICAgICA8TG9nb1NvbGlkCiAgICAgICAgICAgICAgICBjdXN0b21TaXplPXsxMjB9CiAgICAgICAgICAgICAgICBjb2xvcj17VG9rZW4uQ29sb3JBY2NlbnQ4MDB9CiAgICAgICAgICAgIC8+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
+<CodeComponent filename="Outline.tsx" code="ZXhwb3J0IGNvbnN0IE91dGxpbmUgPSAoKSA9PiB7CiAgICByZXR1cm4gKAogICAgICAgIDxWaWV3CiAgICAgICAgICAgIHJvdwogICAgICAgICAgICBnYXA9ezIwfT4KICAgICAgICAgICAgPExvZ29PdXRsaW5lIC8+CiAgICAgICAgPC9WaWV3PgogICAgKQp9" />
 
 ```tsx
-export const SizesSolid = () => {
+export const Outline = () => {
     return (
         <View
             row
             gap={20}>
-            <LogoSolid
-                size="xs"
-                color={Token.ColorAccent300}
-            />
-            <LogoSolid
-                size="sm"
-                color={Token.ColorAccent400}
-            />
-            <LogoSolid
-                size="md"
-                color={Token.ColorAccent500}
-            />
-            <LogoSolid
-                size="lg"
-                color={Token.ColorAccent600}
-            />
-            <LogoSolid
-                size="xl"
-                color={Token.ColorAccent700}
-            />
-            <LogoSolid
-                customSize={120}
-                color={Token.ColorAccent800}
-            />
+            <LogoOutline />
         </View>
     )
 }
