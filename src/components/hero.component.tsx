@@ -1,4 +1,4 @@
-import { Button, Divider, Heading, Link, Logo, LogoSolid, Pill, Text, View } from '@fold-ui/core'
+import { Button, Divider, Heading, Link, Logo, Pill, Text, View } from '@fold-ui/core'
 import * as Token from '@fold-ui/design/tokens'
 import { GraphicLeft, GraphicRight } from './graphic.component'
 import { useRef, useEffect, useCallback } from 'react'

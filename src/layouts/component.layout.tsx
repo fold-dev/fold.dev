@@ -5,7 +5,7 @@ import {
     Heading,
     IconLib,
     Link,
-    LogoSolid,
+    LogoOutline,
     Notification,
     NotificationContent,
     NotificationIcon,
@@ -74,7 +74,7 @@ export default function ComponentLayout({ children, docs, props, css }) {
                         variant="highlight"
                         m="0 30px">
                         <NotificationIcon>
-                            <LogoSolid color={Token.ColorPurple400} size="sm" />
+                            <LogoOutline color={Token.ColorPurple400} size="sm" />
                         </NotificationIcon>
                         <NotificationContent>
                             More documentation & examples coming very soon.
