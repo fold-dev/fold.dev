@@ -573,7 +573,7 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     subtle>
-                                                    v0.24.0
+                                                    v0.25.0
                                                 </Pill>                                               
                                             }>
                                             Core Components
@@ -610,7 +610,7 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     subtle>
-                                                    v0.24.0
+                                                    v0.25.0
                                                 </Pill>                                               
                                             }>
                                             Pro Components
