@@ -6,6 +6,59 @@ import LogoViewer from './logo-viewer.component';
 import { ThreeComponent } from './three.component';
 import { PatternComponent } from './pattern.component';
 
+export const Aurora = () => {
+    return (
+        <div className="aurora-container hide-on-mobile">
+            <div
+                className="aurora"
+                aria-hidden="true">
+                <div className="aurora__stage">
+                    <div className="beam beam--violet"></div>
+                    <div className="beam beam--far"></div>
+                    <div className="beam beam--cyan-far"></div>
+                    <div className="beam beam--cyan"></div>
+                    <div className="beam beam--hero"></div>
+                    <div className="beam beam--core"></div>
+                </div>
+                <div className="aurora__bloom"></div>
+                {/* <div className="aurora__grain"></div> */}
+                {/* <div className="aurora__vignette"></div> */}
+            </div>
+
+            <div
+                className="gradient-for-hero-at-bottom"
+                style={{
+                    position: 'absolute',
+                    pointerEvents: 'none',
+                    zIndex: 10,
+                    height: 500,
+                    width: '100%',
+                    left: 0,
+                    bottom: 0,
+                    background: 'linear-gradient(to top, #0E0F15 0%, #0e0f1500 100%)',
+                }}
+            />
+        </div>
+    )
+}
+
+export const ShootingStars = () => {
+    return (
+        <div className="shooting-stars">
+            <span className="star" />
+            <span className="star" />
+            <span className="star" />
+            <span className="star" />
+            <span className="star" />
+            <span className="star" />
+            <span className="star" />
+            <span className="star" />
+            <span className="star" />
+            <span className="star" />
+        </div>
+    )
+}
+
 export const HeroComponent = () => {
     return (
         <View
@@ -17,8 +70,10 @@ export const HeroComponent = () => {
             className="hero-background">
 
             {/* <LogoViewer /> */}
+            <ShootingStars />
             <ThreeComponent />
-            <PatternComponent /> 
+            {/* <Aurora /> */}
+            {/* <PatternComponent />  */}
 
             <View
                 column
@@ -27,6 +82,7 @@ export const HeroComponent = () => {
                 flex={1}
                 width="100%"
                 p="2rem 0 550px 0"
+                zIndex={10}
                 justifyContent="stretch"
                 className="hero f-pointer-events-none">
                 <View

@@ -704,3 +704,512 @@ span.star:nth-child(9) {
     animation-delay: 100s;
     animation-duration: 50s;
 }
+
+
+/* ── Shooting stars ──────────────────────────────────── */
+
+.shooting-stars {
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    overflow: hidden;
+}
+
+span.star {
+    display: block;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 3px;
+    height: 3px;
+    background: #dbd9de;
+    border-radius: 50%;
+    animation: animate 40s linear infinite;
+    z-index: 1;
+    opacity: 0;
+}
+
+span.star::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 300px;
+    height: 1px;
+    background: linear-gradient(90deg, #a3a1aa, transparent);
+    z-index: 0;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(330deg) translateX(0);
+        opacity: 0;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(330deg) translateX(-1500px);
+        opacity: 0;
+    }
+}
+
+span.star:nth-child(1) {
+    top: 0;
+    right: -25%;
+    left: initial;
+    animation-delay: 10s;
+    animation-duration: 20s;
+}
+span.star:nth-child(2) {
+    top: 0;
+    right: -15%;
+    left: initial;
+    animation-delay: 20s;
+    animation-duration: 50s;
+}
+span.star:nth-child(3) {
+    top: 80;
+    right: 0%;
+    left: initial;
+    animation-delay: 30s;
+    animation-duration: 40s;
+}
+span.star:nth-child(4) {
+    top: 0;
+    right: 10%;
+    left: initial;
+    animation-delay: 40s;
+    animation-duration: 35s;
+}
+span.star:nth-child(5) {
+    top: 0;
+    right: 20%;
+    left: initial;
+    animation-delay: 50s;
+    animation-duration: 45s;
+}
+span.star:nth-child(6) {
+    top: 0;
+    right: 30%;
+    left: initial;
+    animation-delay: 60s;
+    animation-duration: 35s;
+}
+span.star:nth-child(7) {
+    top: 300px;
+    right: 40%;
+    left: initial;
+    animation-delay: 70s;
+    animation-duration: 35s;
+}
+span.star:nth-child(8) {
+    top: 0px;
+    right: 50%;
+    left: initial;
+    animation-delay: 80s;
+    animation-duration: 35s;
+}
+span.star:nth-child(9) {
+    top: 0px;
+    right: 60%;
+    left: initial;
+    animation-delay: 90s;
+    animation-duration: 45s;
+}
+
+
+/* ============================================================
+   AURORA HERO
+   Everything under "AURORA BACKGROUND" is the reusable part.
+   Drop <div class="aurora">…</div> behind any hero content.
+   ============================================================ */
+
+:root {
+    /* Base — deep indigo drifting to near-black */
+    --void: #04030c;
+    --void-lift: #150f38;
+    --void-warm: #1c1146;
+
+    /* Light */
+    --cyan: #6fe3ff;
+    --cyan-deep: #1d7fae;
+    --blue: #5567f5;
+    --blue-deep: #2b2a9e;
+    --violet: #8b6cf6;
+    --core: #f2f0ff;
+}
+
+.aurora-container {
+    height: 1500px;
+    z-index: 0;
+    top: 0;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    contain: strict;
+    opacity: 0.5;
+}
+
+.aurora {
+    inset: 0;
+    position: absolute;
+    height: 1500px;
+    inset: 0;
+    top: 400px;
+    z-index: 0;
+    /*     background: radial-gradient(120% 90% at 78% 42%, var(--void-warm) 0%, transparent 58%),
+        radial-gradient(100% 80% at 12% 8%, var(--void-lift) 0%, transparent 55%),
+        linear-gradient(160deg, #0a0722 0%, var(--void) 62%, #020106 100%); */
+    /* keeps the huge blurs from repainting the rest of the page */
+}
+
+/* --- the drifting stage: one slow rotation ties every beam together --- */
+/* inset:0 is load-bearing — every beam's top/left is a % of this box, so it
+   must match the viewport or the offsets drift. The stage paints nothing of
+   its own, so rotation needs no scale to cover corners. */
+.aurora__stage {
+    position: absolute;
+    inset: 0;
+    animation: stage-drift 28s ease-in-out infinite alternate;
+    will-change: transform;
+    opacity: 1;
+}
+
+/* --- comet beams -------------------------------------------------------
+   Each beam is a long lens shape (border-radius: 50%) filled with a
+   gradient that ramps from nothing (tail) to a white core (head),
+   then blurred into pure light.
+------------------------------------------------------------------------ */
+.beam {
+    position: absolute;
+    border-radius: 50%;
+    transform-origin: 50% 50%;
+    mix-blend-mode: screen;
+    will-change: transform, opacity;
+}
+
+/* Hero beam — the big blue-cored streak, bottom-right */
+.beam--hero {
+    top: -18%;
+    left: 44%;
+    width: 15%;
+    height: 92%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(43, 42, 158, 0.28) 24%,
+        rgba(117, 85, 245, 0.62) 52%,
+        rgba(143, 123, 255, 0.92) 74%,
+        var(--core) 88%,
+        rgba(242, 240, 255, 0.55) 95%,
+        transparent 100%
+    );
+    filter: blur(52px);
+    transform: rotate(38deg);
+    animation: beam-hero 15s ease-in-out infinite alternate;
+}
+
+/* A tighter, brighter core riding inside the hero beam */
+.beam--core {
+    top: 6%;
+    left: 50%;
+    width: 5%;
+    height: 62%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(139, 108, 246, 0.5) 45%,
+        var(--core) 84%,
+        transparent 100%
+    );
+    filter: blur(26px);
+    transform: rotate(38deg);
+    animation: beam-core 15s ease-in-out infinite alternate, core-shimmer 3.4s ease-in-out infinite;
+}
+
+/* Cyan streak — upper left */
+.beam--cyan {
+    top: 0%;
+    left: 10%;
+    width: 9%;
+    height: 78%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(29, 127, 174, 0.3) 30%,
+        rgba(111, 227, 255, 0.85) 66%,
+        rgba(200, 246, 255, 0.95) 84%,
+        transparent 100%
+    );
+    filter: blur(44px);
+    transform: rotate(36deg);
+    animation: beam-cyan 19s ease-in-out infinite alternate;
+}
+
+/* Faint second cyan tail, further back */
+.beam--cyan-far {
+    top: 4%;
+    left: -14%;
+    width: 7%;
+    height: 48%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(29, 127, 174, 0.42) 55%,
+        rgba(111, 227, 255, 0.42) 88%,
+        transparent 100%
+    );
+    filter: blur(58px);
+    transform: rotate(34deg);
+    opacity: 0.7;
+    animation: beam-cyan 19s ease-in-out infinite alternate -6s;
+}
+
+/* Cold violet wash falling through the middle */
+.beam--violet {
+    top: -20%;
+    left: 20%;
+    width: 26%;
+    height: 96%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(139, 108, 246, 0.22) 46%,
+        rgba(85, 103, 245, 0.3) 78%,
+        transparent 100%
+    );
+    filter: blur(90px);
+    transform: rotate(40deg);
+    opacity: 0.75;
+    animation: beam-violet 23s ease-in-out infinite alternate;
+}
+
+/* Distant sheet on the far right, keeps the corner from going dead */
+.beam--far {
+    top: -10%;
+    left: 74%;
+    width: 20%;
+    height: 80%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(85, 103, 245, 0.2) 50%,
+        rgba(111, 227, 255, 0.16) 82%,
+        transparent 100%
+    );
+    filter: blur(80px);
+    transform: rotate(42deg);
+    opacity: 0.6;
+    animation: beam-violet 23s ease-in-out infinite alternate -11s;
+}
+
+/* --- bloom: the soft halo the head of the beam throws into the scene --- */
+.aurora__bloom {
+    position: absolute;
+    top: 42%;
+    left: 62%;
+    width: 46%;
+    height: 46%;
+    translate: -50% -50%;
+    background: radial-gradient(
+        circle at center,
+        rgba(180, 190, 255, 0.3) 0%,
+        rgba(85, 103, 245, 0.16) 34%,
+        transparent 68%
+    );
+    filter: blur(40px);
+    mix-blend-mode: screen;
+    animation: bloom-pulse 7s ease-in-out infinite alternate;
+    will-change: opacity, transform;
+}
+
+/* --- grain: kills the gradient banding, adds a filmic tooth --- */
+.aurora__grain {
+    position: absolute;
+    inset: -50%;
+    opacity: 0.16;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E");
+    animation: grain-shift 0.9s steps(4) infinite;
+}
+
+/* --- vignette: pulls the eye back to the light --- */
+.aurora__vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(120% 100% at 60% 45%, transparent 40%, rgba(2, 1, 6, 0.7) 100%),
+        linear-gradient(to bottom, transparent 55%, rgba(2, 1, 6, 0.85) 100%);
+}
+
+/* --- motion ------------------------------------------------------------ */
+@keyframes stage-drift {
+    from {
+        transform: rotate(-5deg) scale(1) translate3d(-3%, 2%, 0);
+    }
+    to {
+        transform: rotate(5deg) scale(1.06) translate3d(3%, -4%, 0);
+    }
+}
+
+@keyframes beam-hero {
+    0% {
+        transform: rotate(44deg) translate3d(-14%, -10%, 0) scaleX(0.85);
+        opacity: 0.75;
+    }
+    30% {
+        transform: rotate(36deg) translate3d(-4%, 4%, 0) scaleX(1.45);
+        opacity: 1;
+    }
+    62% {
+        transform: rotate(29deg) translate3d(9%, 10%, 0) scaleX(1.1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: rotate(47deg) translate3d(16%, -6%, 0) scaleX(0.7);
+        opacity: 0.95;
+    }
+}
+
+@keyframes beam-core {
+    0% {
+        transform: rotate(44deg) translate3d(-13%, -9%, 0) scaleX(0.8);
+        opacity: 0.6;
+    }
+    30% {
+        transform: rotate(36deg) translate3d(-3%, 5%, 0) scaleX(1.3);
+        opacity: 1;
+    }
+    62% {
+        transform: rotate(29deg) translate3d(10%, 11%, 0) scaleX(1);
+        opacity: 0.85;
+    }
+    100% {
+        transform: rotate(47deg) translate3d(15%, -5%, 0) scaleX(0.65);
+        opacity: 0.7;
+    }
+}
+
+/* the bright head breathes on its own clock — reads as atmospheric flicker */
+@keyframes core-shimmer {
+    0%,
+    100% {
+        filter: blur(26px) brightness(1);
+    }
+    35% {
+        filter: blur(18px) brightness(1.35);
+    }
+    70% {
+        filter: blur(32px) brightness(0.85);
+    }
+}
+
+@keyframes beam-cyan {
+    0% {
+        transform: rotate(41deg) translate3d(-8%, -6%, 0) scaleX(0.9);
+        opacity: 0.55;
+    }
+    35% {
+        transform: rotate(28deg) translate3d(12%, -8%, 0) scaleX(1.3);
+        opacity: 1;
+    }
+    68% {
+        transform: rotate(34deg) translate3d(20%, 6%, 0) scaleX(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: rotate(44deg) translate3d(-6%, 12%, 0) scaleX(0.85);
+        opacity: 0.5;
+    }
+}
+
+@keyframes beam-violet {
+    0% {
+        transform: rotate(46deg) translate3d(-14%, 4%, 0) scaleX(0.9);
+        opacity: 0.45;
+    }
+    50% {
+        transform: rotate(30deg) translate3d(8%, -8%, 0) scaleX(1.45);
+        opacity: 0.9;
+    }
+    100% {
+        transform: rotate(38deg) translate3d(18%, -12%, 0) scaleX(1.15);
+        opacity: 0.6;
+    }
+}
+
+@keyframes bloom-pulse {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.85) translate3d(-6%, 3%, 0);
+    }
+    45% {
+        opacity: 1;
+        transform: scale(1.18) translate3d(4%, -4%, 0);
+    }
+    100% {
+        opacity: 0.7;
+        transform: scale(0.95) translate3d(9%, 5%, 0);
+    }
+}
+
+@keyframes grain-shift {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    25% {
+        transform: translate3d(-3%, 2%, 0);
+    }
+    50% {
+        transform: translate3d(2%, -3%, 0);
+    }
+    75% {
+        transform: translate3d(-2%, -2%, 0);
+    }
+    100% {
+        transform: translate3d(3%, 1%, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .aurora__stage,
+    .aurora__bloom,
+    .aurora__grain,
+    .beam {
+        animation: none !important;
+    }
+}
+
+/* Blur radii are the expensive part — scale them down on small screens */
+@media (max-width: 768px) {
+    .beam--hero {
+        width: 40vw;
+        filter: blur(40px);
+    }
+    .beam--core {
+        width: 14vw;
+        filter: blur(20px);
+    }
+    .beam--cyan {
+        width: 26vw;
+        filter: blur(34px);
+    }
+    .beam--cyan-far {
+        width: 22vw;
+        filter: blur(40px);
+    }
+    .beam--violet {
+        width: 60vw;
+        filter: blur(60px);
+    }
+    .beam--far {
+        width: 50vw;
+        filter: blur(55px);
+    }
+    .aurora__bloom {
+        width: 90vw;
+        height: 90vw;
+    }
+}
