@@ -285,7 +285,7 @@ export const ThreeComponent = () => {
                 height: '100%',
                 position: 'absolute',
                 inset: 0,
-                zIndex: 0,
+                zIndex: 5,
                 overflow: 'hidden',
             }}
         />

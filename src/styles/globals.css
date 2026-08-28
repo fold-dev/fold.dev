@@ -588,13 +588,15 @@ body {
 }
 
 span.star {
+    --star-color: rgba(62, 18, 103, 0.1);
+
     display: block;
     position: absolute;
     top: 0%;
     left: 50%;
     width: 4px;
     height: 4px;
-    background: var(--f-color-base-300);
+    background: var(--star-color);
     border-radius: 50%;
     animation: animate 40s linear infinite;
     z-index: 1;
@@ -608,9 +610,10 @@ span.star::before {
     transform: translateY(-50%);
     width: 300px;
     height: 1px;
-    background: linear-gradient(90deg, var(--f-color-base-500), transparent);
+    background: linear-gradient(90deg, var(--star-color), transparent);
     z-index: 0;
 }
+
 @keyframes animate {
     0% {
         transform: rotate(330deg) translateX(0);
@@ -705,7 +708,6 @@ span.star:nth-child(9) {
     animation-duration: 50s;
 }
 
-
 /* ── Shooting stars ──────────────────────────────────── */
 
 .shooting-stars {
@@ -722,7 +724,7 @@ span.star {
     left: 50%;
     width: 3px;
     height: 3px;
-    background: #dbd9de;
+    background: rgb(189, 169, 246);
     border-radius: 50%;
     animation: animate 40s linear infinite;
     z-index: 1;
@@ -736,7 +738,7 @@ span.star::before {
     transform: translateY(-50%);
     width: 300px;
     height: 1px;
-    background: linear-gradient(90deg, #a3a1aa, transparent);
+    background: linear-gradient(90deg, rgba(140, 111, 221, 0.75), transparent);
     z-index: 0;
 }
 
@@ -842,13 +844,13 @@ span.star:nth-child(9) {
 
 .aurora-container {
     height: 1500px;
-    z-index: 0;
+    z-index: 5;
     top: 0;
     width: 100%;
     position: absolute;
     overflow: hidden;
     contain: strict;
-    opacity: 0.5;
+    opacity: 0.25;
 }
 
 .aurora {
@@ -856,7 +858,7 @@ span.star:nth-child(9) {
     position: absolute;
     height: 1500px;
     inset: 0;
-    top: 400px;
+    top: 300px;
     z-index: 0;
     /*     background: radial-gradient(120% 90% at 78% 42%, var(--void-warm) 0%, transparent 58%),
         radial-gradient(100% 80% at 12% 8%, var(--void-lift) 0%, transparent 55%),
