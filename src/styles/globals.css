@@ -582,7 +582,7 @@ body {
 
 .shooting-stars {
     position: absolute;
-    z-index: 1;
+    z-index: 3 !important;
     inset: 0;
     overflow: hidden;
 }

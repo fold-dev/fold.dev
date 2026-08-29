@@ -69,9 +69,9 @@ export const HeroComponent = () => {
             style={{  overflow: 'hidden' }}
             className="hero-background">
 
-            {/* <LogoViewer /> */}
             <ShootingStars />
             <ThreeComponent />
+            {/* <LogoViewer /> */}
             {/* <Aurora /> */}
             {/* <PatternComponent />  */}
 
@@ -147,7 +147,6 @@ export const HeroComponent = () => {
                             p="0 2rem"
                             colorToken="accent-100"
                             href="#core"
-                            size="lg"
                             style={{
                                 '--f-button-color': 'var(--f-color-base-50)',
                                 '--f-button-color-hover': 'var(--f-color-base-900)',

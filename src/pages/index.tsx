@@ -7,6 +7,7 @@ import { HeroComponent } from '@/components/hero.component'
 import { PricingComponent } from '@/components/pricing.component'
 import { ProComponent } from '@/components/pro.component'
 import { SupportComponent } from '@/components/support.component'
+import { CtaSection } from '@/components/cta.component'
 
 function Home() {
     const [showChild, setShowChild] = useState(false)
@@ -32,6 +33,7 @@ function Home() {
             <Divider />
             <GoComponent />   
             */}
+            <CtaSection />
         </>
     )
 }

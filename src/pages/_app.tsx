@@ -40,7 +40,7 @@ export default function App(props: any) {
                 />
                 <title>Fold</title>
             </Head>
-            <SiteLayout>
+            <SiteLayout forceDark={route === '/'}>
                 <Component {...pageProps} />
             </SiteLayout>
         </>

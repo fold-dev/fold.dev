@@ -7,8 +7,6 @@ import {
     Card,
     ColorPicker,
     Copy,
-    DarkModeButton,
-    DarkModeToggle,
     DatePickerProvider,
     Divider,
     Heading,
@@ -1347,17 +1345,6 @@ const All = () => {
                             </View>
                         </Card>
 
-                        <View
-                            row
-                            justifyContent="flex-end"
-                            gap={10}>
-                            <Text
-                                as="label"
-                                htmlFor="dm">
-                                Toggle Dark Mode
-                            </Text>
-                            <DarkModeToggle id="dm" />
-                        </View>
                     </View>
                 </View>
             </View>
@@ -1839,13 +1826,6 @@ export const CoreComponent = () => {
                             fontWeight={400}>
                             Fold supports Dark Mode out of the box, and includes all of the tools necessary for you to roll your own theme.
                         </Text>
-                    </View>
-                    <View 
-                        height="fit-content"
-                        width="fit-content"
-                        style={{ bottom: 20, right: 20 }}
-                        position="absolute">
-                        <DarkModeButton />
                     </View>
                 </View>
             </View>

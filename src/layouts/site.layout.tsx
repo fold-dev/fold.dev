@@ -18,15 +18,38 @@ import {
     useCacheValue,
     useVisibility
 } from '@fold-ui/core'
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { PiSparkle } from 'react-icons/pi'
 import { SocialIcon } from 'react-social-icons'
 
+const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
+
 export default function SiteLayout(props: any) {
-    const { children } = props
+    const { children, forceDark = false } = props
     const [showChild, setShowChild] = useState(false)
     const { visible, hide, show } = useVisibility(false)
     const { isCached, getSafeCache, setCache } = useCacheValue('cookies')
+
+    useIsomorphicLayoutEffect(() => {
+        if (!forceDark) return
+
+        const root = document.documentElement
+        const previousTheme = root.getAttribute('data-theme')
+        const enforceDarkTheme = () => {
+            if (root.getAttribute('data-theme') !== 'dark') root.setAttribute('data-theme', 'dark')
+        }
+        const observer = new MutationObserver(enforceDarkTheme)
+
+        enforceDarkTheme()
+        observer.observe(root, { attributes: true, attributeFilter: ['data-theme'] })
+
+        return () => {
+            observer.disconnect()
+
+            if (previousTheme) root.setAttribute('data-theme', previousTheme)
+            else root.removeAttribute('data-theme')
+        }
+    }, [forceDark])
 
     const denied = () => {
         setCache('no')
@@ -198,27 +221,26 @@ export default function SiteLayout(props: any) {
 
                 <View
                     row
-                    p={100}
+                    p="3rem 100px 100px 100px"
                     alignItems="flex-start"
-                    className="footer">
+                    className="footer"
+                    style={forceDark ? { background: '#0e0f15' } : undefined}>
                     <View
                         flex={1}
                         column
                         gap={20}
                         className="footer_block">
-                        <Logo color="var(--f-color-text)" />
-                        <Text>Fold &copy; 2026</Text>
+                        <Logo color="var(--f-color-accent)" />
                         <View 
                             row
                             gap="1rem">
-
                                 <Text
                                     as="a"
                                     href="https://github.com/fold-ui/fold"
                                     target="_blank"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="text">
+                                    colorToken="text-weaker">
                                     GitHub
                                 </Text>
                                 <Text
@@ -227,7 +249,7 @@ export default function SiteLayout(props: any) {
                                     target="_blank"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="text">
+                                    colorToken="text-weaker">
                                     Documentation
                                 </Text>
                                 <Text
@@ -236,7 +258,7 @@ export default function SiteLayout(props: any) {
                                     href="/privacy-policy"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="text">
+                                    colorToken="text-weaker">
                                     Privacy Policy
                                 </Text>
                                 <Text
@@ -245,10 +267,11 @@ export default function SiteLayout(props: any) {
                                     href="/terms-of-use"
                                     fontWeight={400}
                                     textDecoration="none"
-                                    colorToken="text">
+                                    colorToken="text-weaker">
                                     Terms of Use
                                 </Text>
                         </View>
+                        <Text colorToken="text-weakest">Fold &copy; 2026</Text>
                     </View>
                 </View>
             </AppProvider>
