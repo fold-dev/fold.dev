@@ -982,7 +982,7 @@ export const Picker = () => {
     )
 }
 
-const All = () => {
+export const All = () => {
     const [selected, setSelected] = useState<any>([])
     const [color, setColor] = useState(Token.ColorBlue400)
     const [value, setValue] = useState(3)
@@ -1060,17 +1060,18 @@ const All = () => {
 
     return (
         <View 
-            border="1px solid var(--f-color-border)"
+            //border="1px solid var(--f-color-border)"
             radius="var(--f-radius)"
             width="85%"
             m="0 auto 0rem auto"
             style={{ overflow: 'hidden' }}
-            bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)"
-            className="core__components-container">
+            //bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)"
+            //className="core__components-container"
+            >
             <View
                 column
                 height="100%"
-                className="dotted"
+                //className="dotted"
                 gap="2rem"
                 alignItems="flex-start"
                 alignContent="flex-start"
