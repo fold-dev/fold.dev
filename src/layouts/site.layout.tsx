@@ -307,7 +307,9 @@ export default function SiteLayout(props: any) {
 
                     <Flexer />
 
-                    <Navigation variant="navbar" className="site-header__products">
+                    <SiteThemeToggle />
+
+                    <Navigation variant="navbar" className="site-header__products" m="0 0 0 1rem">
                         {work.map(({ title }, index) => <NavigationItem key={index}>{title}</NavigationItem>)}
                     </Navigation>
 
@@ -330,7 +332,6 @@ export default function SiteLayout(props: any) {
                             </Button>
                         </NavigationItem>
                     </Navigation>
-                    <SiteThemeToggle />
                 </Header>
 
                 {children}

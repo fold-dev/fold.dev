@@ -11,12 +11,12 @@ const ThreeComponent = dynamic(() => import('./three.component').then((module) =
 export const HeroSpace = () => {
     const { app: { theme } } = useContext(AppContext)
 
-    if (theme !== 'dark') return null
+    if (theme !== 'dark' && theme !== 'light') return null
 
     return (
         <div className="revamp-hero__space" aria-hidden="true">
-            <ThreeComponent alignRight />
-            <ShootingStars />
+            <ThreeComponent alignRight variant={theme === 'dark' ? 'planet' : 'sun'} />
+            {theme === 'dark' && <ShootingStars />}
         </div>
     )
 }

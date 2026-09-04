@@ -5,22 +5,28 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass'
 
-export const ThreeComponent = ({ alignRight = false }: { alignRight?: boolean }) => {
+type ThreeComponentProps = {
+    alignRight?: boolean
+    variant?: 'planet' | 'sun'
+}
+
+export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: ThreeComponentProps) => {
     const mountRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         if (!mountRef.current) return
 
+        const isSun = variant === 'sun'
         // --- Dot Globe Construction ---
         const dotCount = 1000
-        const baseRadius = 9
-        const rotationSpeed = 0.0005
+        const baseRadius = 11
+        const rotationSpeed = isSun ? 0.00025 : 0.0005
         const geometry = new THREE.BufferGeometry()
         const positions = new Float32Array(dotCount * 3)
         const originals = new Float32Array(dotCount * 3)
         const container = mountRef.current
         const interactionRadius = baseRadius * 0.25
-        const starCount = 2000
+        const starCount = isSun ? 100 : 2000
         const starGeometry = new THREE.BufferGeometry()
         const starPositions = new Float32Array(starCount * 3)
         const width = Math.max(container.clientWidth, 1)
@@ -61,7 +67,7 @@ export const ThreeComponent = ({ alignRight = false }: { alignRight?: boolean })
         } catch (error) {
             geometry.dispose()
             starGeometry.dispose()
-            console.warn('The hero planet needs WebGL to render.', error)
+            console.warn('The hero illustration needs WebGL to render.', error)
             return
         }
 
@@ -71,15 +77,20 @@ export const ThreeComponent = ({ alignRight = false }: { alignRight?: boolean })
         renderer.setSize(width, height)
         container.appendChild(renderer.domElement)
 
-        // A light bloom, with transparent clears and a final colour conversion
-        // so the purple stays purple against the page's own background.
-        const composer = new EffectComposer(renderer)
-        const renderPass = new RenderPass(scene, camera, null, 0x000000, 0)
-        const bloomPass = new UnrealBloomPass(new THREE.Vector2(width, height), 0.1, 0.2, 0.08)
-        const outputPass = new OutputPass()
-        composer.addPass(renderPass)
-        composer.addPass(bloomPass)
-        composer.addPass(outputPass)
+        // Keep the nighttime bloom and render the sun's translucent peach halo
+        // directly, so it blends naturally into the light page background.
+        const composer = isSun ? null : new EffectComposer(renderer)
+        const bloomPass = isSun ? null : new UnrealBloomPass(new THREE.Vector2(width, height), 0.1, 0.2, 0.08)
+        const outputPass = isSun ? null : new OutputPass()
+        if (composer) {
+            composer.addPass(new RenderPass(scene, camera, null, 0x000000, 0))
+            composer.addPass(bloomPass)
+            composer.addPass(outputPass)
+        }
+        const renderScene = () => {
+            if (composer) composer.render()
+            else renderer.render(scene, camera)
+        }
 
         for (let i = 0; i < dotCount; i++) {
             const phi = Math.acos(-1 + (2 * i) / dotCount)
@@ -97,13 +108,54 @@ export const ThreeComponent = ({ alignRight = false }: { alignRight?: boolean })
 
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
         const pointsMaterial = new THREE.PointsMaterial({
-            color: 0x5328ff,
-            size: 0.09,
+            color: isSun ? 0xaaaaaa : 0x5328ff,
+            size: isSun ? 0.09 : 0.05,
             transparent: true,
-            opacity: 0.8,
+            opacity: isSun ? 0.45 : 0.8,
         })
         const points = new THREE.Points(geometry, pointsMaterial)
         scene.add(points)
+
+        // A transparent, softly tinted corona gives the daytime sun warmth
+        // while leaving the page background visible through it.
+        const haloGeometry = isSun ? new THREE.PlaneGeometry(baseRadius * 3.4, baseRadius * 3.4) : null
+        const haloMaterial = isSun ? new THREE.ShaderMaterial({
+            uniforms: {
+                uInnerColor: { value: new THREE.Color(0xffe5bf) },
+                uOuterColor: { value: new THREE.Color(0xffdfd2) },
+            },
+            vertexShader: `
+                varying vec2 vUv;
+                void main() {
+                    vUv = uv;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform vec3 uInnerColor;
+                uniform vec3 uOuterColor;
+                varying vec2 vUv;
+                void main() {
+                    float radius = length(vUv - 0.5) * 2.0;
+                    float core = 0.06 * (1.0 - smoothstep(0.0, 0.72, radius));
+                    float corona = 0.08 * exp(-pow((radius - 0.58) / 0.2, 2.0));
+                    float alpha = (core + corona) * (1.0 - smoothstep(0.78, 1.0, radius));
+                    vec3 color = mix(uInnerColor, uOuterColor, smoothstep(0.2, 0.9, radius));
+                    gl_FragColor = vec4(color, alpha);
+                    #include <colorspace_fragment>
+                }
+            `,
+            transparent: true,
+            depthWrite: false,
+            depthTest: false,
+        }) : null
+
+        if (isSun) {
+            const halo = new THREE.Mesh(haloGeometry, haloMaterial)
+            halo.quaternion.copy(camera.quaternion)
+            halo.renderOrder = -1
+            scene.add(halo)
+        }
 
         // --- Starfield Construction ---
 
@@ -120,8 +172,8 @@ export const ThreeComponent = ({ alignRight = false }: { alignRight?: boolean })
 
         starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3))
         const starMaterial = new THREE.PointsMaterial({
-            color: 0xaaaaaa,
-            size: 1.8,
+            color: isSun ? 0x000000 : 0xaaaaaa,
+            size: 1,
             transparent: true,
             opacity: 0.8,
             sizeAttenuation: true, // Makes far stars smaller
@@ -133,7 +185,7 @@ export const ThreeComponent = ({ alignRight = false }: { alignRight?: boolean })
         const tubeShaderMat = {
             uniforms: {
                 uTime: { value: 0.0 },
-                uColor: { value: new THREE.Color(0x5328ff) },
+                uColor: { value: new THREE.Color(isSun ? 0xaaaaaa : 0x5328ff) },
                 uTailLength: { value: 0.8 },
             },
             vertexShader: `
@@ -153,7 +205,7 @@ export const ThreeComponent = ({ alignRight = false }: { alignRight?: boolean })
             float alpha = smoothstep(1.0 - uTailLength, 1.0, progress);
             if (alpha < 0.01) discard;
             gl_FragColor = vec4(uColor, alpha);
-            // Convert the linear purple to the renderer's display colour space.
+            // Convert the linear ring colour to the renderer's display colour space.
             #include <colorspace_fragment>
         }
       `,
@@ -180,7 +232,7 @@ export const ThreeComponent = ({ alignRight = false }: { alignRight?: boolean })
                 vertexShader: tubeShaderMat.vertexShader,
                 fragmentShader: tubeShaderMat.fragmentShader,
                 transparent: true,
-                blending: THREE.AdditiveBlending,
+                blending: isSun ? THREE.NormalBlending : THREE.AdditiveBlending,
                 depthWrite: false,
             })
 
@@ -250,7 +302,7 @@ export const ThreeComponent = ({ alignRight = false }: { alignRight?: boolean })
                 b.mesh.rotation.y = points.rotation.y
             })
 
-            composer.render()
+            renderScene()
             if (!reducedMotion.matches && !document.hidden) frameId = requestAnimationFrame(animate)
         }
 
@@ -273,9 +325,9 @@ export const ThreeComponent = ({ alignRight = false }: { alignRight?: boolean })
             fitCamera()
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
             renderer.setSize(w, h)
-            composer.setPixelRatio(renderer.getPixelRatio())
-            composer.setSize(w, h)
-            composer.render()
+            composer?.setPixelRatio(renderer.getPixelRatio())
+            composer?.setSize(w, h)
+            renderScene()
         }
 
         // Use ResizeObserver to detect container size changes
@@ -293,25 +345,28 @@ export const ThreeComponent = ({ alignRight = false }: { alignRight?: boolean })
 
             geometry.dispose()
             pointsMaterial.dispose()
+            haloGeometry?.dispose()
+            haloMaterial?.dispose()
             starGeometry.dispose()
             starMaterial.dispose()
             beams.forEach(({ mesh }) => {
                 mesh.geometry.dispose()
                 mesh.material.dispose()
             })
-            bloomPass.dispose()
-            outputPass.dispose()
-            composer.dispose()
+            bloomPass?.dispose()
+            outputPass?.dispose()
+            composer?.dispose()
             renderer.dispose()
             renderer.forceContextLoss()
         }
-    }, [alignRight])
+    }, [alignRight, variant])
 
     return (
         <div
             ref={mountRef}
             aria-hidden="true"
             className="hero-planet"
+            data-celestial-body={variant}
             style={{
                 width: '100%',
                 height: '100%',
