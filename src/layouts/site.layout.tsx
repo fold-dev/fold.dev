@@ -29,7 +29,7 @@ import { SocialIcon } from 'react-social-icons'
 const work = [
     {
         eyebrow: 'Open source. Yours to build on.',
-        title: 'Components',
+        title: 'Core',
         body: 'Start with the buttons, forms, menus and layouts your product needs. Fold\'s MIT-licensed React components are free to use, easy to theme and yours to build on.',
         link: 'Explore the components',
         image: '/fold-studio/lane-workspace.jpg',
@@ -355,12 +355,12 @@ export default function SiteLayout(props: any) {
                             <Heading
                                 colorToken="base-200"
                                 width="75%">
-                                Build with Fold. Grow with support. &nbsp;
+                                Build with Fold. Get help when the edge cases arrive. &nbsp;
                                 <Text
                                     as="span"
                                     fontSize="inherit"
                                     colorToken="base-400">
-                                    Get the guidance your team needs to keep moving.
+                                    Bring us the implementation problem and work through it with people who know the code.
                                 </Text>
                             </Heading>
 
@@ -375,7 +375,7 @@ export default function SiteLayout(props: any) {
                                         size="sm"
                                     />
                                 }>
-                                Talk about support
+                                Get implementation help
                             </Button>
                         </View>
 
@@ -405,7 +405,7 @@ export default function SiteLayout(props: any) {
                                         colorToken="base-300"
                                         fontWeight="var(--f-font-weight-normal)"
                                         textDecoration="none">
-                                        Components
+                                        Core
                                     </Text>
                                     <Text
                                         as="a"
@@ -559,7 +559,7 @@ export default function SiteLayout(props: any) {
                                     as="span"
                                     size="sm"
                                     colorToken="base-500">
-                                    Open-source React components · Built for product teams
+                                    Open-source React UI · Built for real product work
                                 </Text>
                             </View>
                         </View>

@@ -59,41 +59,41 @@ import {
 
 const work = [
     {
-        eyebrow: 'Open source. Yours to build on.',
-        title: 'Components',
-        body: 'Start with the buttons, forms, menus and layouts your product needs. Fold\'s MIT-licensed React components are free to use, easy to theme and yours to build on.',
-        link: 'Explore the components',
+        eyebrow: 'The parts every interface needs',
+        title: 'Core',
+        body: 'Start with buttons, forms, menus and layouts that work together. Use them as shipped, theme them with tokens or change the source. It\'s MIT licensed, so the choice stays yours.',
+        link: 'Explore Core',
         image: '/fold-studio/lane-workspace.jpg',
         alt: 'Lane workspace showing a project plan and structured workflow',
     },
     {
-        eyebrow: 'Make complex data useful',
+        eyebrow: 'Dense data, kept workable',
         title: 'Data Grid',
-        body: 'Give complex data a useful place to live. Build editable tables with resizable columns, row selection and custom cells that fit the way your users work.',
+        body: 'Build editable tables with resizable columns, row selection and custom cells. The common behaviour is built in; the parts specific to your product stay configurable.',
         link: 'Explore Data Grid',
         image: '/fold-studio/lane-economics.jpg',
         alt: 'Lane project economics interface with budgets and delivery data',
     },
     {
-        eyebrow: 'Give every plan its place',
+        eyebrow: 'Put time in context',
         title: 'Calendar',
-        body: 'Put schedules, events and availability in context. Build day, week and month views that make time easier to plan, navigate and work with.',
+        body: 'Build day, week and month views for events, schedules and availability. Users can see what is happening, move through time and adjust the plan in one place.',
         link: 'Explore Calendar',
         image: '/fold-studio/product-system.png',
         alt: 'A product interface built from a reusable component system',
     },
     {
-        eyebrow: 'Keep work moving',
+        eyebrow: 'See where work is stuck',
         title: 'Kanban',
-        body: 'Turn work into a shared view of what\'s next. Organize cards into columns, move tasks between stages and shape each board around your team\'s process.',
+        body: 'Organize cards into columns, move work between stages and shape the board around your process. The interaction is handled; your application keeps control of the data.',
         link: 'Explore Kanban',
         image: '/fold-studio/product-system.png',
         alt: 'A product interface built from a reusable component system',
     },
     {
-        eyebrow: 'Bring the details together',
+        eyebrow: 'Keep the details with the task',
         title: 'Todo',
-        body: 'Keep the details close to the work. Group tasks, track progress and bring subtasks, due dates and assignees into a focused planning interface.',
+        body: 'Group tasks, track progress and keep subtasks, dates and assignees attached to the work. Enough context to act, without turning a todo list into a second project manager.',
         link: 'Explore Todo',
         image: '/fold-studio/product-system.png',
         alt: 'A product interface built from a reusable component system',
@@ -102,31 +102,31 @@ const work = [
 
 const capabilities = [
     'React components with no extra runtime dependencies',
-    'TypeScript APIs for a smoother development workflow',
-    'Design tokens that adapt Fold to your brand',
-    'Light and dark themes built into the system',
-    'Composable layouts for everyday and complex interfaces',
-    'Open source, with room to make it your own',
+    'Typed APIs that catch mistakes before the browser does',
+    'Design tokens for colour, spacing, type and shape',
+    'Light and dark themes included',
+    'Primitives that compose from a button to a planning tool',
+    'MIT licensed source you can inspect and change',
 ]
 
 const inclusions = [
-    'Getting started with Fold',
-    'Choosing the right components',
-    'TypeScript and API guidance',
-    'Component integration support',
-    'Theming and design tokens',
-    'Layout and responsive behaviour',
-    'Accessibility reviews',
-    'Data Grid configuration',
-    'Calendar and scheduling setup',
-    'Kanban and task workflows',
-    'Custom component patterns',
-    'Debugging and troubleshooting',
-    'Performance reviews',
-    'Upgrade and migration guidance',
-    'Code reviews with your team',
-    'Scheduled working sessions',
-    'Planning your next Fold feature',
+    'Getting Fold running in your application',
+    'Choosing the right component for the job',
+    'Working through TypeScript and API questions',
+    'Integrating components with your application state',
+    'Adapting themes and design tokens',
+    'Handling responsive layouts',
+    'Reviewing accessibility',
+    'Configuring Data Grid',
+    'Setting up calendars and schedules',
+    'Building Kanban and task workflows',
+    'Extending components for your product',
+    'Finding and fixing integration bugs',
+    'Reviewing performance',
+    'Planning upgrades and migrations',
+    'Reviewing implementation code with your team',
+    'Working through difficult decisions together',
+    'Planning what Fold needs next',
 ]
 
 const offers = [
@@ -175,14 +175,14 @@ function Home() {
                         <Text
                             style={{ textTransform: 'uppercase' }}
                             colorToken="text-weaker">
-                            Zero gravity UI components
+                            Open-source React UI
                         </Text>
                         <Heading 
                             fontWeight="var(--f-font-weight-light)"
                             fontSize="var(--f-font-size-large)">
-                            Build your next product with React components that feel like your own. &nbsp;
+                            Build product interfaces from components you can inspect, theme and change. &nbsp;
                             <Text as="span" colorToken="text-weak" fontSize="inherit">
-                                From everyday UI to complex data and planning tools, Fold gives you a flexible foundation with no extra runtime dependencies.
+                                Fold covers everyday controls and the complicated parts of data and planning, with typed APIs and no extra runtime dependencies.
                             </Text>
                         </Heading>
                     </View>
@@ -240,13 +240,13 @@ function Home() {
                         <Text
                             size="lg"
                             fontWeight="var(--f-font-weight-medium)">
-                            Built for the way product teams work.
+                            The useful parts are already here.
                         </Text>
                         <Button
                             as="a"
                             href="#offers"
                             size="lg">
-                            Explore support
+                            Get implementation help
                         </Button>
                     </View>
 
@@ -297,13 +297,13 @@ function Home() {
                                 column
                                 alignItems="flex-start"
                                 gap="1rem">
-                                <Text fontWeight="var(--f-font-weight-medium)">Build your support package</Text>
+                                <Text fontWeight="var(--f-font-weight-medium)">Get help where you need it</Text>
                                 <Text
                                     colorToken="text-weaker"
                                     width="65%"
                                     lineHeight="1.5">
-                                    Choose the help your team needs. We will agree the scope and availability before
-                                    your subscription starts.
+                                    Pick the areas your team wants help with. We will agree the scope, response times
+                                    and availability before anything starts.
                                 </Text>
                             </View>
 
@@ -344,14 +344,14 @@ function Home() {
                                 <Text
                                     colorToken="base-200"
                                     fontWeight="var(--f-font-weight-medium)">
-                                    Support that grows with you
+                                    A direct line while you build
                                 </Text>
                                 <Text
                                     colorToken="base-500"
                                     width="55%"
                                     lineHeight="1.5">
-                                    Subscribe to ongoing Fold support, from practical guidance to regular collaboration
-                                    with your team.
+                                    Get practical answers by email or work through implementation decisions with us in
+                                    scheduled sessions.
                                 </Text>
                             </View>
 
@@ -362,7 +362,7 @@ function Home() {
                                     row
                                     justifyContent="flex-start"
                                     gap="1rem">
-                                    <Text colorToken="base-200">Monthly subscriptions</Text>
+                                    <Text colorToken="base-200">Monthly support</Text>
                                     <Text colorToken="base-500">·</Text>
                                     <Text colorToken="base-500">USD</Text>
                                 </View>
@@ -409,7 +409,7 @@ function Home() {
                                     bgToken="base-50"
                                     colorToken="base-600"
                                     border="1px solid var(--f-color-base-400)">
-                                    Find your support plan
+                                    Choose a support plan
                                 </Button>
 
                                 <Text
@@ -418,8 +418,8 @@ function Home() {
                                     width="70%"
                                     lineHeight="1.4"
                                     m="1rem 0 0 0">
-                                    Fold is free to use. Support is optional, with coverage, response expectations and
-                                    subscription terms agreed before you start.
+                                    Fold stays free and open source. Paid support covers the hands-on help, response
+                                    times and working sessions agreed with your team.
                                 </Text>
                             </View>
                         </Card>
