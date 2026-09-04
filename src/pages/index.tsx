@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { All, CoreComponent } from '@/components/core.component'
 import { FAQComponent } from '@/components/faq.component'
 import { GoComponent } from '@/components/go.component'
-import { HeroComponent } from '@/components/hero.component'
+import { HeroComponent, HeroSpace } from '@/components/hero.component'
 import { PricingComponent } from '@/components/pricing.component'
 import {
     CalendarExample,
@@ -161,30 +161,33 @@ function Home() {
     return (
         <View
             width="100%"
-            p="15rem 5rem">
+            className="revamp-home">
             <View>
                 <View
                     column
                     alignItems="flex-start"
                     gap="10rem">
-                    <View
-                        width="75%"
-                        column
-                        alignItems="flex-start"
-                        gap="1rem">
-                        <Text
-                            style={{ textTransform: 'uppercase' }}
-                            colorToken="text-weaker">
-                            Open-source React UI
-                        </Text>
-                        <Heading 
-                            fontWeight="var(--f-font-weight-light)"
-                            fontSize="var(--f-font-size-large)">
-                            Build product interfaces from components you can inspect, theme and change. &nbsp;
-                            <Text as="span" colorToken="text-weak" fontSize="inherit">
-                                Fold covers everyday controls and the complicated parts of data and planning, with typed APIs and no extra runtime dependencies.
+                    <View className="revamp-hero" width="100%" position="relative">
+                        <HeroSpace />
+                        <View
+                            className="revamp-hero__copy"
+                            column
+                            alignItems="flex-start"
+                            gap="1rem">
+                            <Text
+                                style={{ textTransform: 'uppercase' }}
+                                colorToken="text-weaker">
+                                Open-source React UI
                             </Text>
-                        </Heading>
+                            <Heading
+                                fontWeight="var(--f-font-weight-light)"
+                                fontSize="var(--f-font-size-large)">
+                                Build product interfaces from components you can inspect, theme and change. &nbsp;
+                                <Text as="span" colorToken="text-weak" fontSize="inherit">
+                                    Fold covers everyday controls and the complicated parts of data and planning, with typed APIs and no extra runtime dependencies.
+                                </Text>
+                            </Heading>
+                        </View>
                     </View>
 
                     {work.map((item, index) => (

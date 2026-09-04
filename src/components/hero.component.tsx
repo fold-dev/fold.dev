@@ -1,10 +1,25 @@
-import { Button, Divider, Heading, Link, Logo, Pill, Text, View } from '@fold-ui/core'
+import { AppContext, Button, Divider, Heading, Link, Logo, Pill, Text, View } from '@fold-ui/core'
 import * as Token from '@fold-ui/design/tokens'
 import { GraphicLeft, GraphicRight } from './graphic.component'
-import { useRef, useEffect, useCallback } from 'react'
+import { useContext, useRef, useEffect, useCallback } from 'react'
+import dynamic from 'next/dynamic'
 import LogoViewer from './logo-viewer.component';
-import { ThreeComponent } from './three.component';
 import { PatternComponent } from './pattern.component';
+
+const ThreeComponent = dynamic(() => import('./three.component').then((module) => module.ThreeComponent), { ssr: false })
+
+export const HeroSpace = () => {
+    const { app: { theme } } = useContext(AppContext)
+
+    if (theme !== 'dark') return null
+
+    return (
+        <div className="revamp-hero__space" aria-hidden="true">
+            <ThreeComponent alignRight />
+            <ShootingStars />
+        </div>
+    )
+}
 
 export const Aurora = () => {
     return (
@@ -44,7 +59,7 @@ export const Aurora = () => {
 
 export const ShootingStars = () => {
     return (
-        <div className="shooting-stars">
+        <div className="shooting-stars" aria-hidden="true">
             <span className="star" />
             <span className="star" />
             <span className="star" />

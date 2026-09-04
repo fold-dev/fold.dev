@@ -4,6 +4,7 @@ import {
     Cookie,
     Flexer,
     AppProvider,
+    AppContext,
     Header,
     Icon,
     Li,
@@ -22,7 +23,7 @@ import {
     Grid,
     DarkModeToggle
 } from '@fold-ui/core'
-import { useEffect, useLayoutEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { PiSparkle } from 'react-icons/pi'
 import { SocialIcon } from 'react-social-icons'
 
@@ -119,34 +120,22 @@ const offers = [
     },
 ]
 
-const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect
+const SiteThemeToggle = () => {
+    const { app: { theme } } = useContext(AppContext)
+
+    return (
+        <DarkModeToggle
+            aria-label="Dark mode"
+            aria-checked={theme === 'dark'}
+        />
+    )
+}
 
 export default function SiteLayout(props: any) {
-    const { children, forceDark = false } = props
+    const { children } = props
     const [showChild, setShowChild] = useState(false)
     const { visible, hide, show } = useVisibility(false)
     const { isCached, getSafeCache, setCache } = useCacheValue('cookies')
-
-    useIsomorphicLayoutEffect(() => {
-        if (!forceDark) return
-
-        const root = document.documentElement
-        const previousTheme = root.getAttribute('data-theme')
-        const enforceDarkTheme = () => {
-            //if (root.getAttribute('data-theme') !== 'dark') root.setAttribute('data-theme', 'dark')
-        }
-        const observer = new MutationObserver(enforceDarkTheme)
-
-        enforceDarkTheme()
-        observer.observe(root, { attributes: true, attributeFilter: ['data-theme'] })
-
-        return () => {
-            observer.disconnect()
-
-            if (previousTheme) root.setAttribute('data-theme', previousTheme)
-            else root.removeAttribute('data-theme')
-        }
-    }, [forceDark])
 
     const denied = () => {
         setCache('no')
@@ -304,6 +293,7 @@ export default function SiteLayout(props: any) {
                 </Affix>
                 */}
                 <Header
+                    className="site-header"
                     bg="transparent"
                     m="0 0 1rem 0"
                     p="2rem"
@@ -317,11 +307,11 @@ export default function SiteLayout(props: any) {
 
                     <Flexer />
 
-                    <Navigation variant="navbar">
+                    <Navigation variant="navbar" className="site-header__products">
                         {work.map(({ title }, index) => <NavigationItem key={index}>{title}</NavigationItem>)}
                     </Navigation>
 
-                    <Navigation variant="navbar">
+                    <Navigation variant="navbar" className="site-header__links">
                         <NavigationItem>Documentation</NavigationItem>
                         <NavigationItem>Support</NavigationItem>
                         
@@ -340,6 +330,7 @@ export default function SiteLayout(props: any) {
                             </Button>
                         </NavigationItem>
                     </Navigation>
+                    <SiteThemeToggle />
                 </Header>
 
                 {children}
@@ -554,7 +545,6 @@ export default function SiteLayout(props: any) {
                                     © 2026 Fold. All rights reserved.
                                 </Text>
                                 <Flexer />
-                                <DarkModeToggle />
                                 <Text
                                     as="span"
                                     size="sm"
@@ -571,8 +561,7 @@ export default function SiteLayout(props: any) {
                     row
                     p="3rem 100px 100px 100px"
                     alignItems="flex-start"
-                    className="footer"
-                    style={forceDark ? { background: '#0e0f15' } : undefined}>
+                    className="footer">
                     <View
                         flex={1}
                         column
