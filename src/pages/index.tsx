@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react'
-import { CoreComponent } from '@/components/core.component'
+import { All, CoreComponent } from '@/components/core.component'
 import { FAQComponent } from '@/components/faq.component'
 import { GoComponent } from '@/components/go.component'
 import { HeroComponent } from '@/components/hero.component'
 import { PricingComponent } from '@/components/pricing.component'
-import { ProComponent } from '@/components/pro.component'
+import {
+    CalendarExample,
+    DataGridExample,
+    KanbanExample,
+    ProComponent,
+    TodoExample,
+} from '@/components/pro.component'
 import { SupportComponent } from '@/components/support.component'
 import { CtaSection } from '@/components/cta.component'
 import {
@@ -213,11 +219,11 @@ function Home() {
                                 border="none"
                                 width="100%"
                                 height="fit-content">
-                             {/*    {index == 0 && <All />}
-                                {index == 1 && <Usage />}
-                                {index == 2 && <CalendarViews />}
-                                {index == 3 && <KanbanUsage />}
-                                {index == 4 && <TodoUsage />} */}
+                                {index == 0 && <All />}
+                                {index == 1 && <DataGridExample />}
+                                {index == 2 && <CalendarExample />}
+                                {index == 3 && <KanbanExample />}
+                                {index == 4 && <TodoExample />}
                             </Card>
                         </View>
                     ))}
