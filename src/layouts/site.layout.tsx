@@ -23,6 +23,7 @@ import {
     Grid,
     DarkModeToggle
 } from '@fold-ui/core'
+import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import { PiSparkle } from 'react-icons/pi'
 import { SocialIcon } from 'react-social-icons'
@@ -133,6 +134,7 @@ const SiteThemeToggle = () => {
 
 export default function SiteLayout(props: any) {
     const { children } = props
+    const router = useRouter()
     const [showChild, setShowChild] = useState(false)
     const { visible, hide, show } = useVisibility(false)
     const { isCached, getSafeCache, setCache } = useCacheValue('cookies')
@@ -340,17 +342,22 @@ export default function SiteLayout(props: any) {
 
                     <Navigation variant="navbar" className="site-header__products" m="0 0 0 1rem" style={{ '--f-focus': 'none' }}>
                         <NavigationItem><SiteThemeToggle /></NavigationItem>
-                        {work.map(({ title }, index) => <NavigationItem key={index}>{title}</NavigationItem>)}
+                        {work.map(({ title }, index) => (
+                            <NavigationItem key={index} href={`/#${title.toLowerCase().replace(/ /g, '-')}`}>
+                                {title}
+                            </NavigationItem>
+                        ))}
                     </Navigation>
 
                     <Navigation variant="navbar" className="site-header__links">
-                        <NavigationItem>Documentation</NavigationItem>
-                        <NavigationItem>Support</NavigationItem>
+                        <NavigationItem href="/docs">Documentation</NavigationItem>
+                        <NavigationItem href="mailto:support@fold.dev">Support</NavigationItem>
                         
                         <NavigationItem 
                             m="0 0 0 0.5rem"
                             style={{ '--f-navbar-item-padding': '0rem' }}>
                             <Button
+                                onClick={() => router.push('/docs')}
                                 variant="accent"
                                 suffix={
                                     <IconLib
@@ -423,7 +430,7 @@ export default function SiteLayout(props: any) {
                                     </Text>
                                     <Text
                                         as="a"
-                                        href="https://fold-ui.com/docs"
+                                        href="/docs/introduction"
                                         colorToken="base-300"
                                         fontWeight="var(--f-font-weight-normal)"
                                         textDecoration="none">
@@ -431,7 +438,7 @@ export default function SiteLayout(props: any) {
                                     </Text>
                                     <Text
                                         as="a"
-                                        href="https://fold-ui.com/docs/getting-started"
+                                        href="/docs"
                                         colorToken="base-300"
                                         fontWeight="var(--f-font-weight-normal)"
                                         textDecoration="none">
@@ -439,7 +446,7 @@ export default function SiteLayout(props: any) {
                                     </Text>
                                     <Text
                                         as="a"
-                                        href="https://fold-ui.com/docs/design-system"
+                                        href="/docs/design-system"
                                         colorToken="base-300"
                                         fontWeight="var(--f-font-weight-normal)"
                                         textDecoration="none">
@@ -447,7 +454,7 @@ export default function SiteLayout(props: any) {
                                     </Text>
                                     <Text
                                         as="a"
-                                        href="#offers"
+                                        href="/#offers"
                                         colorToken="base-300"
                                         fontWeight="var(--f-font-weight-normal)"
                                         textDecoration="none">
@@ -468,7 +475,7 @@ export default function SiteLayout(props: any) {
                                     </Text>
                                     <Text
                                         as="a"
-                                        href="https://fold-ui.com/docs/getting-started"
+                                        href="/docs/getting-started"
                                         colorToken="base-300"
                                         fontWeight="var(--f-font-weight-normal)"
                                         textDecoration="none">
@@ -476,7 +483,7 @@ export default function SiteLayout(props: any) {
                                     </Text>
                                     <Text
                                         as="a"
-                                        href="https://fold-ui.com/docs/theming"
+                                        href="/docs/theming"
                                         colorToken="base-300"
                                         fontWeight="var(--f-font-weight-normal)"
                                         textDecoration="none">

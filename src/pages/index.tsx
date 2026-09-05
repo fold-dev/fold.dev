@@ -63,6 +63,7 @@ const work = [
         title: 'Core',
         body: 'Start with buttons, forms, menus and layouts that work together. Use them as shipped, theme them with tokens or change the source. It\'s MIT licensed, so the choice stays yours.',
         link: 'Explore Core',
+        href: '/docs/introduction',
         image: '/fold-studio/lane-workspace.jpg',
         alt: 'Lane workspace showing a project plan and structured workflow',
     },
@@ -71,6 +72,7 @@ const work = [
         title: 'Data Grid',
         body: 'Build editable tables with resizable columns, row selection and custom cells. The common behaviour is built in; the parts specific to your product stay configurable.',
         link: 'Explore Data Grid',
+        href: '/docs/core/data-grid',
         image: '/fold-studio/lane-economics.jpg',
         alt: 'Lane project economics interface with budgets and delivery data',
     },
@@ -79,6 +81,7 @@ const work = [
         title: 'Calendar',
         body: 'Build day, week and month views for events, schedules and availability. Users can see what is happening, move through time and adjust the plan in one place.',
         link: 'Explore Calendar',
+        href: '/docs/pro/calendar',
         image: '/fold-studio/product-system.png',
         alt: 'A product interface built from a reusable component system',
     },
@@ -87,6 +90,7 @@ const work = [
         title: 'Kanban',
         body: 'Organize cards into columns, move work between stages and shape the board around your process. The interaction is handled; your application keeps control of the data.',
         link: 'Explore Kanban',
+        href: '/docs/pro/kanban',
         image: '/fold-studio/product-system.png',
         alt: 'A product interface built from a reusable component system',
     },
@@ -95,18 +99,19 @@ const work = [
         title: 'Todo',
         body: 'Group tasks, track progress and keep subtasks, dates and assignees attached to the work. Enough context to act, without turning a todo list into a second project manager.',
         link: 'Explore Todo',
+        href: '/docs/pro/todo',
         image: '/fold-studio/product-system.png',
         alt: 'A product interface built from a reusable component system',
     },
 ]
 
-const capabilities = [
-    'React components with no extra runtime dependencies',
-    'Typed APIs that catch mistakes before the browser does',
-    'Design tokens for colour, spacing, type and shape',
-    'Light and dark themes included',
-    'Primitives that compose from a button to a planning tool',
-    'MIT licensed source you can inspect and change',
+const documentationLinks = [
+    { label: 'Getting started with Fold', href: '/docs/getting-started' },
+    { label: 'Design system', href: '/docs/design-system' },
+    { label: 'Theming', href: '/docs/theming' },
+    { label: 'Design tokens', href: '/docs/tokens' },
+    { label: 'Icons', href: '/docs/icons' },
+    { label: 'Layout primitives', href: '/docs/core/layout' },
 ]
 
 const inclusions = [
@@ -156,6 +161,12 @@ function Home() {
         setShowChild(true)
     }, [])
 
+    useEffect(() => {
+        if (showChild && window.location.hash) {
+            document.getElementById(window.location.hash.slice(1))?.scrollIntoView()
+        }
+    }, [showChild])
+
     if (!showChild) return null
 
     return (
@@ -192,6 +203,7 @@ function Home() {
 
                     {work.map((item, index) => (
                         <View
+                            id={item.title.toLowerCase().replace(/ /g, '-')}
                             width="100%"
                             key={index}>
                             <View
@@ -208,7 +220,8 @@ function Home() {
                                 <Text colorToken="text-weak">{item.body}</Text>
                                 <Text
                                     row
-                                    as="a">
+                                    as="a"
+                                    href={item.href}>
                                     {item.link}{' '}
                                     <IconLib
                                         icon="arrow-right"
@@ -243,7 +256,7 @@ function Home() {
                         <Text
                             size="lg"
                             fontWeight="var(--f-font-weight-medium)">
-                            The useful parts are already here.
+                            Explore the documentation.
                         </Text>
                         <Button
                             as="a"
@@ -255,9 +268,13 @@ function Home() {
 
                     <Divider />
 
-                    {capabilities.map((capability) => (
-                        <React.Fragment key={capability}>
+                    {documentationLinks.map(({ label, href }) => (
+                        <React.Fragment key={href}>
                             <View
+                                as="a"
+                                href={href}
+                                color="inherit"
+                                textDecoration="none"
                                 row
                                 justifyContent="space-between"
                                 width="100%"
@@ -265,14 +282,9 @@ function Home() {
                                 <Text
                                     size="lg"
                                     fontWeight="var(--f-font-weight-medium)">
-                                    {capability}
+                                    {label}
                                 </Text>
-                                <Text
-                                    as="span"
-                                    size="xl"
-                                    lineHeight="1">
-                                    ↘
-                                </Text>
+                                <IconLib icon="arrow-right" size="sm" aria-hidden="true" />
                             </View>
                             <Divider />
                         </React.Fragment>
