@@ -106,12 +106,12 @@ const work = [
 ]
 
 const documentationLinks = [
-    { label: 'Getting started with Fold', href: '/docs/getting-started' },
-    { label: 'Design system', href: '/docs/design-system' },
-    { label: 'Theming', href: '/docs/theming' },
-    { label: 'Design tokens', href: '/docs/tokens' },
-    { label: 'Icons', href: '/docs/icons' },
-    { label: 'Layout primitives', href: '/docs/core/layout' },
+    { label: 'Get your first Fold interface up and running.', href: '/docs/getting-started' },
+    { label: 'Explore the design system behind every component.', href: '/docs/design-system' },
+    { label: 'Make Fold your own with custom themes.', href: '/docs/theming' },
+    { label: 'Shape your interface with colour, spacing and type.', href: '/docs/tokens' },
+    { label: 'Find the right icons for your interface.', href: '/docs/icons' },
+    { label: 'Build flexible layouts from simple primitives.', href: '/docs/core/layout' },
 ]
 
 const inclusions = [
@@ -175,6 +175,7 @@ function Home() {
             className="revamp-home">
             <View>
                 <View
+                    className="revamp-sections"
                     column
                     alignItems="flex-start"
                     gap="10rem">
@@ -207,6 +208,7 @@ function Home() {
                             width="100%"
                             key={index}>
                             <View
+                                className="revamp-section__copy"
                                 column
                                 width="75%"
                                 alignItems="flex-start"
@@ -230,6 +232,7 @@ function Home() {
                                 </Text>
                             </View>
                             <Card
+                                className="revamp-example"
                                 p="2rem"
                                 m="7.5rem 0 0 0"
                                 border="none"
@@ -249,6 +252,7 @@ function Home() {
                     width="100%"
                     m="5rem 0">
                     <View
+                        className="revamp-docs__heading"
                         row
                         justifyContent="space-between"
                         width="100%"
@@ -295,6 +299,7 @@ function Home() {
                     id="offers"
                     width="100%">
                     <Grid
+                        className="revamp-offers"
                         columns={2}
                         gap="2.5rem"
                         width="100%"
@@ -314,6 +319,7 @@ function Home() {
                                 gap="1rem">
                                 <Text fontWeight="var(--f-font-weight-medium)">Get help where you need it</Text>
                                 <Text
+                                    className="revamp-offers__description"
                                     colorToken="text-weaker"
                                     width="65%"
                                     lineHeight="1.5">
@@ -362,6 +368,7 @@ function Home() {
                                     A direct line while you build
                                 </Text>
                                 <Text
+                                    className="revamp-offers__description"
                                     colorToken="base-500"
                                     width="55%"
                                     lineHeight="1.5">
@@ -386,6 +393,7 @@ function Home() {
                                     {offers.map((offer, index) => (
                                         <React.Fragment key={offer.name}>
                                             <View
+                                                className="revamp-offers__price"
                                                 row
                                                 justifyContent="space-between"
                                                 width="100%"
@@ -428,6 +436,7 @@ function Home() {
                                 </Button>
 
                                 <Text
+                                    className="revamp-offers__description"
                                     size="sm"
                                     colorToken="base-500"
                                     width="70%"

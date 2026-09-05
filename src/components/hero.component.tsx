@@ -1,7 +1,7 @@
 import { AppContext, Button, Divider, Heading, Link, Logo, Pill, Text, View } from '@fold-ui/core'
 import * as Token from '@fold-ui/design/tokens'
 import { GraphicLeft, GraphicRight } from './graphic.component'
-import { useContext, useRef, useEffect, useCallback } from 'react'
+import { useContext, useRef, useEffect, useCallback, useState } from 'react'
 import dynamic from 'next/dynamic'
 import LogoViewer from './logo-viewer.component';
 import { PatternComponent } from './pattern.component';
@@ -10,8 +10,17 @@ const ThreeComponent = dynamic(() => import('./three.component').then((module) =
 
 export const HeroSpace = () => {
     const { app: { theme } } = useContext(AppContext)
+    const [isDesktop, setIsDesktop] = useState(false)
 
-    if (theme !== 'dark' && theme !== 'light') return null
+    useEffect(() => {
+        const media = window.matchMedia('(min-width: 761px)')
+        const update = () => setIsDesktop(media.matches)
+        update()
+        media.addEventListener('change', update)
+        return () => media.removeEventListener('change', update)
+    }, [])
+
+    if (!isDesktop || (theme !== 'dark' && theme !== 'light')) return null
 
     return (
         <div className="revamp-hero__space" aria-hidden="true">

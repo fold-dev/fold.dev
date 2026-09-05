@@ -374,10 +374,12 @@ export default function SiteLayout(props: any) {
                 {children}
 
                 <View
+                    className="site-footer"
                     bgToken="base-900"
                     m="5rem 0 0 0">
                     <View>
                         <View
+                            className="site-footer__cta"
                             p="5rem"
                             row
                             justifyContent="space-between">
@@ -409,10 +411,12 @@ export default function SiteLayout(props: any) {
                         </View>
 
                         <View
+                            className="site-footer__content"
                             column
                             alignItems="stretch"
                             p="6.5rem 5rem 3.5rem">
                             <Grid
+                                className="site-footer__links"
                                 columns={4}
                                 gap="5rem"
                                 width="100%"
@@ -571,6 +575,7 @@ export default function SiteLayout(props: any) {
                             />
 
                             <View
+                                className="site-footer__meta"
                                 row
                                 gap="1rem"
                                 justifyContent="flex-start"
