@@ -31,11 +31,12 @@ body {
 
 .revamp-hero__space {
     --hero-space-fade-height: 130px;
+    --hero-space-fade-offset: 100px;
     position: absolute;
     left: -5rem;
     right: -5rem;
     top: -23rem;
-    bottom: calc(-5rem - var(--hero-space-fade-height));
+    bottom: calc(-5rem - var(--hero-space-fade-height) - var(--hero-space-fade-offset));
     overflow: hidden;
     pointer-events: none;
     background: transparent;

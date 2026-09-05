@@ -337,6 +337,12 @@ export default function SiteLayout(props: any) {
                         size="md"
                         color="var(--f-color-text)"
                     />
+                    {/* <View 
+                        width="3.5rem"
+                        height="2rem"
+                        border="0.25rem solid var(--f-color-text-weakest)"
+                        radius={100}
+                    /> */}
 
                     <Flexer />
 

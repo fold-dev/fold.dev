@@ -40,8 +40,10 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
             const w = Math.max(container.clientWidth, 1)
             const h = Math.max(container.clientHeight, 1)
             // Extend the starfield into the fade without enlarging or moving the planet.
-            const fadeHeight = parseFloat(getComputedStyle(container).getPropertyValue('--hero-space-fade-height')) || 0
-            const sceneHeight = Math.max(h - fadeHeight, 1)
+            const styles = getComputedStyle(container)
+            const fadeHeight = parseFloat(styles.getPropertyValue('--hero-space-fade-height')) || 0
+            const fadeOffset = parseFloat(styles.getPropertyValue('--hero-space-fade-offset')) || 0
+            const sceneHeight = Math.max(h - fadeHeight - fadeOffset, 1)
             camera.aspect = w / sceneHeight
             const wideHero = alignRight && w > 760
             camera.position.z = Math.max(wideHero ? 18 : 22, (wideHero ? 13.5 : 14) / (Math.tan(halfFov) * Math.min(camera.aspect, 1)))
