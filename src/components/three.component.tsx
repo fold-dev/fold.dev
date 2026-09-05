@@ -108,8 +108,8 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
 
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
         const pointsMaterial = new THREE.PointsMaterial({
-            color: isSun ? 0xaaaaaa : 0x5328ff,
-            size: isSun ? 0.09 : 0.05,
+            color: isSun ? 0x34303D : 0x5328ff,
+            size: isSun ? 0.075 : 0.05,
             transparent: true,
             opacity: isSun ? 0.45 : 0.8,
         })
@@ -172,8 +172,8 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
 
         starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3))
         const starMaterial = new THREE.PointsMaterial({
-            color: isSun ? 0x000000 : 0xaaaaaa,
-            size: 1,
+            color: isSun ? 0x000000 : 0x34303D,
+            size: 2,
             transparent: true,
             opacity: 0.8,
             sizeAttenuation: true, // Makes far stars smaller
@@ -185,7 +185,7 @@ export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: Three
         const tubeShaderMat = {
             uniforms: {
                 uTime: { value: 0.0 },
-                uColor: { value: new THREE.Color(isSun ? 0xaaaaaa : 0x5328ff) },
+                uColor: { value: new THREE.Color(isSun ? 0x34303D : 0x5328ff) },
                 uTailLength: { value: 0.8 },
             },
             vertexShader: `

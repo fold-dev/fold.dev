@@ -16,7 +16,8 @@ export const HeroSpace = () => {
     return (
         <div className="revamp-hero__space" aria-hidden="true">
             <ThreeComponent alignRight variant={theme === 'dark' ? 'planet' : 'sun'} />
-            {theme === 'dark' && <ShootingStars />}
+            {/* {theme === 'dark' && <ShootingStars />} */}
+             <ShootingStars />
         </div>
     )
 }

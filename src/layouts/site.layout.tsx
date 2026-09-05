@@ -307,9 +307,8 @@ export default function SiteLayout(props: any) {
 
                     <Flexer />
 
-                    <SiteThemeToggle />
-
-                    <Navigation variant="navbar" className="site-header__products" m="0 0 0 1rem">
+                    <Navigation variant="navbar" className="site-header__products" m="0 0 0 1rem" style={{ '--f-focus': 'none' }}>
+                        <NavigationItem><SiteThemeToggle /></NavigationItem>
                         {work.map(({ title }, index) => <NavigationItem key={index}>{title}</NavigationItem>)}
                     </Navigation>
 
