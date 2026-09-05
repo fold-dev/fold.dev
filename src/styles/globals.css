@@ -91,7 +91,9 @@ body {
 }
 
 @media (max-width: 760px) {
-    .site-header { display: none; }
+    .site-header { padding: 1.5rem !important; }
+    .site-header .site-header__products,
+    .site-header .site-header__links { display: none; }
     .revamp-home { padding: 5rem 1.5rem; }
     .revamp-hero__copy { width: 100%; padding-top: 0; }
     .revamp-hero__space { display: none; }
