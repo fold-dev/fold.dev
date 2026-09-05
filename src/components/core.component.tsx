@@ -982,7 +982,7 @@ export const Picker = () => {
     )
 }
 
-const All = () => {
+export const All = () => {
     const [selected, setSelected] = useState<any>([])
     const [color, setColor] = useState(Token.ColorBlue400)
     const [value, setValue] = useState(3)
@@ -1059,294 +1059,269 @@ const All = () => {
     }, [value])
 
     return (
-        <View 
-            border="1px solid var(--f-color-border)"
-            radius="var(--f-radius)"
-            width="85%"
-            m="0 auto 0rem auto"
-            style={{ overflow: 'hidden' }}
-            bg="linear-gradient(to bottom right, var(--f-color-surface), transparent)"
-            className="core__components-container">
+        <View
+            row
+            gap="2rem"
+            height="fit-content"
+            alignItems="flex-start">
             <View
                 column
-                height="100%"
-                className="dotted"
-                gap="2rem"
-                alignItems="flex-start"
-                alignContent="flex-start"
-                justifyContent="flex-start"
-                p="3rem"
-                position="relative">
-                <View
-                    row
-                    gap="2rem"
-                    height="fit-content"
-                    alignItems="flex-start"
-                    className="core__components">
-                    <View
-                        column
-                        gap="1rem"
-                        flex={1}>
-                        <Menu
-                            width="100%"
-                            zIndex="0"
-                            shadow="none">
-                            <MenuOptionGroup
-                                title="State Management"
-                                defaultValue="redux"
-                                type="radio">
-                                <MenuItemOption value="redux">Redux</MenuItemOption>
-                                <MenuItemOption value="mobx">MobX</MenuItemOption>
-                                <MenuItemOption value="zustand">Zustand</MenuItemOption>
-                            </MenuOptionGroup>
-                        </Menu>
+                gap="1rem"
+                flex={1}>
+                <Menu
+                    width="100%"
+                    zIndex="0"
+                    shadow="none">
+                    <MenuOptionGroup
+                        title="State Management"
+                        defaultValue="redux"
+                        type="radio">
+                        <MenuItemOption value="redux">Redux</MenuItemOption>
+                        <MenuItemOption value="mobx">MobX</MenuItemOption>
+                        <MenuItemOption value="zustand">Zustand</MenuItemOption>
+                    </MenuOptionGroup>
+                </Menu>
 
-                        <Card
-                            p={20}
-                            width="100%">
-                            <Heading
-                                as="h5"
-                                fontWeight="bold"
-                                m="0 0 1rem 0">
-                                Activity
-                            </Heading>
-                            <Timeline>
-                                <TimelineItem
-                                    marker={
-                                        <Avatar
-                                            size="xs"
-                                            src="https://randomuser.me/api/portraits/men/12.jpg"
-                                        />
-                                    }>
-                                    <Text>Rob opened the attachment in Microsoft Outlook</Text>
-                                </TimelineItem>
-                                <TimelineItem colorToken="text">
-                                    <Text>Image attachment downloaded from the server</Text>
-                                </TimelineItem>
-                                <TimelineItem colorToken="text">
-                                    <Text>Message flagged as harmless by anti-virus system</Text>
-                                </TimelineItem>
-                            </Timeline>
-                        </Card>
-                    </View>
-
-
-
-                    <View
-                        column
-                        gap="1rem"
-                        width={250}>
-                        <Dropdown />
-                        <Picker />
-                    </View>
-
-
-
-                    <View
-                        column
-                        gap="1rem"
-                        width={310}>
-                        <Options
-                            animated
-                            shadow="none"
-                            width="100%"
-                            border="1px solid var(--f-color-border)"
-                            selected={option}
-                            onOptionChange={setOption}>
-                            <Option>System</Option>
-                            <Option>Inter</Option>
-                            <Option>Instrument</Option>
-                        </Options>
-
-                        <Card
-                            p="0rem 1rem"
-                            width="100%"
-                            row>
-                            <View>
-                                <Tabs
-                                    selected={selected}
-                                    onSelect={setSelected}
-                                    animated>
-                                    <TabList
-                                        height={60}
-                                        border="none"
-                                        stretch
-                                        disableScroll>
-                                        <Tab>Members</Tab>
-                                        <Tab>Security</Tab>
-                                        <Tab>Account</Tab>
-                                    </TabList>
-                                </Tabs>
-                            </View>
-                        </Card>
-{/* 
-                        <Card
-                            width="100%"
-                            p="0.5rem 0.5rem">
-                            <Palette
-                                justifyContent="center"
-                                gap={8}
-                                color={color}
-                                colors={[
-                                    Token.ColorPurple400,
-                                    Token.ColorPink400,
-                                    Token.ColorRed400,
-                                    Token.ColorOrange400,
-                                    Token.ColorYellow400,
-                                    Token.ColorGreen400,
-                                    Token.ColorTeal400,
-                                    Token.ColorCyan400,
-                                    Token.ColorBlue400,
-                                ]}
-                                onChange={setColor}
-                            />
-                        </Card>
- */}
-                        <Attachment
-                            width="100%"
-                            mime="image/png"
-                            filesize={24325}
-                            label="screenshot.png"
-                            href="https://fold-ui.com"
-                        />
-
-                        <Copy
-                            value="049d2ee4-6672-11ee-8c99-0242ac120002"
-                            prefix={<IconLib icon="circle" />}
-                            suffix={
-                                <Pill
+                <Card
+                    p={20}
+                    width="100%">
+                    <Heading
+                        as="h5"
+                        fontWeight="bold"
+                        m="0 0 1rem 0">
+                        Activity
+                    </Heading>
+                    <Timeline>
+                        <TimelineItem
+                            marker={
+                                <Avatar
                                     size="xs"
-                                    m="0 1rem">
-                                    UUID
-                                </Pill>
-                            }
-                        />
-
-                        <View
-                            row
-                            gap={5}
-                            width="100%">
-                            <Pill
-                                size="sm"
-                                color={Token.ColorPink500}>
-                                React
-                            </Pill>
-                            <Pill
-                                solid
-                                size="sm"
-                                color={Token.ColorPurple100}>
-                                UI
-                            </Pill>
-                            <Pill
-                                solid
-                                size="sm"
-                                color={Token.ColorBlue300}>
-                                Components
-                            </Pill>
-                            <Pill
-                                solid
-                                size="sm"
-                                color={Token.ColorTeal100}>
-                                TypeScript
-                            </Pill>
-                        </View>
-
-                        <Card
-                            width="100%"
-                            p={20}>
-                            <Range
-                                min={0}
-                                max={10}
-                                step={1}
-                                value={value}
-                                onChange={(e: any) => setValue(e.target.value)}
-                            />
-                        </Card>
-                    </View>
-
-                    <View
-                        column
-                        gap="1rem"
-                        width={320}
-                        alignItems="flex-end">
-                        <Card
-                            p={10}
-                            width={320}>
-                            <ScrollingPicker />
-                        </Card>
-
-                        <Card
-                            p="0.75rem 1rem"
-                            width="100%">
-                            <Sparkline
-                                style={{ 
-                                    maskImage: 'linear-gradient(to bottom, var(--f-color-surface) 10%, transparent)',
-                                }}
-                                data={sparkline}
-                                variant="line"
-                                width="100%"
-                                height={30}
-                            />
-                        </Card>
-                        <Card
-                            display="none"
-                            width="100%"
-                            footer={
-                                <>
-                                    <Divider />
-                                    <ButtonGroup
-                                        p={15}
-                                        justifyContent="stretch"
-                                        width="100%">
-                                        <Button>Visit</Button>
-                                        <Button>Wishlist</Button>
-                                    </ButtonGroup>
-                                </>
-                            }
-                            header={
-                                <Image
-                                    width="100%"
-                                    height={125}
-                                    src="building.png"
+                                    src="https://randomuser.me/api/portraits/men/12.jpg"
                                 />
                             }>
-                            <View p={20}>
-                                <Stack
-                                    direction="vertical"
-                                    spacing={10}>
-                                    <View
-                                        row
-                                        gap={5}
-                                        justifyContent="flex-start">
-                                        <Pill
-                                            color={Token.ColorBlue400}
-                                            subtle
-                                            size="sm">
-                                            co-working
-                                        </Pill>
-                                        <Pill
-                                            color={Token.ColorAccent400}
-                                            subtle
-                                            size="sm">
-                                            remote
-                                        </Pill>
-                                    </View>
-                                    <Heading as="h2">Perfect Getaway</Heading>
-                                    <Text>
-                                        A once in a lifetime opportunity to live and work remotely in a
-                                        breathtaking location!
-                                    </Text>
-                                    <Text
-                                        size="sm"
-                                        colorToken="accent">
-                                        Terms & conditions apply
-                                    </Text>
-                                </Stack>
-                            </View>
-                        </Card>
+                            <Text>Rob opened the attachment in Microsoft Outlook</Text>
+                        </TimelineItem>
+                        <TimelineItem colorToken="text">
+                            <Text>Image attachment downloaded from the server</Text>
+                        </TimelineItem>
+                        <TimelineItem colorToken="text">
+                            <Text>Message flagged as harmless by anti-virus system</Text>
+                        </TimelineItem>
+                    </Timeline>
+                </Card>
+            </View>
 
+            <View
+                column
+                gap="1rem"
+                width={250}>
+                <Dropdown />
+                <Picker />
+            </View>
+
+            <View
+                column
+                gap="1rem"
+                width={310}>
+                <Options
+                    animated
+                    shadow="none"
+                    width="100%"
+                    border="1px solid var(--f-color-border)"
+                    selected={option}
+                    onOptionChange={setOption}>
+                    <Option>System</Option>
+                    <Option>Inter</Option>
+                    <Option>Instrument</Option>
+                </Options>
+
+                <Card
+                    p="0rem 1rem"
+                    width="100%"
+                    row>
+                    <View>
+                        <Tabs
+                            selected={selected}
+                            onSelect={setSelected}
+                            animated>
+                            <TabList
+                                height={60}
+                                border="none"
+                                stretch
+                                disableScroll>
+                                <Tab>Members</Tab>
+                                <Tab>Security</Tab>
+                                <Tab>Account</Tab>
+                            </TabList>
+                        </Tabs>
                     </View>
+                </Card>
+{/* 
+                <Card
+                    width="100%"
+                    p="0.5rem 0.5rem">
+                    <Palette
+                        justifyContent="center"
+                        gap={8}
+                        color={color}
+                        colors={[
+                            Token.ColorPurple400,
+                            Token.ColorPink400,
+                            Token.ColorRed400,
+                            Token.ColorOrange400,
+                            Token.ColorYellow400,
+                            Token.ColorGreen400,
+                            Token.ColorTeal400,
+                            Token.ColorCyan400,
+                            Token.ColorBlue400,
+                        ]}
+                        onChange={setColor}
+                    />
+                </Card>
+*/}
+                <Attachment
+                    width="100%"
+                    mime="image/png"
+                    filesize={24325}
+                    label="screenshot.png"
+                    href="https://fold-ui.com"
+                />
+
+                <Copy
+                    value="049d2ee4-6672-11ee-8c99-0242ac120002"
+                    prefix={<IconLib icon="circle" />}
+                    suffix={
+                        <Pill
+                            size="xs"
+                            m="0 1rem">
+                            UUID
+                        </Pill>
+                    }
+                />
+
+                <View
+                    row
+                    gap={5}
+                    width="100%">
+                    <Pill
+                        size="sm"
+                        color={Token.ColorPink500}>
+                        React
+                    </Pill>
+                    <Pill
+                        solid
+                        size="sm"
+                        color={Token.ColorPurple100}>
+                        UI
+                    </Pill>
+                    <Pill
+                        solid
+                        size="sm"
+                        color={Token.ColorBlue300}>
+                        Components
+                    </Pill>
+                    <Pill
+                        solid
+                        size="sm"
+                        color={Token.ColorTeal100}>
+                        TypeScript
+                    </Pill>
                 </View>
+
+                <Card
+                    width="100%"
+                    p={20}>
+                    <Range
+                        min={0}
+                        max={10}
+                        step={1}
+                        value={value}
+                        onChange={(e: any) => setValue(e.target.value)}
+                    />
+                </Card>
+            </View>
+
+            <View
+                column
+                gap="1rem"
+                width={320}
+                alignItems="flex-end">
+                <Card
+                    p={10}
+                    width={320}>
+                    <ScrollingPicker />
+                </Card>
+
+                <Card
+                    p="0.75rem 1rem"
+                    width="100%">
+                    <Sparkline
+                        style={{ 
+                            maskImage: 'linear-gradient(to bottom, var(--f-color-surface) 10%, transparent)',
+                        }}
+                        data={sparkline}
+                        variant="line"
+                        width="100%"
+                        height={30}
+                    />
+                </Card>
+                <Card
+                    display="none"
+                    width="100%"
+                    footer={
+                        <>
+                            <Divider />
+                            <ButtonGroup
+                                p={15}
+                                justifyContent="stretch"
+                                width="100%">
+                                <Button>Visit</Button>
+                                <Button>Wishlist</Button>
+                            </ButtonGroup>
+                        </>
+                    }
+                    header={
+                        <Image
+                            width="100%"
+                            height={125}
+                            src="building.png"
+                        />
+                    }>
+                    <View p={20}>
+                        <Stack
+                            direction="vertical"
+                            spacing={10}>
+                            <View
+                                row
+                                gap={5}
+                                justifyContent="flex-start">
+                                <Pill
+                                    color={Token.ColorBlue400}
+                                    subtle
+                                    size="sm">
+                                    co-working
+                                </Pill>
+                                <Pill
+                                    color={Token.ColorAccent400}
+                                    subtle
+                                    size="sm">
+                                    remote
+                                </Pill>
+                            </View>
+                            <Heading as="h2">Perfect Getaway</Heading>
+                            <Text>
+                                A once in a lifetime opportunity to live and work remotely in a
+                                breathtaking location!
+                            </Text>
+                            <Text
+                                size="sm"
+                                colorToken="accent">
+                                Terms & conditions apply
+                            </Text>
+                        </Stack>
+                    </View>
+                </Card>
+
             </View>
         </View>
     )

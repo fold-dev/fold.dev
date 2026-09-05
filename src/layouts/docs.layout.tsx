@@ -329,7 +329,7 @@ export default function DocsLayout(props: any) {
                                     <Link
                                         href="/"
                                         row>
-                                        <Logo size="sm" color="var(--f-color-accent)" />
+                                        <Logo size="sm" color="var(--f-color-base-300)" />
                                     </Link>
                                     <Heading
                                         as="h4"
@@ -573,7 +573,7 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     subtle>
-                                                    v0.25.1
+                                                    v0.25.3
                                                 </Pill>                                               
                                             }>
                                             Core Components
@@ -610,7 +610,7 @@ export default function DocsLayout(props: any) {
                                                 <Pill
                                                     size="xs"
                                                     subtle>
-                                                    v0.25.1
+                                                    v0.25.3
                                                 </Pill>                                               
                                             }>
                                             Pro Components

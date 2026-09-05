@@ -1,10 +1,35 @@
-import { Button, Divider, Heading, Link, Logo, Pill, Text, View } from '@fold-ui/core'
+import { AppContext, Button, Divider, Heading, Link, Logo, Pill, Text, View } from '@fold-ui/core'
 import * as Token from '@fold-ui/design/tokens'
 import { GraphicLeft, GraphicRight } from './graphic.component'
-import { useRef, useEffect, useCallback } from 'react'
+import { useContext, useRef, useEffect, useCallback, useState } from 'react'
+import dynamic from 'next/dynamic'
 import LogoViewer from './logo-viewer.component';
-import { ThreeComponent } from './three.component';
 import { PatternComponent } from './pattern.component';
+
+const ThreeComponent = dynamic(() => import('./three.component').then((module) => module.ThreeComponent), { ssr: false })
+
+export const HeroSpace = () => {
+    const { app: { theme } } = useContext(AppContext)
+    const [isDesktop, setIsDesktop] = useState(false)
+
+    useEffect(() => {
+        const media = window.matchMedia('(min-width: 761px)')
+        const update = () => setIsDesktop(media.matches)
+        update()
+        media.addEventListener('change', update)
+        return () => media.removeEventListener('change', update)
+    }, [])
+
+    if (!isDesktop || (theme !== 'dark' && theme !== 'light')) return null
+
+    return (
+        <div className="revamp-hero__space" aria-hidden="true">
+            <ThreeComponent alignRight variant={theme === 'dark' ? 'planet' : 'sun'} />
+            {/* {theme === 'dark' && <ShootingStars />} */}
+             <ShootingStars />
+        </div>
+    )
+}
 
 export const Aurora = () => {
     return (
@@ -44,7 +69,7 @@ export const Aurora = () => {
 
 export const ShootingStars = () => {
     return (
-        <div className="shooting-stars">
+        <div className="shooting-stars" aria-hidden="true">
             <span className="star" />
             <span className="star" />
             <span className="star" />
@@ -108,7 +133,7 @@ export const HeroComponent = () => {
                             subtle
                             color="#532FEC"
                             size="sm">
-                            v0.25.1
+                            v0.25.3
                         </Pill>
                     </View>
 

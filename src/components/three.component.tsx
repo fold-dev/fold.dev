@@ -1,76 +1,96 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer'
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass'
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass'
+import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass'
 
-export const ThreeComponent = () => {
-    const mountRef = useRef(null)
+type ThreeComponentProps = {
+    alignRight?: boolean
+    variant?: 'planet' | 'sun'
+}
+
+export const ThreeComponent = ({ alignRight = false, variant = 'planet' }: ThreeComponentProps) => {
+    const mountRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         if (!mountRef.current) return
 
+        const isSun = variant === 'sun'
         // --- Dot Globe Construction ---
         const dotCount = 1000
-        const baseRadius = 9
-        const rotationSpeed = 0.0005
+        const baseRadius = 11
+        const rotationSpeed = isSun ? 0.00025 : 0.0005
         const geometry = new THREE.BufferGeometry()
         const positions = new Float32Array(dotCount * 3)
         const originals = new Float32Array(dotCount * 3)
         const container = mountRef.current
         const interactionRadius = baseRadius * 0.25
-        const viewOffsetX = container.clientWidth * 0.25
-        const viewOffsetY = container.clientWidth * 0.1
-        const starCount = 2000
+        const starCount = isSun ? 100 : 2000
         const starGeometry = new THREE.BufferGeometry()
         const starPositions = new Float32Array(starCount * 3)
-        const width = container.clientWidth
-        const height = container.clientHeight
+        const width = Math.max(container.clientWidth, 1)
+        const height = Math.max(container.clientHeight, 1)
         const scene = new THREE.Scene()
 
-        //scene.background = new THREE.Color(0x12131b)
-        scene.background = new THREE.Color(0x161721)
-
         const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000)
-        camera.position.z = 20
+        // Keep the planet beside the copy on desktop and above it on narrow screens.
+        const fitCamera = () => {
+            const halfFov = THREE.MathUtils.degToRad(camera.fov / 2)
+            const w = Math.max(container.clientWidth, 1)
+            const h = Math.max(container.clientHeight, 1)
+            // Extend the starfield into the fade without enlarging or moving the planet.
+            const fadeHeight = parseFloat(getComputedStyle(container).getPropertyValue('--hero-space-fade-height')) || 0
+            const sceneHeight = Math.max(h - fadeHeight, 1)
+            camera.aspect = w / sceneHeight
+            const wideHero = alignRight && w > 760
+            camera.position.z = Math.max(wideHero ? 18 : 22, (wideHero ? 13.5 : 14) / (Math.tan(halfFov) * Math.min(camera.aspect, 1)))
+            if (wideHero) camera.setViewOffset(w, sceneHeight, -w * 0.27, -sceneHeight * 0.12, w, h)
+            else if (alignRight) {
+                const diameter = Math.min(w * 0.85, 340)
+                camera.position.z = baseRadius * Math.sqrt(1 + (sceneHeight / (diameter * Math.tan(halfFov))) ** 2)
+                camera.setViewOffset(w, sceneHeight, -w * 0.16, sceneHeight / 2 - 250, w, h)
+            }
+            else camera.clearViewOffset()
+            camera.lookAt(0, 0, 0)
+            camera.updateProjectionMatrix()
+        }
 
         // Apply the 30-degree tilt to camera "Up" vector
         const tiltAngle = (30 * Math.PI) / 180
         camera.up.set(Math.sin(tiltAngle), Math.cos(tiltAngle), 0).normalize()
-        camera.lookAt(0, 0, 0)
+        fitCamera()
 
-        camera.setViewOffset(
-            container.clientWidth,
-            container.clientHeight,
-            -viewOffsetX,
-            viewOffsetY,
-            container.clientWidth,
-            container.clientHeight
-        )
+        let renderer: THREE.WebGLRenderer
+        try {
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+        } catch (error) {
+            geometry.dispose()
+            starGeometry.dispose()
+            console.warn('The hero illustration needs WebGL to render.', error)
+            return
+        }
 
-        const renderer = new THREE.WebGLRenderer({ antialias: true })
+        renderer.setClearColor(0x000000, 0)
+        renderer.toneMapping = THREE.LinearToneMapping
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
         renderer.setSize(width, height)
-        renderer.setPixelRatio(window.devicePixelRatio)
-        mountRef.current.appendChild(renderer.domElement)
+        container.appendChild(renderer.domElement)
 
-        // --- Post-Processing (Bloom) ---
-        const composer = new EffectComposer(renderer)
-        composer.addPass(new RenderPass(scene, camera))
-        const bloomPass = new UnrealBloomPass(
-            new THREE.Vector2(width, height),
-            1.2, // Strength
-            0.4, // Radius
-            0.85 // Threshold
-        )
-        composer.addPass(bloomPass)
-        bloomPass.threshold = 0.1
-        bloomPass.strength = 0.1
-        composer.addPass(bloomPass)
-
-        const controls = new OrbitControls(camera, renderer.domElement)
-        controls.enableDamping = true
-        controls.enableZoom = false
+        // Keep the nighttime bloom and render the sun's translucent peach halo
+        // directly, so it blends naturally into the light page background.
+        const composer = isSun ? null : new EffectComposer(renderer)
+        const bloomPass = isSun ? null : new UnrealBloomPass(new THREE.Vector2(width, height), 0.1, 0.2, 0.08)
+        const outputPass = isSun ? null : new OutputPass()
+        if (composer) {
+            composer.addPass(new RenderPass(scene, camera, null, 0x000000, 0))
+            composer.addPass(bloomPass)
+            composer.addPass(outputPass)
+        }
+        const renderScene = () => {
+            if (composer) composer.render()
+            else renderer.render(scene, camera)
+        }
 
         for (let i = 0; i < dotCount; i++) {
             const phi = Math.acos(-1 + (2 * i) / dotCount)
@@ -88,13 +108,54 @@ export const ThreeComponent = () => {
 
         geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3))
         const pointsMaterial = new THREE.PointsMaterial({
-            color: 0x5328FF,
-            size: 0.05,
+            color: isSun ? 0x34303D : 0x5328ff,
+            size: isSun ? 0.075 : 0.05,
             transparent: true,
-            opacity: 0.8,
+            opacity: isSun ? 0.45 : 0.8,
         })
         const points = new THREE.Points(geometry, pointsMaterial)
         scene.add(points)
+
+        // A transparent, softly tinted corona gives the daytime sun warmth
+        // while leaving the page background visible through it.
+        const haloGeometry = isSun ? new THREE.PlaneGeometry(baseRadius * 3.4, baseRadius * 3.4) : null
+        const haloMaterial = isSun ? new THREE.ShaderMaterial({
+            uniforms: {
+                uInnerColor: { value: new THREE.Color(0xffe5bf) },
+                uOuterColor: { value: new THREE.Color(0xffdfd2) },
+            },
+            vertexShader: `
+                varying vec2 vUv;
+                void main() {
+                    vUv = uv;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform vec3 uInnerColor;
+                uniform vec3 uOuterColor;
+                varying vec2 vUv;
+                void main() {
+                    float radius = length(vUv - 0.5) * 2.0;
+                    float core = 0.06 * (1.0 - smoothstep(0.0, 0.72, radius));
+                    float corona = 0.08 * exp(-pow((radius - 0.58) / 0.2, 2.0));
+                    float alpha = (core + corona) * (1.0 - smoothstep(0.78, 1.0, radius));
+                    vec3 color = mix(uInnerColor, uOuterColor, smoothstep(0.2, 0.9, radius));
+                    gl_FragColor = vec4(color, alpha);
+                    #include <colorspace_fragment>
+                }
+            `,
+            transparent: true,
+            depthWrite: false,
+            depthTest: false,
+        }) : null
+
+        if (isSun) {
+            const halo = new THREE.Mesh(haloGeometry, haloMaterial)
+            halo.quaternion.copy(camera.quaternion)
+            halo.renderOrder = -1
+            scene.add(halo)
+        }
 
         // --- Starfield Construction ---
 
@@ -111,8 +172,8 @@ export const ThreeComponent = () => {
 
         starGeometry.setAttribute('position', new THREE.BufferAttribute(starPositions, 3))
         const starMaterial = new THREE.PointsMaterial({
-            color: 0xAAAAAA,
-            size: 1,
+            color: isSun ? 0x000000 : 0x34303D,
+            size: 2,
             transparent: true,
             opacity: 0.8,
             sizeAttenuation: true, // Makes far stars smaller
@@ -124,7 +185,7 @@ export const ThreeComponent = () => {
         const tubeShaderMat = {
             uniforms: {
                 uTime: { value: 0.0 },
-                uColor: { value: new THREE.Color(0x5328FF) },
+                uColor: { value: new THREE.Color(isSun ? 0x34303D : 0x5328ff) },
                 uTailLength: { value: 0.8 },
             },
             vertexShader: `
@@ -144,12 +205,14 @@ export const ThreeComponent = () => {
             float alpha = smoothstep(1.0 - uTailLength, 1.0, progress);
             if (alpha < 0.01) discard;
             gl_FragColor = vec4(uColor, alpha);
+            // Convert the linear ring colour to the renderer's display colour space.
+            #include <colorspace_fragment>
         }
       `,
         }
 
         // --- Create Animated Rings ---
-        let beams = []
+        const beams = []
         const createRing = () => {
             const ringRadius = baseRadius + 0.5 + Math.random() * 1.5
             const yHeight = (Math.random() - 0.5) * 0.5
@@ -169,7 +232,7 @@ export const ThreeComponent = () => {
                 vertexShader: tubeShaderMat.vertexShader,
                 fragmentShader: tubeShaderMat.fragmentShader,
                 transparent: true,
-                blending: THREE.AdditiveBlending,
+                blending: isSun ? THREE.NormalBlending : THREE.AdditiveBlending,
                 depthWrite: false,
             })
 
@@ -186,22 +249,24 @@ export const ThreeComponent = () => {
         const mouse = new THREE.Vector2(-100, -100)
         const raycaster = new THREE.Raycaster()
 
-        const handleMouseMove = (e) => {
-            mouse.x = (e.clientX / container.clientWidth) * 2 - 1
-            mouse.y = -(e.clientY / container.clientHeight) * 2 + 1
+        const handleMouseMove = (e: MouseEvent) => {
+            const bounds = container.getBoundingClientRect()
+            mouse.x = ((e.clientX - bounds.left) / bounds.width) * 2 - 1
+            mouse.y = -((e.clientY - bounds.top) / bounds.height) * 2 + 1
         }
 
-        window.addEventListener('mousemove', handleMouseMove)
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+        let frameId = 0
+        let previousTime = 0
 
-        let frameId
-
-        const animate = () => {
-            frameId = requestAnimationFrame(animate)
+        const animate = (now: number) => {
+            const frameScale = previousTime ? Math.min((now - previousTime) / (1000 / 60), 2) : 1
+            previousTime = now
 
             // stars
-            stars.rotation.y += 0.000015
-            stars.rotation.x += 0.000005
-            const time = Date.now() * 0.001
+            stars.rotation.y += 0.000015 * frameScale
+            stars.rotation.x += 0.000005 * frameScale
+            const time = now * 0.001
             starMaterial.opacity = 0.65 + Math.sin(time * 0.5) * 0.25
 
             // Mouse Interaction logic
@@ -230,56 +295,78 @@ export const ThreeComponent = () => {
             }
 
             posAttr.needsUpdate = true
-            points.rotation.y += rotationSpeed
+            points.rotation.y += rotationSpeed * frameScale
 
             beams.forEach((b) => {
-                b.mesh.material.uniforms.uTime.value += b.speed
+                b.mesh.material.uniforms.uTime.value += b.speed * frameScale
                 b.mesh.rotation.y = points.rotation.y
             })
 
-            controls.update()
-            composer.render()
+            renderScene()
+            if (!reducedMotion.matches && !document.hidden) frameId = requestAnimationFrame(animate)
         }
-        animate()
+
+        const updateAnimation = () => {
+            cancelAnimationFrame(frameId)
+            previousTime = 0
+            if (!document.hidden) animate(performance.now())
+        }
+        window.addEventListener('mousemove', handleMouseMove)
+        reducedMotion.addEventListener('change', updateAnimation)
+        document.addEventListener('visibilitychange', updateAnimation)
+        updateAnimation()
 
         const handleResize = () => {
-            if (!container) return
-
             const w = container.clientWidth
             const h = container.clientHeight
-
-            const newViewOffsetX = w * 0.25
-            const newViewOffsetY = w * 0.1
-            camera.setViewOffset(w, h, -newViewOffsetX, newViewOffsetY, w, h)
+            if (!w || !h) return
 
             camera.aspect = w / h
-            camera.updateProjectionMatrix()
+            fitCamera()
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
             renderer.setSize(w, h)
-            composer.setSize(w, h)
+            composer?.setPixelRatio(renderer.getPixelRatio())
+            composer?.setSize(w, h)
+            renderScene()
         }
 
         // Use ResizeObserver to detect container size changes
         const resizeObserver = new ResizeObserver(handleResize)
         resizeObserver.observe(container)
-        window.addEventListener('resize', handleResize)
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove)
-            window.removeEventListener('resize', handleResize)
-
+            reducedMotion.removeEventListener('change', updateAnimation)
+            document.removeEventListener('visibilitychange', updateAnimation)
+            resizeObserver.disconnect()
             cancelAnimationFrame(frameId)
 
-            if (mountRef.current) mountRef.current.removeChild(renderer.domElement)
+            renderer.domElement.remove()
 
             geometry.dispose()
             pointsMaterial.dispose()
+            haloGeometry?.dispose()
+            haloMaterial?.dispose()
+            starGeometry.dispose()
+            starMaterial.dispose()
+            beams.forEach(({ mesh }) => {
+                mesh.geometry.dispose()
+                mesh.material.dispose()
+            })
+            bloomPass?.dispose()
+            outputPass?.dispose()
+            composer?.dispose()
             renderer.dispose()
+            renderer.forceContextLoss()
         }
-    }, [])
+    }, [alignRight, variant])
 
     return (
         <div
             ref={mountRef}
+            aria-hidden="true"
+            className="hero-planet"
+            data-celestial-body={variant}
             style={{
                 width: '100%',
                 height: '100%',

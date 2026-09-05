@@ -15,6 +15,142 @@ body {
     font-feature-settings: 'dlig' 1, 'calt' 1, 'case' 1, 'ccmp' 1, 'cv10' 1, 'cv06' 1, 'cv12' 1, 'cv13' 1;
 }
 
+.revamp-home {
+    padding: 15rem 5rem;
+}
+
+.revamp-hero {
+    isolation: isolate;
+}
+
+.revamp-hero__copy {
+    position: relative;
+    z-index: 1;
+    width: 54%;
+}
+
+.revamp-hero__space {
+    --hero-space-fade-height: 130px;
+    position: absolute;
+    left: -5rem;
+    right: -5rem;
+    top: -23rem;
+    bottom: calc(-5rem - var(--hero-space-fade-height));
+    overflow: hidden;
+    pointer-events: none;
+    background: transparent;
+    mask-image: linear-gradient(to bottom, #000 calc(100% - var(--hero-space-fade-height) + 26px), transparent);
+}
+
+.hero-planet canvas {
+    display: block;
+}
+
+.site-header .f-toggle {
+    flex-shrink: 0;
+    margin-left: 0.75rem;
+}
+
+.site-header {
+    position: relative;
+    z-index: 2;
+}
+
+.revamp-hero__space .star,
+.revamp-hero__space .star:nth-child(1) {
+    left: auto;
+    top: 0;
+    right: -10%;
+    animation: hero-shooting-star 12s linear infinite;
+    animation-delay: -4s;
+}
+
+.revamp-hero__space .star::before {
+    width: 220px;
+}
+
+.revamp-hero__space .star:nth-child(2) { top: 15%; right: -5%; animation-delay: -8s; animation-duration: 15s; }
+.revamp-hero__space .star:nth-child(3) { top: 0; right: 20%; animation-delay: -2s; animation-duration: 11s; }
+.revamp-hero__space .star:nth-child(4) { top: 30%; right: -10%; animation-delay: -12s; animation-duration: 17s; }
+.revamp-hero__space .star:nth-child(5) { top: 5%; right: 35%; animation-delay: -6s; animation-duration: 14s; }
+.revamp-hero__space .star:nth-child(6) { top: 45%; right: 0; animation-delay: -10s; animation-duration: 16s; }
+.revamp-hero__space .star:nth-child(7) { top: 0; right: 50%; animation-delay: -3s; animation-duration: 13s; }
+.revamp-hero__space .star:nth-child(8) { top: 20%; right: 10%; animation-delay: -14s; animation-duration: 19s; }
+.revamp-hero__space .star:nth-child(9) { top: 10%; right: 5%; animation-delay: -7s; animation-duration: 18s; }
+.revamp-hero__space .star:nth-child(10) { top: 35%; right: -5%; animation-delay: -16s; animation-duration: 21s; }
+
+@keyframes hero-shooting-star {
+    0% { transform: rotate(330deg) translateX(0); opacity: 0; }
+    15%, 65% { opacity: 0.8; }
+    100% { transform: rotate(330deg) translateX(-1600px); opacity: 0; }
+}
+
+@media (max-width: 1050px) {
+    .site-header { flex-wrap: wrap; }
+    .site-header__products { order: 1; width: 100%; justify-content: center; }
+}
+
+@media (max-width: 760px) {
+    .site-header { display: none; }
+    .revamp-home { padding: 5rem 1.5rem; }
+    .revamp-hero__copy { width: 100%; padding-top: 0; }
+    .revamp-hero__space { display: none; }
+    .revamp-sections { gap: 5rem !important; }
+    .revamp-section__copy { width: 100% !important; }
+
+    .revamp-example {
+        margin-top: 3rem !important;
+        padding: 1rem !important;
+        overflow-x: auto;
+    }
+
+    .revamp-example > * { min-width: 680px; }
+
+    .revamp-docs__heading,
+    .site-footer__cta {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 1.5rem;
+    }
+
+    .revamp-offers {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+
+    .revamp-offers > * {
+        min-width: 0;
+        padding: 2rem 1.5rem !important;
+        gap: 2rem;
+    }
+
+    .revamp-offers__description { width: 100% !important; }
+
+    .revamp-offers__price {
+        flex-wrap: wrap;
+        gap: 0.75rem;
+    }
+
+    .site-footer__cta { padding: 3rem 1.5rem !important; }
+    .site-footer__cta > h1 { width: 100% !important; }
+    .site-footer__content { padding: 2rem 1.5rem !important; }
+
+    .site-footer__links {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 2.5rem 1.5rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .site-footer__meta {
+        flex-wrap: wrap;
+        justify-content: flex-start !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .revamp-hero__space .star { display: none; animation: none; }
+}
+
 /* shinji */
 
 [data-rehype-pretty-code-figure] {
@@ -580,135 +716,17 @@ body {
     z-index: 2;
 }
 
-.shooting-stars {
-    position: absolute;
-    z-index: 3 !important;
-    inset: 0;
-    overflow: hidden;
-}
-
-span.star {
-    --star-color: rgba(62, 18, 103, 0.1);
-
-    display: block;
-    position: absolute;
-    top: 0%;
-    left: 50%;
-    width: 4px;
-    height: 4px;
-    background: var(--star-color);
-    border-radius: 50%;
-    animation: animate 40s linear infinite;
-    z-index: 1;
-    opacity: 0;
-}
-
-span.star::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 300px;
-    height: 1px;
-    background: linear-gradient(90deg, var(--star-color), transparent);
-    z-index: 0;
-}
-
-@keyframes animate {
-    0% {
-        transform: rotate(330deg) translateX(0);
-        opacity: 0;
-    }
-    70% {
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(330deg) translateX(-1500px);
-        opacity: 0;
-    }
-}
-
-span.star:nth-child(1) {
-    top: 0;
-    right: -25%;
-    left: initial;
-    animation-delay: 10s;
-    animation-duration: 20s;
-}
-
-span.star:nth-child(2) {
-    top: 0;
-    right: -15%;
-    left: initial;
-    animation-delay: 20s;
-    animation-duration: 50s;
-}
-
-span.star:nth-child(3) {
-    top: 80;
-    right: 0%;
-    left: initial;
-    animation-delay: 30s;
-    animation-duration: 40s;
-}
-
-span.star:nth-child(4) {
-    top: 0;
-    right: 10%;
-    left: initial;
-    animation-delay: 40s;
-    animation-duration: 35s;
-}
-
-span.star:nth-child(5) {
-    top: 0;
-    right: 20%;
-    left: initial;
-    animation-delay: 50s;
-    animation-duration: 45s;
-}
-
-span.star:nth-child(6) {
-    top: 0;
-    right: 30%;
-    left: initial;
-    animation-delay: 60s;
-    animation-duration: 35s;
-}
-
-span.star:nth-child(7) {
-    top: 300px;
-    right: 40%;
-    left: initial;
-    animation-delay: 70s;
-    animation-duration: 35s;
-}
-
-span.star:nth-child(8) {
-    top: 0px;
-    right: 50%;
-    left: initial;
-    animation-delay: 80s;
-    animation-duration: 35s;
-}
-
-span.star:nth-child(9) {
-    top: 0px;
-    right: 60%;
-    left: initial;
-    animation-delay: 90s;
-    animation-duration: 45s;
-}
-
-span.star:nth-child(9) {
-    top: 0px;
-    right: 70%;
-    left: initial;
-    animation-delay: 100s;
-    animation-duration: 50s;
-}
-
 /* ── Shooting stars ──────────────────────────────────── */
+
+[data-theme="dark"] .shooting-stars {
+    --star-color: rgb(189, 169, 246);
+    --streak-color: rgba(140, 111, 221, 0.75);
+}
+
+[data-theme="light"] .shooting-stars {
+    --star-color: #323036;
+    --streak-color: rgba(71, 71, 72, 0.42);
+}
 
 .shooting-stars {
     position: absolute;
@@ -724,7 +742,7 @@ span.star {
     left: 50%;
     width: 3px;
     height: 3px;
-    background: rgb(189, 169, 246);
+    background: var(--star-color);
     border-radius: 50%;
     animation: animate 40s linear infinite;
     z-index: 1;
@@ -738,10 +756,9 @@ span.star::before {
     transform: translateY(-50%);
     width: 300px;
     height: 1px;
-    background: linear-gradient(90deg, rgba(140, 111, 221, 0.75), transparent);
+    background: linear-gradient(90deg, var( --streak-color), transparent);
     z-index: 0;
 }
-
 @keyframes animate {
     0% {
         transform: rotate(330deg) translateX(0);
