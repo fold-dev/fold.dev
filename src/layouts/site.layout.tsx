@@ -136,6 +136,9 @@ export default function SiteLayout(props: any) {
     const [showChild, setShowChild] = useState(false)
     const { visible, hide, show } = useVisibility(false)
     const { isCached, getSafeCache, setCache } = useCacheValue('cookies')
+    const [currentTime, setCurrentTime] = useState('')
+    const [isOutsideWorkHours, setIsOutsideWorkHours] = useState(false)
+    const currentYear = new Date().getFullYear()
 
     const denied = () => {
         setCache('no')
@@ -159,6 +162,34 @@ export default function SiteLayout(props: any) {
             }
         }
     }, [showChild, isCached])
+
+    useEffect(() => {
+        const updateTime = () => {
+            const now = new Date()
+            const saTime = new Intl.DateTimeFormat('en-ZA', {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true,
+                timeZone: 'Africa/Johannesburg',
+            }).format(now)
+
+            const saHour = parseInt(
+                new Intl.DateTimeFormat('en-ZA', {
+                    hour: 'numeric',
+                    hour12: false,
+                    timeZone: 'Africa/Johannesburg',
+                }).format(now)
+            )
+
+            // Outside work hours: 5pm (17) to 8am (before 8)
+            setIsOutsideWorkHours(saHour >= 17 || saHour < 8)
+            setCurrentTime(saTime)
+        }
+
+        updateTime()
+        const interval = setInterval(updateTime, 60 * 1000) // update every minute
+        return () => clearInterval(interval)
+    }, [])
 
     useEffect(() => {
         setShowChild(true)
@@ -545,6 +576,17 @@ export default function SiteLayout(props: any) {
                                     © 2026 Fold. All rights reserved.
                                 </Text>
                                 <Flexer />
+
+                                <View
+                                    row
+                                    gap="1rem">
+                                    <View
+                                        width={10}
+                                        height={10}
+                                        bgToken={isOutsideWorkHours ? 'rose-500' : 'teal-500'}
+                                        radius={100}></View>
+                                    <Text size="sm" colorToken="base-500">{currentTime}</Text>
+                                </View>
                                 <Text
                                     as="span"
                                     size="sm"

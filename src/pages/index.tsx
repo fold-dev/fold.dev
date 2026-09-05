@@ -405,14 +405,14 @@ function Home() {
 
                                 <Button
                                     as="a"
-                                    href="mailto:support@fold.dev?subject=Fold%20support%20subscription"
+                                    href="mailto:support@fold.dev?subject=Fold%20support%20waitlist"
                                     size="lg"
                                     width="100%"
                                     m="2rem 0 0 0"
                                     bgToken="base-50"
                                     colorToken="base-600"
                                     border="1px solid var(--f-color-base-400)">
-                                    Choose a support plan
+                                    Join waitlist
                                 </Button>
 
                                 <Text
