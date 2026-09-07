@@ -30,6 +30,7 @@ import {
     Heading,
     IconLib,
     Image,
+    Link,
     Logo,
     Menu,
     MenuItemOption,
@@ -210,26 +211,31 @@ function Home() {
                             <View
                                 className="revamp-section__copy"
                                 column
-                                width="75%"
+                                width="50%"
                                 alignItems="flex-start"
-                                gap="1rem">
+                                gap="0.75rem">
                                 <Text
                                     style={{ textTransform: 'uppercase' }}
                                     colorToken="text-weaker">
-                                    0{index + 1} · {item.eyebrow}
+                                    {item.eyebrow}
                                 </Text>
-                                <Heading as="h3">{item.title}</Heading>
-                                <Text colorToken="text-weak">{item.body}</Text>
-                                <Text
+                                <Heading as="h3">
+                                    {item.title}
+                                </Heading>
+                                <Text colorToken="text-weak">
+                                    {item.body}
+                                </Text>
+                                <Link
                                     row
-                                    as="a"
+                                    gap="0.35rem"
+                                    className="f-underline"
                                     href={item.href}>
                                     {item.link}{' '}
                                     <IconLib
                                         icon="arrow-right"
                                         size="sm"
                                     />
-                                </Text>
+                                </Link>
                             </View>
                             <Card
                                 className="revamp-example"
@@ -280,6 +286,7 @@ function Home() {
                                 color="inherit"
                                 textDecoration="none"
                                 row
+                                className="documentation-link"
                                 justifyContent="space-between"
                                 width="100%"
                                 p="1.5rem 0">

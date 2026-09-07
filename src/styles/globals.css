@@ -29,9 +29,20 @@ body {
     width: 54%;
 }
 
+.documentation-link .f-text {
+    transition: left 0.15s ease-in;
+    position: relative;
+    left: 0;
+}
+
+.documentation-link:hover .f-text {
+    left: 10px;
+}
+
 .revamp-hero__space {
     --hero-space-fade-height: 130px;
     --hero-space-fade-offset: 100px;
+
     position: absolute;
     left: -5rem;
     right: -5rem;
@@ -49,7 +60,6 @@ body {
 
 .site-header .f-toggle {
     flex-shrink: 0;
-    margin-left: 0.75rem;
 }
 
 .site-header {
