@@ -346,7 +346,14 @@ export default function SiteLayout(props: any) {
 
                     <Flexer />
 
-                    <Navigation variant="navbar" className="site-header__products" m="0 0 0 1rem" style={{ '--f-focus': 'none' }}>
+                    <Navigation 
+                        variant="navbar" 
+                        className="site-header__products" 
+                        m="0 0 0 1rem" 
+                        style={{ 
+                            '--f-focus': 'none',
+                            '--f-toggle-background-color': 'var(--f-color-surface-strongest)',
+                        }}>
                         <NavigationItem><SiteThemeToggle /></NavigationItem>
                         {work.map(({ title }, index) => (
                             <NavigationItem key={index} href={`/#${title.toLowerCase().replace(/ /g, '-')}`}>
